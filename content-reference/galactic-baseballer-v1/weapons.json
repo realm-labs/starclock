@@ -1,0 +1,3262 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Seven-Colored Baseball",
+    "name_zh_cn": "七彩棒球",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0000",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb7c6f84aa2f3e50",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=0;ID=3113001;Season=SecondChapter",
+        "sha256": "cb7c6f84aa2f3e50183b69bd1d94859ed9cecc8a8424c4e9f3926c99a2e23aba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113001",
+    "source_name_hash": "15171578985747915758",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "VS_Weapon_SC_001_Base",
+    "element_ids": [
+      "Ice",
+      "Fire",
+      "Wind",
+      "Thunder",
+      "Quantum",
+      "Imaginary",
+      "Physical"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "RuinBot",
+    "name_zh_cn": "歼灭机器人",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0002",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.355b06cb27e3adec",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=2;ID=3113002;Season=SecondChapter",
+        "sha256": "355b06cb27e3adec68dd57d23845a09c41981308b8e738bc6f0ba35f23bbaf91",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113002",
+    "source_name_hash": "6008299650763032323",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070212",
+    "damage_custom_name": "VS_Weapon_SC_002_Base",
+    "element_ids": [
+      "Ice",
+      "Fire",
+      "Wind",
+      "Thunder",
+      "Quantum",
+      "Imaginary",
+      "Physical"
+    ],
+    "tag_ids": [
+      "3",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Ranger's Badge",
+    "name_zh_cn": "游侠徽章",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.12b235b4575dac8d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=4;ID=3113003;Season=SecondChapter",
+        "sha256": "12b235b4575dac8db9ca4fa126e3ca7c23e96a34ecfb303d453a9c33094ca963",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113003",
+    "source_name_hash": "10638851939330123991",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070206",
+    "damage_custom_name": "VS_Weapon_SC_003_Base",
+    "element_ids": [
+      "Wind"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Flaming Scepter",
+    "name_zh_cn": "燃火魔杖",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0006",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c9e363ce415362df",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=6;ID=3113004;Season=SecondChapter",
+        "sha256": "c9e363ce415362df841ab50e5d13fc87f9b510fb7d6c2954ed51308e0d5b9420",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113004",
+    "source_name_hash": "6798959417180062248",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070211",
+    "damage_custom_name": "VS_Weapon_SC_004_Base",
+    "element_ids": [
+      "Fire"
+    ],
+    "tag_ids": [
+      "1"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Solar Symbol",
+    "name_zh_cn": "太阳之证",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0008",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9ea12ba12399c6e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=8;ID=3113005;Season=SecondChapter",
+        "sha256": "9ea12ba12399c6e87dc05e3e7de4faff6ed031ede7de182f72aff37e1d1a5894",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113005",
+    "source_name_hash": "1468269511526999128",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070210",
+    "damage_custom_name": "VS_Weapon_SC_005_Base",
+    "element_ids": [
+      "Fire"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "New Moon's Oath",
+    "name_zh_cn": "暗月之誓",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0010",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f98ba75c9d2b8933",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=10;ID=3113006;Season=SecondChapter",
+        "sha256": "f98ba75c9d2b8933a6f25aff0df8395231548a7144cd8d60aff4da72870acca7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113006",
+    "source_name_hash": "15199819264246886861",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070210",
+    "damage_custom_name": "VS_Weapon_SC_006_Base",
+    "element_ids": [
+      "Ice"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Assassination Dagger",
+    "name_zh_cn": "暗杀短刀",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0011",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d99c33023504dd3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=11;ID=3113007;Season=SecondChapter",
+        "sha256": "6d99c33023504dd359e541c1187061c498a1d82035ad531bc608f42ed358931e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113007",
+    "source_name_hash": "9201692249892934847",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070206",
+    "damage_custom_name": "VS_Weapon_SC_007_Base",
+    "element_ids": [
+      "Physical"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113008",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Waning Selenic Chakram",
+    "name_zh_cn": "晦月环刃",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0013",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6038a3c15db1cccd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=13;ID=3113008;Season=SecondChapter",
+        "sha256": "6038a3c15db1cccd3da55fcabe6c113a8a83f8070a8e6de6536bf660e2f4d177",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113008",
+    "source_name_hash": "12470241126215209193",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "VS_Weapon_SC_008_Base",
+    "element_ids": [
+      "Quantum"
+    ],
+    "tag_ids": [
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113009",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Spear of Eternal Ice",
+    "name_zh_cn": "恒冰长矛",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e062b2ba95f44136",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=15;ID=3113009;Season=SecondChapter",
+        "sha256": "e062b2ba95f4413691f1629013ef74d9f59e01c55c70e3d3e28a40ff8dba7e7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113009",
+    "source_name_hash": "11573618959915916475",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070206",
+    "damage_custom_name": "VS_Weapon_SC_009_Base",
+    "element_ids": [
+      "Ice"
+    ],
+    "tag_ids": [
+      "3",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113010",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Carbonated Shooter",
+    "name_zh_cn": "碳酸射手",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2fa0efb8e57444bd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=17;ID=3113010;Season=SecondChapter",
+        "sha256": "2fa0efb8e57444bde18d8824c0462039094cae3fe7fe499399a420bbc6c40bd7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113010",
+    "source_name_hash": "493567568671659586",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070210",
+    "damage_custom_name": "VS_Weapon_SC_010_Base",
+    "element_ids": [
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Lucky Roulette",
+    "name_zh_cn": "幸运轮盘",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0019",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2103ee5b6e395bc8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=19;ID=3113011;Season=SecondChapter",
+        "sha256": "2103ee5b6e395bc8799721ca3966fcfd59525ad3267d64627132ae2955358935",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113011",
+    "source_name_hash": "7594205979920160387",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070211",
+    "damage_custom_name": "VS_Weapon_SC_011_Base",
+    "element_ids": [
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113012",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Thundering Hammer",
+    "name_zh_cn": "惊雷重锤",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0021",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.140bbf932c9aeb51",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=21;ID=3113012;Season=SecondChapter",
+        "sha256": "140bbf932c9aeb515ba33ed28f28ae14c8c31613fdf453cfe626ec2c1ed6d945",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113012",
+    "source_name_hash": "17905546865687384262",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "VS_Weapon_SC_012_Base",
+    "element_ids": [
+      "Thunder"
+    ],
+    "tag_ids": [
+      "2",
+      "3"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113013",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Wavering Plume",
+    "name_zh_cn": "扶摇翎羽",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0023",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1227cb76628043dd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=23;ID=3113013;Season=SecondChapter",
+        "sha256": "1227cb76628043dd8a413d6bea9d23ed09549aefe38dab8d54fd2a2cdb85cf75",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113013",
+    "source_name_hash": "11644305207025837146",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070213",
+    "damage_custom_name": "VS_Weapon_SC_013_Base",
+    "element_ids": [
+      "Wind"
+    ],
+    "tag_ids": [
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113014",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Unremarkable Bat",
+    "name_zh_cn": "平平无奇的球棒",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0025",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.79b4a7eb5732bb1e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=25;ID=3113014;Season=SecondChapter",
+        "sha256": "79b4a7eb5732bb1ea010251fcbb999f2678e794acd3ff184ef489cb7a9008d66",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113014",
+    "source_name_hash": "6253429799608888718",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070213",
+    "damage_custom_name": "VS_Weapon_SC_014_Base",
+    "element_ids": [
+      "Ice",
+      "Fire",
+      "Wind",
+      "Thunder",
+      "Quantum",
+      "Imaginary",
+      "Physical"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113015",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Prayers of Beauty",
+    "name_zh_cn": "纯美的祝祷",
+    "summary_en": "Standard Demon King weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0027",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1ff887768f0a0388",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=27;ID=3113015;Season=SecondChapter",
+        "sha256": "1ff887768f0a0388c61c43d3248c9dad48fb1d2ec5dd5b4a8b3528187a2730fa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.dc09913e84a98186",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=0;Season=SecondChapter",
+        "sha256": "dc09913e84a981862666c6e51b364c484fbb09c20586865d423ecf3ac5ce55f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3113015",
+    "source_name_hash": "4243029769827706269",
+    "source_type": "Base",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "unlock_quest_id": "6070212",
+    "damage_custom_name": "VS_Weapon_SC_015_Base",
+    "element_ids": [],
+    "tag_ids": [
+      "1"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113201",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Crest of Sol and Lune",
+    "name_zh_cn": "日月同徽",
+    "summary_en": "Twin Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇双重武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0009",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2e5fbf3592fc010b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=9;ID=3113201;Season=SecondChapter",
+        "sha256": "2e5fbf3592fc010bd269da6142d034a63d5117fa03b8be48cdd3afa056ebb74c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.7023023663a206cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=3;ID=DuelForge;Season=SecondChapter",
+        "sha256": "7023023663a206cfce7b406e8773e0743fabbfc87604a17d3a8d745a11824f3b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "twin",
+      "weapon"
+    ],
+    "source_numeric_id": "3113201",
+    "source_name_hash": "6944126754658719453",
+    "source_type": "DuelForge",
+    "tier": "Twin",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070210",
+    "damage_custom_name": "VS_Weapon_SC_Dual",
+    "element_ids": [
+      "Fire",
+      "Ice",
+      "Quantum",
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113301",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Supreme All-Color Home Run",
+    "name_zh_cn": "至尊幻彩全垒打",
+    "summary_en": "Supreme Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇至尊武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0026",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.81fd4f4c5559c221",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=26;ID=3113301;Season=SecondChapter",
+        "sha256": "81fd4f4c5559c221b5766d55b975e64831d93ebfb5548c4b82ccb4db24c1ba11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.cf44d9274b1e3751",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=4;ID=UltraForge;Season=SecondChapter",
+        "sha256": "cf44d9274b1e375118a76be89755436b2056b4067eadba432033a0a5c734a7d8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "supreme",
+      "weapon"
+    ],
+    "source_numeric_id": "3113301",
+    "source_name_hash": "11608620035255281053",
+    "source_type": "UltraForge",
+    "tier": "Supreme",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070213",
+    "damage_custom_name": "VS_Weapon_SC_Supreme",
+    "element_ids": [
+      "Ice",
+      "Fire",
+      "Wind",
+      "Thunder",
+      "Quantum",
+      "Imaginary",
+      "Physical"
+    ],
+    "tag_ids": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113901",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Rainbow Pitcher",
+    "name_zh_cn": "彩虹投手",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0001",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.de87fb012be1d5ca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=1;ID=3113901;Season=SecondChapter",
+        "sha256": "de87fb012be1d5caac3c0aa82dcf19756a805e948050d0d17f83b36665f075e7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113901",
+    "source_name_hash": "190501368186074710",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "VS_Weapon_SC_001_Max",
+    "element_ids": [
+      "Ice",
+      "Fire",
+      "Wind",
+      "Thunder",
+      "Quantum",
+      "Imaginary",
+      "Physical"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113902",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Cosmic RuinBot",
+    "name_zh_cn": "宇宙歼灭机器人",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0003",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8e842bc808f16367",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=3;ID=3113902;Season=SecondChapter",
+        "sha256": "8e842bc808f16367db705172ddd2a420e853482baca74762ba4100515c04416f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113902",
+    "source_name_hash": "4321977679355954040",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070212",
+    "damage_custom_name": "VS_Weapon_SC_002_Max",
+    "element_ids": [
+      "Ice",
+      "Fire",
+      "Wind",
+      "Thunder",
+      "Quantum",
+      "Imaginary",
+      "Physical"
+    ],
+    "tag_ids": [
+      "3",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113903",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Hero's Summon",
+    "name_zh_cn": "英雄诏令",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0005",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.98a308662c474014",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=5;ID=3113903;Season=SecondChapter",
+        "sha256": "98a308662c474014df6ea1f94b20a4a6e370abb9c252891e33da29e5a0845ef5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113903",
+    "source_name_hash": "10332051544836540622",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070206",
+    "damage_custom_name": "VS_Weapon_SC_003_Max",
+    "element_ids": [
+      "Thunder",
+      "Wind",
+      "Physical"
+    ],
+    "tag_ids": [
+      "1",
+      "2",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113904",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Brilliant Scepter",
+    "name_zh_cn": "光焰权杖",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0007",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.444f284012a2041b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=7;ID=3113904;Season=SecondChapter",
+        "sha256": "444f284012a2041b3d4d66989eaae1310124a4f05d221919a8aebec78eca57f8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113904",
+    "source_name_hash": "3856551024254468267",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070211",
+    "damage_custom_name": "VS_Weapon_SC_004_Max",
+    "element_ids": [
+      "Fire",
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113907",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Shadowed Assassin",
+    "name_zh_cn": "阴影暗杀者",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0012",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.913e1d001216930f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=12;ID=3113907;Season=SecondChapter",
+        "sha256": "913e1d001216930fcf15ae233533d749c5a743c4a401c7c65e973f3b1dd9fcca",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113907",
+    "source_name_hash": "15391585490573208828",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070206",
+    "damage_custom_name": "VS_Weapon_SC_007_Max",
+    "element_ids": [
+      "Physical"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113908",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Cryo Wheel Chakram",
+    "name_zh_cn": "冰轮环刃",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0014",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0b16e6de7f9053b5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=14;ID=3113908;Season=SecondChapter",
+        "sha256": "0b16e6de7f9053b51aaed24a42d6ad9e4ff6dbe1bee5e7037bbbdaabcc05f83e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113908",
+    "source_name_hash": "3312082356930793956",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "VS_Weapon_SC_008_Max",
+    "element_ids": [
+      "Quantum",
+      "Ice"
+    ],
+    "tag_ids": [
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113909",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Invincible Formation",
+    "name_zh_cn": "所向披靡之阵",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f264667233df5f18",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=16;ID=3113909;Season=SecondChapter",
+        "sha256": "f264667233df5f18418931dbe89481c1b8e2b330848a422643f7724607009bab",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113909",
+    "source_name_hash": "2225233435299401342",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070206",
+    "damage_custom_name": "VS_Weapon_SC_009_Max",
+    "element_ids": [
+      "Ice",
+      "Quantum"
+    ],
+    "tag_ids": [
+      "3",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113910",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Happy Drink Combo",
+    "name_zh_cn": "欢乐畅饮套餐",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a9bc699e4a797e05",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=18;ID=3113910;Season=SecondChapter",
+        "sha256": "a9bc699e4a797e0512c9712b0bdca4f5573cf6529d31667afbdb746133649f04",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113910",
+    "source_name_hash": "9355402618586924079",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070210",
+    "damage_custom_name": "VS_Weapon_SC_010_Max",
+    "element_ids": [
+      "Imaginary",
+      "Fire"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113911",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Lucky One's Gamble",
+    "name_zh_cn": "幸运儿的赌局",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0020",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f8483ad8d20ce01d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=20;ID=3113911;Season=SecondChapter",
+        "sha256": "f8483ad8d20ce01d1b05042301852e7d9087114828130c665ff8e2a4e4805023",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113911",
+    "source_name_hash": "6685667946756905496",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070211",
+    "damage_custom_name": "VS_Weapon_SC_011_Max",
+    "element_ids": [
+      "Fire",
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113912",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Thunderstorm's Hammer",
+    "name_zh_cn": "暴风雷霆之锤",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0022",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cad4f9c4225f03d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=22;ID=3113912;Season=SecondChapter",
+        "sha256": "cad4f9c4225f03d01f85e350893c7269d8fa3627fd3dea3ff5897b887d62dc10",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113912",
+    "source_name_hash": "4787097582880254459",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "VS_Weapon_SC_012_Max",
+    "element_ids": [
+      "Thunder",
+      "Wind"
+    ],
+    "tag_ids": [
+      "2",
+      "3"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113913",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Earth-Shattering Fan",
+    "name_zh_cn": "破山振海之扇",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0024",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2449fcd7f8088d57",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=24;ID=3113913;Season=SecondChapter",
+        "sha256": "2449fcd7f8088d57063d192ddf7fe25dd40c634028cb8ee0dc65199c4c54f097",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113913",
+    "source_name_hash": "2871322733432219879",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070213",
+    "damage_custom_name": "VS_Weapon_SC_013_Max",
+    "element_ids": [
+      "Thunder",
+      "Wind"
+    ],
+    "tag_ids": [
+      "2"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.weapon.3113915",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Kindest Benediction",
+    "name_zh_cn": "至善赐福",
+    "summary_en": "Legendary Demon King weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "魔王篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0028",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.eb464fa030b9e074",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=28;ID=3113915;Season=SecondChapter",
+        "sha256": "eb464fa030b9e074be6eee42201854fa5fd7af253d91fe7074f73c2a0621f183",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact gear-type definition used without name or ID inference"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3113915",
+    "source_name_hash": "797429527036102053",
+    "source_type": "Forge",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "unlock_quest_id": "6070212",
+    "damage_custom_name": "VS_Weapon_SC_015_Max",
+    "element_ids": [],
+    "tag_ids": [
+      "1"
+    ],
+    "season": "SecondChapter"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Rainbow Bat",
+    "name_zh_cn": "彩虹球棒",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f43c4a4ea62a0799",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=0;ID=3106001;Season=EarlyAccess",
+        "sha256": "f43c4a4ea62a0799f90ec8c5692d023fd45f0a0775c1b5b8331be0e482323501",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106001",
+    "source_name_hash": "10827137465364959427",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_01_Base",
+    "element_ids": [],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Everyone For Me",
+    "name_zh_cn": "人人为我",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.294fe34304a8be98",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=2;ID=3106002;Season=EarlyAccess",
+        "sha256": "294fe34304a8be981ba1366d55b63020178b8478ba745278c8c24766ac62ea48",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106002",
+    "source_name_hash": "25819526503990680",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_02_Base",
+    "element_ids": [
+      "Fire"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Ranger's Longbow",
+    "name_zh_cn": "游侠长弓",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5524c72e09578826",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=4;ID=3106003;Season=EarlyAccess",
+        "sha256": "5524c72e0957882643c057d69c444b6c08fec6f94bf8529764015d14ed44dacb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106003",
+    "source_name_hash": "4369649446038420847",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_03_Base",
+    "element_ids": [
+      "Wind"
+    ],
+    "tag_ids": [
+      "2",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Thunderbolt Thorns",
+    "name_zh_cn": "雷电荆棘",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8e41d939ef290de2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=6;ID=3106004;Season=EarlyAccess",
+        "sha256": "8e41d939ef290de21e212d5d397f50400a7e3084c10eb0adcf0b163735b27f02",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106004",
+    "source_name_hash": "1651906651460525393",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_04_Base",
+    "element_ids": [
+      "Thunder"
+    ],
+    "tag_ids": [
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Sweet Slumber",
+    "name_zh_cn": "甜美的沉眠",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1da533b8992c61e2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=8;ID=3106005;Season=EarlyAccess",
+        "sha256": "1da533b8992c61e2e8e66934908f23e44226a78042e665ca9c1838e296c5c94f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106005",
+    "source_name_hash": "17665997601487827661",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_05_Base",
+    "element_ids": [
+      "Quantum"
+    ],
+    "tag_ids": [
+      "2"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Will of Architects",
+    "name_zh_cn": "筑城之志",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d96eee668ae60a07",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=10;ID=3106006;Season=EarlyAccess",
+        "sha256": "d96eee668ae60a072be004bfdf8a9509c089990a0d9b04511fda14f1beb1d495",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106006",
+    "source_name_hash": "203811335925888315",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_06_Base",
+    "element_ids": [
+      "Physical"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Frosty Flying Sword",
+    "name_zh_cn": "寒冰飞剑",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2e22859102c8d6ef",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=12;ID=3106007;Season=EarlyAccess",
+        "sha256": "2e22859102c8d6ef5fdd2cf22415daef6c371dcd98571502dc5aff727ca51e93",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106007",
+    "source_name_hash": "5014698033402413885",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_07_Base",
+    "element_ids": [
+      "Ice"
+    ],
+    "tag_ids": [
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106008",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Lucky Roulette",
+    "name_zh_cn": "幸运轮盘",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.48860626fddcdb06",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=14;ID=3106008;Season=EarlyAccess",
+        "sha256": "48860626fddcdb067534d99da7c3b04cfe8ba77e93e6d5948f1a28f8585725de",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106008",
+    "source_name_hash": "7522265472519588619",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_08_Base",
+    "element_ids": [
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106009",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Prayers of Beauty",
+    "name_zh_cn": "纯美的祝祷",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3b0954b017819674",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=16;ID=3106009;Season=EarlyAccess",
+        "sha256": "3b0954b01781967429f81362e70135280f3584a8d98941b6764e91a0aeea1384",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106009",
+    "source_name_hash": "6943427946287586317",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_09_Base",
+    "element_ids": [],
+    "tag_ids": [
+      "1"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106010",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Icy Fire Extinguisher",
+    "name_zh_cn": "寒霜灭火器",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0018"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.049b9cc18edb9c86",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=18;ID=3106010;Season=EarlyAccess",
+        "sha256": "049b9cc18edb9c8619780107442a1c37c8cf7238563c9244426115c43743ffcf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106010",
+    "source_name_hash": "14115409421033435736",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_10_Base",
+    "element_ids": [
+      "Ice"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Storm Gale Hammer",
+    "name_zh_cn": "疾风巨锤",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0020"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.397668670d833e81",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=20;ID=3106011;Season=EarlyAccess",
+        "sha256": "397668670d833e8167ecaca4acb9949d7f67c36ad29deb7e31c26f16ca939489",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106011",
+    "source_name_hash": "9426021715044126699",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_11_Base",
+    "element_ids": [
+      "Wind"
+    ],
+    "tag_ids": [
+      "1",
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106012",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Nihility's Warning",
+    "name_zh_cn": "虚无的预警",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0022"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.80edb4e09fd7f133",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=22;ID=3106012;Season=EarlyAccess",
+        "sha256": "80edb4e09fd7f1339654b05d4396afded9d287162772c1bf59702de8211d84cc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106012",
+    "source_name_hash": "8299861439589069570",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_12_Base",
+    "element_ids": [
+      "Quantum"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106013",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Scoundrel's Kindness",
+    "name_zh_cn": "卑劣者的善心",
+    "summary_en": "Standard Departure weapon with 8 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇普通武器，含 8 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0024"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7c9f1ae04a49eddc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=24;ID=3106013;Season=EarlyAccess",
+        "sha256": "7c9f1ae04a49eddcdc9b083e1bb29ac711722c4e026a1c82761604d41186959e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "standard",
+      "weapon"
+    ],
+    "source_numeric_id": "3106013",
+    "source_name_hash": "7029143778105251715",
+    "tier": "Standard",
+    "maximum_level": 8,
+    "damage_custom_name": "EvoBuildWeapon_13_Base",
+    "element_ids": [
+      "Fire"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106901",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Morningstar Bat",
+    "name_zh_cn": "晨星球棒",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f15ab2d48f056ed9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=1;ID=3106901;Season=EarlyAccess",
+        "sha256": "f15ab2d48f056ed9a11fa981a9ca754144a2d9746de27f345f8617ac92ddc656",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106901",
+    "source_name_hash": "12289477190849683511",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_01_Max",
+    "element_ids": [],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106902",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Musketeer's Resolve",
+    "name_zh_cn": "火枪手的决心",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e694eebecfd82ef7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=3;ID=3106902;Season=EarlyAccess",
+        "sha256": "e694eebecfd82ef7e20ece36bef31a98274eb55c6fb1de33020a48e03a691712",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106902",
+    "source_name_hash": "15981096725414030612",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_02_Max",
+    "element_ids": [
+      "Fire",
+      "Ice"
+    ],
+    "tag_ids": [
+      "1",
+      "2",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106903",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Headwind Bow",
+    "name_zh_cn": "戗风之弩",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.05ef93ab962ef9a4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=5;ID=3106903;Season=EarlyAccess",
+        "sha256": "05ef93ab962ef9a42571c61a88902038b547e7bfb65fd08591d92030f77cb53f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106903",
+    "source_name_hash": "17197439907684127871",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_03_Max",
+    "element_ids": [
+      "Wind",
+      "Thunder"
+    ],
+    "tag_ids": [
+      "2",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106904",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Shockbolt Crown",
+    "name_zh_cn": "惊雷冠冕",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.894fdeb1cfdc3086",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=7;ID=3106904;Season=EarlyAccess",
+        "sha256": "894fdeb1cfdc3086f1af81ce613206ae4fec432d5b31708b86db0aa0b6bbe3c9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106904",
+    "source_name_hash": "288233830427439029",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_04_Max",
+    "element_ids": [
+      "Wind",
+      "Thunder"
+    ],
+    "tag_ids": [
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106905",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Surprise in a Box",
+    "name_zh_cn": "盒中惊喜",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.333115c896532700",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=9;ID=3106905;Season=EarlyAccess",
+        "sha256": "333115c8965327004163fc3f2214e5dc5883fe8054c5046cbd8b134a71e9e4bf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106905",
+    "source_name_hash": "14612708439720794324",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_05_Max",
+    "element_ids": [
+      "Quantum",
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "2"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106906",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Eternal Fortress",
+    "name_zh_cn": "不朽堡垒",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.025fca05a67b2cb8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=11;ID=3106906;Season=EarlyAccess",
+        "sha256": "025fca05a67b2cb854273d3d207bd3f80ce8c1dc7db58cec260e54c0af8744f9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106906",
+    "source_name_hash": "3835961553807135949",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_06_Max",
+    "element_ids": [
+      "Physical"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106907",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Flaming Greatsword",
+    "name_zh_cn": "炽焰大剑",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0013"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fefad9a3d00bc040",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=13;ID=3106907;Season=EarlyAccess",
+        "sha256": "fefad9a3d00bc040fd9f9e8f2f98b948e61cb95ac6f5f9629dc77b91ae0cc3b8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106907",
+    "source_name_hash": "4384145860652024271",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_07_Max",
+    "element_ids": [
+      "Fire",
+      "Ice"
+    ],
+    "tag_ids": [
+      "3",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106908",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Gambit in the Game",
+    "name_zh_cn": "局中博弈",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9706e3a7575c07d8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=15;ID=3106908;Season=EarlyAccess",
+        "sha256": "9706e3a7575c07d8b9b1b0c42152a4f2fbed6fd01543f848a69eef0c589b68c5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106908",
+    "source_name_hash": "8355179134026316018",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_08_Max",
+    "element_ids": [
+      "Quantum",
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "1",
+      "4"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106909",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Kindest Benediction",
+    "name_zh_cn": "至善赐福",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0017"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.67c72f7cd8533cdf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=17;ID=3106909;Season=EarlyAccess",
+        "sha256": "67c72f7cd8533cdf1eb23c0f68e6750283a38f0721f59d8985bd24183c1bb5c6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106909",
+    "source_name_hash": "10830071661201505537",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_09_Max",
+    "element_ids": [],
+    "tag_ids": [
+      "1"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106910",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Cryoflame Thrower",
+    "name_zh_cn": "冰焰喷射器",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0019"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5f56450853325db3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=19;ID=3106910;Season=EarlyAccess",
+        "sha256": "5f56450853325db3dd44a29ed86ecbd66f166787e66e44b24f51a99a16e203e7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106910",
+    "source_name_hash": "10616477668695665371",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_10_Max",
+    "element_ids": [
+      "Fire",
+      "Ice"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106911",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Prison-Shatter Hammer",
+    "name_zh_cn": "碎牢重锤",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0021"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7c72a8bb09b59794",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=21;ID=3106911;Season=EarlyAccess",
+        "sha256": "7c72a8bb09b597948aed49ffe1faf79f7630205f88ad0a163723e910c1eceb6d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106911",
+    "source_name_hash": "5237112699208547259",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_11_Max",
+    "element_ids": [
+      "Wind",
+      "Thunder"
+    ],
+    "tag_ids": [
+      "1",
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106912",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Time's Eternity",
+    "name_zh_cn": "光阴的永恒",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0023"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b1b782ff0982429b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=23;ID=3106912;Season=EarlyAccess",
+        "sha256": "b1b782ff0982429b40153b0fcb552743dcfb1a079b28b214aef15a970eee78bb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106912",
+    "source_name_hash": "7045804417659769226",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_12_Max",
+    "element_ids": [
+      "Quantum",
+      "Imaginary"
+    ],
+    "tag_ids": [
+      "3"
+    ],
+    "season": "EarlyAccess"
+  },
+  {
+    "id": "galactic-baseballer.departure.weapon.3106913",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Weapon",
+    "name_en": "Pretentious Visage",
+    "name_zh_cn": "岸然道貌之相",
+    "summary_en": "Legendary Departure weapon with 1 authored level(s) and exact trigger-program binding.",
+    "summary_zh_cn": "启程篇传说武器，含 1 个作者等级与精确触发程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0025"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d6175de3f8eeaad9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=25;ID=3106913;Season=EarlyAccess",
+        "sha256": "d6175de3f8eeaad9b0320d39a39069a8bca61a129e190606e9a643d19b6116b5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released weapon identity and collection metadata"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "weapon"
+    ],
+    "source_numeric_id": "3106913",
+    "source_name_hash": "8206615852047685097",
+    "tier": "Legendary",
+    "maximum_level": 1,
+    "damage_custom_name": "EvoBuildWeapon_13_Max",
+    "element_ids": [
+      "Fire",
+      "Ice"
+    ],
+    "tag_ids": [
+      "1",
+      "2"
+    ],
+    "season": "EarlyAccess"
+  }
+]

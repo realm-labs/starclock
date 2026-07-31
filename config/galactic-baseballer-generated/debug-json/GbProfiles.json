@@ -1,0 +1,173 @@
+{
+  "table": {
+    "name": "GbProfiles",
+    "rows": [
+      {
+        "values": {
+          "activity_module_id": {
+            "String": "5003501"
+          },
+          "availability": {
+            "String": "PermanentRetainedProfile"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "does_not_replace_profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "entry_unlock_quest_id": "Null",
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Profile"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0037\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0049\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0050\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0051\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0068\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Legend of the Galactic Baseballer: Demon King"
+          },
+          "name_zh_cn": {
+            "String": "银河球棒侠传说：魔王篇"
+          },
+          "origin_stage_numeric_id": {
+            "String": "424000"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "released_entry_requirement": {
+            "String": "{\"finalitys_vision_early_access\":true,\"minimum_trailblaze_level\":21}"
+          },
+          "released_version": {
+            "String": "3.3"
+          },
+          "retained_baseline_version": {
+            "String": "4.4"
+          },
+          "runtime_enabled": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "shared_system_id": {
+            "String": "galactic-baseballer.shared-base.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.5185d1278f82670d\",\"source.goal16.656572f226461ff9\",\"source.goal16.193402f3b261e932\",\"source.goal16.609dc853770e748c\",\"source.goal16.b0349a7ddbc80cb0\",\"source.goal16.56e6541883654ea3\",\"source.goal16.hoyolab-version-3.3-update.d33457d40089\"]"
+          },
+          "source_season": {
+            "String": "SecondChapter"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.v3_3"
+          },
+          "structured_unlock_quest_locators": {
+            "String": "{\"reward_unlock_quest_id\":\"6070206\",\"shop_unlock_quest_id\":\"6070210\",\"skip_origin_stage_unlock_quest_id\":\"6020139\"}"
+          },
+          "summary_en": {
+            "String": "Independent Version 3.3 rules profile retained at the Version 4.4 baseline over the shared Galactic Baseballer system; it does not replace Departure."
+          },
+          "summary_zh_cn": {
+            "String": "在 Version 4.4 基线上保留的独立 Version 3.3 规则 Profile；共用银河球棒侠基础系统，但不覆盖启程篇。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"profile\",\"version-3.3\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "activity_module_id": {
+            "String": "5003501"
+          },
+          "availability": {
+            "String": "PermanentRetainedProfile"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "does_not_replace_profile_ids": "Null",
+          "entry_unlock_quest_id": {
+            "String": "6070207"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Profile"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0068\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Legend of the Galactic Baseballer: Departure"
+          },
+          "name_zh_cn": {
+            "String": "银河球棒侠传说：启程篇"
+          },
+          "origin_stage_numeric_id": "Null",
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "released_entry_requirement": "Null",
+          "released_version": {
+            "String": "2.2"
+          },
+          "retained_baseline_version": {
+            "String": "4.4"
+          },
+          "runtime_enabled": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "shared_system_id": {
+            "String": "galactic-baseballer.shared-base.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4deccdb1eda03fc6\",\"source.goal16.9d6caf6747a19fc9\",\"source.goal16.hoyolab-version-2.2-update\",\"source.goal16.hoyolab-original-event-notice\"]"
+          },
+          "source_season": {
+            "String": "EarlyAccess"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.v2_2"
+          },
+          "structured_unlock_quest_locators": "Null",
+          "summary_en": {
+            "String": "Independent Version 2.2 rules profile retained at the Version 4.4 baseline over the shared Galactic Baseballer system."
+          },
+          "summary_zh_cn": {
+            "String": "在 Version 4.4 基线上保留的独立 Version 2.2 规则 Profile，共用银河球棒侠基础系统。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"profile\",\"version-2.2\"]"
+          }
+        }
+      }
+    ]
+  }
+}

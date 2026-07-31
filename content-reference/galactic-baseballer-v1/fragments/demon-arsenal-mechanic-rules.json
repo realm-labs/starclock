@@ -1,0 +1,220 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.rule.supreme-weapon-synthesis",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "MechanicRule",
+    "name_en": "Demon King rule: supreme-weapon-synthesis",
+    "name_zh_cn": "魔王篇机制规则：supreme-weapon-synthesis",
+    "summary_en": "ReferenceOnly synthesis rule binding exact recipe edges and an explicit deterministic ordering boundary.",
+    "summary_zh_cn": "仅供资料使用的合成规则，绑定精确配方边与显式确定性顺序边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004",
+      "supreme-weapon-synthesis"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ed2fe1bd209243c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=13;ForgeGearID=3113301",
+        "sha256": "ed2fe1bd209243c4643bdc1f2a1764dfe211caa75e3031f7a7c84b4adfd7b7c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.cf44d9274b1e3751",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=4;ID=UltraForge;Season=SecondChapter",
+        "sha256": "cf44d9274b1e375118a76be89755436b2056b4067eadba432033a0a5c734a7d8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      },
+      {
+        "source_id": "source.goal16.policy.dff0110f8d33102a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.simultaneous-synthesis-order",
+        "sha256": "dff0110f8d33102a879c1e0daf19a100e1b4018456ccaf32deddd15c20f29496",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic synthesis policy; not an observed parity claim",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "mechanic-rule",
+      "supreme-weapon-synthesis"
+    ],
+    "family_id": "supreme-weapon-synthesis",
+    "rule_order": 15,
+    "trigger_point": "accepted level-up offer resolution",
+    "state_owner": "battle-local weapon and accessory inventory",
+    "preconditions": {
+      "recipe_id": "galactic-baseballer.demon-king.recipe.3113301",
+      "input_requirements": [
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113014",
+          "required_level": 8
+        },
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113901",
+          "required_level": 1
+        }
+      ]
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate every prerequisite in input stable-ID order"
+      },
+      {
+        "operation_order": 1,
+        "operation": "emit synthesis candidate before ordinary duplicate upgrade"
+      },
+      {
+        "operation_order": 2,
+        "operation": "select candidates by Supreme, Twin, Legendary, then stable recipe ID"
+      },
+      {
+        "operation_order": 3,
+        "operation": "consume only CostGearList inputs in source order"
+      },
+      {
+        "operation_order": 4,
+        "operation": "install the level-1 output weapon"
+      }
+    ],
+    "fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.success",
+      "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.rejected"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.rule.twin-weapon-synthesis",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "MechanicRule",
+    "name_en": "Demon King rule: twin-weapon-synthesis",
+    "name_zh_cn": "魔王篇机制规则：twin-weapon-synthesis",
+    "summary_en": "ReferenceOnly synthesis rule binding exact recipe edges and an explicit deterministic ordering boundary.",
+    "summary_zh_cn": "仅供资料使用的合成规则，绑定精确配方边与显式确定性顺序边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003",
+      "twin-weapon-synthesis"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.84017fb7aff1fd18",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3113201",
+        "sha256": "84017fb7aff1fd1838038e3616d59eaa78b4961ace718506a3bdb3089591accb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.7023023663a206cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=3;ID=DuelForge;Season=SecondChapter",
+        "sha256": "7023023663a206cfce7b406e8773e0743fabbfc87604a17d3a8d745a11824f3b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      },
+      {
+        "source_id": "source.goal16.policy.dff0110f8d33102a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.simultaneous-synthesis-order",
+        "sha256": "dff0110f8d33102a879c1e0daf19a100e1b4018456ccaf32deddd15c20f29496",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic synthesis policy; not an observed parity claim",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "mechanic-rule",
+      "twin-weapon-synthesis"
+    ],
+    "family_id": "twin-weapon-synthesis",
+    "rule_order": 14,
+    "trigger_point": "accepted level-up offer resolution",
+    "state_owner": "battle-local weapon and accessory inventory",
+    "preconditions": {
+      "recipe_id": "galactic-baseballer.demon-king.recipe.3113201",
+      "input_requirements": [
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113005",
+          "required_level": 8
+        },
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113006",
+          "required_level": 8
+        }
+      ]
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate every prerequisite in input stable-ID order"
+      },
+      {
+        "operation_order": 1,
+        "operation": "emit synthesis candidate before ordinary duplicate upgrade"
+      },
+      {
+        "operation_order": 2,
+        "operation": "select candidates by Supreme, Twin, Legendary, then stable recipe ID"
+      },
+      {
+        "operation_order": 3,
+        "operation": "consume only CostGearList inputs in source order"
+      },
+      {
+        "operation_order": 4,
+        "operation": "install the level-1 output weapon"
+      }
+    ],
+    "fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.success",
+      "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.rejected"
+    ],
+    "runtime_executable": false
+  }
+]

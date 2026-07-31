@@ -1,0 +1,1372 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.inventory-operation.acquire-new",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Demon King inventory operation: AcquireNew",
+    "name_zh_cn": "魔王篇库存操作：AcquireNew",
+    "summary_en": "ReferenceOnly deterministic inventory boundary with failure invariance.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，失败时保持不变。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb766dc809c1c46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=15;ConstValueName=EvolveBuildSC_Slot_Weapon_Unlocked",
+        "sha256": "aeb766dc809c1c46b8b80db484a753c05fbd6c2ffba8c6e0203b74b19387d8db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bab11947fbbff304",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuildSC_Slot_Weapon_Total",
+        "sha256": "bab11947fbbff304043a59dbba4c4e421d1e3eb86809e7dc631bb00c5326f7fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.f32fde4c2ac970b3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuildSC_Slot_Accessory_Unlocked",
+        "sha256": "f32fde4c2ac970b37b15611b26fadbfb1e057c503a590dab0dd228aad2f26e4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bcbc896c18fd55e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuildSC_Slot_Accessory_Total",
+        "sha256": "bcbc896c18fd55e822873490b580036f042750639f4a6d6a3a2f145485447996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior policy; not observed parity",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 0,
+    "operation": "AcquireNew",
+    "selected_policy": "insert only into an unlocked empty slot",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Demon King inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released logic or reproducible observation closes the exact transition"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-operation.expand-slot",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Demon King inventory operation: ExpandSlot",
+    "name_zh_cn": "魔王篇库存操作：ExpandSlot",
+    "summary_en": "ReferenceOnly deterministic inventory boundary with failure invariance.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，失败时保持不变。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb766dc809c1c46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=15;ConstValueName=EvolveBuildSC_Slot_Weapon_Unlocked",
+        "sha256": "aeb766dc809c1c46b8b80db484a753c05fbd6c2ffba8c6e0203b74b19387d8db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bab11947fbbff304",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuildSC_Slot_Weapon_Total",
+        "sha256": "bab11947fbbff304043a59dbba4c4e421d1e3eb86809e7dc631bb00c5326f7fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.f32fde4c2ac970b3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuildSC_Slot_Accessory_Unlocked",
+        "sha256": "f32fde4c2ac970b37b15611b26fadbfb1e057c503a590dab0dd228aad2f26e4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bcbc896c18fd55e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuildSC_Slot_Accessory_Total",
+        "sha256": "bcbc896c18fd55e822873490b580036f042750639f4a6d6a3a2f145485447996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior policy; not observed parity",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 4,
+    "operation": "ExpandSlot",
+    "selected_policy": "increase unlocked capacity without exceeding authored total",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Demon King inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released logic or reproducible observation closes the exact transition"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-operation.reject-full-new",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Demon King inventory operation: RejectFullInventoryNew",
+    "name_zh_cn": "魔王篇库存操作：RejectFullInventoryNew",
+    "summary_en": "ReferenceOnly deterministic inventory boundary with failure invariance.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，失败时保持不变。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb766dc809c1c46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=15;ConstValueName=EvolveBuildSC_Slot_Weapon_Unlocked",
+        "sha256": "aeb766dc809c1c46b8b80db484a753c05fbd6c2ffba8c6e0203b74b19387d8db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bab11947fbbff304",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuildSC_Slot_Weapon_Total",
+        "sha256": "bab11947fbbff304043a59dbba4c4e421d1e3eb86809e7dc631bb00c5326f7fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.f32fde4c2ac970b3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuildSC_Slot_Accessory_Unlocked",
+        "sha256": "f32fde4c2ac970b37b15611b26fadbfb1e057c503a590dab0dd228aad2f26e4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bcbc896c18fd55e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuildSC_Slot_Accessory_Total",
+        "sha256": "bcbc896c18fd55e822873490b580036f042750639f4a6d6a3a2f145485447996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior policy; not observed parity",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 3,
+    "operation": "RejectFullInventoryNew",
+    "selected_policy": "reject a new item when no unlocked slot exists",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Demon King inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released logic or reproducible observation closes the exact transition"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-operation.reject-max-duplicate",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Demon King inventory operation: RejectMaximumDuplicate",
+    "name_zh_cn": "魔王篇库存操作：RejectMaximumDuplicate",
+    "summary_en": "ReferenceOnly deterministic inventory boundary with failure invariance.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，失败时保持不变。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb766dc809c1c46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=15;ConstValueName=EvolveBuildSC_Slot_Weapon_Unlocked",
+        "sha256": "aeb766dc809c1c46b8b80db484a753c05fbd6c2ffba8c6e0203b74b19387d8db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bab11947fbbff304",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuildSC_Slot_Weapon_Total",
+        "sha256": "bab11947fbbff304043a59dbba4c4e421d1e3eb86809e7dc631bb00c5326f7fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.f32fde4c2ac970b3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuildSC_Slot_Accessory_Unlocked",
+        "sha256": "f32fde4c2ac970b37b15611b26fadbfb1e057c503a590dab0dd228aad2f26e4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bcbc896c18fd55e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuildSC_Slot_Accessory_Total",
+        "sha256": "bcbc896c18fd55e822873490b580036f042750639f4a6d6a3a2f145485447996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior policy; not observed parity",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 2,
+    "operation": "RejectMaximumDuplicate",
+    "selected_policy": "reject a maximum-level duplicate without mutation",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Demon King inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released logic or reproducible observation closes the exact transition"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-operation.upgrade-duplicate",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Demon King inventory operation: UpgradeDuplicate",
+    "name_zh_cn": "魔王篇库存操作：UpgradeDuplicate",
+    "summary_en": "ReferenceOnly deterministic inventory boundary with failure invariance.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，失败时保持不变。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb766dc809c1c46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=15;ConstValueName=EvolveBuildSC_Slot_Weapon_Unlocked",
+        "sha256": "aeb766dc809c1c46b8b80db484a753c05fbd6c2ffba8c6e0203b74b19387d8db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bab11947fbbff304",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuildSC_Slot_Weapon_Total",
+        "sha256": "bab11947fbbff304043a59dbba4c4e421d1e3eb86809e7dc631bb00c5326f7fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.f32fde4c2ac970b3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuildSC_Slot_Accessory_Unlocked",
+        "sha256": "f32fde4c2ac970b37b15611b26fadbfb1e057c503a590dab0dd228aad2f26e4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.bcbc896c18fd55e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuildSC_Slot_Accessory_Total",
+        "sha256": "bcbc896c18fd55e822873490b580036f042750639f4a6d6a3a2f145485447996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior policy; not observed parity",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 1,
+    "operation": "UpgradeDuplicate",
+    "selected_policy": "increment the exact owned item when below maximum",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Demon King inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released logic or reproducible observation closes the exact transition"
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Departure inventory operation: AcquireNew",
+    "name_zh_cn": "启程篇库存操作：AcquireNew",
+    "summary_en": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.704e24df184a1460",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=11;ConstValueName=EvolveBuild_Slot_Weapon_Unlocked",
+        "sha256": "704e24df184a1460cc5ef6f2c1ecdc688f466069c343a2769ded14772fdb8743",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.92a3fd5823b4ac1a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=12;ConstValueName=EvolveBuild_Slot_Weapon_Total",
+        "sha256": "92a3fd5823b4ac1a302200e56ca9198602e9976fc43a3b231a92d59f08d62a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.073cebb0115dd4d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=13;ConstValueName=EvolveBuild_Slot_Accessory_Unlocked",
+        "sha256": "073cebb0115dd4d0b49c5a9c140a68ed1218c2415b2d7b1b23e44c00b03a2f70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.f4f4142427f5177f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=14;ConstValueName=EvolveBuild_Slot_Accessory_Total",
+        "sha256": "f4f4142427f5177f03266f0486460ccd8c93f9fd6f57c76b6fce67a2f6e17a69",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior selected explicitly; not an observed parity claim",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "departure",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 0,
+    "operation": "AcquireNew",
+    "selected_policy": "insert a new item only into an unlocked empty slot",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Galactic Baseballer inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Departure inventory operation: ExpandSlot",
+    "name_zh_cn": "启程篇库存操作：ExpandSlot",
+    "summary_en": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.704e24df184a1460",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=11;ConstValueName=EvolveBuild_Slot_Weapon_Unlocked",
+        "sha256": "704e24df184a1460cc5ef6f2c1ecdc688f466069c343a2769ded14772fdb8743",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.92a3fd5823b4ac1a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=12;ConstValueName=EvolveBuild_Slot_Weapon_Total",
+        "sha256": "92a3fd5823b4ac1a302200e56ca9198602e9976fc43a3b231a92d59f08d62a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.073cebb0115dd4d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=13;ConstValueName=EvolveBuild_Slot_Accessory_Unlocked",
+        "sha256": "073cebb0115dd4d0b49c5a9c140a68ed1218c2415b2d7b1b23e44c00b03a2f70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.f4f4142427f5177f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=14;ConstValueName=EvolveBuild_Slot_Accessory_Total",
+        "sha256": "f4f4142427f5177f03266f0486460ccd8c93f9fd6f57c76b6fce67a2f6e17a69",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior selected explicitly; not an observed parity claim",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "departure",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 4,
+    "operation": "ExpandSlot",
+    "selected_policy": "increase unlocked capacity by one without exceeding the exact total capacity",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Galactic Baseballer inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-operation.reject-full-new",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Departure inventory operation: RejectFullInventoryNew",
+    "name_zh_cn": "启程篇库存操作：RejectFullInventoryNew",
+    "summary_en": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.704e24df184a1460",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=11;ConstValueName=EvolveBuild_Slot_Weapon_Unlocked",
+        "sha256": "704e24df184a1460cc5ef6f2c1ecdc688f466069c343a2769ded14772fdb8743",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.92a3fd5823b4ac1a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=12;ConstValueName=EvolveBuild_Slot_Weapon_Total",
+        "sha256": "92a3fd5823b4ac1a302200e56ca9198602e9976fc43a3b231a92d59f08d62a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.073cebb0115dd4d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=13;ConstValueName=EvolveBuild_Slot_Accessory_Unlocked",
+        "sha256": "073cebb0115dd4d0b49c5a9c140a68ed1218c2415b2d7b1b23e44c00b03a2f70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.f4f4142427f5177f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=14;ConstValueName=EvolveBuild_Slot_Accessory_Total",
+        "sha256": "f4f4142427f5177f03266f0486460ccd8c93f9fd6f57c76b6fce67a2f6e17a69",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior selected explicitly; not an observed parity claim",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "departure",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 3,
+    "operation": "RejectFullInventoryNew",
+    "selected_policy": "reject a new item when no unlocked empty slot or explicit replacement decision exists",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Galactic Baseballer inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-operation.reject-max-duplicate",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Departure inventory operation: RejectMaximumDuplicate",
+    "name_zh_cn": "启程篇库存操作：RejectMaximumDuplicate",
+    "summary_en": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.704e24df184a1460",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=11;ConstValueName=EvolveBuild_Slot_Weapon_Unlocked",
+        "sha256": "704e24df184a1460cc5ef6f2c1ecdc688f466069c343a2769ded14772fdb8743",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.92a3fd5823b4ac1a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=12;ConstValueName=EvolveBuild_Slot_Weapon_Total",
+        "sha256": "92a3fd5823b4ac1a302200e56ca9198602e9976fc43a3b231a92d59f08d62a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.073cebb0115dd4d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=13;ConstValueName=EvolveBuild_Slot_Accessory_Unlocked",
+        "sha256": "073cebb0115dd4d0b49c5a9c140a68ed1218c2415b2d7b1b23e44c00b03a2f70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.f4f4142427f5177f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=14;ConstValueName=EvolveBuild_Slot_Accessory_Total",
+        "sha256": "f4f4142427f5177f03266f0486460ccd8c93f9fd6f57c76b6fce67a2f6e17a69",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior selected explicitly; not an observed parity claim",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "departure",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 2,
+    "operation": "RejectMaximumDuplicate",
+    "selected_policy": "exclude or reject a duplicate already at maximum level without mutation",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Galactic Baseballer inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-operation.upgrade-duplicate",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventoryOperation",
+    "name_en": "Departure inventory operation: UpgradeDuplicate",
+    "name_zh_cn": "启程篇库存操作：UpgradeDuplicate",
+    "summary_en": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels.",
+    "summary_zh_cn": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "accessory-acquisition-duplicate-upgrade",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054",
+      "no-legal-candidate-failure-invariance",
+      "slot-capacity-expansion-replacement",
+      "weapon-acquisition-duplicate-upgrade"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.704e24df184a1460",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=11;ConstValueName=EvolveBuild_Slot_Weapon_Unlocked",
+        "sha256": "704e24df184a1460cc5ef6f2c1ecdc688f466069c343a2769ded14772fdb8743",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.92a3fd5823b4ac1a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=12;ConstValueName=EvolveBuild_Slot_Weapon_Total",
+        "sha256": "92a3fd5823b4ac1a302200e56ca9198602e9976fc43a3b231a92d59f08d62a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.073cebb0115dd4d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=13;ConstValueName=EvolveBuild_Slot_Accessory_Unlocked",
+        "sha256": "073cebb0115dd4d0b49c5a9c140a68ed1218c2415b2d7b1b23e44c00b03a2f70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.f4f4142427f5177f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=14;ConstValueName=EvolveBuild_Slot_Accessory_Total",
+        "sha256": "f4f4142427f5177f03266f0486460ccd8c93f9fd6f57c76b6fce67a2f6e17a69",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot constant"
+      },
+      {
+        "source_id": "source.goal16.policy.8479ae493d9c3ee7",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.no-legal-candidate",
+        "sha256": "8479ae493d9c3ee78e206957ade52919854a15be2556503da9317f912d5dde47",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "inventory edge behavior selected explicitly; not an observed parity claim",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "departure",
+      "inventory-operation",
+      "project-policy"
+    ],
+    "operation_order": 1,
+    "operation": "UpgradeDuplicate",
+    "selected_policy": "increment the owned item's level by one when below its exact maximum",
+    "rejected_alternatives": [
+      "silently overwrite an existing item",
+      "downgrade or remove an unrelated item"
+    ],
+    "state_owner": "battle-local Galactic Baseballer inventory",
+    "failure_invariance": true,
+    "affected_fixture_ids": [
+      "weapon-acquisition-duplicate-upgrade",
+      "accessory-acquisition-duplicate-upgrade",
+      "slot-capacity-expansion-replacement",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+  }
+]

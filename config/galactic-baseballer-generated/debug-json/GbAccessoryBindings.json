@@ -1,0 +1,2503 @@
+{
+  "table": {
+    "name": "GbAccessoryBindings",
+    "rows": [
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_001\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Tag_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Evernight Shield battle binding"
+          },
+          "name_zh_cn": {
+            "String": "永暗圆盾战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113101"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "960b78d42f871b0671d52398bee6f6b03b897b0497f754813ef49928c4e59793"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ec018c58336b08eb\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113101.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_002\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Tag_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0030\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Lightning Storm Shackles battle binding"
+          },
+          "name_zh_cn": {
+            "String": "飓霆拷链战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113102"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "1204e2fd75cab9b9d13a49effe7f3933a232af5cf8358acad46393e625532153"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.dfa7d2674c8e5b49\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113102.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_003\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Tag_003"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0031\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_003_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Daring Wager battle binding"
+          },
+          "name_zh_cn": {
+            "String": "孤注一掷战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113103"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "4a3722fa0ff25662409fdd8f3157181d0c52a02c4949fd3a6d3962a220032147"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.dce5874329debe1c\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113103.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_004\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Tag_004"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0032\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Tag_004_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Activation Key battle binding"
+          },
+          "name_zh_cn": {
+            "String": "启动秘钥战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113104"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "42308e9d8ce85276892d63a9165c7ed7c620362dbc9e22c33413bad2a27a8cff"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.2670f327d6268044\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113104.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_001\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0033\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Benedictive Torch battle binding"
+          },
+          "name_zh_cn": {
+            "String": "赐福火把战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113111"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "218a3a43735c19306f8e308bf96231a9d35e4f4192de32147a6e6eab0c61a529"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.2e01d9935a746679\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113111.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_002\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0034\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Evergreen Spring battle binding"
+          },
+          "name_zh_cn": {
+            "String": "不冻灵泉战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113112"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "e20bd697039a442eaf5b84cc516008eb974bce3d24acfcd45770698e42ee6ddd"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.25879f74f334da65\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113112.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_003\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_003"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0035\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_003_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Meadow Breeze battle binding"
+          },
+          "name_zh_cn": {
+            "String": "绿野吹息战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113113"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "9e75140b702020da199145a37c657ea1207bd3b133c026af0d85cf2527efa05e"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.df942d52c90a80a8\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113113.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_004\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_004"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_004_ADAR_Modifier\",\"StageAbility_VS_Accessory_SC_Attribute_004_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Heavy Gloves battle binding"
+          },
+          "name_zh_cn": {
+            "String": "厚重手套战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByIsDamageType\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.ModifyDamageData\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByModifierValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113114"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "965dd41ca8b811dc6f2514f7dc6be9bf586bcd89b93b993a2d9be728bd21876c"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.c323b3995a5f6da1\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113114.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnBeforeHitAll\",\"OnDestroy\",\"OnListenAfterBeingHitAll\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_003\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Special_003"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0037\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_003_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Alliance Ring battle binding"
+          },
+          "name_zh_cn": {
+            "String": "盟约指环战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByIsBattleEventEntity\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetEntityType\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.ModifyActionDelay\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113121"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "528ccf33675a50dfe0ffb79c64380f3ccaad0c963bb1dadcddca7c73c2026270"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.b8ea299598be5332\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113121.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnListenAfterAction\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_005\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_005"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_005_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Shadowy Cloak battle binding"
+          },
+          "name_zh_cn": {
+            "String": "阴影披风战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113122"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "edb0625e371eb46129de78c9ec42af50b5a71ac1caf5c5368aafd9c99fba237c"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.41496e00378250da\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113122.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_004\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Special_004"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_004_LE_Modifier\",\"StageAbility_VS_Accessory_SC_Special_004_PLY_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Caloric Bomb battle binding"
+          },
+          "name_zh_cn": {
+            "String": "热量炸弹战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.ModifyDamageData\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByHPRatio\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113123"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "003938ee399951ec537a6534b6e32018f2b45e1f002c3ab396095ef219836a81"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.90e19d3085098465\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113123.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnBeforeHitAll\",\"OnDestroy\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_005\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Special_005"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_005_LE_Modifier\",\"StageAbility_VS_Accessory_SC_Special_005_PLY_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Golden Rose battle binding"
+          },
+          "name_zh_cn": {
+            "String": "黄金玫瑰战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByRandomChance\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.ModifyActionDelay\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113124"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "dc32f31a4bb0d12565227e76a7dcd81f2de25f210311afd2ac9c3b1a8ccb3cb2"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.a42035b17e27bf6e\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113124.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnListenCharacterCreate\",\"OnPhase2\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_001\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Special_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Duelist's Fist battle binding"
+          },
+          "name_zh_cn": {
+            "String": "擂者之拳战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113131"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "a90a0f57e20f4128d22632d1c014cb466527932a0dd6c9682997b8d9078d6ecd"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.97024bf22474456a\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113131.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_002\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Special_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Special_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Reward of Diligence battle binding"
+          },
+          "name_zh_cn": {
+            "String": "勤勉的嘉奖战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113132"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "75eaeb460fe5d8e0f1ab70103d38448a59895448396169b566e5cd82dd128100"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.0b7889451284f6b8\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113132.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_006\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_006"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_006_LE_Modifier\",\"StageAbility_VS_Accessory_SC_Attribute_006_PLYAndBOSS_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Overdosing Prescription battle binding"
+          },
+          "name_zh_cn": {
+            "String": "超剂量处方战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.StackProperty\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113133"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "b5a756251619f88bdeb30d4f0ab0d5e6f950082b8f9d40a63f97fab4583efd57"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.93673e6a51bb66dd\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113133.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_007\"]"
+          },
+          "actor_program_bindings": {
+            "String": "[]"
+          },
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_SC_Attribute_007"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_SC_Attribute_007_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Cream Raccoon Pie battle binding"
+          },
+          "name_zh_cn": {
+            "String": "奶油浣熊派战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.demon-king.accessory.3113134"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "51e553c1cd9cf52b58ee39f63507b235f8d942711c8354ecd5bea426ae7a43d4"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.5e9571523e8be368\",\"source.goal16.936f77a561a0116d\",\"source.goal16.ea305eab2fbecd71\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.accessory.3113134.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying source programs."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"demon-king\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_001\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Tag_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0026\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Wind Shear Arrows battle binding"
+          },
+          "name_zh_cn": {
+            "String": "裂风箭矢战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106111"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "574dbda9eb95ea63f424955fe57f2d2aba5821b3fcf4daa9cd1230d59de0ea06"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.feed8b625d0b555c\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106111.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_002\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Tag_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0027\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Gunpowder Ribbon battle binding"
+          },
+          "name_zh_cn": {
+            "String": "硝烟飘带战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106112"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "5165e64d92bf72e55c93728a55676e7853ab58321949caa90dde2ecc2acaa88f"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.06ad105d6cf198fd\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106112.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_003\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Tag_003"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0028\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_003_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Me For Everyone battle binding"
+          },
+          "name_zh_cn": {
+            "String": "我为人人战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106113"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "171e1adf0324ca643c87ace29773cb4037e6a8ccfda955fb252cca18ccefdf14"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.2bd982210de37d7b\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106113.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_001\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Element_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0029\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Lightning Storm Shackles battle binding"
+          },
+          "name_zh_cn": {
+            "String": "飓霆拷链战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106121"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "f06733b7179ee38043bab651cf55d38cde8c8c5ba3f4a73f834294420e9961a8"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.7ab39a76b97c4646\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106121.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_002\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Element_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0030\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Icefire Talisman battle binding"
+          },
+          "name_zh_cn": {
+            "String": "冰火令符战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106122"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "938baa212c3812089c57b819e4332fb84420a979e1dfafed5b37b656fd1cc576"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.864b994115ebcb3c\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106122.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_003\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Element_003"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0031\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_003_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Daring Wager battle binding"
+          },
+          "name_zh_cn": {
+            "String": "孤注一掷战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106123"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "05ff9abcea89ef8162926e1803b68c9c724a81be7fc6187ad9484d49730eebd1"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.fbe659afa9e7bfbe\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106123.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_004\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Element_004"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0032\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Element_004_ADAR_Modifier\",\"StageAbility_VS_Accessory_Element_004_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Disco Baseball battle binding"
+          },
+          "name_zh_cn": {
+            "String": "迪斯科棒球战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByIsDamageType\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByModifierValue\",\"RPG.GameCore.StackProperty\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106124"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "c84875b842792e196ed66fed83baddb89269134b652ffa0d220aace2a39a63e0"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.14101c763c0969da\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106124.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenAfterBeingHitAll\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_001\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Attribute_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0033\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Heart of Eternity battle binding"
+          },
+          "name_zh_cn": {
+            "String": "永恒之心战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.HealHP\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.ModifySPNew\",\"RPG.GameCore.ModifyTeamBoostPoint\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValueByProperty\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106131"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "c9a7ed9fb7dda2c1b37c40d5b5a239f4f42b9152007664df0d5aa8c83cbf3ba9"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.1ba3e3f83a079248\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106131.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnEvolveBuildExpStepUp\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_002\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Attribute_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0034\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Shards of the Crown battle binding"
+          },
+          "name_zh_cn": {
+            "String": "冠冕碎晶战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106132"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "87077604795334a73f63e25abd3d792923f4fd3d625507b8ecba4caa8a96e40e"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.42411e1034a73d58\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106132.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_003\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Attribute_003"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0035\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_003_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Fire-Treading Cryoflare battle binding"
+          },
+          "name_zh_cn": {
+            "String": "踏火冰焰战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106133"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "306d4242fc4c4ea2d8b41903841d3c88e8c72409c1ad24ef7b09876f089c7561"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.9f6343d1e2339f40\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106133.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_004\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Attribute_004"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0036\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_004_Count_Modifier\",\"StageAbility_VS_Accessory_Attribute_004_Enhance_Modifier\",\"StageAbility_VS_Accessory_Attribute_004_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Greed of the Sublime battle binding"
+          },
+          "name_zh_cn": {
+            "String": "崇高者的野望战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.RemoveSelfModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.StackProperty\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106134"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "5425a6e9de363e27f8b0aa5d2069a87b05390a81c73c679150f1aa703f9bf237"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.cf2ae4d6c1c7a6e9\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106134.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnAfterHitAll\",\"OnBeforeHitAll\",\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_005\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Attribute_005"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0037\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_005_LE_Modifier\",\"StageAbility_VS_Accessory_Attribute_005_PLY_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Golden Rose battle binding"
+          },
+          "name_zh_cn": {
+            "String": "黄金玫瑰战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByRandomChance\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.ModifyActionDelay\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106135"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "5e13bf70d1a9a86d0d8295ff5ff05d6c581783e65445b033e854ec3562a38c70"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ba6bbc5cde695be8\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106135.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnListenCharacterCreate\",\"OnPhase2\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_004\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Tag_004"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0038\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Tag_004_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Tireless battle binding"
+          },
+          "name_zh_cn": {
+            "String": "不知疲倦战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByAddValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106136"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "ed736e4c084ac770926fa84219220ea1c43e7b3aee1a17ec054f6d3049a852bb"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.d392af07f4f7e4fd\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106136.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Special_001\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Special_001"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0039\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Special_001_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Duelist's Fist battle binding"
+          },
+          "name_zh_cn": {
+            "String": "擂者之拳战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106141"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "00a05e5a804eb84a781570f876551918ad857b613d72324cb6233595de4987c0"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.c2221b548913941c\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106141.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Special_002\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Special_002"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0040\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Special_002_LE_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Reward of Diligence battle binding"
+          },
+          "name_zh_cn": {
+            "String": "勤勉的嘉奖战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106142"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "63cf442094f305a3d9babf640789487adc95b9b3c4a5cc34f90447fcd0fa832d"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.71a07f0db3832cfb\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106142.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnStack\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_006\"]"
+          },
+          "actor_program_bindings": "Null",
+          "binding_key": {
+            "String": "StageAbility_VS_Accessory_Attribute_006"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "AccessoryBinding"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0041\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_names": {
+            "String": "[\"StageAbility_VS_Accessory_Attribute_006_LE_Modifier\",\"StageAbility_VS_Accessory_Attribute_006_PLYAndBOSS_Modifier\"]"
+          },
+          "name_en": {
+            "String": "Overdosing Prescription battle binding"
+          },
+          "name_zh_cn": {
+            "String": "超剂量处方战斗绑定"
+          },
+          "operation_types": {
+            "String": "[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareBattleEventID\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.StackProperty\",\"RPG.GameCore.TargetAlias\"]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "parent_id": {
+            "String": "galactic-baseballer.departure.accessory.3106143"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_fragment_sha256": {
+            "String": "e7b4a8c0f0609c106265b849ba4d07f6b0698eb2753fda39ec69ef5f3f618f83"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ece8ecd5eb47fd7c\",\"source.goal16.53a2dc97e7e82b11\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.accessory.3106143.binding"
+          },
+          "summary_en": {
+            "String": "Structural summary of the released accessory program without copying the source program."
+          },
+          "summary_zh_cn": {
+            "String": "已发布配饰程序的结构摘要，不复制源程序。"
+          },
+          "tags": {
+            "String": "[\"accessory\",\"binding\",\"departure\"]"
+          },
+          "trigger_events": {
+            "String": "[\"OnDestroy\",\"OnListenBattleEventCreate\",\"OnListenCharacterCreate\",\"OnStack\"]"
+          }
+        }
+      }
+    ]
+  }
+}

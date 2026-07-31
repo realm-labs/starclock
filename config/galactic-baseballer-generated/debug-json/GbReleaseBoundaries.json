@@ -1,0 +1,327 @@
+{
+  "table": {
+    "name": "GbReleaseBoundaries",
+    "rows": [
+      {
+        "values": {
+          "account_projection": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "disposition": {
+            "String": "ReferenceOnlyPermanent"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "ReleaseBoundary"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King gameplay retention"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇玩法保留"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "release_order": {
+            "String": "1"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.5185d1278f82670d\",\"source.goal16.hoyolab-version-3.3-update.611706168317\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.release-boundary.demon-king-gameplay"
+          },
+          "summary_en": {
+            "String": "Released Demon King mechanics remain an independent reference profile at the 4.4 baseline."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的魔王篇机制在 4.4 基线上继续作为独立资料 Profile。"
+          },
+          "surface": {
+            "String": "MechanicalGameplay"
+          },
+          "tags": {
+            "String": "[\"gameplay\",\"permanent-retention\",\"release-boundary\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "account_projection": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "ReleaseBoundary"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King limited account rewards"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇限时账号奖励"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "release_order": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.hoyolab-version-3.3-update.a76f5bc7db01\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.release-boundary.demon-king-limited-rewards"
+          },
+          "summary_en": {
+            "String": "The original event window and account rewards remain evidence locators only."
+          },
+          "summary_zh_cn": {
+            "String": "原始活动窗口与账号奖励仅作为证据定位保留。"
+          },
+          "surface": {
+            "String": "LimitedAccountRewards"
+          },
+          "tags": {
+            "String": "[\"account-only\",\"evidence-only\",\"release-boundary\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "account_projection": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "disposition": {
+            "String": "ReferenceOnlyRetainedCorrection"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "ReleaseBoundary"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King released Version 3.4 corrections"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇 Version 3.4 已发布修正"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "release_order": {
+            "String": "3"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.hoyolab-version-3.4-update.b5dbbcf8e727\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.release-boundary.demon-king-v3_4-corrections"
+          },
+          "summary_en": {
+            "String": "The Version 4.4 reference baseline uses the released post-3.4 mechanical state."
+          },
+          "summary_zh_cn": {
+            "String": "Version 4.4 资料基线采用 3.4 正式修正后的机械状态。"
+          },
+          "surface": {
+            "String": "ReleasedMechanicalCorrections"
+          },
+          "tags": {
+            "String": "[\"correction\",\"release-boundary\",\"version-3.4\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "account_projection": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "disposition": {
+            "String": "ReferenceOnlyPermanent"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "ReleaseBoundary"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure gameplay retention"
+          },
+          "name_zh_cn": {
+            "String": "启程篇玩法保留"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "release_order": {
+            "String": "1"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4deccdb1eda03fc6\",\"source.goal16.hoyowiki-original-entry-2508\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.release-boundary.departure-gameplay"
+          },
+          "summary_en": {
+            "String": "The released Departure mechanics remain an independently selectable reference profile at the 4.4 baseline."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的启程篇机制在 4.4 基线上继续作为可独立选择的资料 Profile。"
+          },
+          "surface": {
+            "String": "MechanicalGameplay"
+          },
+          "tags": {
+            "String": "[\"gameplay\",\"permanent-retention\",\"release-boundary\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "account_projection": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "ReleaseBoundary"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure limited account rewards"
+          },
+          "name_zh_cn": {
+            "String": "启程篇限时账号奖励"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "release_order": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4deccdb1eda03fc6\",\"source.goal16.hoyolab-original-event-notice\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.release-boundary.departure-limited-rewards"
+          },
+          "summary_en": {
+            "String": "Limited account rewards remain locators only and do not enter gameplay simulation data."
+          },
+          "summary_zh_cn": {
+            "String": "限时账号奖励仅保留定位信息，不进入玩法模拟资料。"
+          },
+          "surface": {
+            "String": "LimitedAccountRewards"
+          },
+          "tags": {
+            "String": "[\"account-only\",\"evidence-only\",\"release-boundary\"]"
+          }
+        }
+      }
+    ]
+  }
+}

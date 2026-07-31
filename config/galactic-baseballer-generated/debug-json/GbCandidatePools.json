@@ -1,0 +1,1174 @@
+{
+  "table": {
+    "name": "GbCandidatePools",
+    "rows": [
+      {
+        "values": {
+          "candidate_ids": {
+            "String": "[\"galactic-baseballer.demon-king.strategy.3113799\"]"
+          },
+          "card_parameters": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0055\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0253\"]"
+          },
+          "maze_buff_id": "Null",
+          "maze_buff_parameters": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "DemonKing Adventure Strategy pool"
+          },
+          "name_zh_cn": {
+            "String": "DemonKing 冒险策略候选池"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "pool_order": {
+            "String": "3"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_summary": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": "Null",
+          "source_level_id": "Null",
+          "source_name_hash": "Null",
+          "source_numeric_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.d69e91bbd6c6197e\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.candidate.strategy.demonking"
+          },
+          "strategy_type": {
+            "String": "DemonKing"
+          },
+          "summary_en": {
+            "String": "Exact source-type partition with deterministic stable-ID candidate ordering."
+          },
+          "summary_zh_cn": {
+            "String": "精确源类型分区，采用确定性稳定 ID 候选顺序。"
+          },
+          "tags": {
+            "String": "[\"candidate\",\"demon-king\",\"strategy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "String": "[\"galactic-baseballer.demon-king.strategy.3113769\",\"galactic-baseballer.demon-king.strategy.3113770\",\"galactic-baseballer.demon-king.strategy.3113771\",\"galactic-baseballer.demon-king.strategy.3113772\",\"galactic-baseballer.demon-king.strategy.3113773\",\"galactic-baseballer.demon-king.strategy.3113774\",\"galactic-baseballer.demon-king.strategy.3113775\",\"galactic-baseballer.demon-king.strategy.3113776\",\"galactic-baseballer.demon-king.strategy.3113777\",\"galactic-baseballer.demon-king.strategy.3113778\",\"galactic-baseballer.demon-king.strategy.3113779\",\"galactic-baseballer.demon-king.strategy.3113780\",\"galactic-baseballer.demon-king.strategy.3113781\",\"galactic-baseballer.demon-king.strategy.3113782\",\"galactic-baseballer.demon-king.strategy.3113783\"]"
+          },
+          "card_parameters": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0049\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0050\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0051\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0053\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0054\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0238\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0239\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0240\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0241\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0242\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0243\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0244\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0245\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0246\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0247\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0248\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0249\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0250\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0251\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0252\"]"
+          },
+          "maze_buff_id": "Null",
+          "maze_buff_parameters": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "General Adventure Strategy pool"
+          },
+          "name_zh_cn": {
+            "String": "General 冒险策略候选池"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "pool_order": {
+            "String": "0"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_summary": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": "Null",
+          "source_level_id": "Null",
+          "source_name_hash": "Null",
+          "source_numeric_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.ac13fbde717aa244\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.candidate.strategy.general"
+          },
+          "strategy_type": {
+            "String": "General"
+          },
+          "summary_en": {
+            "String": "Exact source-type partition with deterministic stable-ID candidate ordering."
+          },
+          "summary_zh_cn": {
+            "String": "精确源类型分区，采用确定性稳定 ID 候选顺序。"
+          },
+          "tags": {
+            "String": "[\"candidate\",\"demon-king\",\"strategy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "String": "[\"galactic-baseballer.demon-king.strategy.3113703\",\"galactic-baseballer.demon-king.strategy.3113704\",\"galactic-baseballer.demon-king.strategy.3113705\",\"galactic-baseballer.demon-king.strategy.3113706\",\"galactic-baseballer.demon-king.strategy.3113707\",\"galactic-baseballer.demon-king.strategy.3113708\",\"galactic-baseballer.demon-king.strategy.3113709\",\"galactic-baseballer.demon-king.strategy.3113710\",\"galactic-baseballer.demon-king.strategy.3113711\",\"galactic-baseballer.demon-king.strategy.3113712\",\"galactic-baseballer.demon-king.strategy.3113713\",\"galactic-baseballer.demon-king.strategy.3113714\",\"galactic-baseballer.demon-king.strategy.3113715\",\"galactic-baseballer.demon-king.strategy.3113716\",\"galactic-baseballer.demon-king.strategy.3113717\",\"galactic-baseballer.demon-king.strategy.3113718\",\"galactic-baseballer.demon-king.strategy.3113719\",\"galactic-baseballer.demon-king.strategy.3113720\",\"galactic-baseballer.demon-king.strategy.3113721\",\"galactic-baseballer.demon-king.strategy.3113722\",\"galactic-baseballer.demon-king.strategy.3113723\",\"galactic-baseballer.demon-king.strategy.3113724\"]"
+          },
+          "card_parameters": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0007\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0008\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0009\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0010\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0011\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0012\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0014\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0198\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0199\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0200\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0201\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0202\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0203\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0204\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0205\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0206\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0207\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0208\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0209\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0210\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0211\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0212\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0213\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0214\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0215\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0216\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0217\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0218\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0219\"]"
+          },
+          "maze_buff_id": "Null",
+          "maze_buff_parameters": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Growth Adventure Strategy pool"
+          },
+          "name_zh_cn": {
+            "String": "Growth 冒险策略候选池"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "pool_order": {
+            "String": "1"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_summary": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": "Null",
+          "source_level_id": "Null",
+          "source_name_hash": "Null",
+          "source_numeric_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.a7b820412b0e41bf\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.candidate.strategy.growth"
+          },
+          "strategy_type": {
+            "String": "Growth"
+          },
+          "summary_en": {
+            "String": "Exact source-type partition with deterministic stable-ID candidate ordering."
+          },
+          "summary_zh_cn": {
+            "String": "精确源类型分区，采用确定性稳定 ID 候选顺序。"
+          },
+          "tags": {
+            "String": "[\"candidate\",\"demon-king\",\"strategy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "String": "[\"galactic-baseballer.demon-king.strategy.3113751\",\"galactic-baseballer.demon-king.strategy.3113752\",\"galactic-baseballer.demon-king.strategy.3113753\",\"galactic-baseballer.demon-king.strategy.3113754\",\"galactic-baseballer.demon-king.strategy.3113755\",\"galactic-baseballer.demon-king.strategy.3113756\",\"galactic-baseballer.demon-king.strategy.3113757\",\"galactic-baseballer.demon-king.strategy.3113758\",\"galactic-baseballer.demon-king.strategy.3113759\",\"galactic-baseballer.demon-king.strategy.3113760\",\"galactic-baseballer.demon-king.strategy.3113761\",\"galactic-baseballer.demon-king.strategy.3113762\",\"galactic-baseballer.demon-king.strategy.3113763\",\"galactic-baseballer.demon-king.strategy.3113764\",\"galactic-baseballer.demon-king.strategy.3113765\",\"galactic-baseballer.demon-king.strategy.3113766\",\"galactic-baseballer.demon-king.strategy.3113767\",\"galactic-baseballer.demon-king.strategy.3113768\"]"
+          },
+          "card_parameters": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0030\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0031\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0032\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0033\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0034\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0035\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0037\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0220\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0221\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0222\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0223\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0224\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0225\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0226\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0227\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0228\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0229\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0230\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0231\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0232\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0233\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0234\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0235\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0236\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0237\"]"
+          },
+          "maze_buff_id": "Null",
+          "maze_buff_parameters": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Power Adventure Strategy pool"
+          },
+          "name_zh_cn": {
+            "String": "Power 冒险策略候选池"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "pool_order": {
+            "String": "2"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_summary": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": "Null",
+          "source_level_id": "Null",
+          "source_name_hash": "Null",
+          "source_numeric_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.60bff8213b9f43fd\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.candidate.strategy.power"
+          },
+          "strategy_type": {
+            "String": "Power"
+          },
+          "summary_en": {
+            "String": "Exact source-type partition with deterministic stable-ID candidate ordering."
+          },
+          "summary_zh_cn": {
+            "String": "精确源类型分区，采用确定性稳定 ID 候选顺序。"
+          },
+          "tags": {
+            "String": "[\"candidate\",\"demon-king\",\"strategy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106703"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"2500\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Surprise Windfall"
+          },
+          "name_zh_cn": {
+            "String": "意外之财"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Economy_002\"],\"binding_key\":\"StageAbility_VS_Card_Economy_002\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.RemoveStageAbilityByName\"],\"program_fragment_sha256\":\"18f7183a14cdf2b13e8c509ca5d080c17a9f67fb6f81c0154db0ae8056533fe1\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067031"
+          },
+          "source_name_hash": {
+            "String": "14459429728735009514"
+          },
+          "source_numeric_id": {
+            "String": "3106703"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.27b7ebcfacf28c74\",\"source.goal16.13fed997c5706f26\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106703"
+          },
+          "strategy_type": {
+            "String": "Growth"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106704"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"0.3\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Meeting Gift"
+          },
+          "name_zh_cn": {
+            "String": "见面礼物"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Combat_001\"],\"binding_key\":\"StageAbility_VS_Card_Combat_001\",\"modifier_names\":[\"StageAbility_VS_Card_Combat_001_LE_Modifier\",\"StageAbility_VS_Card_Combat_001_LE_MonsterLoseHP\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.LoseHPByRatio\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.TargetAlias\"],\"program_fragment_sha256\":\"f02daef38ad1d977c9f668275ac93a98fe9594f5da4a134d436e61e8b10dfa2d\",\"trigger_events\":[\"OnBeforeWaveMonster\",\"OnEnterBattle\",\"OnListenCharacterCreate\",\"OnStack\"]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067041"
+          },
+          "source_name_hash": {
+            "String": "2759803277533732003"
+          },
+          "source_numeric_id": {
+            "String": "3106704"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.0b90fda2ea5adbad\",\"source.goal16.84a3312daf0119ca\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106704"
+          },
+          "strategy_type": {
+            "String": "Power"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106705"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"1\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Super Multiplier"
+          },
+          "name_zh_cn": {
+            "String": "超级加倍"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Combat_002\"],\"binding_key\":\"StageAbility_VS_Card_Combat_002\",\"modifier_names\":[\"StageAbility_VS_Card_Combat_002_LE_Modifier\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.TargetAlias\"],\"program_fragment_sha256\":\"1504fa8df2a4eb9ccfb5cf1a895eadbcb3a7d1075319cc4b39bd38e5d1f3423c\",\"trigger_events\":[\"OnStack\"]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067051"
+          },
+          "source_name_hash": {
+            "String": "6450770527874852498"
+          },
+          "source_numeric_id": {
+            "String": "3106705"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.70847416c1564d29\",\"source.goal16.f222ad61ee599a9a\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106705"
+          },
+          "strategy_type": {
+            "String": "Power"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106706"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"0.4\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Hit The Head First!"
+          },
+          "name_zh_cn": {
+            "String": "先打头！"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Combat_003\"],\"binding_key\":\"StageAbility_VS_Card_Combat_003\",\"modifier_names\":[\"StageAbility_VS_Card_Combat_003_LE_Modifier\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareMonsterRank\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.TargetAlias\"],\"program_fragment_sha256\":\"514d0c0d17c0303479cc29ab4249a00983ad37bcdd960334d6356335acb008d6\",\"trigger_events\":[\"OnListenCharacterCreate\",\"OnStack\"]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067061"
+          },
+          "source_name_hash": {
+            "String": "4243233862359552703"
+          },
+          "source_numeric_id": {
+            "String": "3106706"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.9457900516f36025\",\"source.goal16.fce95d8f246ce467\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106706"
+          },
+          "strategy_type": {
+            "String": "Power"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106707"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"3\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Level Enhancement"
+          },
+          "name_zh_cn": {
+            "String": "等级强化"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Economy_001\"],\"binding_key\":\"StageAbility_VS_Card_Economy_001\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.LoopExecuteTaskList\",\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.RemoveStageAbilityByName\",\"RPG.GameCore.SetDynamicValueByEvolveBuild\",\"RPG.GameCore.TargetAlias\"],\"program_fragment_sha256\":\"676227967830482e5a115d93b396401bbabe50d073b5bfa51cedab86c7c85a93\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067071"
+          },
+          "source_name_hash": {
+            "String": "17059554950518552645"
+          },
+          "source_numeric_id": {
+            "String": "3106707"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.863ea58c4c6dda34\",\"source.goal16.50f08d4e1cdfd913\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106707"
+          },
+          "strategy_type": {
+            "String": "Growth"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106708"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"1\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Weapon Enhancement"
+          },
+          "name_zh_cn": {
+            "String": "武器强化"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Economy_003_Weapon\"],\"binding_key\":\"StageAbility_VS_Card_Economy_003_Weapon\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.LevelUpEvolveBuildGear\",\"RPG.GameCore.RemoveStageAbilityByName\"],\"program_fragment_sha256\":\"c6b79d5f57a8e9a37a27288f5eed41dc559e827a2b82d4400993f644cf23791d\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067081"
+          },
+          "source_name_hash": {
+            "String": "7032587238892873001"
+          },
+          "source_numeric_id": {
+            "String": "3106708"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ecb37a6c15a5ec08\",\"source.goal16.09ae3566fddecadf\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106708"
+          },
+          "strategy_type": {
+            "String": "Growth"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106710"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"1\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Restoration Amplification"
+          },
+          "name_zh_cn": {
+            "String": "回复增幅"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Survival_001\"],\"binding_key\":\"StageAbility_VS_Card_Survival_001\",\"modifier_names\":[\"StageAbility_VS_Card_Survival_001_LE_Modifier\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.HealHP\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValueByProperty\",\"RPG.GameCore.TargetAlias\"],\"program_fragment_sha256\":\"1c313bd7525dae8b080be4ac0f7e169f276278590c060eba04ec45acd5b24000\",\"trigger_events\":[\"OnStack\",\"OnWaveMonster\"]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067101"
+          },
+          "source_name_hash": {
+            "String": "2665599176213230239"
+          },
+          "source_numeric_id": {
+            "String": "3106710"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.7cce8d821ef64ce2\",\"source.goal16.155ea4d5128d0c6e\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106710"
+          },
+          "strategy_type": {
+            "String": "Unspecified"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106711"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"1\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Charge Amplification"
+          },
+          "name_zh_cn": {
+            "String": "充能增幅"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Survival_002\"],\"binding_key\":\"StageAbility_VS_Card_Survival_002\",\"modifier_names\":[\"StageAbility_VS_Card_Survival_002_LE_Modifier\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.ModifySPNew\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValueByProperty\",\"RPG.GameCore.TargetAlias\"],\"program_fragment_sha256\":\"a4b8b9fc90b7bd103bced88cf4507cc0d0f7d9909c77203d67025498e5b05b62\",\"trigger_events\":[\"OnStack\",\"OnWaveMonster\"]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067111"
+          },
+          "source_name_hash": {
+            "String": "8838731479613661551"
+          },
+          "source_numeric_id": {
+            "String": "3106711"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e28c3fd0a6741ad0\",\"source.goal16.7a38a599c64396a9\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106711"
+          },
+          "strategy_type": {
+            "String": "Unspecified"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[\"2\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106712"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"1\",\"3\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Revive!"
+          },
+          "name_zh_cn": {
+            "String": "复活！"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Survival_003\"],\"binding_key\":\"StageAbility_VS_Card_Survival_003\",\"modifier_names\":[\"StageAbility_VS_Card_Survival_003_LE_Modifier\",\"StageAbility_VS_Card_Survival_003_PLY_Modifier\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCheckModifierCallBackName\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByCompareHP\",\"RPG.GameCore.ByTargetEntityType\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.ModifyEvolveBuildProperty\",\"RPG.GameCore.OwnerEntityAddAbility\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.RemoveSelfModifier\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetDynamicValueByEvolveBuild\",\"RPG.GameCore.TargetAlias\",\"RPG.GameCore.TargetConcat\",\"RPG.GameCore.TriggerAnimState\",\"RPG.GameCore.TurnInsertAbility\"],\"program_fragment_sha256\":\"48aadb6d736533e0fd49270f597b523f51926e64a1fb77dd1e77ec3b684a7f71\",\"trigger_events\":[\"OnLimboWaitHeal\",\"OnListenCharacterCreate\",\"OnListenModifierRemove\",\"OnStack\"]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067121"
+          },
+          "source_name_hash": {
+            "String": "18004595456690577853"
+          },
+          "source_numeric_id": {
+            "String": "3106712"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.48cde7cead87ff33\",\"source.goal16.ad790ca9512fab43\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106712"
+          },
+          "strategy_type": {
+            "String": "Unspecified"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106713"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"1\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Accessory Enhancement"
+          },
+          "name_zh_cn": {
+            "String": "配饰强化"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Economy_003_Accessory\"],\"binding_key\":\"StageAbility_VS_Card_Economy_003_Accessory\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.LevelUpEvolveBuildGear\",\"RPG.GameCore.RemoveStageAbilityByName\"],\"program_fragment_sha256\":\"fee91f7b6e445dd20245e2478d7d170636cb5a034d7366448dcea076079b1803\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067131"
+          },
+          "source_name_hash": {
+            "String": "9549085483290665017"
+          },
+          "source_numeric_id": {
+            "String": "3106713"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.878edc53a470122e\",\"source.goal16.a0e074a10792ba3f\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106713"
+          },
+          "strategy_type": {
+            "String": "Growth"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": "Null",
+          "card_parameters": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CandidatePool"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191\"]"
+          },
+          "maze_buff_id": {
+            "String": "3106714"
+          },
+          "maze_buff_parameters": {
+            "String": "[\"5\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Perfect Shuffling"
+          },
+          "name_zh_cn": {
+            "String": "完美洗牌法"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "pool_order": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Card_Economy_005\"],\"binding_key\":\"StageAbility_VS_Card_Economy_005\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.ModifyEvolveBuildProperty\"],\"program_fragment_sha256\":\"89e66870e471628b3f6dccd88bff317495cefae6caaf66c517593f45d1e0cfa0\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selectable_period_ids": {
+            "String": "[]"
+          },
+          "source_level_id": {
+            "String": "31067141"
+          },
+          "source_name_hash": {
+            "String": "39170634063627873"
+          },
+          "source_numeric_id": {
+            "String": "3106714"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ba540d2c401e7b4e\",\"source.goal16.796266ccd4486f87\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate.strategy.3106714"
+          },
+          "strategy_type": {
+            "String": "Unspecified"
+          },
+          "summary_en": {
+            "String": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"candidate\",\"departure\"]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "table": {
+    "name": "GbCandidatePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"random-upgrade-candidates\",\"adventure-strategy\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "candidate_order": {
+            "String": "stable Starclock strategy ID ascending"
+          },
+          "card_reroll_count": "Null",
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "decision_order": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "exclusion_count": "Null",
+          "exclusion_maze_buff_id": "Null",
+          "exclusion_unlock_quest_id": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CandidatePolicy"
+          },
+          "level_up_ability_names": "Null",
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0007\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0008\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0009\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0010\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0011\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0012\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0014\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0030\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0031\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0032\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0033\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0034\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0035\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0037\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0049\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0050\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0051\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0053\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0054\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0055\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0007\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0008\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0009\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0010\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0011\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0012\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0014\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0058\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0059\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0060\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0061\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0062\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0066\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0067\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0198\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0199\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0200\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0201\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0202\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0203\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0204\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0205\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0206\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0207\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0208\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0209\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0210\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0211\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0212\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0213\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0214\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0215\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0216\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0217\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0218\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0219\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0220\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0221\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0222\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0223\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0224\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0225\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0226\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0227\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0228\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0229\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0230\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0231\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0232\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0233\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0234\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0235\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0236\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0237\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0238\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0239\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0240\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0241\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0242\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0243\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0244\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0245\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0246\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0247\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0248\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0249\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0250\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0251\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0252\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0253\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King deterministic candidate fallback"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇确定性候选回退"
+          },
+          "no_legal_candidate": "Null",
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "refresh_exclusion": "Null",
+          "rejected_alternatives": {
+            "String": "[\"guess the meaning of Weight1 through Weight15 from ordinal position\",\"use localized names or collection iteration order\"]"
+          },
+          "replacement_condition": {
+            "String": "released logic maps all 15 weights, legal periods, rerolls and empty-pool branches"
+          },
+          "reroll_count": "Null",
+          "reroll_maze_buff_id": "Null",
+          "reroll_unlock_quest_id": "Null",
+          "rng_label": {
+            "String": "galactic-baseballer/{profile-id}/{activity-instance-id}/strategy-candidate/{decision-ordinal}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "uniform project integer sampling until released weight-to-candidate mapping is available"
+          },
+          "skip_unlock_quest_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.policy.acf5e02c166ca2ab\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.candidate-policy.deterministic-fallback"
+          },
+          "strategy_reroll_count": "Null",
+          "strategy_unlock_quest_id": "Null",
+          "summary_en": {
+            "String": "ReferenceOnly labeled integer RNG, stable ordering and failure boundary."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的标签化整数 RNG、稳定顺序与失败边界。"
+          },
+          "tags": {
+            "String": "[\"candidate-policy\",\"demon-king\",\"project-policy\"]"
+          },
+          "weight_mapping_status": "Null",
+          "weight_vector": "Null"
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": "Null",
+          "candidate_order": "Null",
+          "card_reroll_count": "Null",
+          "confidence": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "decision_order": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "exclusion_count": {
+            "String": "2"
+          },
+          "exclusion_maze_buff_id": "Null",
+          "exclusion_unlock_quest_id": {
+            "String": "6070212"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CandidatePolicy"
+          },
+          "level_up_ability_names": "Null",
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0007\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0008\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0009\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0010\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0011\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0012\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0014\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0030\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0031\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0032\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0033\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0034\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0035\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0037\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0049\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0050\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0051\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0053\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0054\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0055\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0007\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0008\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0009\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0010\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0011\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0012\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0014\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0058\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0059\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0060\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0061\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0062\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0066\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0067\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0198\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0199\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0200\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0201\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0202\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0203\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0204\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0205\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0206\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0207\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0208\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0209\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0210\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0211\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0212\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0213\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0214\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0215\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0216\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0217\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0218\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0219\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0220\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0221\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0222\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0223\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0224\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0225\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0226\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0227\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0228\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0229\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0230\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0231\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0232\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0233\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0234\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0235\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0236\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0237\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0238\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0239\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0240\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0241\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0242\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0243\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0244\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0245\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0246\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0247\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0248\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0249\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0250\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0251\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0252\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0253\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King candidate source parameters"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇候选源参数"
+          },
+          "no_legal_candidate": "Null",
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "refresh_exclusion": "Null",
+          "rejected_alternatives": "Null",
+          "replacement_condition": "Null",
+          "reroll_count": {
+            "String": "3"
+          },
+          "reroll_maze_buff_id": "Null",
+          "reroll_unlock_quest_id": {
+            "String": "6070210"
+          },
+          "rng_label": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": "Null",
+          "skip_unlock_quest_id": {
+            "String": "6070206"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.889196cf131203d5\",\"source.goal16.36e0715d96a1e898\",\"source.goal16.c818f02970fb8962\",\"source.goal16.be7b01dd72fcdbfc\",\"source.goal16.34decd31a452db8c\",\"source.goal16.f6e04e3636fa8a6c\",\"source.goal16.ae0e37b7e5336f24\",\"source.goal16.4987d5a244ffbd3e\",\"source.goal16.a641323918d1a431\",\"source.goal16.c43bffd4829a0607\",\"source.goal16.30c06a8d27fccc38\",\"source.goal16.b9a7f64ab0b0c607\",\"source.goal16.68fe97b5ac30feea\",\"source.goal16.3417c3ad47d17855\",\"source.goal16.be642993c93d5fcd\",\"source.goal16.97c863ed89f0a9c5\",\"source.goal16.611cdb0e3cb43962\",\"source.goal16.ac4184dd1cd250dd\",\"source.goal16.b936551faf386164\",\"source.goal16.cc06e595257c368a\",\"source.goal16.5bf7ef8c8b56a40e\",\"source.goal16.9eee02671b4a22cf\",\"source.goal16.ebcc17f790558003\",\"source.goal16.89593c0bb6127b8c\",\"source.goal16.992bfc21e4b52d26\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.candidate-policy.source-parameters"
+          },
+          "strategy_reroll_count": {
+            "String": "1"
+          },
+          "strategy_unlock_quest_id": {
+            "String": "6070210"
+          },
+          "summary_en": {
+            "String": "Exact candidate resource counts and an unassigned 15-value source weight vector."
+          },
+          "summary_zh_cn": {
+            "String": "精确候选资源次数与尚未指派含义的 15 项源权重向量。"
+          },
+          "tags": {
+            "String": "[\"candidate-policy\",\"demon-king\"]"
+          },
+          "weight_mapping_status": {
+            "String": "Unspecified: no card/type mapping inferred from ordinal alone"
+          },
+          "weight_vector": {
+            "String": "[{\"ordinal\":0,\"source_constant\":\"EvolveBuildSC_Weight1\",\"weight\":18},{\"ordinal\":1,\"source_constant\":\"EvolveBuildSC_Weight2\",\"weight\":6},{\"ordinal\":2,\"source_constant\":\"EvolveBuildSC_Weight3\",\"weight\":3},{\"ordinal\":3,\"source_constant\":\"EvolveBuildSC_Weight4\",\"weight\":3},{\"ordinal\":4,\"source_constant\":\"EvolveBuildSC_Weight5\",\"weight\":7},{\"ordinal\":5,\"source_constant\":\"EvolveBuildSC_Weight6\",\"weight\":6},{\"ordinal\":6,\"source_constant\":\"EvolveBuildSC_Weight7\",\"weight\":2},{\"ordinal\":7,\"source_constant\":\"EvolveBuildSC_Weight8\",\"weight\":0},{\"ordinal\":8,\"source_constant\":\"EvolveBuildSC_Weight9\",\"weight\":2},{\"ordinal\":9,\"source_constant\":\"EvolveBuildSC_Weight10\",\"weight\":0},{\"ordinal\":10,\"source_constant\":\"EvolveBuildSC_Weight11\",\"weight\":7},{\"ordinal\":11,\"source_constant\":\"EvolveBuildSC_Weight12\",\"weight\":7},{\"ordinal\":12,\"source_constant\":\"EvolveBuildSC_Weight13\",\"weight\":7},{\"ordinal\":13,\"source_constant\":\"EvolveBuildSC_Weight14\",\"weight\":7},{\"ordinal\":14,\"source_constant\":\"EvolveBuildSC_Weight15\",\"weight\":7}]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"random-upgrade-candidates\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "candidate_order": {
+            "String": "stable Starclock ID ascending before integer sampling"
+          },
+          "card_reroll_count": "Null",
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "decision_order": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "exclusion_count": "Null",
+          "exclusion_maze_buff_id": "Null",
+          "exclusion_unlock_quest_id": "Null",
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CandidatePolicy"
+          },
+          "level_up_ability_names": "Null",
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0042\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0043\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0044\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0059\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0060\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0061\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0062\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0063\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0069\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure deterministic candidate fallback"
+          },
+          "name_zh_cn": {
+            "String": "启程篇确定性候选回退"
+          },
+          "no_legal_candidate": {
+            "String": "emit explicit no-candidate outcome; consume no inventory resource; continue at the next declared boundary"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "refresh_exclusion": {
+            "String": "exclude the immediately displayed IDs once, then use the complete legal pool if exclusion empties it"
+          },
+          "rejected_alternatives": {
+            "String": "[\"unbounded repeated random draws\",\"localized-name or hash-map iteration order\",\"silent replacement/downgrade of a maximum-level item\"]"
+          },
+          "replacement_condition": {
+            "String": "released structured logic or reproducible observation defines complete weights, offer order, refresh memory and every empty-pool branch"
+          },
+          "reroll_count": "Null",
+          "reroll_maze_buff_id": "Null",
+          "reroll_unlock_quest_id": "Null",
+          "rng_label": {
+            "String": "galactic-baseballer/{profile-id}/{activity-instance-id}/upgrade-candidate/{decision-ordinal}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": "Null",
+          "skip_unlock_quest_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.policy.acf5e02c166ca2ab\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate-policy.deterministic-fallback"
+          },
+          "strategy_reroll_count": "Null",
+          "strategy_unlock_quest_id": "Null",
+          "summary_en": {
+            "String": "Reference-only candidate generation, decision-resource and deterministic fallback contract."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的候选生成、决策资源与确定性回退契约。"
+          },
+          "tags": {
+            "String": "[\"candidate-policy\",\"departure\"]"
+          },
+          "weight_mapping_status": "Null",
+          "weight_vector": "Null"
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": "Null",
+          "candidate_order": "Null",
+          "card_reroll_count": {
+            "String": "0"
+          },
+          "confidence": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "decision_order": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "exclusion_count": {
+            "String": "2"
+          },
+          "exclusion_maze_buff_id": {
+            "String": "3106813"
+          },
+          "exclusion_unlock_quest_id": {
+            "String": "6070102"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CandidatePolicy"
+          },
+          "level_up_ability_names": {
+            "String": "[\"StageAbility_VS_Common_LevelUp_InsertAbility\",\"StageAbility_VS_Common_LevelUp_GreenHand_InsertAbility\"]"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0042\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0043\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0044\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0059\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0060\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0061\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0062\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0063\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0069\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure candidate source parameters"
+          },
+          "name_zh_cn": {
+            "String": "启程篇候选源参数"
+          },
+          "no_legal_candidate": "Null",
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "refresh_exclusion": "Null",
+          "rejected_alternatives": "Null",
+          "replacement_condition": "Null",
+          "reroll_count": {
+            "String": "3"
+          },
+          "reroll_maze_buff_id": {
+            "String": "3106812"
+          },
+          "reroll_unlock_quest_id": {
+            "String": "6070100"
+          },
+          "rng_label": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": "Null",
+          "skip_unlock_quest_id": {
+            "String": "6070207"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.13ea2a54aa1141a5\",\"source.goal16.955fc00b40a6b355\",\"source.goal16.83ec30eb059581b1\",\"source.goal16.80d469fc8eb1b3a6\",\"source.goal16.fb69d03f2e33f4ee\",\"source.goal16.91941295e62ee651\",\"source.goal16.a5f0a4d8c5904e4d\",\"source.goal16.1131b181be4c2f6e\",\"source.goal16.71cc2184034331df\",\"source.goal16.97af2346d446f67f\",\"source.goal16.c2dcbe02efa4f7db\",\"source.goal16.06bdf2f0842043df\",\"source.goal16.c0dc3d60ebe8ca47\",\"source.goal16.c7c1d5832a749068\",\"source.goal16.315598d63c2f44e3\",\"source.goal16.e42a5c66ae2c85db\",\"source.goal16.b13be7eabfd922cd\",\"source.goal16.e5a22cc65094b8de\",\"source.goal16.8c6e96ed0181e9ea\",\"source.goal16.e2a834946abc0af0\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.candidate-policy.source-parameters"
+          },
+          "strategy_reroll_count": "Null",
+          "strategy_unlock_quest_id": "Null",
+          "summary_en": {
+            "String": "Reference-only candidate generation, decision-resource and deterministic fallback contract."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的候选生成、决策资源与确定性回退契约。"
+          },
+          "tags": {
+            "String": "[\"candidate-policy\",\"departure\"]"
+          },
+          "weight_mapping_status": {
+            "String": "Unspecified: exact vector retained; no card/category mapping inferred from ordinal alone"
+          },
+          "weight_vector": {
+            "String": "[{\"ordinal\":0,\"source_constant\":\"EvolveBuild_Weight1\",\"weight\":18},{\"ordinal\":1,\"source_constant\":\"EvolveBuild_Weight2\",\"weight\":6},{\"ordinal\":2,\"source_constant\":\"EvolveBuild_Weight3\",\"weight\":3},{\"ordinal\":3,\"source_constant\":\"EvolveBuild_Weight4\",\"weight\":3},{\"ordinal\":4,\"source_constant\":\"EvolveBuild_Weight5\",\"weight\":7},{\"ordinal\":5,\"source_constant\":\"EvolveBuild_Weight6\",\"weight\":6},{\"ordinal\":6,\"source_constant\":\"EvolveBuild_Weight7\",\"weight\":2},{\"ordinal\":7,\"source_constant\":\"EvolveBuild_Weight8\",\"weight\":0},{\"ordinal\":8,\"source_constant\":\"EvolveBuild_Weight9\",\"weight\":2},{\"ordinal\":9,\"source_constant\":\"EvolveBuild_Weight10\",\"weight\":0},{\"ordinal\":10,\"source_constant\":\"EvolveBuild_Weight11\",\"weight\":7}]"
+          }
+        }
+      }
+    ]
+  }
+}

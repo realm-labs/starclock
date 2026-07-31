@@ -1,0 +1,210 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-approximation-register.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "exact_claim_forbidden": true,
+  "required_fields": [
+    "field_path",
+    "unavailable_fact",
+    "known_released_facts",
+    "selected_policy",
+    "rejected_alternatives",
+    "rationale",
+    "affected_fixture_ids",
+    "confidence",
+    "replacement_condition"
+  ],
+  "records": [
+    {
+      "id": "gb.policy.no-legal-candidate",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "candidate_policies.no_legal_candidate",
+      "unavailable_fact": "released text does not define every empty-pool/full-inventory combination",
+      "known_released_facts": [
+        "an illegal candidate cannot be selected",
+        "rejected choices must not mutate authoritative state"
+      ],
+      "selected_policy": "emit a ReferenceOnly no-candidate outcome, consume no inventory resource and continue at the next declared lifecycle boundary",
+      "rejected_alternatives": [
+        "retry an unbounded random draw",
+        "silently replace or downgrade an owned maximum-level item"
+      ],
+      "rationale": "bounded explicit failure preserves state and avoids nontermination",
+      "affected_fixture_ids": [
+        "random-upgrade-candidates",
+        "no-legal-candidate-failure-invariance"
+      ],
+      "confidence": "Low",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released structured logic or reproducible observation defines each empty-candidate branch"
+    },
+    {
+      "id": "gb.policy.refresh-exclusion",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "candidate_policies.refresh_exclusion",
+      "unavailable_fact": "released sources do not fully specify whether every just-rejected candidate remains eligible after refresh",
+      "known_released_facts": [
+        "refresh generates a new legal offer",
+        "maximum-level and profile-ineligible records remain illegal"
+      ],
+      "selected_policy": "exclude the immediately displayed candidate IDs for one refresh attempt, then fall back to the full legal pool if exclusion would empty it",
+      "rejected_alternatives": [
+        "allow the identical offer without an explicit fallback",
+        "permanently exclude every previously seen candidate for the battle"
+      ],
+      "rationale": "one-attempt exclusion makes refresh meaningful while the bounded fallback prevents an artificial dead end",
+      "affected_fixture_ids": [
+        "random-upgrade-candidates",
+        "no-legal-candidate-failure-invariance"
+      ],
+      "confidence": "Low",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released logic or reproducible observations define refresh exclusion memory and fallback"
+    },
+    {
+      "id": "gb.policy.score-rounding",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "scoring_rules.intermediate_rounding",
+      "unavailable_fact": "released score displays do not expose every intermediate rounding boundary",
+      "known_released_facts": [
+        "final displayed scores and exact structured thresholds are integers",
+        "authoritative arithmetic cannot use binary floats"
+      ],
+      "selected_policy": "retain canonical fixed-point intermediates and round toward zero only at each explicitly authored integer score contribution boundary",
+      "rejected_alternatives": [
+        "round after every multiplication",
+        "banker's-round only the final aggregate"
+      ],
+      "rationale": "named contribution boundaries minimize invented rounding while producing deterministic integer totals",
+      "affected_fixture_ids": [
+        "score-rating-clear",
+        "boss-phase-final-settlement"
+      ],
+      "confidence": "Low",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released formula programs or exact observations identify the authoritative rounding boundary and mode"
+    },
+    {
+      "id": "gb.policy.simultaneous-synthesis-order",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "synthesis_recipes.simultaneous_upgrade_order",
+      "unavailable_fact": "the order between a newly eligible synthesis and an ordinary duplicate upgrade in one offer is not public for every recipe tier",
+      "known_released_facts": [
+        "recipes require explicit acyclic inputs",
+        "inputs may be consumed only after all prerequisites validate"
+      ],
+      "selected_policy": "evaluate explicit synthesis candidates first by tier then recipe stable ID; otherwise apply the ordinary duplicate upgrade",
+      "rejected_alternatives": [
+        "always apply duplicate upgrade before synthesis",
+        "choose an eligible recipe using an unlabeled random draw"
+      ],
+      "rationale": "tier and stable-ID order is bounded, auditable and keeps recipe consumption atomic",
+      "affected_fixture_ids": [
+        "legendary-weapon-synthesis",
+        "twin-weapon-synthesis",
+        "supreme-weapon-synthesis"
+      ],
+      "confidence": "Low",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+    },
+    {
+      "id": "gb.policy.target-tie",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "weapon_triggers.target_tie_break",
+      "unavailable_fact": "several weapon target selectors do not publish tie-breaking among equally eligible combatants",
+      "known_released_facts": [
+        "target shape and eligibility remain weapon-specific",
+        "candidate iteration cannot depend on hash-map order"
+      ],
+      "selected_policy": "sort eligible targets by the project stable combatant key before labeled integer selection or first-target choice",
+      "rejected_alternatives": [
+        "use battlefield insertion order without an authored contract",
+        "use a floating random shuffle"
+      ],
+      "rationale": "stable combatant identity preserves deterministic replay without changing target eligibility",
+      "affected_fixture_ids": [
+        "weapon-automatic-action",
+        "character-action-triggered-weapon"
+      ],
+      "confidence": "Medium",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released target-order data or reproducible observations prove a different selector"
+    },
+    {
+      "id": "gb.policy.upgrade-candidate-order",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "candidate_policies.presentation_order",
+      "unavailable_fact": "the stable order of simultaneously drawn choices is not fully published",
+      "known_released_facts": [
+        "candidate membership is profile- and state-scoped",
+        "each random decision must be replayable"
+      ],
+      "selected_policy": "preserve labeled draw ordinal; break duplicate/tie positions by stable ID ascending",
+      "rejected_alternatives": [
+        "sort by localized display name",
+        "preserve filesystem or hash-map iteration order"
+      ],
+      "rationale": "draw ordinal preserves causality and stable ID removes locale/platform dependence",
+      "affected_fixture_ids": [
+        "random-upgrade-candidates"
+      ],
+      "confidence": "Medium",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released data exposes an explicit offer ordinal or a reproducible observation proves a different order"
+    },
+    {
+      "id": "gb.policy.upgrade-candidate-weight",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "candidate_policies.random_weight",
+      "unavailable_fact": "released sources do not expose a complete authoritative draw weight for every eligible offer",
+      "known_released_facts": [
+        "only legal profile-owned candidates may be offered",
+        "duplicate and maximum-level eligibility are state dependent"
+      ],
+      "selected_policy": "sample uniformly by project integer sampling from eligible stable IDs sorted lexicographically",
+      "rejected_alternatives": [
+        "infer weights from rarity or display position",
+        "reuse upstream table iteration order as a probability distribution"
+      ],
+      "rationale": "uniform stable-ID sampling is deterministic, neutral and does not manufacture hidden rarity weights",
+      "affected_fixture_ids": [
+        "random-upgrade-candidates",
+        "no-legal-candidate-failure-invariance"
+      ],
+      "confidence": "Low",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released structured weights or a reproducible released-version observation establishes the complete distribution"
+    },
+    {
+      "id": "gb.policy.weapon-trigger-tie",
+      "schema_revision": "starclock.galactic-baseballer-approximation.v1",
+      "field_path": "weapon_triggers.same_boundary_order",
+      "unavailable_fact": "same-boundary ordering between multiple ready weapons is not fully described in released text",
+      "known_released_facts": [
+        "each weapon retains its own counter/cooldown state",
+        "all accepted actions require an explicit ordered operation trace"
+      ],
+      "selected_policy": "order ready weapon triggers by trigger phase, authored priority when present, then stable weapon ID",
+      "rejected_alternatives": [
+        "order by acquisition time",
+        "order by localized weapon name"
+      ],
+      "rationale": "phase/priority preserves known timing while stable ID is replay-safe",
+      "affected_fixture_ids": [
+        "weapon-automatic-action",
+        "character-action-triggered-weapon"
+      ],
+      "confidence": "Medium",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "replacement_condition": "replace when released structured priority data or reproducible observations establish a different tie-break"
+    }
+  ]
+}

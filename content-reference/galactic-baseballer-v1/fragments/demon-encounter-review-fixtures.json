@@ -1,0 +1,1701 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.fixture.boss-phase-final-settlement",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Demon King fixture: boss-phase-final-settlement",
+    "name_zh_cn": "魔王篇语义夹具：boss-phase-final-settlement",
+    "summary_en": "Concrete ReferenceOnly review case; it does not run gameplay.",
+    "summary_zh_cn": "具体的仅供资料审查案例；不执行玩法。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuildSC_11_Devil.json",
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0055",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0071",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0018",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0019",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0020",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0021",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0022",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0023",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0024",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0025",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0026",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0027",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0028",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0029",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0030",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0031",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0032",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0033",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0034",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0035",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0036",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0037",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0038",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0039",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0040",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0041",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0042",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0043",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0044",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0045",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0046",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0047",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0048",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0049",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0050",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0051",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0052",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0053",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0054",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0055"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38c0d9833f70f455",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=6;Season=SecondChapter;StageMergedID=424006",
+        "sha256": "38c0d9833f70f455e546ecc05b7c80b22dd5579d09b16ad94604c884ad3c473a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.215ac0aad13b714d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=17;StagePeriodID=424101;StageID=4140116",
+        "sha256": "215ac0aad13b714d89182e7ecbd83d37243274b4830ec27c37cf95132bc0a3f6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.eaa8773eadd06b74",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=18;StagePeriodID=424102;StageID=4140116",
+        "sha256": "eaa8773eadd06b74e156f31668b4a461dc95b0854fb9ebcf9c3c82fb39781ec6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.fbb6257233fed6ca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=19;StagePeriodID=424103;StageID=4140116",
+        "sha256": "fbb6257233fed6cac204548295d27210e8c79f56c470f8d86d868edf589680a2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e9ef367a1e30c072",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=20;StagePeriodID=424104;StageID=4140116",
+        "sha256": "e9ef367a1e30c072c98e037f57791816edb326b04f11e35d45a9f21890b35fd6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.08911342f2cb0b42",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=21;StagePeriodID=424105;StageID=4140116",
+        "sha256": "08911342f2cb0b42bd05b46b699da284d868d6e0f961917a160f48f3cee0adc8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.3cf267aaeac669b0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=22;StagePeriodID=424106;StageID=4140116",
+        "sha256": "3cf267aaeac669b012dc2f0476a35ec1effe9bb6da37eb9de01bf666f547de04",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.9b4d287daba2a09f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=23;StagePeriodID=424107;StageID=4140116",
+        "sha256": "9b4d287daba2a09f349217fa08c6a27f9d4a2b39c3dbb0f4d5edd8a572c9f85b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.1f158d4fd7d692a9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=24;StagePeriodID=424108;StageID=4140116",
+        "sha256": "1f158d4fd7d692a9940b02baf2689d2b3fae39603a7ca65bda2e74a5660ee06f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.3e0da9e45cf00980",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=25;StagePeriodID=424109;StageID=4140116",
+        "sha256": "3e0da9e45cf00980b8feb195b8c967a9b7bfd955855ad58170a34454f88dcfda",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e6853abaf6f8459b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=26;StagePeriodID=424110;StageID=4140116",
+        "sha256": "e6853abaf6f8459be9bba1fabe8786c1e12461a2c97dc6a906adb655b0e6deef",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.7ae57698d8c4c863",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=27;StagePeriodID=424111;StageID=4140116",
+        "sha256": "7ae57698d8c4c863301b73faae11b18ff8051aff45fe08c14f21aa861daa461c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e58253e09e207875",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=28;StagePeriodID=424112;StageID=4140116",
+        "sha256": "e58253e09e2078754889c49da57346f6e150f667a7f929a3d33e5bfd7288673e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.7e45e3b2bd78b602",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=29;StagePeriodID=424113;StageID=4140116",
+        "sha256": "7e45e3b2bd78b6023b0ce9bf9697d90810fff63e5cbe706d47fbcfd54a737e44",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.7b3ef005995f3a88",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=30;StagePeriodID=424114;StageID=4140116",
+        "sha256": "7b3ef005995f3a8853b51c511a22602035d2b2ed3324668a440d48c49d9a4d20",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.cbd50d3e8666f57d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=31;StagePeriodID=424115;StageID=4140116",
+        "sha256": "cbd50d3e8666f57da2d84fa51297463278fcde8d9cd6b8ed01565cfbd414dc5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.cd2cfe5b807f2c4b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=32;StagePeriodID=424201;StageID=4140116",
+        "sha256": "cd2cfe5b807f2c4b1732f0b74e4747b7a8f19399d6bc9f32817cb5f5d1fe89c3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.d2a967117644f3e5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=33;StagePeriodID=424202;StageID=4140116",
+        "sha256": "d2a967117644f3e54105ac77d01851a80f31127357620ea65bd8f3eea7f1da03",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.779d7b596b8363ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=34;StagePeriodID=424203;StageID=4140116",
+        "sha256": "779d7b596b8363ad25e3f240dc1a71e94563ea316100aa76e98322ab2cf6dede",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.19dbc92269bfdd7c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=35;StagePeriodID=424204;StageID=4140116",
+        "sha256": "19dbc92269bfdd7c94b287b0c46d62f1ebd27801d0de8388890489922ba6d775",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.1dd445bdfc1950fb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=36;StagePeriodID=424205;StageID=4140116",
+        "sha256": "1dd445bdfc1950fb764cac2613934e508f8e1b746393447fa38f93240e64c89c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.c479ea090c8c8786",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=37;StagePeriodID=424206;StageID=4140116",
+        "sha256": "c479ea090c8c87860157910855c58fb79bfbb0e64ad09e54082cf1c425fc7c5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.9d260c37bf99e43a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=38;StagePeriodID=424207;StageID=4140116",
+        "sha256": "9d260c37bf99e43abb66b8a59e9b71604d6b57e922b88697379b358a84582128",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.0cc30731b3b207f4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=39;StagePeriodID=424208;StageID=4140116",
+        "sha256": "0cc30731b3b207f41ad96b818d3fceaf7857390c01ffd1d87712a5dcd61c089c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.b076827815db4d5a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=40;StagePeriodID=424209;StageID=4140116",
+        "sha256": "b076827815db4d5ae6639b0f53490ecd433db6346c06b0a7b15e92419249c30c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.8014a8ebfc6b9de2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=41;StagePeriodID=424210;StageID=4140116",
+        "sha256": "8014a8ebfc6b9de268bbe64304ae9ab6c9eef410f42e1dbdfe27d9315182997a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.0e9d3c08389d1cf7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=42;StagePeriodID=424211;StageID=4140116",
+        "sha256": "0e9d3c08389d1cf73d00afa2db58176e493faba1954b8b526b8b8a61053bc175",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.c7553e5e3e4504ee",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=43;StagePeriodID=424212;StageID=4140116",
+        "sha256": "c7553e5e3e4504ee8d95884a6fbc485bf5c3a33a65a338a6f3e91700a5508aa1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.cb36cc7438644cf8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=44;StagePeriodID=424213;StageID=4140116",
+        "sha256": "cb36cc7438644cf8ab44b3a81cf06ac96d3615d08318af28d1e677ea552e29a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.545996af563da523",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=45;StagePeriodID=424214;StageID=4140116",
+        "sha256": "545996af563da523748a22bc0ddb492825b951552194cab1aceea1f09a0d11ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.6622aeeb8282141c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=46;StagePeriodID=424301;StageID=4140116",
+        "sha256": "6622aeeb8282141c2d4670708664ef5771bac1f04662e0f491bd22f06d0287de",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.9d1e758d4155db49",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=47;StagePeriodID=424302;StageID=4140116",
+        "sha256": "9d1e758d4155db49b56016cb1347de2ebc0bd47c67ab99f7bcf0b2f3a3fd2afa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.32dd86b1d0d3c987",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=48;StagePeriodID=424303;StageID=4140116",
+        "sha256": "32dd86b1d0d3c987a21cb8c254b0db464c70c3f80c0ddf5ea635b4676c55fdbb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.f0b0915e31ac3f78",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=49;StagePeriodID=424304;StageID=4140116",
+        "sha256": "f0b0915e31ac3f78764efe7d1c950ce276df97a9f716d02e38977396d7d0467c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.8e3fa948cb4979ba",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=50;StagePeriodID=424305;StageID=4140116",
+        "sha256": "8e3fa948cb4979ba7949171965076184595de554bf81b5253d210b9c67f4986c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.02507ca008ca4c9a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=51;StagePeriodID=424306;StageID=4140116",
+        "sha256": "02507ca008ca4c9aabe1352eb2da3aac8d3fb58e5cffd422cfcb461760c610d7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.fd665b5de44b803d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=52;StagePeriodID=424307;StageID=4140116",
+        "sha256": "fd665b5de44b803d412e233dd5fd171dd315f91ee9f028e1de0253ec094578ca",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.c34d9ab6cf6b7080",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=53;StagePeriodID=424308;StageID=4140116",
+        "sha256": "c34d9ab6cf6b7080b54ade335ff60102aec7a1b40eb3c034e6e83bd3a5c492ad",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.57f158f8ca924255",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=54;StagePeriodID=424309;StageID=4140116",
+        "sha256": "57f158f8ca92425589993c66f226ba06c2b73dc4ced7136e74bdd4c18d49c7b5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.9b3d57a8faeb74a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=55;StagePeriodID=424999;StageID=4140116",
+        "sha256": "9b3d57a8faeb74a68696e9437a324b3d6aacfc03a77ca72c0b63d6d9bbfb3c9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.5d8d704c38e143b5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=71;ConstValueName=EvolveBuildSC_Devil_CardID",
+        "sha256": "5d8d704c38e143b5f13984d6c7a3c05d795b2ac1c6a06db3b0f0f74fcccd3aa5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King card constant"
+      },
+      {
+        "source_id": "source.goal16.aa4f16ca1c7020dd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCCardConfig.json",
+        "locator": "row=55;ID=3113799;LvID=31137991;Season=SecondChapter",
+        "sha256": "aa4f16ca1c7020dd19e5b29b152920ace7345cff65095055f896bfe9f85176b2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King Adventure Strategy card row"
+      },
+      {
+        "source_id": "source.goal16.e1e8d1644a31e23d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuildSC_11_Devil.json",
+        "locator": "whole-file",
+        "sha256": "e1e8d1644a31e23d9943f3e18c24384a11dbc3efa7d4844ec9753e7682fb076f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file Demon King boss program receipt"
+      },
+      {
+        "source_id": "source.goal16.444d009808dc1a19",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=19;ConstValueName=EvolveBuildSC_FinalStage_ExtraBonus",
+        "sha256": "444d009808dc1a192b1acb6d6a9bdbea6e264fe064729f7def9d44ce1e9d9a39",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.6d6f601f1adac846",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=38;ConstValueName=EvolveBuildSC_Score_Monster",
+        "sha256": "6d6f601f1adac846c316c9a8bd7db5d40c88dce592c250cac1e965d54314ce36",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.b278545bc633d436",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=39;ConstValueName=EvolveBuildSC_Score_Monster_Elite",
+        "sha256": "b278545bc633d436c81a8b48377ba947194ae71a27b65fec4f343cdeafe66839",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.4a3176684ecfadf9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=40;ConstValueName=EvolveBuildSC_Score_Monster_Weight",
+        "sha256": "4a3176684ecfadf9f0050e7455dcda21122be5f040668056dbf5128056ea6db3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.74f2efab04c112b8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=41;ConstValueName=EvolveBuildSC_Score_ScoringGroup",
+        "sha256": "74f2efab04c112b8a2aeab877c4d7e7de42ec265f428952f55847909149860d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.2a5b8bcf6f4556a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=45;ConstValueName=EvolveBuildSC_Score_ScoringID_MonsterKill",
+        "sha256": "2a5b8bcf6f4556a6330b3261f06eb5ab4e62ce0446f882f66cab46abc1fbae42",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.cd21b906c30a76ff",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=46;ConstValueName=EvolveBuildSC_Score_ScoringID_BossHP",
+        "sha256": "cd21b906c30a76ff54a53dc2ede907279fb167c41a760961cb3306b18cd68e6c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.79015382155118de",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=47;ConstValueName=EvolveBuildSC_Score_ScoringID_Time",
+        "sha256": "79015382155118de081900e62107c3966b587ac2c0fad9ba5a25e297219af1d1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.c64a5c288888269a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=48;ConstValueName=EvolveBuildSC_Score_UpperLimit",
+        "sha256": "c64a5c288888269a89f597cd3f46fdfcc859f9436a8bef1becf0ef5e209b48e3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.d76d80a754c5f1f0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+        "locator": "whole-file",
+        "sha256": "d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file scoring program digest and structural operation summary"
+      }
+    ],
+    "tags": [
+      "boss-phase-final-settlement",
+      "demon-king",
+      "semantic-review"
+    ],
+    "family_id": "boss-phase-final-settlement",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.boss-phase.devil",
+      "galactic-baseballer.demon-king.scoring.source-parameters",
+      "galactic-baseballer.demon-king.settlement.424006",
+      "galactic-baseballer.demon-king.stage.424006"
+    ],
+    "trigger_point": "Demon King's Den boss phase and terminal settlement",
+    "state_owner": "battle-local Devil state and activity-local settlement result",
+    "preconditions": {
+      "stage_id": "galactic-baseballer.demon-king.stage.424006",
+      "ordered_period_count": 39
+    },
+    "input": {
+      "devil_card_id": "3113799",
+      "terminal_evaluation": true
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "preserve authored period order"
+      },
+      {
+        "operation_order": 1,
+        "operation": "bind the exact Devil card and structural program"
+      },
+      {
+        "operation_order": 2,
+        "operation": "finalize boss-HP contribution"
+      },
+      {
+        "operation_order": 3,
+        "operation": "apply final-stage bonus once"
+      },
+      {
+        "operation_order": 4,
+        "operation": "cap score, evaluate rating and project result once"
+      }
+    ],
+    "expected_facts": {
+      "ordered_period_count": 39,
+      "devil_card_id": "3113799",
+      "program_sha256": "e1e8d1644a31e23d9943f3e18c24384a11dbc3efa7d4844ec9753e7682fb076f",
+      "final_stage_extra_bonus": 5000,
+      "duplicate_projection": false,
+      "runtime_executable": false
+    },
+    "evidence_refs": [
+      "source.goal16.38c0d9833f70f455",
+      "source.goal16.215ac0aad13b714d",
+      "source.goal16.eaa8773eadd06b74",
+      "source.goal16.fbb6257233fed6ca",
+      "source.goal16.e9ef367a1e30c072",
+      "source.goal16.08911342f2cb0b42",
+      "source.goal16.3cf267aaeac669b0",
+      "source.goal16.9b4d287daba2a09f",
+      "source.goal16.1f158d4fd7d692a9",
+      "source.goal16.3e0da9e45cf00980",
+      "source.goal16.e6853abaf6f8459b",
+      "source.goal16.7ae57698d8c4c863",
+      "source.goal16.e58253e09e207875",
+      "source.goal16.7e45e3b2bd78b602",
+      "source.goal16.7b3ef005995f3a88",
+      "source.goal16.cbd50d3e8666f57d",
+      "source.goal16.cd2cfe5b807f2c4b",
+      "source.goal16.d2a967117644f3e5",
+      "source.goal16.779d7b596b8363ad",
+      "source.goal16.19dbc92269bfdd7c",
+      "source.goal16.1dd445bdfc1950fb",
+      "source.goal16.c479ea090c8c8786",
+      "source.goal16.9d260c37bf99e43a",
+      "source.goal16.0cc30731b3b207f4",
+      "source.goal16.b076827815db4d5a",
+      "source.goal16.8014a8ebfc6b9de2",
+      "source.goal16.0e9d3c08389d1cf7",
+      "source.goal16.c7553e5e3e4504ee",
+      "source.goal16.cb36cc7438644cf8",
+      "source.goal16.545996af563da523",
+      "source.goal16.6622aeeb8282141c",
+      "source.goal16.9d1e758d4155db49",
+      "source.goal16.32dd86b1d0d3c987",
+      "source.goal16.f0b0915e31ac3f78",
+      "source.goal16.8e3fa948cb4979ba",
+      "source.goal16.02507ca008ca4c9a",
+      "source.goal16.fd665b5de44b803d",
+      "source.goal16.c34d9ab6cf6b7080",
+      "source.goal16.57f158f8ca924255",
+      "source.goal16.9b3d57a8faeb74a6",
+      "source.goal16.5d8d704c38e143b5",
+      "source.goal16.aa4f16ca1c7020dd",
+      "source.goal16.e1e8d1644a31e23d",
+      "source.goal16.444d009808dc1a19",
+      "source.goal16.6d6f601f1adac846",
+      "source.goal16.b278545bc633d436",
+      "source.goal16.4a3176684ecfadf9",
+      "source.goal16.74f2efab04c112b8",
+      "source.goal16.2a5b8bcf6f4556a6",
+      "source.goal16.cd21b906c30a76ff",
+      "source.goal16.79015382155118de",
+      "source.goal16.c64a5c288888269a",
+      "source.goal16.d76d80a754c5f1f0"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.d007-score-correction",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "D007 retained Version 4.4 score correction fixture",
+    "name_zh_cn": "D007 Version 4.4 保留分数修正夹具",
+    "summary_en": "Concrete ReferenceOnly review case; it does not run gameplay.",
+    "summary_zh_cn": "具体的仅供资料审查案例；不执行玩法。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactPublicText",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+      "galactic-baseballer.demon-king.v3_3",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.444d009808dc1a19",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=19;ConstValueName=EvolveBuildSC_FinalStage_ExtraBonus",
+        "sha256": "444d009808dc1a192b1acb6d6a9bdbea6e264fe064729f7def9d44ce1e9d9a39",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.6d6f601f1adac846",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=38;ConstValueName=EvolveBuildSC_Score_Monster",
+        "sha256": "6d6f601f1adac846c316c9a8bd7db5d40c88dce592c250cac1e965d54314ce36",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.b278545bc633d436",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=39;ConstValueName=EvolveBuildSC_Score_Monster_Elite",
+        "sha256": "b278545bc633d436c81a8b48377ba947194ae71a27b65fec4f343cdeafe66839",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.4a3176684ecfadf9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=40;ConstValueName=EvolveBuildSC_Score_Monster_Weight",
+        "sha256": "4a3176684ecfadf9f0050e7455dcda21122be5f040668056dbf5128056ea6db3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.74f2efab04c112b8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=41;ConstValueName=EvolveBuildSC_Score_ScoringGroup",
+        "sha256": "74f2efab04c112b8a2aeab877c4d7e7de42ec265f428952f55847909149860d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.2a5b8bcf6f4556a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=45;ConstValueName=EvolveBuildSC_Score_ScoringID_MonsterKill",
+        "sha256": "2a5b8bcf6f4556a6330b3261f06eb5ab4e62ce0446f882f66cab46abc1fbae42",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.cd21b906c30a76ff",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=46;ConstValueName=EvolveBuildSC_Score_ScoringID_BossHP",
+        "sha256": "cd21b906c30a76ff54a53dc2ede907279fb167c41a760961cb3306b18cd68e6c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.79015382155118de",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=47;ConstValueName=EvolveBuildSC_Score_ScoringID_Time",
+        "sha256": "79015382155118de081900e62107c3966b587ac2c0fad9ba5a25e297219af1d1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.c64a5c288888269a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=48;ConstValueName=EvolveBuildSC_Score_UpperLimit",
+        "sha256": "c64a5c288888269a89f597cd3f46fdfcc859f9436a8bef1becf0ef5e209b48e3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.d76d80a754c5f1f0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+        "locator": "whole-file",
+        "sha256": "d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file scoring program digest and structural operation summary"
+      },
+      {
+        "source_id": "source.goal16.e192b7a21c108cd7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=16;StagePeriodID=424053;StageID=4240536",
+        "sha256": "e192b7a21c108cd7c624ce9ee6f992e0b1e68421c8143e582f13ab2389a047ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / StageScore",
+        "sha256": "88df76f9bc4aff24631c3a4fb72b32a4fdb19b0f697ffd82bf815ffb623bb3ee",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed abnormal Adventure Score acquisition under specific conditions on D007 - Blissdream Planet."
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "score-rating-clear",
+      "semantic-review"
+    ],
+    "family_id": "score-rating-clear",
+    "source_record_ids": [
+      "galactic-baseballer.correction.v3_4.d007-adventure-score",
+      "galactic-baseballer.demon-king.scoring.source-parameters",
+      "galactic-baseballer.demon-king.settlement.424005",
+      "galactic-baseballer.demon-king.stage-period.424053"
+    ],
+    "trigger_point": "D007 score contribution and terminal evaluation",
+    "state_owner": "battle-local score accumulator then activity-local result projection",
+    "preconditions": {
+      "stage_id": "galactic-baseballer.demon-king.stage.424005",
+      "retained_version": "4.4"
+    },
+    "input": {
+      "period_id": "galactic-baseballer.demon-king.stage-period.424053",
+      "special_monster_id": "403202302",
+      "terminal_evaluation": true
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "use only pinned post-correction Version 4.4 rows"
+      },
+      {
+        "operation_order": 1,
+        "operation": "apply exact special-monster and stage-score facts"
+      },
+      {
+        "operation_order": 2,
+        "operation": "sum explicit integer contributions"
+      },
+      {
+        "operation_order": 3,
+        "operation": "apply the declared rounding boundary and score cap"
+      },
+      {
+        "operation_order": 4,
+        "operation": "select the highest satisfied ordered rating"
+      }
+    ],
+    "expected_facts": {
+      "special_monster_score": 3000,
+      "stage_score": 4500,
+      "period_score": 45000,
+      "score_cap": 200000,
+      "obsolete_abnormal_path_modeled": false
+    },
+    "evidence_refs": [
+      "source.goal16.444d009808dc1a19",
+      "source.goal16.6d6f601f1adac846",
+      "source.goal16.b278545bc633d436",
+      "source.goal16.4a3176684ecfadf9",
+      "source.goal16.74f2efab04c112b8",
+      "source.goal16.2a5b8bcf6f4556a6",
+      "source.goal16.cd21b906c30a76ff",
+      "source.goal16.79015382155118de",
+      "source.goal16.c64a5c288888269a",
+      "source.goal16.d76d80a754c5f1f0",
+      "source.goal16.e192b7a21c108cd7",
+      "source.goal16.e340d097c9b66d3c",
+      "source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.score-rating-clear",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Demon King fixture: score-rating-clear",
+    "name_zh_cn": "魔王篇语义夹具：score-rating-clear",
+    "summary_en": "Concrete ReferenceOnly review case; it does not run gameplay.",
+    "summary_zh_cn": "具体的仅供资料审查案例；不执行玩法。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactPublicText",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+      "galactic-baseballer.demon-king.v3_3",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.444d009808dc1a19",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=19;ConstValueName=EvolveBuildSC_FinalStage_ExtraBonus",
+        "sha256": "444d009808dc1a192b1acb6d6a9bdbea6e264fe064729f7def9d44ce1e9d9a39",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.6d6f601f1adac846",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=38;ConstValueName=EvolveBuildSC_Score_Monster",
+        "sha256": "6d6f601f1adac846c316c9a8bd7db5d40c88dce592c250cac1e965d54314ce36",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.b278545bc633d436",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=39;ConstValueName=EvolveBuildSC_Score_Monster_Elite",
+        "sha256": "b278545bc633d436c81a8b48377ba947194ae71a27b65fec4f343cdeafe66839",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.4a3176684ecfadf9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=40;ConstValueName=EvolveBuildSC_Score_Monster_Weight",
+        "sha256": "4a3176684ecfadf9f0050e7455dcda21122be5f040668056dbf5128056ea6db3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.74f2efab04c112b8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=41;ConstValueName=EvolveBuildSC_Score_ScoringGroup",
+        "sha256": "74f2efab04c112b8a2aeab877c4d7e7de42ec265f428952f55847909149860d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.2a5b8bcf6f4556a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=45;ConstValueName=EvolveBuildSC_Score_ScoringID_MonsterKill",
+        "sha256": "2a5b8bcf6f4556a6330b3261f06eb5ab4e62ce0446f882f66cab46abc1fbae42",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.cd21b906c30a76ff",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=46;ConstValueName=EvolveBuildSC_Score_ScoringID_BossHP",
+        "sha256": "cd21b906c30a76ff54a53dc2ede907279fb167c41a760961cb3306b18cd68e6c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.79015382155118de",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=47;ConstValueName=EvolveBuildSC_Score_ScoringID_Time",
+        "sha256": "79015382155118de081900e62107c3966b587ac2c0fad9ba5a25e297219af1d1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.c64a5c288888269a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=48;ConstValueName=EvolveBuildSC_Score_UpperLimit",
+        "sha256": "c64a5c288888269a89f597cd3f46fdfcc859f9436a8bef1becf0ef5e209b48e3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.d76d80a754c5f1f0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+        "locator": "whole-file",
+        "sha256": "d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file scoring program digest and structural operation summary"
+      },
+      {
+        "source_id": "source.goal16.e192b7a21c108cd7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=16;StagePeriodID=424053;StageID=4240536",
+        "sha256": "e192b7a21c108cd7c624ce9ee6f992e0b1e68421c8143e582f13ab2389a047ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / StageScore",
+        "sha256": "88df76f9bc4aff24631c3a4fb72b32a4fdb19b0f697ffd82bf815ffb623bb3ee",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed abnormal Adventure Score acquisition under specific conditions on D007 - Blissdream Planet."
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "score-rating-clear",
+      "semantic-review"
+    ],
+    "family_id": "score-rating-clear",
+    "source_record_ids": [
+      "galactic-baseballer.correction.v3_4.d007-adventure-score",
+      "galactic-baseballer.demon-king.scoring.source-parameters",
+      "galactic-baseballer.demon-king.settlement.424005",
+      "galactic-baseballer.demon-king.stage-period.424053"
+    ],
+    "trigger_point": "D007 score contribution and terminal evaluation",
+    "state_owner": "battle-local score accumulator then activity-local result projection",
+    "preconditions": {
+      "stage_id": "galactic-baseballer.demon-king.stage.424005",
+      "retained_version": "4.4"
+    },
+    "input": {
+      "period_id": "galactic-baseballer.demon-king.stage-period.424053",
+      "special_monster_id": "403202302",
+      "terminal_evaluation": true
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "use only pinned post-correction Version 4.4 rows"
+      },
+      {
+        "operation_order": 1,
+        "operation": "apply exact special-monster and stage-score facts"
+      },
+      {
+        "operation_order": 2,
+        "operation": "sum explicit integer contributions"
+      },
+      {
+        "operation_order": 3,
+        "operation": "apply the declared rounding boundary and score cap"
+      },
+      {
+        "operation_order": 4,
+        "operation": "select the highest satisfied ordered rating"
+      }
+    ],
+    "expected_facts": {
+      "special_monster_score": 3000,
+      "stage_score": 4500,
+      "period_score": 45000,
+      "score_cap": 200000,
+      "obsolete_abnormal_path_modeled": false
+    },
+    "evidence_refs": [
+      "source.goal16.444d009808dc1a19",
+      "source.goal16.6d6f601f1adac846",
+      "source.goal16.b278545bc633d436",
+      "source.goal16.4a3176684ecfadf9",
+      "source.goal16.74f2efab04c112b8",
+      "source.goal16.2a5b8bcf6f4556a6",
+      "source.goal16.cd21b906c30a76ff",
+      "source.goal16.79015382155118de",
+      "source.goal16.c64a5c288888269a",
+      "source.goal16.d76d80a754c5f1f0",
+      "source.goal16.e192b7a21c108cd7",
+      "source.goal16.e340d097c9b66d3c",
+      "source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.stage-difficulty-selection",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Demon King fixture: stage-difficulty-selection",
+    "name_zh_cn": "魔王篇语义夹具：stage-difficulty-selection",
+    "summary_en": "Concrete ReferenceOnly review case; it does not run gameplay.",
+    "summary_zh_cn": "具体的仅供资料审查案例；不执行玩法。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e192b7a21c108cd7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=16;StagePeriodID=424053;StageID=4240536",
+        "sha256": "e192b7a21c108cd7c624ce9ee6f992e0b1e68421c8143e582f13ab2389a047ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "stage-difficulty-selection"
+    ],
+    "family_id": "stage-difficulty-selection",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.stage-period.424053",
+      "galactic-baseballer.demon-king.stage.424005"
+    ],
+    "trigger_point": "after Demon King profile selection and before battle assembly",
+    "state_owner": "activity-local stage and difficulty selection",
+    "preconditions": {
+      "selected_profile_id": "galactic-baseballer.demon-king.v3_3",
+      "unlocks_satisfied": true
+    },
+    "input": {
+      "stage_id": "galactic-baseballer.demon-king.stage.424005",
+      "difficulty": 2
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate exact Demon King stage ownership"
+      },
+      {
+        "operation_order": 1,
+        "operation": "validate the released unlock edge"
+      },
+      {
+        "operation_order": 2,
+        "operation": "project initial weapon, recommendations, team bonus and ordered periods"
+      }
+    ],
+    "expected_facts": {
+      "accepted": true,
+      "team_bonus_maze_buff_id": "3113605",
+      "terminal_period_id": "galactic-baseballer.demon-king.stage-period.424053"
+    },
+    "evidence_refs": [
+      "source.goal16.e340d097c9b66d3c",
+      "source.goal16.e192b7a21c108cd7"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.team-bonus",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Demon King fixture: team-bonus",
+    "name_zh_cn": "魔王篇语义夹具：team-bonus",
+    "summary_en": "Concrete ReferenceOnly review case; it does not run gameplay.",
+    "summary_zh_cn": "具体的仅供资料审查案例；不执行玩法。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0311",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.2b695ae7341334c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=311;ID=3113605",
+        "sha256": "2b695ae7341334c4c6e979ffda1ac86c8085ccdd2e3ee18644470da13ddbb9be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "team-bonus"
+    ],
+    "family_id": "team-bonus",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.stage.424005",
+      "galactic-baseballer.demon-king.team-bonus.424005"
+    ],
+    "trigger_point": "after D007 selection and before its first wave",
+    "state_owner": "stage-owned immutable bonus projected into battle-local state",
+    "preconditions": {
+      "stage_id": "galactic-baseballer.demon-king.stage.424005"
+    },
+    "input": {
+      "install_team_bonus_id": "galactic-baseballer.demon-king.team-bonus.424005"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "resolve exact stage-owned MazeBuff"
+      },
+      {
+        "operation_order": 1,
+        "operation": "validate structural program binding"
+      },
+      {
+        "operation_order": 2,
+        "operation": "install before the first wave"
+      },
+      {
+        "operation_order": 3,
+        "operation": "retain stage scope and remove at teardown"
+      }
+    ],
+    "expected_facts": {
+      "maze_buff_id": "3113605",
+      "binding_key": "StageAbility_VS_Enhance_005",
+      "program_fragment_sha256": "c60eccdc587c2dfa186010f85c67990155f68b6cbd90c5840310e6a3cb2d931a",
+      "runtime_executable": false
+    },
+    "evidence_refs": [
+      "source.goal16.e340d097c9b66d3c",
+      "source.goal16.2b695ae7341334c4",
+      "source.goal16.3809fc99ea5ff045"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.wave-battle-phase-progression",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Demon King fixture: wave-battle-phase-progression",
+    "name_zh_cn": "魔王篇语义夹具：wave-battle-phase-progression",
+    "summary_en": "Concrete ReferenceOnly review case; it does not run gameplay.",
+    "summary_zh_cn": "具体的仅供资料审查案例；不执行玩法。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "InfiniteMonsterGroupID:42405301",
+      "InfiniteWaveID:42405301",
+      "MonsterID:2002010",
+      "StageID:4240536",
+      "StatusID:220320101",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e192b7a21c108cd7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=16;StagePeriodID=424053;StageID=4240536",
+        "sha256": "e192b7a21c108cd7c624ce9ee6f992e0b1e68421c8143e582f13ab2389a047ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.678d8b603ecf7101",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/StageConfig.json",
+        "locator": "row=4814;Level=85;StageID=4240536",
+        "sha256": "678d8b603ecf7101e32bbe92663755d538042004de06e2ce78bb72f29d4bb952",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "StagePeriod.StageID exact shared-stage reachability"
+      },
+      {
+        "source_id": "source.goal16.1416a533bdebfbd8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/StageInfiniteWaveConfig.json",
+        "locator": "row=1186",
+        "sha256": "1416a533bdebfbd8e267bb78c2d9c910f40af579bd957a9bed5da2fb7d383507",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "StageInfiniteGroup.WaveIDList exact reachability"
+      },
+      {
+        "source_id": "source.goal16.aea382ef4844fa73",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/StageInfiniteMonsterGroup.json",
+        "locator": "row=537",
+        "sha256": "aea382ef4844fa73b5b39b25a69b2dbfcbaa7d580a0ff2a2f92e305e933913be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "ordered StageInfiniteMonsterGroup.MonsterList candidate"
+      },
+      {
+        "source_id": "source.goal16.core.8a2b7c75f4907587",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=2002010",
+        "sha256": "8a2b7c75f4907587dda8043996f18ef6a7ce522519351e8fb7356b4246383b4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen stable enemy identity; referenced, not copied"
+      },
+      {
+        "source_id": "source.goal16.c73464811fbb8978",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=568",
+        "sha256": "c73464811fbb89780070061f63a4da492c7b7096d645d01b5c95cd15ca2fd253",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.3429790b370e7acd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterStatusConfig.json",
+        "locator": "row=279",
+        "sha256": "3429790b370e7acd41fe821a99b10a84409498d034f6fe5a1b3268db74876403",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact recursively reachable MonsterStatusConfig row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "wave-battle-phase-progression"
+    ],
+    "family_id": "wave-battle-phase-progression",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.encounter.4240536",
+      "galactic-baseballer.demon-king.enemy-candidate.42405301.000",
+      "galactic-baseballer.demon-king.enemy-resolution.2002010",
+      "galactic-baseballer.demon-king.enemy-status.220320101",
+      "galactic-baseballer.demon-king.stage-period.424053",
+      "galactic-baseballer.demon-king.wave.42405301"
+    ],
+    "trigger_point": "declared Demon King stage-period wave boundary",
+    "state_owner": "battle-local encounter and ordered wave state",
+    "preconditions": {
+      "encounter_id": "galactic-baseballer.demon-king.encounter.4240536",
+      "current_wave_order": 0
+    },
+    "input": {
+      "advance_to_wave_id": "galactic-baseballer.demon-king.wave.42405301"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "resolve exact shared StageConfig and infinite group"
+      },
+      {
+        "operation_order": 1,
+        "operation": "resolve ordered monster-group candidate positions"
+      },
+      {
+        "operation_order": 2,
+        "operation": "reuse frozen enemy stable identities"
+      },
+      {
+        "operation_order": 3,
+        "operation": "retain reachable status locators"
+      },
+      {
+        "operation_order": 4,
+        "operation": "apply clear-previous-ability flag"
+      }
+    ],
+    "expected_facts": {
+      "wave_id": "galactic-baseballer.demon-king.wave.42405301",
+      "candidate_zero": "enemy.cloud-knights-patroller.minionlv2.variant.01",
+      "candidate_semantics": "OrderedCandidateNotAssumedSimultaneousSlot",
+      "copied_enemy_definitions": 0
+    },
+    "evidence_refs": [
+      "source.goal16.e192b7a21c108cd7",
+      "source.goal16.678d8b603ecf7101",
+      "source.goal16.1416a533bdebfbd8",
+      "source.goal16.aea382ef4844fa73",
+      "source.goal16.core.8a2b7c75f4907587",
+      "source.goal16.c73464811fbb8978",
+      "source.goal16.3429790b370e7acd"
+    ],
+    "runtime_executable": false
+  }
+]

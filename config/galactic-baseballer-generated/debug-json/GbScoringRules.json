@@ -1,0 +1,177 @@
+{
+  "table": {
+    "name": "GbScoringRules",
+    "rows": [
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "{\"boss_hp\":\"90020\",\"monster_kill\":\"90019\",\"time\":\"90021\"}"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "elite_score_vector": {
+            "String": "[10000,10000,0,0]"
+          },
+          "evaluation_order": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "final_stage_extra_bonus": {
+            "String": "5000"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "intermediate_rounding": {
+            "String": "ProjectPolicy: canonical fixed point, toward zero at explicit integer contribution boundaries"
+          },
+          "kind": {
+            "String": "ScoringRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "monster_base_score": {
+            "String": "7000"
+          },
+          "monster_weight_vector": {
+            "String": "[1,1,5,5,1]"
+          },
+          "name_en": {
+            "String": "Demon King score parameters"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇分数参数"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"EvolveBuild_SC_Scoring_Ability_0001\",\"EvolveBuild_SC_Scoring_Ability_0002\",\"EvolveBuild_SC_Scoring_Ability_0003\",\"EvolveBuild_Scoring_Ability_0002\",\"EvolveBuild_Scoring_Ability_0003\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByCheckModifierCallBackName\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByCompareMonsterID\",\"RPG.GameCore.ByCompareMonsterPhase\",\"RPG.GameCore.ByCompareMonsterRank\",\"RPG.GameCore.ByCompareParamValue\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByLocalWin\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.DebugLog\",\"RPG.GameCore.DefineDynamicValue\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.RemoveSelfModifier\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetBattleScoringItem\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByChangeValue\",\"RPG.GameCore.SetDynamicValueByEvolveBuild\",\"RPG.GameCore.SetDynamicValueByHPRatio\",\"RPG.GameCore.SetDynamicValueByVariateType\",\"RPG.GameCore.TargetAlias\"],\"trigger_events\":[\"OnCreate\",\"OnEvolveBuildGetKillScore\",\"OnHPChange\",\"OnLeaveBattle\",\"OnListenCharacterCreate\",\"OnModifierAdd\",\"OnStack\"],\"whole_program_sha256\":\"d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_upper_limit": {
+            "String": "200000"
+          },
+          "scoring_group_id": {
+            "String": "913"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.scoring.source-parameters"
+          },
+          "summary_en": {
+            "String": "Exact kill, elite, boss-HP, upper-limit and final-stage score parameters with program structure."
+          },
+          "summary_zh_cn": {
+            "String": "精确击杀、精英、Boss 生命、上限与最终关分数参数及程序结构。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"score\"]"
+          },
+          "time_parameters": {
+            "String": "null"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "{\"boss_hp\":\"90010\",\"monster_kill\":\"90009\",\"time\":\"90011\"}"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "elite_score_vector": {
+            "String": "[10000,10000,0,0]"
+          },
+          "evaluation_order": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "final_stage_extra_bonus": {
+            "String": "5000"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "intermediate_rounding": {
+            "String": "ProjectPolicy: canonical fixed point, toward zero at explicit integer contribution boundaries"
+          },
+          "kind": {
+            "String": "ScoringRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0015\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0036\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0037\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0038\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0039\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0040\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0041\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0045\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0046\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0047\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0048\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "monster_base_score": {
+            "String": "7000"
+          },
+          "monster_weight_vector": {
+            "String": "[1,1,5,5,1]"
+          },
+          "name_en": {
+            "String": "Departure score parameters"
+          },
+          "name_zh_cn": {
+            "String": "启程篇分数参数"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"EvolveBuild_SC_Scoring_Ability_0001\",\"EvolveBuild_SC_Scoring_Ability_0002\",\"EvolveBuild_SC_Scoring_Ability_0003\",\"EvolveBuild_Scoring_Ability_0002\",\"EvolveBuild_Scoring_Ability_0003\"],\"operation_types\":[\"RPG.GameCore.AddModifier\",\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByAny\",\"RPG.GameCore.ByCheckModifierCallBackName\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByCompareMonsterID\",\"RPG.GameCore.ByCompareMonsterPhase\",\"RPG.GameCore.ByCompareMonsterRank\",\"RPG.GameCore.ByCompareParamValue\",\"RPG.GameCore.ByIsContainModifier\",\"RPG.GameCore.ByLocalWin\",\"RPG.GameCore.ByTargetTeam\",\"RPG.GameCore.DebugLog\",\"RPG.GameCore.DefineDynamicValue\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.RemoveModifier\",\"RPG.GameCore.RemoveSelfModifier\",\"RPG.GameCore.Retarget\",\"RPG.GameCore.SetBattleScoringItem\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.SetDynamicValueByChangeValue\",\"RPG.GameCore.SetDynamicValueByEvolveBuild\",\"RPG.GameCore.SetDynamicValueByHPRatio\",\"RPG.GameCore.SetDynamicValueByVariateType\",\"RPG.GameCore.TargetAlias\"],\"trigger_events\":[\"OnCreate\",\"OnEvolveBuildGetKillScore\",\"OnHPChange\",\"OnLeaveBattle\",\"OnListenCharacterCreate\",\"OnModifierAdd\",\"OnStack\"],\"whole_program_sha256\":\"d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_upper_limit": {
+            "String": "200000"
+          },
+          "scoring_group_id": {
+            "String": "905"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.420006727dfb92ab\",\"source.goal16.a4677ebc60abca8b\",\"source.goal16.8cd5d0a5b69ac01a\",\"source.goal16.8848d1831c074378\",\"source.goal16.6bf2c09f98e36813\",\"source.goal16.688569589f643601\",\"source.goal16.40aba8264bc868df\",\"source.goal16.28a789bbd5f07cb3\",\"source.goal16.3d5df0dc0a6beba6\",\"source.goal16.34b94ea1c57c9fd0\",\"source.goal16.4c0aff890061a258\",\"source.goal16.d76d80a754c5f1f0\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.scoring.source-parameters"
+          },
+          "summary_en": {
+            "String": "Exact kill, elite, boss-HP, time, upper-limit and final-stage score parameters with program structure."
+          },
+          "summary_zh_cn": {
+            "String": "精确击杀、精英、Boss 生命、时间、上限与最终关分数参数及程序结构。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"score\"]"
+          },
+          "time_parameters": {
+            "String": "[2000,20,50]"
+          }
+        }
+      }
+    ]
+  }
+}

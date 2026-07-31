@@ -1,0 +1,797 @@
+{
+  "table": {
+    "name": "GbInventoryOperations",
+    "rows": [
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King inventory operation: AcquireNew"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇库存操作：AcquireNew"
+          },
+          "operation": {
+            "String": "AcquireNew"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released logic or reproducible observation closes the exact transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "insert only into an unlocked empty slot"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.aeb766dc809c1c46\",\"source.goal16.bab11947fbbff304\",\"source.goal16.f32fde4c2ac970b3\",\"source.goal16.bcbc896c18fd55e8\",\"source.goal16.5cde8a8723d54ea4\",\"source.goal16.0aeead8d47a16176\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.inventory-operation.acquire-new"
+          },
+          "state_owner": {
+            "String": "battle-local Demon King inventory"
+          },
+          "summary_en": {
+            "String": "ReferenceOnly deterministic inventory boundary with failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，失败时保持不变。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King inventory operation: ExpandSlot"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇库存操作：ExpandSlot"
+          },
+          "operation": {
+            "String": "ExpandSlot"
+          },
+          "operation_order": {
+            "String": "4"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released logic or reproducible observation closes the exact transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "increase unlocked capacity without exceeding authored total"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.aeb766dc809c1c46\",\"source.goal16.bab11947fbbff304\",\"source.goal16.f32fde4c2ac970b3\",\"source.goal16.bcbc896c18fd55e8\",\"source.goal16.5cde8a8723d54ea4\",\"source.goal16.0aeead8d47a16176\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.inventory-operation.expand-slot"
+          },
+          "state_owner": {
+            "String": "battle-local Demon King inventory"
+          },
+          "summary_en": {
+            "String": "ReferenceOnly deterministic inventory boundary with failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，失败时保持不变。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King inventory operation: RejectFullInventoryNew"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇库存操作：RejectFullInventoryNew"
+          },
+          "operation": {
+            "String": "RejectFullInventoryNew"
+          },
+          "operation_order": {
+            "String": "3"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released logic or reproducible observation closes the exact transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "reject a new item when no unlocked slot exists"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.aeb766dc809c1c46\",\"source.goal16.bab11947fbbff304\",\"source.goal16.f32fde4c2ac970b3\",\"source.goal16.bcbc896c18fd55e8\",\"source.goal16.5cde8a8723d54ea4\",\"source.goal16.0aeead8d47a16176\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.inventory-operation.reject-full-new"
+          },
+          "state_owner": {
+            "String": "battle-local Demon King inventory"
+          },
+          "summary_en": {
+            "String": "ReferenceOnly deterministic inventory boundary with failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，失败时保持不变。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King inventory operation: RejectMaximumDuplicate"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇库存操作：RejectMaximumDuplicate"
+          },
+          "operation": {
+            "String": "RejectMaximumDuplicate"
+          },
+          "operation_order": {
+            "String": "2"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released logic or reproducible observation closes the exact transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "reject a maximum-level duplicate without mutation"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.aeb766dc809c1c46\",\"source.goal16.bab11947fbbff304\",\"source.goal16.f32fde4c2ac970b3\",\"source.goal16.bcbc896c18fd55e8\",\"source.goal16.5cde8a8723d54ea4\",\"source.goal16.0aeead8d47a16176\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.inventory-operation.reject-max-duplicate"
+          },
+          "state_owner": {
+            "String": "battle-local Demon King inventory"
+          },
+          "summary_en": {
+            "String": "ReferenceOnly deterministic inventory boundary with failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，失败时保持不变。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King inventory operation: UpgradeDuplicate"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇库存操作：UpgradeDuplicate"
+          },
+          "operation": {
+            "String": "UpgradeDuplicate"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released logic or reproducible observation closes the exact transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "increment the exact owned item when below maximum"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.aeb766dc809c1c46\",\"source.goal16.bab11947fbbff304\",\"source.goal16.f32fde4c2ac970b3\",\"source.goal16.bcbc896c18fd55e8\",\"source.goal16.5cde8a8723d54ea4\",\"source.goal16.0aeead8d47a16176\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.inventory-operation.upgrade-duplicate"
+          },
+          "state_owner": {
+            "String": "battle-local Demon King inventory"
+          },
+          "summary_en": {
+            "String": "ReferenceOnly deterministic inventory boundary with failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，失败时保持不变。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure inventory operation: AcquireNew"
+          },
+          "name_zh_cn": {
+            "String": "启程篇库存操作：AcquireNew"
+          },
+          "operation": {
+            "String": "AcquireNew"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "insert a new item only into an unlocked empty slot"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.inventory-operation.acquire-new"
+          },
+          "state_owner": {
+            "String": "battle-local Galactic Baseballer inventory"
+          },
+          "summary_en": {
+            "String": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure inventory operation: ExpandSlot"
+          },
+          "name_zh_cn": {
+            "String": "启程篇库存操作：ExpandSlot"
+          },
+          "operation": {
+            "String": "ExpandSlot"
+          },
+          "operation_order": {
+            "String": "4"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "increase unlocked capacity by one without exceeding the exact total capacity"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.inventory-operation.expand-slot"
+          },
+          "state_owner": {
+            "String": "battle-local Galactic Baseballer inventory"
+          },
+          "summary_en": {
+            "String": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure inventory operation: RejectFullInventoryNew"
+          },
+          "name_zh_cn": {
+            "String": "启程篇库存操作：RejectFullInventoryNew"
+          },
+          "operation": {
+            "String": "RejectFullInventoryNew"
+          },
+          "operation_order": {
+            "String": "3"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "reject a new item when no unlocked empty slot or explicit replacement decision exists"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.inventory-operation.reject-full-new"
+          },
+          "state_owner": {
+            "String": "battle-local Galactic Baseballer inventory"
+          },
+          "summary_en": {
+            "String": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure inventory operation: RejectMaximumDuplicate"
+          },
+          "name_zh_cn": {
+            "String": "启程篇库存操作：RejectMaximumDuplicate"
+          },
+          "operation": {
+            "String": "RejectMaximumDuplicate"
+          },
+          "operation_order": {
+            "String": "2"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "exclude or reject a duplicate already at maximum level without mutation"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.inventory-operation.reject-max-duplicate"
+          },
+          "state_owner": {
+            "String": "battle-local Galactic Baseballer inventory"
+          },
+          "summary_en": {
+            "String": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "String": "[\"weapon-acquisition-duplicate-upgrade\",\"accessory-acquisition-duplicate-upgrade\",\"slot-capacity-expansion-replacement\",\"no-legal-candidate-failure-invariance\"]"
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_invariance": {
+            "String": "true"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "InventoryOperation"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure inventory operation: UpgradeDuplicate"
+          },
+          "name_zh_cn": {
+            "String": "启程篇库存操作：UpgradeDuplicate"
+          },
+          "operation": {
+            "String": "UpgradeDuplicate"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rejected_alternatives": {
+            "String": "[\"silently overwrite an existing item\",\"downgrade or remove an unrelated item\"]"
+          },
+          "replacement_condition": {
+            "String": "released structured program evidence or reproducible observation proves the exact full/max/duplicate transition"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "selected_policy": {
+            "String": "increment the owned item's level by one when below its exact maximum"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.inventory-operation.upgrade-duplicate"
+          },
+          "state_owner": {
+            "String": "battle-local Galactic Baseballer inventory"
+          },
+          "summary_en": {
+            "String": "Deterministic ReferenceOnly inventory boundary preserving exact authored capacities and maximum levels."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的确定性库存边界，保留精确作者容量与最高等级。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"inventory-operation\",\"project-policy\"]"
+          }
+        }
+      }
+    ]
+  }
+}

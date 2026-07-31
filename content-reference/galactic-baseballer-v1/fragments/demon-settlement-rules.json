@@ -1,0 +1,492 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424000",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Initial Planet settlement",
+    "name_zh_cn": "初始星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7bf279a53a71d8d6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=0;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "7bf279a53a71d8d67ac2f66e93d4726576708a300aa73855cd6e852709742230",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 0,
+    "stage_id": "galactic-baseballer.demon-king.stage.424000",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "V612 - Volcanic Planet settlement",
+    "name_zh_cn": "V612-火山星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b73bb56751a0c20e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=1;Season=SecondChapter;StageMergedID=424001",
+        "sha256": "b73bb56751a0c20eedf90822c3628a87fe8680436b82cbc909a0aab19f298ac2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 1,
+    "stage_id": "galactic-baseballer.demon-king.stage.424001",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "C996 - Cogwheel Planet settlement",
+    "name_zh_cn": "C996-齿轮星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e0d008a88738fe5f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=2;Season=SecondChapter;StageMergedID=424002",
+        "sha256": "e0d008a88738fe5fbe0ef383c71a86deda1d89f14d292c4ef9da46ae43f1ccae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 2,
+    "stage_id": "galactic-baseballer.demon-king.stage.424002",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "F233 - Sugarfrost Planet settlement",
+    "name_zh_cn": "F233-糖霜星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e15d4b0c993d6542",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=3;Season=SecondChapter;StageMergedID=424003",
+        "sha256": "e15d4b0c993d65426b5f4c62e91ccb3f2627bfae1e6034ac62db911ce0cbaf7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 3,
+    "stage_id": "galactic-baseballer.demon-king.stage.424003",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "M078 - Miniature Planet settlement",
+    "name_zh_cn": "M078-微缩星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb05d86146189789",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=4;Season=SecondChapter;StageMergedID=424004",
+        "sha256": "cb05d86146189789764818a7c353a0218a7d091b1e1daa0b3dfc35da7d292fb2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 4,
+    "stage_id": "galactic-baseballer.demon-king.stage.424004",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "D007 - Blissdream Planet settlement",
+    "name_zh_cn": "D007-甜梦星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 5,
+    "stage_id": "galactic-baseballer.demon-king.stage.424005",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.settlement.424006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Demon King's Den settlement",
+    "name_zh_cn": "魔王巢穴结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38c0d9833f70f455",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=6;Season=SecondChapter;StageMergedID=424006",
+        "sha256": "38c0d9833f70f455e546ecc05b7c80b22dd5579d09b16ad94604c884ad3c473a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 6,
+    "stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  }
+]

@@ -1,0 +1,224 @@
+[
+  {
+    "id": "galactic-baseballer.departure.currency.raccoon-gold",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Currency",
+    "name_en": "Departure Raccoon Gold",
+    "name_zh_cn": "启程篇浣熊硬币",
+    "summary_en": "Exact profile-owned currency identity, cap, combat income and chest vectors.",
+    "summary_zh_cn": "精确的 Profile 所有货币身份、上限、战斗收入与宝箱向量。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0016",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0017",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0018",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0019",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0020",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0021",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0022",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0023",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0024",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0025",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0026",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0034"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3f618c9399220ea6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=34;ConstValueName=EvolveBuild_Coin_ItemID",
+        "sha256": "3f618c9399220ea6893240fa69aae9f451686e316ccc3828d472ffa7b4f66cbb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.0eb3a574c9eb4a29",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=22;ConstValueName=EvolveBuild_Gold_MaxLevel",
+        "sha256": "0eb3a574c9eb4a29103bab8bdc5bfd157b3dc2001aeac251f39a8c0484b4fbdc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.f24c8a6a9a052030",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuild_Gold_Basic_Normal1",
+        "sha256": "f24c8a6a9a052030fe5997cce87eaeff554c60cc85f309184d3b13ea2c2935a7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.ec2c3f81444f1a52",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuild_Gold_Basic_Normal2",
+        "sha256": "ec2c3f81444f1a5234cf18bb9c54804dd98a57eb2eb7444de3ffe226c3126f68",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.9209107ea71fbc2a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuild_Gold_Basic_Elite",
+        "sha256": "9209107ea71fbc2ab1c215425a9d8ac6616d1b3d0f8e4a16a5615c084561e3d5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.76d4fa280ac2340f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=19;ConstValueName=EvolveBuild_Gold_Basic_Boss",
+        "sha256": "76d4fa280ac2340fb273c3155b50d4ada1b7e1c873e0ff85bd00e0e33b07fd5e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.6513c97f34f135ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=20;ConstValueName=EvolveBuild_Gold_Basic_Special",
+        "sha256": "6513c97f34f135ad2a43b330b080c1771637cfed23cc5eb334f0fa2843b0aaf0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.2057d73286dfbffb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=21;ConstValueName=EvolveBuild_Gold_Basic_Chest",
+        "sha256": "2057d73286dfbffba7259daf9a612468ddb25aefba73918eb23cd9e384296de4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.2ce73d0d2f64d1b5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=23;ConstValueName=EvolveBuild_Chest_Basic_Gold",
+        "sha256": "2ce73d0d2f64d1b532fe879047db72b7fe29e1a4a4cb2927c7b0582d33d3de45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.c5066f12c83f1d44",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=24;ConstValueName=EvolveBuild_Chest_Alter_Gold",
+        "sha256": "c5066f12c83f1d44486b3f9b3d9c522c87749b5edc4a0df5008f14efacca24f1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.0e9666dcc62e11eb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=25;ConstValueName=EvolveBuild_Chest_Probability",
+        "sha256": "0e9666dcc62e11eb4290cf1ef517f43e40f6a215039b7469d56dbecc86a2990f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      },
+      {
+        "source_id": "source.goal16.69321a25762ff84a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=26;ConstValueName=EvolveBuild_Chest_Probability_Step",
+        "sha256": "69321a25762ff84a23b271c55244c16195e01df5a6af654b3843e1d79ad59c34",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure currency constant"
+      }
+    ],
+    "tags": [
+      "currency",
+      "departure",
+      "persistent-progression"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "source_item_id": "281019",
+    "maximum_balance": null,
+    "maximum_balance_disposition": "UnspecifiedInFrozenStructuredFamily",
+    "gold_max_level_vector": [
+      100,
+      250,
+      500
+    ],
+    "enemy_income": {
+      "normal_1": 5,
+      "normal_2": 5,
+      "elite": 20,
+      "boss": 200,
+      "special": 0
+    },
+    "chest_income_vector": [
+      400,
+      1500,
+      2500
+    ],
+    "chest_basic_gold": [
+      50,
+      250,
+      400
+    ],
+    "chest_alternate_gold": [
+      50,
+      250,
+      400
+    ],
+    "chest_probability_vector": [
+      "0.4",
+      "0.3",
+      "0.3"
+    ],
+    "chest_probability_step": [
+      "-0.1",
+      0,
+      "0.1"
+    ]
+  }
+]

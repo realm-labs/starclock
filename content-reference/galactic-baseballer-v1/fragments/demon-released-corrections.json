@@ -1,0 +1,180 @@
+[
+  {
+    "id": "galactic-baseballer.correction.v3_4.boothill-ultimate-visual",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ReleasedCorrection",
+    "name_en": "Released correction 3",
+    "name_zh_cn": "已发布修正 3",
+    "summary_en": "Version 3.4 fixed Boothill Ultimate visual effects against the Black Cloak Demon King.",
+    "summary_zh_cn": "保留正式发布修正的机械边界，并以 Version 4.4 结构化事实作为当前权威状态。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactPublicText",
+    "mechanism_quality": "IdentityCrossCheck",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.7829ff9354ca",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / Presentation",
+        "sha256": "ec287397e699127ec62a0dc3ea7861c830e2d55a32eaadeff409a03394c06064",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed Boothill Ultimate visual effects against the Black Cloak Demon King."
+      }
+    ],
+    "tags": [
+      "correction",
+      "demon-king",
+      "version-3.4"
+    ],
+    "correction_ordinal": 2,
+    "target_family": "Presentation",
+    "released_statement": "Version 3.4 fixed Boothill Ultimate visual effects against the Black Cloak Demon King.",
+    "retained_baseline_policy": "Keep the correction as an EvidenceOnly locator because it has no published mechanical effect.",
+    "unknown_fields": [],
+    "rejected_alternatives": [
+      "treat the visual correction as a damage-rule change",
+      "import visual-effect assets into the simulation data"
+    ],
+    "rationale": "The released statement is explicitly visual and outside the mechanically relevant reference scope.",
+    "affected_fixtures": [],
+    "field_confidence": {
+      "non_mechanical_disposition": "High"
+    },
+    "replacement_condition": "Reclassify only if released evidence proves a mechanically observable effect.",
+    "disposition": "EvidenceOnly"
+  },
+  {
+    "id": "galactic-baseballer.correction.v3_4.d007-adventure-score",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ReleasedCorrection",
+    "name_en": "Released correction 2",
+    "name_zh_cn": "已发布修正 2",
+    "summary_en": "Version 3.4 fixed abnormal Adventure Score acquisition under specific conditions on D007 - Blissdream Planet.",
+    "summary_zh_cn": "保留正式发布修正的机械边界，并以 Version 4.4 结构化事实作为当前权威状态。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactPublicText",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / StageScore",
+        "sha256": "88df76f9bc4aff24631c3a4fb72b32a4fdb19b0f697ffd82bf815ffb623bb3ee",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed abnormal Adventure Score acquisition under specific conditions on D007 - Blissdream Planet."
+      }
+    ],
+    "tags": [
+      "correction",
+      "demon-king",
+      "version-3.4"
+    ],
+    "correction_ordinal": 1,
+    "target_family": "StageScore",
+    "released_statement": "Version 3.4 fixed abnormal Adventure Score acquisition under specific conditions on D007 - Blissdream Planet.",
+    "retained_baseline_policy": "Use only pinned Version 4.4 D007 stage, period and scoring rows; do not reproduce the obsolete abnormal path.",
+    "unknown_fields": [
+      "the triggering conditions",
+      "the obsolete score mutation",
+      "the pre-fix failure ordering"
+    ],
+    "rejected_alternatives": [
+      "model the obsolete bug as an optional scoring rule",
+      "guess the trigger from the D007 team bonus or enemy composition"
+    ],
+    "rationale": "The publisher confirms the correction but does not disclose the erroneous path; the retained reference profile targets post-fix behavior.",
+    "affected_fixtures": [
+      "fixture.galactic-baseballer.demon-king.d007-score",
+      "fixture.galactic-baseballer.score-rating-clear"
+    ],
+    "field_confidence": {
+      "retained_v4_4_state": "High",
+      "pre_fix_trigger_and_delta": "Unknown"
+    },
+    "replacement_condition": "Replace only if a released reproducible pre-fix trace and exact score delta become available.",
+    "disposition": "ReferenceOnlyReleasedCorrection"
+  },
+  {
+    "id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ReleasedCorrection",
+    "name_en": "Released correction 1",
+    "name_zh_cn": "已发布修正 1",
+    "summary_en": "Version 3.4 fixed incorrect level 7 and level 8 ability effects for RuinBot.",
+    "summary_zh_cn": "保留正式发布修正的机械边界，并以 Version 4.4 结构化事实作为当前权威状态。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactPublicText",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.b315b9fac59c",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / WeaponLevel",
+        "sha256": "be5f87a60dc233b314e47addc7eb4f5b3a4d282db90741f2c1818627d2a8007d",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed incorrect level 7 and level 8 ability effects for RuinBot."
+      }
+    ],
+    "tags": [
+      "correction",
+      "demon-king",
+      "version-3.4"
+    ],
+    "correction_ordinal": 0,
+    "target_family": "WeaponLevel",
+    "released_statement": "Version 3.4 fixed incorrect level 7 and level 8 ability effects for RuinBot.",
+    "retained_baseline_policy": "Use only the pinned Version 4.4 structured level rows as corrected authoritative facts.",
+    "unknown_fields": [
+      "the pre-fix level 7 value",
+      "the pre-fix level 8 value",
+      "the exact correction delta"
+    ],
+    "rejected_alternatives": [
+      "infer the erroneous values from adjacent levels",
+      "treat an unpinned Version 3.3 community capture as authoritative"
+    ],
+    "rationale": "The publisher identifies the affected levels but does not publish the erroneous values; reconstructing them would misstate released evidence.",
+    "affected_fixtures": [
+      "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-7",
+      "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-8"
+    ],
+    "field_confidence": {
+      "retained_v4_4_state": "High",
+      "pre_fix_values": "Unknown"
+    },
+    "replacement_condition": "Replace only if a pinned released structured Version 3.3 source exposes the exact pre-fix rows.",
+    "disposition": "ReferenceOnlyReleasedCorrection"
+  }
+]

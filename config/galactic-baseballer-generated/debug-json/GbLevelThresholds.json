@@ -1,0 +1,145 @@
+{
+  "table": {
+    "name": "GbLevelThresholds",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "experience_awards": {
+            "String": "{\"boss\":0,\"elite\":8,\"normal_1\":2,\"normal_2\":4,\"special\":\"UnspecifiedNoDemonKingConstant\"}"
+          },
+          "experience_threshold": {
+            "String": "40"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "LevelThreshold"
+          },
+          "level_scaling_parameters": {
+            "String": "[\"0.14\",\"1\",\"12\"]"
+          },
+          "level_scope": "Null",
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0030\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0031\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0032\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0033\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0034\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0035\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King team level threshold"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇队伍等级阈值"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Common_LevelUp_InsertAbility\"],\"binding_key\":\"StageAbility_VS_Common_LevelUp_InsertAbility\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByCompareEvolveBuildProperty\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.ShowEvolveBuildGearSelectInBattle\",\"RPG.GameCore.TargetAlias\",\"RPG.GameCore.VCameraConfigChange\"],\"program_fragment_sha256\":\"bb3fd76ef3fefcccee19259964654e9465385e8c50e4f7907250c40a13564be6\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.7cae5c24a4ebbbd6\",\"source.goal16.fa7105009273c510\",\"source.goal16.4ad8ea4ad2c054c2\",\"source.goal16.4586c39c5a042540\",\"source.goal16.399a995e23c7dc23\",\"source.goal16.0e3216e6571b34de\",\"source.goal16.e124f7f384e774fa\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.level-threshold.shared"
+          },
+          "summary_en": {
+            "String": "The shared released program initializes 40 experience per team level; Demon King constants provide exact scaling and enemy awards."
+          },
+          "summary_zh_cn": {
+            "String": "共享已发布程序把每级经验初始化为 40；魔王篇常量提供精确缩放与敌人经验。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"experience\",\"level-threshold\"]"
+          },
+          "wave_multiplier": {
+            "String": "0.27"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "experience_awards": {
+            "String": "{\"boss\":0,\"elite\":8,\"normal_1\":2,\"normal_2\":4,\"special\":0}"
+          },
+          "experience_threshold": {
+            "String": "40"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "LevelThreshold"
+          },
+          "level_scaling_parameters": {
+            "String": "[\"0.1\",\"1\",\"12\"]"
+          },
+          "level_scope": {
+            "String": "all authored team levels until the released program changes the threshold"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0027\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0028\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0029\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0030\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0031\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0032\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0033\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure team level threshold"
+          },
+          "name_zh_cn": {
+            "String": "启程篇队伍等级阈值"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "program_summary": {
+            "String": "{\"ability_names\":[\"StageAbility_VS_Common_LevelUp_InsertAbility\"],\"binding_key\":\"StageAbility_VS_Common_LevelUp_InsertAbility\",\"modifier_names\":[],\"operation_types\":[\"RPG.GameCore.ByAnd\",\"RPG.GameCore.ByCompareDynamicValue\",\"RPG.GameCore.ByCompareEvolveBuildProperty\",\"RPG.GameCore.IncludeTaskListTemplate\",\"RPG.GameCore.PredicateTaskList\",\"RPG.GameCore.SetDynamicValue\",\"RPG.GameCore.ShowEvolveBuildGearSelectInBattle\",\"RPG.GameCore.TargetAlias\",\"RPG.GameCore.VCameraConfigChange\"],\"program_fragment_sha256\":\"bb3fd76ef3fefcccee19259964654e9465385e8c50e4f7907250c40a13564be6\",\"trigger_events\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.baae71eec832882b\",\"source.goal16.2de9064a999e92cc\",\"source.goal16.af40f25249e686f7\",\"source.goal16.fb64fceda5af1ed6\",\"source.goal16.05613c15b4530470\",\"source.goal16.f520e6ae4f45e010\",\"source.goal16.975034360cc037f5\",\"source.goal16.e124f7f384e774fa\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.level-threshold.shared"
+          },
+          "summary_en": {
+            "String": "The released base program initializes the team-level experience threshold to 40 and the constants define exact enemy/wave experience parameters."
+          },
+          "summary_zh_cn": {
+            "String": "已发布基础程序把队伍升级经验阈值初始化为 40，常量定义精确敌人/波次经验参数。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"experience\",\"level-threshold\"]"
+          },
+          "wave_multiplier": {
+            "String": "0.27"
+          }
+        }
+      }
+    ]
+  }
+}

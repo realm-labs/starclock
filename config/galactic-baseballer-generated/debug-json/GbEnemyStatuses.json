@@ -1,0 +1,823 @@
+{
+  "table": {
+    "name": "GbEnemyStatuses",
+    "rows": [
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:220320101\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_W2_Lycan_00_RageStatus"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 220320101"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 220320101"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"MDF_SpeedUpRatio\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "17190632642796860386"
+          },
+          "source_effect_hash": {
+            "String": "11488225743941408389"
+          },
+          "source_name_hash": {
+            "String": "3556412204715307881"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.3429790b370e7acd\"]"
+          },
+          "source_status_id": {
+            "String": "220320101"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.220320101"
+          },
+          "status_type": {
+            "String": "Buff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:220320102\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_W2_Lycan_00_RageStatusEnhance"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 220320102"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 220320102"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "14773323806654750091"
+          },
+          "source_effect_hash": {
+            "String": "11809245599844975842"
+          },
+          "source_name_hash": {
+            "String": "7737085282507024003"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.199dfb18cb93b09b\"]"
+          },
+          "source_status_id": {
+            "String": "220320102"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.220320102"
+          },
+          "status_type": {
+            "String": "Buff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:220320103\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_W2_Lycan_RagePhase1Mark"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 220320103"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 220320103"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"MDF_Layer\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "4689438341644837035"
+          },
+          "source_effect_hash": {
+            "String": "10674614922471501373"
+          },
+          "source_name_hash": {
+            "String": "15750216829027793404"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4a49c26cf3856f43\"]"
+          },
+          "source_status_id": {
+            "String": "220320103"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.220320103"
+          },
+          "status_type": {
+            "String": "Other"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:220330101\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MCommon_FearPre"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 220330101"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 220330101"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"MDF_LoseSP\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "15267466792055076077"
+          },
+          "source_effect_hash": {
+            "String": "4315859696554131843"
+          },
+          "source_name_hash": {
+            "String": "7119513870021310239"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4152641f0a65857f\"]"
+          },
+          "source_status_id": {
+            "String": "220330101"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.220330101"
+          },
+          "status_type": {
+            "String": "Debuff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "true"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:220330102\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MCommon_Fear"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 220330102"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 220330102"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "8160136079685394161"
+          },
+          "source_effect_hash": {
+            "String": "1468944631769784936"
+          },
+          "source_name_hash": {
+            "String": "11649671952341259373"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.254ece298e172795\"]"
+          },
+          "source_status_id": {
+            "String": "220330102"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.220330102"
+          },
+          "status_type": {
+            "String": "Debuff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:220330103\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_W2_LycanMecha_00_RageStatus"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 220330103"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 220330103"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"MDF_SpeedUpRatio\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "7990693316132532966"
+          },
+          "source_effect_hash": {
+            "String": "17472040371274296709"
+          },
+          "source_name_hash": {
+            "String": "110803372155276650"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.8d3b97c7654e4bdb\"]"
+          },
+          "source_status_id": {
+            "String": "220330103"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.220330103"
+          },
+          "status_type": {
+            "String": "Buff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:240140101\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "Monster_W4_Nikadory_00_Shield"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 240140101"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 240140101"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"MDF_DamageResistance_PerLayer\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "16097271363558083445"
+          },
+          "source_effect_hash": "Null",
+          "source_name_hash": {
+            "String": "6390883193089622909"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.21174685a529c010\"]"
+          },
+          "source_status_id": {
+            "String": "240140101"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.240140101"
+          },
+          "status_type": {
+            "String": "Other"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "false"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:240320101\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_AML_Minion02_01_RallyHP_V2"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 240320101"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 240320101"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "7337622245142141035"
+          },
+          "source_effect_hash": "Null",
+          "source_name_hash": {
+            "String": "3976403881691112608"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.c486d4c541e4202d\"]"
+          },
+          "source_status_id": {
+            "String": "240320101"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.240320101"
+          },
+          "status_type": {
+            "String": "Other"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "true"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:240320401\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_W4_Scholar_01_Stealth"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 240320401"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 240320401"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"MDF_StealthBreak_AllDamageTypeTakenRatio\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "9872799413135003950"
+          },
+          "source_effect_hash": {
+            "String": "16979959966077553028"
+          },
+          "source_name_hash": {
+            "String": "12538691191756166871"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.cc510ed63eb61424\"]"
+          },
+          "source_status_id": {
+            "String": "240320401"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.240320401"
+          },
+          "status_type": {
+            "String": "Buff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "can_dispel": {
+            "String": "true"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "EnemyStatus"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StatusID:240330101\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "modifier_name": {
+            "String": "MMonster_XP_Elite01_02_DefenceDown"
+          },
+          "name_en": {
+            "String": "Reachable enemy status 240330101"
+          },
+          "name_zh_cn": {
+            "String": "可达敌人状态 240330101"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "read_parameter_names": {
+            "String": "[\"#Skill06_P1_Ratio\"]"
+          },
+          "resolution": {
+            "String": "ExactSourceLocator"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_description_hash": {
+            "String": "6074355135510703600"
+          },
+          "source_effect_hash": {
+            "String": "1332347361617505196"
+          },
+          "source_name_hash": {
+            "String": "10230661048972827834"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.adc48c1df9b56efd\"]"
+          },
+          "source_status_id": {
+            "String": "240330101"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.enemy-status.240330101"
+          },
+          "status_type": {
+            "String": "Debuff"
+          },
+          "summary_en": {
+            "String": "Exact recursively reachable status locator retained for Demon King encounter review."
+          },
+          "summary_zh_cn": {
+            "String": "为魔王篇遭遇审查保留的精确递归可达状态定位。"
+          },
+          "tag_names": {
+            "String": "[]"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"enemy-status\",\"shared\"]"
+          }
+        }
+      }
+    ]
+  }
+}

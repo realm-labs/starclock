@@ -1,0 +1,3883 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 1",
+    "name_zh_cn": "银河声望等级 1",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 1,
+    "incremental_cost": 3000,
+    "cumulative_cost": 3000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.10",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 10",
+    "name_zh_cn": "银河声望等级 10",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 10,
+    "incremental_cost": 4500,
+    "cumulative_cost": 37500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.11",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 11",
+    "name_zh_cn": "银河声望等级 11",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 11,
+    "incremental_cost": 6000,
+    "cumulative_cost": 43500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.12",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 12",
+    "name_zh_cn": "银河声望等级 12",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 12,
+    "incremental_cost": 6000,
+    "cumulative_cost": 49500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.13",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 13",
+    "name_zh_cn": "银河声望等级 13",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 13,
+    "incremental_cost": 6000,
+    "cumulative_cost": 55500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.14",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 14",
+    "name_zh_cn": "银河声望等级 14",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 14,
+    "incremental_cost": 6000,
+    "cumulative_cost": 61500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.15",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 15",
+    "name_zh_cn": "银河声望等级 15",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 15,
+    "incremental_cost": 6000,
+    "cumulative_cost": 67500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.16",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 16",
+    "name_zh_cn": "银河声望等级 16",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 16,
+    "incremental_cost": 6000,
+    "cumulative_cost": 73500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.17",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 17",
+    "name_zh_cn": "银河声望等级 17",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 17,
+    "incremental_cost": 6000,
+    "cumulative_cost": 79500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.18",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 18",
+    "name_zh_cn": "银河声望等级 18",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 18,
+    "incremental_cost": 6000,
+    "cumulative_cost": 85500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.19",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 19",
+    "name_zh_cn": "银河声望等级 19",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 19,
+    "incremental_cost": 6000,
+    "cumulative_cost": 91500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 2",
+    "name_zh_cn": "银河声望等级 2",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 2,
+    "incremental_cost": 3000,
+    "cumulative_cost": 6000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.20",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 20",
+    "name_zh_cn": "银河声望等级 20",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 20,
+    "incremental_cost": 6000,
+    "cumulative_cost": 97500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 3",
+    "name_zh_cn": "银河声望等级 3",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 3,
+    "incremental_cost": 3000,
+    "cumulative_cost": 9000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 4",
+    "name_zh_cn": "银河声望等级 4",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 4,
+    "incremental_cost": 3000,
+    "cumulative_cost": 12000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 5",
+    "name_zh_cn": "银河声望等级 5",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 5,
+    "incremental_cost": 3000,
+    "cumulative_cost": 15000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.6",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 6",
+    "name_zh_cn": "银河声望等级 6",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 6,
+    "incremental_cost": 4500,
+    "cumulative_cost": 19500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.7",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 7",
+    "name_zh_cn": "银河声望等级 7",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 7,
+    "incremental_cost": 4500,
+    "cumulative_cost": 24000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.8",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 8",
+    "name_zh_cn": "银河声望等级 8",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 8,
+    "incremental_cost": 4500,
+    "cumulative_cost": 28500,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.reputation.9",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Cosmic Reputation rank 9",
+    "name_zh_cn": "银河声望等级 9",
+    "summary_en": "Revision-pinned public rank cost retained without importing account rewards.",
+    "summary_zh_cn": "保留固定公开修订的等级费用，不导入账号奖励。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "progression",
+      "reputation"
+    ],
+    "progression_kind": "CosmicReputationRank",
+    "rank": 9,
+    "incremental_cost": 4500,
+    "cumulative_cost": 33000,
+    "mechanical_effects": [],
+    "account_reward_disposition": "EvidenceOnlyNotImported",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-group.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure group 1",
+    "name_zh_cn": "魔王宝藏组 1",
+    "summary_en": "Exact ordered list of authored treasure item-pool IDs.",
+    "summary_zh_cn": "精确有序的宝藏物品池 ID 列表。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e94f1dcc603b77d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=0;GroupID=1",
+        "sha256": "e94f1dcc603b77d460c773d50c196133f359d21a2aa1183e4ccd3d7d9e7de4b9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      }
+    ],
+    "tags": [
+      "candidate-group",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureGroup",
+    "source_group_id": "1",
+    "box_item_pool_ids": [
+      {
+        "ordinal": 0,
+        "source_box_item_id": "1"
+      },
+      {
+        "ordinal": 1,
+        "source_box_item_id": "2"
+      }
+    ],
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-group.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure group 2",
+    "name_zh_cn": "魔王宝藏组 2",
+    "summary_en": "Exact ordered list of authored treasure item-pool IDs.",
+    "summary_zh_cn": "精确有序的宝藏物品池 ID 列表。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2f8c081e3b1c1ce8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=1;GroupID=2",
+        "sha256": "2f8c081e3b1c1ce8781b9f642aa2b55a908793425d728492f3cb324d4e761c58",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      }
+    ],
+    "tags": [
+      "candidate-group",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureGroup",
+    "source_group_id": "2",
+    "box_item_pool_ids": [
+      {
+        "ordinal": 0,
+        "source_box_item_id": "3"
+      },
+      {
+        "ordinal": 1,
+        "source_box_item_id": "4"
+      }
+    ],
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-group.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure group 3",
+    "name_zh_cn": "魔王宝藏组 3",
+    "summary_en": "Exact ordered list of authored treasure item-pool IDs.",
+    "summary_zh_cn": "精确有序的宝藏物品池 ID 列表。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a9994dffe3eb9fbb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=2;GroupID=3",
+        "sha256": "a9994dffe3eb9fbbf8663c036100cec1fb9def3e80b0495d3f1ad362ed76cb14",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      }
+    ],
+    "tags": [
+      "candidate-group",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureGroup",
+    "source_group_id": "3",
+    "box_item_pool_ids": [
+      {
+        "ordinal": 0,
+        "source_box_item_id": "5"
+      },
+      {
+        "ordinal": 1,
+        "source_box_item_id": "6"
+      }
+    ],
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-group.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure group 4",
+    "name_zh_cn": "魔王宝藏组 4",
+    "summary_en": "Exact ordered list of authored treasure item-pool IDs.",
+    "summary_zh_cn": "精确有序的宝藏物品池 ID 列表。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ebc83b0b7fa3baf1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=3;GroupID=4",
+        "sha256": "ebc83b0b7fa3baf153d3700477ff70f8d38e1f4e368e9017430aee642b55a9e8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      }
+    ],
+    "tags": [
+      "candidate-group",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureGroup",
+    "source_group_id": "4",
+    "box_item_pool_ids": [
+      {
+        "ordinal": 0,
+        "source_box_item_id": "7"
+      },
+      {
+        "ordinal": 1,
+        "source_box_item_id": "8"
+      }
+    ],
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-group.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure group 5",
+    "name_zh_cn": "魔王宝藏组 5",
+    "summary_en": "Exact ordered list of authored treasure item-pool IDs.",
+    "summary_zh_cn": "精确有序的宝藏物品池 ID 列表。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8747a65fb6ef4d3a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=4;GroupID=5",
+        "sha256": "8747a65fb6ef4d3a398d789da10132a5e16de37cdd0c8f107bc7415cc6a2b571",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      }
+    ],
+    "tags": [
+      "candidate-group",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureGroup",
+    "source_group_id": "5",
+    "box_item_pool_ids": [
+      {
+        "ordinal": 0,
+        "source_box_item_id": "9"
+      },
+      {
+        "ordinal": 1,
+        "source_box_item_id": "10"
+      }
+    ],
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 1",
+    "name_zh_cn": "魔王宝藏物品池 1",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.75b4a3c2678812b0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=0;ID=1",
+        "sha256": "75b4a3c2678812b07a3389582831860f76c3fe26ed7df0b2ee77d8a4c732e875",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "1",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113001",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113001"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113002",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113002"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113003",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113003"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113114",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113114"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113901",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113901"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113004",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113004"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113008",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113008"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113104",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113104"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113005",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113005"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113111",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113111"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.10",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 10",
+    "name_zh_cn": "魔王宝藏物品池 10",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a9318e63ddbd0fae",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=9;ID=10",
+        "sha256": "a9318e63ddbd0faef6a15e02fa342c894410f781c378fb41ee1104e79890cac6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "10",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113133",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113133"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113901",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113901"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113111",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113111"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113003",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113003"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113121",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113121"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113005",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113005"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113910",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113910"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113113",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113113"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113012",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113012"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113912",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113912"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 2",
+    "name_zh_cn": "魔王宝藏物品池 2",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1c0a7df396919422",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=1;ID=2",
+        "sha256": "1c0a7df3969194227c0a30a4f01c2c8cd870c19aebea9ee0d14fd08fb8fe82d1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "2",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113006",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113006"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113007",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113007"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113008",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113008"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113902",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113902"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113123",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113123"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113114",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113114"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113005",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113005"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113012",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113012"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113904",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113904"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113121",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113121"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 3",
+    "name_zh_cn": "魔王宝藏物品池 3",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ee04c466c68b0954",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=2;ID=3",
+        "sha256": "ee04c466c68b095487011ef201fa573ef3c1eaf9e0123025712443210e80bbc8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "3",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113011",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113011"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113122",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113122"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113113",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113113"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113004",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113004"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113910",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113910"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113006",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113006"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113908",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113908"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113132",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113132"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113301",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113301"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113007",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113007"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 4",
+    "name_zh_cn": "魔王宝藏物品池 4",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c2634ba83795963f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=3;ID=4",
+        "sha256": "c2634ba83795963f095b1555817aacc93214102637cc1a10f1f2c7f98bb1b3a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "4",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113134",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113134"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113009",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113009"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113911",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113911"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113002",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113002"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113121",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113121"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113001",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113001"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113907",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113907"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113112",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113112"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113013",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113013"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113201",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113201"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 5",
+    "name_zh_cn": "魔王宝藏物品池 5",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.921f65353d3fad08",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=4;ID=5",
+        "sha256": "921f65353d3fad080ee0824c4970aae4d77f01200b2158cc2a14c5d26de56a0b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "5",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113009",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113009"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113008",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113008"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113006",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113006"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113201",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113201"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113113",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113113"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113014",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113014"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113005",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113005"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113122",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113122"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113910",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113910"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113123",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113123"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.6",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 6",
+    "name_zh_cn": "魔王宝藏物品池 6",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.12ea0fa8d072e659",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=5;ID=6",
+        "sha256": "12ea0fa8d072e659a0e8f874e30d52416e94f9f15ff6e9ebc1ee7d6b2d071478",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "6",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113007",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113007"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113006",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113006"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113909",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113909"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113101",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113101"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113010",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113010"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113112",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113112"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113301",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113301"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113002",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113002"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113132",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113132"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113913",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113913"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.7",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 7",
+    "name_zh_cn": "魔王宝藏物品池 7",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0494c7a5a016ab35",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=6;ID=7",
+        "sha256": "0494c7a5a016ab3590bd5689aece4f6f3eb877966a55c902916ccd4a7af0bd3c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "7",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113131",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113131"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113909",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113909"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113010",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113010"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113122",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113122"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113121",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113121"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113002",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113002"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113901",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113901"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113201",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113201"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113004",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113004"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113008",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113008"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.8",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 8",
+    "name_zh_cn": "魔王宝藏物品池 8",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1100f3cd323cd1c8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=7;ID=8",
+        "sha256": "1100f3cd323cd1c884281a49e63ca8f19d30211d0c4a28008318fdb195503929",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "8",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113903",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113903"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113007",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113007"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113009",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113009"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113111",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113111"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113902",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113902"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113122",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113122"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113009",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113009"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113014",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113014"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113912",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113912"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113104",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113104"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.progression.treasure-pool.9",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Demon King's Treasure pool 9",
+    "name_zh_cn": "魔王宝藏物品池 9",
+    "summary_en": "Exact authored candidate-entry order with duplicates preserved as distinct positions.",
+    "summary_zh_cn": "精确作者候选条目顺序；重复项作为不同位置保留。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.df7d08fbae47c860",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=8;ID=9",
+        "sha256": "df7d08fbae47c860b51d8cd8632bf3ffcd5d4b5dbbb1924829a469b10f7c99fc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "candidate-pool",
+      "demon-king",
+      "treasure"
+    ],
+    "progression_kind": "TreasureCandidatePool",
+    "source_box_item_id": "9",
+    "candidate_entries": [
+      {
+        "ordinal": 0,
+        "source_numeric_id": "3113004",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113004"
+      },
+      {
+        "ordinal": 1,
+        "source_numeric_id": "3113010",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113010"
+      },
+      {
+        "ordinal": 2,
+        "source_numeric_id": "3113908",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113908"
+      },
+      {
+        "ordinal": 3,
+        "source_numeric_id": "3113904",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113904"
+      },
+      {
+        "ordinal": 4,
+        "source_numeric_id": "3113101",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113101"
+      },
+      {
+        "ordinal": 5,
+        "source_numeric_id": "3113013",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113013"
+      },
+      {
+        "ordinal": 6,
+        "source_numeric_id": "3113006",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113006"
+      },
+      {
+        "ordinal": 7,
+        "source_numeric_id": "3113912",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113912"
+      },
+      {
+        "ordinal": 8,
+        "source_numeric_id": "3113911",
+        "stable_id": "galactic-baseballer.demon-king.weapon.3113911"
+      },
+      {
+        "ordinal": 9,
+        "source_numeric_id": "3113101",
+        "stable_id": "galactic-baseballer.demon-king.accessory.3113101"
+      }
+    ],
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/treasure/{decision-ordinal}",
+    "selection_approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424000",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "Initial Planet team bonus",
+    "name_zh_cn": "初始星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0313",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7bf279a53a71d8d6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=0;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "7bf279a53a71d8d67ac2f66e93d4726576708a300aa73855cd6e852709742230",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.107d53a78deecfd3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=313;ID=3113607",
+        "sha256": "107d53a78deecfd389b3bce69d9b7076257ea63459dbd77f4e173b722cc8e6c3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424000",
+    "source_maze_buff_id": "3113607",
+    "source_level": 1,
+    "parameter_values": [
+      "0.5",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_008",
+    "ability_names": [
+      "StageAbility_VS_Enhance_008"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "a590ac800505f33ee763802282d61280e37ff54ba54f6b644598a2cba66c3f62",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "V612 - Volcanic Planet team bonus",
+    "name_zh_cn": "V612-火山星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0308",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b73bb56751a0c20e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=1;Season=SecondChapter;StageMergedID=424001",
+        "sha256": "b73bb56751a0c20eedf90822c3628a87fe8680436b82cbc909a0aab19f298ac2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.657d79e523a12c09",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=308;ID=3113602",
+        "sha256": "657d79e523a12c09aeba21bec60cfaddd98b9474f9ead4d68c29ef2c80637f5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424001",
+    "source_maze_buff_id": "3113602",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_011",
+    "ability_names": [
+      "StageAbility_VS_Enhance_011"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetEntityType",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "fe0fcb10a58b0e5ad0bbf4efbad0943535e6d493cf6ba4158e679d405f98981a",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "C996 - Cogwheel Planet team bonus",
+    "name_zh_cn": "C996-齿轮星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0307",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e0d008a88738fe5f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=2;Season=SecondChapter;StageMergedID=424002",
+        "sha256": "e0d008a88738fe5fbe0ef383c71a86deda1d89f14d292c4ef9da46ae43f1ccae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.79d7ed2054e6a8e7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=307;ID=3113601",
+        "sha256": "79d7ed2054e6a8e7a3010b11dc43eb72c75d1c8cca949953cd86b8bbf4583251",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424002",
+    "source_maze_buff_id": "3113601",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_001",
+    "ability_names": [
+      "StageAbility_VS_Enhance_001"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "955589e7f7e39bc3ee226ec5cbc9ab19734fe78660b1cd10c98b09bc36bb8fe1",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "F233 - Sugarfrost Planet team bonus",
+    "name_zh_cn": "F233-糖霜星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0309",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e15d4b0c993d6542",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=3;Season=SecondChapter;StageMergedID=424003",
+        "sha256": "e15d4b0c993d65426b5f4c62e91ccb3f2627bfae1e6034ac62db911ce0cbaf7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.2889f3393b28dbcb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=309;ID=3113603",
+        "sha256": "2889f3393b28dbcb1ce176585ac42626067faa12eb006b75faf2c8f15cd744f0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424003",
+    "source_maze_buff_id": "3113603",
+    "source_level": 1,
+    "parameter_values": [
+      "0.5",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_009",
+    "ability_names": [
+      "StageAbility_VS_Enhance_009"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "f4725bac40b517e7a371cf3cb0d5ba6c8862f23b97c6d643fb5e3c8b2da5b107",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "M078 - Miniature Planet team bonus",
+    "name_zh_cn": "M078-微缩星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0310",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb05d86146189789",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=4;Season=SecondChapter;StageMergedID=424004",
+        "sha256": "cb05d86146189789764818a7c353a0218a7d091b1e1daa0b3dfc35da7d292fb2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.fe5e7bcaf7802527",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=310;ID=3113604",
+        "sha256": "fe5e7bcaf7802527f7f1d5c2146269bd17420ac92892b460e69eb4ff495ab8a9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424004",
+    "source_maze_buff_id": "3113604",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_003",
+    "ability_names": [
+      "StageAbility_VS_Enhance_003"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "52c0c3501c101ed1cc829b86b8f449be29c0e72d902814d37a191916acf8160c",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "D007 - Blissdream Planet team bonus",
+    "name_zh_cn": "D007-甜梦星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0311",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.2b695ae7341334c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=311;ID=3113605",
+        "sha256": "2b695ae7341334c4c6e979ffda1ac86c8085ccdd2e3ee18644470da13ddbb9be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424005",
+    "source_maze_buff_id": "3113605",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_005",
+    "ability_names": [
+      "StageAbility_VS_Enhance_005"
+    ],
+    "trigger_events": [
+      "OnBeforeHitAll",
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByAttackType",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyDamageData",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "c60eccdc587c2dfa186010f85c67990155f68b6cbd90c5840310e6a3cb2d931a",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "Demon King's Den team bonus",
+    "name_zh_cn": "魔王巢穴队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0312",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38c0d9833f70f455",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=6;Season=SecondChapter;StageMergedID=424006",
+        "sha256": "38c0d9833f70f455e546ecc05b7c80b22dd5579d09b16ad94604c884ad3c473a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e152915de1bfd2e5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=312;ID=3113606",
+        "sha256": "e152915de1bfd2e5bfd92c1618ccdc424b946378b6bb3e96b0a8747c8f2eebd9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "source_maze_buff_id": "3113606",
+    "source_level": 1,
+    "parameter_values": [
+      "0.25",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_010",
+    "ability_names": [
+      "StageAbility_VS_Enhance_010"
+    ],
+    "trigger_events": [
+      "OnBeforeHitAll",
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyDamageData",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "e9e9debf2aca65bd9dc49762d8a1592cf7aa59a031005e947755ac96ca5c7242",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.tag.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure store tag 1",
+    "name_zh_cn": "启程篇商店标签 1",
+    "summary_en": "Exact released store tag definition retained without inferring membership.",
+    "summary_zh_cn": "保留精确正式发布商店标签定义，不推断成员关系。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTagConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b3a0547376afb17e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTagConfig.json",
+        "locator": "row=0;ID=1;Season=EarlyAccess",
+        "sha256": "b3a0547376afb17e5a69b6295bbe528ca04d775d318a34dbc59a888bb6d03398",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released profile-owned store tag definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "store-tag"
+    ],
+    "progression_kind": "StoreTagDefinition",
+    "source_numeric_id": "1",
+    "source_name_hash": "",
+    "membership_inference_allowed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.tag.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure store tag 2",
+    "name_zh_cn": "启程篇商店标签 2",
+    "summary_en": "Exact released store tag definition retained without inferring membership.",
+    "summary_zh_cn": "保留精确正式发布商店标签定义，不推断成员关系。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTagConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0e802e5699d60b1d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTagConfig.json",
+        "locator": "row=1;ID=2;Season=EarlyAccess",
+        "sha256": "0e802e5699d60b1deef1f9e03a8b6e9ed426769d2c9b8044933d821d58029772",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released profile-owned store tag definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "store-tag"
+    ],
+    "progression_kind": "StoreTagDefinition",
+    "source_numeric_id": "2",
+    "source_name_hash": "",
+    "membership_inference_allowed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.tag.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure store tag 3",
+    "name_zh_cn": "启程篇商店标签 3",
+    "summary_en": "Exact released store tag definition retained without inferring membership.",
+    "summary_zh_cn": "保留精确正式发布商店标签定义，不推断成员关系。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTagConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a0b110e0bfdc8be0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTagConfig.json",
+        "locator": "row=2;ID=3;Season=EarlyAccess",
+        "sha256": "a0b110e0bfdc8be0b3708c4947d29eeb72203c5d5912bed5d474387f370011a5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released profile-owned store tag definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "store-tag"
+    ],
+    "progression_kind": "StoreTagDefinition",
+    "source_numeric_id": "3",
+    "source_name_hash": "",
+    "membership_inference_allowed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.tag.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure store tag 4",
+    "name_zh_cn": "启程篇商店标签 4",
+    "summary_en": "Exact released store tag definition retained without inferring membership.",
+    "summary_zh_cn": "保留精确正式发布商店标签定义，不推断成员关系。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTagConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e773448b45f6571a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTagConfig.json",
+        "locator": "row=3;ID=4;Season=EarlyAccess",
+        "sha256": "e773448b45f6571a4cedb9c040b51cb671f4f777163c29a23d4883825dc926c3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released profile-owned store tag definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "store-tag"
+    ],
+    "progression_kind": "StoreTagDefinition",
+    "source_numeric_id": "4",
+    "source_name_hash": "",
+    "membership_inference_allowed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106601",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106601",
+    "name_zh_cn": "启程篇队伍加成 3106601",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0240",
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.346a542e24ef9c34",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=240;ID=3106601",
+        "sha256": "346a542e24ef9c3440ff230732d751e23f846dc0cf6de58c3c01f05963f5e0bb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      },
+      {
+        "source_id": "source.goal16.db3bdbdd502393d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=0;Season=EarlyAccess;StageMergedID=414001",
+        "sha256": "db3bdbdd502393d4ad0585557439557e4f505a4944419290923444ed5e5540e6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106601",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_001",
+    "stage_id": "galactic-baseballer.departure.stage.414001",
+    "source_disposition": "ExactStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106602",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106602",
+    "name_zh_cn": "启程篇队伍加成 3106602",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0241",
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cae66c37835f8607",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=241;ID=3106602",
+        "sha256": "cae66c37835f860709eaf618c49d96d54cb977919f7467b71bf07da26b1c0be9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      },
+      {
+        "source_id": "source.goal16.f9fd5c2082a41260",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=1;Season=EarlyAccess;StageMergedID=414002",
+        "sha256": "f9fd5c2082a41260481a55cb5861df7976c5576eb4680a9afa7c0193d80d8d85",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106602",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_002",
+    "stage_id": "galactic-baseballer.departure.stage.414002",
+    "source_disposition": "ExactStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106603",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106603",
+    "name_zh_cn": "启程篇队伍加成 3106603",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0242",
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5a3efc1ca09fae46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=242;ID=3106603",
+        "sha256": "5a3efc1ca09fae466697433aa1d49a5b505c48cbdb1ee621d972c08d3a3ab582",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      },
+      {
+        "source_id": "source.goal16.af44aa9a95d65b72",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=2;Season=EarlyAccess;StageMergedID=414003",
+        "sha256": "af44aa9a95d65b725ab17105f47fcf4317199bbb8ef98bcc3f580f3388c43115",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106603",
+    "source_level": 1,
+    "parameter_values": [
+      "0.8",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_003",
+    "stage_id": "galactic-baseballer.departure.stage.414003",
+    "source_disposition": "ExactStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106604",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106604",
+    "name_zh_cn": "启程篇队伍加成 3106604",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0243"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38d6d2f58f82e6bd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=243;ID=3106604",
+        "sha256": "38d6d2f58f82e6bd951ac40c05045bffba8686f9fc25e32f62aaa0c0564c37a6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106604",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_004",
+    "stage_id": null,
+    "source_disposition": "ReleasedDefinitionWithoutAuthoredStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106605",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106605",
+    "name_zh_cn": "启程篇队伍加成 3106605",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0244",
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.72546ee611c45123",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=244;ID=3106605",
+        "sha256": "72546ee611c45123f4d5dfe8d1f9804e355e36f101e272ad45ea7387c942c718",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      },
+      {
+        "source_id": "source.goal16.e3badf26d265793c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=3;Season=EarlyAccess;StageMergedID=414004",
+        "sha256": "e3badf26d265793c6aba97fa3553b3e6bc5baa021d435ddd73f37136bf6bc40d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106605",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_005",
+    "stage_id": "galactic-baseballer.departure.stage.414004",
+    "source_disposition": "ExactStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106606",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106606",
+    "name_zh_cn": "启程篇队伍加成 3106606",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0245",
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9e536b0a27bafc62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=245;ID=3106606",
+        "sha256": "9e536b0a27bafc6210a9fbf5cdda07d6107c67aeaab5bc9ba15fea6a98885b1b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      },
+      {
+        "source_id": "source.goal16.4e7a642fec9bd991",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=4;Season=EarlyAccess;StageMergedID=414006",
+        "sha256": "4e7a642fec9bd99172011284c7453a86005cc5b5b0c9bb55066fa299431acb45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106606",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_006",
+    "stage_id": "galactic-baseballer.departure.stage.414006",
+    "source_disposition": "ExactStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106607",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106607",
+    "name_zh_cn": "启程篇队伍加成 3106607",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0246",
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.51744145bfc816b7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=246;ID=3106607",
+        "sha256": "51744145bfc816b70e3e1ef24e98065f7fe27363198af10c50e4032fd6133939",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      },
+      {
+        "source_id": "source.goal16.1a2321951ce5c7b9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=5;Season=EarlyAccess;StageMergedID=414007",
+        "sha256": "1a2321951ce5c7b9d9bf58c04a1410a9da70a38743ec46dd09d85e4f8a51016e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106607",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_007",
+    "stage_id": "galactic-baseballer.departure.stage.414007",
+    "source_disposition": "ExactStageBinding"
+  },
+  {
+    "id": "galactic-baseballer.departure.progression.team-bonus.3106608",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ProgressionRule",
+    "name_en": "Departure team bonus 3106608",
+    "name_zh_cn": "启程篇队伍加成 3106608",
+    "summary_en": "Exact released team-bonus definition with an explicit stage binding when authored.",
+    "summary_zh_cn": "精确正式发布队伍加成定义；仅在有作者关系时绑定关卡。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0247"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8293a124978f6133",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=247;ID=3106608",
+        "sha256": "8293a124978f613360ee5725bcb763117a90fabf59eeda037c4656f514c621c8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released team-bonus MazeBuff definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "progression",
+      "team-bonus"
+    ],
+    "progression_kind": "TeamBonusDefinition",
+    "source_maze_buff_id": "3106608",
+    "source_level": 1,
+    "parameter_values": [
+      "0.8",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_008",
+    "stage_id": null,
+    "source_disposition": "ReleasedDefinitionWithoutAuthoredStageBinding"
+  }
+]

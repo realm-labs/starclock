@@ -1,0 +1,1451 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113201",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Crest of Sol and Lune",
+    "name_zh_cn": "合成日月同徽",
+    "summary_en": "Exact acyclic Twin synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的双重合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.84017fb7aff1fd18",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3113201",
+        "sha256": "84017fb7aff1fd1838038e3616d59eaa78b4961ace718506a3bdb3089591accb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.7023023663a206cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=3;ID=DuelForge;Season=SecondChapter",
+        "sha256": "7023023663a206cfce7b406e8773e0743fabbfc87604a17d3a8d745a11824f3b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "synthesis",
+      "twin"
+    ],
+    "tier": "Twin",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113201",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113005"
+      },
+      {
+        "ordinal": 1,
+        "input_source_numeric_id": "3113006"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113301",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Supreme All-Color Home Run",
+    "name_zh_cn": "合成至尊幻彩全垒打",
+    "summary_en": "Exact acyclic Supreme synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的至尊合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ed2fe1bd209243c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=13;ForgeGearID=3113301",
+        "sha256": "ed2fe1bd209243c4643bdc1f2a1764dfe211caa75e3031f7a7c84b4adfd7b7c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.cf44d9274b1e3751",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=4;ID=UltraForge;Season=SecondChapter",
+        "sha256": "cf44d9274b1e375118a76be89755436b2056b4067eadba432033a0a5c734a7d8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "supreme",
+      "synthesis"
+    ],
+    "tier": "Supreme",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113301",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113901"
+      },
+      {
+        "ordinal": 1,
+        "input_source_numeric_id": "3113014"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113901",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Rainbow Pitcher",
+    "name_zh_cn": "合成彩虹投手",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0000",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.af7903a5c4064195",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=0;ForgeGearID=3113901",
+        "sha256": "af7903a5c4064195129594b64836b9ee0d3e6712327d6599f27cb088aa815e4e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113901",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113001"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113902",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Cosmic RuinBot",
+    "name_zh_cn": "合成宇宙歼灭机器人",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0001",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9a5040983f4b248a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=1;ForgeGearID=3113902",
+        "sha256": "9a5040983f4b248ac81e4183b91d6f7a225d61b6c4effefe0ca80d90346202a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113902",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113002"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113903",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Hero's Summon",
+    "name_zh_cn": "合成英雄诏令",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0002",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9a78ad8c1399d73d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=2;ForgeGearID=3113903",
+        "sha256": "9a78ad8c1399d73dcccf7e30ea6f0c2bb0ea674de65c7d9ac264b2c2b82e32dd",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113903",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113003"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113904",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Brilliant Scepter",
+    "name_zh_cn": "合成光焰权杖",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0003",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5dc88a6ad9e705d7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=3;ForgeGearID=3113904",
+        "sha256": "5dc88a6ad9e705d73f27e6ec32ed8d96ce455fd7d4694a237dd8036f8749b9fe",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113904",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113004"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113907",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Shadowed Assassin",
+    "name_zh_cn": "合成阴影暗杀者",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0005",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e2492da9889968f3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=5;ForgeGearID=3113907",
+        "sha256": "e2492da9889968f3ff93568aa74f0702744c4e99feb8b5d6252cf9192c27cb2b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113907",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113007"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113908",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Cryo Wheel Chakram",
+    "name_zh_cn": "合成冰轮环刃",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0006",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ac53fb9b6fcb907c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=6;ForgeGearID=3113908",
+        "sha256": "ac53fb9b6fcb907ca8396ffa721a46baa97982cc72f3d4e6e7eeaa6b04f8f09a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113908",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113008"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113909",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Invincible Formation",
+    "name_zh_cn": "合成所向披靡之阵",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0007",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ef398a6a16073cbb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=7;ForgeGearID=3113909",
+        "sha256": "ef398a6a16073cbba1c8316f526c05695cb4cf3ef617c9c9c0f3f97457ae097b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113909",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113009"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113910",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Happy Drink Combo",
+    "name_zh_cn": "合成欢乐畅饮套餐",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0008",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.379fc75666b0aa63",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=8;ForgeGearID=3113910",
+        "sha256": "379fc75666b0aa63eb88cea1d4520a10c1a22e341c7cca9458355173f8cf431f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113910",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113010"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113911",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Lucky One's Gamble",
+    "name_zh_cn": "合成幸运儿的赌局",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0009",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8177aab740d68c91",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=9;ForgeGearID=3113911",
+        "sha256": "8177aab740d68c91d68193ce8661a3f4eabd7bce31f40ca0812d8aa609da8b35",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113911",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113011"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113912",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Thunderstorm's Hammer",
+    "name_zh_cn": "合成暴风雷霆之锤",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0010",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0547820dc797e704",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=10;ForgeGearID=3113912",
+        "sha256": "0547820dc797e704b93fecdd0e2d902562d5f4237ff9f7d4d230a9783234938b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113912",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113012"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113913",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Earth-Shattering Fan",
+    "name_zh_cn": "合成破山振海之扇",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0011",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.35c3f89cad68c83a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=11;ForgeGearID=3113913",
+        "sha256": "35c3f89cad68c83ac61519db05db9876e07e7c82e4b4128674d7d7d5d25d76da",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113913",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113013"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.recipe.3113915",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Kindest Benediction",
+    "name_zh_cn": "合成至善赐福",
+    "summary_en": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order.",
+    "summary_zh_cn": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0012",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb9bfca78b52d0d3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=12;ForgeGearID=3113915",
+        "sha256": "cb9bfca78b52d0d307423f354f995903276917e40750a9c12b24042a90450405",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.5064dafe55fd5fa7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=2;ID=Forge;Season=SecondChapter",
+        "sha256": "5064dafe55fd5fa72182d7aa8ac1639cf5f57a031db42b3f3303535b578a20af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113915",
+    "input_count": 2,
+    "validation_order": "input stable ID ascending",
+    "consumption_order": [
+      {
+        "ordinal": 0,
+        "input_source_numeric_id": "3113015"
+      }
+    ],
+    "candidate_precedence": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade",
+    "failure_behavior": "ProjectPolicy: reject without inventory mutation or resource consumption"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106901",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Morningstar Bat",
+    "name_zh_cn": "合成晨星球棒",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5f029e211f76a368",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=0;ForgeGearID=3106901",
+        "sha256": "5f029e211f76a3685d3c683510b4f6aa6b25a27124311aaad927bf1e33c10440",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106901",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106902",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Musketeer's Resolve",
+    "name_zh_cn": "合成火枪手的决心",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1ff9942bdf93b074",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=1;ForgeGearID=3106902",
+        "sha256": "1ff9942bdf93b074bb15c0b74ade2037a84906a02caccf3caf3990184344cbc7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106902",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106903",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Headwind Bow",
+    "name_zh_cn": "合成戗风之弩",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.053502dbcbb1f7df",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=2;ForgeGearID=3106903",
+        "sha256": "053502dbcbb1f7df37514a24002b52a61c1534d9ff32f569f7fdb82485a130be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106903",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106904",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Shockbolt Crown",
+    "name_zh_cn": "合成惊雷冠冕",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.20cbd922ecbb24a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=3;ForgeGearID=3106904",
+        "sha256": "20cbd922ecbb24a6ae329065f95bdab2d683b36663e822d9edad0a0467c141e9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106904",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106905",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Surprise in a Box",
+    "name_zh_cn": "合成盒中惊喜",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4d8ee76da30b6885",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3106905",
+        "sha256": "4d8ee76da30b6885a060634f63af27a0573e157c0182d19964decfaa956c5c91",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106905",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106906",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Eternal Fortress",
+    "name_zh_cn": "合成不朽堡垒",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ebf9bcbe4d1cc342",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=5;ForgeGearID=3106906",
+        "sha256": "ebf9bcbe4d1cc34222d31c9cd2b840e49a637f0fdd4abc7d813a629ab0b9b5d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106906",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106907",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Flaming Greatsword",
+    "name_zh_cn": "合成炽焰大剑",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.887bc2ab61033184",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=6;ForgeGearID=3106907",
+        "sha256": "887bc2ab61033184180b9a3d6eb70c0bff2c0e7d7b5b7f87a23f8d822a71a0f3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106907",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106908",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Gambit in the Game",
+    "name_zh_cn": "合成局中博弈",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.754dcf16af3d65cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=7;ForgeGearID=3106908",
+        "sha256": "754dcf16af3d65cfa8e1665f514be8550b7d5049e8649cfceaba6c9c3015eb25",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106908",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106909",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Kindest Benediction",
+    "name_zh_cn": "合成至善赐福",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4f548e95e32b480a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=8;ForgeGearID=3106909",
+        "sha256": "4f548e95e32b480a049a217b38525be4eb8ff3129e7e8135c979a62b0ba68ed8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106909",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106910",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Cryoflame Thrower",
+    "name_zh_cn": "合成冰焰喷射器",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d93d6f77e47fa223",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=9;ForgeGearID=3106910",
+        "sha256": "d93d6f77e47fa22369a265cf7db7542b109b3f4dc27fd7a3535f223d7dae1f7d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106910",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106911",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Prison-Shatter Hammer",
+    "name_zh_cn": "合成碎牢重锤",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.384a4b339a15e10b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=10;ForgeGearID=3106911",
+        "sha256": "384a4b339a15e10b87ebf47afd7bf1c79c8c89d96213d0f410c04dc81a969ff5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106911",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106912",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Time's Eternity",
+    "name_zh_cn": "合成光阴的永恒",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f3a413d4839fbce8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=11;ForgeGearID=3106912",
+        "sha256": "f3a413d4839fbce836c228b8236ad8ef188c343616b9d65f2d85d14c67ef1995",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106912",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106913",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisRecipe",
+    "name_en": "Synthesize Pretentious Visage",
+    "name_zh_cn": "合成岸然道貌之相",
+    "summary_en": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon.",
+    "summary_zh_cn": "普通武器加指定配饰合成一件传说武器的精确无环配方。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.24b6bb28e2d3ff8c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=12;ForgeGearID=3106913",
+        "sha256": "24b6bb28e2d3ff8c70fec2195a3806c2043f3f78eb59b763772dda7af9c13d77",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and consumption list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legendary",
+      "synthesis"
+    ],
+    "tier": "Legendary",
+    "output_weapon_id": "galactic-baseballer.departure.weapon.3106913",
+    "input_count": 2,
+    "validation_order": "all-prerequisites-before-consumption",
+    "failure_behavior": "ProjectPolicy: no mutation; covered by the approximation register"
+  }
+]

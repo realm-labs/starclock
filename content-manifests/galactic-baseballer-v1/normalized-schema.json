@@ -1,0 +1,833 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-normalized-schema.v1",
+  "row_schema_revision": "starclock.galactic-baseballer-row.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "profiles": [
+    "galactic-baseballer.departure.v2_2",
+    "galactic-baseballer.demon-king.v3_3"
+  ],
+  "authoritative_surface": "xlsx",
+  "normalized_root": "content-reference/galactic-baseballer-v1",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "profile_ids",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "mechanism_quality",
+      "manifest_record_ids",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.galactic-baseballer-row.v1"
+    },
+    "profile_ids": {
+      "type": "array",
+      "minimum": 1,
+      "unique": true,
+      "ordering": "lexicographic",
+      "values": [
+        "galactic-baseballer.departure.v2_2",
+        "galactic-baseballer.demon-king.v3_3"
+      ]
+    },
+    "ownership": {
+      "enum": [
+        "Departure",
+        "DemonKing",
+        "SharedBase",
+        "Shared"
+      ]
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked",
+        "EvidenceOnly"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "mechanism_quality": {
+      "enum": [
+        "ExactProgram",
+        "ExactRelationship",
+        "ObservedBehavior",
+        "IdentityCrossCheck",
+        "PolicyBoundary",
+        "ContextOnly"
+      ]
+    },
+    "manifest_record_ids": {
+      "type": "array",
+      "minimum": 1,
+      "unique": true,
+      "ordering": "lexicographic",
+      "resolution": "P0-B3 content-manifest category record"
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve upstream IDs and TextMap hashes without JavaScript-safe-integer loss"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "Goal 16 pack index or explicitly inherited stable identity",
+      "unknown_behavior": "reject"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository_or_url",
+        "revision_or_access_date",
+        "game_version",
+        "path_or_page",
+        "locator",
+        "sha256",
+        "evidence_quality",
+        "mechanism_quality",
+        "note"
+      ],
+      "optional_fields": [
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require a nonempty replacement_condition"
+    },
+    "approximation": {
+      "required_fields": [
+        "field_path",
+        "unavailable_fact",
+        "known_released_facts",
+        "selected_policy",
+        "rejected_alternatives",
+        "rationale",
+        "affected_fixture_ids",
+        "confidence",
+        "replacement_condition"
+      ],
+      "minimum_rejected_alternatives": 2,
+      "confidence_enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "exact_claim_forbidden": true
+    },
+    "labeled_rng_stream": {
+      "label_format": "galactic-baseballer/{profile-id}/{activity-instance-id}/{decision-kind}/{decision-ordinal}",
+      "sampling": "project integer sampling only",
+      "candidates": "stable ordered Starclock IDs",
+      "forbidden": [
+        "system RNG",
+        "thread RNG",
+        "floating probability draw",
+        "generic shuffle"
+      ]
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "unicode_normalization": "NFC",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit ordering_keys; never filesystem, hash-map or object iteration order",
+    "set_array_order": "stable Starclock ID lexicographic unless a numeric source ordinal is exact",
+    "semantic_sequence_order": "preserve declared stage, candidate, operation, recipe, wave, slot and settlement order",
+    "null_policy": "omit absent optional values; null is forbidden as a second absence representation",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only; never binary floating cells",
+    "digest_policy": "SHA-256 over encoded bytes; pack-index.json is excluded from its own pack digest"
+  },
+  "lifecycle_contract": {
+    "definitions_separate_from_state": true,
+    "battle_state_owner": "starclock-combat inherited identity and formulas; this pack defines reference-only contributions",
+    "activity_state_owner": "future starclock-activity mode profile; no runtime implementation in Goal 16",
+    "ordered_boundaries": [
+      "profile and stage selection",
+      "loadout and initial weapon projection",
+      "battle contribution installation",
+      "wave/phase start",
+      "enemy defeat and experience award",
+      "team level threshold crossing",
+      "candidate generation and player decision",
+      "inventory acquisition/upgrade/synthesis",
+      "automatic and character-triggered weapon actions",
+      "score/rating/clear evaluation",
+      "battle settlement and profile progression projection",
+      "teardown"
+    ],
+    "rejected_command": "fixture must assert byte-identical authoritative preconditions",
+    "unknown_ordering": "ApproximateFromReleasedText or ProjectPolicy with two rejected alternatives and replacement condition",
+    "runtime_claim": false
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "Profile",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles"
+      ],
+      "ordering_keys": [
+        "id"
+      ]
+    },
+    {
+      "file": "release-boundaries.json",
+      "record_kind": "ReleaseBoundary",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles"
+      ],
+      "ordering_keys": [
+        "release_order",
+        "id"
+      ]
+    },
+    {
+      "file": "stages.json",
+      "record_kind": "Stage",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profile_stages"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "difficulty",
+        "id"
+      ]
+    },
+    {
+      "file": "stage-periods.json",
+      "record_kind": "StagePeriod",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "stage_periods"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "period_order",
+        "id"
+      ]
+    },
+    {
+      "file": "weapons.json",
+      "record_kind": "Weapon",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "weapon_collections"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "id"
+      ]
+    },
+    {
+      "file": "weapon-levels.json",
+      "record_kind": "WeaponLevel",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "weapon_levels"
+      ],
+      "ordering_keys": [
+        "weapon_id",
+        "level",
+        "id"
+      ]
+    },
+    {
+      "file": "weapon-triggers.json",
+      "record_kind": "WeaponTrigger",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "weapon_levels",
+        "config_programs"
+      ],
+      "ordering_keys": [
+        "weapon_id",
+        "trigger_order",
+        "id"
+      ]
+    },
+    {
+      "file": "accessories.json",
+      "record_kind": "Accessory",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "accessory_levels"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "id"
+      ]
+    },
+    {
+      "file": "accessory-levels.json",
+      "record_kind": "AccessoryLevel",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "accessory_levels"
+      ],
+      "ordering_keys": [
+        "accessory_id",
+        "level",
+        "id"
+      ]
+    },
+    {
+      "file": "accessory-bindings.json",
+      "record_kind": "AccessoryBinding",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "accessory_levels"
+      ],
+      "ordering_keys": [
+        "accessory_id",
+        "binding_order",
+        "id"
+      ]
+    },
+    {
+      "file": "synthesis-recipes.json",
+      "record_kind": "SynthesisRecipe",
+      "phase": "P1-B2/P2-B2",
+      "manifest_category_inputs": [
+        "synthesis_materials"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "tier",
+        "id"
+      ]
+    },
+    {
+      "file": "synthesis-inputs.json",
+      "record_kind": "SynthesisInput",
+      "phase": "P1-B2/P2-B2",
+      "manifest_category_inputs": [
+        "synthesis_materials"
+      ],
+      "ordering_keys": [
+        "recipe_id",
+        "input_order",
+        "id"
+      ]
+    },
+    {
+      "file": "level-thresholds.json",
+      "record_kind": "LevelThreshold",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "level",
+        "id"
+      ]
+    },
+    {
+      "file": "candidate-pools.json",
+      "record_kind": "CandidatePool",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "upgrade_cards",
+        "upgrade_card_types",
+        "offer_box_groups",
+        "offer_box_items"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "id"
+      ]
+    },
+    {
+      "file": "candidate-policies.json",
+      "record_kind": "CandidatePolicy",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "decision_order",
+        "id"
+      ]
+    },
+    {
+      "file": "inventory-slots.json",
+      "record_kind": "InventorySlotPolicy",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "slot_kind",
+        "id"
+      ]
+    },
+    {
+      "file": "inventory-operations.json",
+      "record_kind": "InventoryOperation",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "operation_order",
+        "id"
+      ]
+    },
+    {
+      "file": "encounters.json",
+      "record_kind": "Encounter",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "shared_stage_configs",
+        "infinite_stage_groups"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "stage_id",
+        "id"
+      ]
+    },
+    {
+      "file": "waves.json",
+      "record_kind": "EncounterWave",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "infinite_waves"
+      ],
+      "ordering_keys": [
+        "encounter_id",
+        "wave_order",
+        "id"
+      ]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "EnemySlot",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "infinite_monster_groups"
+      ],
+      "ordering_keys": [
+        "wave_id",
+        "slot_order",
+        "id"
+      ]
+    },
+    {
+      "file": "enemies.json",
+      "record_kind": "EnemyIdentity",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "enemy_variants",
+        "enemy_templates"
+      ],
+      "ordering_keys": [
+        "source_numeric_id",
+        "id"
+      ]
+    },
+    {
+      "file": "enemy-skills.json",
+      "record_kind": "EnemySkill",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "enemy_skills"
+      ],
+      "ordering_keys": [
+        "enemy_id",
+        "skill_order",
+        "id"
+      ]
+    },
+    {
+      "file": "enemy-statuses.json",
+      "record_kind": "EnemyStatus",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "enemy_statuses"
+      ],
+      "ordering_keys": [
+        "source_numeric_id",
+        "id"
+      ]
+    },
+    {
+      "file": "scoring-rules.json",
+      "record_kind": "ScoringRule",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "stage_periods",
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "evaluation_order",
+        "id"
+      ]
+    },
+    {
+      "file": "settlement-rules.json",
+      "record_kind": "SettlementRule",
+      "phase": "P1-B4/P2-B4",
+      "manifest_category_inputs": [
+        "profile_stages",
+        "stage_periods"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "settlement_order",
+        "id"
+      ]
+    },
+    {
+      "file": "profile-differences.json",
+      "record_kind": "ProfileDifference",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "profiles"
+      ],
+      "ordering_keys": [
+        "difference_order",
+        "id"
+      ]
+    },
+    {
+      "file": "adventure-strategies.json",
+      "record_kind": "AdventureStrategy",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "upgrade_cards",
+        "upgrade_card_types"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "id"
+      ]
+    },
+    {
+      "file": "progression.json",
+      "record_kind": "ProgressionRule",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "progression_order",
+        "id"
+      ]
+    },
+    {
+      "file": "currencies.json",
+      "record_kind": "Currency",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "shop_progression"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "id"
+      ]
+    },
+    {
+      "file": "shop-upgrades.json",
+      "record_kind": "ShopUpgrade",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "shop_progression"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "upgrade_order",
+        "id"
+      ]
+    },
+    {
+      "file": "unlocks.json",
+      "record_kind": "UnlockRule",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "profile_stages",
+        "shop_progression"
+      ],
+      "ordering_keys": [
+        "profile_id",
+        "unlock_order",
+        "id"
+      ]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "MechanicRule",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "family_id",
+        "id"
+      ]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "Source",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "profiles",
+        "profile_stages",
+        "stage_periods",
+        "weapon_collections",
+        "weapon_levels",
+        "weapon_types",
+        "accessory_levels",
+        "synthesis_materials",
+        "upgrade_cards",
+        "upgrade_card_types",
+        "offer_box_groups",
+        "offer_box_items",
+        "mode_constants",
+        "shop_progression",
+        "content_tags",
+        "tutorial_entries",
+        "enemy_collection_locators",
+        "reward_locators",
+        "presentation_locators",
+        "config_programs",
+        "shared_stage_configs",
+        "infinite_stage_groups",
+        "infinite_waves",
+        "infinite_monster_groups",
+        "enemy_variants",
+        "enemy_templates",
+        "enemy_skills",
+        "enemy_statuses",
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ]
+    },
+    {
+      "file": "approximations.json",
+      "record_kind": "Approximation",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "field_path",
+        "id"
+      ]
+    },
+    {
+      "file": "reconciliation.json",
+      "record_kind": "ReconciliationReceipt",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "shared_stage_configs",
+        "enemy_variants"
+      ],
+      "ordering_keys": [
+        "id"
+      ]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "CoverageRow",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "profiles",
+        "profile_stages",
+        "stage_periods",
+        "weapon_collections",
+        "weapon_levels",
+        "weapon_types",
+        "accessory_levels",
+        "synthesis_materials",
+        "upgrade_cards",
+        "upgrade_card_types",
+        "offer_box_groups",
+        "offer_box_items",
+        "mode_constants",
+        "shop_progression",
+        "content_tags",
+        "tutorial_entries",
+        "enemy_collection_locators",
+        "reward_locators",
+        "presentation_locators",
+        "config_programs",
+        "shared_stage_configs",
+        "infinite_stage_groups",
+        "infinite_waves",
+        "infinite_monster_groups",
+        "enemy_variants",
+        "enemy_templates",
+        "enemy_skills",
+        "enemy_statuses",
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "category_id",
+        "record_id"
+      ]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "ResearchGap",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "state",
+        "id"
+      ]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "SemanticReviewFixture",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "family_id",
+        "id"
+      ]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "PackManifest",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "profiles",
+        "profile_stages",
+        "stage_periods",
+        "weapon_collections",
+        "weapon_levels",
+        "weapon_types",
+        "accessory_levels",
+        "synthesis_materials",
+        "upgrade_cards",
+        "upgrade_card_types",
+        "offer_box_groups",
+        "offer_box_items",
+        "mode_constants",
+        "shop_progression",
+        "content_tags",
+        "tutorial_entries",
+        "enemy_collection_locators",
+        "reward_locators",
+        "presentation_locators",
+        "config_programs",
+        "shared_stage_configs",
+        "infinite_stage_groups",
+        "infinite_waves",
+        "infinite_monster_groups",
+        "enemy_variants",
+        "enemy_templates",
+        "enemy_skills",
+        "enemy_statuses",
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "PackIndex",
+      "phase": "P3-B1",
+      "manifest_category_inputs": [
+        "profiles",
+        "profile_stages",
+        "stage_periods",
+        "weapon_collections",
+        "weapon_levels",
+        "weapon_types",
+        "accessory_levels",
+        "synthesis_materials",
+        "upgrade_cards",
+        "upgrade_card_types",
+        "offer_box_groups",
+        "offer_box_items",
+        "mode_constants",
+        "shop_progression",
+        "content_tags",
+        "tutorial_entries",
+        "enemy_collection_locators",
+        "reward_locators",
+        "presentation_locators",
+        "config_programs",
+        "shared_stage_configs",
+        "infinite_stage_groups",
+        "infinite_waves",
+        "infinite_monster_groups",
+        "enemy_variants",
+        "enemy_templates",
+        "enemy_skills",
+        "enemy_statuses",
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1860 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.edition-difference-index",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EditionDifferenceIndex",
+    "name_en": "Demon King edition difference index",
+    "name_zh_cn": "魔王篇版本差异索引",
+    "summary_en": "Lossless field-name comparison of all Departure and Demon King constants; matching names do not imply shared record identity.",
+    "summary_zh_cn": "对启程篇与魔王篇全部常量进行无损字段名对账；同名不代表共享记录身份。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5185d1278f82670d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "docs/goals/16-galactic-baseballer-reference-data.md",
+        "locator": "profile contract: Demon King",
+        "sha256": "5185d1278f82670d11d3531def7345151316c673fcf14d69f8bce0413890fe06",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "difference-index",
+      "shared-base"
+    ],
+    "comparison_key_policy": "Strip only the exact EvolveBuild_ or EvolveBuildSC_ prefix; never infer identity from IDs, names or values.",
+    "stage_identity_policy": "No cross-profile stage aliases are admitted; only exact shared StageConfig references from StagePeriod rows are shared.",
+    "relationship_counts": {
+      "SharedValueExplicitlyRepeated": 38,
+      "DemonKingChanged": 25,
+      "DemonKingAdded": 13,
+      "DepartureOnlyNotInherited": 7
+    },
+    "constant_comparisons": [
+      {
+        "ordinal": 0,
+        "normalized_name": "Activity_Module_ID",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 35,
+          "const_value_name": "EvolveBuild_Activity_Module_ID",
+          "value": {
+            "IntValue": 5003501
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 37,
+          "const_value_name": "EvolveBuildSC_Activity_Module_ID",
+          "value": {
+            "IntValue": 5003501
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "normalized_name": "ActivityQuestRewardID",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 57,
+          "const_value_name": "EvolveBuild_ActivityQuestRewardID",
+          "value": {
+            "IntValue": 50011
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 56,
+          "const_value_name": "EvolveBuildSC_ActivityQuestRewardID",
+          "value": {
+            "IntValue": 50035
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "normalized_name": "Card_Reset_Num",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 69,
+          "const_value_name": "EvolveBuild_Card_Reset_Num",
+          "value": {
+            "IntValue": 0
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 67,
+          "const_value_name": "EvolveBuildSC_Card_Reset_Num",
+          "value": {
+            "IntValue": 1
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "normalized_name": "Card_UnlockQuest",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 66,
+          "const_value_name": "EvolveBuildSC_Card_UnlockQuest",
+          "value": {
+            "IntValue": 6070210
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "normalized_name": "Chest_Alter_Gold",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 24,
+          "const_value_name": "EvolveBuild_Chest_Alter_Gold",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 50
+              },
+              {
+                "IntValue": 250
+              },
+              {
+                "IntValue": 400
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 27,
+          "const_value_name": "EvolveBuildSC_Chest_Alter_Gold",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 50
+              },
+              {
+                "IntValue": 250
+              },
+              {
+                "IntValue": 400
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 5,
+        "normalized_name": "Chest_Basic_Gold",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 23,
+          "const_value_name": "EvolveBuild_Chest_Basic_Gold",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 50
+              },
+              {
+                "IntValue": 250
+              },
+              {
+                "IntValue": 400
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 26,
+          "const_value_name": "EvolveBuildSC_Chest_Basic_Gold",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 50
+              },
+              {
+                "IntValue": 250
+              },
+              {
+                "IntValue": 400
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 6,
+        "normalized_name": "Chest_Probability",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 25,
+          "const_value_name": "EvolveBuild_Chest_Probability",
+          "value": {
+            "ArrayValue": [
+              {
+                "DoubleValue": "0.4"
+              },
+              {
+                "DoubleValue": "0.3"
+              },
+              {
+                "DoubleValue": "0.3"
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 28,
+          "const_value_name": "EvolveBuildSC_Chest_Probability",
+          "value": {
+            "ArrayValue": [
+              {
+                "DoubleValue": "0.6"
+              },
+              {
+                "DoubleValue": "0.3"
+              },
+              {
+                "DoubleValue": "0.1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 7,
+        "normalized_name": "Chest_Probability_Step",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 26,
+          "const_value_name": "EvolveBuild_Chest_Probability_Step",
+          "value": {
+            "ArrayValue": [
+              {
+                "DoubleValue": "-0.1"
+              },
+              {
+                "IntValue": 0
+              },
+              {
+                "DoubleValue": "0.1"
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 29,
+          "const_value_name": "EvolveBuildSC_Chest_Probability_Step",
+          "value": {
+            "ArrayValue": [
+              {
+                "DoubleValue": "-0.15"
+              },
+              {
+                "IntValue": 0
+              },
+              {
+                "DoubleValue": "0.15"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 8,
+        "normalized_name": "Coin_ItemID",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 34,
+          "const_value_name": "EvolveBuild_Coin_ItemID",
+          "value": {
+            "IntValue": 281019
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 36,
+          "const_value_name": "EvolveBuildSC_Coin_ItemID",
+          "value": {
+            "IntValue": 281027
+          }
+        }
+      },
+      {
+        "ordinal": 9,
+        "normalized_name": "Collection_UnlockQuest",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 51,
+          "const_value_name": "EvolveBuild_Collection_UnlockQuest",
+          "value": {
+            "IntValue": 6020108
+          }
+        }
+      },
+      {
+        "ordinal": 10,
+        "normalized_name": "CountDownBattleEventID",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 58,
+          "const_value_name": "EvolveBuild_CountDownBattleEventID",
+          "value": {
+            "IntValue": 62101
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 57,
+          "const_value_name": "EvolveBuildSC_CountDownBattleEventID",
+          "value": {
+            "IntValue": 62101
+          }
+        }
+      },
+      {
+        "ordinal": 11,
+        "normalized_name": "DeleteStage_ID",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 67,
+          "const_value_name": "EvolveBuild_DeleteStage_ID",
+          "value": {
+            "IntValue": 414005
+          }
+        }
+      },
+      {
+        "ordinal": 12,
+        "normalized_name": "Devil_CardID",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 71,
+          "const_value_name": "EvolveBuildSC_Devil_CardID",
+          "value": {
+            "IntValue": 31137991
+          }
+        }
+      },
+      {
+        "ordinal": 13,
+        "normalized_name": "EarlyAccess_UnlockQuest",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 68,
+          "const_value_name": "EvolveBuild_EarlyAccess_UnlockQuest",
+          "value": {
+            "IntValue": 6070207
+          }
+        }
+      },
+      {
+        "ordinal": 14,
+        "normalized_name": "Exp_Basic_Boss",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 32,
+          "const_value_name": "EvolveBuild_Exp_Basic_Boss",
+          "value": {
+            "IntValue": 0
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 35,
+          "const_value_name": "EvolveBuildSC_Exp_Basic_Boss",
+          "value": {
+            "IntValue": 0
+          }
+        }
+      },
+      {
+        "ordinal": 15,
+        "normalized_name": "Exp_Basic_Elite",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 31,
+          "const_value_name": "EvolveBuild_Exp_Basic_Elite",
+          "value": {
+            "IntValue": 8
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 34,
+          "const_value_name": "EvolveBuildSC_Exp_Basic_Elite",
+          "value": {
+            "IntValue": 8
+          }
+        }
+      },
+      {
+        "ordinal": 16,
+        "normalized_name": "Exp_Basic_Normal1",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 29,
+          "const_value_name": "EvolveBuild_Exp_Basic_Normal1",
+          "value": {
+            "IntValue": 2
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 32,
+          "const_value_name": "EvolveBuildSC_Exp_Basic_Normal1",
+          "value": {
+            "IntValue": 2
+          }
+        }
+      },
+      {
+        "ordinal": 17,
+        "normalized_name": "Exp_Basic_Normal2",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 30,
+          "const_value_name": "EvolveBuild_Exp_Basic_Normal2",
+          "value": {
+            "IntValue": 4
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 33,
+          "const_value_name": "EvolveBuildSC_Exp_Basic_Normal2",
+          "value": {
+            "IntValue": 4
+          }
+        }
+      },
+      {
+        "ordinal": 18,
+        "normalized_name": "Exp_Basic_Special",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 33,
+          "const_value_name": "EvolveBuild_Exp_Basic_Special",
+          "value": {
+            "IntValue": 0
+          }
+        }
+      },
+      {
+        "ordinal": 19,
+        "normalized_name": "Exp_LvN",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 28,
+          "const_value_name": "EvolveBuild_Exp_LvN",
+          "value": {
+            "ArrayValue": [
+              {
+                "DoubleValue": "0.1"
+              },
+              {
+                "IntValue": 1
+              },
+              {
+                "IntValue": 12
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 31,
+          "const_value_name": "EvolveBuildSC_Exp_LvN",
+          "value": {
+            "ArrayValue": [
+              {
+                "DoubleValue": "0.14"
+              },
+              {
+                "IntValue": 1
+              },
+              {
+                "IntValue": 12
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 20,
+        "normalized_name": "Exp_Multiplier_Wave_N",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 27,
+          "const_value_name": "EvolveBuild_Exp_Multiplier_Wave_N",
+          "value": {
+            "DoubleValue": "0.27"
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 30,
+          "const_value_name": "EvolveBuildSC_Exp_Multiplier_Wave_N",
+          "value": {
+            "DoubleValue": "0.27"
+          }
+        }
+      },
+      {
+        "ordinal": 21,
+        "normalized_name": "FinalStage_ExtraBonus",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 15,
+          "const_value_name": "EvolveBuild_FinalStage_ExtraBonus",
+          "value": {
+            "IntValue": 5000
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 19,
+          "const_value_name": "EvolveBuildSC_FinalStage_ExtraBonus",
+          "value": {
+            "IntValue": 5000
+          }
+        }
+      },
+      {
+        "ordinal": 22,
+        "normalized_name": "Gold_Basic_Boss",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 19,
+          "const_value_name": "EvolveBuild_Gold_Basic_Boss",
+          "value": {
+            "IntValue": 200
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 23,
+          "const_value_name": "EvolveBuildSC_Gold_Basic_Boss",
+          "value": {
+            "IntValue": 200
+          }
+        }
+      },
+      {
+        "ordinal": 23,
+        "normalized_name": "Gold_Basic_Chest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 21,
+          "const_value_name": "EvolveBuild_Gold_Basic_Chest",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 400
+              },
+              {
+                "IntValue": 1500
+              },
+              {
+                "IntValue": 2500
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 24,
+          "const_value_name": "EvolveBuildSC_Gold_Basic_Chest",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 300
+              },
+              {
+                "IntValue": 800
+              },
+              {
+                "IntValue": 1200
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 24,
+        "normalized_name": "Gold_Basic_Elite",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 18,
+          "const_value_name": "EvolveBuild_Gold_Basic_Elite",
+          "value": {
+            "IntValue": 20
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 22,
+          "const_value_name": "EvolveBuildSC_Gold_Basic_Elite",
+          "value": {
+            "IntValue": 20
+          }
+        }
+      },
+      {
+        "ordinal": 25,
+        "normalized_name": "Gold_Basic_Normal1",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 16,
+          "const_value_name": "EvolveBuild_Gold_Basic_Normal1",
+          "value": {
+            "IntValue": 5
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 20,
+          "const_value_name": "EvolveBuildSC_Gold_Basic_Normal1",
+          "value": {
+            "IntValue": 5
+          }
+        }
+      },
+      {
+        "ordinal": 26,
+        "normalized_name": "Gold_Basic_Normal2",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 17,
+          "const_value_name": "EvolveBuild_Gold_Basic_Normal2",
+          "value": {
+            "IntValue": 5
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 21,
+          "const_value_name": "EvolveBuildSC_Gold_Basic_Normal2",
+          "value": {
+            "IntValue": 5
+          }
+        }
+      },
+      {
+        "ordinal": 27,
+        "normalized_name": "Gold_Basic_Special",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 20,
+          "const_value_name": "EvolveBuild_Gold_Basic_Special",
+          "value": {
+            "IntValue": 0
+          }
+        }
+      },
+      {
+        "ordinal": 28,
+        "normalized_name": "Gold_MaxLevel",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 22,
+          "const_value_name": "EvolveBuild_Gold_MaxLevel",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 100
+              },
+              {
+                "IntValue": 250
+              },
+              {
+                "IntValue": 500
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 25,
+          "const_value_name": "EvolveBuildSC_Gold_MaxLevel",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 100
+              },
+              {
+                "IntValue": 250
+              },
+              {
+                "IntValue": 500
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 29,
+        "normalized_name": "Gold_MaxLimit",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 74,
+          "const_value_name": "EvolveBuildSC_Gold_MaxLimit",
+          "value": {
+            "IntValue": 500000
+          }
+        }
+      },
+      {
+        "ordinal": 30,
+        "normalized_name": "LevelUp_AbilityName",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 42,
+          "const_value_name": "EvolveBuild_LevelUp_AbilityName",
+          "value": {
+            "ArrayValue": [
+              {
+                "StringValue": "StageAbility_VS_Common_LevelUp_InsertAbility"
+              },
+              {
+                "StringValue": "StageAbility_VS_Common_LevelUp_GreenHand_InsertAbility"
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 42,
+          "const_value_name": "EvolveBuildSC_LevelUp_AbilityName",
+          "value": {
+            "ArrayValue": [
+              {
+                "StringValue": "StageAbility_VS_Common_LevelUp_InsertAbility"
+              },
+              {
+                "StringValue": "StageAbility_VS_Common_LevelUp_GreenHand_SC_InsertAbility"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 31,
+        "normalized_name": "MazeBuffID_LostCount",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 44,
+          "const_value_name": "EvolveBuild_MazeBuffID_LostCount",
+          "value": {
+            "IntValue": 3106813
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 44,
+          "const_value_name": "EvolveBuildSC_MazeBuffID_LostCount",
+          "value": {
+            "IntValue": 3113813
+          }
+        }
+      },
+      {
+        "ordinal": 32,
+        "normalized_name": "MazeBuffID_ReRoll",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 43,
+          "const_value_name": "EvolveBuild_MazeBuffID_ReRoll",
+          "value": {
+            "IntValue": 3106812
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 43,
+          "const_value_name": "EvolveBuildSC_MazeBuffID_ReRoll",
+          "value": {
+            "IntValue": 3113812
+          }
+        }
+      },
+      {
+        "ordinal": 33,
+        "normalized_name": "Offering_MaxLimit",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 75,
+          "const_value_name": "EvolveBuildSC_Offering_MaxLimit",
+          "value": {
+            "IntValue": 500000
+          }
+        }
+      },
+      {
+        "ordinal": 34,
+        "normalized_name": "OfferingType",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 70,
+          "const_value_name": "EvolveBuildSC_OfferingType",
+          "value": {
+            "IntValue": 8
+          }
+        }
+      },
+      {
+        "ordinal": 35,
+        "normalized_name": "OptionalBox_QuestID",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 69,
+          "const_value_name": "EvolveBuildSC_OptionalBox_QuestID",
+          "value": {
+            "IntValue": 6070236
+          }
+        }
+      },
+      {
+        "ordinal": 36,
+        "normalized_name": "OriginStage_Accessory_Slot",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 54,
+          "const_value_name": "EvolveBuild_OriginStage_Accessory_Slot",
+          "value": {
+            "IntValue": 4
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 53,
+          "const_value_name": "EvolveBuildSC_OriginStage_Accessory_Slot",
+          "value": {
+            "IntValue": 4
+          }
+        }
+      },
+      {
+        "ordinal": 37,
+        "normalized_name": "OriginStage_ForgeGearID",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 56,
+          "const_value_name": "EvolveBuild_OriginStage_ForgeGearID",
+          "value": {
+            "IntValue": 3106903
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 55,
+          "const_value_name": "EvolveBuildSC_OriginStage_ForgeGearID",
+          "value": {
+            "IntValue": 3113908
+          }
+        }
+      },
+      {
+        "ordinal": 38,
+        "normalized_name": "OriginStage_GearID",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 55,
+          "const_value_name": "EvolveBuild_OriginStage_GearID",
+          "value": {
+            "IntValue": 3106003
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 54,
+          "const_value_name": "EvolveBuildSC_OriginStage_GearID",
+          "value": {
+            "IntValue": 3113008
+          }
+        }
+      },
+      {
+        "ordinal": 39,
+        "normalized_name": "OriginStage_ID",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 49,
+          "const_value_name": "EvolveBuild_OriginStage_ID",
+          "value": {
+            "IntValue": 414000
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 49,
+          "const_value_name": "EvolveBuildSC_OriginStage_ID",
+          "value": {
+            "IntValue": 424000
+          }
+        }
+      },
+      {
+        "ordinal": 40,
+        "normalized_name": "OriginStage_Weapon_Slot",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 53,
+          "const_value_name": "EvolveBuild_OriginStage_Weapon_Slot",
+          "value": {
+            "IntValue": 3
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 52,
+          "const_value_name": "EvolveBuildSC_OriginStage_Weapon_Slot",
+          "value": {
+            "IntValue": 3
+          }
+        }
+      },
+      {
+        "ordinal": 41,
+        "normalized_name": "Remove_Num",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 62,
+          "const_value_name": "EvolveBuild_Remove_Num",
+          "value": {
+            "IntValue": 2
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 61,
+          "const_value_name": "EvolveBuildSC_Remove_Num",
+          "value": {
+            "IntValue": 2
+          }
+        }
+      },
+      {
+        "ordinal": 42,
+        "normalized_name": "Remove_ShopUnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 66,
+          "const_value_name": "EvolveBuild_Remove_ShopUnlockQuest",
+          "value": {
+            "IntValue": 6070102
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 65,
+          "const_value_name": "EvolveBuildSC_Remove_ShopUnlockQuest",
+          "value": {
+            "IntValue": 6070212
+          }
+        }
+      },
+      {
+        "ordinal": 43,
+        "normalized_name": "Remove_UnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 60,
+          "const_value_name": "EvolveBuild_Remove_UnlockQuest",
+          "value": {
+            "IntValue": 6070102
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 59,
+          "const_value_name": "EvolveBuildSC_Remove_UnlockQuest",
+          "value": {
+            "IntValue": 6070212
+          }
+        }
+      },
+      {
+        "ordinal": 44,
+        "normalized_name": "Reset_Num",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 61,
+          "const_value_name": "EvolveBuild_Reset_Num",
+          "value": {
+            "IntValue": 3
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 60,
+          "const_value_name": "EvolveBuildSC_Reset_Num",
+          "value": {
+            "IntValue": 3
+          }
+        }
+      },
+      {
+        "ordinal": 45,
+        "normalized_name": "Reset_ShopUnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 65,
+          "const_value_name": "EvolveBuild_Reset_ShopUnlockQuest",
+          "value": {
+            "IntValue": 6070100
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 64,
+          "const_value_name": "EvolveBuildSC_Reset_ShopUnlockQuest",
+          "value": {
+            "IntValue": 6070210
+          }
+        }
+      },
+      {
+        "ordinal": 46,
+        "normalized_name": "Reset_UnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 59,
+          "const_value_name": "EvolveBuild_Reset_UnlockQuest",
+          "value": {
+            "IntValue": 6070100
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 58,
+          "const_value_name": "EvolveBuildSC_Reset_UnlockQuest",
+          "value": {
+            "IntValue": 6070210
+          }
+        }
+      },
+      {
+        "ordinal": 47,
+        "normalized_name": "Reward_UnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 52,
+          "const_value_name": "EvolveBuild_Reward_UnlockQuest",
+          "value": {
+            "IntValue": 6020108
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 51,
+          "const_value_name": "EvolveBuildSC_Reward_UnlockQuest",
+          "value": {
+            "IntValue": 6070206
+          }
+        }
+      },
+      {
+        "ordinal": 48,
+        "normalized_name": "Score_Monster",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 36,
+          "const_value_name": "EvolveBuild_Score_Monster",
+          "value": {
+            "IntValue": 7000
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 38,
+          "const_value_name": "EvolveBuildSC_Score_Monster",
+          "value": {
+            "IntValue": 7000
+          }
+        }
+      },
+      {
+        "ordinal": 49,
+        "normalized_name": "Score_Monster_Elite",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 37,
+          "const_value_name": "EvolveBuild_Score_Monster_Elite",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 10000
+              },
+              {
+                "IntValue": 10000
+              },
+              {
+                "IntValue": 0
+              },
+              {
+                "IntValue": 0
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 39,
+          "const_value_name": "EvolveBuildSC_Score_Monster_Elite",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 10000
+              },
+              {
+                "IntValue": 10000
+              },
+              {
+                "IntValue": 0
+              },
+              {
+                "IntValue": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 50,
+        "normalized_name": "Score_Monster_Weight",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 38,
+          "const_value_name": "EvolveBuild_Score_Monster_Weight",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 1
+              },
+              {
+                "IntValue": 1
+              },
+              {
+                "IntValue": 5
+              },
+              {
+                "IntValue": 5
+              },
+              {
+                "IntValue": 1
+              }
+            ]
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 40,
+          "const_value_name": "EvolveBuildSC_Score_Monster_Weight",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 1
+              },
+              {
+                "IntValue": 1
+              },
+              {
+                "IntValue": 5
+              },
+              {
+                "IntValue": 5
+              },
+              {
+                "IntValue": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 51,
+        "normalized_name": "Score_ScoringGroup",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 39,
+          "const_value_name": "EvolveBuild_Score_ScoringGroup",
+          "value": {
+            "IntValue": 905
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 41,
+          "const_value_name": "EvolveBuildSC_Score_ScoringGroup",
+          "value": {
+            "IntValue": 913
+          }
+        }
+      },
+      {
+        "ordinal": 52,
+        "normalized_name": "Score_ScoringID_BossHP",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 46,
+          "const_value_name": "EvolveBuild_Score_ScoringID_BossHP",
+          "value": {
+            "IntValue": 90010
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 46,
+          "const_value_name": "EvolveBuildSC_Score_ScoringID_BossHP",
+          "value": {
+            "IntValue": 90020
+          }
+        }
+      },
+      {
+        "ordinal": 53,
+        "normalized_name": "Score_ScoringID_MonsterKill",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 45,
+          "const_value_name": "EvolveBuild_Score_ScoringID_MonsterKill",
+          "value": {
+            "IntValue": 90009
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 45,
+          "const_value_name": "EvolveBuildSC_Score_ScoringID_MonsterKill",
+          "value": {
+            "IntValue": 90019
+          }
+        }
+      },
+      {
+        "ordinal": 54,
+        "normalized_name": "Score_ScoringID_Time",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 47,
+          "const_value_name": "EvolveBuild_Score_ScoringID_Time",
+          "value": {
+            "IntValue": 90011
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 47,
+          "const_value_name": "EvolveBuildSC_Score_ScoringID_Time",
+          "value": {
+            "IntValue": 90021
+          }
+        }
+      },
+      {
+        "ordinal": 55,
+        "normalized_name": "Score_Special",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 41,
+          "const_value_name": "EvolveBuild_Score_Special",
+          "value": {
+            "IntValue": 0
+          }
+        }
+      },
+      {
+        "ordinal": 56,
+        "normalized_name": "Score_Time",
+        "relationship": "DepartureOnlyNotInherited",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 40,
+          "const_value_name": "EvolveBuild_Score_Time",
+          "value": {
+            "ArrayValue": [
+              {
+                "IntValue": 2000
+              },
+              {
+                "IntValue": 20
+              },
+              {
+                "IntValue": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ordinal": 57,
+        "normalized_name": "Score_UpperLimit",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 48,
+          "const_value_name": "EvolveBuild_Score_UpperLimit",
+          "value": {
+            "IntValue": 200000
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 48,
+          "const_value_name": "EvolveBuildSC_Score_UpperLimit",
+          "value": {
+            "IntValue": 200000
+          }
+        }
+      },
+      {
+        "ordinal": 58,
+        "normalized_name": "Shop_UnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 50,
+          "const_value_name": "EvolveBuild_Shop_UnlockQuest",
+          "value": {
+            "IntValue": 6070100
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 50,
+          "const_value_name": "EvolveBuildSC_Shop_UnlockQuest",
+          "value": {
+            "IntValue": 6070210
+          }
+        }
+      },
+      {
+        "ordinal": 59,
+        "normalized_name": "Skip_UnlockQuest",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 63,
+          "const_value_name": "EvolveBuild_Skip_UnlockQuest",
+          "value": {
+            "IntValue": 6070207
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 62,
+          "const_value_name": "EvolveBuildSC_Skip_UnlockQuest",
+          "value": {
+            "IntValue": 6070206
+          }
+        }
+      },
+      {
+        "ordinal": 60,
+        "normalized_name": "SkipOriginStage_UnlockQuest",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 68,
+          "const_value_name": "EvolveBuildSC_SkipOriginStage_UnlockQuest",
+          "value": {
+            "IntValue": 6020139
+          }
+        }
+      },
+      {
+        "ordinal": 61,
+        "normalized_name": "Slot_Accessory_Total",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 14,
+          "const_value_name": "EvolveBuild_Slot_Accessory_Total",
+          "value": {
+            "IntValue": 6
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 18,
+          "const_value_name": "EvolveBuildSC_Slot_Accessory_Total",
+          "value": {
+            "IntValue": 6
+          }
+        }
+      },
+      {
+        "ordinal": 62,
+        "normalized_name": "Slot_Accessory_Unlocked",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 13,
+          "const_value_name": "EvolveBuild_Slot_Accessory_Unlocked",
+          "value": {
+            "IntValue": 4
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 17,
+          "const_value_name": "EvolveBuildSC_Slot_Accessory_Unlocked",
+          "value": {
+            "IntValue": 4
+          }
+        }
+      },
+      {
+        "ordinal": 63,
+        "normalized_name": "Slot_Weapon_Total",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 12,
+          "const_value_name": "EvolveBuild_Slot_Weapon_Total",
+          "value": {
+            "IntValue": 5
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 16,
+          "const_value_name": "EvolveBuildSC_Slot_Weapon_Total",
+          "value": {
+            "IntValue": 5
+          }
+        }
+      },
+      {
+        "ordinal": 64,
+        "normalized_name": "Slot_Weapon_Unlocked",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 11,
+          "const_value_name": "EvolveBuild_Slot_Weapon_Unlocked",
+          "value": {
+            "IntValue": 4
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 15,
+          "const_value_name": "EvolveBuildSC_Slot_Weapon_Unlocked",
+          "value": {
+            "IntValue": 4
+          }
+        }
+      },
+      {
+        "ordinal": 65,
+        "normalized_name": "SpecialReward_TapInterval",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 73,
+          "const_value_name": "EvolveBuildSC_SpecialReward_TapInterval",
+          "value": {
+            "IntValue": 4
+          }
+        }
+      },
+      {
+        "ordinal": 66,
+        "normalized_name": "SpecialReward_WaitSecond",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 72,
+          "const_value_name": "EvolveBuildSC_SpecialReward_WaitSecond",
+          "value": {
+            "IntValue": 5
+          }
+        }
+      },
+      {
+        "ordinal": 67,
+        "normalized_name": "TutorialStage",
+        "relationship": "DemonKingChanged",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 64,
+          "const_value_name": "EvolveBuild_TutorialStage",
+          "value": {
+            "IntValue": 414011
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 63,
+          "const_value_name": "EvolveBuildSC_TutorialStage",
+          "value": {
+            "IntValue": 99999
+          }
+        }
+      },
+      {
+        "ordinal": 68,
+        "normalized_name": "Weight1",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 0,
+          "const_value_name": "EvolveBuild_Weight1",
+          "value": {
+            "IntValue": 18
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 0,
+          "const_value_name": "EvolveBuildSC_Weight1",
+          "value": {
+            "IntValue": 18
+          }
+        }
+      },
+      {
+        "ordinal": 69,
+        "normalized_name": "Weight10",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 9,
+          "const_value_name": "EvolveBuild_Weight10",
+          "value": {
+            "IntValue": 0
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 9,
+          "const_value_name": "EvolveBuildSC_Weight10",
+          "value": {
+            "IntValue": 0
+          }
+        }
+      },
+      {
+        "ordinal": 70,
+        "normalized_name": "Weight11",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 10,
+          "const_value_name": "EvolveBuild_Weight11",
+          "value": {
+            "IntValue": 7
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 10,
+          "const_value_name": "EvolveBuildSC_Weight11",
+          "value": {
+            "IntValue": 7
+          }
+        }
+      },
+      {
+        "ordinal": 71,
+        "normalized_name": "Weight12",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 11,
+          "const_value_name": "EvolveBuildSC_Weight12",
+          "value": {
+            "IntValue": 7
+          }
+        }
+      },
+      {
+        "ordinal": 72,
+        "normalized_name": "Weight13",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 12,
+          "const_value_name": "EvolveBuildSC_Weight13",
+          "value": {
+            "IntValue": 7
+          }
+        }
+      },
+      {
+        "ordinal": 73,
+        "normalized_name": "Weight14",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 13,
+          "const_value_name": "EvolveBuildSC_Weight14",
+          "value": {
+            "IntValue": 7
+          }
+        }
+      },
+      {
+        "ordinal": 74,
+        "normalized_name": "Weight15",
+        "relationship": "DemonKingAdded",
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 14,
+          "const_value_name": "EvolveBuildSC_Weight15",
+          "value": {
+            "IntValue": 7
+          }
+        }
+      },
+      {
+        "ordinal": 75,
+        "normalized_name": "Weight2",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 1,
+          "const_value_name": "EvolveBuild_Weight2",
+          "value": {
+            "IntValue": 6
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 1,
+          "const_value_name": "EvolveBuildSC_Weight2",
+          "value": {
+            "IntValue": 6
+          }
+        }
+      },
+      {
+        "ordinal": 76,
+        "normalized_name": "Weight3",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 2,
+          "const_value_name": "EvolveBuild_Weight3",
+          "value": {
+            "IntValue": 3
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 2,
+          "const_value_name": "EvolveBuildSC_Weight3",
+          "value": {
+            "IntValue": 3
+          }
+        }
+      },
+      {
+        "ordinal": 77,
+        "normalized_name": "Weight4",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 3,
+          "const_value_name": "EvolveBuild_Weight4",
+          "value": {
+            "IntValue": 3
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 3,
+          "const_value_name": "EvolveBuildSC_Weight4",
+          "value": {
+            "IntValue": 3
+          }
+        }
+      },
+      {
+        "ordinal": 78,
+        "normalized_name": "Weight5",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 4,
+          "const_value_name": "EvolveBuild_Weight5",
+          "value": {
+            "IntValue": 7
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 4,
+          "const_value_name": "EvolveBuildSC_Weight5",
+          "value": {
+            "IntValue": 7
+          }
+        }
+      },
+      {
+        "ordinal": 79,
+        "normalized_name": "Weight6",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 5,
+          "const_value_name": "EvolveBuild_Weight6",
+          "value": {
+            "IntValue": 6
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 5,
+          "const_value_name": "EvolveBuildSC_Weight6",
+          "value": {
+            "IntValue": 6
+          }
+        }
+      },
+      {
+        "ordinal": 80,
+        "normalized_name": "Weight7",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 6,
+          "const_value_name": "EvolveBuild_Weight7",
+          "value": {
+            "IntValue": 2
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 6,
+          "const_value_name": "EvolveBuildSC_Weight7",
+          "value": {
+            "IntValue": 2
+          }
+        }
+      },
+      {
+        "ordinal": 81,
+        "normalized_name": "Weight8",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 7,
+          "const_value_name": "EvolveBuild_Weight8",
+          "value": {
+            "IntValue": 0
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 7,
+          "const_value_name": "EvolveBuildSC_Weight8",
+          "value": {
+            "IntValue": 0
+          }
+        }
+      },
+      {
+        "ordinal": 82,
+        "normalized_name": "Weight9",
+        "relationship": "SharedValueExplicitlyRepeated",
+        "departure_source": {
+          "path": "ExcelOutput/EvolveBuildConstValueCommon.json",
+          "row": 8,
+          "const_value_name": "EvolveBuild_Weight9",
+          "value": {
+            "IntValue": 2
+          }
+        },
+        "demon_king_source": {
+          "path": "ExcelOutput/EvoBdSCConstValueCommon.json",
+          "row": 8,
+          "const_value_name": "EvolveBuildSC_Weight9",
+          "value": {
+            "IntValue": 2
+          }
+        }
+      }
+    ],
+    "later_detail_owners": {
+      "arsenal_and_synthesis": "G16-P2-B2",
+      "progression_and_store": "G16-P2-B3",
+      "encounters_and_score": "G16-P2-B4"
+    }
+  }
+]

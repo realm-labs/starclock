@@ -1,0 +1,158 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-authoring-contract.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "authority": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "editor_version": "3.1.5",
+    "schema_exporter": "sora-cli",
+    "schema_exporter_version": "0.3.0",
+    "production_artifact": "sora",
+    "json_role": "research-staging-and-debug-only",
+    "runtime_loading": false
+  },
+  "isolation": {
+    "project": "config/galactic-baseballer/project.toml",
+    "workbook_root": "config/galactic-baseballer/data",
+    "generated_root": "config/galactic-baseballer-generated",
+    "normalized_root": "content-reference/galactic-baseballer-v1",
+    "tool_root": "tools/galactic-baseballer-reference",
+    "evidence_root": "evidence/galactic-baseballer-reference-v1",
+    "forbidden_outputs": [
+      "config/generated",
+      "config/universe-generated",
+      "config/gold-and-gears-generated",
+      "config/swarm-disaster-generated",
+      "config/unknowable-domain-generated",
+      "config/divergent-universe-generated",
+      "config/currency-wars-generated",
+      "config/anomaly-arbitration-generated"
+    ]
+  },
+  "generation": {
+    "complete_workbook_set": true,
+    "overwrite_existing_target": false,
+    "patch_designer_workbook": false,
+    "fixed_document_timestamps": true,
+    "double_generation_byte_identical": true,
+    "formula_cells": "reject",
+    "excel_error_cells": "reject",
+    "unknown_columns": "reject",
+    "unknown_sheets": "reject",
+    "unknown_references": "reject"
+  },
+  "sheet_contract": {
+    "sora_metadata_rows": "preserve rows 1 through 7 exactly",
+    "data_start_row": 8,
+    "freeze_panes": "A8",
+    "auto_filter": true,
+    "header_style": "galactic-baseballer-header-v1",
+    "alternating_rows": true,
+    "wrapped_text": true,
+    "deterministic_widths": true,
+    "data_validation": true,
+    "typed_references": true,
+    "canonical_decimal_cells": "text",
+    "source_numeric_id_cells": "text"
+  },
+  "workbooks": [
+    {
+      "file": "GalacticBaseballerProfiles.xlsx",
+      "purpose": "profiles, releases, stages, growth, inventory, strategies, progression, currencies and store",
+      "normalized_files": [
+        "profiles.json",
+        "release-boundaries.json",
+        "stages.json",
+        "stage-periods.json",
+        "level-thresholds.json",
+        "candidate-pools.json",
+        "candidate-policies.json",
+        "inventory-slots.json",
+        "inventory-operations.json",
+        "profile-differences.json",
+        "adventure-strategies.json",
+        "progression.json",
+        "currencies.json",
+        "shop-upgrades.json",
+        "unlocks.json"
+      ]
+    },
+    {
+      "file": "GalacticBaseballerArsenal.xlsx",
+      "purpose": "weapons, accessories, trigger bindings and all synthesis tiers",
+      "normalized_files": [
+        "weapons.json",
+        "weapon-levels.json",
+        "weapon-triggers.json",
+        "accessories.json",
+        "accessory-levels.json",
+        "accessory-bindings.json",
+        "synthesis-recipes.json",
+        "synthesis-inputs.json"
+      ]
+    },
+    {
+      "file": "GalacticBaseballerEncounters.xlsx",
+      "purpose": "encounters, waves, enemies, skills, statuses, scores and settlement",
+      "normalized_files": [
+        "encounters.json",
+        "waves.json",
+        "enemy-slots.json",
+        "enemies.json",
+        "enemy-skills.json",
+        "enemy-statuses.json",
+        "scoring-rules.json",
+        "settlement-rules.json"
+      ]
+    },
+    {
+      "file": "GalacticBaseballerReview.xlsx",
+      "purpose": "rules, sources, approximations, reconciliation, coverage, fixtures and pack identity",
+      "normalized_files": [
+        "mechanic-rules.json",
+        "sources.json",
+        "approximations.json",
+        "reconciliation.json",
+        "coverage.json",
+        "research-gaps.json",
+        "review-fixtures.json",
+        "manifest.json",
+        "pack-index.json"
+      ]
+    }
+  ],
+  "table_family_contract": {
+    "one_primary_table_per_normalized_file": true,
+    "child_tables": "repeated typed fields require parent stable ID plus deterministic ordinal",
+    "table_names": "Gb plus PascalCase normalized file stem; child tables append a semantic role",
+    "sheet_names": "explicit in the Sora schema and at most 31 characters",
+    "numeric_keys": "private workbook identities only",
+    "stable_keys": "required for every cross-workbook, manifest or inherited reference",
+    "shared_rows": "reference inherited stable IDs and retain source path, locator and evidence digest"
+  },
+  "visual_review": {
+    "render_every_sheet": true,
+    "render_every_schema_column": true,
+    "inspect": [
+      "Sora metadata rows",
+      "header clipping",
+      "wrapped bilingual text",
+      "column widths",
+      "freeze panes",
+      "filters",
+      "validation prompts",
+      "empty-table readability",
+      "cross-workbook stable IDs"
+    ],
+    "artifact_root": "evidence/galactic-baseballer-reference-v1/workbook-review"
+  },
+  "acceptance": {
+    "schema_check": "sora check --project config/galactic-baseballer/project.toml",
+    "schema_build": "sora build --project config/galactic-baseballer/project.toml",
+    "export": "sora export --project config/galactic-baseballer/project.toml",
+    "reader_load": "every generated table and every row through the isolated generated reader",
+    "workbook_semantics": "canonical values, cell types, formulas, validations, sheet order, table identity and typed references",
+    "visual_review": "render and inspect every authored sheet and schema field column",
+    "clean_target": "generate complete outputs into a new path; never overwrite a designer-edited workbook"
+  }
+}
