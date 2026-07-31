@@ -1,0 +1,130 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "attempt-policies.json",
+  "record_kind": "attempt-policy",
+  "records": [
+    {
+      "id": "attempt.abandon",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "attempt-policy",
+      "name_en": "Abandonment",
+      "name_zh_cn": "放弃尝试",
+      "summary_en": "Abandonment",
+      "summary_zh_cn": "放弃尝试",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.attempt_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.attempt_policy"
+      ],
+      "runtime_executable": false,
+      "commits_no_partial_stage_result": true
+    },
+    {
+      "id": "attempt.accepted-start",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "attempt-policy",
+      "name_en": "Accepted start",
+      "name_zh_cn": "接受开始",
+      "summary_en": "Accepted start",
+      "summary_zh_cn": "接受开始",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.attempt_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.attempt_policy"
+      ],
+      "runtime_executable": false,
+      "validates_teams_and_cacophony": true
+    },
+    {
+      "id": "attempt.rejected-start",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "attempt-policy",
+      "name_en": "Rejected start",
+      "name_zh_cn": "拒绝开始",
+      "summary_en": "Rejected start",
+      "summary_zh_cn": "拒绝开始",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.attempt_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.attempt_policy"
+      ],
+      "runtime_executable": false,
+      "authoritative_state_unchanged": true
+    },
+    {
+      "id": "attempt.retry",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "retry-policy",
+      "name_en": "Retry boundary",
+      "name_zh_cn": "重试边界",
+      "summary_en": "Retry boundary",
+      "summary_zh_cn": "重试边界",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.retry_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.retry_policy"
+      ],
+      "runtime_executable": false,
+      "creates_new_attempt": true,
+      "permits_prestart_team_change": true
+    },
+    {
+      "id": "attempt.timeout-finalize",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "attempt-policy",
+      "name_en": "Timeout finalization",
+      "name_zh_cn": "超时结算",
+      "summary_en": "Timeout finalization",
+      "summary_zh_cn": "超时结算",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.attempt_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.attempt_policy"
+      ],
+      "runtime_executable": false,
+      "retains_node_score": true
+    }
+  ]
+}
