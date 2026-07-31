@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `memory-of-chaos-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Scope, sources and contracts |
+| Active phase | Phase 1 — Unique mode systems |
 | Active batch | — |
-| Next unblocked batch | `G17-P0-B4` |
+| Next unblocked batch | `G17-P1-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -31,7 +31,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | `G17-P0-B1` froze the execution-owned cache reproduction, Goal 03 and parallel isolation evidence; focused inventory remains in `G17-P0-B2`. |
+| Phase 0 — Scope, sources and contracts | `Complete` | Isolated cache/Goal 03/worktree foundation, 2,703-file inventory, 477-obligation active manifest, exact Tierce outer role, 10 empty-pool proofs and the 27-file/27-table/18-fixture authoring contract are frozen and deterministic. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting profile/season flow, participants/loadouts, attempts, clocks, objectives/stars, resources, Turbulence and Tierce semantics. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool zero/nonzero proofs, shared events/configs, exact StageConfig waves, enemies, AI and abilities. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
@@ -44,7 +44,7 @@
 | `G17-P0-B1` | `Complete` | This row's containing commit | Reproduced 28 required-file receipts in isolated clean/detached caches at `turnbasedgamedata@fd978d6e…c3568` and `StarRailRes@7b349e39…7a93`; verified origins, commit/blob readability and `git fsck --connectivity-only --no-dangling`. Goal 03 is Complete at immutable commit `60ca52ed…89de`. The execution branch/upstream/base, all registered worktrees, six writable roots and eight committed Goal 07–13/16 ownership inputs are frozen in `content-manifests/memory-of-chaos-v1/foundation.json`. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/foundation.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` with 2,703 pinned receipts: 2,646 inherited Goal 03 enemy/mechanic files, 10 dedicated Memory/Forgotten Hall tables, 17 shared entry/stage/event/config/TextMap seeds, 26 named adjacent Challenge exclusions, one remaining Challenge evidence table and three StarRailRes identity receipts. The 25 active StageConfig rows remain planning candidates; membership and transitive closure are reserved for P0-B3. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/inventory.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P0-B3` | `Complete` | This row's containing commit | Froze 477 exact obligations (172 MemoryOfChaos-owned, 305 Shared): active schedule `201033` and group `1033`; 12 ordinary stages; selected Tierce `5213`; six objectives; 25 released StageConfig rows; 99 exact wave/slot bindings; 41 enemy variants/templates; 221 inherited enemy abilities; 14 participant/attempt/clock/resource semantic obligations; and 10 generated empty-pool proofs. Tierce is proved as a separately selected extension after `5212` with one StageConfig `30123123`, targets `601`–`603` and countdown `45`; no third ordinary node/team/clock/settlement rule is inferred. Future schedule/group `201034`/`1034` are fail-closed exclusions. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/manifest.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
-| `G17-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
+| `G17-P0-B4` | `Complete` | This row's containing commit | Froze 27 normalized files, canonical UTF-8/LF/two-space JSON and decimal-string encoding, common bilingual/DataReady/evidence envelopes, field-level approximation requirements, source-path/row-locator/digest reconciliation identity, three isolated workbooks with 27 primary Sora tables and 18 non-shrinking semantic fixture families. Runtime rows and profile publication remain forbidden. Commands: `node tools/memory-of-chaos-reference/contracts.mjs --check`, `git diff --check`, `PATH="$PWD/.cache/python/bin:$PATH" STARCLOCK_SORA_BIN=/Users/mikai/CLionProjects/starclock/.cache/tools/sora-cli-0.3.0/bin/sora fnm exec --using 24.15.0 node tools/repository-check/run.mjs --full`; the full gate passed in 5,526.4 seconds, including 33 workspace test harnesses. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P1-B1` | `Pending` | — | Import profile, active season, entry/unlocks, floors/stages, ordinary nodes, Tierce identity, legal order and outcomes. |
 | `G17-P1-B2` | `Pending` | — | Import participants, team/loadout uniqueness, snapshots/locks, attempts, retries, reset and transitions. |
 | `G17-P1-B3` | `Pending` | — | Import cycle/AV clocks, tick boundaries, node/wave carry or reset, expiry and failure timing. |
@@ -107,8 +107,8 @@ generated selector-closure proof.
 | Services/currencies/shops/choices | 7 exact-zero proofs | 0 | 0 | Includes service, currency, shop, choice and analogous Rogue families. |
 | Encounter groups/waves/enemy slots | 124 | 0 | 0 | Twenty-five StageConfig rows and 99 ordered enemy slots. |
 | Enemy skills/statuses/AI/abilities | 303 | 0 | 0 | Forty-one exact variants, 41 inherited templates and 221 inherited abilities; transitive mechanics import remains Phase 2. |
-| Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | TBD | 0 | 0 | Cover every unique lifecycle, objective, Turbulence and encounter policy. |
+| Mechanic rules | 18 families | 0 | 0 | Reference contributions only; no runtime executability claim. |
+| Semantic fixtures | 18 families | 0 | 0 | Non-shrinking families cover selectors, lifecycles, objectives, Turbulence, encounter and exclusion/reconciliation policies. |
 
 ## Decisions
 
@@ -134,7 +134,7 @@ generated selector-closure proof.
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
-| `G17-R01` | `Open` | Which dedicated/shared table, entry mapping, TextMap, StageConfig, config/ability, enemy and AI files complete the focused inventory? | P0-B2 | Replace when generated inventory closes every enabled selector/reference and byte-identical double generation passes. |
+| `G17-R01` | `Closed` | The focused inventory contains 2,703 pinned receipts: 2,646 inherited Goal 03 transitive enemy/mechanic files, 54 Goal 17 dedicated/shared/adjacent Challenge receipts and three StarRailRes identity rows. | P0-B2 | `inventory.mjs --check` reproduces the path-sorted file inventory byte-identically; row reachability is separately frozen by P0-B3. |
 | `G17-R02` | `Closed` | Schedule `201033` is active at the frozen 2026-08-01 boundary and explicitly selects group `1033`; schedule `201034` begins 2026-08-17 and group `1034` is excluded. | P0-B3 | Exact-once selector and exclusion receipts are frozen in `content-manifest.json`. |
 | `G17-R03` | `PolicyBound` | Group `1033` selects Tierce `5213` once after `5212`; it binds one StageConfig `30123123`, objectives `601`–`603` and countdown `45`. Participant/team, clock carry and settlement details remain unclaimed and are a later runtime prerequisite. | P0-B3 / P1-B1–B6 | Replace remaining fields with decoded schema/reference joins and fixtures; do not infer them from the Tierce name or obfuscated field adjacency. |
 | `G17-R04` | `Open` | What are the exact character/combat-form, Light Cone and Relic-instance uniqueness scopes and loadout invalidation rules across ordinary and Tierce nodes? | P1-B2 | Replace with source-backed participant/lock rows and accepted/rejected/retry fixtures. |
