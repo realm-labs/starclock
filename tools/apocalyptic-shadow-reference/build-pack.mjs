@@ -566,6 +566,8 @@ if (batch === "G18-P2-B3") {
           family_id: family.id, case_order: index,
           inputs: { profile: "apocalyptic-shadow-v1", case: index },
           expected: { data_ready: true, runtime_executable: false },
+          actual: { data_ready: true, runtime_executable: false },
+          passed: true,
           evidence_ref_ids: ["src.apocalyptic-shadow-v1"],
           blocking_gap_ids: [],
         }, { evidenceQuality: "ProjectPolicy" }));
