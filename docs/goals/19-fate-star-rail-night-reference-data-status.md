@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique activity systems |
 | Active batch | — |
-| Next unblocked batch | `G19-P1-B2` |
+| Next unblocked batch | `G19-P1-B3` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -50,7 +50,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P0-B3` | `Complete` | This row's containing commit | Froze 1,904 exact-once obligations at `d3d6000e…684e`: 1,398 Fate-owned, 93 shared and 413 evidence-only; 1,478 DataReady and 13 conservative BattleEvent/BattleTarget joins retained as research. Added BattleArea join tables to the current 179-file inventory and proved exact-zero Blessing/Curio/Occurrence/shop/service/generic-currency pools. Manifest/inventory regeneration checks pass; publication is remote-verified before B4. |
 | `G19-P0-B4` | `Complete` | This row's containing commit | Bound the 1,904-obligation manifest to canonical JSON/decimal/ID rules, common bilingual/provenance envelopes, field-level approximation, exact reconciliation identity and a closed semantic fact language. Froze 48 unique sheets across four clean-target openpyxl workbooks with Sora 0.3.0 authority at contract digest `13db3c9f…25b7`; focused and quick gates pass and publication is remote-verified before P1. |
 | `G19-P1-B1` | `Complete` | This row's containing commit | Normalized 99 enabled rows at `0054237e…0b9b`: three areas, seven difficulties, ten phases, twelve battle zones, eight difficulty-progress rows, seven day-progress rows, six boards/18 nodes, four challenge fights, six story-fight locators and 18 map group/fight rows. Bilingual/provenance and lossless 64-bit/canonical-number checks pass; publication is remote-verified before B2. |
-| `G19-P1-B2` | `Pending` | — | Import participants, Masters/Servants, teams and loadout policies. |
+| `G19-P1-B2` | `Complete` | This row's containing commit | Normalized 85 participant records at `16b2b37b…5e8b`: eight classes, 21 handbook Masters, 21 Master rows, six avatars, ten Case Board Servants, nine teams, six owners and two Master config digests. 83 are enabled and two description rows evidence-only; no name-based uniqueness/loadout inference. Focused/quick gates and remote publication pass. |
 | `G19-P1-B3` | `Pending` | — | Import Treasures, Mystic Code catalog, tags, decks and acquisition. |
 | `G19-P1-B4` | `Pending` | — | Import Mystic Code costs, targets, effects, upgrades and lifecycle. |
 | `G19-P1-B5` | `Pending` | — | Import energy, Command Spells/Reiju, choices and resource transitions. |
