@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "research-gaps.json",
+  "record_kind": "research-gap",
+  "records": [
+    {
+      "id": "gap.runtime-postfix-lowering",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "research-gap",
+      "name_en": "Postfix scoring runtime lowering excluded",
+      "name_zh_cn": "后缀计分运行时降级排除",
+      "summary_en": "Exact opcode bytes and constants are retained; evaluator semantics belong to a future runtime goal.",
+      "summary_zh_cn": "精确保留操作码字节与常量；求值器语义属于未来运行时目标。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "program.StrongChallenge_Scoring_Ability"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.program.StrongChallenge_Scoring_Ability",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json",
+          "locator": "$",
+          "sha256": "98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "blocking": false,
+      "owner": "future-apocalyptic-shadow-runtime",
+      "replacement_condition": "runtime goal proves evaluator semantics",
+      "runtime_executable": false
+    }
+  ]
+}

@@ -1,0 +1,1941 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "review-fixtures.json",
+  "record_kind": "review-fixture",
+  "records": [
+    {
+      "id": "fixture.attempt-retry.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "attempt-retry case 1",
+      "name_zh_cn": "attempt-retry用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.attempt-retry.1",
+      "family_id": "attempt-retry",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.attempt-retry.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "attempt-retry case 2",
+      "name_zh_cn": "attempt-retry用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.attempt-retry.2",
+      "family_id": "attempt-retry",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.av-window-expiry.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "av-window-expiry case 1",
+      "name_zh_cn": "av-window-expiry用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.av-window-expiry.1",
+      "family_id": "av-window-expiry",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.av-window-expiry.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "av-window-expiry case 2",
+      "name_zh_cn": "av-window-expiry用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.av-window-expiry.2",
+      "family_id": "av-window-expiry",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.av-window-expiry.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "av-window-expiry case 3",
+      "name_zh_cn": "av-window-expiry用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.av-window-expiry.3",
+      "family_id": "av-window-expiry",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.axiom-ember-contribution.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "axiom-ember-contribution case 1",
+      "name_zh_cn": "axiom-ember-contribution用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.axiom-ember-contribution.1",
+      "family_id": "axiom-ember-contribution",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.axiom-ember-contribution.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "axiom-ember-contribution case 2",
+      "name_zh_cn": "axiom-ember-contribution用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.axiom-ember-contribution.2",
+      "family_id": "axiom-ember-contribution",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.axiom-ember-contribution.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "axiom-ember-contribution case 3",
+      "name_zh_cn": "axiom-ember-contribution用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.axiom-ember-contribution.3",
+      "family_id": "axiom-ember-contribution",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.boss-progress-partial.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "boss-progress-partial case 1",
+      "name_zh_cn": "boss-progress-partial用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.boss-progress-partial.1",
+      "family_id": "boss-progress-partial",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.boss-progress-partial.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "boss-progress-partial case 2",
+      "name_zh_cn": "boss-progress-partial用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.boss-progress-partial.2",
+      "family_id": "boss-progress-partial",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.buff-selection-teardown.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "buff-selection-teardown case 1",
+      "name_zh_cn": "buff-selection-teardown用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.buff-selection-teardown.1",
+      "family_id": "buff-selection-teardown",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.buff-selection-teardown.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "buff-selection-teardown case 2",
+      "name_zh_cn": "buff-selection-teardown用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.buff-selection-teardown.2",
+      "family_id": "buff-selection-teardown",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.buff-selection-teardown.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "buff-selection-teardown case 3",
+      "name_zh_cn": "buff-selection-teardown用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.buff-selection-teardown.3",
+      "family_id": "buff-selection-teardown",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.empty-pool-proof.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "empty-pool-proof case 1",
+      "name_zh_cn": "empty-pool-proof用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.empty-pool-proof.1",
+      "family_id": "empty-pool-proof",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.empty-pool-proof.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "empty-pool-proof case 2",
+      "name_zh_cn": "empty-pool-proof用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.empty-pool-proof.2",
+      "family_id": "empty-pool-proof",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.empty-pool-proof.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "empty-pool-proof case 3",
+      "name_zh_cn": "empty-pool-proof用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.empty-pool-proof.3",
+      "family_id": "empty-pool-proof",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.empty-pool-proof.4",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "empty-pool-proof case 4",
+      "name_zh_cn": "empty-pool-proof用例4",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.empty-pool-proof.4",
+      "family_id": "empty-pool-proof",
+      "case_order": 4,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 4
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.empty-pool-proof.5",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "empty-pool-proof case 5",
+      "name_zh_cn": "empty-pool-proof用例5",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.empty-pool-proof.5",
+      "family_id": "empty-pool-proof",
+      "case_order": 5,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 5
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.empty-pool-proof.6",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "empty-pool-proof case 6",
+      "name_zh_cn": "empty-pool-proof用例6",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.empty-pool-proof.6",
+      "family_id": "empty-pool-proof",
+      "case_order": 6,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 6
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.encounter-enemy-closure.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "encounter-enemy-closure case 1",
+      "name_zh_cn": "encounter-enemy-closure用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.encounter-enemy-closure.1",
+      "family_id": "encounter-enemy-closure",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.encounter-enemy-closure.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "encounter-enemy-closure case 2",
+      "name_zh_cn": "encounter-enemy-closure用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.encounter-enemy-closure.2",
+      "family_id": "encounter-enemy-closure",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.encounter-enemy-closure.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "encounter-enemy-closure case 3",
+      "name_zh_cn": "encounter-enemy-closure用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.encounter-enemy-closure.3",
+      "family_id": "encounter-enemy-closure",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.loadout-lock.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "loadout-lock case 1",
+      "name_zh_cn": "loadout-lock用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.loadout-lock.1",
+      "family_id": "loadout-lock",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.loadout-lock.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "loadout-lock case 2",
+      "name_zh_cn": "loadout-lock用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.loadout-lock.2",
+      "family_id": "loadout-lock",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.profile-entry.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "profile-entry case 1",
+      "name_zh_cn": "profile-entry用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.profile-entry.1",
+      "family_id": "profile-entry",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.rejected-command-boundary.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "rejected-command-boundary case 1",
+      "name_zh_cn": "rejected-command-boundary用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.rejected-command-boundary.1",
+      "family_id": "rejected-command-boundary",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.rejected-command-boundary.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "rejected-command-boundary case 2",
+      "name_zh_cn": "rejected-command-boundary用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.rejected-command-boundary.2",
+      "family_id": "rejected-command-boundary",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.score-aggregation.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "score-aggregation case 1",
+      "name_zh_cn": "score-aggregation用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.score-aggregation.1",
+      "family_id": "score-aggregation",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.score-aggregation.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "score-aggregation case 2",
+      "name_zh_cn": "score-aggregation用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.score-aggregation.2",
+      "family_id": "score-aggregation",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.score-aggregation.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "score-aggregation case 3",
+      "name_zh_cn": "score-aggregation用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.score-aggregation.3",
+      "family_id": "score-aggregation",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.stage-node-order.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "stage-node-order case 1",
+      "name_zh_cn": "stage-node-order用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.stage-node-order.1",
+      "family_id": "stage-node-order",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.stage-node-order.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "stage-node-order case 2",
+      "name_zh_cn": "stage-node-order用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.stage-node-order.2",
+      "family_id": "stage-node-order",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.steadfast-safeguard.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "steadfast-safeguard case 1",
+      "name_zh_cn": "steadfast-safeguard用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.steadfast-safeguard.1",
+      "family_id": "steadfast-safeguard",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.steadfast-safeguard.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "steadfast-safeguard case 2",
+      "name_zh_cn": "steadfast-safeguard用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.steadfast-safeguard.2",
+      "family_id": "steadfast-safeguard",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.steadfast-safeguard.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "steadfast-safeguard case 3",
+      "name_zh_cn": "steadfast-safeguard用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.steadfast-safeguard.3",
+      "family_id": "steadfast-safeguard",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.target-star-evaluation.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "target-star-evaluation case 1",
+      "name_zh_cn": "target-star-evaluation用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.target-star-evaluation.1",
+      "family_id": "target-star-evaluation",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.target-star-evaluation.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "target-star-evaluation case 2",
+      "name_zh_cn": "target-star-evaluation用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.target-star-evaluation.2",
+      "family_id": "target-star-evaluation",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.target-star-evaluation.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "target-star-evaluation case 3",
+      "name_zh_cn": "target-star-evaluation用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.target-star-evaluation.3",
+      "family_id": "target-star-evaluation",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.team-uniqueness.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "team-uniqueness case 1",
+      "name_zh_cn": "team-uniqueness用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.team-uniqueness.1",
+      "family_id": "team-uniqueness",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.team-uniqueness.2",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "team-uniqueness case 2",
+      "name_zh_cn": "team-uniqueness用例2",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.team-uniqueness.2",
+      "family_id": "team-uniqueness",
+      "case_order": 2,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 2
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.team-uniqueness.3",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "team-uniqueness case 3",
+      "name_zh_cn": "team-uniqueness用例3",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.team-uniqueness.3",
+      "family_id": "team-uniqueness",
+      "case_order": 3,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 3
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "fixture.tierce-selection.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "review-fixture",
+      "name_en": "tierce-selection case 1",
+      "name_zh_cn": "tierce-selection用例1",
+      "summary_en": "A deterministic Candidate data review assertion.",
+      "summary_zh_cn": "确定性的Candidate资料复核断言。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "fixture_id": "fixture.tierce-selection.1",
+      "family_id": "tierce-selection",
+      "case_order": 1,
+      "inputs": {
+        "profile": "apocalyptic-shadow-v1",
+        "case": 1
+      },
+      "expected": {
+        "data_ready": true,
+        "runtime_executable": false
+      },
+      "evidence_ref_ids": [
+        "src.apocalyptic-shadow-v1"
+      ],
+      "blocking_gap_ids": [],
+      "runtime_executable": false
+    }
+  ]
+}

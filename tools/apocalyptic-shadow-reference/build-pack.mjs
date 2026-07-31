@@ -580,4 +580,26 @@ if (batch === "G18-P2-B3") {
       active_selector: manifest.active_selector,
       exact_once_required: true,
     }, { evidenceQuality: "ProjectPolicy" })]);
+  const schema = JSON.parse(await readFile(path.join(root,
+    "content-manifests/apocalyptic-shadow-v1/normalized-schema.json")));
+  const indexRows = [];
+  let fileOrder = 0;
+  for (const file of schema.files.filter((value) => value !== "pack-index.json")) {
+    fileOrder += 1;
+    const pack = JSON.parse(await readFile(path.join(packRoot, file)));
+    let recordOrder = 0;
+    for (const record of pack.records) {
+      recordOrder += 1;
+      const manifestId = record.manifest_record_ids?.[0] ?? "apocalyptic-shadow-v1";
+      indexRows.push(envelope(
+        `pack-index.${String(fileOrder).padStart(2, "0")}.${String(recordOrder).padStart(5, "0")}`,
+        "pack-index", `${file}:${record.id}`, `${file}:${record.id}`,
+        "Canonical normalized-pack ordering entry.", "规范化资料包排序条目。",
+        [manifestId], { file, record_id: record.id, file_order: fileOrder,
+          record_order: recordOrder },
+        { ownership: record.ownership ?? "ApocalypticShadow",
+          evidenceQuality: record.evidence_quality ?? "ProjectPolicy" }));
+    }
+  }
+  await emit("pack-index.json", "pack-index", indexRows);
 }
