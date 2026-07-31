@@ -1,0 +1,167 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "seasonal-mechanics.json",
+  "record_kind": "seasonal-mechanic",
+  "records": [
+    {
+      "id": "pf.buff.3031220",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "whimsicality",
+      "name_en": "whimsicality 3031220",
+      "name_zh_cn": "whimsicality 3031220",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031220"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031220"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031220,
+      "modifier_name": "ADV_StageAbility_3031220",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "FantasticStory_BaseAbility_2200",
+      "parameters": [],
+      "display_type": null
+    },
+    {
+      "id": "pf.buff.3031225",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "whimsicality",
+      "name_en": "whimsicality 3031225",
+      "name_zh_cn": "whimsicality 3031225",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031225"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031225"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031225,
+      "modifier_name": "ADV_StageAbility_3031225",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "FantasticStory_BaseAbility_2250",
+      "parameters": [],
+      "display_type": null
+    },
+    {
+      "id": "pf.buff.3031227",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "grit-fever",
+      "name_en": "grit-fever 3031227",
+      "name_zh_cn": "grit-fever 3031227",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031227"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031227"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031227,
+      "modifier_name": "ADV_StageAbility_3031227",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "FantasticStory_BaseAbility_2260_BaseAddOn",
+      "parameters": [
+        "1",
+        "10"
+      ],
+      "display_type": "Fixed"
+    },
+    {
+      "id": "pf.buff.3031228",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "grit-fever",
+      "name_en": "grit-fever 3031228",
+      "name_zh_cn": "grit-fever 3031228",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031228"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031228"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031228,
+      "modifier_name": "ADV_StageAbility_3031228",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "FantasticStory_BaseAbility_2260_BeforeFever",
+      "parameters": [
+        "0.3",
+        "0.2",
+        "4"
+      ],
+      "display_type": "Fixed"
+    },
+    {
+      "id": "pf.buff.3031229",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "grit-fever",
+      "name_en": "grit-fever 3031229",
+      "name_zh_cn": "grit-fever 3031229",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031229"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031229"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031229,
+      "modifier_name": "ADV_StageAbility_3031229",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "FantasticStory_BaseAbility_2260_EnterFever",
+      "parameters": [
+        "0.8",
+        "0.5",
+        "0.01",
+        "2",
+        "20"
+      ],
+      "display_type": "Fixed"
+    }
+  ]
+}
