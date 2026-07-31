@@ -1,0 +1,659 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "pool-audits.json",
+  "record_kind": "PoolAudit",
+  "records": [
+    {
+      "id": "pool-audit.blessing",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty Blessing pool proof",
+      "name_zh_cn": "祝福空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no Blessing row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何祝福条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-blessing"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:blessing",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:blessing",
+          "evidence_sha256": "cf4034a719cd184ac2d6f9c6f159d88cd00cf021db71d53eef84a0b89ccd9278",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "blessing",
+        "empty-pool",
+        "selector-closure"
+      ],
+      "family": "blessing",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.choice",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty event choice pool proof",
+      "name_zh_cn": "事件选项空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no event choice row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何事件选项条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-choice"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:choice",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:choice",
+          "evidence_sha256": "7858994f581b9ec1f759f76068ad53d51035924dda764c603054a606a4f3127b",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "choice",
+        "empty-pool",
+        "selector-closure"
+      ],
+      "family": "choice",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.curio",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty Curio pool proof",
+      "name_zh_cn": "奇物空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no Curio row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何奇物条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-curio"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:curio",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:curio",
+          "evidence_sha256": "de35e255b0638a73d729ad81a2f156606f930360debb46fcb5da4625559932c9",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "curio",
+        "empty-pool",
+        "selector-closure"
+      ],
+      "family": "curio",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.currency",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty mode currency pool proof",
+      "name_zh_cn": "玩法货币空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no mode currency row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何玩法货币条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-currency"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:currency",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:currency",
+          "evidence_sha256": "127d842142a6c8aea94ed24c142ce2f4fe371c0673dba76aaefb99d22ae36f5f",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "currency",
+        "empty-pool",
+        "selector-closure"
+      ],
+      "family": "currency",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.occurrence",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty Occurrence pool proof",
+      "name_zh_cn": "事件空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no Occurrence row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何事件条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-occurrence"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:occurrence",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:occurrence",
+          "evidence_sha256": "04b6ec4e01ec5fdad94265087fb4217401848cc5b3894ed1b1a95e0d2f42a3d6",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "empty-pool",
+        "occurrence",
+        "selector-closure"
+      ],
+      "family": "occurrence",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.rogue-path",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty Rogue path pool proof",
+      "name_zh_cn": "模拟宇宙命途空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no Rogue path row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何模拟宇宙命途条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-rogue-path"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:rogue-path",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:rogue-path",
+          "evidence_sha256": "fd5433248fd4dcd587f25931eefe355391ddb3ab078672b070d4db952bc86589",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "empty-pool",
+        "rogue-path",
+        "selector-closure"
+      ],
+      "family": "rogue-path",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.rogue-progression",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty Rogue progression pool proof",
+      "name_zh_cn": "模拟宇宙成长空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no Rogue progression row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何模拟宇宙成长条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-rogue-progression"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:rogue-progression",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:rogue-progression",
+          "evidence_sha256": "58d520e3883727c3782e304aa6e05f5b13ef225e5e37ed55dab29cc640abdeea",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "empty-pool",
+        "rogue-progression",
+        "selector-closure"
+      ],
+      "family": "rogue-progression",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.rogue-room",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty Rogue room pool proof",
+      "name_zh_cn": "模拟宇宙房间空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no Rogue room row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何模拟宇宙房间条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-rogue-room"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:rogue-room",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:rogue-room",
+          "evidence_sha256": "b4999e3d1e95d93711e242972255142d412cbdc50bbdc08678f6c2b3ade18ced",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "empty-pool",
+        "rogue-room",
+        "selector-closure"
+      ],
+      "family": "rogue-room",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.service",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty service pool proof",
+      "name_zh_cn": "服务空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no service row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何服务条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-service"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:service",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:service",
+          "evidence_sha256": "0eab0d39213c2e2bb6a6bbaa4ca4a11bd1af939b55bbeb67bfc60ea6262e5491",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "empty-pool",
+        "selector-closure",
+        "service"
+      ],
+      "family": "service",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.shop",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PoolAudit",
+      "name_en": "Empty shop pool proof",
+      "name_zh_cn": "商店空池证明",
+      "summary_en": "The frozen active schedule-to-config selector closure reaches no shop row.",
+      "summary_zh_cn": "冻结的有效日程至关卡配置选择器闭包未触达任何商店条目。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "empty_pool_proofs:empty-shop"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:content-manifests/memory-of-chaos-v1/source-inventory.json:selector-closure:shop",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "content-manifests/memory-of-chaos-v1/source-inventory.json",
+          "row_locator": "selector-closure:shop",
+          "evidence_sha256": "47bc42557a9c3c19ed05455721a621ef8ed7fefd438c814b8e21359b98498cef",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactSelectorClosure",
+          "note": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family"
+        }
+      ],
+      "tags": [
+        "empty-pool",
+        "selector-closure",
+        "shop"
+      ],
+      "family": "shop",
+      "membership_rule": "active-released-schedule-to-group-to-explicit-row-or-transitive-reference-closure",
+      "selector_roots": {
+        "schedule_id": 201033,
+        "group_id": 1033,
+        "ordinary_stage_ids": [
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207,
+          5208,
+          5209,
+          5210,
+          5211,
+          5212
+        ],
+        "tierce_stage_id": 5213,
+        "selected_stage_config_count": 25
+      },
+      "reachable_record_count": 0,
+      "exact_zero": true,
+      "proof_kind": "GeneratedSelectorClosure",
+      "proof_statement": "active schedule/group/stage/config closure exposes no mechanically reachable selector for this family",
+      "fail_closed_on_unresolved_selector": true,
+      "evidence_quality": "ExactStructuredSelectorClosure",
+      "mechanism_quality": "ExactSelectorClosure",
+      "approximations": [],
+      "runtime_executable": false
+    }
+  ]
+}
