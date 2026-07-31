@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Excel/Sora authoring |
 | Active batch | — |
-| Next unblocked batch | `G18-P3-B2` |
+| Next unblocked batch | `G18-P4-B1` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -27,7 +27,7 @@
 | Phase 0 — Foundation and frozen denominator | `Complete` | Snapshots/isolation, 59-file inventory, 129-obligation manifest, six exact-zero proofs and normalized/evidence/authoring/fixture contracts frozen. |
 | Phase 1 — Mode systems | `Complete` | Profile/lifecycle, AV/progress/score, Steadfast Safeguard, Ruinous Embers, Word Shatter and all nine active Axiom options imported as runtime-disabled data. |
 | Phase 2 — Encounters and closure | `Complete` | Pools/bindings, nine encounter selectors, ten variants, 67 reachable skills, complete source/coverage/reconciliation rows and 42 fixture cases generated. No standalone status row is selected by the frozen closure. |
-| Phase 3 — Excel/Sora authoring | `InProgress` | 35 isolated Sora tables, three complete workbooks, schema lock/templates/readers/debug export and binary bundle generated. |
+| Phase 3 — Excel/Sora authoring | `Complete` | 35 isolated Sora tables, three complete deterministic workbooks, schema lock/templates/readers/debug export/bundle and a 35-page visual review all pass. |
 | Phase 4 — Candidate freeze | `Pending` | Awaiting audits, fixtures, regeneration and release evidence. |
 
 ## Batch ledger
@@ -46,7 +46,7 @@
 | `G18-P2-B2` | `Complete` | This row's containing commit | Imported nine exact node encounters/map events, nine event-owned wave selectors, ten direct boss slots (including difficulty-4 auxiliary scoring boss), and ten concrete variants with stats, weaknesses, skills, summons and AI overrides. |
 | `G18-P2-B3` | `Complete` | This row's containing commit | Imported 67 exact reachable skills and explicit zero selected standalone statuses; generated 16 mechanic rules, 129 sources, 81 shared-row receipts, one nonblocking future-runtime gap, 129 exact-once coverage rows, 42 fixtures, manifest receipt and a 623-row canonical pack index. |
 | `G18-P3-B1` | `Complete` | This row's containing commit | Generated 35 isolated Sora tables across three schemas/workbooks, schema lock, templates, Rust readers, 35 debug tables and compressed binary bundle using Sora 0.3.0; workbooks use isolated `openpyxl==3.1.5`. |
-| `G18-P3-B2` | `Pending` | — | Sora/workbook drift and rendered visual verification. |
+| `G18-P3-B2` | `Complete` | This row's containing commit | Proved byte-identical double workbook generation and Sora lock/readers/debug/binary regeneration; structurally verified 35 sheets/1,246 rows/zero formulas/runtime rows; rendered all 35 sheets into five reviewed contact sheets. |
 | `G18-P4-B1` | `Pending` | — | Exact-once ownership/reconciliation and semantic fixtures. |
 | `G18-P4-B2` | `Pending` | — | Deterministic regeneration, repository and clean-checkout gates. |
 | `G18-P4-B3` | `Pending` | — | Immutable Candidate release snapshot. |
@@ -84,3 +84,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | `G18-P2-B2` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P2-B2` | Generated 38 encounter/wave/slot/enemy rows from active stage, stage-extra and Tierce selectors. |
 | 2026-08-01 | `G18-P2-B3` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P2-B3`; reconciliation/runtime-row queries | Generated 466 closure/review rows plus a 623-row canonical index; zero content conflicts, one nonblocking future-runtime gap and zero runtime-executable rows. |
 | 2026-08-01 | `G18-P3-B1` | `generate-sora-schema.mjs`; isolated `.cache/g18-venv` with `openpyxl==3.1.5`; `author_workbooks.py`; `sora check/schema-lock/excel-template/gen/export` | Passed: three workbooks/35 sheets, 35 Sora tables/debug exports, generated readers and `config.sora`. Workspace dependency loader timed out three times without returning; no global environment was changed. |
+| 2026-08-01 | `G18-P3-B2` | `node tools/apocalyptic-shadow-reference/verify-authoring.mjs`; disposable print-area copies; headless LibreOffice; Poppler; `contact_sheets.py`; five contact-sheet visual inspection | Passed: deterministic authoring/export, 35/35 sheets rendered, no blank default sheet, clipping/overlap or formula/runtime defect. |

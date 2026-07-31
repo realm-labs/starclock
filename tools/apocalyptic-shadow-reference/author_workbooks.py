@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import datetime
+import argparse
 import json
 import pathlib
+import re
 import shutil
 import tempfile
 import zipfile
@@ -13,7 +15,7 @@ from openpyxl.utils import get_column_letter
 
 ROOT = pathlib.Path.cwd()
 PACK = ROOT / "content-reference/apocalyptic-shadow-v1"
-DATA = ROOT / "config/apocalyptic-shadow/data"
+DEFAULT_DATA = ROOT / "config/apocalyptic-shadow/data"
 TEMPLATES = ROOT / "config/apocalyptic-shadow-generated/templates"
 GROUPS = {
     "ApocalypticShadow.xlsx": [
@@ -53,11 +55,19 @@ def normalize_xlsx(path: pathlib.Path) -> None:
                 info = zipfile.ZipInfo(name, date_time=(2000, 1, 1, 0, 0, 0))
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.external_attr = source.getinfo(name).external_attr
-                target.writestr(info, source.read(name))
+                payload = source.read(name)
+                if name == "docProps/core.xml":
+                    payload = re.sub(
+                        rb"<dcterms:modified[^>]*>[^<]*</dcterms:modified>",
+                        (b'<dcterms:modified xsi:type="dcterms:W3CDTF">'
+                         b'2000-01-01T00:00:00Z</dcterms:modified>'),
+                        payload,
+                    )
+                target.writestr(info, payload)
         shutil.copyfile(temporary, path)
 
 
-def create_workbook(filename: str, files: list[str]) -> None:
+def create_workbook(filename: str, files: list[str], data_root: pathlib.Path) -> None:
     workbook = load_workbook(TEMPLATES / filename)
     workbook.properties.created = datetime.datetime(2000, 1, 1)
     workbook.properties.modified = datetime.datetime(2000, 1, 1)
@@ -92,8 +102,8 @@ def create_workbook(filename: str, files: list[str]) -> None:
         for row in sheet.iter_rows(min_row=8):
             for cell in row:
                 cell.alignment = Alignment(vertical="top", wrap_text=True)
-    DATA.mkdir(parents=True, exist_ok=True)
-    output = DATA / filename
+    data_root.mkdir(parents=True, exist_ok=True)
+    output = data_root / filename
     workbook.save(output)
     normalize_xlsx(output)
     loaded = load_workbook(output, read_only=True, data_only=False)
@@ -101,6 +111,14 @@ def create_workbook(filename: str, files: list[str]) -> None:
     loaded.close()
 
 
-for workbook_name, file_names in GROUPS.items():
-    create_workbook(workbook_name, file_names)
-print("Apocalyptic Shadow workbooks: 3 files, 35 sheets.")
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=pathlib.Path, default=DEFAULT_DATA)
+    args = parser.parse_args()
+    for workbook_name, file_names in GROUPS.items():
+        create_workbook(workbook_name, file_names, args.output.resolve())
+    print("Apocalyptic Shadow workbooks: 3 files, 35 sheets.")
+
+
+if __name__ == "__main__":
+    main()

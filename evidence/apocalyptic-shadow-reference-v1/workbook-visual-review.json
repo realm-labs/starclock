@@ -1,0 +1,42 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-workbook-visual-review.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "batch": "G18-P3-B2",
+  "review_date": "2026-08-01",
+  "renderer": {
+    "spreadsheet": "LibreOffice headless PDF export",
+    "raster": "Poppler pdftoppm at 72 DPI",
+    "contact_sheet": "Pillow 11.3.0"
+  },
+  "scope": {
+    "workbooks": 3,
+    "sheets": 35,
+    "rendered_pages": 35,
+    "contact_sheets": 5,
+    "rows": 1246
+  },
+  "workbook_sha256": {
+    "ApocalypticShadow.xlsx": "ae69eeff4d4a0885d8e50f1bde86308173d72490eef77adaae129a6f7d844a29",
+    "ApocalypticShadowBindings.xlsx": "5e24d361653bf01b08978a3cbc3cd67dc91c3a70985e5e29278daef4c3e7a0b9",
+    "ApocalypticShadowReview.xlsx": "d93aa1df6fcfba4842d1705b85e856488e5e69da8fe4aa03c836f75906e331e3"
+  },
+  "contact_sha256": [
+    "8e416a7f0a0819625a91c5d78001fade64f6961391ad49558ff00cde69d84080",
+    "456c0a2846ac130253fe3bf6244926a15b644ef41a08879339c2c726d443d33b",
+    "c1e5329ad48c596b61377f4cdd1667c3be4e8062072b052adb91338e33d7f291",
+    "31de1dcdc70fde6a97f3fb579bcae124a550debf900d0a024d3704b9f7293e37",
+    "61e3dfd05598ad12547247b63860300cff7c395857d13fb4768faf138d21a40e"
+  ],
+  "checks": {
+    "all_expected_sheets_rendered": true,
+    "metadata_headers_visible": true,
+    "data_headers_visible": true,
+    "representative_rows_visible": true,
+    "empty_enemy_status_sheet_intentionally_header_only": true,
+    "blank_default_sheets": 0,
+    "clipped_or_overlapping_critical_content": 0,
+    "formula_errors": 0,
+    "runtime_executable_rows": 0
+  },
+  "result": "Passed"
+}
