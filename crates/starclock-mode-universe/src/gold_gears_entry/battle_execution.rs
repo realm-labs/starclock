@@ -388,7 +388,12 @@ impl GoldAndGearsRuntimeInstance {
             GoldAndGearsEncounterRole::FinalBoss => Some(3),
             GoldAndGearsEncounterRole::Combat | GoldAndGearsEncounterRole::Elite => None,
         };
-        if let Some(plane) = plane {
+        if let Some(plane) = plane
+            && self
+                .plane_ends()
+                .nth(usize::from(plane - 1))
+                .is_some_and(|end| end == state.current_node())
+        {
             operations.extend_from_slice(
                 self.compile_plane_completion(plane)
                     .map_err(GoldAndGearsBattleExecutionError::InvalidInput)?

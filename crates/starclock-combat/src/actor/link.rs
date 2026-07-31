@@ -61,6 +61,10 @@ impl LinkedStatScaling {
 }
 
 /// Complete owner-scaled stat template for a linked combatant.
+///
+/// HP is finalized as integral maximum HP after scaling. Because maximum HP is
+/// a strictly positive combatant invariant, a non-negative scaled result that
+/// rounds to zero is finalized to the declared legal minimum of one HP.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LinkedOwnerScaling {
     hp: LinkedStatScaling,

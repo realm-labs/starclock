@@ -1,3 +1,5 @@
+use std::collections::{BTreeSet, VecDeque};
+
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityProgramDefinition,
@@ -5,7 +7,9 @@ use starclock_activity::{
     ActivityTransactionState, ActivityValue, NodeId,
 };
 
-use super::{GoldAndGearsEntryError, GoldAndGearsRuntimeInstance};
+use super::{
+    GoldAndGearsEncounterRole, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
+};
 
 #[test]
 fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
@@ -31,6 +35,17 @@ fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
     assert!(node_states.iter().all(|(_, value)| (1..=4).contains(value)));
     assert!(domains.iter().all(|(_, value)| (0..=12).contains(value)));
     assert!(beacons.iter().all(|(_, value)| (0..=6).contains(value)));
+    let start = instance.plane_starts().next().unwrap();
+    let end = instance.plane_ends().next().unwrap();
+    assert_ne!(
+        counter_value(&state, super::state_layout::BOARD_NODE_STATE_SLOT, end),
+        4
+    );
+    assert_eq!(
+        instance.encounter_role_for_node(&state, end),
+        Some(GoldAndGearsEncounterRole::FirstPlaneBoss)
+    );
+    assert!(has_legal_route(&instance, &state, start, end));
     assert_eq!(
         rng.snapshots()
             .iter()
@@ -39,6 +54,36 @@ fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
             .collect::<Vec<_>>(),
         [ActivityRngLabel::Graph]
     );
+}
+
+fn has_legal_route(
+    instance: &GoldAndGearsRuntimeInstance,
+    state: &ActivityTransactionState,
+    source: NodeId,
+    target: NodeId,
+) -> bool {
+    let mut queue = VecDeque::from([source]);
+    let mut visited = BTreeSet::new();
+    while let Some(node) = queue.pop_front() {
+        if node == target {
+            return true;
+        }
+        if !visited.insert(node) {
+            continue;
+        }
+        for edge in instance.legal_routes(state, node) {
+            if let Some(target) = instance
+                .graph_definition()
+                .edges()
+                .iter()
+                .find(|candidate| candidate.id() == edge)
+                .map(|candidate| candidate.to())
+            {
+                queue.push_back(target);
+            }
+        }
+    }
+    false
 }
 
 #[test]

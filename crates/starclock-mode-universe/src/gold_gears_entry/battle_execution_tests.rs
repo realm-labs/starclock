@@ -1,8 +1,9 @@
 use starclock_activity::{
     ActivityBattleInPlaceSettlementError, ActivityBattleResultSubmission,
     ActivityBattleSettlementError, ActivityCause, ActivityInstanceId, ActivityTransactionOutcome,
-    ActivitySlotId, ActivityTransactionState, ActivityValue, AttemptId, BattleResult,
-    BattleResultDigest, BattleSequence, ParticipantBattleState, ProjectedValue,
+    ActivityOperation, ActivityProgramDefinition, ActivityProgramId, ActivitySlotId,
+    ActivityTransactionState, ActivityValue, AttemptId, BattleResult, BattleResultDigest,
+    BattleSequence, ParticipantBattleState, ProjectedValue,
 };
 use starclock_combat::{Hp, LifeState, PresenceState};
 
@@ -104,6 +105,19 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
             &GoldAndGearsBattleAssemblyContext::new(Vec::new(), false),
         )
         .is_err());
+    let edge = instance
+        .graph_definition()
+        .outgoing(state.current_node())
+        .next()
+        .unwrap()
+        .id();
+    let traverse = ActivityProgramDefinition::new(
+        ActivityProgramId::new(0x7f75_0001).unwrap(),
+        vec![ActivityOperation::Traverse(edge)],
+    )
+    .unwrap();
+    commit(&instance, &mut state, traverse);
+    assert!(!state.current_battle_attempt_is_settled());
 }
 
 fn lifecycle_counter(state: &ActivityTransactionState, key: u64) -> i64 {

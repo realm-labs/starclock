@@ -993,6 +993,11 @@ fn resolve_linked_combatant(
         )
         .and_then(|value| crate::Hp::from_scalar(value, crate::Rounding::NearestTiesEven))
         .map_err(|_| action_fault(121))?;
+    let hp = if hp.get() == 0 {
+        crate::Hp::new(1).expect("one HP is the declared maximum-HP minimum")
+    } else {
+        hp
+    };
     let attack = scaling
         .attack()
         .resolve(crate::Scalar::from_scaled(owner.base_attack.scaled()))

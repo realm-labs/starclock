@@ -25,7 +25,7 @@ pub(super) fn shared_factory() -> &'static GoldAndGearsRuntimeFactory {
     FACTORY.get_or_init(|| GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap())
 }
 
-fn participant_policy() -> ParticipantPolicy {
+pub(super) fn participant_policy() -> ParticipantPolicy {
     ParticipantPolicy::new(
         1,
         1,
@@ -60,7 +60,10 @@ fn participants(policy: ParticipantPolicy) -> ParticipantLock {
     ParticipantLock::seal(policy, entries).expect("participant lock")
 }
 
-fn default_face_keys(factory: &GoldAndGearsRuntimeFactory, dice: &DiceDefinition) -> Vec<String> {
+pub(super) fn default_face_keys(
+    factory: &GoldAndGearsRuntimeFactory,
+    dice: &DiceDefinition,
+) -> Vec<String> {
     dice.default_face_sources
         .iter()
         .map(|source| {
@@ -77,7 +80,7 @@ fn default_face_keys(factory: &GoldAndGearsRuntimeFactory, dice: &DiceDefinition
         .collect()
 }
 
-fn all_dice(factory: &GoldAndGearsRuntimeFactory) -> Vec<String> {
+pub(super) fn all_dice(factory: &GoldAndGearsRuntimeFactory) -> Vec<String> {
     factory
         .unique
         .dice
@@ -570,6 +573,23 @@ pub(super) fn compiled_fixture(
 pub(super) fn compiled_battle_fixture(
     factory: &GoldAndGearsRuntimeFactory,
 ) -> GoldAndGearsRuntimeInstance {
+    let dice = &factory.unique.dice[0];
+    factory
+        .compile_entry(battle_entry(
+            factory,
+            "gold-gears.area.401",
+            &factory.unique.paths[0].identity.stable_key,
+            dice,
+        ))
+        .expect("compiled battle fixture")
+}
+
+pub(super) fn battle_entry(
+    factory: &GoldAndGearsRuntimeFactory,
+    area: &str,
+    path: &str,
+    dice: &DiceDefinition,
+) -> GoldAndGearsEntry {
     let entries = (0_u8..4)
         .map(|index| {
             let byte = index + 1;
@@ -592,17 +612,12 @@ pub(super) fn compiled_battle_fixture(
         .collect();
     let participants = ParticipantLock::seal(participant_policy(), entries)
         .expect("battle participant lock");
-    let dice = &factory.unique.dice[0];
-    factory
-        .compile_entry(
-            GoldAndGearsEntry::new(
-                "gold-gears.area.401",
-                factory.unique.paths[0].identity.stable_key.clone(),
-                dice.identity.stable_key.clone(),
-                default_face_keys(factory, dice),
-                participants,
-            )
-            .with_unlocked_dice(all_dice(factory)),
-        )
-        .expect("compiled battle fixture")
+    GoldAndGearsEntry::new(
+        area,
+        path,
+        dice.identity.stable_key.clone(),
+        default_face_keys(factory, dice),
+        participants,
+    )
+    .with_unlocked_dice(all_dice(factory))
 }

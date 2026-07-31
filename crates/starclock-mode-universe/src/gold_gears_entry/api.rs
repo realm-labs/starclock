@@ -1,6 +1,6 @@
 //! Public Gold and Gears entry and entry-compiled instance types.
 
-use std::sync::Arc;
+use std::{collections::VecDeque, sync::Arc};
 
 use starclock_activity::{
     ActivityEdgeId, ActivityGraphDefinition, ActivityProgramDefinition, ActivityRngStreams,
@@ -1021,7 +1021,9 @@ impl GoldAndGearsRuntimeInstance {
             .chessboards
             .get(plane_ordinal)
             .ok_or(GoldAndGearsEntryError::InvalidPlaneCount)?;
-        self.map.compile_creation(board, rng)
+        let route = required_plane_route(self, plane_ordinal)?;
+        self.map
+            .compile_creation(board, &route, terminal_domain(plane_ordinal)?, rng)
     }
 
     /// Applies the selected released map event before compiling the same
@@ -1037,8 +1039,15 @@ impl GoldAndGearsRuntimeInstance {
             .chessboards
             .get(plane_ordinal)
             .ok_or(GoldAndGearsEntryError::InvalidPlaneCount)?;
-        self.map
-            .compile_event_then_creation(board, trigger, parameter, rng)
+        let route = required_plane_route(self, plane_ordinal)?;
+        self.map.compile_event_then_creation(
+            board,
+            trigger,
+            parameter,
+            &route,
+            terminal_domain(plane_ordinal)?,
+            rng,
+        )
     }
 
     /// Compiles an exact node replacement through ordinary bounded counters.
@@ -1118,6 +1127,46 @@ impl GoldAndGearsRuntimeInstance {
             .map(|edge| edge.id())
             .collect::<Vec<_>>()
             .into_boxed_slice()
+    }
+}
+
+fn required_plane_route(
+    instance: &GoldAndGearsRuntimeInstance,
+    plane_ordinal: usize,
+) -> Result<Box<[NodeId]>, GoldAndGearsEntryError> {
+    let source = instance
+        .plane_starts
+        .get(plane_ordinal)
+        .copied()
+        .ok_or(GoldAndGearsEntryError::InvalidPlaneCount)?;
+    let target = instance
+        .plane_ends
+        .get(plane_ordinal)
+        .copied()
+        .ok_or(GoldAndGearsEntryError::InvalidPlaneCount)?;
+    let mut queue = VecDeque::from([(source, vec![source])]);
+    let mut visited = std::collections::BTreeSet::new();
+    while let Some((node, path)) = queue.pop_front() {
+        if node == target {
+            return Ok(path.into_boxed_slice());
+        }
+        if !visited.insert(node) {
+            continue;
+        }
+        for edge in instance.graph.outgoing(node) {
+            let mut next = path.clone();
+            next.push(edge.to());
+            queue.push_back((edge.to(), next));
+        }
+    }
+    Err(GoldAndGearsEntryError::InvalidTopology)
+}
+
+fn terminal_domain(plane_ordinal: usize) -> Result<&'static str, GoldAndGearsEntryError> {
+    match plane_ordinal {
+        0 | 2 => Ok("gold-gears.domain.monsterboss"),
+        1 => Ok("gold-gears.domain.monsternousboss"),
+        _ => Err(GoldAndGearsEntryError::InvalidPlaneCount),
     }
 }
 

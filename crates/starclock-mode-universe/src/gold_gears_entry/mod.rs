@@ -33,6 +33,7 @@ mod profile_rule_runtime;
 mod progression_runtime;
 mod resonance_rule_runtime;
 mod runtime_coverage;
+mod seeded_run;
 mod semantic_fixture_runtime;
 mod service_adventure_rule_runtime;
 mod service_adventure_runtime;
@@ -155,6 +156,10 @@ pub use resonance_rule_runtime::{
 };
 pub use runtime_coverage::{
     GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION, GoldAndGearsRuntimeCoverageSummary,
+};
+pub use seeded_run::{
+    GOLD_AND_GEARS_SEEDED_RUN_REVISION, GoldAndGearsSeededRunError, GoldAndGearsSeededRunReport,
+    GoldAndGearsSeededRunRequest, GoldAndGearsSeededRunStep, GoldAndGearsSeededRunStepKind,
 };
 pub use semantic_fixture_runtime::{
     GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION, GoldAndGearsSemanticFixtureBinding,

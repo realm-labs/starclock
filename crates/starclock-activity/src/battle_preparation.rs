@@ -547,6 +547,10 @@ pub(crate) struct ActivityAttemptState {
 }
 
 impl ActivityAttemptState {
+    pub(crate) fn is_settled_at(&self, node: NodeId) -> bool {
+        self.settled && self.path.node() == Some(node)
+    }
+
     pub(crate) fn begin(
         instance: ActivityInstanceId,
         current_node: NodeId,

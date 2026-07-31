@@ -21,6 +21,7 @@ mod profile_rule_runtime_tests;
 mod progression_runtime_tests;
 mod resonance_rule_runtime_tests;
 mod runtime_coverage_tests;
+mod seeded_run_tests;
 mod semantic_fixture_runtime_tests;
 mod service_adventure_rule_runtime_tests;
 mod tests;

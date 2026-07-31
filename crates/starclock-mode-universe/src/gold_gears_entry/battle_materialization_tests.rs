@@ -239,6 +239,30 @@ pub(super) fn selected_combat(
 }
 
 pub(super) fn roster(instance: &GoldAndGearsRuntimeInstance) -> UniverseBattleRoster {
+    roster_with_stats(instance, 100_000, 100_000_000, 100_000_000, 100_000_000)
+}
+
+/// Balance-independent roster for complete-run integration coverage. These
+/// deliberately synthetic values are not an observed numeric-parity claim.
+pub(super) fn seeded_matrix_roster(
+    instance: &GoldAndGearsRuntimeInstance,
+) -> UniverseBattleRoster {
+    roster_with_stats(
+        instance,
+        1_000_000_000,
+        1_000_000_000,
+        1_000_000_000_000,
+        1_000_000_000_000,
+    )
+}
+
+fn roster_with_stats(
+    instance: &GoldAndGearsRuntimeInstance,
+    hp: i64,
+    speed_scaled: i64,
+    attack_scaled: i64,
+    defense_scaled: i64,
+) -> UniverseBattleRoster {
     let combat = instance
         .content_runtime
         .standard
@@ -264,15 +288,15 @@ pub(super) fn roster(instance: &GoldAndGearsRuntimeInstance) -> UniverseBattleRo
             let spec = ResolvedCombatantSpec::new(
                 locked.character(),
                 UnitLevel::new(80).unwrap(),
-                Hp::new(100_000).unwrap(),
-                Speed::from_scaled(100_000_000).unwrap(),
+                Hp::new(hp).unwrap(),
+                Speed::from_scaled(speed_scaled).unwrap(),
                 ResolvedDefinitionBindings::new(vec![basic], Vec::new(), Vec::new()).unwrap(),
                 CombatantSpecDigest::new(locked.build().resolved_spec_digest().bytes()).unwrap(),
             )
             .unwrap()
             .with_base_attack_defense(
-                StatValue::from_scaled(100_000_000).unwrap(),
-                StatValue::from_scaled(100_000_000).unwrap(),
+                StatValue::from_scaled(attack_scaled).unwrap(),
+                StatValue::from_scaled(defense_scaled).unwrap(),
             )
             .with_energy(Energy::ZERO, Energy::from_scaled(100_000_000).unwrap())
             .unwrap();

@@ -1,8 +1,9 @@
 //! Production combat-modifier lowering for the six Stats Conundrum rules.
 
 use starclock_combat::{
-    ModifierDefinitionId, ModifierStackingGroupId, Rounding, Scalar, SourceDefinitionId,
-    StateSlotDefinitionId,
+    EffectDefinitionId, ModifierDefinitionId, ModifierStackingGroupId, Rounding, Scalar,
+    SourceDefinitionId, StateSlotDefinitionId,
+    catalog::definition::EffectDefinition,
     formula::toughness::EnemyRank,
     modifier::model::{
         FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
@@ -25,6 +26,8 @@ pub const GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION: &str =
 const MODIFIER_BASE: u32 = 0x7f10_0000;
 const GROUP_BASE: u32 = 0x7f11_0000;
 const SOURCE_BASE: u32 = 0x7f12_0000;
+const BERSERK_EFFECT_ID: EffectDefinitionId =
+    EffectDefinitionId::new(0x7f14_0001).expect("reserved effect identity is non-zero");
 const BERSERK_STACK_SLOT: StateSlotDefinitionId =
     StateSlotDefinitionId::new(0x7f13_0001).expect("reserved slot identity is non-zero");
 
@@ -147,6 +150,17 @@ impl GoldAndGearsStatsConundrumModifierSet {
     #[must_use]
     pub const fn digest(&self) -> [u8; 32] {
         self.digest
+    }
+
+    pub(super) fn source_stack_effect(&self) -> Option<EffectDefinition> {
+        let modifiers = self
+            .bindings
+            .iter()
+            .filter(|binding| binding.definition.source_stack_slot.is_some())
+            .map(|binding| binding.definition.id)
+            .collect::<Vec<_>>();
+        (!modifiers.is_empty())
+            .then(|| EffectDefinition::new(BERSERK_EFFECT_ID, Vec::new(), modifiers))
     }
 }
 

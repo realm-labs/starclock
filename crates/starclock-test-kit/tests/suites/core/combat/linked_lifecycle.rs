@@ -105,6 +105,17 @@ fn owner_scaled_linked() -> LinkedUnitDefinition {
     )
 }
 
+fn minimum_hp_scaled_linked() -> LinkedUnitDefinition {
+    linked(OwnerLinkPolicy::Persist, WaveLinkPolicy::Persist, 0).with_owner_scaling(
+        LinkedOwnerScaling::new(
+            LinkedStatScaling::new(Ratio::from_scaled(307_692), Scalar::ZERO),
+            LinkedStatScaling::new(Ratio::ONE, Scalar::ZERO),
+            LinkedStatScaling::new(Ratio::ONE, Scalar::ZERO),
+            LinkedStatScaling::new(Ratio::ONE, Scalar::ZERO),
+        ),
+    )
+}
+
 fn action(
     kind: AbilityKind,
     invalidation: TargetInvalidationPolicy,
@@ -251,6 +262,15 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         vec![HitOperationDefinition::SummonLinked(owner_scaled_linked())],
     ));
     builder.add_ability(ability(
+        12,
+        1,
+        AbilityKind::Basic,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        vec![HitOperationDefinition::SummonLinked(
+            minimum_hp_scaled_linked(),
+        )],
+    ));
+    builder.add_ability(ability(
         3,
         1,
         AbilityKind::Basic,
@@ -341,6 +361,7 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
             definition(7),
             definition(9),
             definition(11),
+            definition(12),
         ],
         vec![],
     ));
@@ -375,6 +396,10 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
 }
 
 fn fixture_battle() -> Battle {
+    fixture_battle_with_player_hp(1_000)
+}
+
+fn fixture_battle_with_player_hp(player_hp: i64) -> Battle {
     let spec = BattleSpec::new(
         "linked-lifecycle-rules-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
@@ -384,7 +409,7 @@ fn fixture_battle() -> Battle {
                 TeamSide::Player,
                 FormationIndex::new(0).unwrap(),
                 ParticipantSource::Player,
-                combatant(1, vec![1, 5, 6, 7, 9, 11], 1_000, 200, 0x61),
+                combatant(1, vec![1, 5, 6, 7, 9, 11, 12], player_hp, 200, 0x61),
             ),
             ParticipantSpec::new(
                 TeamSide::Enemy,
@@ -503,6 +528,22 @@ fn linked_combatant_stats_are_resolved_from_its_current_owner() {
 }
 
 #[test]
+fn linked_maximum_hp_uses_the_declared_one_hp_domain_minimum() {
+    let mut battle = fixture_battle_with_player_hp(1);
+    open_normal_action(&mut battle);
+    let resolution = use_ability(&mut battle, 12);
+    assert!(resolution.fault().is_none());
+    let linked = battle
+        .view()
+        .units_by_id()
+        .find(|unit| unit.form() == definition(2))
+        .unwrap();
+
+    assert_eq!(linked.maximum_hp(), Hp::new(1).unwrap());
+    assert_eq!(linked.current_hp(), Hp::new(1).unwrap());
+}
+
+#[test]
 fn countdown_ends_transformation_once_and_restores_original_abilities() {
     let mut battle = fixture_battle();
     open_normal_action(&mut battle);
@@ -518,6 +559,7 @@ fn countdown_ends_transformation_once_and_restores_original_abilities() {
             definition(7),
             definition(9),
             definition(11),
+            definition(12),
         ]
     );
     assert!(!owner.is_transformed());
@@ -563,6 +605,7 @@ fn separately_created_countdown_ends_the_active_transformation() {
             definition(7),
             definition(9),
             definition(11),
+            definition(12),
         ]
     );
     assert!(!owner.is_transformed());

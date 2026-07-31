@@ -147,10 +147,12 @@ impl MapRuntimeCatalog {
     pub(super) fn compile_creation(
         &self,
         board: &str,
+        required_route: &[NodeId],
+        terminal_domain: &str,
         rng: &mut ActivityRngStreams,
     ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
         let board = self.board(board)?;
-        let operations = self.creation_operations(board, rng)?;
+        let operations = self.creation_operations(board, required_route, terminal_domain, rng)?;
         program(CREATION_PROGRAM_BASE, board_id(board)?, operations)
     }
 
@@ -159,6 +161,8 @@ impl MapRuntimeCatalog {
         board: &str,
         trigger: &str,
         parameter: u32,
+        required_route: &[NodeId],
+        terminal_domain: &str,
         rng: &mut ActivityRngStreams,
     ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
         let board = self.board(board)?;
@@ -179,7 +183,7 @@ impl MapRuntimeCatalog {
         let selected = choose(rng, MAP_EVENT_PURPOSE, &candidates, |event| event.weight)?
             .ok_or(GoldAndGearsEntryError::MissingMapEvent)?;
         let mut operations = event_operations(selected);
-        operations.extend(self.creation_operations(board, rng)?);
+        operations.extend(self.creation_operations(board, required_route, terminal_domain, rng)?);
         program(EVENT_CREATION_PROGRAM_BASE, board_id(board)?, operations)
     }
 
@@ -405,6 +409,8 @@ impl MapRuntimeCatalog {
     fn creation_operations(
         &self,
         board: &BoardMapDefinition,
+        required_route: &[NodeId],
+        terminal_domain: &str,
         rng: &mut ActivityRngStreams,
     ) -> Result<Vec<ActivityOperation>, GoldAndGearsEntryError> {
         let mut operations = Vec::new();
@@ -431,13 +437,38 @@ impl MapRuntimeCatalog {
             }
         }
         for node in &board.nodes[node_index..] {
-            operations.extend(node_values(
-                NodeId::new(*node).ok_or(GoldAndGearsEntryError::InvalidMapRuntime)?,
-                NODE_STATE_BLANKED,
-                literal(0),
-                literal(0),
-            ));
+            let node = NodeId::new(*node).ok_or(GoldAndGearsEntryError::InvalidMapRuntime)?;
+            if required_route.contains(&node) {
+                let domain = if required_route.last() == Some(&node) {
+                    terminal_domain
+                } else {
+                    "gold-gears.domain.empty"
+                };
+                operations.extend(node_values(
+                    node,
+                    NODE_STATE_CREATED,
+                    literal(i64::from(self.domain(domain)?)),
+                    literal(0),
+                ));
+            } else {
+                operations.extend(node_values(
+                    node,
+                    NODE_STATE_BLANKED,
+                    literal(0),
+                    literal(0),
+                ));
+            }
         }
+        let terminal = required_route
+            .last()
+            .copied()
+            .ok_or(GoldAndGearsEntryError::InvalidTopology)?;
+        operations.extend(node_values(
+            terminal,
+            NODE_STATE_CREATED,
+            literal(i64::from(self.domain(terminal_domain)?)),
+            literal(0),
+        ));
         Ok(operations)
     }
 

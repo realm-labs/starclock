@@ -269,7 +269,7 @@ impl ActivityTransactionState {
     pub fn current_battle_attempt_is_settled(&self) -> bool {
         self.attempt
             .as_ref()
-            .is_some_and(ActivityAttemptState::is_settled)
+            .is_some_and(|attempt| attempt.is_settled_at(self.current_node))
     }
     pub(crate) const fn state_definition(&self) -> &ActivityStateDefinition {
         &self.definition

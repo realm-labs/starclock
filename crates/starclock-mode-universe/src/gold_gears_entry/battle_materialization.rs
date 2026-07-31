@@ -173,6 +173,9 @@ impl GoldAndGearsRuntimeInstance {
             builder.add_modifier_group(attachment.group.clone());
             builder.add_modifier(attachment.definition.clone());
         }
+        if let Some(effect) = snapshot.conundrum.source_stack_effect() {
+            builder.add_effect(effect);
+        }
         builder.add_encounter(encounter_definition(self, selection)?);
         let combat_catalog = builder.build().map_err(|error| {
             GoldAndGearsEntryError::InvalidBattleCatalog(error.to_string().into())
