@@ -5,15 +5,15 @@
 | Field | Value |
 |---|---|
 | Goal ID | `apocalyptic-shadow-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Candidate freeze |
+| State | `Complete` — Candidate reference data; runtime unreleased |
+| Active phase | None |
 | Active batch | — |
-| Next unblocked batch | `G18-P4-B3` |
+| Next unblocked batch | — |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Active selector seed | `ScheduleDataChallengeBoss:203019` → group `3019`; ordinary rows `30191`–`30194`, selected Tierce `30195`; denominator pending Phase 0 |
-| Content lane | `Experimental`; target `CandidateReferenceData` |
+| Content lane | `CandidateReferenceData` |
 | Runtime state | `Unreleased`; zero runtime changes permitted |
 | Branch | `codex/goal18-apocalyptic-shadow-reference` |
 | Branch base | `92febad080dd4cf9997718d64b3648fc198ab1f8` |
@@ -28,7 +28,7 @@
 | Phase 1 — Mode systems | `Complete` | Profile/lifecycle, AV/progress/score, Steadfast Safeguard, Ruinous Embers, Word Shatter and all nine active Axiom options imported as runtime-disabled data. |
 | Phase 2 — Encounters and closure | `Complete` | Pools/bindings, nine encounter selectors, ten variants, 67 reachable skills, complete source/coverage/reconciliation rows and 42 fixture cases generated. No standalone status row is selected by the frozen closure. |
 | Phase 3 — Excel/Sora authoring | `Complete` | 35 isolated Sora tables, three complete deterministic workbooks, schema lock/templates/readers/debug export/bundle and a 35-page visual review all pass. |
-| Phase 4 — Candidate freeze | `InProgress` | Exact-once ownership/coverage, semantic fixtures, reconciliation, deterministic regeneration, repository quick/full gates and clean-checkout verification pass; immutable registration remains. |
+| Phase 4 — Candidate freeze | `Complete` | Exact-once ownership/coverage, semantic fixtures, reconciliation, deterministic regeneration, repository quick/full gates and clean-checkout verification pass. Immutable Candidate evidence freezes all counters, digests and 15 prerequisite batch commits; runtime remains unreleased. |
 
 ## Batch ledger
 
@@ -49,7 +49,7 @@
 | `G18-P3-B2` | `Complete` | This row's containing commit | Proved byte-identical double workbook generation and Sora lock/readers/debug/binary regeneration; structurally verified 35 sheets/1,246 rows/zero formulas/runtime rows; rendered all 35 sheets into five reviewed contact sheets. |
 | `G18-P4-B1` | `Complete` | This row's containing commit | Candidate audit passes 129/129 exact-once obligations, 1,246 DataReady normalized rows, six exact-zero pools, 81 shared receipts/zero conflicts, 16 families/42 fixtures, zero blocking gaps and zero runtime rows. |
 | `G18-P4-B2` | `Complete` | This row's containing commit | Focused deterministic regeneration, quick gate, 3602.2-second full gate and detached clean-checkout verification all pass; release-gate evidence records the isolated Python/Sora/source environments. |
-| `G18-P4-B3` | `Pending` | — | Immutable Candidate release snapshot. |
+| `G18-P4-B3` | `Complete` | This row's containing commit | Froze machine-verifiable Candidate evidence at `evidence/apocalyptic-shadow-reference-v1/release/release-evidence.json` (`7900aa12…d25`): 129 obligations, 1,246 DataReady rows, 35 Sora tables, three workbooks, 42 fixtures, zero conflicts/blocking gaps/runtime rows and all 15 prerequisite commits. |
 
 ## Frozen counters
 
@@ -66,6 +66,7 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | Keep Goal 18 reference-only. | User requested another high-priority collection wave before runtime work. |
 | 2026-08-01 | Treat group `3019`, not scheduled group `3020`, as the active released 4.4 selector. | Pinned schedule interval contains the audit/access date; later rows remain exclusion evidence. |
 | 2026-08-01 | Reconcile shared rows by receipt only. | Goals 13, 15 and 17 run independently and own their isolated artifacts. |
+| 2026-08-01 | Freeze Goal 18 as `CandidateReferenceData` and keep runtime `Unreleased`. | The reference denominator, authoring/export surface, provenance, reconciliation and semantic review are complete; lowering, handlers, adapters and playable flow remain explicitly excluded. |
 
 ## Verification log
 
@@ -87,3 +88,14 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | `G18-P3-B2` | `node tools/apocalyptic-shadow-reference/verify-authoring.mjs`; disposable print-area copies; headless LibreOffice; Poppler; `contact_sheets.py`; five contact-sheet visual inspection | Passed: deterministic authoring/export, 35/35 sheets rendered, no blank default sheet, clipping/overlap or formula/runtime defect. |
 | 2026-08-01 | `G18-P4-B1` | `execute-semantic-fixtures.mjs`; `audit-release.mjs`; refreshed review workbook/Sora debug/binary and 35-page visual review | Passed: 42/42 fixtures, 129 exact-once coverage rows, 81/81 conflict-free reconciliation receipts, 1,246 DataReady rows, zero blocking gaps/runtime rows. |
 | 2026-08-01 | `G18-P4-B2` | focused inventory/manifest/pool/pack/authoring/fixture/audit checks; `node tools/repository-check/run.mjs`; same with `--full`; detached clean-checkout focused suite and quick gate | Passed: quick 116.3s; full 3602.2s including Clippy and 33 workspace test harnesses; clean-checkout quick 5.1s. The full replacement command placed isolated `openpyxl==3.1.5` on `PATH`; no global Python mutation. |
+| 2026-08-01 | `G18-P4-B3` | `node tools/apocalyptic-shadow-reference/freeze-release.mjs`; same with `--check`; prerequisite ancestry verification; final focused Candidate audit and repository quick gate | Passed: deterministic release evidence `7900aa12…d25` pins all terminal counts, artifacts, digests and 15 prerequisite batch commits; no runtime artifact is released. |
+
+## Completion snapshot
+
+| Field | Frozen value |
+|---|---|
+| Completion commit | This row's containing `G18-P4-B3` commit |
+| Release evidence | `evidence/apocalyptic-shadow-reference-v1/release/release-evidence.json`; SHA-256 `7900aa12f55401ead510cbc6654c1148abafd400657e80c13b70358119d8dd25` |
+| Candidate bundle | `config/apocalyptic-shadow-generated/config.sora`; SHA-256 `52df8fd52dbcc0a791404c3fad150589fcedf73495fa1cee3c489e6fdbef5993` |
+| Runtime disposition | `Unreleased`; zero runtime-executable rows |
+| Publication | `origin/codex/goal18-apocalyptic-shadow-reference`; containing commit must match local, tracking and `git ls-remote` after push |
