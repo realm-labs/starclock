@@ -22,6 +22,7 @@ use super::{
     api::{GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance},
     curio_runtime::GoldAndGearsCurioRuntimeCatalog,
     occurrence_runtime::GoldAndGearsOccurrenceRuntimeCatalog,
+    path_boost_rule_runtime::GoldAndGearsPathBoostRuleRuntimeCatalog,
     service_adventure_runtime::GoldAndGearsServiceAdventureRuntimeCatalog,
     state_layout::BLESSING_INVENTORY,
 };
@@ -65,12 +66,14 @@ pub(super) struct GoldAndGearsContentRuntimeCatalog {
     pub(super) curios: Arc<GoldAndGearsCurioRuntimeCatalog>,
     pub(super) occurrences: Arc<GoldAndGearsOccurrenceRuntimeCatalog>,
     pub(super) service_adventure: Arc<GoldAndGearsServiceAdventureRuntimeCatalog>,
+    pub(super) path_boost_rules: Arc<GoldAndGearsPathBoostRuleRuntimeCatalog>,
     digests: GoldAndGearsSharedContentDigests,
 }
 
 impl GoldAndGearsContentRuntimeCatalog {
     pub(super) fn compile(
         content: &GoldAndGearsContentCatalog,
+        unique: &crate::gold_gears_unique::GoldAndGearsUniqueCatalog,
     ) -> Result<Self, GoldAndGearsEntryError> {
         let core = starclock_data::catalog::load(CORE_BUNDLE)
             .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?;
@@ -98,6 +101,9 @@ impl GoldAndGearsContentRuntimeCatalog {
         let service_adventure = Arc::new(GoldAndGearsServiceAdventureRuntimeCatalog::compile(
             content, &standard,
         )?);
+        let path_boost_rules = Arc::new(GoldAndGearsPathBoostRuleRuntimeCatalog::compile(
+            content, unique, &standard, &blessings,
+        )?);
         let digests = GoldAndGearsSharedContentDigests {
             blessing: blessings.digest(),
             path: paths.digest(),
@@ -110,6 +116,7 @@ impl GoldAndGearsContentRuntimeCatalog {
             curios,
             occurrences,
             service_adventure,
+            path_boost_rules,
             digests,
         })
     }

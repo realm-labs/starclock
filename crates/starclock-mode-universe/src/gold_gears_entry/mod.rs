@@ -22,6 +22,7 @@ mod neural_runtime;
 mod occurrence_execution;
 mod occurrence_runtime;
 mod occurrence_types;
+mod path_boost_rule_runtime;
 mod plane_transition;
 mod profile_rule_runtime;
 mod progression_runtime;
@@ -101,6 +102,11 @@ pub use occurrence_types::{
     GoldAndGearsOccurrenceSelection, GoldAndGearsOccurrenceTarget,
     GoldAndGearsOccurrenceVariantDefinition,
 };
+pub use path_boost_rule_runtime::{
+    GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION, GoldAndGearsPathBoostCombatBinding,
+    GoldAndGearsPathBoostCombatSet, GoldAndGearsPathBoostRuleBinding,
+    GoldAndGearsPathBoostRuleKind, GoldAndGearsPathBoostRuleOwnership,
+};
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
 pub use profile_rule_runtime::{
     GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION, GoldAndGearsProfileRuleExecution,
@@ -158,6 +164,8 @@ mod neural_runtime_tests;
 mod occurrence_rule_runtime_tests;
 #[cfg(test)]
 mod occurrence_service_tests;
+#[cfg(test)]
+mod path_boost_rule_runtime_tests;
 #[cfg(test)]
 mod phase2_hardening_tests;
 #[cfg(test)]

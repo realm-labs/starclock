@@ -216,7 +216,7 @@ impl GoldAndGearsRuntimeFactory {
             return Err(GoldAndGearsEntryError::InvalidCatalog);
         }
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
-        let content_runtime = GoldAndGearsContentRuntimeCatalog::compile(&content)?;
+        let content_runtime = GoldAndGearsContentRuntimeCatalog::compile(&content, &unique)?;
         let cognition = CognitionRuntimeCatalog::compile(&unique)?;
         let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
         let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
