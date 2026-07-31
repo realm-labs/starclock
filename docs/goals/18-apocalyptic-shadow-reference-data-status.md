@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `apocalyptic-shadow-reference-v1` |
-| State | `Ready` |
-| Active phase | Not started |
+| State | `InProgress` |
+| Active phase | Phase 0 — Foundation and frozen denominator |
 | Active batch | — |
-| Next unblocked batch | `G18-P0-B1` |
+| Next unblocked batch | `G18-P0-B2` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -16,7 +16,7 @@
 | Content lane | `Experimental`; target `CandidateReferenceData` |
 | Runtime state | `Unreleased`; zero runtime changes permitted |
 | Branch | `codex/goal18-apocalyptic-shadow-reference` |
-| Branch base | Pending `G18-P0-B1` |
+| Branch base | `92febad080dd4cf9997718d64b3648fc198ab1f8` |
 | Remote | `origin` |
 | Blocking condition | None |
 
@@ -24,7 +24,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Foundation and frozen denominator | `Pending` | Awaiting cache reproduction, inventory, manifest and contracts. |
+| Phase 0 — Foundation and frozen denominator | `InProgress` | `G18-P0-B1` reproduced both clean detached snapshots, Goal 03 completion, branch base and isolated roots. |
 | Phase 1 — Mode systems | `Pending` | Awaiting lifecycle, clocks/progress/score and unique mechanics. |
 | Phase 2 — Encounters and closure | `Pending` | Awaiting pools, exact encounters and enemy/program closure. |
 | Phase 3 — Excel/Sora authoring | `Pending` | Awaiting isolated schemas, workbooks, readers and bundle. |
@@ -34,7 +34,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G18-P0-B1` | `Pending` | — | Reproduce snapshots/prerequisites, branch base and isolated-scope proof. |
+| `G18-P0-B1` | `Complete` | This row's containing commit | `foundation.json`: Goal 03 complete; both pinned revisions readable and clean/detached; branch base `92febad0`; six isolated roots and zero runtime/peer mutation policy frozen. |
 | `G18-P0-B2` | `Pending` | — | Focused source inventory and exclusions. |
 | `G18-P0-B3` | `Pending` | — | Frozen active selector, manifest, ownership and exact-zero proofs. |
 | `G18-P0-B4` | `Pending` | — | Frozen normalization/evidence/workbook/reconciliation/fixture contracts. |
@@ -72,3 +72,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | Date | Batch | Commands | Result |
 |---|---|---|---|
 | 2026-08-01 | Planning | `git status --short --branch`; pinned source revision checks; direct inspection of `ScheduleDataChallengeBoss`, `ChallengeBossGroupConfig`, `ChallengeBossMazeConfig`, `ChallengeBossGroupExtra`, `ChallengeBossMazeExtra`, `ChallengeBossMazeTierce` and targets | Branch clean at `92febad0`; source revisions matched; active selector seed recorded. |
+| 2026-08-01 | `G18-P0-B1` | `git -C <cache> rev-parse HEAD`; `git -C <cache> status --short --branch`; Goal 03 ledger inspection; `git diff --name-only 92febad0..HEAD` | Passed; prerequisites and isolation recorded in `evidence/apocalyptic-shadow-reference-v1/foundation.json`. |
