@@ -260,6 +260,20 @@ impl ActivityTransactionState {
             .get(&id)
             .map(|entries| entries.iter().map(|(content, count)| (*content, *count)))
     }
+    /// Whether the current node's most recent battle attempt has already
+    /// committed a verified result.
+    ///
+    /// A mode may use this read-only boundary to prevent preparing the same
+    /// encounter twice before an ordinary graph transition enters a new node.
+    #[must_use]
+    pub fn current_battle_attempt_is_settled(&self) -> bool {
+        self.attempt
+            .as_ref()
+            .is_some_and(ActivityAttemptState::is_settled)
+    }
+    pub(crate) const fn state_definition(&self) -> &ActivityStateDefinition {
+        &self.definition
+    }
     #[must_use]
     pub(crate) fn counter_value(&self, id: ActivitySlotId, key: u64) -> Option<i64> {
         match self.slots.get(&id)? {

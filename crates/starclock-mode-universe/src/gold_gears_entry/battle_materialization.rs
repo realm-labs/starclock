@@ -117,7 +117,8 @@ impl GoldAndGearsRuntimeInstance {
         roster: &UniverseBattleRoster,
         context: &GoldAndGearsBattleAssemblyContext,
     ) -> Result<GoldAndGearsBattleMaterialization, GoldAndGearsEntryError> {
-        if roster.participant_lock() != self.participants().digest()
+        if state.current_battle_attempt_is_settled()
+            || roster.participant_lock() != self.participants().digest()
             || self.encounter_role_for_node(state, state.current_node()) != Some(selection.role())
             || selection.waves().is_empty()
         {

@@ -220,7 +220,7 @@ fn stale_encounter_selection_is_rejected_without_mutating_activity_state() {
     );
 }
 
-fn selected_combat(
+pub(super) fn selected_combat(
     instance: &GoldAndGearsRuntimeInstance,
     seed: u64,
 ) -> (ActivityTransactionState, GoldAndGearsEncounterSelection) {
@@ -238,7 +238,7 @@ fn selected_combat(
     (state, selection)
 }
 
-fn roster(instance: &GoldAndGearsRuntimeInstance) -> UniverseBattleRoster {
+pub(super) fn roster(instance: &GoldAndGearsRuntimeInstance) -> UniverseBattleRoster {
     let combat = instance
         .content_runtime
         .standard
@@ -282,7 +282,7 @@ fn roster(instance: &GoldAndGearsRuntimeInstance) -> UniverseBattleRoster {
     UniverseBattleRoster::new(instance.participants(), combatants).unwrap()
 }
 
-fn commit(
+pub(super) fn commit(
     instance: &GoldAndGearsRuntimeInstance,
     state: &mut ActivityTransactionState,
     program: starclock_activity::ActivityProgramDefinition,
@@ -302,7 +302,7 @@ fn commit(
     ));
 }
 
-fn activity_rng(instance: &GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRngStreams {
+pub(super) fn activity_rng(instance: &GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRngStreams {
     let identity = activity_identity();
     ActivityRngStreams::new(ActivityRngContext::new(
         ActivityMasterSeed::from_u64(seed),
@@ -318,7 +318,7 @@ fn activity_rng(instance: &GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRn
     ))
 }
 
-fn activity_identity() -> ActivityDefinitionIdentity {
+pub(super) fn activity_identity() -> ActivityDefinitionIdentity {
     ActivityDefinitionIdentity::new(
         ActivityDefinitionId::new(14).unwrap(),
         ActivityDefinitionDigest::new([0x14; 32]).unwrap(),

@@ -2,6 +2,7 @@
 
 mod api;
 mod battle_enemy_catalog;
+mod battle_execution;
 mod battle_materialization;
 mod battle_snapshot;
 mod cognition;
@@ -47,6 +48,10 @@ pub use api::{
 };
 pub use battle_enemy_catalog::{
     GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION, GoldAndGearsEnemyDefinitionBinding,
+};
+pub use battle_execution::{
+    GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsBattleExecution,
+    GoldAndGearsBattleExecutionError, GoldAndGearsBattleStart,
 };
 pub use battle_materialization::{
     GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GoldAndGearsBattleMaterialization,
