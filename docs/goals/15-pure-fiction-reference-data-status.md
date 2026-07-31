@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `pure-fiction-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 1 — Unique mode systems |
+| Active phase | Phase 2 — Content pools, services, events and enemies |
 | Active batch | — |
-| Next unblocked batch | `G15-P1-B7` |
+| Next unblocked batch | `G15-P2-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -32,8 +32,8 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources, manifest and contracts | `Complete` | Pinned caches, 1,816-file inventory, 796-obligation active manifest, exact exclusions/zero proofs and normalized/evidence/workbook/fixture contracts are machine-verified. |
-| Phase 1 — Unique mode systems | `InProgress` | Profile/season flow is next; denominators and all authoring contracts are frozen. |
-| Phase 2 — Content pools, services, events and enemies | `Pending` | Awaiting nonzero/zero pool proofs, themes/MazeBuffs/BattleEvents/configs, exact StageConfig waves, enemies, AI and abilities. |
+| Phase 1 — Unique mode systems | `Complete` | Profile/season/Tierce, participants/loadouts/attempts, clocks/refill, score/objectives, Whimsicality/Grit/Fever, three Cacophonies and initial-resource policies regenerate byte-identically. |
+| Phase 2 — Content pools, services, events and enemies | `InProgress` | Selector-backed exact-zero content pools are next. |
 | Phase 3 — Independent Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `Pending` | Awaiting exact-once audit, semantic fixtures, cross-goal receipts, regeneration and clean-checkout evidence. |
 
@@ -51,7 +51,7 @@
 | `G15-P1-B4` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported defeat, partial-damage and stage aggregation programs plus all six ordinary/Tierce objective identities. Authoritative event attribution, integer score transport, simultaneous event order, 30,000 ordinary and 45,000 Tierce clear-score boundaries are explicit; still-obfuscated Tierce thresholds remain policy-bound rather than guessed. |
 | `G15-P1-B5` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the two selected Whimsicality/base bindings and all three Grit/Fever contributions (`3031227`–`3031229`) with exact stage-ability keys and canonical parameter vectors; hidden target/tie behavior remains fixture-bound ProjectPolicy rather than observed parity. |
 | `G15-P1-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported all three selectable Cacophonies (`3031359`, `3031362`, `3031361`) with exact post-character-birth binding keys and canonical parameter order; attempt-node choice locking and base-rule interaction remain explicit future-runtime contribution boundaries. |
-| `G15-P1-B7` | `Pending` | — | Import initial resources, battle entry, cross-battle projections and remaining Tierce/Starward contributions. |
+| `G15-P1-B7` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the battle-entry resource, retry restoration and cross-battle projection boundary; absence of a selected season override is recorded as ProjectPolicy with a field-level replacement condition, while exact Tierce identity/score/target contributions remain in the P1-B1 record. |
 | `G15-P2-B1` | `Pending` | — | Freeze selector-backed nonzero or exact-zero Blessing, Curio, Occurrence and event-choice pools. |
 | `G15-P2-B2` | `Pending` | — | Freeze selector-backed nonzero or exact-zero service, currency, shop and other content pools. |
 | `G15-P2-B3` | `Pending` | — | Import challenge definitions, themes, MazeBuffs, BattleEvents, stage templates and config/ability relationships. |
