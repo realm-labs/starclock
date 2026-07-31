@@ -43,11 +43,12 @@ Before the first mutation:
   Goal 15 ledger;
 - inspect committed Goal 07-14 manifests/evidence relevant to overlapping
   challenge, enemy or shared source rows;
-- prove that this task uses
-  codex/goal15-pure-fiction-reference in a separate worktree with only the six
+- create `codex/goal15-pure-fiction-reference` from current `origin/master`,
+  push it, and prove that it uses a separate worktree with only the six
   isolated Goal 15 artifact roots;
-- verify the branch has a configured writable remote destination and record
-  the remote/branch names before beginning G15-P0-B1;
+- verify the branch has a configured writable remote destination, freeze the
+  exact base and remote equality, and record both before beginning
+  `G15-P0-B1`;
 - record the exact committed revisions used for shared-row reconciliation;
 - do not start if the checkout would share mutable workbooks, generated output
   or another Goal's in-progress files.

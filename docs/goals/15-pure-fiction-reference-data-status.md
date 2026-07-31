@@ -20,9 +20,9 @@
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
-| Branch | `codex/goal15-pure-fiction-reference` |
-| Branch base | `0191cc71b1735d6e101e6e04817181423c599232` (`master`) |
-| Parallel inspection | Main workspace and Goal 09–14 worktrees were clean; Goal 09–13 and the separate Goal 14 Memory of Chaos setup branches matched their remote refs; current `master` independently advances Goal 14 Gold and Gears runtime |
+| Branch | Target `codex/goal15-pure-fiction-reference`; create it from current `origin/master` before `G15-P0-B1` |
+| Branch base | Pending execution-time freeze in `G15-P0-B1`; this plan is integrated by mainline merge commit `1e10d3c7…` |
+| Parallel inspection | The 2026-07-30 audit covered the legacy setup base; `G15-P0-B1` must repeat it against current Goal 14, 16 and 17 work and the execution branch |
 | Parallel condition | Separate branch/worktree and six isolated Goal 15 roots while other Goals or integration work are active |
 | Publication policy | Push and remotely verify each completed batch before starting the next batch |
 | Blocking condition | None |
@@ -74,21 +74,20 @@ For a completed batch, the result/evidence cell must record `remote`,
 verification command and result. A locally committed but remotely unverified
 batch remains `InProgress`.
 
-## Goal package publication
+## Goal package integration
 
 | Field | Value |
 |---|---|
-| Setup batch | `G15-SETUP` |
-| Setup commit | This document's containing commit (`G15-SETUP`) |
+| Legacy setup commit | `0e10539ffcffc4778cfb56e686663fbd2f4d72a4` (`G15-SETUP`) |
+| Mainline integration | Merge commit `1e10d3c702461a869454dbb20ff6bf64969ed412` |
 | Remote | `origin` |
-| Branch | `codex/goal15-pure-fiction-reference` |
-| Push command | `git push -u origin codex/goal15-pure-fiction-reference` |
-| Verification command | `test "$(git rev-parse HEAD)" = "$(git ls-remote --heads origin refs/heads/codex/goal15-pure-fiction-reference \| awk '{print $1}')"` |
-| Result | Successful: the remote full commit ID equals this document's containing commit; the setup handoff reports the resolved ID and `G15-P0-B1` freezes it as foundation evidence |
+| Integrated branch | `master` |
+| Execution branch | Create `codex/goal15-pure-fiction-reference` from then-current `origin/master` before `G15-P0-B1` |
+| Result | The planning package is published on mainline; no execution batch has started |
 
-The setup commit uses “this document's containing commit” to avoid a recursive
-self-hash. If the push or remote-resolution check fails, this package remains
-unpublished and `G15-P0-B1` must not begin.
+The legacy setup branch is historical input only. Goal 15 execution must freeze
+the mainline integration and its new branch base rather than treating the
+deleted setup branch as execution-owned foundation evidence.
 
 ## Frozen counters
 
@@ -123,6 +122,7 @@ generated selector-closure proof.
 | 2026-07-30 | Create Goal 15 as a complete Pure Fiction reference-data package, not a runtime goal. | Version 4.4 research can proceed independently without changing challenge, Activity or combat runtime. |
 | 2026-07-30 | Use `pure-fiction` as the stable mode slug and reserve Goal 15. | Current `master` already uses Goal 14 for Gold and Gears runtime, while a clean published parallel branch also uses Goal 14 for Memory of Chaos reference setup; no local or remote Goal 15 package, branch or Pure Fiction root existed during the audit. |
 | 2026-07-30 | Base the setup branch on committed `master@0191cc71b1735d6e101e6e04817181423c599232`. | The main workspace was clean and this captures the current Goal 14 runtime progress without modifying its files. |
+| 2026-07-31 | Integrate the Ready planning package into mainline and retire the legacy setup branch. | The plan has no execution-owned data or frozen denominator yet; recreating the execution branch from current `origin/master` avoids carrying an obsolete base while preserving the setup commit in history. |
 | 2026-07-30 | Inherit the pinned Version 4.4 source and identity revisions used by Goals 03 and 08–14. | Shared identity, row ownership and membership comparisons require one reproducible historical boundary. |
 | 2026-07-30 | Require `G15-P0-B1` to reproduce both caches even though the planning audit found them clean, detached and connected. | Planning-time availability is not a substitute for batch-owned reproducibility evidence. |
 | 2026-07-30 | Treat schedule `202024`, group `2024`, rows `20241`–`20244`, Tierce `20245`, nine StageConfig candidates and the listed buff/program chain only as planning seeds. | Explicit references make them strong candidates, but the generated manifest must prove exact active-release membership, ownership and exclusions. |
