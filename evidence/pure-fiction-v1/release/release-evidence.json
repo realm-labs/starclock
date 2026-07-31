@@ -1,0 +1,175 @@
+{
+  "schema_revision": "starclock.pure-fiction-release-evidence.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "batch_id": "G15-P4-B4",
+  "completion_commit": "this file's containing commit",
+  "release_state": "CandidateReferenceData",
+  "runtime_profile_state": "Unreleased",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_boundary": "2026-07-30",
+    "turnbasedgamedata_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "counts": {
+    "source_inventory_files": 1816,
+    "frozen_obligations": 796,
+    "data_ready_obligations": 796,
+    "normalized_files": 36,
+    "normalized_rows": 6014,
+    "source_receipts": 796,
+    "shared_reconciliation_receipts": 606,
+    "blocking_gaps": 0,
+    "approximation_boundaries": 3,
+    "mechanic_rules": 25,
+    "semantic_fixtures": 18,
+    "semantic_assertions": 18,
+    "workbook_count": 3,
+    "workbook_sheet_count": 37,
+    "workbook_rows": 6810,
+    "visual_review_pages": 37,
+    "sora_tables": 37,
+    "generated_rust_reader_files": 43,
+    "loaded_sora_rows": 6810,
+    "runtime_enabled_profiles": 0
+  },
+  "digests": {
+    "manifest": "87134542a1c5df36aa499a04080c204df69effd8a596fb3c9451613895ba450e",
+    "normalized_pack": "37dc368a39863dd1ffbcb56fe10f766caea428a464179f12317b9ff9a08493bc",
+    "pack_tree": "49f509973f74c9a262db11249e5119ba42e91503f95af6984c2a22debbbcece7",
+    "workbook_semantic": "63cd6b0a774d85c57b20daac1cf94786a785dd4303c57f57a124c36d8743a2ee",
+    "workbooks": [
+      "e24350c324c9f9e596324f88b833a2e3b76a58749ea9b4226e014b305ea39f6f",
+      "a4dd01c49092848646b6ec8cdc5f8ec32329f389625bae3c4e73d634b145a754",
+      "ffc5ba9ac8b53d360f935e703674af694798d8c68d9e4559125268e2aa4ca9aa"
+    ],
+    "sora_bundle": "06775011ea6a2817685da1850b7fd3dc33d0507e378968729090fb4285d2c4df",
+    "schema_lock": "5e285b8dde3046195b466f22cec0e62918c54c4b24000805d5d1153b4dce4c99",
+    "semantic_fixtures": "17477b195da85ba66c058f408ce33ca77918c8ec9ab7e479e255f8bd6c44cad6",
+    "peer_reconciliation": "ab07c27b746e70a7ad6efde3929e6e2d767baf46e86afa518b1f9d67224863fa"
+  },
+  "acceptance": {
+    "ordered_goal_verifier": "Passed",
+    "full_source_cache_gate": {
+      "status": "Passed",
+      "elapsed_seconds": "371.8",
+      "generated_checks": 32,
+      "cache_dependent_skips": 0,
+      "workspace_harnesses": 33
+    },
+    "clean_checkout": {
+      "status": "Passed",
+      "commit": "4c8aadfb2e2f7c61209164813798b7e5b3a8f8af",
+      "tracked_tree_clean": true
+    },
+    "peer_conflicts": 0,
+    "runtime_leakage": 0
+  },
+  "prerequisite_batches": [
+    {
+      "commit": "3fb3b38c2859de32f9466e20621aeda7b99374e9",
+      "subject": "data(pure-fiction): G15-P0-B1 freeze scope and sources"
+    },
+    {
+      "commit": "b015e9bc6aa52a5e1cbc0b6979e9136ba82da4b9",
+      "subject": "data(pure-fiction): G15-P0-B2 inventory released sources"
+    },
+    {
+      "commit": "993a60193f75d53617a421db7a09ccd306d0d2ef",
+      "subject": "data(pure-fiction): G15-P0-B3 freeze active manifest"
+    },
+    {
+      "commit": "5708f6e4e74f4fb1e86f0ad2cee29d89114cb82c",
+      "subject": "data(pure-fiction): G15-P0-B4 freeze authoring contracts"
+    },
+    {
+      "commit": "221b4dfdd405481a426592fece0af5e6b2b3c92d",
+      "subject": "data(pure-fiction): G15-P1-B1 import profile and stages"
+    },
+    {
+      "commit": "c991c2a40abc4a35934750003dcd3f584efa4521",
+      "subject": "data(pure-fiction): G15-P1-B2 import participants and attempts"
+    },
+    {
+      "commit": "cf760db396451617a5df103390ebf7623daa176f",
+      "subject": "data(pure-fiction): G15-P1-B3 import clocks and refill"
+    },
+    {
+      "commit": "6bf323f4692976a2d4c93678d43e015d918f716e",
+      "subject": "data(pure-fiction): G15-P1-B4 import scoring and objectives"
+    },
+    {
+      "commit": "870eeacb56d5866ecacbc3c17fc544cffa5de2a9",
+      "subject": "data(pure-fiction): G15-P1-B5 import grit fever mechanics"
+    },
+    {
+      "commit": "f1d446e52947e2896248e309a37b0876599b29d4",
+      "subject": "data(pure-fiction): G15-P1-B6 import cacophony choices"
+    },
+    {
+      "commit": "d301a8f6f513b5d1f0a087ffe73644f28601bb9d",
+      "subject": "data(pure-fiction): G15-P1-B7 import entry resources"
+    },
+    {
+      "commit": "814d04a20150b8f1ca68644ea111ce32574cc52a",
+      "subject": "data(pure-fiction): G15-P2-B1 prove zero content pools"
+    },
+    {
+      "commit": "734db92d77c94dd61860c45d2609a7685789697d",
+      "subject": "data(pure-fiction): G15-P2-B2 prove zero service pools"
+    },
+    {
+      "commit": "4a2712c0cd4bf6db436e6ebde54721630cb3f45a",
+      "subject": "data(pure-fiction): G15-P2-B3 import event bindings"
+    },
+    {
+      "commit": "539da8f3eb74e5ecf78b82cb6548551134b4ec36",
+      "subject": "data(pure-fiction): G15-P2-B4 import encounters and waves"
+    },
+    {
+      "commit": "7b5ae1d132e0aee2a1d07baf8aa7774c9b79b8a0",
+      "subject": "data(pure-fiction): G15-P2-B5 import enemy closure"
+    },
+    {
+      "commit": "9edd5132380e345cfa58ffeee17362438e07db77",
+      "subject": "data(pure-fiction): G15-P2-B6 assemble reference pack"
+    },
+    {
+      "commit": "84ad6e00e7ddef18ea4b9ec6f7fc226508fcf729",
+      "subject": "data(pure-fiction): G15-P3-B1 add core Sora tables"
+    },
+    {
+      "commit": "abd83309f711b84ddbd464bc54f46ede7c84579b",
+      "subject": "data(pure-fiction): G15-P3-B2 add mechanics Sora tables"
+    },
+    {
+      "commit": "85e8c6408b7f70f3d6338627188e2dfcea23c25f",
+      "subject": "data(pure-fiction): G15-P3-B3 add binding Sora tables"
+    },
+    {
+      "commit": "542816e8548f549e132a5cd41e1d12dc9f52d1c5",
+      "subject": "data(pure-fiction): G15-P3-B4 generate isolated Sora artifacts"
+    },
+    {
+      "commit": "f181f20e6b8be1cdf1de9f4c4f66d46cd093f6a9",
+      "subject": "data(pure-fiction): G15-P3-B5 author complete workbooks"
+    },
+    {
+      "commit": "440db8ad6e959de13c7b50479417d8d873d9611a",
+      "subject": "data(pure-fiction): G15-P3-B6 verify Sora export and review"
+    },
+    {
+      "commit": "6b30afecdb271a52e06e0922b2800fa0590e4cff",
+      "subject": "data(pure-fiction): G15-P4-B1 audit Candidate ownership"
+    },
+    {
+      "commit": "562fe6e3f67eeee239076ddb23c6a24ae9bd97d5",
+      "subject": "data(pure-fiction): G15-P4-B2 execute semantic fixtures"
+    },
+    {
+      "commit": "4c8aadfb2e2f7c61209164813798b7e5b3a8f8af",
+      "subject": "data(pure-fiction): G15-P4-B3 reconcile and verify release"
+    }
+  ],
+  "remaining_work": "Runtime lowering, Activity/combat handlers, playable integration, adapters and seeded full challenge runs belong to a later goal."
+}
