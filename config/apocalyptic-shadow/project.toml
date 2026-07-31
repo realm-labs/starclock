@@ -1,0 +1,28 @@
+package = "starclock_apocalyptic_shadow_reference_config"
+includes = [
+  "schema/system.toml",
+  "schema/bindings.toml",
+  "schema/review.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "../apocalyptic-shadow-generated/schema.lock"
+excel_templates = "../apocalyptic-shadow-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "../apocalyptic-shadow-generated/readers/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "../apocalyptic-shadow-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "../apocalyptic-shadow-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

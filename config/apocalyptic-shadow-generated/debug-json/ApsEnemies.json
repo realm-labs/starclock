@@ -1,0 +1,577 @@
+{
+  "table": {
+    "name": "ApsEnemies",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.3003015"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 3003015"
+          },
+          "name_zh_cn": {
+            "String": "敌人3003015"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.3003015\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.3003015\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":3003015,\"name_en\":\"Enemy 3003015\",\"name_zh_cn\":\"敌人3003015\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[300301501,300301502,300301503,300301504,300301505,300301506,300301507,300301508,300301509,300301510,300301511],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=3003015\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e4e82ba8ff1df72321a880a63226a3e2ac291b7043e96c56e89f44a691ddc5f2\",\"source_id\":\"src.enemy.3003015\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[],\"template_id\":3003015,\"weaknesses\":[\"Fire\",\"Ice\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.3003015"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.3003015"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.300402104"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 300402104"
+          },
+          "name_zh_cn": {
+            "String": "敌人300402104"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.300402104\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.300402104\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":300402104,\"name_en\":\"Enemy 300402104\",\"name_zh_cn\":\"敌人300402104\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[300402101,300402102,300402103,300402104,300402105,300402106,300402107,300402108,300402109,300402110],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=300402104\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"63b13fb1751a9c0dddca21ffd01ae4c47c8ab2155a644d4249cccea65804233a\",\"source_id\":\"src.enemy.300402104\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[3002022,3002012,3003015,3002042],\"template_id\":3004021,\"weaknesses\":[]}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.300402104"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.300402104"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.302401301"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 302401301"
+          },
+          "name_zh_cn": {
+            "String": "敌人302401301"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.302401301\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.302401301\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":302401301,\"name_en\":\"Enemy 302401301\",\"name_zh_cn\":\"敌人302401301\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[302401301,302401302,302401303,302401304,302401305,302401306,302401307,302401308,302401310,302401311,302401312,302401313,302401314,302401315,302401316,302401317,302401318,302401319,302401320,302401321,302401322,302401323,302401324,302401325,302401326],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=302401301\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"957fcd1b644f1e581b84efe5e70ccaafbaae741396edac872f0430e68bddb8ed\",\"source_id\":\"src.enemy.302401301\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[3021022,3021032,3021042],\"template_id\":3024013,\"weaknesses\":[\"Physical\",\"Fire\",\"Ice\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.302401301"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.302401301"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.302401302"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 302401302"
+          },
+          "name_zh_cn": {
+            "String": "敌人302401302"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.302401302\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.302401302\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":302401302,\"name_en\":\"Enemy 302401302\",\"name_zh_cn\":\"敌人302401302\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[302401301,302401302,302401303,302401304,302401305,302401306,302401307,302401308,302401310,302401311,302401312,302401313,302401314,302401315,302401316,302401317,302401318,302401319,302401320,302401321,302401322,302401323,302401324,302401325,302401326],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=302401302\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ad557deeb6e97175d04d2097a7f54cd88e54d1c39122d60c0f72da5494ccb22d\",\"source_id\":\"src.enemy.302401302\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[3021022,3021032,3021042],\"template_id\":3024013,\"weaknesses\":[\"Physical\",\"Fire\",\"Ice\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.302401302"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.302401302"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.302401303"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 302401303"
+          },
+          "name_zh_cn": {
+            "String": "敌人302401303"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.302401303\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.302401303\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":302401303,\"name_en\":\"Enemy 302401303\",\"name_zh_cn\":\"敌人302401303\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[302401301,302401302,302401303,302401304,302401305,302401306,302401307,302401308,302401310,302401311,302401312,302401313,302401314,302401315,302401316,302401317,302401318,302401319,302401320,302401321,302401322,302401323,302401324,302401325,302401326],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=302401303\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"22fc595c027c252682946dd3fc94e50297b614e2d76857a34ba611c2f6504347\",\"source_id\":\"src.enemy.302401303\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[3021022,3021032,3021042],\"template_id\":3024013,\"weaknesses\":[\"Physical\",\"Fire\",\"Ice\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.302401303"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.302401303"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000006
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.302401304"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 302401304"
+          },
+          "name_zh_cn": {
+            "String": "敌人302401304"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.302401304\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.302401304\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":302401304,\"name_en\":\"Enemy 302401304\",\"name_zh_cn\":\"敌人302401304\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[302401301,302401302,302401303,302401304,302401305,302401306,302401307,302401308,302401310,302401311,302401312,302401313,302401314,302401315,302401316,302401317,302401318,302401319,302401320,302401321,302401322,302401323,302401324,302401325,302401326],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=302401304\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9d9d1ff6f9ead3ff7911a9102b8fd101ebe7bb35cf0a13f3448e1b95be4f8f37\",\"source_id\":\"src.enemy.302401304\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[3021022,3021032,3021042],\"template_id\":3024013,\"weaknesses\":[\"Physical\",\"Fire\",\"Ice\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.302401304"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.302401304"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000007
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.401401301"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 401401301"
+          },
+          "name_zh_cn": {
+            "String": "敌人401401301"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.401401301\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.401401301\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":401401301,\"name_en\":\"Enemy 401401301\",\"name_zh_cn\":\"敌人401401301\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[401401301,401401302,401401303,401401304,401401305,401401306,401401307,401401308,401401309,401401310,401401311,401401312,401401313,401401314,401401315,401401316,401401317,401401318,401401319,401401320,401401321],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=401401301\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a32e97949ca120686fc03dc34ec88b973745f369de8412318242a2d6cf93846d\",\"source_id\":\"src.enemy.401401301\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[401402101],\"template_id\":4014013,\"weaknesses\":[\"Fire\",\"Ice\",\"Thunder\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.401401301"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.401401301"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000008
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.401401302"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 401401302"
+          },
+          "name_zh_cn": {
+            "String": "敌人401401302"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.401401302\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.401401302\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":401401302,\"name_en\":\"Enemy 401401302\",\"name_zh_cn\":\"敌人401401302\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[401401301,401401302,401401303,401401304,401401305,401401306,401401307,401401308,401401309,401401310,401401311,401401312,401401313,401401314,401401315,401401316,401401317,401401318,401401319,401401320,401401321],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=401401302\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"787768e95e93d2610fddaafea6552107c7c1f3d35baa28b4bb708beefc5766c4\",\"source_id\":\"src.enemy.401401302\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[401402102],\"template_id\":4014013,\"weaknesses\":[\"Fire\",\"Ice\",\"Thunder\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.401401302"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.401401302"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000009
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.401401303"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 401401303"
+          },
+          "name_zh_cn": {
+            "String": "敌人401401303"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.401401303\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.401401303\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":401401303,\"name_en\":\"Enemy 401401303\",\"name_zh_cn\":\"敌人401401303\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[401401301,401401302,401401303,401401304,401401305,401401306,401401307,401401308,401401309,401401310,401401311,401401312,401401313,401401314,401401315,401401316,401401317,401401318,401401319,401401320,401401321],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=401401303\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6193962233df05e31d35c5b132657bec6ed3eb6d742245ad5c5e3ac7b873ad2e\",\"source_id\":\"src.enemy.401401303\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[401402103],\"template_id\":4014013,\"weaknesses\":[\"Fire\",\"Ice\",\"Thunder\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.401401303"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.401401303"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000010
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy.401401304"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy 401401304"
+          },
+          "name_zh_cn": {
+            "String": "敌人401401304"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"hard_level_group\":1,\"id\":\"enemy.401401304\",\"kind\":\"enemy\",\"manifest_record_ids\":[\"enemy.401401304\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_id\":401401304,\"name_en\":\"Enemy 401401304\",\"name_zh_cn\":\"敌人401401304\",\"override_ai_path\":\"\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_ids\":[401401301,401401302,401401303,401401304,401401305,401401306,401401307,401401308,401401309,401401310,401401311,401401312,401401313,401401314,401401315,401401316,401401317,401401318,401401319,401401320,401401321],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=401401304\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4233c4fad1cc5d72ef286bcf2c6a5428d8f82056c4b153501257a382e41c9ae4\",\"source_id\":\"src.enemy.401401304\"}],\"stat_ratios\":{\"attack\":\"1\",\"defence\":\"1\",\"hp\":\"1\",\"speed\":\"1\",\"stance\":\"1\"},\"summary_en\":\"A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.\",\"summary_zh_cn\":\"带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。\",\"summon_template_ids\":[401402104],\"template_id\":4014013,\"weaknesses\":[\"Fire\",\"Ice\",\"Thunder\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy.401401304"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.401401304"
+          },
+          "summary_en": {
+            "String": "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure."
+          },
+          "summary_zh_cn": {
+            "String": "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "ApsSafeguards",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "buff.3110006"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Steadfast Safeguard"
+          },
+          "name_zh_cn": {
+            "String": "坚防守备"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"break_trigger\":\"WeaknessBreak\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"exact_protection_amount\":\"boss-owned-enemy-closure\",\"id\":\"safeguard.steadfast\",\"kind\":\"safeguard\",\"manifest_record_ids\":[\"buff.3110006\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Steadfast Safeguard\",\"name_zh_cn\":\"坚防守备\",\"on_break\":[\"dispel-allied-control\",\"recover-skill-points\",\"activate-ultimates\"],\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3110006\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e51e38f7b21c572b3edfde9a83419d4e5f5488b28da5dd22c5a663af6dbb175e\",\"source_id\":\"src.buff.3110006\"}],\"summary_en\":\"A boss protection state whose Weakness Break is the released Ruinous Embers trigger.\",\"summary_zh_cn\":\"首领保护状态；其弱点击破是已发布末法余烬的触发条件。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.buff.3110006"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "safeguard.steadfast"
+          },
+          "summary_en": {
+            "String": "A boss protection state whose Weakness Break is the released Ruinous Embers trigger."
+          },
+          "summary_zh_cn": {
+            "String": "首领保护状态；其弱点击破是已发布末法余烬的触发条件。"
+          }
+        }
+      }
+    ]
+  }
+}

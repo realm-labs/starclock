@@ -1,0 +1,560 @@
+
+[[tables]]
+name = "ApsMechanicRules"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "MechanicRules"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsSources"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "Sources"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsReconciliation"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "Reconciliation"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsResearchGaps"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "ResearchGaps"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsCoverage"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "Coverage"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsReviewFixtures"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "ReviewFixtures"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsManifest"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "Manifest"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ApsPackIndex"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "ApocalypticShadowReview.xlsx"
+sheet = "PackIndex"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 6000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ApsOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ApsCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ApsEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ApsMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
