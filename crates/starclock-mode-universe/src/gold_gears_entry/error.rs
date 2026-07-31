@@ -83,6 +83,7 @@ pub enum GoldAndGearsEntryError {
     UnknownOccurrenceChoice(GoldAndGearsOccurrenceChoiceId),
     OccurrenceChoiceIsNotRandom(GoldAndGearsOccurrenceChoiceId),
     InvalidOccurrenceCandidates,
+    InvalidOccurrenceSelection(GoldAndGearsOccurrenceChoiceId),
     InvalidServiceRuntime,
     UnknownService(Box<str>),
     InvalidServiceOffer,

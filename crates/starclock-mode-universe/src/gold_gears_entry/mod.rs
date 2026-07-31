@@ -19,6 +19,7 @@ mod knowledge_execution;
 mod knowledge_resolution;
 mod map_overlay;
 mod neural_runtime;
+mod occurrence_execution;
 mod occurrence_runtime;
 mod occurrence_types;
 mod plane_transition;
@@ -84,14 +85,19 @@ pub use neural_runtime::{
     GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralRuleAccuracy, GoldAndGearsNeuralRuleBinding,
     GoldAndGearsNeuralStatContribution,
 };
+pub use occurrence_execution::GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION;
 pub use occurrence_runtime::{
     GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY, GOLD_AND_GEARS_OCCURRENCE_POLICY_REVISION,
     GOLD_AND_GEARS_OCCURRENCE_RUNTIME_REVISION,
 };
 pub use occurrence_types::{
     GoldAndGearsAuthoredScalar, GoldAndGearsOccurrenceChoice, GoldAndGearsOccurrenceChoiceId,
-    GoldAndGearsOccurrenceCost, GoldAndGearsOccurrenceDefinition, GoldAndGearsOccurrenceOperation,
-    GoldAndGearsOccurrenceOutcome, GoldAndGearsOccurrenceSelection, GoldAndGearsOccurrenceTarget,
+    GoldAndGearsOccurrenceCost, GoldAndGearsOccurrenceDefinition, GoldAndGearsOccurrenceEffect,
+    GoldAndGearsOccurrenceEffectPhase, GoldAndGearsOccurrenceExecutionPlan,
+    GoldAndGearsOccurrenceOperation, GoldAndGearsOccurrenceOutcome,
+    GoldAndGearsOccurrenceRuleAccuracy, GoldAndGearsOccurrenceRuleBinding,
+    GoldAndGearsOccurrenceRuleKind, GoldAndGearsOccurrenceRuleOwnership,
+    GoldAndGearsOccurrenceSelection, GoldAndGearsOccurrenceTarget,
     GoldAndGearsOccurrenceVariantDefinition,
 };
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
@@ -144,6 +150,8 @@ mod knowledge_tests;
 mod map_overlay_tests;
 #[cfg(test)]
 mod neural_runtime_tests;
+#[cfg(test)]
+mod occurrence_rule_runtime_tests;
 #[cfg(test)]
 mod occurrence_service_tests;
 #[cfg(test)]

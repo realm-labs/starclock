@@ -18,8 +18,8 @@ use super::{
         GoldAndGearsAuthoredScalar, GoldAndGearsOccurrenceChoice, GoldAndGearsOccurrenceChoiceId,
         GoldAndGearsOccurrenceCost, GoldAndGearsOccurrenceDefinition,
         GoldAndGearsOccurrenceOperation, GoldAndGearsOccurrenceOutcome,
-        GoldAndGearsOccurrenceSelection, GoldAndGearsOccurrenceTarget,
-        GoldAndGearsOccurrenceVariantDefinition,
+        GoldAndGearsOccurrenceRuleBinding, GoldAndGearsOccurrenceSelection,
+        GoldAndGearsOccurrenceTarget, GoldAndGearsOccurrenceVariantDefinition,
     },
 };
 
@@ -36,6 +36,8 @@ pub(super) struct GoldAndGearsOccurrenceRuntimeCatalog {
     definitions: Box<[GoldAndGearsOccurrenceDefinition]>,
     variants: Box<[GoldAndGearsOccurrenceVariantDefinition]>,
     choices: Box<[GoldAndGearsOccurrenceChoice]>,
+    rule_bindings: Box<[GoldAndGearsOccurrenceRuleBinding]>,
+    execution_digest: [u8; 32],
     digest: [u8; 32],
 }
 
@@ -81,11 +83,15 @@ impl GoldAndGearsOccurrenceRuntimeCatalog {
         {
             return Err(GoldAndGearsEntryError::InvalidOccurrenceRuntime);
         }
+        let (rule_bindings, execution_digest) =
+            super::occurrence_execution::compile_rule_runtime(content, &choices)?;
         let digest = catalog_digest(&definitions, &variants, &choices);
         Ok(Self {
             definitions: definitions.into_boxed_slice(),
             variants: variants.into_boxed_slice(),
             choices: choices.into_boxed_slice(),
+            rule_bindings,
+            execution_digest,
             digest,
         })
     }
@@ -106,7 +112,18 @@ impl GoldAndGearsOccurrenceRuntimeCatalog {
         self.digest
     }
 
-    fn choice(&self, id: GoldAndGearsOccurrenceChoiceId) -> Option<&GoldAndGearsOccurrenceChoice> {
+    pub(super) fn rule_bindings(&self) -> &[GoldAndGearsOccurrenceRuleBinding] {
+        &self.rule_bindings
+    }
+
+    pub(super) const fn execution_digest(&self) -> [u8; 32] {
+        self.execution_digest
+    }
+
+    pub(super) fn choice(
+        &self,
+        id: GoldAndGearsOccurrenceChoiceId,
+    ) -> Option<&GoldAndGearsOccurrenceChoice> {
         self.choices
             .binary_search_by_key(&id, |choice| choice.id)
             .ok()

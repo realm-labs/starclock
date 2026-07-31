@@ -1,5 +1,94 @@
 //! Public Gold and Gears Occurrence choice-graph values.
 
+use starclock_activity::ActivityProgramDefinition;
+
+/// Frozen Occurrence rule responsibility bound to one production executor.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum GoldAndGearsOccurrenceRuleKind {
+    Occurrence,
+    Variant,
+    Choice,
+}
+
+/// Truthful owner of an Occurrence rule's executable semantics.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum GoldAndGearsOccurrenceRuleOwnership {
+    Shared,
+    GoldAndGears,
+}
+
+/// Accuracy of one frozen Occurrence rule.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum GoldAndGearsOccurrenceRuleAccuracy {
+    ExactPublic,
+    VersionedProjectPolicy,
+}
+
+/// One of the 384 frozen Occurrence-choice rules with terminal dispatch.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsOccurrenceRuleBinding {
+    pub(super) rule_id: Box<str>,
+    pub(super) owner_id: Box<str>,
+    pub(super) kind: GoldAndGearsOccurrenceRuleKind,
+    pub(super) ownership: GoldAndGearsOccurrenceRuleOwnership,
+    pub(super) accuracy: GoldAndGearsOccurrenceRuleAccuracy,
+}
+
+impl GoldAndGearsOccurrenceRuleBinding {
+    #[must_use]
+    pub fn rule_id(&self) -> &str {
+        &self.rule_id
+    }
+
+    #[must_use]
+    pub fn owner_id(&self) -> &str {
+        &self.owner_id
+    }
+
+    #[must_use]
+    pub const fn kind(&self) -> GoldAndGearsOccurrenceRuleKind {
+        self.kind
+    }
+
+    #[must_use]
+    pub const fn ownership(&self) -> GoldAndGearsOccurrenceRuleOwnership {
+        self.ownership
+    }
+
+    #[must_use]
+    pub const fn accuracy(&self) -> GoldAndGearsOccurrenceRuleAccuracy {
+        self.accuracy
+    }
+
+    #[must_use]
+    pub const fn accuracy_name(&self) -> &'static str {
+        match self.accuracy {
+            GoldAndGearsOccurrenceRuleAccuracy::ExactPublic => "ExactPublic",
+            GoldAndGearsOccurrenceRuleAccuracy::VersionedProjectPolicy => "VersionedProjectPolicy",
+        }
+    }
+
+    #[must_use]
+    pub const fn executor(&self) -> &'static str {
+        match self.ownership {
+            GoldAndGearsOccurrenceRuleOwnership::Shared => "ReleasedSharedExecutor",
+            GoldAndGearsOccurrenceRuleOwnership::GoldAndGears => "ActivityProgram",
+        }
+    }
+
+    #[must_use]
+    pub const fn operation(&self) -> &'static str {
+        match self.kind {
+            GoldAndGearsOccurrenceRuleKind::Occurrence => "ResolveOccurrence",
+            GoldAndGearsOccurrenceRuleKind::Variant => "ResolveOccurrenceVariant",
+            GoldAndGearsOccurrenceRuleKind::Choice => "ExecuteOccurrenceChoice",
+        }
+    }
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GoldAndGearsOccurrenceDefinition {
     pub(super) id: u32,
@@ -113,6 +202,13 @@ pub enum GoldAndGearsOccurrenceTarget {
     Curio,
     DiceReroll,
     Hp,
+}
+
+/// Ordered boundary at which an authored Occurrence effect executes.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum GoldAndGearsOccurrenceEffectPhase {
+    Cost,
+    Outcome,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -313,5 +409,85 @@ impl GoldAndGearsOccurrenceSelection {
     #[must_use]
     pub fn selected(&self) -> &[u64] {
         &self.selected
+    }
+}
+
+/// Immutable typed effect forwarded to its Activity, content or battle owner.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsOccurrenceEffect {
+    pub(super) phase: GoldAndGearsOccurrenceEffectPhase,
+    pub(super) ordinal: u16,
+    pub(super) operations: Box<[GoldAndGearsOccurrenceOperation]>,
+    pub(super) targets: Box<[GoldAndGearsOccurrenceTarget]>,
+    pub(super) numeric_literals: Box<[GoldAndGearsAuthoredScalar]>,
+    pub(super) parameter_refs: Box<[u32]>,
+    pub(super) chance_percentages: Box<[GoldAndGearsAuthoredScalar]>,
+}
+
+impl GoldAndGearsOccurrenceEffect {
+    #[must_use]
+    pub const fn phase(&self) -> GoldAndGearsOccurrenceEffectPhase {
+        self.phase
+    }
+
+    #[must_use]
+    pub const fn ordinal(&self) -> u16 {
+        self.ordinal
+    }
+
+    #[must_use]
+    pub fn operations(&self) -> &[GoldAndGearsOccurrenceOperation] {
+        &self.operations
+    }
+
+    #[must_use]
+    pub fn targets(&self) -> &[GoldAndGearsOccurrenceTarget] {
+        &self.targets
+    }
+
+    #[must_use]
+    pub fn numeric_literals(&self) -> &[GoldAndGearsAuthoredScalar] {
+        &self.numeric_literals
+    }
+
+    #[must_use]
+    pub fn parameter_refs(&self) -> &[u32] {
+        &self.parameter_refs
+    }
+
+    #[must_use]
+    pub fn chance_percentages(&self) -> &[GoldAndGearsAuthoredScalar] {
+        &self.chance_percentages
+    }
+}
+
+/// Atomic Activity program plus the immutable cross-owner effect payload.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsOccurrenceExecutionPlan {
+    pub(super) choice: GoldAndGearsOccurrenceChoiceId,
+    pub(super) effects: Box<[GoldAndGearsOccurrenceEffect]>,
+    pub(super) selected: Box<[u64]>,
+    pub(super) program: ActivityProgramDefinition,
+}
+
+impl GoldAndGearsOccurrenceExecutionPlan {
+    #[must_use]
+    pub const fn choice(&self) -> GoldAndGearsOccurrenceChoiceId {
+        self.choice
+    }
+
+    #[must_use]
+    pub fn effects(&self) -> &[GoldAndGearsOccurrenceEffect] {
+        &self.effects
+    }
+
+    #[must_use]
+    pub fn selected(&self) -> &[u64] {
+        &self.selected
+    }
+
+    #[must_use]
+    pub const fn program(&self) -> &ActivityProgramDefinition {
+        &self.program
     }
 }
