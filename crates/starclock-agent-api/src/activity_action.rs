@@ -246,7 +246,7 @@ impl BoundActivityAction {
     }
 }
 
-fn activity_action_token(
+pub(crate) fn activity_action_token(
     session: &SessionId,
     state_hash: ActivityStateHash,
     boundary: u64,

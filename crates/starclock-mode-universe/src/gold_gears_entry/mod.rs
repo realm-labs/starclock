@@ -20,6 +20,7 @@ mod dice_passive;
 mod dice_resolution;
 mod encounter_runtime;
 mod error;
+pub mod incremental_run;
 mod knowledge;
 mod knowledge_execution;
 mod knowledge_resolution;
@@ -159,7 +160,8 @@ pub use replay::{
     GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION, GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION,
     GoldAndGearsReplayDivergenceKind, GoldAndGearsReplayError, GoldAndGearsReplayReport,
     RecordedGoldAndGearsRun, encode_gold_and_gears_replay, gold_and_gears_header_v2,
-    gold_and_gears_replay_compatibility, record_gold_and_gears_run, verify_gold_and_gears_replay,
+    gold_and_gears_replay_compatibility, record_gold_and_gears_run,
+    record_incremental_gold_and_gears_run, verify_gold_and_gears_replay,
 };
 pub use replay_action::GOLD_AND_GEARS_REPLAY_ACTION_VERSION;
 pub use resonance_rule_runtime::{
@@ -193,7 +195,6 @@ pub use service_adventure_types::{
     GoldAndGearsServiceDefinition, GoldAndGearsServiceKind, GoldAndGearsServiceOfferSelector,
     GoldAndGearsServiceStock, GoldAndGearsTechniqueRule,
 };
-const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 #[cfg(test)]
 include!("test_modules.rs");

@@ -34,6 +34,7 @@ use crate::battle_materialization::UniverseBattleRoster;
 use super::{
     GoldAndGearsRuntimeInstance, GoldAndGearsSeededRunError, GoldAndGearsSeededRunReport,
     GoldAndGearsSeededRunRequest,
+    incremental_run::GoldAndGearsIncrementalRun,
     replay_action::{ActionPayloadError, decode_action, encode_action},
     seeded_run::{GoldAndGearsRecordedExecution, GoldAndGearsSeededBattleRecord},
 };
@@ -127,6 +128,18 @@ pub fn record_gold_and_gears_run(
     Ok(RecordedGoldAndGearsRun {
         request,
         execution: instance.execute_seeded_run_recorded(request, roster)?,
+    })
+}
+
+/// Materializes a terminal incremental session into the same replay trace used
+/// by the baseline runner. Incomplete sessions fail closed.
+pub fn record_incremental_gold_and_gears_run(
+    instance: &GoldAndGearsRuntimeInstance,
+    run: &GoldAndGearsIncrementalRun,
+) -> Result<RecordedGoldAndGearsRun, GoldAndGearsReplayError> {
+    Ok(RecordedGoldAndGearsRun {
+        request: run.request(),
+        execution: run.recorded_execution(instance)?,
     })
 }
 

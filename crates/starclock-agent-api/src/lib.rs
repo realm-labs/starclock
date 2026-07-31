@@ -17,6 +17,8 @@ mod activity_runtime;
 pub mod activity_session;
 /// Stable protocol-neutral failure vocabulary.
 pub mod error;
+/// Gold and Gears sessions over the shared Activity observation/action facade.
+pub mod gold_gears_activity_session;
 /// Owned visibility-controlled projections and bounded event pages.
 pub mod observation;
 /// Schema revisions and exact transport-neutral value vocabulary.

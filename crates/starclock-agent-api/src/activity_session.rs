@@ -111,6 +111,17 @@ pub struct AgentActivityReplayExport {
 }
 
 impl AgentActivityReplayExport {
+    pub(crate) fn new(bytes: Vec<u8>, action_count: usize, complete: bool) -> Self {
+        Self {
+            sha256: AgentHash::from_bytes(Sha256::digest(&bytes).into()),
+            bytes: bytes.into_boxed_slice(),
+            action_count: AgentUInt::from_u64(
+                u64::try_from(action_count).expect("replay action bound fits u64"),
+            ),
+            complete,
+        }
+    }
+
     #[must_use]
     pub fn bytes(&self) -> &[u8] {
         &self.bytes
@@ -336,6 +347,7 @@ impl ActivityAgentSession {
                 world: self.world,
                 difficulty_index: self.difficulty_index,
                 offered,
+                decision_kind: None,
                 closed: self.closed,
             },
         )
@@ -668,7 +680,7 @@ fn nested_battle_error(
     error
 }
 
-fn terminal(value: ActivityTerminalOutcome) -> AgentActivityTerminalOutcome {
+pub(crate) fn terminal(value: ActivityTerminalOutcome) -> AgentActivityTerminalOutcome {
     match value {
         ActivityTerminalOutcome::Completed => AgentActivityTerminalOutcome::Completed,
         ActivityTerminalOutcome::Failed => AgentActivityTerminalOutcome::Failed,

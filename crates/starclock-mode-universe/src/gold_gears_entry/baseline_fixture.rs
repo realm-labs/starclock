@@ -10,7 +10,12 @@ use starclock_combat::{
     CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
     StatValue, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
 };
-use starclock_replay::component::ConfigurationComponentSet;
+use starclock_replay::{
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
+    },
+    digest::ComponentDigest,
+};
 
 use crate::{
     battle_materialization::UniverseBattleRoster, digest::Encoder,
@@ -62,6 +67,34 @@ impl GoldAndGearsBaselineFixture {
     #[must_use]
     pub const fn components(&self) -> &ConfigurationComponentSet {
         &self.components
+    }
+
+    /// Rebinds only the caller-owned controller component while preserving
+    /// every catalog, registry, profile and encounter identity.
+    pub fn components_for_controller(
+        &self,
+        id: &str,
+        revision: &str,
+        digest: [u8; 32],
+    ) -> Result<ConfigurationComponentSet, GoldAndGearsBaselineFixtureError> {
+        let mut components = self
+            .components
+            .components()
+            .iter()
+            .filter(|component| component.kind() != ConfigurationComponentKind::Controller)
+            .cloned()
+            .collect::<Vec<_>>();
+        components.push(
+            ConfigurationComponentIdentity::new(
+                ConfigurationComponentKind::Controller,
+                id,
+                revision,
+                ComponentDigest::new(digest),
+            )
+            .map_err(|_| GoldAndGearsBaselineFixtureError::Component)?,
+        );
+        ConfigurationComponentSet::new(components)
+            .map_err(|_| GoldAndGearsBaselineFixtureError::Component)
     }
 
     #[must_use]

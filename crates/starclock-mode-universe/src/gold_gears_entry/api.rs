@@ -9,7 +9,7 @@ use starclock_activity::{
 };
 
 use super::{
-    EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
+    GoldAndGearsEntryError,
     battle_enemy_catalog::GoldAndGearsBattleCatalogComposition,
     cognition::CognitionRuntimeCatalog,
     content_link_runtime::GoldAndGearsContentRuntimeCatalog,
@@ -46,6 +46,8 @@ use super::{
         validate_conundrum, validate_participants,
     },
 };
+
+const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 use crate::{
     gold_gears_content::GoldAndGearsContentCatalog,
     gold_gears_structural::{AreaDefinition, AreaGroup, GoldAndGearsStructuralCatalog},

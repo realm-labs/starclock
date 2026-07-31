@@ -148,6 +148,7 @@ pub(crate) struct ActivityObservationContext<'a> {
     pub world: u32,
     pub difficulty_index: usize,
     pub offered: Option<(u64, &'a [OfferedActivityAction])>,
+    pub decision_kind: Option<AgentActivityDecisionKind>,
     pub closed: bool,
 }
 
@@ -229,13 +230,14 @@ pub(crate) fn project_activity_observation(
             )
         },
     );
-    let decision_kind = view
-        .decision()
-        .map(|decision| decision_kind(decision.kind()))
-        .or_else(|| {
-            view.preparation()
-                .map(|_| AgentActivityDecisionKind::Preparation)
-        });
+    let decision_kind = context.decision_kind.or_else(|| {
+        view.decision()
+            .map(|decision| decision_kind(decision.kind()))
+            .or_else(|| {
+                view.preparation()
+                    .map(|_| AgentActivityDecisionKind::Preparation)
+            })
+    });
     let status = if context.closed {
         AgentActivityStatus::Closed
     } else if let Some(terminal) = view.terminal() {

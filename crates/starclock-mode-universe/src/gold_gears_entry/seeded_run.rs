@@ -1,13 +1,10 @@
 //! Deterministic complete-run execution used by the frozen Goal 14 matrix.
 
-use std::collections::{BTreeSet, VecDeque};
-
 use starclock_activity::{
     ActivityCause, ActivityDecisionId, ActivityDefinitionIdentity, ActivityEdgeId,
-    ActivityInstanceId, ActivityMasterSeed, ActivityOperation, ActivityProgramDefinition,
-    ActivityProgramId, ActivityRngContext, ActivityRngStreams, ActivityStateHash,
-    ActivityTerminalOutcome, ActivityTransactionOutcome, ActivityTransactionState, AttemptId,
-    BattleResult, BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId,
+    ActivityInstanceId, ActivityProgramDefinition, ActivityRngStreams, ActivityStateHash,
+    ActivityTerminalOutcome, ActivityTransactionOutcome, ActivityTransactionState, BattleResult,
+    BattleResultDigest, BattleResultIdentity, NodeId,
 };
 
 use crate::{
@@ -17,18 +14,15 @@ use crate::{
 
 use super::{
     GoldAndGearsBaselineController, GoldAndGearsBaselineDecision, GoldAndGearsBaselineError,
-    GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleExecutionError, GoldAndGearsEncounterRole,
-    GoldAndGearsEntryError, GoldAndGearsExtrapolationContext, GoldAndGearsOfferedAction,
+    GoldAndGearsBattleExecutionError, GoldAndGearsEncounterRole, GoldAndGearsEntryError,
     GoldAndGearsOfferedCommand, GoldAndGearsRuntimeInstance,
+    incremental_run::GoldAndGearsIncrementalRun,
 };
 
 /// Stable deterministic runner contract used by the P0-frozen seeded matrix.
 pub const GOLD_AND_GEARS_SEEDED_RUN_REVISION: &str = "gold-and-gears-seeded-run-v1";
 
-const TRAVERSE_PROGRAM_BASE: u32 = 0x7f74_0000;
-const MAX_STEPS: usize = 256;
-const DEFAULT_BOSS: &str = "gold-gears.boss-choice.1013014";
-const FINAL_BOSS: &str = "gold-gears.boss-choice.8024011";
+pub(super) const MAX_SEEDED_RUN_STEPS: usize = 256;
 
 /// Stable inputs which bind one deterministic complete-run execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -102,18 +96,21 @@ pub enum GoldAndGearsSeededRunAction {
     },
 }
 
+#[derive(Clone)]
 pub(super) struct GoldAndGearsSeededBattleRecord {
     pub(super) start_identity: BattleResultIdentity,
     pub(super) result: BattleResult,
     pub(super) report: NestedBattleExecutionReport,
 }
 
+#[derive(Clone)]
 pub(super) struct GoldAndGearsSeededReplayStep {
     pub(super) action: GoldAndGearsSeededRunAction,
     pub(super) state_hash: ActivityStateHash,
     pub(super) battle: Option<GoldAndGearsSeededBattleRecord>,
 }
 
+#[derive(Clone)]
 pub(super) struct GoldAndGearsRecordedExecution {
     pub(super) report: GoldAndGearsSeededRunReport,
     pub(super) replay: Box<[GoldAndGearsSeededReplayStep]>,
@@ -218,6 +215,8 @@ pub enum GoldAndGearsSeededRunError {
     StepBudgetExceeded,
     UnexpectedTerminal(ActivityTerminalOutcome),
     NoRoute(NodeId),
+    CommandNotOffered,
+    IncompleteRun,
     ReplayDivergence {
         step: usize,
     },
@@ -249,310 +248,18 @@ impl GoldAndGearsRuntimeInstance {
         roster: &UniverseBattleRoster,
         mut decisions: Option<&mut Vec<GoldAndGearsBaselineDecision>>,
     ) -> Result<GoldAndGearsRecordedExecution, GoldAndGearsSeededRunError> {
-        let mut state = ActivityTransactionState::new(
-            self.state_definition().clone(),
-            self.graph_definition().entry(),
-        );
-        let mut rng = ActivityRngStreams::new(ActivityRngContext::new(
-            ActivityMasterSeed::from_u64(request.seed),
-            request.identity.id(),
-            request.identity.definition_digest(),
-            request.identity.config_digest(),
-            self.graph_definition().digest(),
-            request.activity_instance,
-            None,
-            Some(self.graph_definition().entry()),
-            None,
-            0,
-        ));
-        let starts = self.plane_starts().collect::<Vec<_>>();
-        let mut created = [false; 3];
-        let mut steps = Vec::new();
-        let mut replay = Vec::new();
-        let mut battle_count = 0_u32;
+        let mut run = GoldAndGearsIncrementalRun::start(self, request);
         let controller = GoldAndGearsBaselineController::default();
-
-        for _ in 0..MAX_STEPS {
-            if let Some(terminal) = state.terminal() {
-                if terminal != ActivityTerminalOutcome::Completed {
-                    return Err(GoldAndGearsSeededRunError::UnexpectedTerminal(terminal));
-                }
-                let final_state_hash = state.state_hash(
-                    request.identity,
-                    self.graph_definition(),
-                    request.activity_instance,
-                    &rng,
-                );
-                let transcript_digest = transcript_digest(
-                    request.seed,
-                    terminal,
-                    final_state_hash,
-                    battle_count,
-                    &steps,
-                );
-                return Ok(GoldAndGearsRecordedExecution {
-                    report: GoldAndGearsSeededRunReport {
-                        seed: request.seed,
-                        terminal,
-                        final_state_hash,
-                        battle_count,
-                        steps: steps.into_boxed_slice(),
-                        transcript_digest,
-                    },
-                    replay: replay.into_boxed_slice(),
-                });
+        loop {
+            run.settle_automatic(self, roster)?;
+            if run.terminal().is_some() {
+                return run.recorded_execution(self);
             }
-
-            let node = state.current_node();
-            if let Some(plane) = starts.iter().position(|candidate| *candidate == node)
-                && !created[plane]
-            {
-                let program = self
-                    .compile_plane_creation(plane, &mut rng)
-                    .map_err(GoldAndGearsSeededRunError::InvalidInput)?;
-                apply_program(self, &mut state, program)?;
-                created[plane] = true;
-                let accepted = step(
-                    GoldAndGearsSeededRunStepKind::PlaneCreation,
-                    node,
-                    &state,
-                    &rng,
-                    request,
-                    None,
-                    self,
-                );
-                replay.push(GoldAndGearsSeededReplayStep {
-                    action: GoldAndGearsSeededRunAction::PlaneCreation {
-                        source_node: node,
-                        plane: u8::try_from(plane + 1)
-                            .expect("the frozen run has exactly three planes"),
-                    },
-                    state_hash: accepted.state_hash,
-                    battle: None,
-                });
-                steps.push(accepted);
-                continue;
-            }
-
-            if let Some(role) = self.encounter_role_for_node(&state, node)
-                && !state.current_battle_attempt_is_settled()
-            {
-                if matches!(
-                    role,
-                    GoldAndGearsEncounterRole::FirstPlaneBoss
-                        | GoldAndGearsEncounterRole::SecondPlaneBoss
-                        | GoldAndGearsEncounterRole::FinalBoss
-                ) {
-                    let plane = match role {
-                        GoldAndGearsEncounterRole::FirstPlaneBoss => 1,
-                        GoldAndGearsEncounterRole::SecondPlaneBoss => 2,
-                        GoldAndGearsEncounterRole::FinalBoss => 3,
-                        GoldAndGearsEncounterRole::Combat | GoldAndGearsEncounterRole::Elite => {
-                            unreachable!("guard admits only boss roles")
-                        }
-                    };
-                    let preferred_boss = if role == GoldAndGearsEncounterRole::FinalBoss {
-                        FINAL_BOSS
-                    } else {
-                        DEFAULT_BOSS
-                    };
-                    let offers = self
-                        .boss_choices()
-                        .enumerate()
-                        .map(|(ordinal, boss)| {
-                            GoldAndGearsOfferedCommand::boss(
-                                plane,
-                                ordinal,
-                                boss,
-                                boss == preferred_boss,
-                            )
-                        })
-                        .collect::<Vec<_>>();
-                    let selected = select_offered(controller, &state, &offers, &mut decisions)?;
-                    let GoldAndGearsOfferedAction::SelectBoss { boss, .. } = selected.action()
-                    else {
-                        unreachable!("the boss offer set contains only boss commands")
-                    };
-                    let program = self
-                        .compile_boss_selection(plane, boss)
-                        .map_err(GoldAndGearsSeededRunError::InvalidInput)?;
-                    apply_program(self, &mut state, program)?;
-                    let accepted = step(
-                        GoldAndGearsSeededRunStepKind::BossSelection,
-                        node,
-                        &state,
-                        &rng,
-                        request,
-                        None,
-                        self,
-                    );
-                    replay.push(GoldAndGearsSeededReplayStep {
-                        action: GoldAndGearsSeededRunAction::BossSelection {
-                            source_node: node,
-                            plane,
-                            boss: boss.clone(),
-                        },
-                        state_hash: accepted.state_hash,
-                        battle: None,
-                    });
-                    steps.push(accepted);
-                }
-
-                let selection = self
-                    .select_current_encounter(&state, &mut rng)
-                    .map_err(GoldAndGearsSeededRunError::InvalidInput)?;
-                battle_count = battle_count
-                    .checked_add(1)
-                    .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?;
-                let mut context = GoldAndGearsBattleAssemblyContext::new(Vec::new(), false);
-                if role == GoldAndGearsEncounterRole::FinalBoss {
-                    let extrapolation = self
-                        .compile_resonance_extrapolation(
-                            GoldAndGearsExtrapolationContext::new(3, true, self.path()),
-                            &mut rng,
-                        )
-                        .map_err(GoldAndGearsSeededRunError::InvalidInput)?;
-                    context = context.with_extrapolation(extrapolation);
-                }
-                let expected = state.state_hash(
-                    request.identity,
-                    self.graph_definition(),
-                    request.activity_instance,
-                    &rng,
-                );
-                let start = self
-                    .start_current_battle(
-                        &mut state,
-                        &rng,
-                        expected,
-                        request.identity,
-                        request.activity_instance,
-                        AttemptId::new(battle_count)
-                            .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?,
-                        BattleSequence::new(battle_count)
-                            .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?,
-                        &selection,
-                        roster,
-                        &context,
-                    )
-                    .map_err(GoldAndGearsSeededRunError::Battle)?;
-                let execution = self
-                    .execute_started_battle(
-                        &mut state,
-                        &rng,
-                        request.identity,
-                        request.activity_instance,
-                        &start,
-                    )
-                    .map_err(GoldAndGearsSeededRunError::Battle)?;
-                if let Some(fault) = execution.report().terminal_fault() {
-                    return Err(GoldAndGearsSeededRunError::BattleFault {
-                        role,
-                        group: selection.group().into(),
-                        fault,
-                    });
-                }
-                if let Some(fault) = execution.post_battle_events().iter().find_map(|event| {
-                    if let starclock_activity::ActivityTransactionEventKind::Faulted(fault) =
-                        event.kind()
-                    {
-                        Some(*fault)
-                    } else {
-                        None
-                    }
-                }) {
-                    return Err(GoldAndGearsSeededRunError::PostBattleFault { role, fault, node });
-                }
-                if let Some(terminal) = state.terminal()
-                    && terminal != ActivityTerminalOutcome::Completed
-                {
-                    return Err(GoldAndGearsSeededRunError::UnexpectedBattleTerminal {
-                        role,
-                        terminal,
-                        node,
-                    });
-                }
-                let accepted = step(
-                    GoldAndGearsSeededRunStepKind::Battle(role),
-                    node,
-                    &state,
-                    &rng,
-                    request,
-                    Some(execution.result().actual_digest()),
-                    self,
-                );
-                replay.push(GoldAndGearsSeededReplayStep {
-                    action: GoldAndGearsSeededRunAction::Battle {
-                        source_node: node,
-                        role,
-                        group: selection.group().into(),
-                        member: selection.source_rogue_monster_id().into(),
-                        effective_level: selection.effective_level(),
-                    },
-                    state_hash: accepted.state_hash,
-                    battle: Some(GoldAndGearsSeededBattleRecord {
-                        start_identity: start.handoff().identity(),
-                        result: execution.result().clone(),
-                        report: execution.report().clone(),
-                    }),
-                });
-                steps.push(accepted);
-                continue;
-            }
-
-            let plane = self
-                .graph_definition()
-                .node(node)
-                .and_then(|definition| usize::try_from(definition.section().get()).ok())
-                .and_then(|section| section.checked_sub(1))
-                .ok_or(GoldAndGearsSeededRunError::NoRoute(node))?;
-            let target = self
-                .plane_ends()
-                .nth(plane)
-                .ok_or(GoldAndGearsSeededRunError::NoRoute(node))?;
-            let edge = next_route(self, &state, node, target)
-                .ok_or(GoldAndGearsSeededRunError::NoRoute(node))?;
-            let offers = self
-                .legal_routes(&state, node)
-                .iter()
-                .copied()
-                .map(|candidate| GoldAndGearsOfferedCommand::route(candidate, candidate == edge))
-                .collect::<Vec<_>>();
-            let selected = select_offered(controller, &state, &offers, &mut decisions)?;
-            let GoldAndGearsOfferedAction::Traverse { edge } = selected.action() else {
-                unreachable!("the route offer set contains only traverse commands")
-            };
-            let edge = *edge;
-            let id = TRAVERSE_PROGRAM_BASE
-                .checked_add(edge.get())
-                .and_then(ActivityProgramId::new)
-                .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?;
-            let program =
-                ActivityProgramDefinition::new(id, vec![ActivityOperation::Traverse(edge)])
-                    .map_err(|_| GoldAndGearsSeededRunError::ProgramRejected)?;
-            apply_program(self, &mut state, program)?;
-            let accepted = step(
-                GoldAndGearsSeededRunStepKind::Traverse,
-                node,
-                &state,
-                &rng,
-                request,
-                None,
-                self,
-            );
-            replay.push(GoldAndGearsSeededReplayStep {
-                action: GoldAndGearsSeededRunAction::Traverse {
-                    source_node: node,
-                    edge,
-                },
-                state_hash: accepted.state_hash,
-                battle: None,
-            });
-            steps.push(accepted);
+            let offers = run.offered_commands(self)?;
+            let selected = select_offered(controller, run.decision_id()?, &offers, &mut decisions)?;
+            run.apply_offered_command(self, &selected)?;
         }
-        Err(GoldAndGearsSeededRunError::StepBudgetExceeded)
     }
-
     /// Re-executes a seeded transcript against this freshly compiled instance
     /// and reports the first deterministic boundary which differs.
     pub fn verify_seeded_run(
@@ -584,17 +291,10 @@ impl GoldAndGearsRuntimeInstance {
 
 fn select_offered(
     controller: GoldAndGearsBaselineController,
-    state: &ActivityTransactionState,
+    decision: ActivityDecisionId,
     offers: &[GoldAndGearsOfferedCommand],
     decisions: &mut Option<&mut Vec<GoldAndGearsBaselineDecision>>,
 ) -> Result<GoldAndGearsOfferedCommand, GoldAndGearsSeededRunError> {
-    let decision = ActivityDecisionId::new(
-        state
-            .command_sequence()
-            .checked_add(1)
-            .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?,
-    )
-    .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?;
     let selected = controller
         .decide(decision, offers)
         .map_err(GoldAndGearsSeededRunError::Controller)?;
@@ -605,37 +305,7 @@ fn select_offered(
     Ok(command)
 }
 
-fn next_route(
-    instance: &GoldAndGearsRuntimeInstance,
-    state: &ActivityTransactionState,
-    source: NodeId,
-    target: NodeId,
-) -> Option<starclock_activity::ActivityEdgeId> {
-    let mut visited = BTreeSet::from([source]);
-    let mut queue = VecDeque::new();
-    for edge in instance.graph_definition().outgoing(source) {
-        if instance.legal_routes(state, source).contains(&edge.id()) {
-            queue.push_back((edge.to(), edge.id()));
-        }
-    }
-    while let Some((node, first)) = queue.pop_front() {
-        if node == target {
-            return Some(first);
-        }
-        if !visited.insert(node) {
-            continue;
-        }
-        let legal = instance.legal_routes(state, node);
-        for edge in instance.graph_definition().outgoing(node) {
-            if legal.contains(&edge.id()) {
-                queue.push_back((edge.to(), first));
-            }
-        }
-    }
-    None
-}
-
-fn apply_program(
+pub(super) fn apply_program(
     instance: &GoldAndGearsRuntimeInstance,
     state: &mut ActivityTransactionState,
     program: ActivityProgramDefinition,
@@ -661,7 +331,7 @@ fn apply_program(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn step(
+pub(super) fn step(
     kind: GoldAndGearsSeededRunStepKind,
     source_node: NodeId,
     state: &ActivityTransactionState,
@@ -681,6 +351,47 @@ fn step(
         ),
         result_digest,
     }
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn terminal_execution(
+    instance: &GoldAndGearsRuntimeInstance,
+    request: GoldAndGearsSeededRunRequest,
+    state: &ActivityTransactionState,
+    rng: &ActivityRngStreams,
+    battle_count: u32,
+    steps: &[GoldAndGearsSeededRunStep],
+    replay: &[GoldAndGearsSeededReplayStep],
+) -> Result<GoldAndGearsRecordedExecution, GoldAndGearsSeededRunError> {
+    let terminal = state
+        .terminal()
+        .ok_or(GoldAndGearsSeededRunError::IncompleteRun)?;
+    if terminal != ActivityTerminalOutcome::Completed {
+        return Err(GoldAndGearsSeededRunError::UnexpectedTerminal(terminal));
+    }
+    let final_state_hash = state.state_hash(
+        request.identity(),
+        instance.graph_definition(),
+        request.activity_instance(),
+        rng,
+    );
+    Ok(GoldAndGearsRecordedExecution {
+        report: GoldAndGearsSeededRunReport {
+            seed: request.seed(),
+            terminal,
+            final_state_hash,
+            battle_count,
+            steps: steps.to_vec().into_boxed_slice(),
+            transcript_digest: transcript_digest(
+                request.seed(),
+                terminal,
+                final_state_hash,
+                battle_count,
+                steps,
+            ),
+        },
+        replay: replay.to_vec().into_boxed_slice(),
+    })
 }
 
 fn transcript_digest(
