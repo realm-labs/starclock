@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "ApsManifest",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Manifest receipt"
+          },
+          "name_zh_cn": {
+            "String": "清单回执"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"active_selector\":{\"excluded_later_group_id\":3020,\"group_id\":3019,\"ordinary_stage_ids\":[30191,30192,30193,30194],\"schedule_id\":203019,\"tierce_id\":30195},\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"exact_once_required\":true,\"id\":\"manifest.apocalyptic-shadow-v1\",\"kind\":\"manifest-receipt\",\"manifest_record_count\":129,\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Manifest receipt\",\"name_zh_cn\":\"清单回执\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"The frozen manifest denominator and active selector receipt.\",\"summary_zh_cn\":\"冻结清单分母与当前选择器回执。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "manifest.apocalyptic-shadow-v1"
+          },
+          "summary_en": {
+            "String": "The frozen manifest denominator and active selector receipt."
+          },
+          "summary_zh_cn": {
+            "String": "冻结清单分母与当前选择器回执。"
+          }
+        }
+      }
+    ]
+  }
+}

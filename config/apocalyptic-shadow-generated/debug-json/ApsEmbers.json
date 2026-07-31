@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "ApsEmbers",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "buff.3110006"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Ruinous Embers"
+          },
+          "name_zh_cn": {
+            "String": "末法余烬"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"buff_id\":3110006,\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"ember.3110006\",\"kind\":\"ember\",\"manifest_record_ids\":[\"buff.3110006\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Ruinous Embers\",\"name_zh_cn\":\"末法余烬\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_damage_taken_ratio\":\"0.25\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3110006\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e51e38f7b21c572b3edfde9a83419d4e5f5488b28da5dd22c5a663af6dbb175e\",\"source_id\":\"src.buff.3110006\"}],\"summary_en\":\"Breaking Steadfast Safeguard dispels allied control, restores Skill Points, activates Ultimates, and applies exact Skill/Ultimate taken multipliers.\",\"summary_zh_cn\":\"击破坚防守备时解除我方控制、恢复战技点、激活终结技，并施加精确的战技/终结技易伤参数。\",\"ultimate_damage_taken_ratio\":\"0.15\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.buff.3110006"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ember.3110006"
+          },
+          "summary_en": {
+            "String": "Breaking Steadfast Safeguard dispels allied control, restores Skill Points, activates Ultimates, and applies exact Skill/Ultimate taken multipliers."
+          },
+          "summary_zh_cn": {
+            "String": "击破坚防守备时解除我方控制、恢复战技点、激活终结技，并施加精确的战技/终结技易伤参数。"
+          }
+        }
+      }
+    ]
+  }
+}

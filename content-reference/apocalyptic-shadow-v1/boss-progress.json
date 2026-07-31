@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "boss-progress.json",
+  "record_kind": "boss-progress",
+  "records": [
+    {
+      "id": "boss-progress.left-hp",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "boss-progress",
+      "name_en": "Current boss remaining HP",
+      "name_zh_cn": "当前首领剩余生命",
+      "summary_en": "Current boss remaining HP",
+      "summary_zh_cn": "当前首领剩余生命",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "partial_progress_on_timeout": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "boss-progress.summon-adjustment",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "boss-progress",
+      "name_en": "Summon HP adjustment",
+      "name_zh_cn": "召唤物生命修正",
+      "summary_en": "Summon HP adjustment",
+      "summary_zh_cn": "召唤物生命修正",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "selected_by_scoring_program": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "boss-progress.total-hp",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "boss-progress",
+      "name_en": "All-wave boss total HP",
+      "name_zh_cn": "全波次首领总生命",
+      "summary_en": "All-wave boss total HP",
+      "summary_zh_cn": "全波次首领总生命",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "minimum_rank": "LittleBoss",
+      "includes_all_waves": true,
+      "runtime_executable": false
+    }
+  ]
+}

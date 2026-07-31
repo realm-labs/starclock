@@ -1,0 +1,219 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "stars.json",
+  "record_kind": "star",
+  "records": [
+    {
+      "id": "star.3001",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "star",
+      "name_en": "Star threshold 4000",
+      "name_zh_cn": "星级阈值4000",
+      "summary_en": "One ordered total-score star threshold.",
+      "summary_zh_cn": "一个按总分排序的星级阈值。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "target.3001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.target.3001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossTargetConfig.json",
+          "locator": "ID=3001",
+          "sha256": "0da7f7667a433a623692231062b57e7b95a417f9d52e4958f7940ee979c85178",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "target_id": 3001,
+      "star_ordinal": 1,
+      "threshold": 4000,
+      "family": "ordinary",
+      "runtime_executable": false
+    },
+    {
+      "id": "star.3002",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "star",
+      "name_en": "Star threshold 5200",
+      "name_zh_cn": "星级阈值5200",
+      "summary_en": "One ordered total-score star threshold.",
+      "summary_zh_cn": "一个按总分排序的星级阈值。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "target.3002"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.target.3002",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossTargetConfig.json",
+          "locator": "ID=3002",
+          "sha256": "2b6597bf4028fe62ab831bdc6cd4f9a79fad076e6417ef5c16c2acf0856184b4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "target_id": 3002,
+      "star_ordinal": 2,
+      "threshold": 5200,
+      "family": "ordinary",
+      "runtime_executable": false
+    },
+    {
+      "id": "star.3003",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "star",
+      "name_en": "Star threshold 6600",
+      "name_zh_cn": "星级阈值6600",
+      "summary_en": "One ordered total-score star threshold.",
+      "summary_zh_cn": "一个按总分排序的星级阈值。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "target.3003"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.target.3003",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossTargetConfig.json",
+          "locator": "ID=3003",
+          "sha256": "50ae7ae2600fedd01129fe2bd60f166018a522c60ba052ef0cf2c460757b34f7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "target_id": 3003,
+      "star_ordinal": 3,
+      "threshold": 6600,
+      "family": "ordinary",
+      "runtime_executable": false
+    },
+    {
+      "id": "star.5001",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "star",
+      "name_en": "Star threshold 6000",
+      "name_zh_cn": "星级阈值6000",
+      "summary_en": "One ordered total-score star threshold.",
+      "summary_zh_cn": "一个按总分排序的星级阈值。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "target.5001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.target.5001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossTargetConfig.json",
+          "locator": "ID=5001",
+          "sha256": "7d153248994eaf03d57e60ced453b6840e0c71207f57c22394dd90b275c1a346",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "target_id": 5001,
+      "star_ordinal": 1,
+      "threshold": 6000,
+      "family": "tierce",
+      "runtime_executable": false
+    },
+    {
+      "id": "star.5002",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "star",
+      "name_en": "Star threshold 7800",
+      "name_zh_cn": "星级阈值7800",
+      "summary_en": "One ordered total-score star threshold.",
+      "summary_zh_cn": "一个按总分排序的星级阈值。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "target.5002"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.target.5002",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossTargetConfig.json",
+          "locator": "ID=5002",
+          "sha256": "8fbddf4ff780fc80b3152d7dd620d66ac0849870ee297f00af042134979dc3de",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "target_id": 5002,
+      "star_ordinal": 2,
+      "threshold": 7800,
+      "family": "tierce",
+      "runtime_executable": false
+    },
+    {
+      "id": "star.5003",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "star",
+      "name_en": "Star threshold 9900",
+      "name_zh_cn": "星级阈值9900",
+      "summary_en": "One ordered total-score star threshold.",
+      "summary_zh_cn": "一个按总分排序的星级阈值。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "target.5003"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.target.5003",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossTargetConfig.json",
+          "locator": "ID=5003",
+          "sha256": "bdfb0da85ab1a3bc16f1c536abe0b16b162231eea40cbe05a43d17ee28fb15fa",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "target_id": 5003,
+      "star_ordinal": 3,
+      "threshold": 9900,
+      "family": "tierce",
+      "runtime_executable": false
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "scores.json",
+  "record_kind": "score",
+  "records": [
+    {
+      "id": "score.boss-progress",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "score",
+      "name_en": "Boss progress score",
+      "name_zh_cn": "首领进度分",
+      "summary_en": "Scoring item 90004 derives progress from boss and selected summon HP.",
+      "summary_zh_cn": "计分项90004按首领与选定召唤物生命计算进度分。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "program.StrongChallenge_Scoring_Ability"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.program.StrongChallenge_Scoring_Ability",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json",
+          "locator": "$",
+          "sha256": "98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "scoring_item_id": 90004,
+      "fixed_scale_constant": "2000",
+      "postfix_expression_preserved": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "score.remaining-av",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "score",
+      "name_en": "Remaining Action Value score",
+      "name_zh_cn": "剩余行动值分",
+      "summary_en": "Scoring item 90005 tracks remaining global delay.",
+      "summary_zh_cn": "计分项90005跟踪剩余全局行动延迟。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "program.StrongChallenge_Scoring_Ability"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.program.StrongChallenge_Scoring_Ability",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json",
+          "locator": "$",
+          "sha256": "98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "scoring_item_id": 90005,
+      "fixed_scale_constant": "2000",
+      "update_event": "OnListenGlobalActionDelayChanged",
+      "timeout_score": 0,
+      "runtime_executable": false
+    },
+    {
+      "id": "score.stage-total",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "score",
+      "name_en": "Stage total score",
+      "name_zh_cn": "关卡总分",
+      "summary_en": "Stage total score",
+      "summary_zh_cn": "关卡总分",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "aggregation": "sum-selected-node-scores",
+      "maximum_target": 6600,
+      "runtime_executable": false
+    }
+  ]
+}

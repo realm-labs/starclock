@@ -1,0 +1,138 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "participant-policies.json",
+  "record_kind": "participant-policy",
+  "records": [
+    {
+      "id": "participant-policy.character-form-unique",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Character form uniqueness",
+      "name_zh_cn": "角色形态唯一性",
+      "summary_en": "Character form uniqueness",
+      "summary_zh_cn": "角色形态唯一性",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "scope": "simultaneous-stage-teams",
+      "runtime_executable": false
+    },
+    {
+      "id": "participant-policy.light-cone-instance-unique",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Light Cone instance uniqueness",
+      "name_zh_cn": "光锥实例唯一性",
+      "summary_en": "Light Cone instance uniqueness",
+      "summary_zh_cn": "光锥实例唯一性",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "scope": "simultaneous-stage-teams",
+      "runtime_executable": false
+    },
+    {
+      "id": "participant-policy.relic-instance-unique",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Relic instance uniqueness",
+      "name_zh_cn": "遗器实例唯一性",
+      "summary_en": "Relic instance uniqueness",
+      "summary_zh_cn": "遗器实例唯一性",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "scope": "simultaneous-stage-teams",
+      "runtime_executable": false
+    },
+    {
+      "id": "participant-policy.two-independent-teams",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Two independent node teams",
+      "name_zh_cn": "双节点独立队伍",
+      "summary_en": "Two independent node teams",
+      "summary_zh_cn": "双节点独立队伍",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "scope": "stage-attempt",
+      "team_count": 2,
+      "runtime_executable": false
+    }
+  ]
+}

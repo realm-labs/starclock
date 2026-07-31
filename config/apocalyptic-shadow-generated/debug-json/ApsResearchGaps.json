@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "ApsResearchGaps",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "program.StrongChallenge_Scoring_Ability"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Postfix scoring runtime lowering excluded"
+          },
+          "name_zh_cn": {
+            "String": "后缀计分运行时降级排除"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"blocking\":false,\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"gap.runtime-postfix-lowering\",\"kind\":\"research-gap\",\"manifest_record_ids\":[\"program.StrongChallenge_Scoring_Ability\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Postfix scoring runtime lowering excluded\",\"name_zh_cn\":\"后缀计分运行时降级排除\",\"owner\":\"future-apocalyptic-shadow-runtime\",\"ownership\":\"ApocalypticShadow\",\"replacement_condition\":\"runtime goal proves evaluator semantics\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"$\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2\",\"source_id\":\"src.program.StrongChallenge_Scoring_Ability\"}],\"summary_en\":\"Exact opcode bytes and constants are retained; evaluator semantics belong to a future runtime goal.\",\"summary_zh_cn\":\"精确保留操作码字节与常量；求值器语义属于未来运行时目标。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.program.StrongChallenge_Scoring_Ability"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gap.runtime-postfix-lowering"
+          },
+          "summary_en": {
+            "String": "Exact opcode bytes and constants are retained; evaluator semantics belong to a future runtime goal."
+          },
+          "summary_zh_cn": {
+            "String": "精确保留操作码字节与常量；求值器语义属于未来运行时目标。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,432 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "axioms.json",
+  "record_kind": "axiom",
+  "records": [
+    {
+      "id": "axiom.3111058",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Blighted to the Bone",
+      "name_zh_cn": "附骨之疽",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111058",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111058",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111058",
+          "sha256": "1df22bb6579c34babe892639f7b67a6f1c7b01d6ca11f28b2667c33bc803131c",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111058,
+      "option_group": 1,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111065",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Unstoppable Force",
+      "name_zh_cn": "攻无不克",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111065",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111065",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111065",
+          "sha256": "ce92fa0aa2af3d66755aa2fef32b2cc345d137c32cac6332f757beb7cf9de04a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111065,
+      "option_group": 2,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111077",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Shatterstrike",
+      "name_zh_cn": "攻心扼吭",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111077",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111077",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111077",
+          "sha256": "6fd13fdd7b622ac7ad2d245b9c0104fe886b2799fd650eb460c118d80555b69a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111077,
+      "option_group": 1,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111078",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Linebreaker",
+      "name_zh_cn": "摧锋陷阵",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111078",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111078",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111078",
+          "sha256": "ca0da658883d82ad49cc1c5c1ae307b45d1ba7ba9794f724075fe53db3e5b75a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111078,
+      "option_group": 1,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111079",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Unto Apotheosis",
+      "name_zh_cn": "聚气化神",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111079",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111079",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111079",
+          "sha256": "249691e170d9a2fc4a1502d19b41f11c395d67a75a0b04fc42d796da7b3cf466",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111079,
+      "option_group": 2,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111081",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Whirlwind Turn",
+      "name_zh_cn": "疾如旋踵",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111081",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111081",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111081",
+          "sha256": "d895a09d975e179c582433f8369f5ef586beabbfc77562963df1b60ee0d5b4d1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111081,
+      "option_group": 3,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111082",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Knowledge and Decorum",
+      "name_zh_cn": "智圆行方",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111082",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111082",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111082",
+          "sha256": "0f720aad96d58a1d99f85447a49f15dc66f171808239fcbef8b03de050a4758b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111082,
+      "option_group": 3,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111083",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Oppose With Tenderness",
+      "name_zh_cn": "以柔克刚",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111083",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111083",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111083",
+          "sha256": "a92c72ef92583af6a5bad6420d9d43461c0113e04d13cad928d53cd8d55186bc",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111083,
+      "option_group": 2,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    },
+    {
+      "id": "axiom.3111085",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "axiom",
+      "name_en": "Moment of Opportunity",
+      "name_zh_cn": "可乘之隙",
+      "summary_en": "One active Finality's Axiom option selected for an attempt.",
+      "summary_zh_cn": "当前周期可在尝试中选择的一项终末公理。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3111085",
+        "group-extra.3019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3111085",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3111085",
+          "sha256": "3740b23f2e7edc94ea5e4671eea69c5666c608e0215134a129d6101e2db258ac",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.group-extra.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupExtra.json",
+          "locator": "GroupID=3019",
+          "sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3111085,
+      "option_group": 3,
+      "selection_scope": "attempt-node",
+      "runtime_executable": false
+    }
+  ]
+}

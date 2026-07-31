@@ -1,0 +1,30 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-authoring-contract.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "adapter": "Python openpyxl",
+  "authority": "Sora 0.3.0",
+  "workbooks": [
+    {
+      "file": "ApocalypticShadow.xlsx",
+      "responsibility": "profile, lifecycle, clock, progress, score and unique mechanics"
+    },
+    {
+      "file": "ApocalypticShadowBindings.xlsx",
+      "responsibility": "encounters, enemies, skills, statuses and ability bindings"
+    },
+    {
+      "file": "ApocalypticShadowReview.xlsx",
+      "responsibility": "sources, coverage, gaps, reconciliation and fixtures"
+    }
+  ],
+  "clean_generation": true,
+  "formula_cells_permitted": false,
+  "floating_cells_permitted": false,
+  "generated_roots": [
+    "config/apocalyptic-shadow-generated/readers/",
+    "config/apocalyptic-shadow-generated/debug-json/",
+    "config/apocalyptic-shadow-generated/templates/",
+    "config/apocalyptic-shadow-generated/config.sora",
+    "config/apocalyptic-shadow-generated/schema.lock"
+  ]
+}

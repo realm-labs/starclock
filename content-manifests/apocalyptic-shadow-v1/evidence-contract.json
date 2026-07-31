@@ -1,0 +1,24 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-evidence-contract.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "required_source_fields": [
+    "source_id", "repository_or_url", "revision_or_access_date",
+    "game_version", "path_or_page", "locator", "sha256",
+    "evidence_quality", "mechanism_quality", "note"
+  ],
+  "evidence_quality": [
+    "ExactStructured", "ExactPublicText", "Observed",
+    "ApproximateFromReleasedText", "ProjectPolicy"
+  ],
+  "mechanism_quality": [
+    "ExactRelationship", "ExactIdentity", "ReleasedTextBoundary",
+    "ObservationBoundary", "PolicyBoundary"
+  ],
+  "approximation_required_fields": [
+    "unavailable_fact", "selected_policy", "alternatives", "rationale",
+    "affected_fixtures", "confidence", "replacement_condition"
+  ],
+  "forbidden_evidence": [
+    "leak", "beta", "test-server", "preview-only", "unreleased"
+  ]
+}

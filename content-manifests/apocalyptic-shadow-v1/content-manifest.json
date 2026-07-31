@@ -1,0 +1,1355 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-content-manifest.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "game_version": "4.4",
+  "source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "active_selector": {
+    "schedule_id": 203019,
+    "group_id": 3019,
+    "ordinary_stage_ids": [
+      30191,
+      30192,
+      30193,
+      30194
+    ],
+    "tierce_id": 30195,
+    "excluded_later_group_id": 3020
+  },
+  "counts": {
+    "records": 129,
+    "categories": {
+      "family": 1,
+      "periods": 1,
+      "groups": 2,
+      "stages": 5,
+      "nodes": 9,
+      "targets": 6,
+      "buffs": 11,
+      "enemy_variants": 10,
+      "enemy_templates": 4,
+      "enemy_skills": 67,
+      "mechanic_programs": 7,
+      "exact_zero_pools": 6
+    },
+    "ownership": {
+      "ApocalypticShadow": 48,
+      "Shared": 81
+    }
+  },
+  "categories": {
+    "family": [
+      {
+        "id": "apocalyptic-shadow-v1",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/18-standard-and-challenge-modes.md",
+        "row_locator": "Apocalyptic Shadow",
+        "evidence_sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Stable family boundary only."
+      }
+    ],
+    "periods": [
+      {
+        "id": "period.203019",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ScheduleDataChallengeBoss.json",
+        "row_locator": "ID=203019",
+        "evidence_sha256": "e1359d2d19727c18a0f903006794b25f65d996beb6793321bba028174f32bec6",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "groups": [
+      {
+        "id": "group-extra.3019",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossGroupExtra.json",
+        "row_locator": "GroupID=3019",
+        "evidence_sha256": "c7a5a40fa175518b2cc21deaa020d94e6a4465a7b071d6e70af918468fbd283e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "group.3019",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossGroupConfig.json",
+        "row_locator": "GroupID=3019",
+        "evidence_sha256": "2070b86dc168c94d61c2991c92d7d4e8e0910c4056abbc85d52364fb15cb3869",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "stages": [
+      {
+        "id": "stage.30191",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30191",
+        "evidence_sha256": "2f0ab598d17ec59b4062a0480c786e3739d42a23d1d84b45089d9d0b3a67fe81",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "stage.30192",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30192",
+        "evidence_sha256": "71be81a0cf9fc89f2795fcf700f13997ec7ecade95a4134224240c3d0dd7859a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "stage.30193",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30193",
+        "evidence_sha256": "0a675dad25d53660aa4877ed0420e6b44372bf9fc96654e5ae76e6bfaf97b8da",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "stage.30194",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30194",
+        "evidence_sha256": "306d216a3e13ca00879862383e20330774a1e3cc76aea1108d345f5427ddb618",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "stage.30195",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeTierce.json",
+        "row_locator": "selected-ID=30195",
+        "evidence_sha256": "899e7e391e85b6390a166ce653ff9b5d87ad320d9490058e834114fb52b6a583",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "nodes": [
+      {
+        "id": "node.30191.1",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30191#side=1",
+        "evidence_sha256": "086b0778be675b3d2e4af0c424b95ec87ea7995364ae0f3e951f422c9182f67f",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30191.2",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30191#side=2",
+        "evidence_sha256": "7282e1da2132ece0beb56b5308030d16ec767815a144125662ce48a1a4669d30",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30192.1",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30192#side=1",
+        "evidence_sha256": "431e43b5640c910bba93c029accfda8b2958c61df4fb6aaad2f100f2fae3bd4b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30192.2",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30192#side=2",
+        "evidence_sha256": "70eb5c83ade9e59d3b4a8e1755265bbb658f4f5d39dafa6cabad01519e4054c2",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30193.1",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30193#side=1",
+        "evidence_sha256": "3f5d3a116349b00736939b1243ec9f6a662576747e44a09df22105d950d36ce5",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30193.2",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30193#side=2",
+        "evidence_sha256": "87d3e768d255c512eb16f51b9b1b08fcc884c0b233221322b102e4312fdd1bb9",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30194.1",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30194#side=1",
+        "evidence_sha256": "8a3615987a60d642ff32d575919d616b2df9ea70d9155d208a91c10d86d72d1d",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30194.2",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+        "row_locator": "ID=30194#side=2",
+        "evidence_sha256": "8e713cae6b524f79c96c76ca5aecdb204b07257ad8f26e6117cfec9b783cbd7a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "node.30195.1",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossMazeTierce.json",
+        "row_locator": "selected-ID=30195#side=1",
+        "evidence_sha256": "9e81ffb08af8e32b7ba807b495136a4cc0cf6cfafb547719b72468a99c75f7c1",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "targets": [
+      {
+        "id": "target.3001",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+        "row_locator": "ID=3001",
+        "evidence_sha256": "0da7f7667a433a623692231062b57e7b95a417f9d52e4958f7940ee979c85178",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "target.3002",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+        "row_locator": "ID=3002",
+        "evidence_sha256": "2b6597bf4028fe62ab831bdc6cd4f9a79fad076e6417ef5c16c2acf0856184b4",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "target.3003",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+        "row_locator": "ID=3003",
+        "evidence_sha256": "50ae7ae2600fedd01129fe2bd60f166018a522c60ba052ef0cf2c460757b34f7",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "target.5001",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+        "row_locator": "ID=5001",
+        "evidence_sha256": "7d153248994eaf03d57e60ced453b6840e0c71207f57c22394dd90b275c1a346",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "target.5002",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+        "row_locator": "ID=5002",
+        "evidence_sha256": "8fbddf4ff780fc80b3152d7dd620d66ac0849870ee297f00af042134979dc3de",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "target.5003",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+        "row_locator": "ID=5003",
+        "evidence_sha256": "bdfb0da85ab1a3bc16f1c536abe0b16b162231eea40cbe05a43d17ee28fb15fa",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "buffs": [
+      {
+        "id": "buff.3031001",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3031001",
+        "evidence_sha256": "1159089e39302ccf2a3ad89fb67ba0644e8b3fc933a2161542b0af6ec40c8df4",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3110006",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3110006",
+        "evidence_sha256": "e51e38f7b21c572b3edfde9a83419d4e5f5488b28da5dd22c5a663af6dbb175e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111058",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111058",
+        "evidence_sha256": "1df22bb6579c34babe892639f7b67a6f1c7b01d6ca11f28b2667c33bc803131c",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111065",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111065",
+        "evidence_sha256": "ce92fa0aa2af3d66755aa2fef32b2cc345d137c32cac6332f757beb7cf9de04a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111077",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111077",
+        "evidence_sha256": "6fd13fdd7b622ac7ad2d245b9c0104fe886b2799fd650eb460c118d80555b69a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111078",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111078",
+        "evidence_sha256": "ca0da658883d82ad49cc1c5c1ae307b45d1ba7ba9794f724075fe53db3e5b75a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111079",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111079",
+        "evidence_sha256": "249691e170d9a2fc4a1502d19b41f11c395d67a75a0b04fc42d796da7b3cf466",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111081",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111081",
+        "evidence_sha256": "d895a09d975e179c582433f8369f5ef586beabbfc77562963df1b60ee0d5b4d1",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111082",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111082",
+        "evidence_sha256": "0f720aad96d58a1d99f85447a49f15dc66f171808239fcbef8b03de050a4758b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111083",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111083",
+        "evidence_sha256": "a92c72ef92583af6a5bad6420d9d43461c0113e04d13cad928d53cd8d55186bc",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "buff.3111085",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MazeBuff.json",
+        "row_locator": "ID=3111085",
+        "evidence_sha256": "3740b23f2e7edc94ea5e4671eea69c5666c608e0215134a129d6101e2db258ac",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "enemy_variants": [
+      {
+        "id": "enemy.3003015",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=3003015",
+        "evidence_sha256": "e4e82ba8ff1df72321a880a63226a3e2ac291b7043e96c56e89f44a691ddc5f2",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.300402104",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=300402104",
+        "evidence_sha256": "63b13fb1751a9c0dddca21ffd01ae4c47c8ab2155a644d4249cccea65804233a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.302401301",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=302401301",
+        "evidence_sha256": "957fcd1b644f1e581b84efe5e70ccaafbaae741396edac872f0430e68bddb8ed",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.302401302",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=302401302",
+        "evidence_sha256": "ad557deeb6e97175d04d2097a7f54cd88e54d1c39122d60c0f72da5494ccb22d",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.302401303",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=302401303",
+        "evidence_sha256": "22fc595c027c252682946dd3fc94e50297b614e2d76857a34ba611c2f6504347",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.302401304",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=302401304",
+        "evidence_sha256": "9d9d1ff6f9ead3ff7911a9102b8fd101ebe7bb35cf0a13f3448e1b95be4f8f37",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.401401301",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=401401301",
+        "evidence_sha256": "a32e97949ca120686fc03dc34ec88b973745f369de8412318242a2d6cf93846d",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.401401302",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=401401302",
+        "evidence_sha256": "787768e95e93d2610fddaafea6552107c7c1f3d35baa28b4bb708beefc5766c4",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.401401303",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=401401303",
+        "evidence_sha256": "6193962233df05e31d35c5b132657bec6ed3eb6d742245ad5c5e3ac7b873ad2e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy.401401304",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterConfig.json",
+        "row_locator": "MonsterID=401401304",
+        "evidence_sha256": "4233c4fad1cc5d72ef286bcf2c6a5428d8f82056c4b153501257a382e41c9ae4",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "enemy_templates": [
+      {
+        "id": "enemy-template.3003015",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+        "row_locator": "MonsterTemplateID=3003015",
+        "evidence_sha256": "89df03f25be868d65ceeccc99859972d5185c469ec7df9d4d8e7843fe119d3f7",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-template.3004021",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+        "row_locator": "MonsterTemplateID=3004021",
+        "evidence_sha256": "aa155b082e8b737ab8e05db19f8a6ad8b5f67953a759dfe891203cd8976532fe",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-template.3024013",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+        "row_locator": "MonsterTemplateID=3024013",
+        "evidence_sha256": "b4aa12b1ed94e2f9fb89187b6867f5da47f9839ed78e9b5d52aeb6f86d4c716c",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-template.4014013",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+        "row_locator": "MonsterTemplateID=4014013",
+        "evidence_sha256": "208baa75a50037d44586cba530d341a28e3be2a5c1f34d398ec645ad12da90ea",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "enemy_skills": [
+      {
+        "id": "enemy-skill.300301501",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301501",
+        "evidence_sha256": "0763f923e8d6d80e9eba0537c56b949c76c4020f3e83202c0501fa81f0a66e7e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301502",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301502",
+        "evidence_sha256": "df4064bcc977235dd0069938e9077fadcefd3bac03a26c52345cca8a43f5e774",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301503",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301503",
+        "evidence_sha256": "531e2eea2b3d272906eb7b62028db997229c67f93387620e8e01bf9094b47e2e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301504",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301504",
+        "evidence_sha256": "a37e1941b5252e2e75f9cfe5358d20d84322d9ef1c4df59cb8d4e0aaf0f7db8c",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301505",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301505",
+        "evidence_sha256": "40071da11b58249773412aef0684f3a72234a51f06d1a2db29c63f5e197f9038",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301506",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301506",
+        "evidence_sha256": "ebc56188ce0fe52bffb59f01560a7e9aa611b8840f5c2f07e72a75b335195351",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301507",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301507",
+        "evidence_sha256": "63ffb176cb23437d45e514c87875de9b4e1106ee0d6476d8a8aaace0e113404f",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301508",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301508",
+        "evidence_sha256": "8fd2031340a5ebbf7d6e49f1f2ab853baf982737f5e203e4af8b0c39d8951a0e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301509",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301509",
+        "evidence_sha256": "af9e27f279cf47d490979bac67a890e1df66772fc49edee9a75f7591e9d05afd",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301510",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301510",
+        "evidence_sha256": "0612e27b85f73f9e4faa26af8363fe0d0f2a1a832ee217045036d5f486ca7878",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300301511",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300301511",
+        "evidence_sha256": "5106415031245ebb237a72ca2c39efeca2dd37492726487b8dbb30e831fa9cc3",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402101",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402101",
+        "evidence_sha256": "0b2ef69a7cd6fcc5481439f9e43954287904005b5be9019bcb7fb28618e1f7d0",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402102",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402102",
+        "evidence_sha256": "b68bb789588fa5a5f73dc43cda66ef45690d90f9b400705285c577a74514139a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402103",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402103",
+        "evidence_sha256": "4592cc9c2475e317d0939436db62bfad2e95f1898f41eefb411baa17e7b4a0e6",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402104",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402104",
+        "evidence_sha256": "189bf26efd74792dca24272fec18c2283f3164eb736c1a75d46342efc577a867",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402105",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402105",
+        "evidence_sha256": "d64b577818f3d82eda0e1d8cf56c206e0e1902c5ce665f6197e8aed56d14f16b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402106",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402106",
+        "evidence_sha256": "893bf815cd52bd94d97e1434a8ff39692972d954d0da61a9022d75ea9ec60a63",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402107",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402107",
+        "evidence_sha256": "2bb8ca39f0486bf82031c140a1e17bafb3ae97f072f18cbb459201b5c54ed65e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402108",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402108",
+        "evidence_sha256": "5a635f3e37c0e416e82df83d0fe309d39f878cb2dd85e4d1b5c1743380ad1a3c",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402109",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402109",
+        "evidence_sha256": "d902bbff9a559c289c61610e086d45f9cc61f820cccfb1c7832d23905f3488f6",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.300402110",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=300402110",
+        "evidence_sha256": "c314d1361a58d6bdcb3d988d3400a8c3a826167adc1eaf45a0f8765ba2be58a8",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401301",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401301",
+        "evidence_sha256": "da6a92e8bb977041312c16962f7b04e9966be81d0dde4fb6c76b91009f2b9e07",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401302",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401302",
+        "evidence_sha256": "595f71971635fbfbc2d6730bb91b82181d93114eb9cbf4a9b16e311d2f4a1c8f",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401303",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401303",
+        "evidence_sha256": "565626f357f13aa897899e3b1fbd2c47232ca4dd7fa594092f4555f8dbf90d85",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401304",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401304",
+        "evidence_sha256": "08a22b4f0b11c6af731dd77eec67cee22be80c3c9281380ff26dbb5d6c355380",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401305",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401305",
+        "evidence_sha256": "785c3e99e55a2d9a8844aed1731b592c16c898e8db6dc49b7fdd5475b92759bd",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401306",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401306",
+        "evidence_sha256": "ac9976593947b89ca6f4c77303b0a8a0792929d1b1ed660a694ec366201f03b2",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401307",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401307",
+        "evidence_sha256": "ee7772e96b03e30e5cc763477f9311c702f96d661ea01b54d6795fe9fb66b130",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401308",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401308",
+        "evidence_sha256": "22df9bfd495a3b08bff5e7e7a2086e7661039d666898e40bfa3151a4d0a14407",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401310",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401310",
+        "evidence_sha256": "927b30b8a85478a946b9619b34fd78b43c89e0cecb66c98f3c48dc248f851fc9",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401311",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401311",
+        "evidence_sha256": "0a274d0d2ffa9c93cc4158aef42de0c8aac4665dfe9a34f0e6ec37d81a65adc7",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401312",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401312",
+        "evidence_sha256": "25963a89551b3a155603d19250fa504670d463082bf15b5f1afae58a0c911543",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401313",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401313",
+        "evidence_sha256": "e3830f51d7b9315c46fe4afd8218c5f35f580352812ee4b2943a996cc1b7aac4",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401314",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401314",
+        "evidence_sha256": "f782cf9d7f31884e9acf2aed9b286d81e34bba3f8ec9e407c43cb67ccb7e6363",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401315",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401315",
+        "evidence_sha256": "20a70a43fb40a288236143a8adc706adf5600afcd2853a8b9422d8ae677e458b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401316",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401316",
+        "evidence_sha256": "76bf5084d921f3b3ed44787d5d1bcec35cfb9c1fec12b42deb8228fc2901cfd1",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401317",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401317",
+        "evidence_sha256": "0ef51925c0f7193d856953eb62ed90bc35728165bf249986d679361bda427f3a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401318",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401318",
+        "evidence_sha256": "287ac2f9052deebe80b7a51f766174efa09023424b2b0d34288f9a6541d2538b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401319",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401319",
+        "evidence_sha256": "4626128b604e212ef52b2bb9b0c4380c97a7d9d15c7dcfb397073c513d3134e5",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401320",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401320",
+        "evidence_sha256": "66820bfc9b8907a666cdfc478df3828476b8258d0c3e3612cba057b16a9386e1",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401321",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401321",
+        "evidence_sha256": "bb9f2b0013520979d4465a5a30ee4c735e92ba55a31b7e929e7338b8a3167c98",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401322",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401322",
+        "evidence_sha256": "3e630722c81f60b0c5644a38b2aa7d5cad7068dfc14a14232a9073967464958b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401323",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401323",
+        "evidence_sha256": "0539043febb15d3e8504acbee2cb0aba97e53f8e3ea31f18a5c4832cb6db8093",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401324",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401324",
+        "evidence_sha256": "6438f825fbe032eb9f80936579a406f6465afeef4aae118824b055995ad046c3",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401325",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401325",
+        "evidence_sha256": "55fa5d448ff5b615ae2ac35cae4564fd94e76d94f39555599e36978d6c6eb099",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.302401326",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=302401326",
+        "evidence_sha256": "47c6de12e2efb57c48280182499778c97148dade07bcb5ce905d368aac221764",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401301",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401301",
+        "evidence_sha256": "4d2478d950e57fb1e8ded0f99e419a6a238a115946d499955f61d0c48f025f2e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401302",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401302",
+        "evidence_sha256": "5fd37fbafdba9b6385374d27a8f9f3d685d3444de7c85858f2c6818d20090ff1",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401303",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401303",
+        "evidence_sha256": "0cda0da0ce314256d1903e5a445c2611ef4a97cdafdccacc31f31abf8d8da6d0",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401304",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401304",
+        "evidence_sha256": "5aeadf182278107d9d284fdc230edaddc293d127ca77541614eb315b11b08a5a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401305",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401305",
+        "evidence_sha256": "98252282e6550a0e2756b4ec1bc8073370a564b32609a9d2f5a4d0e9747e55ca",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401306",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401306",
+        "evidence_sha256": "caa21e0489c5f6b0f4c0f4e04c89c04028a56f45c2d0756f6590f888b830a62a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401307",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401307",
+        "evidence_sha256": "584d5c1ffd81d92949a2ea88b9bed1e6c0fc6a9bd9b94ff2ed0c2007f92aedc0",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401308",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401308",
+        "evidence_sha256": "35a2b0da9a88e8e6169dc770520280108e237dc735541464c6b3edfaf902f245",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401309",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401309",
+        "evidence_sha256": "9445e2b9221c407fbaf6bf890246816fe99171f8e6a965c686d236a5dae858d7",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401310",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401310",
+        "evidence_sha256": "24506b23cb2a356caed3f554e0c6fda278941e0d68489b669477ead3fb784e09",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401311",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401311",
+        "evidence_sha256": "3c89ad9132847a27eb7cff6fcda7e199158a15b9f75c60452a71cbb984642c5a",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401312",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401312",
+        "evidence_sha256": "a4ec1a8a8b2331f3e663a149225addfdea6e216996a110b0aee10d1b02f8c248",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401313",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401313",
+        "evidence_sha256": "659a6f700726b02b3c59c529ae2b5efc1b4749df760b3f63e9014d59075ddc2d",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401314",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401314",
+        "evidence_sha256": "445b7dcf4da5f4d9f8a7d6aafe12b043f884b0b1740b896be0c491962552bbdf",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401315",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401315",
+        "evidence_sha256": "b931dbe8bfefc1abf358c6abe75103f6d116ce17e2055cfe416815b4c90514fa",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401316",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401316",
+        "evidence_sha256": "de422cdf067f02ca966db244a586ab37d05a6adf09a5f6bfc4cbdbde2d15589e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401317",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401317",
+        "evidence_sha256": "12044fcd8f9dd76a7009a7e7f699286f096333570343608362c0d820bfe7d120",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401318",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401318",
+        "evidence_sha256": "224b88b5c1b61f25315afa63a26b88edf62280a0cc263314f938cdbd18b475f8",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401319",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401319",
+        "evidence_sha256": "24b3f7bc2984fb2894292e647e136e053c77d539cd26c59b0137782d439dfb2f",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401320",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401320",
+        "evidence_sha256": "945076035fef74b8ad4857893fa2d9de5ee97225522e1d1ee789a0b0e7dc723f",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "enemy-skill.401401321",
+        "ownership": "Shared",
+        "disposition": "DataReady",
+        "source_path": "ExcelOutput/MonsterSkillConfig.json",
+        "row_locator": "SkillID=401401321",
+        "evidence_sha256": "0cd8d0393e3a46249a3f575b00ac136d6a92f3ae2bd821da2bb14740a8d5032b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "mechanic_programs": [
+      {
+        "id": "program.StrongChallenge_BossEnhance_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_BossEnhance_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "eaff43bbf51e6d2766adc4506666ba7b6ba9e20205f59c1d8478a9baf585c1f5",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "program.StrongChallenge_Scoring_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "program.StrongChallenge_Talent_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_Talent_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "e21e9d072b0c040dcd093f17f644f885fc7aacdbe8ce915f6e4f407428ac8e7b",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "program.StrongChallengeEX_BattleEvent_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_BattleEvent_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "258bc003f5d086edd382de5c4d7f737513bd5c292caf87648a21da5dea231d2e",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "program.StrongChallengeEX_Environment_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_Environment_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "b7f939e62c4a0835d8742688b167e5e53481337f404bdcad44b89359082da7f2",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "program.StrongChallengeEX_MonsterTag_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_MonsterTag_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "da7cbd9ae68b783112b0f33be5a590608aa6deecdaa89a5b5c9efc654b2dce40",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      },
+      {
+        "id": "program.StrongChallengeEX_Talent_Ability",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_Talent_Ability.json",
+        "row_locator": "$",
+        "evidence_sha256": "da6f1b94f895689878b1b233ecb20bc947729411cb4c2d7a200b44ccc068580c",
+        "evidence_quality": "ExactStructured",
+        "note": ""
+      }
+    ],
+    "exact_zero_pools": [
+      {
+        "id": "zero-pool.blessings",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+        "row_locator": "Included content#blessings",
+        "evidence_sha256": "7337204a6499bb32b1b603d54acead0d1dbec0798be692deef1306f87785251e",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Generated selector proof required before Candidate freeze."
+      },
+      {
+        "id": "zero-pool.curios",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+        "row_locator": "Included content#curios",
+        "evidence_sha256": "df33a97bb050ac83662e947724839d8c052df09a08f69c0e1e9c8e38fae000c9",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Generated selector proof required before Candidate freeze."
+      },
+      {
+        "id": "zero-pool.currencies",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+        "row_locator": "Included content#currencies",
+        "evidence_sha256": "f3cf2f483bd524896adc1941ba197d3f93793bc9b8cd98821ac67493bc82105e",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Generated selector proof required before Candidate freeze."
+      },
+      {
+        "id": "zero-pool.occurrences",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+        "row_locator": "Included content#occurrences",
+        "evidence_sha256": "df11abc4d20d8f8da6695f7648eab6ed1a68951dc13b16b6669f6c22adfe170d",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Generated selector proof required before Candidate freeze."
+      },
+      {
+        "id": "zero-pool.services",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+        "row_locator": "Included content#services",
+        "evidence_sha256": "066b5bbb3b1423a4cb1c5ccd403487a271c8f5a92fc7fb8389cb51e832855504",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Generated selector proof required before Candidate freeze."
+      },
+      {
+        "id": "zero-pool.shops",
+        "ownership": "ApocalypticShadow",
+        "disposition": "DataReady",
+        "source_path": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+        "row_locator": "Included content#shops",
+        "evidence_sha256": "8b248165881ed8ce81bf0e2a001eb85d68631c67e01e43493325daec01cc3a64",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Generated selector proof required before Candidate freeze."
+      }
+    ]
+  }
+}

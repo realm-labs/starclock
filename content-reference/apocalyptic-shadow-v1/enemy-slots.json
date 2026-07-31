@@ -1,0 +1,499 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "enemy-slots.json",
+  "record_kind": "enemy-slot",
+  "records": [
+    {
+      "id": "enemy-slot.30191.1.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30191.1",
+      "name_zh_cn": "首领槽位30191.1",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.302401301",
+        "node.30191.1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.302401301",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=302401301",
+          "sha256": "957fcd1b644f1e581b84efe5e70ccaafbaae741396edac872f0430e68bddb8ed",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30191.1",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30191#side=1",
+          "sha256": "086b0778be675b3d2e4af0c424b95ec87ea7995364ae0f3e951f422c9182f67f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30191.1",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 302401301,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30191.2.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30191.2",
+      "name_zh_cn": "首领槽位30191.2",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.401401301",
+        "node.30191.2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.401401301",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=401401301",
+          "sha256": "a32e97949ca120686fc03dc34ec88b973745f369de8412318242a2d6cf93846d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30191.2",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30191#side=2",
+          "sha256": "7282e1da2132ece0beb56b5308030d16ec767815a144125662ce48a1a4669d30",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30191.2",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 401401301,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30192.1.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30192.1",
+      "name_zh_cn": "首领槽位30192.1",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.302401302",
+        "node.30192.1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.302401302",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=302401302",
+          "sha256": "ad557deeb6e97175d04d2097a7f54cd88e54d1c39122d60c0f72da5494ccb22d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30192.1",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30192#side=1",
+          "sha256": "431e43b5640c910bba93c029accfda8b2958c61df4fb6aaad2f100f2fae3bd4b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30192.1",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 302401302,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30192.2.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30192.2",
+      "name_zh_cn": "首领槽位30192.2",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.401401302",
+        "node.30192.2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.401401302",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=401401302",
+          "sha256": "787768e95e93d2610fddaafea6552107c7c1f3d35baa28b4bb708beefc5766c4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30192.2",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30192#side=2",
+          "sha256": "70eb5c83ade9e59d3b4a8e1755265bbb658f4f5d39dafa6cabad01519e4054c2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30192.2",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 401401302,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30193.1.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30193.1",
+      "name_zh_cn": "首领槽位30193.1",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.302401303",
+        "node.30193.1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.302401303",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=302401303",
+          "sha256": "22fc595c027c252682946dd3fc94e50297b614e2d76857a34ba611c2f6504347",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30193.1",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30193#side=1",
+          "sha256": "3f5d3a116349b00736939b1243ec9f6a662576747e44a09df22105d950d36ce5",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30193.1",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 302401303,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30193.2.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30193.2",
+      "name_zh_cn": "首领槽位30193.2",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.401401303",
+        "node.30193.2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.401401303",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=401401303",
+          "sha256": "6193962233df05e31d35c5b132657bec6ed3eb6d742245ad5c5e3ac7b873ad2e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30193.2",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30193#side=2",
+          "sha256": "87d3e768d255c512eb16f51b9b1b08fcc884c0b233221322b102e4312fdd1bb9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30193.2",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 401401303,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30194.1.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30194.1",
+      "name_zh_cn": "首领槽位30194.1",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.302401304",
+        "node.30194.1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.302401304",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=302401304",
+          "sha256": "9d9d1ff6f9ead3ff7911a9102b8fd101ebe7bb35cf0a13f3448e1b95be4f8f37",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30194.1",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30194#side=1",
+          "sha256": "8a3615987a60d642ff32d575919d616b2df9ea70d9155d208a91c10d86d72d1d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30194.1",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 302401304,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30194.2.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Boss slot 30194.2",
+      "name_zh_cn": "首领槽位30194.2",
+      "summary_en": "The concrete difficulty-scaled boss variant selected for this node.",
+      "summary_zh_cn": "为该节点选择的具体难度首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.401401304",
+        "node.30194.2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.401401304",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=401401304",
+          "sha256": "4233c4fad1cc5d72ef286bcf2c6a5428d8f82056c4b153501257a382e41c9ae4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30194.2",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30194#side=2",
+          "sha256": "8e713cae6b524f79c96c76ca5aecdb204b07257ad8f26e6117cfec9b783cbd7a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30194.2",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 401401304,
+      "role": "primary-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30194.auxiliary",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Difficulty 4 auxiliary scoring boss",
+      "name_zh_cn": "难度4辅助计分首领",
+      "summary_en": "An additional concrete boss variant selected by the active stage-extra row.",
+      "summary_zh_cn": "当前关卡扩展行选择的额外具体首领变体。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.300402104",
+        "node.30194.1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.300402104",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=300402104",
+          "sha256": "63b13fb1751a9c0dddca21ffd01ae4c47c8ab2155a644d4249cccea65804233a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30194.1",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeConfig.json",
+          "locator": "ID=30194#side=1",
+          "sha256": "8a3615987a60d642ff32d575919d616b2df9ea70d9155d208a91c10d86d72d1d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30194.1",
+      "wave_order": 1,
+      "slot_order": 2,
+      "monster_id": 300402104,
+      "role": "auxiliary-scoring-boss",
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30195.1.1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "enemy-slot",
+      "name_en": "Tierce boss slot",
+      "name_zh_cn": "第三战区首领槽位",
+      "summary_en": "The direct Tierce NPC monster selector.",
+      "summary_zh_cn": "第三战区的直接NPC怪物选择器。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy.3003015",
+        "node.30195.1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.enemy.3003015",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=3003015",
+          "sha256": "e4e82ba8ff1df72321a880a63226a3e2ac291b7043e96c56e89f44a691ddc5f2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.node.30195.1",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossMazeTierce.json",
+          "locator": "selected-ID=30195#side=1",
+          "sha256": "9e81ffb08af8e32b7ba807b495136a4cc0cf6cfafb547719b72468a99c75f7c1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "encounter_id": "encounter.30195.1",
+      "wave_order": 1,
+      "slot_order": 1,
+      "monster_id": 3003015,
+      "role": "primary-boss",
+      "runtime_executable": false
+    }
+  ]
+}
