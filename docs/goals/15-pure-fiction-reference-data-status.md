@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Independent Sora and Excel |
 | Active batch | — |
-| Next unblocked batch | `G15-P3-B6` |
+| Next unblocked batch | `G15-P4-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -34,8 +34,8 @@
 | Phase 0 — Scope, sources, manifest and contracts | `Complete` | Pinned caches, 1,816-file inventory, 796-obligation active manifest, exact exclusions/zero proofs and normalized/evidence/workbook/fixture contracts are machine-verified. |
 | Phase 1 — Unique mode systems | `Complete` | Profile/season/Tierce, participants/loadouts/attempts, clocks/refill, score/objectives, Whimsicality/Grit/Fever, three Cacophonies and initial-resource policies regenerate byte-identically. |
 | Phase 2 — Content pools, services, events and enemies | `Complete` | Seven exact-zero pool proofs, active event/program bindings, all nine encounters/27 waves/63 slots, complete 596-row enemy mechanic closure, 25 rule families, 18 fixtures and exact-once 796-row coverage are machine-verified. |
-| Phase 3 — Independent Sora and Excel | `InProgress` | Three complete workbooks author all 37 sheets and 6,810 review/reference rows; deterministic export/load and visual proof are next. |
-| Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `Pending` | Awaiting exact-once audit, semantic fixtures, cross-goal receipts, regeneration and clean-checkout evidence. |
+| Phase 3 — Independent Sora and Excel | `Complete` | Three workbooks regenerate byte-identically; 37 Sora exports load all 6,810 rows through isolated generated readers and every sheet/schema column passed rendered review. |
+| Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `InProgress` | Exact-once release/ownership/provenance audit is next. |
 
 ## Batch ledger
 
@@ -63,7 +63,7 @@
 | `G15-P3-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `generate-sora-schema.mjs --batch=G15-P3-B3 --check` freezes 16 isolated pool-proof, theme, MazeBuff, event/program, encounter/wave/slot, enemy-closure and mechanic-rule tables. Shared enemy facts stay quality-labelled reference payloads instead of duplicated runtime semantics. |
 | `G15-P3-B4` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. Sora 0.3.0 `check`, `schema-lock`, `excel-template` and Rust `gen` succeed for seven review tables and the complete 37-table project, producing lock `5e285b8d…4c99`, three isolated workbook templates and 43 reader modules without linking the reference package into production runtime. |
 | `G15-P3-B5` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. Deterministic `openpyxl` authoring creates three clean workbooks with 37 contract-named sheets and 6,810 rows, including distinct manifest audit and coverage views. Structural/semantic verification proves template directives, stable-key uniqueness/order, complete headers, filters, frozen panes, zero formulas and zero runtime-executable rows; Sora 0.3.0 accepts all authored data. |
-| `G15-P3-B6` | `Pending` | — | Prove deterministic Sora export/load and visual review of every sheet and schema column. |
+| `G15-P3-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `verify-authoring.mjs` proves byte-identical double workbook generation, normalized Sora templates, lock/readers, 37 debug tables and zstd bundle `d6602e68…02c3`; the isolated generated-reader crate loads all 37 tables/6,810 rows. LibreOffice/pdftoppm rendered 37 pages and five contact sheets; direct inspection of every page found consistent header bands, visible rows across A:P and no blank/clipped/broken required sheet, recorded in `workbook-visual-review.json`. |
 | `G15-P4-B1` | `Pending` | — | Audit exact-once coverage, active-release selection, ownership, references, provenance, bilingual fields and exclusions. |
 | `G15-P4-B2` | `Pending` | — | Execute all semantic fixtures and approximation replacement checks. |
 | `G15-P4-B3` | `Pending` | — | Reconcile shared overlap and run full regeneration, drift, reader, dependency and clean-checkout acceptance. |

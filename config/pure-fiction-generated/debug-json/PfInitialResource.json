@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfInitialResource",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.initial_resources"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Battle-entry resources"
+          },
+          "name_zh_cn": {
+            "String": "战斗入场资源"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"energy\":\"authored-combatant-entry\",\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"hp\":\"full\",\"id\":\"pf.contract.initial_resources\",\"kind\":\"initial-resource\",\"manifest_record_ids\":[\"pf.contract.initial_resources\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Battle-entry resources\",\"name_zh_cn\":\"战斗入场资源\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"replacement_condition\":\"replace each field with a pinned released selector when exposed\",\"retry_restoration\":\"new-battle-defaults\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"skill_points\":\"challenge-default\",\"source_record_ids\":[\"source.pf.contract.initial_resources\"],\"summary_en\":\"Use ordinary challenge battle-entry HP, Energy and Skill Point initialization unless a selected StageConfig program overrides it.\",\"summary_zh_cn\":\"除选定StageConfig程序覆盖外，使用普通挑战的生命、能量与战技点入场初始化。\",\"technique_effects\":\"resolved-before-battle\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.initial_resources"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.contract.initial_resources"
+          },
+          "summary_en": {
+            "String": "Use ordinary challenge battle-entry HP, Energy and Skill Point initialization unless a selected StageConfig program overrides it."
+          },
+          "summary_zh_cn": {
+            "String": "除选定StageConfig程序覆盖外，使用普通挑战的生命、能量与战技点入场初始化。"
+          }
+        }
+      }
+    ]
+  }
+}

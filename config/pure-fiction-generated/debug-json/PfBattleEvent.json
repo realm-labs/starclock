@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfBattleEvent",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.battle-event.31001"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Continuous spawn battle event"
+          },
+          "name_zh_cn": {
+            "String": "连续刷新战斗事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_list\":[\"BattleEventAbility_SummonMonsterInfinite\",\"Local_SPAdd_Modify\"],\"base_hp\":\"90\",\"battle_event_id\":31001,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.battle-event.31001\",\"kind\":\"battle-event\",\"manifest_record_ids\":[\"pf.battle-event.31001\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Continuous spawn battle event\",\"name_zh_cn\":\"连续刷新战斗事件\",\"ownership\":\"Shared\",\"parameters\":[\"0.3\"],\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.battle-event.31001\"],\"subtype\":\"ChallengerEvent\",\"summary_en\":\"The exact neutral battle event selected by all nine active StageConfig rows.\",\"summary_zh_cn\":\"九个当前StageConfig行共同选择的精确中立战斗事件。\",\"team\":\"TeamNeutral\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.battle-event.31001"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.battle-event.31001"
+          },
+          "summary_en": {
+            "String": "The exact neutral battle event selected by all nine active StageConfig rows."
+          },
+          "summary_zh_cn": {
+            "String": "九个当前StageConfig行共同选择的精确中立战斗事件。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfTierceStarward",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.tierce.20245"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Starward Tierce"
+          },
+          "name_zh_cn": {
+            "String": "星流第三战区"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"battle_target_ids\":[4001,4002],\"clear_score\":45000,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.tierce.20245\",\"kind\":\"tierce-starward\",\"manifest_record_ids\":[\"pf.tierce.20245\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Starward Tierce\",\"name_zh_cn\":\"星流第三战区\",\"ownership\":\"PureFiction\",\"predecessor_stage_id\":20244,\"release_state\":\"Released\",\"reward_payload_excluded\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.tierce.20245\"],\"stage_config_id\":30322043,\"summary_en\":\"The released Tierce extension selected after ordinary stage 20244.\",\"summary_zh_cn\":\"在普通关卡20244之后选择的已发布第三战区扩展。\",\"target_ids\":[4001,4002,4003],\"tierce_id\":20245,\"topology_policy\":\"single-node exact row; no inferred second team\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.tierce.20245"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.tierce.20245"
+          },
+          "summary_en": {
+            "String": "The released Tierce extension selected after ordinary stage 20244."
+          },
+          "summary_zh_cn": {
+            "String": "在普通关卡20244之后选择的已发布第三战区扩展。"
+          }
+        }
+      }
+    ]
+  }
+}

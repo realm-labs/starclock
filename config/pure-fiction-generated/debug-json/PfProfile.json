@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfProfile",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.profile.v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Pure Fiction"
+          },
+          "name_zh_cn": {
+            "String": "虚构叙事"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"content_lane\":\"Candidate\",\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"family\":\"PureFiction\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.profile.v1\",\"kind\":\"profile\",\"manifest_record_ids\":[\"pf.profile.v1\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Pure Fiction\",\"name_zh_cn\":\"虚构叙事\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_state\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.profile.v1\"],\"summary_en\":\"A released rotating two-team score challenge family.\",\"summary_zh_cn\":\"已发布的轮换双队计分挑战玩法家族。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.profile.v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.profile.v1"
+          },
+          "summary_en": {
+            "String": "A released rotating two-team score challenge family."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的轮换双队计分挑战玩法家族。"
+          }
+        }
+      }
+    ]
+  }
+}

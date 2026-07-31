@@ -1,0 +1,292 @@
+{
+  "table": {
+    "name": "PfAttemptPolicy",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Abandonment"
+          },
+          "name_zh_cn": {
+            "String": "放弃尝试"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"commits_no_partial_stage_result\":true,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"attempt.abandon\",\"kind\":\"attempt-policy\",\"manifest_record_ids\":[\"pf.contract.attempt_policy\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Abandonment\",\"name_zh_cn\":\"放弃尝试\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.attempt_policy\"],\"summary_en\":\"Abandonment\",\"summary_zh_cn\":\"放弃尝试\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.abandon"
+          },
+          "summary_en": {
+            "String": "Abandonment"
+          },
+          "summary_zh_cn": {
+            "String": "放弃尝试"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Accepted start"
+          },
+          "name_zh_cn": {
+            "String": "接受开始"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"attempt.accepted-start\",\"kind\":\"attempt-policy\",\"manifest_record_ids\":[\"pf.contract.attempt_policy\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Accepted start\",\"name_zh_cn\":\"接受开始\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.attempt_policy\"],\"summary_en\":\"Accepted start\",\"summary_zh_cn\":\"接受开始\",\"validates_teams_and_cacophony\":true}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.accepted-start"
+          },
+          "summary_en": {
+            "String": "Accepted start"
+          },
+          "summary_zh_cn": {
+            "String": "接受开始"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Rejected start"
+          },
+          "name_zh_cn": {
+            "String": "拒绝开始"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"authoritative_state_unchanged\":true,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"attempt.rejected-start\",\"kind\":\"attempt-policy\",\"manifest_record_ids\":[\"pf.contract.attempt_policy\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Rejected start\",\"name_zh_cn\":\"拒绝开始\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.attempt_policy\"],\"summary_en\":\"Rejected start\",\"summary_zh_cn\":\"拒绝开始\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.rejected-start"
+          },
+          "summary_en": {
+            "String": "Rejected start"
+          },
+          "summary_zh_cn": {
+            "String": "拒绝开始"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.retry_policy"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Retry boundary"
+          },
+          "name_zh_cn": {
+            "String": "重试边界"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"creates_new_attempt\":true,\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"attempt.retry\",\"kind\":\"retry-policy\",\"manifest_record_ids\":[\"pf.contract.retry_policy\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Retry boundary\",\"name_zh_cn\":\"重试边界\",\"ownership\":\"PureFiction\",\"permits_prestart_team_change\":true,\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.retry_policy\"],\"summary_en\":\"Retry boundary\",\"summary_zh_cn\":\"重试边界\"}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.retry_policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.retry"
+          },
+          "summary_en": {
+            "String": "Retry boundary"
+          },
+          "summary_zh_cn": {
+            "String": "重试边界"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Timeout finalization"
+          },
+          "name_zh_cn": {
+            "String": "超时结算"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"attempt.timeout-finalize\",\"kind\":\"attempt-policy\",\"manifest_record_ids\":[\"pf.contract.attempt_policy\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Timeout finalization\",\"name_zh_cn\":\"超时结算\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"retains_node_score\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.attempt_policy\"],\"summary_en\":\"Timeout finalization\",\"summary_zh_cn\":\"超时结算\"}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.attempt_policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.timeout-finalize"
+          },
+          "summary_en": {
+            "String": "Timeout finalization"
+          },
+          "summary_zh_cn": {
+            "String": "超时结算"
+          }
+        }
+      }
+    ]
+  }
+}

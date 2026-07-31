@@ -1,0 +1,235 @@
+{
+  "table": {
+    "name": "PfStage",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.stage.20241"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Falsehood to Fact Stage 1"
+          },
+          "name_zh_cn": {
+            "String": "借虚成真·难度1"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"clear_score\":30000,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"floor\":1,\"game_version_snapshot\":\"4.4\",\"id\":\"pf.stage.20241\",\"kind\":\"stage\",\"manifest_record_ids\":[\"pf.stage.20241\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Falsehood to Fact Stage 1\",\"name_zh_cn\":\"借虚成真·难度1\",\"node_count\":2,\"objective_ids\":[2001,2002,2003],\"ownership\":\"PureFiction\",\"predecessor_stage_id\":null,\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.stage.20241\"],\"stage_id\":20241,\"summary_en\":\"One released two-node score stage in the active season.\",\"summary_zh_cn\":\"当前周期内一个已发布的双节点计分关卡。\",\"turn_limit\":5}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.stage.20241"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.stage.20241"
+          },
+          "summary_en": {
+            "String": "One released two-node score stage in the active season."
+          },
+          "summary_zh_cn": {
+            "String": "当前周期内一个已发布的双节点计分关卡。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.stage.20242"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Falsehood to Fact Stage 2"
+          },
+          "name_zh_cn": {
+            "String": "借虚成真·难度2"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"clear_score\":30000,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"floor\":2,\"game_version_snapshot\":\"4.4\",\"id\":\"pf.stage.20242\",\"kind\":\"stage\",\"manifest_record_ids\":[\"pf.stage.20242\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Falsehood to Fact Stage 2\",\"name_zh_cn\":\"借虚成真·难度2\",\"node_count\":2,\"objective_ids\":[2001,2002,2003],\"ownership\":\"PureFiction\",\"predecessor_stage_id\":20241,\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.stage.20242\"],\"stage_id\":20242,\"summary_en\":\"One released two-node score stage in the active season.\",\"summary_zh_cn\":\"当前周期内一个已发布的双节点计分关卡。\",\"turn_limit\":5}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.stage.20242"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.stage.20242"
+          },
+          "summary_en": {
+            "String": "One released two-node score stage in the active season."
+          },
+          "summary_zh_cn": {
+            "String": "当前周期内一个已发布的双节点计分关卡。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.stage.20243"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Falsehood to Fact Stage 3"
+          },
+          "name_zh_cn": {
+            "String": "借虚成真·难度3"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"clear_score\":30000,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"floor\":3,\"game_version_snapshot\":\"4.4\",\"id\":\"pf.stage.20243\",\"kind\":\"stage\",\"manifest_record_ids\":[\"pf.stage.20243\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Falsehood to Fact Stage 3\",\"name_zh_cn\":\"借虚成真·难度3\",\"node_count\":2,\"objective_ids\":[2001,2002,2003],\"ownership\":\"PureFiction\",\"predecessor_stage_id\":20242,\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.stage.20243\"],\"stage_id\":20243,\"summary_en\":\"One released two-node score stage in the active season.\",\"summary_zh_cn\":\"当前周期内一个已发布的双节点计分关卡。\",\"turn_limit\":4}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.stage.20243"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.stage.20243"
+          },
+          "summary_en": {
+            "String": "One released two-node score stage in the active season."
+          },
+          "summary_zh_cn": {
+            "String": "当前周期内一个已发布的双节点计分关卡。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.stage.20244"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Falsehood to Fact Stage 4"
+          },
+          "name_zh_cn": {
+            "String": "借虚成真·难度4"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"clear_score\":30000,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"floor\":4,\"game_version_snapshot\":\"4.4\",\"id\":\"pf.stage.20244\",\"kind\":\"stage\",\"manifest_record_ids\":[\"pf.stage.20244\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Falsehood to Fact Stage 4\",\"name_zh_cn\":\"借虚成真·难度4\",\"node_count\":2,\"objective_ids\":[2001,2002,2003],\"ownership\":\"PureFiction\",\"predecessor_stage_id\":20243,\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.stage.20244\"],\"stage_id\":20244,\"summary_en\":\"One released two-node score stage in the active season.\",\"summary_zh_cn\":\"当前周期内一个已发布的双节点计分关卡。\",\"turn_limit\":4}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.stage.20244"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.stage.20244"
+          },
+          "summary_en": {
+            "String": "One released two-node score stage in the active season."
+          },
+          "summary_zh_cn": {
+            "String": "当前周期内一个已发布的双节点计分关卡。"
+          }
+        }
+      }
+    ]
+  }
+}

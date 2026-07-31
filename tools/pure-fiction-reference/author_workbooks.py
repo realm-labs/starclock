@@ -67,6 +67,12 @@ def normalize_xlsx(path: pathlib.Path) -> None:
                 payload = source.read(name)
                 if name == "docProps/core.xml":
                     payload = re.sub(
+                        rb"<dcterms:created[^>]*>[^<]*</dcterms:created>",
+                        (b'<dcterms:created xsi:type="dcterms:W3CDTF">'
+                         b'2000-01-01T00:00:00Z</dcterms:created>'),
+                        payload,
+                    )
+                    payload = re.sub(
                         rb"<dcterms:modified[^>]*>[^<]*</dcterms:modified>",
                         (b'<dcterms:modified xsi:type="dcterms:W3CDTF">'
                          b'2000-01-01T00:00:00Z</dcterms:modified>'),
