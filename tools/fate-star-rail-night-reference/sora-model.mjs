@@ -56,6 +56,19 @@ export const TABLES = [
   table("G19-P3-B2", "bindings", "Resources", ["FateConstValueClient", "FateConstValueCommon", "FateRinConstClient", "FateRinConstCommon"]),
   table("G19-P3-B2", "bindings", "RuleBindings", ["FateGameplayConfig"]),
   table("G19-P3-B2", "bindings", "LifecycleBindings", ["FateAffix", "FateTraitBuff"]),
+  table("G19-P3-B3", "combat", "Stages", ["Stage"]),
+  table("G19-P3-B3", "combat", "BattleAreas", ["BattleArea", "BattleAreaConfig"]),
+  table("G19-P3-B3", "combat", "Encounters", ["FateRinChallengeFight", "FateRinStoryFight", "FateRinHouguMapFight", "FateRinHouguMapGroup", "FateMonsterPool"]),
+  table("G19-P3-B3", "combat", "Waves", ["Wave"]),
+  table("G19-P3-B3", "combat", "EnemySlots", ["EnemySlot"]),
+  table("G19-P3-B3", "combat", "EnemyVariants", ["EnemyVariant"]),
+  table("G19-P3-B3", "combat", "EnemyTemplates", ["EnemyTemplate"]),
+  table("G19-P3-B3", "combat", "EnemySkills", ["EnemySkill", "EnemyProgram"]),
+  table("G19-P3-B3", "combat", "EnemyStatuses", ["FateStatusConfig"]),
+  table("G19-P3-B3", "combat", "Buffs", ["FateBuff", "FateBuffSlot", "FateRinChallengeFightBuff"]),
+  table("G19-P3-B3", "combat", "MazeBuffs", ["FateMazeBuff", "MazeBuff"]),
+  table("G19-P3-B3", "combat", "BattleEvents", ["BattleEvent"]),
+  table("G19-P3-B3", "combat", "BattleTargets", ["BattleTarget"]),
 ];
 
 export function tablesThrough(batch) {
@@ -75,6 +88,11 @@ export function rowsForTable(root, definition) {
     "noble-phantasms.json",
     "command-spells.json",
     "effects.json",
+    "fight-flow.json",
+    "battle-bindings.json",
+    "encounters.json",
+    "enemies.json",
+    "enemy-programs.json",
   ];
   const familySet = new Set(definition.families);
   const records = files.flatMap((file) =>
