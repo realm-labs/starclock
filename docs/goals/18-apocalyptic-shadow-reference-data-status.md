@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Mode systems |
 | Active batch | — |
-| Next unblocked batch | `G18-P1-B2` |
+| Next unblocked batch | `G18-P1-B3` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -39,7 +39,7 @@
 | `G18-P0-B3` | `Complete` | This row's containing commit | Frozen 129 exact-once obligations (48 mode-owned, 81 shared): 1 family, 1 period, 2 group rows, 5 stages, 9 nodes, 6 targets, 11 buffs, 10 enemy variants, 4 templates, 67 skills, 7 programs and 6 generated exact-zero pool proofs. |
 | `G18-P0-B4` | `Complete` | This row's containing commit | Frozen 35 normalized files, canonical encoding, provenance/approximation fields, three-workbook clean-generation contract and 16 semantic fixture families (39 minimum cases). |
 | `G18-P1-B1` | `Complete` | This row's containing commit | Imported profile, active period `203019`/Vanguard Knight, four ordinary two-node stages, selected Tierce `30195`, nine exact node selectors and entry/unlock locators; all runtime-disabled. |
-| `G18-P1-B2` | `Pending` | — | Participants, loadouts, attempts and transitions. |
+| `G18-P1-B2` | `Complete` | This row's containing commit | Imported four participant/uniqueness policies, nine node team slots, three loadout records, five attempt outcomes and four transition contracts; rejected starts are atomic and all rows remain review-only. |
 | `G18-P1-B3` | `Pending` | — | AV clocks, boss progress, scores, objectives and stars. |
 | `G18-P1-B4` | `Pending` | — | Safeguard, Axiom, Embers, buffs and contributions. |
 | `G18-P2-B1` | `Pending` | — | Pool audits and selected challenge/config relationships. |
@@ -77,3 +77,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | `G18-P0-B3` | `node tools/apocalyptic-shadow-reference/manifest.mjs`; `node tools/apocalyptic-shadow-reference/audit-pools.mjs` | 129 obligations frozen; six selected-row pool scans each concluded `ExactZero`. |
 | 2026-08-01 | `G18-P0-B4` | JSON contract parse/schema review; `git diff --check` | 35-file normalized schema, evidence labels, Sora/openpyxl ownership and 16 fixture families frozen. |
 | 2026-08-01 | `G18-P1-B1` | `node --check tools/apocalyptic-shadow-reference/build-pack.mjs`; `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B1` | Generated 16 DataReady rows across profile, period, stages and nodes; Tierce selector remains explicit. |
+| 2026-08-01 | `G18-P1-B2` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B2` | Generated 25 DataReady participant/loadout/attempt/transition review rows with no runtime lowering. |

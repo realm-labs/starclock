@@ -1,0 +1,169 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "attempts.json",
+  "record_kind": "attempt",
+  "records": [
+    {
+      "id": "attempt.abandon",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Abandoned attempt",
+      "name_zh_cn": "放弃尝试",
+      "summary_en": "Abandoned attempt",
+      "summary_zh_cn": "放弃尝试",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "commits_no_best_result_replacement": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "attempt.accepted-start",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Accepted attempt start",
+      "name_zh_cn": "接受的尝试开始",
+      "summary_en": "Accepted attempt start",
+      "summary_zh_cn": "接受的尝试开始",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "validates_all_selected_teams": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "attempt.complete",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Completed attempt",
+      "name_zh_cn": "完成尝试",
+      "summary_en": "Completed attempt",
+      "summary_zh_cn": "完成尝试",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "projects_node_score_and_progress": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "attempt.rejected-start",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Rejected attempt start",
+      "name_zh_cn": "拒绝的尝试开始",
+      "summary_en": "Rejected attempt start",
+      "summary_zh_cn": "拒绝的尝试开始",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "authoritative_state_unchanged": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "attempt.timeout",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Action Value timeout",
+      "name_zh_cn": "行动值耗尽",
+      "summary_en": "Action Value timeout",
+      "summary_zh_cn": "行动值耗尽",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "retains_partial_boss_progress_for_score": true,
+      "runtime_executable": false
+    }
+  ]
+}
