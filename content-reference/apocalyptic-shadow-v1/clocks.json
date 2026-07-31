@@ -1,0 +1,108 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "clocks.json",
+  "record_kind": "clock",
+  "records": [
+    {
+      "id": "clock.node-action-value",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "clock",
+      "name_en": "Per-node Action Value budget",
+      "name_zh_cn": "节点行动值预算",
+      "summary_en": "Per-node Action Value budget",
+      "summary_zh_cn": "节点行动值预算",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "scope": "node-attempt",
+      "decrements_on_global_action_delay": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.remaining-delay-slice",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "clock",
+      "name_en": "Remaining delay slice",
+      "name_zh_cn": "剩余延迟切片",
+      "summary_en": "Remaining delay slice",
+      "summary_zh_cn": "剩余延迟切片",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "floor_divisor": 10,
+      "timeout_when_less_or_equal_zero": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.timeout-result",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "clock",
+      "name_en": "Time-limit settlement",
+      "name_zh_cn": "时限结算",
+      "summary_en": "Time-limit settlement",
+      "summary_zh_cn": "时限结算",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "battle_end_reason": "TimeLimit",
+      "local_win_required": false,
+      "runtime_executable": false
+    }
+  ]
+}
