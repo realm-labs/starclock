@@ -1,0 +1,62 @@
+{
+  "table": {
+    "name": "FsnProfiles",
+    "rows": [
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "DerivedFromExactStructured"
+          },
+          "family": {
+            "String": "FateProfile"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "mechanic_payload_json": {
+            "String": "{\"manifest_obligations\":\"undefined\",\"normalized_records\":\"2018\",\"pack_sha256\":\"ae040b74b3fddbb7e59807a435017311ec91e5892e364430636d25123bb7ecc3\",\"runtime_executable\":\"false\"}"
+          },
+          "mechanism_quality": {
+            "String": "ReferenceProfileOnly"
+          },
+          "name_en": {
+            "String": "Fate/Star Rail Night 4.4 Candidate Reference Profile"
+          },
+          "name_zh": {
+            "String": "Fate/Star Rail Night 4.4 候选资料档案"
+          },
+          "notes": {
+            "String": "Derived index row; it does not enlarge the frozen obligation denominator."
+          },
+          "ownership": {
+            "String": "FateStarRailNight"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"content-reference/fate-star-rail-night-v1/pack-index.json\",\"sha256\":\"ae040b74b3fddbb7e59807a435017311ec91e5892e364430636d25123bb7ecc3\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.profile.candidate-v4.4"
+          },
+          "summary_en": {
+            "String": "Binds the released 4.4 snapshot, exact coverage denominator and isolated pack digest."
+          },
+          "summary_zh": {
+            "String": "绑定已发布 4.4 快照、精确覆盖分母和独立资料包摘要。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Excel and Sora |
 | Active batch | — |
-| Next unblocked batch | `G19-P3-B6` |
+| Next unblocked batch | `G19-P4-B1` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -38,7 +38,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | Phase 0 — Scope, sources and contracts | `Complete` | Reproduced sources, corrected the Fate/FateRin oracle, froze 1,904 obligations and six exact-zero pools, then bound 48 sheets across four workbook/evidence/Sora contracts. |
 | Phase 1 — Unique activity systems | `Complete` | Seven normalized partitions contain 1,805 direct records: 1,392 enabled mode facts and all 413 evidence-only obligations; with six zero records, the complete 1,398 Fate-owned denominator is accounted. |
 | Phase 2 — Encounters and complete pack | `Complete` | The 17-file pack accounts 1,904/1,904 obligations, 1,491 eligible DataReady rows, 413 evidence-only rows, 13 replaceable policies, 56 fixtures and zero unresolved records. |
-| Phase 3 — Excel and Sora | `Pending` | Awaiting isolated schemas/readers, four workbooks, deterministic exports and visual QA. |
+| Phase 3 — Excel and Sora | `Complete` | 48 non-empty Sora tables / 5,934 rows, four byte-stable openpyxl workbooks, a byte-stable binary/debug export loaded through all generated readers, and every-sheet visual QA are complete. |
 | Phase 4 — Audit and freeze | `Pending` | Awaiting ownership audit, semantic execution, reconciliation and Candidate release. |
 
 ## Batch ledger
@@ -66,7 +66,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P3-B3` | `Complete` | This row's containing commit | Added thirteen combat Sora tables with 849 exact-once rows spanning stage/area/encounter graphs, waves/slots, enemy identities/program receipts, status/buff/MazeBuff definitions and bounded BattleEvent/BattleTarget bindings. The cumulative 41 gameplay tables contain 1,600 unique stable keys; event/target policies remain reference identities without invented operations. |
 | `G19-P3-B4` | `Complete` | This row's containing commit | Added seven review tables: 1,914 source receipts, 419 content/zero-pool audit rows, 1,904 coverage receipts, 13 policies, 11 reconciliation receipts, 56 fixtures and 17 pack-file rows. The complete project has 48 non-empty tables / 5,934 unique workbook rows. Pinned Sora 0.3.0 generated four canonical templates, one schema lock and 50 isolated Rust reader files; independent clean regeneration is byte-identical at tree `96478ee7…77c2`. No generated reader is imported by runtime. |
 | `G19-P3-B5` | `Complete` | This row's containing commit | Authored all four clean-target workbooks with pinned `openpyxl==3.1.5`: 48 sheets / 5,934 rows. Every sheet preserves the seven Sora metadata rows and exact schema order, uses frozen panes, filters, bounded widths, semantic validations and policy/evidence conditional formatting. All cells round-trip exactly, formulas are forbidden and two independent generations are byte-identical to the committed targets at digests `9dde5a7e…e1fe`, `c191e548…31f5`, `e0536821…d30f` and `dfa59026…5ec`. |
-| `G19-P3-B6` | `Pending` | — | Prove deterministic Sora export/load and visual review. |
+| `G19-P3-B6` | `Complete` | This row's containing commit | Exported all 48 tables / 5,934 rows to a pinned Sora 0.3.0 Zstandard bundle and 48 debug tables. Independent full regeneration is byte-identical at tree `3731b9d2…f50b`; the standalone locked loader parses the bundle and iterates every non-empty generated table. Artifact-tool rendered all 48 sheets across 144 complete column bands; four contact sheets were inspected with zero severe defect and recorded as `PassedHumanInspection`. |
 | `G19-P4-B1` | `Pending` | — | Audit exact-once coverage, selectors, ownership, provenance and exclusions. |
 | `G19-P4-B2` | `Pending` | — | Execute semantic fixtures and replacement checks. |
 | `G19-P4-B3` | `Pending` | — | Reconcile overlaps and run full regeneration/clean-checkout acceptance. |
