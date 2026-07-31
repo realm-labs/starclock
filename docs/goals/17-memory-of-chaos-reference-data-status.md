@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `memory-of-chaos-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Review and freeze |
+| State | `Complete` — Candidate reference data; runtime unreleased |
+| Active phase | Complete |
 | Active batch | — |
-| Next unblocked batch | `G17-P4-B4` |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -35,7 +35,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Profile/season flow, participants/loadouts, attempts, clocks, resources, objectives/stars, Turbulence and independent Tierce projections are normalized; every unavailable Version 4.4 semantic is explicit Candidate policy with a replacement condition. |
 | Phase 2 — Content and encounters | `Complete` | Ten exact-zero pool proofs, event/config relationships, 25 encounters, 50 waves, 99 slots, 41 variants/templates, 221 abilities, 594 canonical sources, 305 conflict-free shared reconciliations, 29 nonblocking field-level gaps and 18 semantic families form a 477/477 DataReady pack. |
 | Phase 3 — Sora and Excel | `Complete` | Twenty-seven isolated Sora tables, schema lock/readers/templates, three deterministic 1,521-row workbooks, byte-identical binary/debug exports, full generated-reader loading and Artifact Tool review of all 27 sheets/81 column bands pass. |
-| Phase 4 — Review and freeze | `InProgress` | Exact-once coverage, season/Tierce selection, ownership, references, provenance and bilingual fields pass; semantic fixtures and terminal acceptance remain. |
+| Phase 4 — Review and freeze | `Complete` | Exact-once ownership/provenance audit, all semantic fixtures/replacement conditions, conflict-free reconciliation, source-cache/full/clean acceptance and machine-verifiable Candidate freeze pass. |
 
 ## Batch ledger
 
@@ -65,7 +65,7 @@
 | `G17-P4-B1` | `Complete` | This row's containing commit | Machine-audited all 27 normalized files and 477 exact-once DataReady obligations: 172 MemoryOfChaos and 305 Shared manifest claims, 698 normalized references, 594 canonical evidence sources, complete bilingual envelopes and exact row provenance. Schedule `201033`, group `1033`, stages `5201`–`5212`, Tierce `5213` and future schedule/group exclusions are fail-closed; the two compatible ownership projections are explicit, and no unavailable or runtime-publishable row leaked. Evidence digest: `843e8dadd0e9dc298c3ed6534e72a050381f032808dbb2f933c5b2971e4da7a7`. Commands: `fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/audit-release.mjs --check`, `fnm exec --using 24.15.0 node tools/repository-check/run.mjs`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P4-B2` | `Complete` | This row's containing commit | Executed all 18 declarative reference-review fixture families and all 29 nonblocking replacement-condition checks against normalized facts. The audit found and corrected three obsolete supporting-claim aliases plus one unbound event/config fixture case; the owning pack generator, pack index, Review workbook, binary/debug exports and visual review were regenerated together. Final fixture evidence digest is `15783aed3b74d539b4d79603f2f1abf93c1fa4ace5b7ebd902412db4e25c7313`; canonical pack digest is now `23c51c3f56daf63eae898c40d0720d400a64ad85326cdbd178ed9eff02cea8ac`, workbook semantic digest `9f213165d8284ae8a7f77b1f65aefebdc0844a7cde1ff5ab59d22af2ac709680`, bundle digest `a743e5f1459d636c5d906605416a91f1bae2636c96b2598bb66ab736daf32019`, with all 27 tables/1,521 rows loading. Commands: `fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/execute-semantic-fixtures.mjs --check`, `verify-sora-release.mjs`, `audit-release.mjs --check`, Artifact Tool render/record scripts, `fnm exec --using 24.15.0 node tools/repository-check/run.mjs`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P4-B3` | `Complete` | This row's containing commit | A unified verifier reproduced both pinned caches, the 2,703-file inventory, 477-obligation manifest, every Phase 1/2 importer, the 27-file pack, 18/18 fixture families, 29/29 replacement conditions, 27-table/1,521-row workbooks/Sora exports, isolated reader and dependency boundaries. All 305 shared receipts remain 303 Match plus two CompatibleProjection with zero conflicts. `run.mjs --full --with-source-cache` initially rejected the Goal-specific cache directory name; an ignored temporary symlink exposed the same clean pinned main cache at the repository-standard path, after which all 32 source/generated checks, Clippy and 33 workspace harnesses passed in 172.4 seconds. The staged prospective tree was then archived into a fresh directory and passed the same unified verifier with an isolated Cargo target and no repository-local source/build cache. Release-acceptance evidence digest: `c527480f672835b73f668299b49de2c2bc4a2c77697aea78f232be1f242ab8ae`. Commands: `verify-candidate-release.mjs`, `release-acceptance-evidence.mjs --check`, `node tools/repository-check/run.mjs --full --with-source-cache`, staged `git write-tree`/`git archive`, and `verify-candidate-release.mjs --clean-checkout`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
-| `G17-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G17-P4-B4` | `Complete` | This row's containing commit | Froze machine-verifiable Candidate evidence at `evidence/memory-of-chaos-reference-v1/release/release-evidence.json` (SHA-256 `38d1f113096dd58b0458ffcebd9b0044f8d9c8e5f51783e0b4e48d1612349585`). It pins Version 4.4 selectors, 2,703 source receipts, 477/477 DataReady obligations, 27 normalized files/1,521 rows, 594 sources, 305 conflict-free reconciliations, 29 nonblocking boundaries, 18 semantic families, three workbooks/27 sheets/81 visual bands, 27 Sora tables, 31 reader files, the 3,313,243-byte bundle, full/clean acceptance and all 24 prerequisite batch commits while preserving zero runtime profiles. `freeze-candidate-release.mjs --check --remote` validates commit ancestry, Goal-path isolation, terminal counts/digests and remote reachability. The final `node tools/repository-check/run.mjs --full` passed 28 generated/release checks, Clippy and all 33 workspace harnesses in 191.2 seconds; the prior source-cache full gate passed all 32 checks. This containing commit must be pushed and verified by exact local/`git ls-remote` equality. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 
 For a completed batch, the result/evidence cell must record `remote`,
 `branch`, full pushed commit ID, exact push command, remote-resolution
@@ -148,44 +148,44 @@ generated selector-closure proof.
 
 ## Terminal checklist
 
-- [ ] Exact active-season category manifests and denominators are frozen.
-- [ ] Both pinned caches and the focused
+- [x] Exact active-season category manifests and denominators are frozen.
+- [x] Both pinned caches and the focused
       table/config/TextMap/Stage/ability inventory regenerate deterministically.
-- [ ] Complete normalized pack and canonical pack index regenerate without
+- [x] Complete normalized pack and canonical pack index regenerate without
       drift.
-- [ ] All required rows have bilingual summaries and row-level provenance.
-- [ ] Ownership, active-release enablement and shared reachability are explicit
+- [x] All required rows have bilingual summaries and row-level provenance.
+- [x] Ownership, active-release enablement and shared reachability are explicit
       and fail closed.
-- [ ] Tierce identity and all of its topology, participant, clock, objective and
+- [x] Tierce identity and all of its topology, participant, clock, objective and
       encounter semantics are proved or explicitly policy-bounded.
-- [ ] Empty content-pool families have generated selector-closure proofs.
-- [ ] Shared classifications reconcile with committed Goal 07–13 and Goal 16 facts.
-- [ ] All required mechanics are exact or explicitly
+- [x] Empty content-pool families have generated selector-closure proofs.
+- [x] Shared classifications reconcile with committed Goal 07–13 and Goal 16 facts.
+- [x] All required mechanics are exact or explicitly
       approximate/policy-bound.
-- [ ] Participant/loadout locks, attempts, clocks, resources, objectives/stars,
+- [x] Participant/loadout locks, attempts, clocks, resources, objectives/stars,
       Turbulence and Tierce transitions have complete semantic fixtures.
-- [ ] Encounter identities, StageConfig rows, waves, variants, AI, abilities
+- [x] Encounter identities, StageConfig rows, waves, variants, AI, abilities
       and boss bindings resolve.
-- [ ] Isolated Sora schemas, templates and generated readers validate.
-- [ ] All three complete `openpyxl` workbooks pass structural and visual QA.
-- [ ] Sora production/debug exports regenerate without drift and load through
+- [x] Isolated Sora schemas, templates and generated readers validate.
+- [x] All three complete `openpyxl` workbooks pass structural and visual QA.
+- [x] Sora production/debug exports regenerate without drift and load through
       isolated readers.
-- [ ] Goal 03 evidence and all other mode/production bundle identities remain
+- [x] Goal 03 evidence and all other mode/production bundle identities remain
       unchanged.
-- [ ] Coverage reports 100% `DataReady` and no blocking research row.
-- [ ] Every completed batch commit is reachable from its recorded remote branch
+- [x] Coverage reports 100% `DataReady` and no blocking research row.
+- [x] Every completed batch commit is reachable from its recorded remote branch
       at the recorded full commit ID.
-- [ ] Clean-checkout acceptance passes and `G17-P4-B4` is committed and pushed.
+- [x] Clean-checkout acceptance passes and `G17-P4-B4` is committed and pushed.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Remote/branch verification | — |
-| Memory of Chaos reference bundle | — |
-| Workbook semantic digest | — |
-| Coverage | Denominators pending `G17-P0-B3` |
-| Release evidence | — |
+| Final state | `Complete` — Candidate reference data; runtime unreleased |
+| Completion commit | This row's containing `G17-P4-B4` commit |
+| Remote/branch verification | `origin/codex/goal17-memory-of-chaos-reference`; local and `git ls-remote` resolve to the containing commit after publication |
+| Memory of Chaos reference bundle | `config/memory-of-chaos-generated/config.sora`; 3,313,243 bytes; SHA-256 `a743e5f1459d636c5d906605416a91f1bae2636c96b2598bb66ab736daf32019` |
+| Workbook semantic digest | `9f213165d8284ae8a7f77b1f65aefebdc0844a7cde1ff5ab59d22af2ac709680`; three workbooks, 27 sheets and 81 visual bands passed |
+| Coverage | 477/477 exact-once `DataReady`; 172 MemoryOfChaos, 305 Shared; 29 nonblocking policy boundaries; zero blocking gaps |
+| Release evidence | `evidence/memory-of-chaos-reference-v1/release/release-evidence.json`; SHA-256 `38d1f113096dd58b0458ffcebd9b0044f8d9c8e5f51783e0b4e48d1612349585` |
 | Remaining required work | Memory of Chaos runtime lowering, integration, handlers, controller/API exposure and seeded full challenge runs belong to a later goal. |
