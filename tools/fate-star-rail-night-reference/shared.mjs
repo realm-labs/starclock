@@ -108,7 +108,7 @@ function zeroRecord(obligation) {
 function sourceRecord(obligation, row) {
   const id = firstId(row) ?? obligation.locator.replace("index:", "row-");
   return {
-    stable_id: `fate-star-rail-night.shared.${slug(obligation.family)}.${slug(String(id))}`,
+    stable_id: `fate-star-rail-night.shared.${slug(obligation.family)}.${slug(String(id))}.${slug(obligation.locator)}`,
     family: obligation.family,
     name_zh: `${obligation.family} ${id}`,
     name_en: `${obligation.family} ${id}`,
