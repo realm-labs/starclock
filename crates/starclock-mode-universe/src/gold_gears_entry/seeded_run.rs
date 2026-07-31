@@ -3,11 +3,11 @@
 use std::collections::{BTreeSet, VecDeque};
 
 use starclock_activity::{
-    ActivityCause, ActivityDefinitionIdentity, ActivityEdgeId, ActivityInstanceId,
-    ActivityMasterSeed, ActivityOperation, ActivityProgramDefinition, ActivityProgramId,
-    ActivityRngContext, ActivityRngStreams, ActivityStateHash, ActivityTerminalOutcome,
-    ActivityTransactionOutcome, ActivityTransactionState, AttemptId, BattleResult,
-    BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId,
+    ActivityCause, ActivityDecisionId, ActivityDefinitionIdentity, ActivityEdgeId,
+    ActivityInstanceId, ActivityMasterSeed, ActivityOperation, ActivityProgramDefinition,
+    ActivityProgramId, ActivityRngContext, ActivityRngStreams, ActivityStateHash,
+    ActivityTerminalOutcome, ActivityTransactionOutcome, ActivityTransactionState, AttemptId,
+    BattleResult, BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId,
 };
 
 use crate::{
@@ -16,8 +16,10 @@ use crate::{
 };
 
 use super::{
+    GoldAndGearsBaselineController, GoldAndGearsBaselineDecision, GoldAndGearsBaselineError,
     GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleExecutionError, GoldAndGearsEncounterRole,
-    GoldAndGearsEntryError, GoldAndGearsExtrapolationContext, GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntryError, GoldAndGearsExtrapolationContext, GoldAndGearsOfferedAction,
+    GoldAndGearsOfferedCommand, GoldAndGearsRuntimeInstance,
 };
 
 /// Stable deterministic runner contract used by the P0-frozen seeded matrix.
@@ -195,6 +197,7 @@ impl GoldAndGearsSeededRunReport {
 #[derive(Debug)]
 pub enum GoldAndGearsSeededRunError {
     InvalidInput(GoldAndGearsEntryError),
+    Controller(GoldAndGearsBaselineError),
     ProgramRejected,
     Battle(GoldAndGearsBattleExecutionError),
     BattleFault {
@@ -237,6 +240,15 @@ impl GoldAndGearsRuntimeInstance {
         request: GoldAndGearsSeededRunRequest,
         roster: &UniverseBattleRoster,
     ) -> Result<GoldAndGearsRecordedExecution, GoldAndGearsSeededRunError> {
+        self.execute_seeded_run_recorded_with_decisions(request, roster, None)
+    }
+
+    pub(super) fn execute_seeded_run_recorded_with_decisions(
+        &self,
+        request: GoldAndGearsSeededRunRequest,
+        roster: &UniverseBattleRoster,
+        mut decisions: Option<&mut Vec<GoldAndGearsBaselineDecision>>,
+    ) -> Result<GoldAndGearsRecordedExecution, GoldAndGearsSeededRunError> {
         let mut state = ActivityTransactionState::new(
             self.state_definition().clone(),
             self.graph_definition().entry(),
@@ -258,6 +270,7 @@ impl GoldAndGearsRuntimeInstance {
         let mut steps = Vec::new();
         let mut replay = Vec::new();
         let mut battle_count = 0_u32;
+        let controller = GoldAndGearsBaselineController::default();
 
         for _ in 0..MAX_STEPS {
             if let Some(terminal) = state.terminal() {
@@ -338,10 +351,27 @@ impl GoldAndGearsRuntimeInstance {
                             unreachable!("guard admits only boss roles")
                         }
                     };
-                    let boss = if role == GoldAndGearsEncounterRole::FinalBoss {
+                    let preferred_boss = if role == GoldAndGearsEncounterRole::FinalBoss {
                         FINAL_BOSS
                     } else {
                         DEFAULT_BOSS
+                    };
+                    let offers = self
+                        .boss_choices()
+                        .enumerate()
+                        .map(|(ordinal, boss)| {
+                            GoldAndGearsOfferedCommand::boss(
+                                plane,
+                                ordinal,
+                                boss,
+                                boss == preferred_boss,
+                            )
+                        })
+                        .collect::<Vec<_>>();
+                    let selected = select_offered(controller, &state, &offers, &mut decisions)?;
+                    let GoldAndGearsOfferedAction::SelectBoss { boss, .. } = selected.action()
+                    else {
+                        unreachable!("the boss offer set contains only boss commands")
                     };
                     let program = self
                         .compile_boss_selection(plane, boss)
@@ -360,7 +390,7 @@ impl GoldAndGearsRuntimeInstance {
                         action: GoldAndGearsSeededRunAction::BossSelection {
                             source_node: node,
                             plane,
-                            boss: boss.into(),
+                            boss: boss.clone(),
                         },
                         state_hash: accepted.state_hash,
                         battle: None,
@@ -482,6 +512,17 @@ impl GoldAndGearsRuntimeInstance {
                 .ok_or(GoldAndGearsSeededRunError::NoRoute(node))?;
             let edge = next_route(self, &state, node, target)
                 .ok_or(GoldAndGearsSeededRunError::NoRoute(node))?;
+            let offers = self
+                .legal_routes(&state, node)
+                .iter()
+                .copied()
+                .map(|candidate| GoldAndGearsOfferedCommand::route(candidate, candidate == edge))
+                .collect::<Vec<_>>();
+            let selected = select_offered(controller, &state, &offers, &mut decisions)?;
+            let GoldAndGearsOfferedAction::Traverse { edge } = selected.action() else {
+                unreachable!("the route offer set contains only traverse commands")
+            };
+            let edge = *edge;
             let id = TRAVERSE_PROGRAM_BASE
                 .checked_add(edge.get())
                 .and_then(ActivityProgramId::new)
@@ -539,6 +580,29 @@ impl GoldAndGearsRuntimeInstance {
         }
         Ok(actual)
     }
+}
+
+fn select_offered(
+    controller: GoldAndGearsBaselineController,
+    state: &ActivityTransactionState,
+    offers: &[GoldAndGearsOfferedCommand],
+    decisions: &mut Option<&mut Vec<GoldAndGearsBaselineDecision>>,
+) -> Result<GoldAndGearsOfferedCommand, GoldAndGearsSeededRunError> {
+    let decision = ActivityDecisionId::new(
+        state
+            .command_sequence()
+            .checked_add(1)
+            .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?,
+    )
+    .ok_or(GoldAndGearsSeededRunError::StepBudgetExceeded)?;
+    let selected = controller
+        .decide(decision, offers)
+        .map_err(GoldAndGearsSeededRunError::Controller)?;
+    let command = selected.selected().clone();
+    if let Some(decisions) = decisions.as_deref_mut() {
+        decisions.push(selected);
+    }
+    Ok(command)
 }
 
 fn next_route(

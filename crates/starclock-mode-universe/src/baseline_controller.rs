@@ -174,10 +174,24 @@ impl ActivityBaselineController {
             .iter()
             .map(|option| (option.id(), option.priority()))
             .collect::<Vec<_>>();
-        let (option, scores) = score_offers(&offers, hints)?;
+        self.decide_offers(decision.id(), decision.kind(), &offers, hints)
+    }
+
+    /// Scores an already-authorized ordered option set for a mode facade.
+    ///
+    /// The controller returns only an exact offered option identity; the mode
+    /// remains responsible for mapping that identity back to its typed command.
+    pub fn decide_offers(
+        self,
+        decision: ActivityDecisionId,
+        kind: ActivityDecisionKind,
+        offers: &[(ActivityOptionId, i32)],
+        hints: &ActivityBaselineHints,
+    ) -> Result<ActivityBaselineDecision, ActivityDecisionError> {
+        let (option, scores) = score_offers(offers, hints)?;
         Ok(ActivityBaselineDecision {
-            decision: decision.id(),
-            kind: decision.kind(),
+            decision,
+            kind,
             option,
             scores,
         })

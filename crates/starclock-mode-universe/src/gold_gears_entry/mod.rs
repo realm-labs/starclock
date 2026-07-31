@@ -1,6 +1,6 @@
 //! Gold and Gears entry validation and generic Activity-state compilation.
-
 mod api;
+mod baseline_controller;
 mod battle_enemy_catalog;
 mod battle_execution;
 mod battle_materialization;
@@ -44,10 +44,14 @@ mod state;
 mod state_layout;
 mod topology;
 mod validate;
-
 pub use api::{
     GOLD_AND_GEARS_ENTRY_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry,
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+};
+pub use baseline_controller::{
+    GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION, GoldAndGearsBaselineController,
+    GoldAndGearsBaselineDecision, GoldAndGearsBaselineError, GoldAndGearsBaselineRunReport,
+    GoldAndGearsCommandFamily, GoldAndGearsOfferedAction, GoldAndGearsOfferedCommand,
 };
 pub use battle_enemy_catalog::{
     GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION, GoldAndGearsEnemyDefinitionBinding,
@@ -188,9 +192,7 @@ pub use service_adventure_types::{
     GoldAndGearsServiceDefinition, GoldAndGearsServiceKind, GoldAndGearsServiceOfferSelector,
     GoldAndGearsServiceStock, GoldAndGearsTechniqueRule,
 };
-
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
-
 #[cfg(test)]
 include!("test_modules.rs");

@@ -1,5 +1,6 @@
 mod cognition_tests;
 mod battle_execution_tests;
+mod baseline_controller_tests;
 mod battle_materialization_tests;
 mod content_runtime_tests;
 mod conundrum_auxiliary_runtime_tests;
