@@ -15,6 +15,7 @@ use rmcp::ServiceExt;
 use starclock_agent_api::{
     activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     error::{AgentError, AgentErrorCode},
+    gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
     schema::SessionId,
     session::{
         AgentSessionFactory, AgentSessionOwner, AgentSessionRegistry, OperationalClock,
@@ -58,10 +59,17 @@ async fn serve_async() -> Result<(), StdioServeError> {
     let factory = AgentSessionFactory::load_production().map_err(|_| StdioServeError::Startup)?;
     let activity_factory =
         ActivityAgentSessionFactory::load_production().map_err(|_| StdioServeError::Startup)?;
+    let gold_factory = GoldAndGearsActivityAgentSessionFactory::load_production()
+        .map_err(|_| StdioServeError::Startup)?;
     let clock = Arc::new(LocalClock::new());
     let ids = Arc::new(LocalSessionIds::new());
     let registry = AgentSessionRegistry::new(factory.clone(), clock.clone(), ids.clone());
-    let activity_registry = ActivityAgentSessionRegistry::new(activity_factory.clone(), clock, ids);
+    let activity_registry = ActivityAgentSessionRegistry::new_with_gold_and_gears(
+        activity_factory.clone(),
+        gold_factory,
+        clock,
+        ids,
+    );
     let owner = AgentSessionOwner::new("local-stdio", &format!("process-{}", std::process::id()))
         .map_err(|_| StdioServeError::Startup)?;
     let (stdin, stdout) = rmcp::transport::stdio();

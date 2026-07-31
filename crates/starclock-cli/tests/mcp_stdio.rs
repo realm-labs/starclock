@@ -187,7 +187,9 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
             "starclock://catalog/manifest",
             "starclock://rules/core-combat",
             "starclock://universe/manifest",
-            "starclock://rules/standard-universe"
+            "starclock://rules/standard-universe",
+            "starclock://universe/gold-and-gears/manifest",
+            "starclock://rules/gold-and-gears"
         ]
     );
     let templates = client.result("resources/templates/list", json!({}));

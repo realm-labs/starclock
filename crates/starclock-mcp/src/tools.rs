@@ -447,7 +447,7 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_create_universe",
-        description = "Create one owned ephemeral Standard Universe Activity session.",
+        description = "Create one owned ephemeral Standard or Gold and Gears Universe Activity session.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityObservationOutput>()
     )]
     async fn create_universe(
@@ -463,7 +463,7 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_observe_activity",
-        description = "Read the current bounded player-visible Standard Universe Activity observation.",
+        description = "Read the current bounded player-visible Universe Activity observation.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityObservationOutput>()
     )]
     async fn observe_activity(
@@ -495,7 +495,7 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_export_activity_replay",
-        description = "Export the canonical Standard Universe Activity replay as lowercase hex.",
+        description = "Export the canonical Universe Activity replay as lowercase hex.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityReplayExportOutput>()
     )]
     async fn export_activity_replay(
@@ -527,7 +527,7 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_verify_activity_replay",
-        description = "Verify a bounded canonical Standard Universe Activity replay without a model.",
+        description = "Verify a bounded canonical Standard or Gold and Gears Activity replay without a model.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<VerifyActivityReplayOutput>()
     )]
     async fn verify_activity_replay(
@@ -838,6 +838,8 @@ mod tests {
         let activity_factory =
             starclock_agent_api::activity_session::ActivityAgentSessionFactory::load_production()
                 .unwrap();
+        let gold_factory = starclock_agent_api::gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory::load_production()
+            .unwrap();
         let clock = Arc::new(TestClock);
         let ids = Arc::new(TestIds::default());
         let registry = starclock_agent_api::session::AgentSessionRegistry::new(
@@ -845,9 +847,9 @@ mod tests {
             clock.clone(),
             ids.clone(),
         );
-        let activity_registry =
-            starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new(
+        let activity_registry = starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new_with_gold_and_gears(
                 activity_factory.clone(),
+                gold_factory,
                 clock,
                 ids,
             );
@@ -931,7 +933,9 @@ mod tests {
                 "starclock://catalog/manifest",
                 "starclock://rules/core-combat",
                 "starclock://universe/manifest",
-                "starclock://rules/standard-universe"
+                "starclock://rules/standard-universe",
+                "starclock://universe/gold-and-gears/manifest",
+                "starclock://rules/gold-and-gears"
             ]
         );
         let templates = client.list_all_resource_templates().await.unwrap();
@@ -1148,3 +1152,7 @@ mod tests {
         task.await.unwrap();
     }
 }
+
+#[cfg(test)]
+#[path = "tools/gold_gears_tests.rs"]
+mod gold_gears_tests;

@@ -312,6 +312,7 @@ pub fn required_scope_for_json_rpc(body: &[u8]) -> Option<&'static str> {
                 .map_or(Some(SCOPE_SCENARIO_READ), |uri| {
                     if uri.starts_with("starclock://universe/")
                         || uri == "starclock://rules/standard-universe"
+                        || uri == "starclock://rules/gold-and-gears"
                     {
                         Some(SCOPE_ACTIVITY_READ)
                     } else {
@@ -491,6 +492,18 @@ mod tests {
             required_scope_for_json_rpc(universe.to_string().as_bytes()),
             Some(SCOPE_ACTIVITY_READ)
         );
+        for uri in [
+            "starclock://universe/gold-and-gears/manifest",
+            "starclock://rules/gold-and-gears",
+        ] {
+            let resource = serde_json::json!({
+                "jsonrpc":"2.0", "id":1, "method":"resources/read", "params":{"uri":uri}
+            });
+            assert_eq!(
+                required_scope_for_json_rpc(resource.to_string().as_bytes()),
+                Some(SCOPE_ACTIVITY_READ)
+            );
+        }
     }
 
     #[test]

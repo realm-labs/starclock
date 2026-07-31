@@ -95,7 +95,8 @@ starclock_close_battle
 starclock_verify_replay
 ```
 
-Goal 04 adds six Activity tools without changing those Battle contracts:
+Goal 04 adds six Activity tools without changing those Battle contracts, and
+Goal 14 extends those same tools to Gold and Gears without adding tool names:
 
 ```text
 starclock_create_universe
@@ -112,9 +113,20 @@ external Activity decision or terminal state; nested battles settle inside the
 protocol-neutral session facade. The MCP adapter never mutates Activity or
 Battle state directly.
 
-The adapter exposes four static resources, two RFC 6570 templates and the fixed
-`starclock_battle_loop` prompt. `structuredContent` and `agent-api-v1` are
-authoritative; convenience text is not. The Goal 02 CLI adds only:
+For Activity creation and verification, omitted `mode` and `mode:"standard"`
+select Standard and require `world` plus `difficulty_index`.
+`mode:"gold-and-gears"` selects the fixed Gold and Gears entry; optional entry
+fields, when supplied, must be `world:"401"` and `difficulty_index:"0"`.
+Both modes share the same registry identity allocation and global,
+tenant/principal quotas, so selecting a mode cannot bypass policy.
+
+The adapter exposes six static resources, including
+`starclock://universe/gold-and-gears/manifest` and
+`starclock://rules/gold-and-gears`, two RFC 6570 templates and the fixed
+`starclock_battle_loop` prompt. Gold uses the existing Activity authorization
+scopes; the thirteen-tool and thirteen-scope matrices are unchanged.
+`structuredContent` and `agent-api-v1` are authoritative; convenience text is
+not. The Goal 02 CLI adds only:
 
 ```text
 starclock mcp serve --transport stdio

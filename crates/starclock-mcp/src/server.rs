@@ -135,7 +135,12 @@ impl ServerHandler for StarclockMcp {
         request: ReadResourceRequestParams,
         _context: RequestContext<RoleServer>,
     ) -> Result<ReadResourceResult, McpError> {
-        resources::read_resource(&self.factory, &self.activity_factory, &request.uri)
+        resources::read_resource(
+            &self.factory,
+            &self.activity_factory,
+            &self.activity_registry,
+            &request.uri,
+        )
     }
 
     async fn list_prompts(

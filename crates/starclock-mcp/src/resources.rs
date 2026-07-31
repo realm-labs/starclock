@@ -10,7 +10,7 @@ use rmcp::{
 };
 use serde::Serialize;
 use starclock_agent_api::{
-    activity_session::ActivityAgentSessionFactory,
+    activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     schema::{AgentSchemaRevision, AgentUInt, ScenarioId},
     session::AgentSessionFactory,
 };
@@ -20,6 +20,8 @@ const CATALOG_URI: &str = "starclock://catalog/manifest";
 const RULES_URI: &str = "starclock://rules/core-combat";
 const UNIVERSE_URI: &str = "starclock://universe/manifest";
 const UNIVERSE_RULES_URI: &str = "starclock://rules/standard-universe";
+const GOLD_AND_GEARS_URI: &str = "starclock://universe/gold-and-gears/manifest";
+const GOLD_AND_GEARS_RULES_URI: &str = "starclock://rules/gold-and-gears";
 const SCENARIO_PREFIX: &str = "starclock://scenario/";
 const CHARACTER_PREFIX: &str = "starclock://character/";
 const USAGE_PROMPT: &str = "starclock_battle_loop";
@@ -77,6 +79,14 @@ pub(crate) fn list_resources() -> ListResourcesResult {
             .with_title("Starclock Standard Universe Activity rules")
             .with_description("Concise Activity authority, settlement and replay invariants.")
             .with_mime_type(MIME_JSON),
+        Resource::new(GOLD_AND_GEARS_URI, "gold-and-gears-manifest")
+            .with_title("Starclock Gold and Gears manifest")
+            .with_description("Bounded fixed-entry compatibility and accuracy metadata.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(GOLD_AND_GEARS_RULES_URI, "gold-and-gears-rules")
+            .with_title("Starclock Gold and Gears Activity rules")
+            .with_description("Concise shared authority, settlement and replay invariants.")
+            .with_mime_type(MIME_JSON),
     ])
 }
 
@@ -96,6 +106,7 @@ pub(crate) fn list_resource_templates() -> ListResourceTemplatesResult {
 pub(crate) fn read_resource(
     factory: &AgentSessionFactory,
     activity_factory: &ActivityAgentSessionFactory,
+    activity_registry: &ActivityAgentSessionRegistry,
     uri: &str,
 ) -> Result<ReadResourceResult, McpError> {
     if uri.len() > MAX_RESOURCE_URI_BYTES {
@@ -126,6 +137,23 @@ pub(crate) fn read_resource(
         UNIVERSE_URI => resource_json("standard_universe_manifest", activity_factory.manifest())?,
         UNIVERSE_RULES_URI => resource_json(
             "standard_universe_rules",
+            UniverseRulesResource {
+                exact_number_encoding: "canonical_decimal_strings",
+                external_decision_owner: "activity_player",
+                action_authority: "currently_offered_opaque_token",
+                settlement_boundary: "next_external_activity_decision_or_terminal",
+                nested_battle_policy: "authoritative_real_combat_settlement",
+                replay_authority: "accepted_activity_actions_nested_battle_commands_events_and_state_hashes",
+            },
+        )?,
+        GOLD_AND_GEARS_URI => resource_json(
+            "gold_and_gears_manifest",
+            activity_registry
+                .gold_and_gears_manifest()
+                .map_err(agent_adapter_error)?,
+        )?,
+        GOLD_AND_GEARS_RULES_URI => resource_json(
+            "gold_and_gears_rules",
             UniverseRulesResource {
                 exact_number_encoding: "canonical_decimal_strings",
                 external_decision_owner: "activity_player",
@@ -209,12 +237,40 @@ fn infrastructure_error() -> McpError {
 
 #[cfg(test)]
 mod tests {
+    use std::sync::Arc;
+
     use super::*;
+    use starclock_agent_api::{
+        error::AgentError,
+        gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
+        schema::SessionId,
+        session::{OperationalClock, SessionIdSource},
+    };
+
+    struct Clock;
+    impl OperationalClock for Clock {
+        fn now_seconds(&self) -> u64 {
+            0
+        }
+    }
+    struct Ids;
+    impl SessionIdSource for Ids {
+        fn next_session_id(&self) -> Result<SessionId, AgentError> {
+            unreachable!("resource reads allocate no sessions")
+        }
+    }
 
     #[test]
     fn resources_are_bounded_original_summaries_without_private_artifact_markers() {
         let factory = AgentSessionFactory::load_production().unwrap();
         let activity_factory = ActivityAgentSessionFactory::load_production().unwrap();
+        let gold_factory = GoldAndGearsActivityAgentSessionFactory::load_production().unwrap();
+        let activity_registry = ActivityAgentSessionRegistry::new_with_gold_and_gears(
+            activity_factory.clone(),
+            gold_factory,
+            Arc::new(Clock),
+            Arc::new(Ids),
+        );
         assert_eq!(
             activity_factory
                 .manifest()
@@ -229,8 +285,11 @@ mod tests {
             "starclock://character/1",
             UNIVERSE_URI,
             UNIVERSE_RULES_URI,
+            GOLD_AND_GEARS_URI,
+            GOLD_AND_GEARS_RULES_URI,
         ] {
-            let result = read_resource(&factory, &activity_factory, uri).unwrap();
+            let result =
+                read_resource(&factory, &activity_factory, &activity_registry, uri).unwrap();
             let serialized = serde_json::to_string(&result).unwrap();
             assert!(serialized.len() <= MAX_RESOURCE_CONTENT_BYTES);
             assert!(serialized.contains("\\\"inert_data\\\":true"));
@@ -245,11 +304,20 @@ mod tests {
                 assert!(!serialized.contains(forbidden), "leaked {forbidden}");
             }
         }
-        assert!(read_resource(&factory, &activity_factory, "starclock://character/0").is_err());
         assert!(
             read_resource(
                 &factory,
                 &activity_factory,
+                &activity_registry,
+                "starclock://character/0"
+            )
+            .is_err()
+        );
+        assert!(
+            read_resource(
+                &factory,
+                &activity_factory,
+                &activity_registry,
                 "starclock://scenario/not-valid"
             )
             .is_err()

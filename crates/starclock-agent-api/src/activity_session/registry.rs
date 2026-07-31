@@ -17,6 +17,10 @@ use super::{
 };
 use crate::{
     error::{AgentError, AgentErrorCode},
+    gold_gears_activity_session::{
+        AgentGoldAndGearsManifest, CreateGoldAndGearsActivitySessionRequest,
+        GoldAndGearsActivityAgentSession, GoldAndGearsActivityAgentSessionFactory,
+    },
     schema::{AgentUInt, SessionId},
     session::{
         AgentSessionOwner, IDLE_TTL_SECONDS, MAX_GLOBAL_SESSIONS, MAX_SESSIONS_PER_PRINCIPAL,
@@ -30,6 +34,11 @@ const MAX_TERMINAL_TOMBSTONES: usize = MAX_GLOBAL_SESSIONS;
 pub struct RegistryCreateActivitySessionRequest {
     pub world: AgentUInt,
     pub difficulty_index: AgentUInt,
+    pub seed: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct RegistryCreateGoldAndGearsSessionRequest {
     pub seed: AgentUInt,
 }
 
@@ -57,6 +66,7 @@ pub struct ActivityAgentSessionRegistry {
 
 struct RegistryInner {
     factory: ActivityAgentSessionFactory,
+    gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
     clock: Arc<dyn OperationalClock>,
     id_source: Arc<dyn SessionIdSource>,
     last_clock: AtomicU64,
@@ -84,9 +94,61 @@ struct SessionLane {
 }
 
 enum SessionLaneState {
-    Active(Box<ActivityAgentSession>),
+    Active(Box<HostedActivitySession>),
     Closed,
     Expired,
+}
+
+enum HostedActivitySession {
+    Standard(ActivityAgentSession),
+    GoldAndGears(GoldAndGearsActivityAgentSession),
+}
+
+impl HostedActivitySession {
+    fn observe(&mut self) -> Result<AgentActivityObservation, AgentError> {
+        match self {
+            Self::Standard(session) => session.observe(),
+            Self::GoldAndGears(session) => session.observe(),
+        }
+    }
+
+    fn apply_action(
+        &mut self,
+        request: PlayActivityActionRequest,
+    ) -> Result<AgentActivityActionResponse, AgentError> {
+        match self {
+            Self::Standard(session) => session.apply_action(request),
+            Self::GoldAndGears(session) => session.apply_action(request),
+        }
+    }
+
+    fn export_replay(&mut self) -> Result<AgentActivityReplayExport, AgentError> {
+        match self {
+            Self::Standard(session) => session.export_replay(),
+            Self::GoldAndGears(session) => session.export_replay(),
+        }
+    }
+
+    fn verify_replay(
+        &mut self,
+        standard: &ActivityAgentSessionFactory,
+        gold: Option<&GoldAndGearsActivityAgentSessionFactory>,
+        bytes: &[u8],
+    ) -> Result<AgentActivityReplayVerification, AgentError> {
+        match self {
+            Self::Standard(session) => session.verify_replay(standard, bytes),
+            Self::GoldAndGears(session) => {
+                session.verify_replay(gold.ok_or_else(gold_not_configured)?, bytes)
+            }
+        }
+    }
+
+    fn close(&mut self) {
+        match self {
+            Self::Standard(session) => session.close(),
+            Self::GoldAndGears(session) => session.close(),
+        }
+    }
 }
 
 #[derive(Clone)]
@@ -107,11 +169,21 @@ impl ActivityAgentSessionRegistry {
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
     ) -> Self {
-        Self::with_limits(factory, clock, id_source, FROZEN_LIMITS)
+        Self::with_limits(factory, None, clock, id_source, FROZEN_LIMITS)
+    }
+
+    pub fn new_with_gold_and_gears(
+        factory: ActivityAgentSessionFactory,
+        gold_factory: GoldAndGearsActivityAgentSessionFactory,
+        clock: Arc<dyn OperationalClock>,
+        id_source: Arc<dyn SessionIdSource>,
+    ) -> Self {
+        Self::with_limits(factory, Some(gold_factory), clock, id_source, FROZEN_LIMITS)
     }
 
     fn with_limits(
         factory: ActivityAgentSessionFactory,
+        gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
         limits: RegistryLimits,
@@ -119,6 +191,7 @@ impl ActivityAgentSessionRegistry {
         Self {
             inner: Arc::new(RegistryInner {
                 factory,
+                gold_factory,
                 clock,
                 id_source,
                 last_clock: AtomicU64::new(0),
@@ -151,7 +224,47 @@ impl ActivityAgentSessionRegistry {
             lane: Mutex::new(SessionLane {
                 created_at: now,
                 last_accessed_at: now,
-                state: SessionLaneState::Active(Box::new(session)),
+                state: SessionLaneState::Active(Box::new(HostedActivitySession::Standard(session))),
+            }),
+        });
+        let mut state = lock(&self.inner.state)?;
+        if state.active.contains_key(&session_id) || state.terminal.contains_key(&session_id) {
+            return Err(adapter_error(
+                "The injected session ID source produced a duplicate identity.",
+            ));
+        }
+        state.active.insert(session_id, entry);
+        Ok(observation)
+    }
+
+    pub fn create_gold_and_gears(
+        &self,
+        owner: &AgentSessionOwner,
+        request: RegistryCreateGoldAndGearsSessionRequest,
+    ) -> Result<AgentActivityObservation, AgentError> {
+        let _create = lock(&self.inner.create_lane)?;
+        let now = self.read_now()?;
+        self.sweep_expired(now)?;
+        self.ensure_quota(owner)?;
+        let session_id = self.inner.id_source.next_session_id()?;
+        let factory = self
+            .inner
+            .gold_factory
+            .as_ref()
+            .ok_or_else(gold_not_configured)?;
+        let session = factory.create(CreateGoldAndGearsActivitySessionRequest {
+            session_id: session_id.clone(),
+            seed: request.seed,
+        })?;
+        let observation = session.observe()?;
+        let entry = Arc::new(SessionEntry {
+            owner: owner.clone(),
+            lane: Mutex::new(SessionLane {
+                created_at: now,
+                last_accessed_at: now,
+                state: SessionLaneState::Active(Box::new(HostedActivitySession::GoldAndGears(
+                    session,
+                ))),
             }),
         });
         let mut state = lock(&self.inner.state)?;
@@ -169,7 +282,7 @@ impl ActivityAgentSessionRegistry {
         owner: &AgentSessionOwner,
         id: &SessionId,
     ) -> Result<AgentActivityObservation, AgentError> {
-        self.with_active(owner, id, |session| session.observe())
+        self.with_active(owner, id, HostedActivitySession::observe)
     }
 
     pub fn apply_action(
@@ -186,7 +299,7 @@ impl ActivityAgentSessionRegistry {
         owner: &AgentSessionOwner,
         id: &SessionId,
     ) -> Result<AgentActivityReplayExport, AgentError> {
-        self.with_active(owner, id, |session| session.export_replay())
+        self.with_active(owner, id, HostedActivitySession::export_replay)
     }
 
     pub fn verify_replay(
@@ -196,7 +309,30 @@ impl ActivityAgentSessionRegistry {
         bytes: &[u8],
     ) -> Result<AgentActivityReplayVerification, AgentError> {
         let factory = self.inner.factory.clone();
-        self.with_active(owner, id, |session| session.verify_replay(&factory, bytes))
+        let gold_factory = self.inner.gold_factory.clone();
+        self.with_active(owner, id, |session| {
+            session.verify_replay(&factory, gold_factory.as_ref(), bytes)
+        })
+    }
+
+    pub fn verify_gold_and_gears_replay(
+        &self,
+        seed: &AgentUInt,
+        bytes: &[u8],
+    ) -> Result<AgentActivityReplayVerification, AgentError> {
+        self.inner
+            .gold_factory
+            .as_ref()
+            .ok_or_else(gold_not_configured)?
+            .verify_replay(seed, bytes)
+    }
+
+    pub fn gold_and_gears_manifest(&self) -> Result<AgentGoldAndGearsManifest, AgentError> {
+        self.inner
+            .gold_factory
+            .as_ref()
+            .map(GoldAndGearsActivityAgentSessionFactory::manifest)
+            .ok_or_else(gold_not_configured)
     }
 
     pub fn close(&self, owner: &AgentSessionOwner, id: &SessionId) -> Result<(), AgentError> {
@@ -231,7 +367,7 @@ impl ActivityAgentSessionRegistry {
         &self,
         owner: &AgentSessionOwner,
         id: &SessionId,
-        operation: impl FnOnce(&mut ActivityAgentSession) -> Result<T, AgentError>,
+        operation: impl FnOnce(&mut HostedActivitySession) -> Result<T, AgentError>,
     ) -> Result<T, AgentError> {
         let now = self.read_now()?;
         let entry = self.lookup(owner, id)?;
@@ -426,6 +562,12 @@ fn closed_error() -> AgentError {
 fn adapter_error(message: &'static str) -> AgentError {
     agent_error(AgentErrorCode::AdapterFailure, message)
 }
+fn gold_not_configured() -> AgentError {
+    agent_error(
+        AgentErrorCode::ConfigurationRejected,
+        "Gold and Gears Activity sessions are not configured.",
+    )
+}
 
 #[cfg(test)]
 mod tests {
@@ -458,6 +600,20 @@ mod tests {
         (
             ActivityAgentSessionRegistry::with_limits(
                 ActivityAgentSessionFactory::load_production().unwrap(),
+                None,
+                Arc::new(Clock(AtomicU64::new(0))),
+                ids.clone(),
+                limits,
+            ),
+            ids,
+        )
+    }
+    fn registry_with_gold(limits: RegistryLimits) -> (ActivityAgentSessionRegistry, Arc<Ids>) {
+        let ids = Arc::new(Ids(AtomicUsize::new(1)));
+        (
+            ActivityAgentSessionRegistry::with_limits(
+                ActivityAgentSessionFactory::load_production().unwrap(),
+                Some(GoldAndGearsActivityAgentSessionFactory::load_production().unwrap()),
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -518,6 +674,38 @@ mod tests {
             AgentErrorCode::SessionQuotaExceeded
         );
         assert_eq!(ids.0.load(Ordering::Relaxed), 2);
+    }
+
+    #[test]
+    fn standard_and_gold_share_tenant_quota_and_identity_allocation() {
+        let limits = RegistryLimits {
+            global: 2,
+            tenant: 1,
+            principal: 2,
+            ..FROZEN_LIMITS
+        };
+        let (registry, ids) = registry_with_gold(limits);
+        let alice = AgentSessionOwner::new("tenant", "alice").unwrap();
+        let bob = AgentSessionOwner::new("tenant", "bob").unwrap();
+        registry.create(&alice, request()).unwrap();
+        let error = registry
+            .create_gold_and_gears(
+                &bob,
+                RegistryCreateGoldAndGearsSessionRequest {
+                    seed: AgentUInt::from_u64(14_001),
+                },
+            )
+            .unwrap_err();
+        assert_eq!(error.code, AgentErrorCode::SessionQuotaExceeded);
+        assert_eq!(ids.0.load(Ordering::Relaxed), 2);
+        assert_eq!(
+            registry
+                .gold_and_gears_manifest()
+                .unwrap()
+                .profile_id
+                .as_ref(),
+            "gold-gears.profile.v1"
+        );
     }
 
     #[test]

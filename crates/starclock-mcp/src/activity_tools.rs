@@ -1,10 +1,15 @@
-//! Additive Standard Universe Activity MCP DTOs and facade delegation.
+//! Additive Universe Activity MCP DTOs and facade delegation.
 
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use starclock_agent_api::{
-    activity_session::{PlayActivityActionRequest, registry::RegistryCreateActivitySessionRequest},
+    activity_session::{
+        PlayActivityActionRequest,
+        registry::{
+            RegistryCreateActivitySessionRequest, RegistryCreateGoldAndGearsSessionRequest,
+        },
+    },
     error::AgentError,
     schema::{ActionToken, AgentHash, AgentUInt, IdempotencyKey},
     session::AgentSessionOwner,
@@ -21,8 +26,12 @@ use crate::{
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct CreateUniverseInput {
     pub schema_revision: String,
-    pub world: String,
-    pub difficulty_index: String,
+    #[serde(default)]
+    pub mode: Option<String>,
+    #[serde(default)]
+    pub world: Option<String>,
+    #[serde(default)]
+    pub difficulty_index: Option<String>,
     pub seed: String,
 }
 
@@ -45,8 +54,12 @@ pub(crate) struct PlayActivityActionInput {
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct VerifyActivityReplayInput {
     pub schema_revision: String,
-    pub world: String,
-    pub difficulty_index: String,
+    #[serde(default)]
+    pub mode: Option<String>,
+    #[serde(default)]
+    pub world: Option<String>,
+    #[serde(default)]
+    pub difficulty_index: Option<String>,
     pub seed: String,
     pub replay_hex: String,
 }
@@ -95,17 +108,27 @@ impl StarclockMcp {
         input: CreateUniverseInput,
     ) -> Result<ActivityObservationOutput, AgentError> {
         parse_revision(&input.schema_revision)?;
-        let observation = self.activity_registry.create(
-            owner,
-            RegistryCreateActivitySessionRequest {
-                world: uint(&input.world, "The world is invalid.")?,
-                difficulty_index: uint(
-                    &input.difficulty_index,
-                    "The difficulty index is invalid.",
-                )?,
-                seed: uint(&input.seed, "The seed is invalid.")?,
-            },
-        )?;
+        let seed = uint(&input.seed, "The seed is invalid.")?;
+        let observation = match activity_mode(input.mode.as_deref())? {
+            ActivityMode::Standard => self.activity_registry.create(
+                owner,
+                RegistryCreateActivitySessionRequest {
+                    world: required_uint(input.world.as_deref(), "The world is invalid.")?,
+                    difficulty_index: required_uint(
+                        input.difficulty_index.as_deref(),
+                        "The difficulty index is invalid.",
+                    )?,
+                    seed,
+                },
+            )?,
+            ActivityMode::GoldAndGears => {
+                validate_gold_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
+                self.activity_registry.create_gold_and_gears(
+                    owner,
+                    RegistryCreateGoldAndGearsSessionRequest { seed },
+                )?
+            }
+        };
         Ok(ActivityObservationOutput {
             observation: json_output(observation)?,
         })
@@ -188,12 +211,24 @@ impl StarclockMcp {
         input: VerifyActivityReplayInput,
     ) -> Result<VerifyActivityReplayOutput, AgentError> {
         parse_revision(&input.schema_revision)?;
-        let verification = self.activity_factory.verify_replay(
-            &uint(&input.world, "The world is invalid.")?,
-            &uint(&input.difficulty_index, "The difficulty index is invalid.")?,
-            &uint(&input.seed, "The seed is invalid.")?,
-            &decode_hex_bounded(&input.replay_hex, MAX_REPLAY_IMPORT_BYTES)?,
-        )?;
+        let seed = uint(&input.seed, "The seed is invalid.")?;
+        let replay = decode_hex_bounded(&input.replay_hex, MAX_REPLAY_IMPORT_BYTES)?;
+        let verification = match activity_mode(input.mode.as_deref())? {
+            ActivityMode::Standard => self.activity_factory.verify_replay(
+                &required_uint(input.world.as_deref(), "The world is invalid.")?,
+                &required_uint(
+                    input.difficulty_index.as_deref(),
+                    "The difficulty index is invalid.",
+                )?,
+                &seed,
+                &replay,
+            )?,
+            ActivityMode::GoldAndGears => {
+                validate_gold_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
+                self.activity_registry
+                    .verify_gold_and_gears_replay(&seed, &replay)?
+            }
+        };
         Ok(VerifyActivityReplayOutput {
             schema_revision: schema_revision(),
             action_count: verification.action_count.as_str().into(),
@@ -206,4 +241,36 @@ impl StarclockMcp {
 
 fn uint(value: &str, message: &'static str) -> Result<AgentUInt, AgentError> {
     AgentUInt::parse(value).map_err(|_| invalid_request(message))
+}
+
+fn required_uint(value: Option<&str>, message: &'static str) -> Result<AgentUInt, AgentError> {
+    uint(value.ok_or_else(|| invalid_request(message))?, message)
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum ActivityMode {
+    Standard,
+    GoldAndGears,
+}
+
+fn activity_mode(value: Option<&str>) -> Result<ActivityMode, AgentError> {
+    match value {
+        None | Some("standard") => Ok(ActivityMode::Standard),
+        Some("gold-and-gears") => Ok(ActivityMode::GoldAndGears),
+        Some(_) => Err(invalid_request("The Universe mode is invalid.")),
+    }
+}
+
+fn validate_gold_entry(
+    world: Option<&str>,
+    difficulty_index: Option<&str>,
+) -> Result<(), AgentError> {
+    if world.is_some_and(|value| value != "401")
+        || difficulty_index.is_some_and(|value| value != "0")
+    {
+        return Err(invalid_request(
+            "The Gold and Gears fixed entry is incompatible.",
+        ));
+    }
+    Ok(())
 }
