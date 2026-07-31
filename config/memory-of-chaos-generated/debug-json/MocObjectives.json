@@ -1,0 +1,517 @@
+{
+  "table": {
+    "name": "MocObjectives",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructuredThresholdWithProjectPolicyTiming"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-251"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "At least 10 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余10轮"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_payload_included\":false,\"aggregation_scope\":\"OrdinaryStageBestObjectiveRecordWithinSeasonProjectPolicy\",\"applies_to\":\"OrdinaryStage\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"confidence\":\"Medium\",\"known_facts\":\"Target 251 exactly selects ROUNDS_LEFT with parameter 10; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"selected_behavior\":\"Evaluate complete with at least 10 remaining cycles only after OrdinaryStage completion, then latch this one-star objective independently into the season-stage best record.\"}],\"completion_required\":true,\"contribution_stars\":1,\"coverage_state\":\"DataReady\",\"cumulative_across_completed_attempts\":true,\"evaluation_boundary\":\"AfterAllRequiredNodeVictoriesBeforeStageSettlementProjectPolicy\",\"evidence_quality\":\"ExactStructuredThresholdWithProjectPolicyTiming\",\"evidence_refs\":[{\"evidence_sha256\":\"c4505c137b2a8ed0468796ea891a47be93d972b6eadb5c625d500efb7f225dba\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=251\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact target type, parameter and active selector membership.\",\"path_or_page\":\"ExcelOutput/ChallengeTargetConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=251\"},{\"evidence_sha256\":\"236306d73efe8a2a8e5aec54dc28bd80bbde273c4a8d63b112920b12d7e40b12\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"2c6cda5e1e528da9d5ff2ff9dadde8a33d4653f3188c76a524e10724f76d2763\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"6fc1819bc12785b641b2bb805ad39e92b2ea130a658fb0d25cd677f5e632e4fe\",\"game_version\":\"1.1 stable-family cross-check\",\"id\":\"hoyolab:19664810:stage-stars\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence describes up to three stars per stage: no downed characters plus two remaining-cycle conditions.\",\"path_or_page\":\"https://www.hoyolab.com/article/19664810\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/19664810\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"So How Does it Work\"},{\"evidence_sha256\":\"6b5fa255c4da1f8724f47d4f8dd319d68fe3e6e654dd0998fdf2ac8a1f194a0d\",\"game_version\":\"1.0 stable-family cross-check\",\"id\":\"hoyolab:18067001:cumulative-objectives\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence states that Forgotten Hall stage objectives can be achieved cumulatively across multiple attempts.\",\"path_or_page\":\"https://www.hoyolab.com/article/18067001\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/18067001\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"Challenge Scoring\"}],\"failed_or_abandoned_attempt_can_satisfy\":false,\"game_version\":\"4.4\",\"id\":\"objective.251\",\"kind\":\"Objective\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"At least 10 cycles remaining\",\"name_zh_cn\":\"至少剩余10轮\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Win with at least <unbreak>#1[i]</unbreak> Cycle(s) left\",\"zh_cn\":\"取得胜利时，剩余<unbreak>#1[i]</unbreak>轮以上\"},\"source_record_ids\":[\"objectives:target-251\"],\"summary_en\":\"One-star OrdinaryStage objective: complete with at least 10 remaining cycles.\",\"summary_zh_cn\":\"常规关卡一星目标：通关时至少剩余10轮。\",\"survival_scope\":null,\"tags\":[\"ordinary\",\"remaining-cycles\",\"star\"],\"target_type\":\"RemainingCyclesAtLeast\",\"threshold\":10,\"threshold_encoding\":\"ExplicitSourceInteger\",\"upstream_target_id\":251}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=251"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "hoyolab:19664810:stage-stars"
+              },
+              {
+                "String": "hoyolab:18067001:cumulative-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.251"
+          },
+          "summary_en": {
+            "String": "One-star OrdinaryStage objective: complete with at least 10 remaining cycles."
+          },
+          "summary_zh_cn": {
+            "String": "常规关卡一星目标：通关时至少剩余10轮。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "remaining-cycles"
+              },
+              {
+                "String": "star"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructuredThresholdWithProjectPolicyTiming"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-252"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "At least 20 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余20轮"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_payload_included\":false,\"aggregation_scope\":\"OrdinaryStageBestObjectiveRecordWithinSeasonProjectPolicy\",\"applies_to\":\"OrdinaryStage\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"confidence\":\"Medium\",\"known_facts\":\"Target 252 exactly selects ROUNDS_LEFT with parameter 20; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"selected_behavior\":\"Evaluate complete with at least 20 remaining cycles only after OrdinaryStage completion, then latch this one-star objective independently into the season-stage best record.\"}],\"completion_required\":true,\"contribution_stars\":1,\"coverage_state\":\"DataReady\",\"cumulative_across_completed_attempts\":true,\"evaluation_boundary\":\"AfterAllRequiredNodeVictoriesBeforeStageSettlementProjectPolicy\",\"evidence_quality\":\"ExactStructuredThresholdWithProjectPolicyTiming\",\"evidence_refs\":[{\"evidence_sha256\":\"2a4d3697fdd38c25020f9920e0eb9dc229049bae911a5217f83805d3f8e3bbb7\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=252\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact target type, parameter and active selector membership.\",\"path_or_page\":\"ExcelOutput/ChallengeTargetConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=252\"},{\"evidence_sha256\":\"236306d73efe8a2a8e5aec54dc28bd80bbde273c4a8d63b112920b12d7e40b12\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"2c6cda5e1e528da9d5ff2ff9dadde8a33d4653f3188c76a524e10724f76d2763\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"6fc1819bc12785b641b2bb805ad39e92b2ea130a658fb0d25cd677f5e632e4fe\",\"game_version\":\"1.1 stable-family cross-check\",\"id\":\"hoyolab:19664810:stage-stars\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence describes up to three stars per stage: no downed characters plus two remaining-cycle conditions.\",\"path_or_page\":\"https://www.hoyolab.com/article/19664810\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/19664810\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"So How Does it Work\"},{\"evidence_sha256\":\"6b5fa255c4da1f8724f47d4f8dd319d68fe3e6e654dd0998fdf2ac8a1f194a0d\",\"game_version\":\"1.0 stable-family cross-check\",\"id\":\"hoyolab:18067001:cumulative-objectives\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence states that Forgotten Hall stage objectives can be achieved cumulatively across multiple attempts.\",\"path_or_page\":\"https://www.hoyolab.com/article/18067001\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/18067001\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"Challenge Scoring\"}],\"failed_or_abandoned_attempt_can_satisfy\":false,\"game_version\":\"4.4\",\"id\":\"objective.252\",\"kind\":\"Objective\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"At least 20 cycles remaining\",\"name_zh_cn\":\"至少剩余20轮\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Win with at least <unbreak>#1[i]</unbreak> Cycle(s) left\",\"zh_cn\":\"取得胜利时，剩余<unbreak>#1[i]</unbreak>轮以上\"},\"source_record_ids\":[\"objectives:target-252\"],\"summary_en\":\"One-star OrdinaryStage objective: complete with at least 20 remaining cycles.\",\"summary_zh_cn\":\"常规关卡一星目标：通关时至少剩余20轮。\",\"survival_scope\":null,\"tags\":[\"ordinary\",\"remaining-cycles\",\"star\"],\"target_type\":\"RemainingCyclesAtLeast\",\"threshold\":20,\"threshold_encoding\":\"ExplicitSourceInteger\",\"upstream_target_id\":252}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=252"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "hoyolab:19664810:stage-stars"
+              },
+              {
+                "String": "hoyolab:18067001:cumulative-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.252"
+          },
+          "summary_en": {
+            "String": "One-star OrdinaryStage objective: complete with at least 20 remaining cycles."
+          },
+          "summary_zh_cn": {
+            "String": "常规关卡一星目标：通关时至少剩余20轮。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "remaining-cycles"
+              },
+              {
+                "String": "star"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructuredThresholdWithProjectPolicyTiming"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-253"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "No downed characters"
+          },
+          "name_zh_cn": {
+            "String": "无角色倒下"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_payload_included\":false,\"aggregation_scope\":\"OrdinaryStageBestObjectiveRecordWithinSeasonProjectPolicy\",\"applies_to\":\"OrdinaryStage\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"confidence\":\"Medium\",\"known_facts\":\"Target 253 exactly selects DEAD_AVATAR; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"selected_behavior\":\"Evaluate complete without a downed allied combat form only after OrdinaryStage completion, then latch this one-star objective independently into the season-stage best record.\"}],\"completion_required\":true,\"contribution_stars\":1,\"coverage_state\":\"DataReady\",\"cumulative_across_completed_attempts\":true,\"evaluation_boundary\":\"AfterAllRequiredNodeVictoriesBeforeStageSettlementProjectPolicy\",\"evidence_quality\":\"ExactStructuredThresholdWithProjectPolicyTiming\",\"evidence_refs\":[{\"evidence_sha256\":\"f89e5084d5aca30e1a668b107dfb0b73e796d4eb73622b2e29a225d9f2ac1554\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=253\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact target type, parameter and active selector membership.\",\"path_or_page\":\"ExcelOutput/ChallengeTargetConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=253\"},{\"evidence_sha256\":\"774d49ba0324bf6700a8171977d37085255133702a43696ece67308c7e16d863\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15997122175768211822\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=15997122175768211822\"},{\"evidence_sha256\":\"20eecb3a98d8711d5223a11ee943a2d234394c2496bf945fa19258a5d924a43a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=15997122175768211822\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=15997122175768211822\"},{\"evidence_sha256\":\"6fc1819bc12785b641b2bb805ad39e92b2ea130a658fb0d25cd677f5e632e4fe\",\"game_version\":\"1.1 stable-family cross-check\",\"id\":\"hoyolab:19664810:stage-stars\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence describes up to three stars per stage: no downed characters plus two remaining-cycle conditions.\",\"path_or_page\":\"https://www.hoyolab.com/article/19664810\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/19664810\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"So How Does it Work\"},{\"evidence_sha256\":\"6b5fa255c4da1f8724f47d4f8dd319d68fe3e6e654dd0998fdf2ac8a1f194a0d\",\"game_version\":\"1.0 stable-family cross-check\",\"id\":\"hoyolab:18067001:cumulative-objectives\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence states that Forgotten Hall stage objectives can be achieved cumulatively across multiple attempts.\",\"path_or_page\":\"https://www.hoyolab.com/article/18067001\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/18067001\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"Challenge Scoring\"}],\"failed_or_abandoned_attempt_can_satisfy\":false,\"game_version\":\"4.4\",\"id\":\"objective.253\",\"kind\":\"Objective\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"No downed characters\",\"name_zh_cn\":\"无角色倒下\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"No more than <unbreak>#1[i]</unbreak> downed character(s)\",\"zh_cn\":\"无法战斗角色不超过<unbreak>#1[i]</unbreak>名\"},\"source_record_ids\":[\"objectives:target-253\"],\"summary_en\":\"One-star OrdinaryStage objective: complete without a downed allied combat form.\",\"summary_zh_cn\":\"常规关卡一星目标：通关且没有我方战斗形态倒下。\",\"survival_scope\":\"OrdinaryStageAllRequiredBattlesProjectPolicy\",\"tags\":[\"ordinary\",\"star\",\"survival\"],\"target_type\":\"NoDownedCombatForm\",\"threshold\":0,\"threshold_encoding\":\"OmittedSourceFieldDefaultsToZero\",\"upstream_target_id\":253}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=253"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15997122175768211822"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=15997122175768211822"
+              },
+              {
+                "String": "hoyolab:19664810:stage-stars"
+              },
+              {
+                "String": "hoyolab:18067001:cumulative-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.253"
+          },
+          "summary_en": {
+            "String": "One-star OrdinaryStage objective: complete without a downed allied combat form."
+          },
+          "summary_zh_cn": {
+            "String": "常规关卡一星目标：通关且没有我方战斗形态倒下。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "star"
+              },
+              {
+                "String": "survival"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructuredThresholdWithProjectPolicyTiming"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-601"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "At least 15 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余15轮"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_payload_included\":false,\"aggregation_scope\":\"TierceExtensionBestObjectiveRecordWithinSeasonProjectPolicy\",\"applies_to\":\"TierceExtension\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"confidence\":\"Medium\",\"known_facts\":\"Target 601 exactly selects ROUNDS_LEFT with parameter 15; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"selected_behavior\":\"Evaluate complete with at least 15 remaining cycles only after TierceExtension completion, then latch this one-star objective independently into the season-stage best record.\"}],\"completion_required\":true,\"contribution_stars\":1,\"coverage_state\":\"DataReady\",\"cumulative_across_completed_attempts\":true,\"evaluation_boundary\":\"AfterAllRequiredNodeVictoriesBeforeStageSettlementProjectPolicy\",\"evidence_quality\":\"ExactStructuredThresholdWithProjectPolicyTiming\",\"evidence_refs\":[{\"evidence_sha256\":\"5603324eda978de18c7c5ebdc7e2c0130f662de271f63131ec115992bd619957\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=601\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact target type, parameter and active selector membership.\",\"path_or_page\":\"ExcelOutput/ChallengeTargetConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=601\"},{\"evidence_sha256\":\"236306d73efe8a2a8e5aec54dc28bd80bbde273c4a8d63b112920b12d7e40b12\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"2c6cda5e1e528da9d5ff2ff9dadde8a33d4653f3188c76a524e10724f76d2763\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"6fc1819bc12785b641b2bb805ad39e92b2ea130a658fb0d25cd677f5e632e4fe\",\"game_version\":\"1.1 stable-family cross-check\",\"id\":\"hoyolab:19664810:stage-stars\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence describes up to three stars per stage: no downed characters plus two remaining-cycle conditions.\",\"path_or_page\":\"https://www.hoyolab.com/article/19664810\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/19664810\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"So How Does it Work\"},{\"evidence_sha256\":\"6b5fa255c4da1f8724f47d4f8dd319d68fe3e6e654dd0998fdf2ac8a1f194a0d\",\"game_version\":\"1.0 stable-family cross-check\",\"id\":\"hoyolab:18067001:cumulative-objectives\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence states that Forgotten Hall stage objectives can be achieved cumulatively across multiple attempts.\",\"path_or_page\":\"https://www.hoyolab.com/article/18067001\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/18067001\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"Challenge Scoring\"}],\"failed_or_abandoned_attempt_can_satisfy\":false,\"game_version\":\"4.4\",\"id\":\"objective.601\",\"kind\":\"Objective\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"At least 15 cycles remaining\",\"name_zh_cn\":\"至少剩余15轮\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Win with at least <unbreak>#1[i]</unbreak> Cycle(s) left\",\"zh_cn\":\"取得胜利时，剩余<unbreak>#1[i]</unbreak>轮以上\"},\"source_record_ids\":[\"objectives:target-601\"],\"summary_en\":\"One-star TierceExtension objective: complete with at least 15 remaining cycles.\",\"summary_zh_cn\":\"扩展关一星目标：通关时至少剩余15轮。\",\"survival_scope\":null,\"tags\":[\"remaining-cycles\",\"star\",\"tierce\"],\"target_type\":\"RemainingCyclesAtLeast\",\"threshold\":15,\"threshold_encoding\":\"ExplicitSourceInteger\",\"upstream_target_id\":601}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=601"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "hoyolab:19664810:stage-stars"
+              },
+              {
+                "String": "hoyolab:18067001:cumulative-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.601"
+          },
+          "summary_en": {
+            "String": "One-star TierceExtension objective: complete with at least 15 remaining cycles."
+          },
+          "summary_zh_cn": {
+            "String": "扩展关一星目标：通关时至少剩余15轮。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "remaining-cycles"
+              },
+              {
+                "String": "star"
+              },
+              {
+                "String": "tierce"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructuredThresholdWithProjectPolicyTiming"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-602"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "At least 30 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余30轮"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_payload_included\":false,\"aggregation_scope\":\"TierceExtensionBestObjectiveRecordWithinSeasonProjectPolicy\",\"applies_to\":\"TierceExtension\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"confidence\":\"Medium\",\"known_facts\":\"Target 602 exactly selects ROUNDS_LEFT with parameter 30; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"selected_behavior\":\"Evaluate complete with at least 30 remaining cycles only after TierceExtension completion, then latch this one-star objective independently into the season-stage best record.\"}],\"completion_required\":true,\"contribution_stars\":1,\"coverage_state\":\"DataReady\",\"cumulative_across_completed_attempts\":true,\"evaluation_boundary\":\"AfterAllRequiredNodeVictoriesBeforeStageSettlementProjectPolicy\",\"evidence_quality\":\"ExactStructuredThresholdWithProjectPolicyTiming\",\"evidence_refs\":[{\"evidence_sha256\":\"e728648cf6765ff2b317890b49625884e87931c97013c8da7ed06932ca9c35c1\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=602\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact target type, parameter and active selector membership.\",\"path_or_page\":\"ExcelOutput/ChallengeTargetConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=602\"},{\"evidence_sha256\":\"236306d73efe8a2a8e5aec54dc28bd80bbde273c4a8d63b112920b12d7e40b12\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"2c6cda5e1e528da9d5ff2ff9dadde8a33d4653f3188c76a524e10724f76d2763\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12508471847671960592\"},{\"evidence_sha256\":\"6fc1819bc12785b641b2bb805ad39e92b2ea130a658fb0d25cd677f5e632e4fe\",\"game_version\":\"1.1 stable-family cross-check\",\"id\":\"hoyolab:19664810:stage-stars\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence describes up to three stars per stage: no downed characters plus two remaining-cycle conditions.\",\"path_or_page\":\"https://www.hoyolab.com/article/19664810\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/19664810\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"So How Does it Work\"},{\"evidence_sha256\":\"6b5fa255c4da1f8724f47d4f8dd319d68fe3e6e654dd0998fdf2ac8a1f194a0d\",\"game_version\":\"1.0 stable-family cross-check\",\"id\":\"hoyolab:18067001:cumulative-objectives\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence states that Forgotten Hall stage objectives can be achieved cumulatively across multiple attempts.\",\"path_or_page\":\"https://www.hoyolab.com/article/18067001\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/18067001\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"Challenge Scoring\"}],\"failed_or_abandoned_attempt_can_satisfy\":false,\"game_version\":\"4.4\",\"id\":\"objective.602\",\"kind\":\"Objective\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"At least 30 cycles remaining\",\"name_zh_cn\":\"至少剩余30轮\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Win with at least <unbreak>#1[i]</unbreak> Cycle(s) left\",\"zh_cn\":\"取得胜利时，剩余<unbreak>#1[i]</unbreak>轮以上\"},\"source_record_ids\":[\"objectives:target-602\"],\"summary_en\":\"One-star TierceExtension objective: complete with at least 30 remaining cycles.\",\"summary_zh_cn\":\"扩展关一星目标：通关时至少剩余30轮。\",\"survival_scope\":null,\"tags\":[\"remaining-cycles\",\"star\",\"tierce\"],\"target_type\":\"RemainingCyclesAtLeast\",\"threshold\":30,\"threshold_encoding\":\"ExplicitSourceInteger\",\"upstream_target_id\":602}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=602"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12508471847671960592"
+              },
+              {
+                "String": "hoyolab:19664810:stage-stars"
+              },
+              {
+                "String": "hoyolab:18067001:cumulative-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.602"
+          },
+          "summary_en": {
+            "String": "One-star TierceExtension objective: complete with at least 30 remaining cycles."
+          },
+          "summary_zh_cn": {
+            "String": "扩展关一星目标：通关时至少剩余30轮。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "remaining-cycles"
+              },
+              {
+                "String": "star"
+              },
+              {
+                "String": "tierce"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructuredThresholdWithProjectPolicyTiming"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-603"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "No downed characters"
+          },
+          "name_zh_cn": {
+            "String": "无角色倒下"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_payload_included\":false,\"aggregation_scope\":\"TierceExtensionBestObjectiveRecordWithinSeasonProjectPolicy\",\"applies_to\":\"TierceExtension\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"confidence\":\"Medium\",\"known_facts\":\"Target 603 exactly selects DEAD_AVATAR; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"selected_behavior\":\"Evaluate complete without a downed allied combat form only after TierceExtension completion, then latch this one-star objective independently into the season-stage best record.\"}],\"completion_required\":true,\"contribution_stars\":1,\"coverage_state\":\"DataReady\",\"cumulative_across_completed_attempts\":true,\"evaluation_boundary\":\"AfterAllRequiredNodeVictoriesBeforeStageSettlementProjectPolicy\",\"evidence_quality\":\"ExactStructuredThresholdWithProjectPolicyTiming\",\"evidence_refs\":[{\"evidence_sha256\":\"dcd39611bdaf069f91062ac1fd4237876901b6526f265f1d56a01fff7912b45e\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=603\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact target type, parameter and active selector membership.\",\"path_or_page\":\"ExcelOutput/ChallengeTargetConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=603\"},{\"evidence_sha256\":\"774d49ba0324bf6700a8171977d37085255133702a43696ece67308c7e16d863\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15997122175768211822\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=15997122175768211822\"},{\"evidence_sha256\":\"20eecb3a98d8711d5223a11ee943a2d234394c2496bf945fa19258a5d924a43a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=15997122175768211822\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=15997122175768211822\"},{\"evidence_sha256\":\"6fc1819bc12785b641b2bb805ad39e92b2ea130a658fb0d25cd677f5e632e4fe\",\"game_version\":\"1.1 stable-family cross-check\",\"id\":\"hoyolab:19664810:stage-stars\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence describes up to three stars per stage: no downed characters plus two remaining-cycle conditions.\",\"path_or_page\":\"https://www.hoyolab.com/article/19664810\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/19664810\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"So How Does it Work\"},{\"evidence_sha256\":\"6b5fa255c4da1f8724f47d4f8dd319d68fe3e6e654dd0998fdf2ac8a1f194a0d\",\"game_version\":\"1.0 stable-family cross-check\",\"id\":\"hoyolab:18067001:cumulative-objectives\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Released public guide evidence states that Forgotten Hall stage objectives can be achieved cumulatively across multiple attempts.\",\"path_or_page\":\"https://www.hoyolab.com/article/18067001\",\"quality\":\"ExactPublicText\",\"repository_or_url\":\"https://www.hoyolab.com/article/18067001\",\"revision_or_access_date\":\"accessed 2026-08-01\",\"row_locator\":\"Challenge Scoring\"}],\"failed_or_abandoned_attempt_can_satisfy\":false,\"game_version\":\"4.4\",\"id\":\"objective.603\",\"kind\":\"Objective\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"No downed characters\",\"name_zh_cn\":\"无角色倒下\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"No more than <unbreak>#1[i]</unbreak> downed character(s)\",\"zh_cn\":\"无法战斗角色不超过<unbreak>#1[i]</unbreak>名\"},\"source_record_ids\":[\"objectives:target-603\"],\"summary_en\":\"One-star TierceExtension objective: complete without a downed allied combat form.\",\"summary_zh_cn\":\"扩展关一星目标：通关且没有我方战斗形态倒下。\",\"survival_scope\":\"TierceExtensionAllRequiredBattlesProjectPolicy\",\"tags\":[\"star\",\"survival\",\"tierce\"],\"target_type\":\"NoDownedCombatForm\",\"threshold\":0,\"threshold_encoding\":\"OmittedSourceFieldDefaultsToZero\",\"upstream_target_id\":603}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeTargetConfig.json:ID=603"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15997122175768211822"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=15997122175768211822"
+              },
+              {
+                "String": "hoyolab:19664810:stage-stars"
+              },
+              {
+                "String": "hoyolab:18067001:cumulative-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.603"
+          },
+          "summary_en": {
+            "String": "One-star TierceExtension objective: complete without a downed allied combat form."
+          },
+          "summary_zh_cn": {
+            "String": "扩展关一星目标：通关且没有我方战斗形态倒下。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "star"
+              },
+              {
+                "String": "survival"
+              },
+              {
+                "String": "tierce"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

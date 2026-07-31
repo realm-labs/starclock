@@ -1,0 +1,919 @@
+{
+  "table": {
+    "name": "MocStages",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5201"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (I)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其一"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"4462c3ace91cdcbc48be173d8701ae8a232afaa1aa5de1606b338ed54be3e6fe\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5201\"},{\"evidence_sha256\":\"1ef16230c57954ddf59a3a98a1f08eac4bd788cb54deb38b170532a9f7902718\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=686832907360336431\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=686832907360336431\"},{\"evidence_sha256\":\"ad616c51736607175e7b426f8213edc9d8a60baf87c65b589c30a5c27462168f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=686832907360336431\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=686832907360336431\"}],\"external_unlock_predecessor_id\":15,\"floor\":1,\"game_version\":\"4.4\",\"id\":\"stage.5201\",\"kind\":\"Stage\",\"legal_order\":1,\"name_en\":\"Academy Ghost Story (I)\",\"name_zh_cn\":\"学院怪谈其一\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":null,\"predecessor_upstream_id\":15,\"required_node_ids\":[\"node.5201.1\",\"node.5201.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5201\"],\"summary_en\":\"Ordinary floor 1 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第1层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-01\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5201}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=686832907360336431"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=686832907360336431"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5201"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 1 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第1层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-01"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5202"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (II)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其二"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"ae94dd4f65d40d3df7289b049a9fc45e701e2872fa238395be9576d3c0d86289\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5202\"},{\"evidence_sha256\":\"2f56274cd82f93c0d2dc60ae9f015b722741e39eb18e9f245371811b1b799c88\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=981217520615155288\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=981217520615155288\"},{\"evidence_sha256\":\"8af2fec2484288e2a222541eeda49a747b7d08458f2ee74d47b6afdf46d7815a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=981217520615155288\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=981217520615155288\"}],\"external_unlock_predecessor_id\":null,\"floor\":2,\"game_version\":\"4.4\",\"id\":\"stage.5202\",\"kind\":\"Stage\",\"legal_order\":2,\"name_en\":\"Academy Ghost Story (II)\",\"name_zh_cn\":\"学院怪谈其二\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5201\",\"predecessor_upstream_id\":5201,\"required_node_ids\":[\"node.5202.1\",\"node.5202.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5202\"],\"summary_en\":\"Ordinary floor 2 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第2层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-02\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5202}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=981217520615155288"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=981217520615155288"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5202"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 2 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第2层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-02"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5203"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (III)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其三"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"0cd5fed6be8f3aec9ca1d5ac2a93785eb8fcb8b1184f5e2a9258555854f72a40\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5203\"},{\"evidence_sha256\":\"3638cf6def6f83dcb28c2e84bb88212aeea6fc3fda6e5170eadb7a5a5a6e8eaf\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17196603750641829013\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=17196603750641829013\"},{\"evidence_sha256\":\"2ebd8b39975e5904ff52880dde8c637dbd97fb01663a81d8e5f3cda645b565da\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=17196603750641829013\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=17196603750641829013\"}],\"external_unlock_predecessor_id\":null,\"floor\":3,\"game_version\":\"4.4\",\"id\":\"stage.5203\",\"kind\":\"Stage\",\"legal_order\":3,\"name_en\":\"Academy Ghost Story (III)\",\"name_zh_cn\":\"学院怪谈其三\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5202\",\"predecessor_upstream_id\":5202,\"required_node_ids\":[\"node.5203.1\",\"node.5203.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5203\"],\"summary_en\":\"Ordinary floor 3 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第3层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-03\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5203}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17196603750641829013"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17196603750641829013"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5203"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 3 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第3层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-03"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5204"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (IV)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其四"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"c95e5e75034c33dc9187933d318f81d5e7cfc82d26991c49b459ae42b81445c2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5204\"},{\"evidence_sha256\":\"d0c8961b61d6904eb064f0399eb23746f5d51aecb5f97480a3556ea4acf38338\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4054235310705805402\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=4054235310705805402\"},{\"evidence_sha256\":\"908c3517d61c9b4e9a9afbd336f97b75d22860768b657b7aaa3d8b838daa062a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4054235310705805402\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=4054235310705805402\"}],\"external_unlock_predecessor_id\":null,\"floor\":4,\"game_version\":\"4.4\",\"id\":\"stage.5204\",\"kind\":\"Stage\",\"legal_order\":4,\"name_en\":\"Academy Ghost Story (IV)\",\"name_zh_cn\":\"学院怪谈其四\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5203\",\"predecessor_upstream_id\":5203,\"required_node_ids\":[\"node.5204.1\",\"node.5204.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5204\"],\"summary_en\":\"Ordinary floor 4 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第4层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-04\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5204}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4054235310705805402"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4054235310705805402"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5204"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 4 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第4层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-04"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5205"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (V)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其五"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"dd4dc0eeb690812b189a8afd29daa655c586d24c511310b7e245cb76ac8d563a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5205\"},{\"evidence_sha256\":\"dfa938b3ee2dd0a6e8ec71dc7184d6530381fe74dc6829a0dc8307189328f51b\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5693212590173835827\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=5693212590173835827\"},{\"evidence_sha256\":\"3ac55b5cca55aa46f90493a364c261b2eeb85b0e6c4c4c5d4fb8d032b72d919f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=5693212590173835827\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=5693212590173835827\"}],\"external_unlock_predecessor_id\":null,\"floor\":5,\"game_version\":\"4.4\",\"id\":\"stage.5205\",\"kind\":\"Stage\",\"legal_order\":5,\"name_en\":\"Academy Ghost Story (V)\",\"name_zh_cn\":\"学院怪谈其五\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5204\",\"predecessor_upstream_id\":5204,\"required_node_ids\":[\"node.5205.1\",\"node.5205.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5205\"],\"summary_en\":\"Ordinary floor 5 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第5层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-05\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5205}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5693212590173835827"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5693212590173835827"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5205"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 5 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第5层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-05"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5206"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (VI)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其六"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"c4289b9e0352ba07a87ba68d9d4eafcb4ff6cdf8e24128013adfa44dbf56f14e\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5206\"},{\"evidence_sha256\":\"500f0e9cd3aac3cc464d9ea69c574b5158f710d26e87d5ab98063ffffcec7496\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7551885932393847444\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=7551885932393847444\"},{\"evidence_sha256\":\"13008bf72945168531ea82d6a3cf500402079ac63cbd835f25e7b42973332914\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=7551885932393847444\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=7551885932393847444\"}],\"external_unlock_predecessor_id\":null,\"floor\":6,\"game_version\":\"4.4\",\"id\":\"stage.5206\",\"kind\":\"Stage\",\"legal_order\":6,\"name_en\":\"Academy Ghost Story (VI)\",\"name_zh_cn\":\"学院怪谈其六\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5205\",\"predecessor_upstream_id\":5205,\"required_node_ids\":[\"node.5206.1\",\"node.5206.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5206\"],\"summary_en\":\"Ordinary floor 6 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第6层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-06\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5206}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7551885932393847444"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=7551885932393847444"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5206"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 6 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第6层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-06"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5207"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (VII)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其七"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"06ac580130774ef49916cee2339f2b19ae4e85a99d9f4187ff3a2eb33a3fff61\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5207\"},{\"evidence_sha256\":\"c79b1af0366d856fc0809245af44176bdefde7d2e9a1b9a529205f46c9a043e2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14245031397903758597\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14245031397903758597\"},{\"evidence_sha256\":\"d7933a1994966dbe70adbc7f4b19316d1837e66abf6d7bb68a041074745cef79\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14245031397903758597\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14245031397903758597\"}],\"external_unlock_predecessor_id\":null,\"floor\":7,\"game_version\":\"4.4\",\"id\":\"stage.5207\",\"kind\":\"Stage\",\"legal_order\":7,\"name_en\":\"Academy Ghost Story (VII)\",\"name_zh_cn\":\"学院怪谈其七\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5206\",\"predecessor_upstream_id\":5206,\"required_node_ids\":[\"node.5207.1\",\"node.5207.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5207\"],\"summary_en\":\"Ordinary floor 7 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第7层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-07\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5207}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14245031397903758597"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14245031397903758597"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5207"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 7 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第7层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-07"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5208"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (VIII)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其八"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"77b23690c60c50c5ce62d201abaefb34e9205bdacd639413500026db74dec672\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5208\"},{\"evidence_sha256\":\"91d884c8c2b01a5ced190c29b11855b6c3f1becaf20a7b2c12b1a51dba7f8e00\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13756617013596777946\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=13756617013596777946\"},{\"evidence_sha256\":\"97ef2db40728e2f63712ac4dd427547a11a942d33fb477fc9c2394714f12cc75\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13756617013596777946\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=13756617013596777946\"}],\"external_unlock_predecessor_id\":null,\"floor\":8,\"game_version\":\"4.4\",\"id\":\"stage.5208\",\"kind\":\"Stage\",\"legal_order\":8,\"name_en\":\"Academy Ghost Story (VIII)\",\"name_zh_cn\":\"学院怪谈其八\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5207\",\"predecessor_upstream_id\":5207,\"required_node_ids\":[\"node.5208.1\",\"node.5208.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5208\"],\"summary_en\":\"Ordinary floor 8 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第8层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-08\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5208}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13756617013596777946"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13756617013596777946"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5208"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 8 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第8层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-08"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5209"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (IX)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其九"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"f72544ded6b2e2d5f97815e1ad971d475bcebb6c46a9ae0bd1fa7171dfe44575\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5209\"},{\"evidence_sha256\":\"97b5d32e6cec75146ea692c6ee7af92105b847e3742ef66ff5c6125bf49e12b9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9709360535661984995\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9709360535661984995\"},{\"evidence_sha256\":\"2774096b39f30b2847e329c724e9283978290314d917d493eb643d773e27be17\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=9709360535661984995\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9709360535661984995\"}],\"external_unlock_predecessor_id\":null,\"floor\":9,\"game_version\":\"4.4\",\"id\":\"stage.5209\",\"kind\":\"Stage\",\"legal_order\":9,\"name_en\":\"Academy Ghost Story (IX)\",\"name_zh_cn\":\"学院怪谈其九\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5208\",\"predecessor_upstream_id\":5208,\"required_node_ids\":[\"node.5209.1\",\"node.5209.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5209\"],\"summary_en\":\"Ordinary floor 9 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第9层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-09\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5209}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9709360535661984995"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=9709360535661984995"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5209"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 9 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第9层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-09"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5210"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (X)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其十"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"adaef4d94d561fa1ccff73d16f054b5a61e5d355ee6a5fa11c469c2d99c81452\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5210\"},{\"evidence_sha256\":\"5c5a6d81199e06f2d6439ea01d2064f069ef7b17506bb58f1e70327ed231739c\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14400393551169277504\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14400393551169277504\"},{\"evidence_sha256\":\"086c9405101e71196ba8754321dff70b3dc1ab9f65b737913b8b1cc6059517ff\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14400393551169277504\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14400393551169277504\"}],\"external_unlock_predecessor_id\":null,\"floor\":10,\"game_version\":\"4.4\",\"id\":\"stage.5210\",\"kind\":\"Stage\",\"legal_order\":10,\"name_en\":\"Academy Ghost Story (X)\",\"name_zh_cn\":\"学院怪谈其十\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5209\",\"predecessor_upstream_id\":5209,\"required_node_ids\":[\"node.5210.1\",\"node.5210.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5210\"],\"summary_en\":\"Ordinary floor 10 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第10层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-10\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5210}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14400393551169277504"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14400393551169277504"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5210"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 10 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第10层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-10"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5211"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (XI)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其十一"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"b78f2e8033f5fa395c9e4ba19f4dc6ac8ace8e6588aa026997e351aa7d86e5bf\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5211\"},{\"evidence_sha256\":\"0cf9dab088b7f1fc08331e22007111513d4031ea69976afe8ed4f44019c681fa\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8842193763517351361\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=8842193763517351361\"},{\"evidence_sha256\":\"13a8be1ca77a5ef0726117674d481e0b8c62fcbeda3c180be94d8d7f2f746996\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=8842193763517351361\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=8842193763517351361\"}],\"external_unlock_predecessor_id\":null,\"floor\":11,\"game_version\":\"4.4\",\"id\":\"stage.5211\",\"kind\":\"Stage\",\"legal_order\":11,\"name_en\":\"Academy Ghost Story (XI)\",\"name_zh_cn\":\"学院怪谈其十一\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5210\",\"predecessor_upstream_id\":5210,\"required_node_ids\":[\"node.5211.1\",\"node.5211.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5211\"],\"summary_en\":\"Ordinary floor 11 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第11层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-11\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5211}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8842193763517351361"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=8842193763517351361"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5211"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 11 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第11层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-11"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5212"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story (XII)"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈其十二"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_countdown\":30,\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"2bc11dd7619b52e559584a52bc0dffdc27e326973fe70e21eca0e946bc4a7497\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact floor, predecessor, two-node selector and countdown.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5212\"},{\"evidence_sha256\":\"6d2892950886d6dffdee8f2908cdeb7f608190fe895f44e24062f59c9595dc6d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11269794642483349544\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=11269794642483349544\"},{\"evidence_sha256\":\"94c96cb12dba29eafeb2d979faece0d4c13e7f64d1bc74a829353172cbf1117e\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=11269794642483349544\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=11269794642483349544\"}],\"external_unlock_predecessor_id\":null,\"floor\":12,\"game_version\":\"4.4\",\"id\":\"stage.5212\",\"kind\":\"Stage\",\"legal_order\":12,\"name_en\":\"Academy Ghost Story (XII)\",\"name_zh_cn\":\"学院怪谈其十二\",\"objective_ids\":[\"objective.251\",\"objective.252\",\"objective.253\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5211\",\"predecessor_upstream_id\":5211,\"required_node_ids\":[\"node.5212.1\",\"node.5212.2\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"ordinary_stages:stage-5212\"],\"summary_en\":\"Ordinary floor 12 with two ordered battle nodes and a declared countdown of 30.\",\"summary_zh_cn\":\"第12层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。\",\"tags\":[\"floor-12\",\"ordinary\"],\"turbulence_id\":\"turbulence.3030146\",\"upstream_stage_id\":5212}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11269794642483349544"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=11269794642483349544"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.5212"
+          },
+          "summary_en": {
+            "String": "Ordinary floor 12 with two ordered battle nodes and a declared countdown of 30."
+          },
+          "summary_zh_cn": {
+            "String": "第12层常规关卡，包含两个有序战斗节点，并声明30轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "floor-12"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

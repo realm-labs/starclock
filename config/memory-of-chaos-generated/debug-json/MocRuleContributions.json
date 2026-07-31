@@ -1,0 +1,208 @@
+{
+  "table": {
+    "name": "MocRuleContributions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactProgramProjection"
+          },
+          "name_en": {
+            "String": "Ultimate and Follow-Up damage amplifier"
+          },
+          "name_zh_cn": {
+            "String": "终结技与追加攻击增伤"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"contribution_phase\":\"DamageCalculation\",\"contributor_id\":\"battle-event.30146\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46\",\"mechanism_quality\":\"ExactProgramProjection\",\"note\":\"Exact active BattleEvent ability program and modifier graph.\",\"path_or_page\":\"Config/ConfigAbility/BattleEventAbility_2.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"AbilityList.Name=BattleEventAbility_Challenge_Month_46\"}],\"game_version\":\"4.4\",\"handler_kind\":\"ReferenceOnlyNoRuntimeRegistration\",\"id\":\"rule-contribution.turbulence.damage-amplifier\",\"kind\":\"RuleContribution\",\"name_en\":\"Ultimate and Follow-Up damage amplifier\",\"name_zh_cn\":\"终结技与追加攻击增伤\",\"operation\":{\"attack_types\":[\"Insert\",\"Ultra\"],\"ratio\":\"0.5\",\"stacking\":\"ReplaceByCaster\"},\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"runtime_publishable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"summary_en\":\"Contributes a 50% allied damage multiplier for Ultimate and Follow-Up ATK damage.\",\"summary_zh_cn\":\"为我方终结技与追加攻击伤害贡献50%增伤乘区。\",\"tags\":[\"reference-only\",\"rule-contribution\",\"turbulence\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "rule-contribution.turbulence.damage-amplifier"
+          },
+          "summary_en": {
+            "String": "Contributes a 50% allied damage multiplier for Ultimate and Follow-Up ATK damage."
+          },
+          "summary_zh_cn": {
+            "String": "为我方终结技与追加攻击伤害贡献50%增伤乘区。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-only"
+              },
+              {
+                "String": "rule-contribution"
+              },
+              {
+                "String": "turbulence"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactProgramProjection"
+          },
+          "name_en": {
+            "String": "Stored-hit accumulator"
+          },
+          "name_zh_cn": {
+            "String": "储存攻击累计器"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"contribution_phase\":\"AfterQualifyingAction\",\"contributor_id\":\"battle-event.30146\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46\",\"mechanism_quality\":\"ExactProgramProjection\",\"note\":\"Exact active BattleEvent ability program and modifier graph.\",\"path_or_page\":\"Config/ConfigAbility/BattleEventAbility_2.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"AbilityList.Name=BattleEventAbility_Challenge_Month_46\"}],\"game_version\":\"4.4\",\"handler_kind\":\"ReferenceOnlyNoRuntimeRegistration\",\"id\":\"rule-contribution.turbulence.stored-hit-accumulator\",\"kind\":\"RuleContribution\",\"name_en\":\"Stored-hit accumulator\",\"name_zh_cn\":\"储存攻击累计器\",\"operation\":{\"cap\":15,\"granularity\":\"OncePerAction\",\"increment\":1},\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"runtime_publishable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"summary_en\":\"Contributes one stored hit per qualifying action, capped at 15.\",\"summary_zh_cn\":\"每个符合条件的动作贡献1段储存攻击，上限15段。\",\"tags\":[\"reference-only\",\"rule-contribution\",\"turbulence\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "rule-contribution.turbulence.stored-hit-accumulator"
+          },
+          "summary_en": {
+            "String": "Contributes one stored hit per qualifying action, capped at 15."
+          },
+          "summary_zh_cn": {
+            "String": "每个符合条件的动作贡献1段储存攻击，上限15段。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-only"
+              },
+              {
+                "String": "rule-contribution"
+              },
+              {
+                "String": "turbulence"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactProgramProjection"
+          },
+          "name_en": {
+            "String": "Cycle-start True Damage burst"
+          },
+          "name_zh_cn": {
+            "String": "轮开始真实伤害爆发"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"contribution_phase\":\"CycleStart\",\"contributor_id\":\"battle-event.30146\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46\",\"mechanism_quality\":\"ExactProgramProjection\",\"note\":\"Exact active BattleEvent ability program and modifier graph.\",\"path_or_page\":\"Config/ConfigAbility/BattleEventAbility_2.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"AbilityList.Name=BattleEventAbility_Challenge_Month_46\"}],\"game_version\":\"4.4\",\"handler_kind\":\"ReferenceOnlyNoRuntimeRegistration\",\"id\":\"rule-contribution.turbulence.cycle-start-burst\",\"kind\":\"RuleContribution\",\"name_en\":\"Cycle-start True Damage burst\",\"name_zh_cn\":\"轮开始真实伤害爆发\",\"operation\":{\"coefficient_by_rank\":{\"fallback\":\"0.012\",\"rank_1_or_2\":\"0.12\",\"rank_3\":\"0.02\"},\"reset_after_resolution\":true,\"target_selection\":\"RandomOnePerStoredHit\",\"trigger_event\":\"OnPhase1\"},\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"runtime_publishable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"summary_en\":\"Consumes stored hits at cycle start as per-hit random-target BaseHP True Damage, then resets the accumulator.\",\"summary_zh_cn\":\"轮开始时逐段随机选敌，按目标基础生命造成真实伤害，随后清空累计器。\",\"tags\":[\"reference-only\",\"rule-contribution\",\"turbulence\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "rule-contribution.turbulence.cycle-start-burst"
+          },
+          "summary_en": {
+            "String": "Consumes stored hits at cycle start as per-hit random-target BaseHP True Damage, then resets the accumulator."
+          },
+          "summary_zh_cn": {
+            "String": "轮开始时逐段随机选敌，按目标基础生命造成真实伤害，随后清空累计器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-only"
+              },
+              {
+                "String": "rule-contribution"
+              },
+              {
+                "String": "turbulence"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

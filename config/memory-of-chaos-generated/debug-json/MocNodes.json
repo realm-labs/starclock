@@ -1,0 +1,1687 @@
+{
+  "table": {
+    "name": "MocNodes",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 1 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第1层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Quantum\"],\"evidence_refs\":[{\"evidence_sha256\":\"4462c3ace91cdcbc48be173d8701ae8a232afaa1aa5de1606b338ed54be3e6fe\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5201\"}],\"game_version\":\"4.4\",\"id\":\"node.5201.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 1 node 1\",\"name_zh_cn\":\"第1层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[1023020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123011\",\"stage_id\":\"stage.5201\",\"summary_en\":\"Ordered node 1 of ordinary floor 1.\",\"summary_zh_cn\":\"常规第1层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123011}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5201.1"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 1."
+          },
+          "summary_zh_cn": {
+            "String": "常规第1层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 1 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第1层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Imaginary\"],\"evidence_refs\":[{\"evidence_sha256\":\"4462c3ace91cdcbc48be173d8701ae8a232afaa1aa5de1606b338ed54be3e6fe\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5201\"}],\"game_version\":\"4.4\",\"id\":\"node.5201.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 1 node 2\",\"name_zh_cn\":\"第1层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5201.1\",\"preview_enemy_ids\":[2013020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123012\",\"stage_id\":\"stage.5201\",\"summary_en\":\"Ordered node 2 of ordinary floor 1.\",\"summary_zh_cn\":\"常规第1层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123012}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5201.2"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 1."
+          },
+          "summary_zh_cn": {
+            "String": "常规第1层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 2 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第2层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"ae94dd4f65d40d3df7289b049a9fc45e701e2872fa238395be9576d3c0d86289\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5202\"}],\"game_version\":\"4.4\",\"id\":\"node.5202.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 2 node 1\",\"name_zh_cn\":\"第2层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[3003020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123021\",\"stage_id\":\"stage.5202\",\"summary_en\":\"Ordered node 1 of ordinary floor 2.\",\"summary_zh_cn\":\"常规第2层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123021}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5202.1"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 2."
+          },
+          "summary_zh_cn": {
+            "String": "常规第2层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 2 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第2层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Ice\",\"Wind\"],\"evidence_refs\":[{\"evidence_sha256\":\"ae94dd4f65d40d3df7289b049a9fc45e701e2872fa238395be9576d3c0d86289\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5202\"}],\"game_version\":\"4.4\",\"id\":\"node.5202.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 2 node 2\",\"name_zh_cn\":\"第2层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5202.1\",\"preview_enemy_ids\":[2023010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123022\",\"stage_id\":\"stage.5202\",\"summary_en\":\"Ordered node 2 of ordinary floor 2.\",\"summary_zh_cn\":\"常规第2层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123022}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5202.2"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 2."
+          },
+          "summary_zh_cn": {
+            "String": "常规第2层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 3 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第3层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\",\"Ice\"],\"evidence_refs\":[{\"evidence_sha256\":\"0cd5fed6be8f3aec9ca1d5ac2a93785eb8fcb8b1184f5e2a9258555854f72a40\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5203\"}],\"game_version\":\"4.4\",\"id\":\"node.5203.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 3 node 1\",\"name_zh_cn\":\"第3层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[1013010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123031\",\"stage_id\":\"stage.5203\",\"summary_en\":\"Ordered node 1 of ordinary floor 3.\",\"summary_zh_cn\":\"常规第3层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123031}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5203.1"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 3."
+          },
+          "summary_zh_cn": {
+            "String": "常规第3层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 3 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第3层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"0cd5fed6be8f3aec9ca1d5ac2a93785eb8fcb8b1184f5e2a9258555854f72a40\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5203\"}],\"game_version\":\"4.4\",\"id\":\"node.5203.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 3 node 2\",\"name_zh_cn\":\"第3层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5203.1\",\"preview_enemy_ids\":[3003010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123032\",\"stage_id\":\"stage.5203\",\"summary_en\":\"Ordered node 2 of ordinary floor 3.\",\"summary_zh_cn\":\"常规第3层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123032}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5203.2"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 3."
+          },
+          "summary_zh_cn": {
+            "String": "常规第3层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 4 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第4层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Wind\"],\"evidence_refs\":[{\"evidence_sha256\":\"c95e5e75034c33dc9187933d318f81d5e7cfc82d26991c49b459ae42b81445c2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5204\"}],\"game_version\":\"4.4\",\"id\":\"node.5204.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 4 node 1\",\"name_zh_cn\":\"第4层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[2033010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123041\",\"stage_id\":\"stage.5204\",\"summary_en\":\"Ordered node 1 of ordinary floor 4.\",\"summary_zh_cn\":\"常规第4层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123041}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5204.1"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 4."
+          },
+          "summary_zh_cn": {
+            "String": "常规第4层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 4 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第4层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Thunder\",\"Imaginary\"],\"evidence_refs\":[{\"evidence_sha256\":\"c95e5e75034c33dc9187933d318f81d5e7cfc82d26991c49b459ae42b81445c2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5204\"}],\"game_version\":\"4.4\",\"id\":\"node.5204.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 4 node 2\",\"name_zh_cn\":\"第4层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5204.1\",\"preview_enemy_ids\":[1004020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123042\",\"stage_id\":\"stage.5204\",\"summary_en\":\"Ordered node 2 of ordinary floor 4.\",\"summary_zh_cn\":\"常规第4层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123042}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5204.2"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 4."
+          },
+          "summary_zh_cn": {
+            "String": "常规第4层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 5 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第5层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Thunder\",\"Wind\"],\"evidence_refs\":[{\"evidence_sha256\":\"dd4dc0eeb690812b189a8afd29daa655c586d24c511310b7e245cb76ac8d563a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5205\"}],\"game_version\":\"4.4\",\"id\":\"node.5205.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 5 node 1\",\"name_zh_cn\":\"第5层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[4033020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123051\",\"stage_id\":\"stage.5205\",\"summary_en\":\"Ordered node 1 of ordinary floor 5.\",\"summary_zh_cn\":\"常规第5层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123051}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5205.1"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 5."
+          },
+          "summary_zh_cn": {
+            "String": "常规第5层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 5 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第5层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Ice\"],\"evidence_refs\":[{\"evidence_sha256\":\"dd4dc0eeb690812b189a8afd29daa655c586d24c511310b7e245cb76ac8d563a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5205\"}],\"game_version\":\"4.4\",\"id\":\"node.5205.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 5 node 2\",\"name_zh_cn\":\"第5层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5205.1\",\"preview_enemy_ids\":[3024010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123052\",\"stage_id\":\"stage.5205\",\"summary_en\":\"Ordered node 2 of ordinary floor 5.\",\"summary_zh_cn\":\"常规第5层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123052}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5205.2"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 5."
+          },
+          "summary_zh_cn": {
+            "String": "常规第5层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 6 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第6层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Quantum\"],\"evidence_refs\":[{\"evidence_sha256\":\"c4289b9e0352ba07a87ba68d9d4eafcb4ff6cdf8e24128013adfa44dbf56f14e\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5206\"}],\"game_version\":\"4.4\",\"id\":\"node.5206.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 6 node 1\",\"name_zh_cn\":\"第6层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[1023020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123061\",\"stage_id\":\"stage.5206\",\"summary_en\":\"Ordered node 1 of ordinary floor 6.\",\"summary_zh_cn\":\"常规第6层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123061}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5206.1"
+          },
+          "stage_id": {
+            "Integer": 6
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 6."
+          },
+          "summary_zh_cn": {
+            "String": "常规第6层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 6 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第6层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Imaginary\"],\"evidence_refs\":[{\"evidence_sha256\":\"c4289b9e0352ba07a87ba68d9d4eafcb4ff6cdf8e24128013adfa44dbf56f14e\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5206\"}],\"game_version\":\"4.4\",\"id\":\"node.5206.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 6 node 2\",\"name_zh_cn\":\"第6层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5206.1\",\"preview_enemy_ids\":[2013020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123062\",\"stage_id\":\"stage.5206\",\"summary_en\":\"Ordered node 2 of ordinary floor 6.\",\"summary_zh_cn\":\"常规第6层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123062}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5206.2"
+          },
+          "stage_id": {
+            "Integer": 6
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 6."
+          },
+          "summary_zh_cn": {
+            "String": "常规第6层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 7 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第7层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"06ac580130774ef49916cee2339f2b19ae4e85a99d9f4187ff3a2eb33a3fff61\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5207\"}],\"game_version\":\"4.4\",\"id\":\"node.5207.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 7 node 1\",\"name_zh_cn\":\"第7层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[3003020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123071\",\"stage_id\":\"stage.5207\",\"summary_en\":\"Ordered node 1 of ordinary floor 7.\",\"summary_zh_cn\":\"常规第7层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123071}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5207.1"
+          },
+          "stage_id": {
+            "Integer": 7
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 7."
+          },
+          "summary_zh_cn": {
+            "String": "常规第7层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 7 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第7层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Ice\",\"Wind\"],\"evidence_refs\":[{\"evidence_sha256\":\"06ac580130774ef49916cee2339f2b19ae4e85a99d9f4187ff3a2eb33a3fff61\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5207\"}],\"game_version\":\"4.4\",\"id\":\"node.5207.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 7 node 2\",\"name_zh_cn\":\"第7层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5207.1\",\"preview_enemy_ids\":[2023010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123072\",\"stage_id\":\"stage.5207\",\"summary_en\":\"Ordered node 2 of ordinary floor 7.\",\"summary_zh_cn\":\"常规第7层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123072}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5207.2"
+          },
+          "stage_id": {
+            "Integer": 7
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 7."
+          },
+          "summary_zh_cn": {
+            "String": "常规第7层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 8 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第8层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\",\"Ice\"],\"evidence_refs\":[{\"evidence_sha256\":\"77b23690c60c50c5ce62d201abaefb34e9205bdacd639413500026db74dec672\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5208\"}],\"game_version\":\"4.4\",\"id\":\"node.5208.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 8 node 1\",\"name_zh_cn\":\"第8层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[1013010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123081\",\"stage_id\":\"stage.5208\",\"summary_en\":\"Ordered node 1 of ordinary floor 8.\",\"summary_zh_cn\":\"常规第8层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123081}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5208.1"
+          },
+          "stage_id": {
+            "Integer": 8
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 8."
+          },
+          "summary_zh_cn": {
+            "String": "常规第8层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 8 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第8层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"77b23690c60c50c5ce62d201abaefb34e9205bdacd639413500026db74dec672\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5208\"}],\"game_version\":\"4.4\",\"id\":\"node.5208.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 8 node 2\",\"name_zh_cn\":\"第8层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5208.1\",\"preview_enemy_ids\":[3003010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123082\",\"stage_id\":\"stage.5208\",\"summary_en\":\"Ordered node 2 of ordinary floor 8.\",\"summary_zh_cn\":\"常规第8层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123082}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5208.2"
+          },
+          "stage_id": {
+            "Integer": 8
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 8."
+          },
+          "summary_zh_cn": {
+            "String": "常规第8层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 9 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第9层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Wind\"],\"evidence_refs\":[{\"evidence_sha256\":\"f72544ded6b2e2d5f97815e1ad971d475bcebb6c46a9ae0bd1fa7171dfe44575\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5209\"}],\"game_version\":\"4.4\",\"id\":\"node.5209.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 9 node 1\",\"name_zh_cn\":\"第9层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[2033010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123091\",\"stage_id\":\"stage.5209\",\"summary_en\":\"Ordered node 1 of ordinary floor 9.\",\"summary_zh_cn\":\"常规第9层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123091}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5209.1"
+          },
+          "stage_id": {
+            "Integer": 9
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 9."
+          },
+          "summary_zh_cn": {
+            "String": "常规第9层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 9 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第9层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Thunder\",\"Imaginary\"],\"evidence_refs\":[{\"evidence_sha256\":\"f72544ded6b2e2d5f97815e1ad971d475bcebb6c46a9ae0bd1fa7171dfe44575\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5209\"}],\"game_version\":\"4.4\",\"id\":\"node.5209.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 9 node 2\",\"name_zh_cn\":\"第9层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5209.1\",\"preview_enemy_ids\":[1004020],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123092\",\"stage_id\":\"stage.5209\",\"summary_en\":\"Ordered node 2 of ordinary floor 9.\",\"summary_zh_cn\":\"常规第9层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123092}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5209.2"
+          },
+          "stage_id": {
+            "Integer": 9
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 9."
+          },
+          "summary_zh_cn": {
+            "String": "常规第9层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 10 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第10层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Ice\",\"Imaginary\"],\"evidence_refs\":[{\"evidence_sha256\":\"adaef4d94d561fa1ccff73d16f054b5a61e5d355ee6a5fa11c469c2d99c81452\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5210\"}],\"game_version\":\"4.4\",\"id\":\"node.5210.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 10 node 1\",\"name_zh_cn\":\"第10层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[3003014],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123101\",\"stage_id\":\"stage.5210\",\"summary_en\":\"Ordered node 1 of ordinary floor 10.\",\"summary_zh_cn\":\"常规第10层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123101}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5210.1"
+          },
+          "stage_id": {
+            "Integer": 10
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 10."
+          },
+          "summary_zh_cn": {
+            "String": "常规第10层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 10 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第10层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"adaef4d94d561fa1ccff73d16f054b5a61e5d355ee6a5fa11c469c2d99c81452\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5210\"}],\"game_version\":\"4.4\",\"id\":\"node.5210.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 10 node 2\",\"name_zh_cn\":\"第10层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5210.1\",\"preview_enemy_ids\":[2034010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123102\",\"stage_id\":\"stage.5210\",\"summary_en\":\"Ordered node 2 of ordinary floor 10.\",\"summary_zh_cn\":\"常规第10层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123102}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5210.2"
+          },
+          "stage_id": {
+            "Integer": 10
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 10."
+          },
+          "summary_zh_cn": {
+            "String": "常规第10层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 11 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第11层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Physical\",\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"b78f2e8033f5fa395c9e4ba19f4dc6ac8ace8e6588aa026997e351aa7d86e5bf\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5211\"}],\"game_version\":\"4.4\",\"id\":\"node.5211.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 11 node 1\",\"name_zh_cn\":\"第11层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[5014010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123111\",\"stage_id\":\"stage.5211\",\"summary_en\":\"Ordered node 1 of ordinary floor 11.\",\"summary_zh_cn\":\"常规第11层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123111}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5211.1"
+          },
+          "stage_id": {
+            "Integer": 11
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 11."
+          },
+          "summary_zh_cn": {
+            "String": "常规第11层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 11 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第11层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\",\"Thunder\",\"Wind\"],\"evidence_refs\":[{\"evidence_sha256\":\"b78f2e8033f5fa395c9e4ba19f4dc6ac8ace8e6588aa026997e351aa7d86e5bf\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5211\"}],\"game_version\":\"4.4\",\"id\":\"node.5211.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 11 node 2\",\"name_zh_cn\":\"第11层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5211.1\",\"preview_enemy_ids\":[1014010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123112\",\"stage_id\":\"stage.5211\",\"summary_en\":\"Ordered node 2 of ordinary floor 11.\",\"summary_zh_cn\":\"常规第11层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123112}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5211.2"
+          },
+          "stage_id": {
+            "Integer": 11
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 11."
+          },
+          "summary_zh_cn": {
+            "String": "常规第11层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 12 node 1"
+          },
+          "name_zh_cn": {
+            "String": "第12层节点1"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Ice\",\"Thunder\"],\"evidence_refs\":[{\"evidence_sha256\":\"2bc11dd7619b52e559584a52bc0dffdc27e326973fe70e21eca0e946bc4a7497\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 1 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5212\"}],\"game_version\":\"4.4\",\"id\":\"node.5212.1\",\"kind\":\"Node\",\"maze_group_id\":10,\"name_en\":\"Floor 12 node 1\",\"name_zh_cn\":\"第12层节点1\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":null,\"preview_enemy_ids\":[4034010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123121\",\"stage_id\":\"stage.5212\",\"summary_en\":\"Ordered node 1 of ordinary floor 12.\",\"summary_zh_cn\":\"常规第12层的第1个有序节点。\",\"tags\":[\"node\",\"node-1\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.1\",\"upstream_stage_config_id\":30123121}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5212.1"
+          },
+          "stage_id": {
+            "Integer": 12
+          },
+          "summary_en": {
+            "String": "Ordered node 1 of ordinary floor 12."
+          },
+          "summary_zh_cn": {
+            "String": "常规第12层的第1个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Floor 12 node 2"
+          },
+          "name_zh_cn": {
+            "String": "第12层节点2"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"config_ids\":[200001],\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\"],\"evidence_refs\":[{\"evidence_sha256\":\"2bc11dd7619b52e559584a52bc0dffdc27e326973fe70e21eca0e946bc4a7497\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Node 2 selector fields on the exact stage row.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=5212\"}],\"game_version\":\"4.4\",\"id\":\"node.5212.2\",\"kind\":\"Node\",\"maze_group_id\":11,\"name_en\":\"Floor 12 node 2\",\"name_zh_cn\":\"第12层节点2\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"predecessor_node_id\":\"node.5212.1\",\"preview_enemy_ids\":[5014030],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"stage_config_id\":\"encounter.30123122\",\"stage_id\":\"stage.5212\",\"summary_en\":\"Ordered node 2 of ordinary floor 12.\",\"summary_zh_cn\":\"常规第12层的第2个有序节点。\",\"tags\":[\"node\",\"node-2\",\"ordinary\"],\"team_slot_id\":\"team-slot.ordinary.2\",\"upstream_stage_config_id\":30123122}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 24
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "node.5212.2"
+          },
+          "stage_id": {
+            "Integer": 12
+          },
+          "summary_en": {
+            "String": "Ordered node 2 of ordinary floor 12."
+          },
+          "summary_zh_cn": {
+            "String": "常规第12层的第2个有序节点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "ordinary"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "table": {
+    "name": "MocAttemptRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_and_attempt_contracts:attempt-retry-reset"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Attempt, retry and reset"
+          },
+          "name_zh_cn": {
+            "String": "尝试、重试与重置"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"abandonment_effect\":\"CloseAttemptNoCompletion\",\"accepted_start_effect\":\"CreateAttemptAndImmutableSnapshots\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.loadout-lock-retry.new-attempt-after-failure\"],\"confidence\":\"Medium\",\"known_facts\":\"The challenge design requires an attempt boundary and states that a failed node terminates the attempt; released rows do not expose current client retry shortcuts.\",\"rationale\":\"This fail-closed policy avoids claiming single-node retry parity until released traces prove the shortcut and its snapshot rules.\",\"rejected_alternatives\":[\"resume a failed mutable battle\",\"publish Node 1 as stage completion\",\"reuse live mutable loadouts\"],\"replacement_condition\":\"Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior.\",\"selected_behavior\":\"Model retry as a new whole-stage attempt with fresh accepted-start snapshots and no partial completion reuse.\"}],\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[{\"evidence_sha256\":\"66ba91bcbfd85be6bc830653c38b2fbd78bc7be26ddf38e87fd0f5ecf2cca5a5\",\"game_version\":\"4.4\",\"id\":\"starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:attempt-retry-reset\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Non-shrinking attempt-retry-reset semantic obligation.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"included-content:attempt-retry-reset\"}],\"failure_effect\":\"CloseAttemptWithAuditResult\",\"game_version\":\"4.4\",\"id\":\"attempt-rule.retry-reset\",\"kind\":\"AttemptRule\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Attempt, retry and reset\",\"name_zh_cn\":\"尝试、重试与重置\",\"ownership\":\"MemoryOfChaos\",\"previous_partial_node_results\":\"Discarded\",\"rejected_start_effect\":\"ByteIdentical\",\"retry_granularity\":\"WholeOrdinaryStageAttemptProjectPolicy\",\"retry_snapshot_source\":\"FreshAcceptedStart\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"participant_and_attempt_contracts:attempt-retry-reset\"],\"summary_en\":\"An accepted stage start creates one attempt; failure or abandonment closes it without partial completion.\",\"summary_zh_cn\":\"已接受的关卡开始命令创建一次尝试；失败或放弃会结束尝试且不产生部分通关。\",\"tags\":[\"attempt\",\"failure\",\"retry\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:attempt-retry-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt-rule.retry-reset"
+          },
+          "summary_en": {
+            "String": "An accepted stage start creates one attempt; failure or abandonment closes it without partial completion."
+          },
+          "summary_zh_cn": {
+            "String": "已接受的关卡开始命令创建一次尝试；失败或放弃会结束尝试且不产生部分通关。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "attempt"
+              },
+              {
+                "String": "failure"
+              },
+              {
+                "String": "retry"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_and_attempt_contracts:node-transition-lock"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Ordinary node transition"
+          },
+          "name_zh_cn": {
+            "String": "常规节点转移"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accepted_result\":\"Victory\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.loadout-lock-retry.node-transition-lock\"],\"confidence\":\"Medium\",\"known_facts\":\"Active stages select two ordered nodes; the challenge design declares fresh per-node battle state and pre-start loadout locking.\",\"rationale\":\"Typed transition projections preserve battle/activity ownership and deterministic replay.\",\"rejected_alternatives\":[\"enter Node 2 after failure\",\"carry HP/Energy/effects between unrelated teams\",\"edit team 2 between nodes\"],\"replacement_condition\":\"Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots.\",\"selected_behavior\":\"Require Node 1 victory, preserve only typed section projections, and instantiate Node 2 from the locked second-team snapshot.\"}],\"battle_state_carry\":\"None\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[{\"evidence_sha256\":\"bac1ec74a39678369d86a71ea5734ae5197b71add1402b21f89e8653bc1c92ac\",\"game_version\":\"4.4\",\"id\":\"starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:node-transition-lock\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Non-shrinking node-transition-lock semantic obligation.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"included-content:node-transition-lock\"}],\"from_node_index\":1,\"game_version\":\"4.4\",\"id\":\"attempt-rule.node-transition\",\"kind\":\"TransitionRule\",\"loadout_mutation_between_nodes\":\"Rejected\",\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Ordinary node transition\",\"name_zh_cn\":\"常规节点转移\",\"ownership\":\"MemoryOfChaos\",\"participant_slot\":\"team-slot.ordinary.2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"section_slot_carry\":[\"ClockProjectionDeferredToClockRules\",\"ObjectiveAuditState\"],\"source_record_ids\":[\"participant_and_attempt_contracts:node-transition-lock\"],\"summary_en\":\"Node 2 may start only after Node 1 victory and uses its pre-locked second team in a fresh battle state.\",\"summary_zh_cn\":\"仅节点1胜利后可进入节点2，并以预先锁定的第二队创建全新战斗状态。\",\"tags\":[\"node-1\",\"node-2\",\"transition\"],\"to_node_index\":2}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:node-transition-lock"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt-rule.node-transition"
+          },
+          "summary_en": {
+            "String": "Node 2 may start only after Node 1 victory and uses its pre-locked second team in a fresh battle state."
+          },
+          "summary_zh_cn": {
+            "String": "仅节点1胜利后可进入节点2，并以预先锁定的第二队创建全新战斗状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "node-1"
+              },
+              {
+                "String": "node-2"
+              },
+              {
+                "String": "transition"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1186 @@
+{
+  "table": {
+    "name": "MocSemanticFixtures",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "family_and_season:group-1033"
+              },
+              {
+                "String": "family_and_season:schedule-201033"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "active-season-selection semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "active-season-selection语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"5ca90f31b5b6a012d8b8e81fcc49510e\",\"case_ids\":[\"fixture.active-season-selection.canonical\"],\"commands\":[{\"command\":\"select schedule 201033\",\"order\":1},{\"command\":\"resolve group 1033\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"group 1033 selected exactly once\",\"order\":1},{\"fact\":\"group 1034 excluded\",\"order\":2}],\"family\":\"active-season-selection\",\"game_version\":\"4.4\",\"id\":\"fixture.active-season-selection\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"active-season-selection\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"active-season-selection semantic fixture\",\"name_zh_cn\":\"active-season-selection语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"family_and_season:group-1033\",\"family_and_season:schedule-201033\"],\"summary_en\":\"Reference-review fixture for the active-season-selection mechanic family.\",\"summary_zh_cn\":\"active-season-selection机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.active-season-selection"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the active-season-selection mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "active-season-selection机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "ordinary_stages:stage-5201"
+              },
+              {
+                "String": "ordinary_stages:stage-5212"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "ordinary-stage-order semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "ordinary-stage-order语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"de62f07c9632059068e68ea64c21e20d\",\"case_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"commands\":[{\"command\":\"enumerate active ordinary stages\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"ordered IDs are 5201 through 5212\",\"order\":1},{\"fact\":\"terminal outcomes are fail-closed\",\"order\":2}],\"family\":\"ordinary-stage-order\",\"game_version\":\"4.4\",\"id\":\"fixture.ordinary-stage-order\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"ordinary-stage-order\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"ordinary-stage-order semantic fixture\",\"name_zh_cn\":\"ordinary-stage-order语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"ordinary_stages:stage-5201\",\"ordinary_stages:stage-5212\"],\"summary_en\":\"Reference-review fixture for the ordinary-stage-order mechanic family.\",\"summary_zh_cn\":\"ordinary-stage-order机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.ordinary-stage-order"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the ordinary-stage-order mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "ordinary-stage-order机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "tierce:tierce-5213"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "tierce-selected-extension semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "tierce-selected-extension语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"c4e1ff7e7f46620e43042f9c5cd33975\",\"case_ids\":[\"fixture.tierce-selected-extension.independent-projection\"],\"commands\":[{\"command\":\"complete stage 5212\",\"order\":1},{\"command\":\"select Tierce 5213\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"one independent encounter 30123123\",\"order\":1},{\"fact\":\"45 cycles\",\"order\":2},{\"fact\":\"ordinary state not carried\",\"order\":3}],\"family\":\"tierce-selected-extension\",\"game_version\":\"4.4\",\"id\":\"fixture.tierce-selected-extension\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"tierce-selected-extension\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"tierce-selected-extension semantic fixture\",\"name_zh_cn\":\"tierce-selected-extension语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"tierce:tierce-5213\"],\"summary_en\":\"Reference-review fixture for the tierce-selected-extension mechanic family.\",\"summary_zh_cn\":\"tierce-selected-extension机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.tierce-selected-extension"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the tierce-selected-extension mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "tierce-selected-extension机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_and_attempt_contracts:combat-form-uniqueness"
+              },
+              {
+                "String": "participant_and_attempt_contracts:ordinary-team-slots"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "participant-uniqueness semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "participant-uniqueness语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"8757cc7567c17468a7483eec3e94ff00\",\"case_ids\":[\"fixture.participant-uniqueness.accept-two-disjoint-teams\",\"fixture.participant-uniqueness.reject-duplicate-form\",\"fixture.participant-uniqueness.team-slot-cardinality\"],\"commands\":[{\"command\":\"submit two node teams\",\"order\":1},{\"command\":\"validate combat-form identities\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"two disjoint teams accepted\",\"order\":1},{\"fact\":\"duplicate combat form rejected\",\"order\":2}],\"family\":\"participant-uniqueness\",\"game_version\":\"4.4\",\"id\":\"fixture.participant-uniqueness\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"participant-uniqueness\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"participant-uniqueness semantic fixture\",\"name_zh_cn\":\"participant-uniqueness语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"participant_and_attempt_contracts:combat-form-uniqueness\",\"participant_and_attempt_contracts:ordinary-team-slots\"],\"summary_en\":\"Reference-review fixture for the participant-uniqueness mechanic family.\",\"summary_zh_cn\":\"participant-uniqueness机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.participant-uniqueness"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the participant-uniqueness mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "participant-uniqueness机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_and_attempt_contracts:loadout-lock"
+              },
+              {
+                "String": "participant_and_attempt_contracts:retry-reset"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "loadout-lock-retry semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "loadout-lock-retry语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"2f6a288f6d06ac7c577ac970cdefa13f\",\"case_ids\":[\"fixture.loadout-lock-retry.new-attempt-after-failure\",\"fixture.loadout-lock-retry.node-transition-lock\",\"fixture.loadout-lock-retry.reject-after-start-mutation\"],\"commands\":[{\"command\":\"start attempt\",\"order\":1},{\"command\":\"request mutation\",\"order\":2},{\"command\":\"retry whole stage\",\"order\":3}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"post-start mutation rejected byte-identically\",\"order\":1},{\"fact\":\"retry creates fresh attempt\",\"order\":2}],\"family\":\"loadout-lock-retry\",\"game_version\":\"4.4\",\"id\":\"fixture.loadout-lock-retry\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"loadout-lock-retry\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"loadout-lock-retry semantic fixture\",\"name_zh_cn\":\"loadout-lock-retry语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"participant_and_attempt_contracts:loadout-lock\",\"participant_and_attempt_contracts:retry-reset\"],\"summary_en\":\"Reference-review fixture for the loadout-lock-retry mechanic family.\",\"summary_zh_cn\":\"loadout-lock-retry机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.loadout-lock-retry"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the loadout-lock-retry mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "loadout-lock-retry机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "clock_and_resource_contracts:cycle-action-value-preset"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "cycle-first-av-window semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "cycle-first-av-window语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"525285b5029de65da6f376505edc9c96\",\"case_ids\":[\"fixture.cycle-first-av-window.150-then-100\"],\"commands\":[{\"command\":\"start fresh battle\",\"order\":1},{\"command\":\"consume 150 AV\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"first window is 150 AV\",\"order\":1},{\"fact\":\"later windows are 100 AV\",\"order\":2}],\"family\":\"cycle-first-av-window\",\"game_version\":\"4.4\",\"id\":\"fixture.cycle-first-av-window\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"cycle-first-av-window\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"cycle-first-av-window semantic fixture\",\"name_zh_cn\":\"cycle-first-av-window语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"clock_and_resource_contracts:cycle-action-value-preset\"],\"summary_en\":\"Reference-review fixture for the cycle-first-av-window mechanic family.\",\"summary_zh_cn\":\"cycle-first-av-window机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.cycle-first-av-window"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the cycle-first-av-window mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "cycle-first-av-window机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "clock_and_resource_contracts:node-cycle-carry"
+              },
+              {
+                "String": "clock_and_resource_contracts:wave-cycle-carry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "cycle-node-wave-carry semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "cycle-node-wave-carry语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"7fc02284cbdaa29dba41884c8d1dfa7b\",\"case_ids\":[\"fixture.cycle-node-wave-carry.expiry-before-start-rules\",\"fixture.cycle-node-wave-carry.node2-fresh-window\",\"fixture.cycle-node-wave-carry.stage-owned-budget\",\"fixture.cycle-node-wave-carry.tick-before-cycle-start\",\"fixture.cycle-node-wave-carry.wave-av-reset\"],\"commands\":[{\"command\":\"cross wave\",\"order\":1},{\"command\":\"cross node\",\"order\":2},{\"command\":\"reach zero boundary\",\"order\":3}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"remaining cycles persist\",\"order\":1},{\"fact\":\"wave elapsed AV resets\",\"order\":2},{\"fact\":\"Node 2 opens fresh 150 AV window\",\"order\":3}],\"family\":\"cycle-node-wave-carry\",\"game_version\":\"4.4\",\"id\":\"fixture.cycle-node-wave-carry\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"cycle-node-wave-carry\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"cycle-node-wave-carry semantic fixture\",\"name_zh_cn\":\"cycle-node-wave-carry语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"clock_and_resource_contracts:node-cycle-carry\",\"clock_and_resource_contracts:wave-cycle-carry\"],\"summary_en\":\"Reference-review fixture for the cycle-node-wave-carry mechanic family.\",\"summary_zh_cn\":\"cycle-node-wave-carry机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.cycle-node-wave-carry"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the cycle-node-wave-carry mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "cycle-node-wave-carry机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objectives:target-251"
+              },
+              {
+                "String": "objectives:target-252"
+              },
+              {
+                "String": "objectives:target-253"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "objective-star-aggregation semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "objective-star-aggregation语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"98a1272f78f95927b560367f189c7a28\",\"case_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"commands\":[{\"command\":\"complete multiple attempts with different objectives\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"best objectives latch independently\",\"order\":1},{\"fact\":\"failed attempts contribute nothing\",\"order\":2}],\"family\":\"objective-star-aggregation\",\"game_version\":\"4.4\",\"id\":\"fixture.objective-star-aggregation\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"objective-star-aggregation\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"objective-star-aggregation semantic fixture\",\"name_zh_cn\":\"objective-star-aggregation语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"objectives:target-251\",\"objectives:target-252\",\"objectives:target-253\"],\"summary_en\":\"Reference-review fixture for the objective-star-aggregation mechanic family.\",\"summary_zh_cn\":\"objective-star-aggregation机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.objective-star-aggregation"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the objective-star-aggregation mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "objective-star-aggregation机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "turbulence_and_battle_event:maze-buff-3030146"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "turbulence-hit-accumulation semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "turbulence-hit-accumulation语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"6745429f03922da433683a110794b71a\",\"case_ids\":[\"fixture.turbulence-hit-accumulation.canonical\"],\"commands\":[{\"command\":\"use Ultimate\",\"order\":1},{\"command\":\"use Follow-Up ATK\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"one hit stored per qualifying action\",\"order\":1},{\"fact\":\"multi-hit action does not multiply gain\",\"order\":2}],\"family\":\"turbulence-hit-accumulation\",\"game_version\":\"4.4\",\"id\":\"fixture.turbulence-hit-accumulation\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"turbulence-hit-accumulation\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"turbulence-hit-accumulation semantic fixture\",\"name_zh_cn\":\"turbulence-hit-accumulation语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"turbulence_and_battle_event:maze-buff-3030146\"],\"summary_en\":\"Reference-review fixture for the turbulence-hit-accumulation mechanic family.\",\"summary_zh_cn\":\"turbulence-hit-accumulation机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.turbulence-hit-accumulation"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the turbulence-hit-accumulation mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "turbulence-hit-accumulation机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "turbulence_and_battle_event:battle-event-30146"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "turbulence-cap-cycle-start semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "turbulence-cap-cycle-start语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"98b9b86bb19e6a63994a44b17092bfec\",\"case_ids\":[\"fixture.turbulence-cap-cycle-start.empty-target-reset\"],\"commands\":[{\"command\":\"accumulate beyond cap\",\"order\":1},{\"command\":\"start cycle\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"stored hit count caps at 15\",\"order\":1},{\"fact\":\"accumulator resets after resolution\",\"order\":2}],\"family\":\"turbulence-cap-cycle-start\",\"game_version\":\"4.4\",\"id\":\"fixture.turbulence-cap-cycle-start\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"turbulence-cap-cycle-start\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"turbulence-cap-cycle-start semantic fixture\",\"name_zh_cn\":\"turbulence-cap-cycle-start语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"turbulence_and_battle_event:battle-event-30146\"],\"summary_en\":\"Reference-review fixture for the turbulence-cap-cycle-start mechanic family.\",\"summary_zh_cn\":\"turbulence-cap-cycle-start机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.turbulence-cap-cycle-start"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the turbulence-cap-cycle-start mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "turbulence-cap-cycle-start机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "turbulence_and_battle_event:battle-event-30146"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "turbulence-target-true-damage semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "turbulence-target-true-damage语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"e8b16f8b03652098dd488585b9d190d8\",\"case_ids\":[\"fixture.turbulence-target-true-damage.random-per-hit\",\"fixture.turbulence-target-true-damage.rank-coefficients\"],\"commands\":[{\"command\":\"resolve one stored hit for each rank branch\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"one target sampled per hit\",\"order\":1},{\"fact\":\"coefficients are 0.12, 0.02 and 0.012\",\"order\":2}],\"family\":\"turbulence-target-true-damage\",\"game_version\":\"4.4\",\"id\":\"fixture.turbulence-target-true-damage\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"turbulence-target-true-damage\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"turbulence-target-true-damage semantic fixture\",\"name_zh_cn\":\"turbulence-target-true-damage语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"turbulence_and_battle_event:battle-event-30146\"],\"summary_en\":\"Reference-review fixture for the turbulence-target-true-damage mechanic family.\",\"summary_zh_cn\":\"turbulence-target-true-damage机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.turbulence-target-true-damage"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the turbulence-target-true-damage mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "turbulence-target-true-damage机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "clock_and_resource_contracts:initial-hp-energy-skill-points"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "initial-resources semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "initial-resources语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"146390b31e2b6002d6bf49345dde91e0\",\"case_ids\":[\"fixture.initial-resources.fresh-node-reset\",\"fixture.initial-resources.tierce-config-equality\"],\"commands\":[{\"command\":\"start Node 1\",\"order\":1},{\"command\":\"start Node 2\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"full HP\",\"order\":1},{\"fact\":\"half Energy\",\"order\":2},{\"fact\":\"team maximum Skill Points\",\"order\":3},{\"fact\":\"no cross-node resource carry\",\"order\":4}],\"family\":\"initial-resources\",\"game_version\":\"4.4\",\"id\":\"fixture.initial-resources\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"initial-resources\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ProjectPolicy\",\"name_en\":\"initial-resources semantic fixture\",\"name_zh_cn\":\"initial-resources语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"clock_and_resource_contracts:initial-hp-energy-skill-points\"],\"summary_en\":\"Reference-review fixture for the initial-resources mechanic family.\",\"summary_zh_cn\":\"initial-resources机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.initial-resources"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the initial-resources mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "initial-resources机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "clock_and_resource_contracts:battle-entry-operations"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "battle-entry-operations semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "battle-entry-operations语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"eefca260b92e0498be6abb1d293c7228\",\"case_ids\":[\"fixture.battle-entry-operations.resolved-technique-contribution\"],\"commands\":[{\"command\":\"project shared level program\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"activity buff binds before team creation\",\"order\":1},{\"fact\":\"wave creation precedes battle start\",\"order\":2}],\"family\":\"battle-entry-operations\",\"game_version\":\"4.4\",\"id\":\"fixture.battle-entry-operations\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"battle-entry-operations\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"battle-entry-operations semantic fixture\",\"name_zh_cn\":\"battle-entry-operations语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"clock_and_resource_contracts:battle-entry-operations\"],\"summary_en\":\"Reference-review fixture for the battle-entry-operations mechanic family.\",\"summary_zh_cn\":\"battle-entry-operations机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.battle-entry-operations"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the battle-entry-operations mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "battle-entry-operations机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "encounter_enemy_slots:slot-001"
+              },
+              {
+                "String": "stage_configs:stage-config-30123011"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "encounter-wave-order semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "encounter-wave-order语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"bdb6cfe30823fbdd15bc5035a6ae5a85\",\"case_ids\":[\"fixture.encounter-wave-order.canonical\"],\"commands\":[{\"command\":\"load encounter 30123011\",\"order\":1},{\"command\":\"advance wave 1 to wave 2\",\"order\":2}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"slot order is stable\",\"order\":1},{\"fact\":\"wave 2 follows wave 1\",\"order\":2}],\"family\":\"encounter-wave-order\",\"game_version\":\"4.4\",\"id\":\"fixture.encounter-wave-order\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"encounter-wave-order\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"encounter-wave-order semantic fixture\",\"name_zh_cn\":\"encounter-wave-order语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"encounter_enemy_slots:slot-001\",\"stage_configs:stage-config-30123011\"],\"summary_en\":\"Reference-review fixture for the encounter-wave-order mechanic family.\",\"summary_zh_cn\":\"encounter-wave-order机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.encounter-wave-order"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the encounter-wave-order mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "encounter-wave-order机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_abilities:enemy.abundance-sprite-malefic-ape.elite.ability.ability-202302005.skill05"
+              },
+              {
+                "String": "enemy_templates:enemy.abundance-sprite-malefic-ape.elite"
+              },
+              {
+                "String": "enemy_variants:enemy-variant-1003010"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "enemy-transitive-closure semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "enemy-transitive-closure语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"f4ce3c01bb29c3f01710685c1905c9f9\",\"case_ids\":[\"fixture.enemy-transitive-closure.canonical\"],\"commands\":[{\"command\":\"resolve every slot variant transitively\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"41 variants map to 41 templates\",\"order\":1},{\"fact\":\"221 abilities are reachable\",\"order\":2}],\"family\":\"enemy-transitive-closure\",\"game_version\":\"4.4\",\"id\":\"fixture.enemy-transitive-closure\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"enemy-transitive-closure\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"enemy-transitive-closure semantic fixture\",\"name_zh_cn\":\"enemy-transitive-closure语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"enemy_abilities:enemy.abundance-sprite-malefic-ape.elite.ability.ability-202302005.skill05\",\"enemy_templates:enemy.abundance-sprite-malefic-ape.elite\",\"enemy_variants:enemy-variant-1003010\"],\"summary_en\":\"Reference-review fixture for the enemy-transitive-closure mechanic family.\",\"summary_zh_cn\":\"enemy-transitive-closure机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.enemy-transitive-closure"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the enemy-transitive-closure mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "enemy-transitive-closure机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "empty_pool_proofs:empty-blessing"
+              },
+              {
+                "String": "empty_pool_proofs:empty-shop"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "empty-pool-selector-closure semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-selector-closure语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"ee08bd4393b18e8d003ca3c88237ff36\",\"case_ids\":[\"fixture.empty-pool-selector-closure.canonical\"],\"commands\":[{\"command\":\"walk active selector closure\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"all ten audited families contain zero reachable rows\",\"order\":1}],\"family\":\"empty-pool-selector-closure\",\"game_version\":\"4.4\",\"id\":\"fixture.empty-pool-selector-closure\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"empty-pool-selector-closure\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"empty-pool-selector-closure semantic fixture\",\"name_zh_cn\":\"empty-pool-selector-closure语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"empty_pool_proofs:empty-blessing\",\"empty_pool_proofs:empty-shop\"],\"summary_en\":\"Reference-review fixture for the empty-pool-selector-closure mechanic family.\",\"summary_zh_cn\":\"empty-pool-selector-closure机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.empty-pool-selector-closure"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the empty-pool-selector-closure mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "empty-pool-selector-closure机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "future-season-exclusion semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "future-season-exclusion语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"dc8cff70c98784e8e700f911cad8bf20\",\"case_ids\":[\"fixture.future-season-exclusion.canonical\"],\"commands\":[{\"command\":\"evaluate schedule 201034 at frozen access boundary\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"future group 1034 remains excluded\",\"order\":1},{\"fact\":\"no preview row becomes a denominator\",\"order\":2}],\"family\":\"future-season-exclusion\",\"game_version\":\"4.4\",\"id\":\"fixture.future-season-exclusion\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"future-season-exclusion\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"future-season-exclusion semantic fixture\",\"name_zh_cn\":\"future-season-exclusion语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[],\"summary_en\":\"Reference-review fixture for the future-season-exclusion mechanic family.\",\"summary_zh_cn\":\"future-season-exclusion机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.future-season-exclusion"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the future-season-exclusion mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "future-season-exclusion机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_variants:enemy-variant-1003010"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "shared-row-reconciliation semantic fixture"
+          },
+          "name_zh_cn": {
+            "String": "shared-row-reconciliation语义夹具"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"canonical_seed\":\"574646f975e5919a8978a3dd7b019c74\",\"case_ids\":[\"fixture.shared-row-reconciliation.canonical\"],\"commands\":[{\"command\":\"compare source path, locator and digest\",\"order\":1}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"execution_scope\":\"reference-review-only-no-runtime-parity-claim\",\"expected_facts\":[{\"fact\":\"303 enemy receipts match Goal 03\",\"order\":1},{\"fact\":\"no shared conflict\",\"order\":2}],\"family\":\"shared-row-reconciliation\",\"game_version\":\"4.4\",\"id\":\"fixture.shared-row-reconciliation\",\"initial_state\":{\"authoritative_state\":\"DeclarativeFixture\",\"family\":\"shared-row-reconciliation\",\"profile\":\"memory-of-chaos-v1\"},\"kind\":\"SemanticFixture\",\"mechanism_quality_floor\":\"ExactStructured\",\"name_en\":\"shared-row-reconciliation semantic fixture\",\"name_zh_cn\":\"shared-row-reconciliation语义夹具\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_claim_role\":\"SupportingReferenceNotManifestClaim\",\"source_record_ids\":[\"enemy_variants:enemy-variant-1003010\"],\"summary_en\":\"Reference-review fixture for the shared-row-reconciliation mechanic family.\",\"summary_zh_cn\":\"shared-row-reconciliation机制族的资料复核夹具。\",\"tags\":[\"reference-review\",\"semantic-fixture\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "fixture.shared-row-reconciliation"
+          },
+          "summary_en": {
+            "String": "Reference-review fixture for the shared-row-reconciliation mechanic family."
+          },
+          "summary_zh_cn": {
+            "String": "shared-row-reconciliation机制族的资料复核夹具。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "reference-review"
+              },
+              {
+                "String": "semantic-fixture"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,819 @@
+{
+  "table": {
+    "name": "MocCoverage",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "family_and_season coverage"
+          },
+          "name_zh_cn": {
+            "String": "family_and_season覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":3,\"approximations\":[],\"category\":\"family_and_season\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":3,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.family_and_season\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"family_and_season coverage\",\"name_zh_cn\":\"family_and_season覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":3,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"3/3 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"3/3条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.family_and_season"
+          },
+          "summary_en": {
+            "String": "3/3 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "3/3条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "entry_and_unlock_locators coverage"
+          },
+          "name_zh_cn": {
+            "String": "entry_and_unlock_locators覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":2,\"approximations\":[],\"category\":\"entry_and_unlock_locators\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":2,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.entry_and_unlock_locators\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"entry_and_unlock_locators coverage\",\"name_zh_cn\":\"entry_and_unlock_locators覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":2,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"2/2 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"2/2条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.entry_and_unlock_locators"
+          },
+          "summary_en": {
+            "String": "2/2 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "2/2条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "ordinary_stages coverage"
+          },
+          "name_zh_cn": {
+            "String": "ordinary_stages覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":12,\"approximations\":[],\"category\":\"ordinary_stages\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":12,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.ordinary_stages\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"ordinary_stages coverage\",\"name_zh_cn\":\"ordinary_stages覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":12,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"12/12 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"12/12条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.ordinary_stages"
+          },
+          "summary_en": {
+            "String": "12/12 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "12/12条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "tierce coverage"
+          },
+          "name_zh_cn": {
+            "String": "tierce覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":1,\"approximations\":[],\"category\":\"tierce\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":1,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.tierce\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"tierce coverage\",\"name_zh_cn\":\"tierce覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":1,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"1/1 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"1/1条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.tierce"
+          },
+          "summary_en": {
+            "String": "1/1 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "1/1条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "objectives coverage"
+          },
+          "name_zh_cn": {
+            "String": "objectives覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":6,\"approximations\":[],\"category\":\"objectives\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":6,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.objectives\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"objectives coverage\",\"name_zh_cn\":\"objectives覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":6,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"6/6 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"6/6条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.objectives"
+          },
+          "summary_en": {
+            "String": "6/6 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "6/6条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "participant_and_attempt_contracts coverage"
+          },
+          "name_zh_cn": {
+            "String": "participant_and_attempt_contracts覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":6,\"approximations\":[],\"category\":\"participant_and_attempt_contracts\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":6,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.participant_and_attempt_contracts\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"participant_and_attempt_contracts coverage\",\"name_zh_cn\":\"participant_and_attempt_contracts覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":6,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"6/6 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"6/6条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.participant_and_attempt_contracts"
+          },
+          "summary_en": {
+            "String": "6/6 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "6/6条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "clock_and_resource_contracts coverage"
+          },
+          "name_zh_cn": {
+            "String": "clock_and_resource_contracts覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":8,\"approximations\":[],\"category\":\"clock_and_resource_contracts\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":8,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.clock_and_resource_contracts\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"clock_and_resource_contracts coverage\",\"name_zh_cn\":\"clock_and_resource_contracts覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":8,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"8/8 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"8/8条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.clock_and_resource_contracts"
+          },
+          "summary_en": {
+            "String": "8/8 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "8/8条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "turbulence_and_battle_event coverage"
+          },
+          "name_zh_cn": {
+            "String": "turbulence_and_battle_event覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":2,\"approximations\":[],\"category\":\"turbulence_and_battle_event\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":2,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.turbulence_and_battle_event\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"turbulence_and_battle_event coverage\",\"name_zh_cn\":\"turbulence_and_battle_event覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":2,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"2/2 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"2/2条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.turbulence_and_battle_event"
+          },
+          "summary_en": {
+            "String": "2/2 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "2/2条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "stage_configs coverage"
+          },
+          "name_zh_cn": {
+            "String": "stage_configs覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":25,\"approximations\":[],\"category\":\"stage_configs\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":25,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.stage_configs\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"stage_configs coverage\",\"name_zh_cn\":\"stage_configs覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":25,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"25/25 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"25/25条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.stage_configs"
+          },
+          "summary_en": {
+            "String": "25/25 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "25/25条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "encounter_enemy_slots coverage"
+          },
+          "name_zh_cn": {
+            "String": "encounter_enemy_slots覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":99,\"approximations\":[],\"category\":\"encounter_enemy_slots\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":99,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.encounter_enemy_slots\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"encounter_enemy_slots coverage\",\"name_zh_cn\":\"encounter_enemy_slots覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":99,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"99/99 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"99/99条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.encounter_enemy_slots"
+          },
+          "summary_en": {
+            "String": "99/99 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "99/99条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "enemy_variants coverage"
+          },
+          "name_zh_cn": {
+            "String": "enemy_variants覆盖"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":41,\"approximations\":[],\"category\":\"enemy_variants\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":41,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.enemy_variants\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"enemy_variants coverage\",\"name_zh_cn\":\"enemy_variants覆盖\",\"ownership\":\"Shared\",\"required\":41,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"41/41 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"41/41条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.enemy_variants"
+          },
+          "summary_en": {
+            "String": "41/41 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "41/41条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "enemy_templates coverage"
+          },
+          "name_zh_cn": {
+            "String": "enemy_templates覆盖"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":41,\"approximations\":[],\"category\":\"enemy_templates\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":41,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.enemy_templates\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"enemy_templates coverage\",\"name_zh_cn\":\"enemy_templates覆盖\",\"ownership\":\"Shared\",\"required\":41,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"41/41 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"41/41条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.enemy_templates"
+          },
+          "summary_en": {
+            "String": "41/41 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "41/41条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "enemy_abilities coverage"
+          },
+          "name_zh_cn": {
+            "String": "enemy_abilities覆盖"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":221,\"approximations\":[],\"category\":\"enemy_abilities\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":221,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.enemy_abilities\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"enemy_abilities coverage\",\"name_zh_cn\":\"enemy_abilities覆盖\",\"ownership\":\"Shared\",\"required\":221,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"221/221 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"221/221条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.enemy_abilities"
+          },
+          "summary_en": {
+            "String": "221/221 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "221/221条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "empty_pool_proofs coverage"
+          },
+          "name_zh_cn": {
+            "String": "empty_pool_proofs覆盖"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"accounted\":10,\"approximations\":[],\"category\":\"empty_pool_proofs\",\"coverage_ratio\":\"1\",\"coverage_state\":\"DataReady\",\"data_ready\":10,\"duplicate_claims\":0,\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"coverage.empty_pool_proofs\",\"kind\":\"CoverageCategory\",\"missing\":0,\"name_en\":\"empty_pool_proofs coverage\",\"name_zh_cn\":\"empty_pool_proofs覆盖\",\"ownership\":\"MemoryOfChaos\",\"required\":10,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"state\":\"Complete\",\"summary_en\":\"10/10 frozen obligations are accounted exactly once and DataReady.\",\"summary_zh_cn\":\"10/10条冻结义务均精确计数一次并达到DataReady。\",\"tags\":[\"coverage\",\"exact-once\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "coverage.empty_pool_proofs"
+          },
+          "summary_en": {
+            "String": "10/10 frozen obligations are accounted exactly once and DataReady."
+          },
+          "summary_zh_cn": {
+            "String": "10/10条冻结义务均精确计数一次并达到DataReady。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "coverage"
+              },
+              {
+                "String": "exact-once"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
