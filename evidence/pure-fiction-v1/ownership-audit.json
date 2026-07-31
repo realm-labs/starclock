@@ -1,0 +1,78 @@
+{
+  "schema_revision": "starclock.pure-fiction-ownership-audit.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "batch": "G15-P4-B1",
+  "manifest": {
+    "obligation_count": 796,
+    "counts": {
+      "ability_program": 4,
+      "attempt_policy": 1,
+      "battle_event": 1,
+      "cacophony": 3,
+      "encounter_wave": 27,
+      "enemy_ability": 112,
+      "enemy_ai": 28,
+      "enemy_character_config": 41,
+      "enemy_skill": 164,
+      "enemy_slot": 63,
+      "enemy_status": 168,
+      "enemy_template": 41,
+      "enemy_variant": 42,
+      "entry": 1,
+      "exact_zero_proof": 7,
+      "grit_fever": 3,
+      "initial_resources": 1,
+      "loadout_lock": 1,
+      "maze_buff": 2,
+      "mechanic_rule": 25,
+      "objective_star": 6,
+      "ordinary_node": 8,
+      "participant_policy": 1,
+      "profile": 1,
+      "retry_policy": 1,
+      "scheduled_unreleased_exclusion": 1,
+      "score_aggregation": 1,
+      "season": 1,
+      "semantic_fixture": 18,
+      "spawn_policy": 1,
+      "stage": 4,
+      "stage_config": 9,
+      "terminal_outcome": 2,
+      "theme": 1,
+      "tierce_node": 1,
+      "tierce_starward": 1,
+      "turn_clock": 4
+    },
+    "digest": "c5ce3df0ee903141215aa2f8fd885c62f8f0c558cfc26e116819ca242236fab6"
+  },
+  "normalized_pack": {
+    "files": 36,
+    "rows": 6014,
+    "sha256": "4105f6f959cf63506ee22891099c8a77582f65c37d09fb8e58fe223f09a101d2"
+  },
+  "row_contract": {
+    "authored_rows": 5218,
+    "source_rows": 796,
+    "data_ready_authored_rows": 5218,
+    "runtime_executable_rows": 0,
+    "bilingual_failures": 0,
+    "provenance_failures": 0
+  },
+  "exact_zero_pool_count": 7,
+  "active_release": {
+    "selected_season": "202024/2024",
+    "scheduled_unreleased_exclusions": 1,
+    "leaked_historical_or_unreleased_rows": 0
+  },
+  "reconciliation": {
+    "shared_record_count": 606,
+    "conflict_count": 0,
+    "peer_artifact_mutation_count": 0
+  },
+  "fixtures": {
+    "fixture_count": 18,
+    "failed_fixture_count": 0,
+    "blocking_gap_count": 0
+  },
+  "result": "Passed"
+}
