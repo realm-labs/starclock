@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources, manifest and contracts |
 | Active batch | — |
-| Next unblocked batch | `G15-P0-B2` |
+| Next unblocked batch | `G15-P0-B3` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -42,7 +42,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G15-P0-B1` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; push with `git push origin HEAD:codex/goal15-pure-fiction-reference`, verify using `git ls-remote --heads origin codex/goal15-pure-fiction-reference`. Reproduced clean pinned revisions `fd978d6e…` and `7b349e39…`, verified Goal 03 Complete, froze base/remote equality `92febad0…`, Version 4.4 scope/exclusions and all six isolated roots without changing another cache, workbook or production bundle. |
-| `G15-P0-B2` | `Pending` | — | Inventory dedicated/adjacent tables, entry mappings, `FantasticStory*` and shared config/ability programs, TextMaps, StageConfig, enemies and exclusions. |
+| `G15-P0-B2` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed with `git push origin HEAD:codex/goal15-pure-fiction-reference` and verified by exact `git ls-remote`. Added an independently reproducible sparse-cache fetcher and deterministic `inventory.mjs --check`; the generated inventory hashes every dedicated/adjacent challenge table, entry/TextMap/StageConfig/shared program, every `FantasticStory*` program and the available stage/enemy program closure, while retaining ownership only as a later manifest decision. |
 | `G15-P0-B3` | `Pending` | — | Freeze active selectors, exact obligations/counts, Tierce/Starward semantics, ownership, reachability, exact-zero pools and scheduled/unreleased exclusions. |
 | `G15-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G15-P1-B1` | `Pending` | — | Import profile, active season, entry/unlocks, stages/nodes, Tierce/Starward identity, legal order and outcomes. |
@@ -139,7 +139,7 @@ generated selector-closure proof.
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
-| `G15-R01` | `Open` | Which dedicated/shared table, entry mapping, TextMap, StageConfig, `FantasticStory*`/shared config, enemy, ability and AI files complete the focused inventory? | P0-B2 | Replace when the generated inventory closes every enabled selector/reference and byte-identical double generation passes. |
+| `G15-R01` | `Resolved` | The generated source inventory closes the dedicated/shared table, entry mapping, TextMap, StageConfig, `FantasticStory*`, shared config and available enemy/stage program boundary. Enabled row-level closure remains manifest-owned. | P0-B2 | Reopen only when a selected manifest reference is absent from the hashed inventory or a stronger released source adds a required file. |
 | `G15-R02` | `Open` | Which released selectors prove group `2024` is the season active in Version 4.4 and exclude historical plus scheduled-but-unreleased group `2025`? | P0-B3 | Replace with an exact-once manifest whose rows carry structured and public release evidence and fail-closed exclusions. |
 | `G15-R03` | `Open` | What exact topology, participant slots, clock, objective and settlement semantics do Tierce `20245`, Starward and Fever add? | P0-B3 / P1-B1–B7 | Replace with decoded schema/reference joins and fixtures; record missing runtime capabilities for a later goal without changing runtime here. |
 | `G15-R04` | `Open` | What are the exact character/combat-form, Light Cone and Relic-instance uniqueness and loadout invalidation scopes across every ordinary and Tierce/Starward node? | P1-B2 | Replace with source-backed participant/lock rows and accepted/rejected/retry fixtures. |
