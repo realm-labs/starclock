@@ -1,0 +1,94 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "research-gaps.json",
+  "record_kind": "research-gap",
+  "records": [
+    {
+      "id": "gap.hidden-spawn-order",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "research-gap",
+      "name_en": "Hidden refill tie ordering",
+      "name_zh_cn": "隐藏补位并列顺序",
+      "summary_en": "Stable wave/slot ordering is a deterministic project policy until retained released engine evidence replaces it.",
+      "summary_zh_cn": "在保留的已发布引擎证据替代前，使用稳定波次/槽位顺序作为确定性项目策略。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.rule.continuous_spawn"
+      ],
+      "source_record_ids": [
+        "source.pf.rule.continuous_spawn"
+      ],
+      "runtime_executable": false,
+      "blocking": false,
+      "selected_policy": "stable-wave-then-slot",
+      "rejected_alternatives": [
+        "filesystem-order",
+        "unordered-map-order"
+      ],
+      "affected_fixtures": [
+        "pf.fixture.spawn_refill_order",
+        "pf.fixture.simultaneous_defeats"
+      ],
+      "replacement_condition": "pinned released engine enumeration or reproducible Version 4.4 observation"
+    },
+    {
+      "id": "gap.initial-resources",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "research-gap",
+      "name_en": "Initial resource selector",
+      "name_zh_cn": "初始资源选择器",
+      "summary_en": "No active row exposes a season-specific override, so ordinary challenge defaults remain an explicit policy boundary.",
+      "summary_zh_cn": "当前行未暴露周期专属覆盖，因此普通挑战默认值保持为显式策略边界。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.initial_resources"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.initial_resources"
+      ],
+      "runtime_executable": false,
+      "blocking": false,
+      "replacement_condition": "released active selector exposes exact HP, Energy or Skill Point overrides"
+    },
+    {
+      "id": "gap.tierce-target-thresholds",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "research-gap",
+      "name_en": "Tierce target field decoding",
+      "name_zh_cn": "第三战区目标字段解码",
+      "summary_en": "Target identities are exact; undisclosed threshold interpretation remains reference-only.",
+      "summary_zh_cn": "目标标识精确；未公开的阈值解释保持资料态。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.tierce.20245"
+      ],
+      "source_record_ids": [
+        "source.pf.tierce.20245"
+      ],
+      "runtime_executable": false,
+      "blocking": false,
+      "selected_policy": "preserve-raw-target-identities",
+      "replacement_condition": "released schema or observation decodes each threshold"
+    }
+  ]
+}

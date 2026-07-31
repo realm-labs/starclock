@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `pure-fiction-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Content pools, services, events and enemies |
+| Active phase | Phase 3 — Independent Sora and Excel |
 | Active batch | — |
-| Next unblocked batch | `G15-P2-B6` |
+| Next unblocked batch | `G15-P3-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -33,8 +33,8 @@
 |---|---|---|
 | Phase 0 — Scope, sources, manifest and contracts | `Complete` | Pinned caches, 1,816-file inventory, 796-obligation active manifest, exact exclusions/zero proofs and normalized/evidence/workbook/fixture contracts are machine-verified. |
 | Phase 1 — Unique mode systems | `Complete` | Profile/season/Tierce, participants/loadouts/attempts, clocks/refill, score/objectives, Whimsicality/Grit/Fever, three Cacophonies and initial-resource policies regenerate byte-identically. |
-| Phase 2 — Content pools, services, events and enemies | `InProgress` | Selector-backed exact-zero content pools are next. |
-| Phase 3 — Independent Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
+| Phase 2 — Content pools, services, events and enemies | `Complete` | Seven exact-zero pool proofs, active event/program bindings, all nine encounters/27 waves/63 slots, complete 596-row enemy mechanic closure, 25 rule families, 18 fixtures and exact-once 796-row coverage are machine-verified. |
+| Phase 3 — Independent Sora and Excel | `InProgress` | Isolated profile/season/stage/node authoring tables are next. |
 | Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `Pending` | Awaiting exact-once audit, semantic fixtures, cross-goal receipts, regeneration and clean-checkout evidence. |
 
 ## Batch ledger
@@ -57,7 +57,7 @@
 | `G15-P2-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported theme 4, all eight active MazeBuff bindings, neutral continuous-spawn BattleEvent `31001` and four `FantasticStory*` programs reached by exact binding-key matches; program bytes remain immutable reference evidence and are not treated as executable handlers. |
 | `G15-P2-B4` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported all nine released StageConfig encounters, 27 authored waves and 63 stable ordered enemy slots, preserving level, scoring group, infinite-group and BattleEvent joins for eight ordinary nodes plus Tierce `30322043`. |
 | `G15-P2-B5` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the recursive encounter closure: 42 concrete variants, 41 templates/character configs, 164 skills, 28 AI programs, 112 matched ability programs and 168 referenced statuses. Exact stat ratios, weaknesses, summons, skills, base stats, source bytes and modifier/status relationships remain Shared reference rows with no runtime lowering claim. |
-| `G15-P2-B6` | `Pending` | — | Generate mechanics, sources, coverage, research gaps, fixtures and pack index. |
+| `G15-P2-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Generated 25 mechanic rules, 796 provenance rows, 796 exact-once coverage rows, 606 shared reconciliation receipts, three nonblocking field-level gaps, 18 semantic fixtures and a 3,007-row canonical pack index. `verify-pack.mjs` proves all 796 obligations DataReady, bilingual/provenance closure, zero runtime leakage and pack digest `8197bc56…a4766`. |
 | `G15-P3-B1` | `Pending` | — | Add profile/season/stage/node/Tierce/participant/attempt Sora tables. |
 | `G15-P3-B2` | `Pending` | — | Add clock/spawn/score/objective/star/Whimsicality/Grit/Cacophony/resource Sora tables. |
 | `G15-P3-B3` | `Pending` | — | Add pool, event, MazeBuff, encounter, wave, enemy and mechanic-binding Sora tables. |

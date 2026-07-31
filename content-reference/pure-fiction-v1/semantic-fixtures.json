@@ -1,0 +1,747 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "semantic-fixtures.json",
+  "record_kind": "semantic-fixture",
+  "records": [
+    {
+      "id": "pf.fixture.attempt_retry_and_reset",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "attempt_retry_and_reset",
+      "name_zh_cn": "attempt_retry_and_reset",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.attempt_retry_and_reset"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.attempt_retry_and_reset"
+      ],
+      "runtime_executable": false,
+      "family": "attempt_retry_and_reset",
+      "case_order": 1,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.cacophony_2261",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "cacophony_2261",
+      "name_zh_cn": "cacophony_2261",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.cacophony_2261"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.cacophony_2261"
+      ],
+      "runtime_executable": false,
+      "family": "cacophony_2261",
+      "case_order": 2,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.cacophony_2263",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "cacophony_2263",
+      "name_zh_cn": "cacophony_2263",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.cacophony_2263"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.cacophony_2263"
+      ],
+      "runtime_executable": false,
+      "family": "cacophony_2263",
+      "case_order": 3,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.cacophony_2264",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "cacophony_2264",
+      "name_zh_cn": "cacophony_2264",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.cacophony_2264"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.cacophony_2264"
+      ],
+      "runtime_executable": false,
+      "family": "cacophony_2264",
+      "case_order": 4,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.clock_tick_and_expiry",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "clock_tick_and_expiry",
+      "name_zh_cn": "clock_tick_and_expiry",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.clock_tick_and_expiry"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.clock_tick_and_expiry"
+      ],
+      "runtime_executable": false,
+      "family": "clock_tick_and_expiry",
+      "case_order": 5,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.damage_partial_scoring",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "damage_partial_scoring",
+      "name_zh_cn": "damage_partial_scoring",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.damage_partial_scoring"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.damage_partial_scoring"
+      ],
+      "runtime_executable": false,
+      "family": "damage_partial_scoring",
+      "case_order": 6,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.defeat_scoring",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "defeat_scoring",
+      "name_zh_cn": "defeat_scoring",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.defeat_scoring"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.defeat_scoring"
+      ],
+      "runtime_executable": false,
+      "family": "defeat_scoring",
+      "case_order": 7,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.encounter_wave_closure",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "encounter_wave_closure",
+      "name_zh_cn": "encounter_wave_closure",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.encounter_wave_closure"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.encounter_wave_closure"
+      ],
+      "runtime_executable": false,
+      "family": "encounter_wave_closure",
+      "case_order": 8,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.fever_enter_and_teardown",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "fever_enter_and_teardown",
+      "name_zh_cn": "fever_enter_and_teardown",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.fever_enter_and_teardown"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.fever_enter_and_teardown"
+      ],
+      "runtime_executable": false,
+      "family": "fever_enter_and_teardown",
+      "case_order": 9,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.grit_gain",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "grit_gain",
+      "name_zh_cn": "grit_gain",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.grit_gain"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.grit_gain"
+      ],
+      "runtime_executable": false,
+      "family": "grit_gain",
+      "case_order": 10,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.initial_resources",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "initial_resources",
+      "name_zh_cn": "initial_resources",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.initial_resources"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.initial_resources"
+      ],
+      "runtime_executable": false,
+      "family": "initial_resources",
+      "case_order": 11,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.objective_stars",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "objective_stars",
+      "name_zh_cn": "objective_stars",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.objective_stars"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.objective_stars"
+      ],
+      "runtime_executable": false,
+      "family": "objective_stars",
+      "case_order": 12,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.participant_and_loadout_rejection",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "participant_and_loadout_rejection",
+      "name_zh_cn": "participant_and_loadout_rejection",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.participant_and_loadout_rejection"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.participant_and_loadout_rejection"
+      ],
+      "runtime_executable": false,
+      "family": "participant_and_loadout_rejection",
+      "case_order": 13,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.profile_and_stage_flow",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "profile_and_stage_flow",
+      "name_zh_cn": "profile_and_stage_flow",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.profile_and_stage_flow"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.profile_and_stage_flow"
+      ],
+      "runtime_executable": false,
+      "family": "profile_and_stage_flow",
+      "case_order": 14,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.score_cap_and_aggregation",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "score_cap_and_aggregation",
+      "name_zh_cn": "score_cap_and_aggregation",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.score_cap_and_aggregation"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.score_cap_and_aggregation"
+      ],
+      "runtime_executable": false,
+      "family": "score_cap_and_aggregation",
+      "case_order": 15,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.simultaneous_defeats",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "simultaneous_defeats",
+      "name_zh_cn": "simultaneous_defeats",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.simultaneous_defeats"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.simultaneous_defeats"
+      ],
+      "runtime_executable": false,
+      "family": "simultaneous_defeats",
+      "case_order": 16,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.spawn_refill_order",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "spawn_refill_order",
+      "name_zh_cn": "spawn_refill_order",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.spawn_refill_order"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.spawn_refill_order"
+      ],
+      "runtime_executable": false,
+      "family": "spawn_refill_order",
+      "case_order": 17,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    },
+    {
+      "id": "pf.fixture.tierce_entry_and_settlement",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "semantic-fixture",
+      "name_en": "tierce_entry_and_settlement",
+      "name_zh_cn": "tierce_entry_and_settlement",
+      "summary_en": "A deterministic Candidate reference assertion over normalized data.",
+      "summary_zh_cn": "针对规范化数据的确定性Candidate资料断言。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.fixture.tierce_entry_and_settlement"
+      ],
+      "source_record_ids": [
+        "source.pf.fixture.tierce_entry_and_settlement"
+      ],
+      "runtime_executable": false,
+      "family": "tierce_entry_and_settlement",
+      "case_order": 18,
+      "input_ids": [
+        "pf.profile.v1"
+      ],
+      "initial_state": {
+        "runtime_executable": false
+      },
+      "commands": [],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "runtime_executable",
+          "value": false
+        }
+      ],
+      "passed": true,
+      "replacement_condition": "Reference semantic review fixture; not a runtime golden"
+    }
+  ]
+}
