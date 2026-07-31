@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "tierce-starward.json",
+  "record_kind": "tierce-starward",
+  "records": [
+    {
+      "id": "pf.tierce.20245",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "tierce-starward",
+      "name_en": "Starward Tierce",
+      "name_zh_cn": "星流第三战区",
+      "summary_en": "The released Tierce extension selected after ordinary stage 20244.",
+      "summary_zh_cn": "在普通关卡20244之后选择的已发布第三战区扩展。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.tierce.20245"
+      ],
+      "source_record_ids": [
+        "source.pf.tierce.20245"
+      ],
+      "runtime_executable": false,
+      "tierce_id": 20245,
+      "predecessor_stage_id": 20244,
+      "stage_config_id": 30322043,
+      "target_ids": [
+        4001,
+        4002,
+        4003
+      ],
+      "battle_target_ids": [
+        4001,
+        4002
+      ],
+      "clear_score": 45000,
+      "reward_payload_excluded": true,
+      "topology_policy": "single-node exact row; no inferred second team"
+    }
+  ]
+}

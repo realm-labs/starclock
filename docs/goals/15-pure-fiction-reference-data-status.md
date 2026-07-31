@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
 | Active batch | — |
-| Next unblocked batch | `G15-P1-B1` |
+| Next unblocked batch | `G15-P1-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -45,7 +45,7 @@
 | `G15-P0-B2` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed with `git push origin HEAD:codex/goal15-pure-fiction-reference` and verified by exact `git ls-remote`. Added an independently reproducible sparse-cache fetcher and deterministic `inventory.mjs --check`; the current generated inventory hashes 1,816 dedicated/adjacent challenge, entry/TextMap/StageConfig, `FantasticStory*`, enemy character, AI and ability-program files while retaining ownership only as a manifest decision. P0-B3 expanded the inventory only to close selectors discovered from the active rows. |
 | `G15-P0-B3` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed and resolved exactly by `git ls-remote`. `manifest.mjs --check` freezes 796 obligations through schedule `202024` → group `2024` → four stages/eight ordinary nodes plus Tierce `20245`, nine StageConfig rows, all waves/slots, active MazeBuff/Grit/Fever/Cacophony records, recursive summon/template/skill/character-config/AI/ability/status closure, seven selector-backed zero-family proofs, 25 rule and 18 fixture families, and the scheduled-unreleased group `2025` exclusion. |
 | `G15-P0-B4` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed and remotely resolved exactly. `contracts.mjs --check` freezes 36 normalized pack files, the common bilingual/provenance envelope, five evidence and mechanism qualities, canonical decimal/JSON/order rules, source-path/locator/digest reconciliation, 37 isolated Sora tables across three workbooks and the closed reference-only semantic fixture fact language. The phase full gate passed generated-artifact checks through the production catalog boundary, then was interrupted during a 17-minute concurrent-worktree Clippy compile; the change-aware gate passed in 129.7s and the mandatory clean full gate remains owned by P4-B3. |
-| `G15-P1-B1` | `Pending` | — | Import profile, active season, entry/unlocks, stages/nodes, Tierce/Starward identity, legal order and outcomes. |
+| `G15-P1-B1` | `Complete` | This row's containing commit | Pushed to `origin/codex/goal15-pure-fiction-reference` and remotely resolved exactly. Imported one profile, one active season, four ordinary stages, eight ordinary nodes, one Tierce node and one Tierce/Starward record; preserves predecessor order, exact selectors, objectives, turn limits and clear scores without inventing a second Tierce team. |
 | `G15-P1-B2` | `Pending` | — | Import participants, team/loadout uniqueness, snapshots/locks, attempts, retries, abandonment, reset and transitions. |
 | `G15-P1-B3` | `Pending` | — | Import clocks, wave boundaries, continuous spawn/refill programs, timeout and early completion. |
 | `G15-P1-B4` | `Pending` | — | Import defeat/damage scoring, attribution, caps, simultaneous outcomes, objectives, stars and aggregation. |

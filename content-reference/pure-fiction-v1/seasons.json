@@ -1,0 +1,37 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "seasons.json",
+  "record_kind": "season",
+  "records": [
+    {
+      "id": "pf.season.2024",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "season",
+      "name_en": "Falsehood to Fact",
+      "name_zh_cn": "借虚成真",
+      "summary_en": "The Pure Fiction season active at the frozen Version 4.4 access boundary.",
+      "summary_zh_cn": "在冻结4.4版本访问边界生效的虚构叙事周期。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.season.2024"
+      ],
+      "source_record_ids": [
+        "source.pf.season.2024"
+      ],
+      "runtime_executable": false,
+      "schedule_id": 202024,
+      "group_id": 2024,
+      "begin_time": "2026-06-22 04:00:00",
+      "end_time": "2026-08-03 04:00:00",
+      "scheduled_unreleased_group_id": 2025
+    }
+  ]
+}
