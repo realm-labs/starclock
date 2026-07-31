@@ -30,17 +30,17 @@
       "family": "attempt_retry_and_reset",
       "case_order": 1,
       "input_ids": [
-        "pf.profile.v1"
+        "attempt.retry"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.creates_new_attempt",
+          "value": true
         }
       ],
       "passed": true,
@@ -71,17 +71,22 @@
       "family": "cacophony_2261",
       "case_order": 2,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.buff.3031359"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
-          "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "op": "ordered_equals",
+          "path": "inputs.0.parameters",
+          "value": [
+            "0.4",
+            "2",
+            "50",
+            "1"
+          ]
         }
       ],
       "passed": true,
@@ -112,17 +117,17 @@
       "family": "cacophony_2263",
       "case_order": 3,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.buff.3031361"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
-          "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "op": "contains",
+          "path": "inputs.0.binding_key",
+          "value": "2263"
         }
       ],
       "passed": true,
@@ -153,17 +158,22 @@
       "family": "cacophony_2264",
       "case_order": 4,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.buff.3031362"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
-          "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "op": "ordered_equals",
+          "path": "inputs.0.parameters",
+          "value": [
+            "0.15",
+            "2",
+            "40",
+            "3"
+          ]
         }
       ],
       "passed": true,
@@ -194,17 +204,17 @@
       "family": "clock_tick_and_expiry",
       "case_order": 5,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.clock.20241"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.timeout_behavior",
+          "value": "finalize-current-score"
         }
       ],
       "passed": true,
@@ -235,16 +245,16 @@
       "family": "damage_partial_scoring",
       "case_order": 6,
       "input_ids": [
-        "pf.profile.v1"
+        "score.damage"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
+          "path": "inputs.0.displayed_damage_used",
           "value": false
         }
       ],
@@ -276,17 +286,17 @@
       "family": "defeat_scoring",
       "case_order": 7,
       "input_ids": [
-        "pf.profile.v1"
+        "score.defeat"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.source",
+          "value": "defeat-event"
         }
       ],
       "passed": true,
@@ -317,17 +327,17 @@
       "family": "encounter_wave_closure",
       "case_order": 8,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.stage-config.30322011"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.wave_count",
+          "value": 3
         }
       ],
       "passed": true,
@@ -358,17 +368,17 @@
       "family": "fever_enter_and_teardown",
       "case_order": 9,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.buff.3031229"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
-          "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "op": "contains",
+          "path": "inputs.0.binding_key",
+          "value": "EnterFever"
         }
       ],
       "passed": true,
@@ -399,17 +409,20 @@
       "family": "grit_gain",
       "case_order": 10,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.buff.3031227"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
-          "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "op": "ordered_equals",
+          "path": "inputs.0.parameters",
+          "value": [
+            "1",
+            "10"
+          ]
         }
       ],
       "passed": true,
@@ -440,17 +453,17 @@
       "family": "initial_resources",
       "case_order": 11,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.contract.initial_resources"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.hp",
+          "value": "full"
         }
       ],
       "passed": true,
@@ -481,17 +494,17 @@
       "family": "objective_stars",
       "case_order": 12,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.objective.2001"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.comparison",
+          "value": "greater-than-or-equal"
         }
       ],
       "passed": true,
@@ -522,17 +535,17 @@
       "family": "participant_and_loadout_rejection",
       "case_order": 13,
       "input_ids": [
-        "pf.profile.v1"
+        "attempt.rejected-start"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.authoritative_state_unchanged",
+          "value": true
         }
       ],
       "passed": true,
@@ -563,17 +576,17 @@
       "family": "profile_and_stage_flow",
       "case_order": 14,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.stage.20242"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.predecessor_stage_id",
+          "value": 20241
         }
       ],
       "passed": true,
@@ -604,17 +617,17 @@
       "family": "score_cap_and_aggregation",
       "case_order": 15,
       "input_ids": [
-        "pf.profile.v1"
+        "score.stage-aggregation"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.ordinary_clear_score",
+          "value": 30000
         }
       ],
       "passed": true,
@@ -645,17 +658,17 @@
       "family": "simultaneous_defeats",
       "case_order": 16,
       "input_ids": [
-        "pf.profile.v1"
+        "spawn.continuous-refill"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.simultaneous_defeat_order",
+          "value": "stable-slot-order"
         }
       ],
       "passed": true,
@@ -686,17 +699,17 @@
       "family": "spawn_refill_order",
       "case_order": 17,
       "input_ids": [
-        "pf.profile.v1"
+        "spawn.continuous-refill"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
           "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "path": "inputs.0.ordering",
+          "value": "authored-wave-then-slot"
         }
       ],
       "passed": true,
@@ -727,17 +740,16 @@
       "family": "tierce_entry_and_settlement",
       "case_order": 18,
       "input_ids": [
-        "pf.profile.v1"
+        "pf.tierce.20245"
       ],
       "initial_state": {
-        "runtime_executable": false
+        "reference_only": true
       },
       "commands": [],
       "expected_facts": [
         {
-          "op": "equals",
-          "path": "runtime_executable",
-          "value": false
+          "op": "absent",
+          "path": "inputs.0.inferred_second_team"
         }
       ],
       "passed": true,

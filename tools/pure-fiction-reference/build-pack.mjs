@@ -213,7 +213,32 @@ if (batch === "G15-P2-B6") {
     envelope("gap.initial-resources", "research-gap", "Initial resource selector", "初始资源选择器", "No active row exposes a season-specific override, so ordinary challenge defaults remain an explicit policy boundary.", "当前行未暴露周期专属覆盖，因此普通挑战默认值保持为显式策略边界。", ["pf.contract.initial_resources"], { blocking: false, replacement_condition: "released active selector exposes exact HP, Energy or Skill Point overrides" }, { quality: "ProjectPolicy" })
   ]);
   await emit("reconciliation.json", "reconciliation", manifest.obligations.filter((row) => row.owner === "Shared").map((record) => envelope(`reconciliation.${record.id}`, "reconciliation", record.id, record.id, "A shared source path/locator/digest reconciliation receipt that mutates no peer artifact.", "不修改其他目标制品的共享来源路径/定位器/摘要对账回执。", [record.id], { source_path: record.source_path, source_locator: record.source_locator, evidence_digest: record.evidence_digest, peer_goals: ["standard-reference-v1", "memory-of-chaos-reference-v1", "apocalyptic-shadow-reference-v1", "anomaly-arbitration-reference-v1"], outcome: "SourceIdentityCompared", conflict: false, peer_artifact_mutated: false }, { ownership: "Shared" })));
-  await emit("semantic-fixtures.json", "semantic-fixture", rows("semantic_fixture").map((record, index) => envelope(record.id, "semantic-fixture", record.id.slice(11), record.id.slice(11), "A deterministic Candidate reference assertion over normalized data.", "针对规范化数据的确定性Candidate资料断言。", [record.id], { family: record.id.slice(11), case_order: index + 1, input_ids: ["pf.profile.v1"], initial_state: { runtime_executable: false }, commands: [], expected_facts: [{ op: "equals", path: "runtime_executable", value: false }], passed: true, replacement_condition: record.note || "stronger released evidence" }, { quality: "ProjectPolicy", ownership: "EvidenceOnly" })));
+  const fixtureSpecs = new Map([
+    ["attempt_retry_and_reset", ["attempt.retry", [{ op: "equals", path: "inputs.0.creates_new_attempt", value: true }]]],
+    ["cacophony_2261", ["pf.buff.3031359", [{ op: "ordered_equals", path: "inputs.0.parameters", value: ["0.4", "2", "50", "1"] }]]],
+    ["cacophony_2263", ["pf.buff.3031361", [{ op: "contains", path: "inputs.0.binding_key", value: "2263" }]]],
+    ["cacophony_2264", ["pf.buff.3031362", [{ op: "ordered_equals", path: "inputs.0.parameters", value: ["0.15", "2", "40", "3"] }]]],
+    ["clock_tick_and_expiry", ["pf.clock.20241", [{ op: "equals", path: "inputs.0.timeout_behavior", value: "finalize-current-score" }]]],
+    ["damage_partial_scoring", ["score.damage", [{ op: "equals", path: "inputs.0.displayed_damage_used", value: false }]]],
+    ["defeat_scoring", ["score.defeat", [{ op: "equals", path: "inputs.0.source", value: "defeat-event" }]]],
+    ["encounter_wave_closure", ["pf.stage-config.30322011", [{ op: "equals", path: "inputs.0.wave_count", value: 3 }]]],
+    ["fever_enter_and_teardown", ["pf.buff.3031229", [{ op: "contains", path: "inputs.0.binding_key", value: "EnterFever" }]]],
+    ["grit_gain", ["pf.buff.3031227", [{ op: "ordered_equals", path: "inputs.0.parameters", value: ["1", "10"] }]]],
+    ["initial_resources", ["pf.contract.initial_resources", [{ op: "equals", path: "inputs.0.hp", value: "full" }]]],
+    ["objective_stars", ["pf.objective.2001", [{ op: "equals", path: "inputs.0.comparison", value: "greater-than-or-equal" }]]],
+    ["participant_and_loadout_rejection", ["attempt.rejected-start", [{ op: "equals", path: "inputs.0.authoritative_state_unchanged", value: true }]]],
+    ["profile_and_stage_flow", ["pf.stage.20242", [{ op: "equals", path: "inputs.0.predecessor_stage_id", value: 20241 }]]],
+    ["score_cap_and_aggregation", ["score.stage-aggregation", [{ op: "equals", path: "inputs.0.ordinary_clear_score", value: 30000 }]]],
+    ["simultaneous_defeats", ["spawn.continuous-refill", [{ op: "equals", path: "inputs.0.simultaneous_defeat_order", value: "stable-slot-order" }]]],
+    ["spawn_refill_order", ["spawn.continuous-refill", [{ op: "equals", path: "inputs.0.ordering", value: "authored-wave-then-slot" }]]],
+    ["tierce_entry_and_settlement", ["pf.tierce.20245", [{ op: "absent", path: "inputs.0.inferred_second_team" }]]],
+  ]);
+  await emit("semantic-fixtures.json", "semantic-fixture", rows("semantic_fixture").map((record, index) => {
+    const family = record.id.slice(11);
+    const [inputId, expectedFacts] = fixtureSpecs.get(family) ?? [];
+    if (!inputId) throw new Error(`missing fixture specification ${family}`);
+    return envelope(record.id, "semantic-fixture", family, family, "A deterministic Candidate reference assertion over normalized data.", "针对规范化数据的确定性Candidate资料断言。", [record.id], { family, case_order: index + 1, input_ids: [inputId], initial_state: { reference_only: true }, commands: [], expected_facts: expectedFacts, passed: true, replacement_condition: record.note || "stronger released evidence" }, { quality: "ProjectPolicy", ownership: "EvidenceOnly" });
+  }));
   const schema = JSON.parse(await readFile(path.join(packRoot, "schema.json")));
   const index = [];
   let fileOrder = 0;

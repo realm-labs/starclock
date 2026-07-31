@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Independent Sora and Excel |
 | Active batch | — |
-| Next unblocked batch | `G15-P4-B2` |
+| Next unblocked batch | `G15-P4-B3` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -35,7 +35,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Profile/season/Tierce, participants/loadouts/attempts, clocks/refill, score/objectives, Whimsicality/Grit/Fever, three Cacophonies and initial-resource policies regenerate byte-identically. |
 | Phase 2 — Content pools, services, events and enemies | `Complete` | Seven exact-zero pool proofs, active event/program bindings, all nine encounters/27 waves/63 slots, complete 596-row enemy mechanic closure, 25 rule families, 18 fixtures and exact-once 796-row coverage are machine-verified. |
 | Phase 3 — Independent Sora and Excel | `Complete` | Three workbooks regenerate byte-identically; 37 Sora exports load all 6,810 rows through isolated generated readers and every sheet/schema column passed rendered review. |
-| Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `InProgress` | The exact-once release/ownership/provenance audit passes; semantic fixture execution is next. |
+| Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `InProgress` | Ownership audit and 18 semantic fixture families pass; shared reconciliation and terminal acceptance are next. |
 
 ## Batch ledger
 
@@ -65,7 +65,7 @@
 | `G15-P3-B5` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. Deterministic `openpyxl` authoring creates three clean workbooks with 37 contract-named sheets and 6,810 rows, including distinct manifest audit and coverage views. Structural/semantic verification proves template directives, stable-key uniqueness/order, complete headers, filters, frozen panes, zero formulas and zero runtime-executable rows; Sora 0.3.0 accepts all authored data. |
 | `G15-P3-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `verify-authoring.mjs` proves byte-identical double workbook generation, normalized Sora templates, lock/readers, 37 debug tables and zstd bundle `d6602e68…02c3`; the isolated generated-reader crate loads all 37 tables/6,810 rows. LibreOffice/pdftoppm rendered 37 pages and five contact sheets; direct inspection of every page found consistent header bands, visible rows across A:P and no blank/clipped/broken required sheet, recorded in `workbook-visual-review.json`. |
 | `G15-P4-B1` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `audit-release.mjs` verifies all 796 manifest obligations appear exactly once in coverage and sources, all 5,218 authored rows are bilingual/DataReady/non-runtime with valid manifest/provenance references, seven selector-backed pools are ExactZero, group `2025` remains excluded, all three gaps are nonblocking and 606 reconciliation rows report no conflict or peer mutation. The 6,014-row normalized pack audit is frozen in `ownership-audit.json`. |
-| `G15-P4-B2` | `Pending` | — | Execute all semantic fixtures and approximation replacement checks. |
+| `G15-P4-B2` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. The generated fixture pack now binds each of 18 lifecycle/spawn/score/Grit/Fever/Cacophony/encounter/Tierce families to its relevant normalized input and a closed `equals`/`contains`/`ordered_equals`/`absent` fact. `execute-semantic-fixtures.mjs` resolves and passes all 18 assertions, audits all three nonblocking ProjectPolicy replacement conditions and freezes result digest `17477b19…cad6`; regenerated workbooks/Sora bundle `c7960036…f9d0` remain deterministic and 37-page visual QA still passes. |
 | `G15-P4-B3` | `Pending` | — | Reconcile shared overlap and run full regeneration, drift, reader, dependency and clean-checkout acceptance. |
 | `G15-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
 

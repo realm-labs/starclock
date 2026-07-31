@@ -1,0 +1,177 @@
+{
+  "schema_revision": "starclock.pure-fiction-semantic-fixture-run.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "batch": "G15-P4-B2",
+  "fixture_count": 18,
+  "asserted_fact_count": 18,
+  "passed_fixture_count": 18,
+  "failed_fixture_count": 0,
+  "approximation_count": 3,
+  "blocking_approximation_count": 0,
+  "fixture_digest": "17477b195da85ba66c058f408ce33ca77918c8ec9ab7e479e255f8bd6c44cad6",
+  "results": [
+    {
+      "fixture_id": "pf.fixture.attempt_retry_and_reset",
+      "family": "attempt_retry_and_reset",
+      "input_ids": [
+        "attempt.retry"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.cacophony_2261",
+      "family": "cacophony_2261",
+      "input_ids": [
+        "pf.buff.3031359"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.cacophony_2263",
+      "family": "cacophony_2263",
+      "input_ids": [
+        "pf.buff.3031361"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.cacophony_2264",
+      "family": "cacophony_2264",
+      "input_ids": [
+        "pf.buff.3031362"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.clock_tick_and_expiry",
+      "family": "clock_tick_and_expiry",
+      "input_ids": [
+        "pf.clock.20241"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.damage_partial_scoring",
+      "family": "damage_partial_scoring",
+      "input_ids": [
+        "score.damage"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.defeat_scoring",
+      "family": "defeat_scoring",
+      "input_ids": [
+        "score.defeat"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.encounter_wave_closure",
+      "family": "encounter_wave_closure",
+      "input_ids": [
+        "pf.stage-config.30322011"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.fever_enter_and_teardown",
+      "family": "fever_enter_and_teardown",
+      "input_ids": [
+        "pf.buff.3031229"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.grit_gain",
+      "family": "grit_gain",
+      "input_ids": [
+        "pf.buff.3031227"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.initial_resources",
+      "family": "initial_resources",
+      "input_ids": [
+        "pf.contract.initial_resources"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.objective_stars",
+      "family": "objective_stars",
+      "input_ids": [
+        "pf.objective.2001"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.participant_and_loadout_rejection",
+      "family": "participant_and_loadout_rejection",
+      "input_ids": [
+        "attempt.rejected-start"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.profile_and_stage_flow",
+      "family": "profile_and_stage_flow",
+      "input_ids": [
+        "pf.stage.20242"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.score_cap_and_aggregation",
+      "family": "score_cap_and_aggregation",
+      "input_ids": [
+        "score.stage-aggregation"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.simultaneous_defeats",
+      "family": "simultaneous_defeats",
+      "input_ids": [
+        "spawn.continuous-refill"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.spawn_refill_order",
+      "family": "spawn_refill_order",
+      "input_ids": [
+        "spawn.continuous-refill"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    },
+    {
+      "fixture_id": "pf.fixture.tierce_entry_and_settlement",
+      "family": "tierce_entry_and_settlement",
+      "input_ids": [
+        "pf.tierce.20245"
+      ],
+      "asserted_fact_count": 1,
+      "result": "Passed"
+    }
+  ],
+  "result": "Passed"
+}
