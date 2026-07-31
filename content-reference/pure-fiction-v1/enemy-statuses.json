@@ -1,0 +1,5062 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "enemy-statuses.json",
+  "record_kind": "enemy-status",
+  "records": [
+    {
+      "id": "pf.enemy-status.210010101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210010101",
+      "name_zh_cn": "敌方状态210010101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210010101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210010101"
+      ],
+      "runtime_executable": false,
+      "status_id": 210010101,
+      "modifier_name": "Monster_W1_Soldier01_00_DefenceRatioDown",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210020201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210020201",
+      "name_zh_cn": "敌方状态210020201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210020201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210020201"
+      ],
+      "runtime_executable": false,
+      "status_id": 210020201,
+      "modifier_name": "Monster_W1_Soldier01_03_Buff",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "Modifier_AttackAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210020301",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210020301",
+      "name_zh_cn": "敌方状态210020301",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210020301"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210020301"
+      ],
+      "runtime_executable": false,
+      "status_id": 210020301,
+      "modifier_name": "MMonster_W1_Soldier04_00_SkillP01_Supporting",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210020302",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210020302",
+      "name_zh_cn": "敌方状态210020302",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210020302"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210020302"
+      ],
+      "runtime_executable": false,
+      "status_id": 210020302,
+      "modifier_name": "MMonster_W1_Soldier04_00_SkillP01_Supported",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130101",
+      "name_zh_cn": "敌方状态210130101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130101"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130101,
+      "modifier_name": "W1_Mecha02_AttackBuff",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "ModifierDamageUpValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130121",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130121",
+      "name_zh_cn": "敌方状态210130121",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130121"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130121"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130121,
+      "modifier_name": "Monster_W1_Mecha03_00_RL_Revenge",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130201",
+      "name_zh_cn": "敌方状态210130201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130201"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130201,
+      "modifier_name": "Sign_W1_Mecha02",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130202",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130202",
+      "name_zh_cn": "敌方状态210130202",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130202"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130202"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130202,
+      "modifier_name": "W1_Mecha02_ThunderDOT",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130203",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130203",
+      "name_zh_cn": "敌方状态210130203",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130203"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130203"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130203,
+      "modifier_name": "Monster_W1_Mecha04_00_PassiveMDF",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130211",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130211",
+      "name_zh_cn": "敌方状态210130211",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130211"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130211"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130211,
+      "modifier_name": "Monster_W1_Mecha04_00_Sign01",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130212",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130212",
+      "name_zh_cn": "敌方状态210130212",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130212"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130212"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130212,
+      "modifier_name": "Monster_W1_Mecha04_00_Sign02",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.210130222",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 210130222",
+      "name_zh_cn": "敌方状态210130222",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.210130222"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.210130222"
+      ],
+      "runtime_executable": false,
+      "status_id": 210130222,
+      "modifier_name": "Monster_W1_Mecha04_00_RL_Skill12_SpeedUp",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedAddedRatio_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220020301",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220020301",
+      "name_zh_cn": "敌方状态220020301",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220020301"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220020301"
+      ],
+      "runtime_executable": false,
+      "status_id": 220020301,
+      "modifier_name": "MCommon_Unstable",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220020302",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220020302",
+      "name_zh_cn": "敌方状态220020302",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220020302"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220020302"
+      ],
+      "runtime_executable": false,
+      "status_id": 220020302,
+      "modifier_name": "MCommon_Shake",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040102",
+      "name_zh_cn": "敌方状态220040102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040102"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040102,
+      "modifier_name": "Monster_W2_Kafka_00_Charm",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040111",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040111",
+      "name_zh_cn": "敌方状态220040111",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040111"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040111"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040111,
+      "modifier_name": "Monster_W2_Kafka_00_RL_DamageUp",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageUpRatio_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040112",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040112",
+      "name_zh_cn": "敌方状态220040112",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040112"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040112"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040112,
+      "modifier_name": "Monster_W2_Kafka_00_RL_MindControl_True",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040113",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040113",
+      "name_zh_cn": "敌方状态220040113",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040113"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040113"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040113,
+      "modifier_name": "Monster_W2_Kafka_00_RL_MindControl_False",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040114",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040114",
+      "name_zh_cn": "敌方状态220040114",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040114"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040114"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040114,
+      "modifier_name": "Monster_W2_Kafka_00_RL_MindControl_TrueEffect",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040141",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040141",
+      "name_zh_cn": "敌方状态220040141",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040141"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040141"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040141,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonWeak",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_WeakDMGReduceRatio",
+        "MDF_WeakStatusProbReduceRatio",
+        "MDF_WeakStanceSliceRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.2200401410",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 2200401410",
+      "name_zh_cn": "敌方状态2200401410",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.2200401410"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.2200401410"
+      ],
+      "runtime_executable": false,
+      "status_id": 2200401410,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonKillBonus02",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.2200401411",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 2200401411",
+      "name_zh_cn": "敌方状态2200401411",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.2200401411"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.2200401411"
+      ],
+      "runtime_executable": false,
+      "status_id": 2200401411,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonKillBonus03",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.2200401412",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 2200401412",
+      "name_zh_cn": "敌方状态2200401412",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.2200401412"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.2200401412"
+      ],
+      "runtime_executable": false,
+      "status_id": 2200401412,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonKillBonus04",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040142",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040142",
+      "name_zh_cn": "敌方状态220040142",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040142"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040142"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040142,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonFenzy",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_FrenzyDMGTokenAddRatio",
+        "MDF_FrenzySpeedAddRatio",
+        "MDF_FrenzyStanceSliceRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040143",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040143",
+      "name_zh_cn": "敌方状态220040143",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040143"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040143"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040143,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonKillBonus",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040144",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040144",
+      "name_zh_cn": "敌方状态220040144",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040144"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040144"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040144,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonKillBonus_Sub",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_KillBonus"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040145",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040145",
+      "name_zh_cn": "敌方状态220040145",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040145"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040145"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040145,
+      "modifier_name": "MMonster_W2_Kafka_IF_EnemyCount_Sub",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_TokenDMGRduceRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040146",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040146",
+      "name_zh_cn": "敌方状态220040146",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040146"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040146"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040146,
+      "modifier_name": "MMonster_Common_IF_AllDamageTransfer_AlldamageReduce_Sub",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_AllDamageTransferRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040147",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040147",
+      "name_zh_cn": "敌方状态220040147",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040147"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040147"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040147,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonBreakShow",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040148",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040148",
+      "name_zh_cn": "敌方状态220040148",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040148"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040148"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040148,
+      "modifier_name": "MMonster_W2_Kafka_00_IF_AssistController_Save",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220040149",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220040149",
+      "name_zh_cn": "敌方状态220040149",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220040149"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220040149"
+      ],
+      "runtime_executable": false,
+      "status_id": 220040149,
+      "modifier_name": "Monster_W2_Kafka_00_IF03_SummonKillBonus01",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220221101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220221101",
+      "name_zh_cn": "敌方状态220221101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220221101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220221101"
+      ],
+      "runtime_executable": false,
+      "status_id": 220221101,
+      "modifier_name": "MMonster_W2_Valkyrie01_01_SkillP01_ComboAttack",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220230201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220230201",
+      "name_zh_cn": "敌方状态220230201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220230201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220230201"
+      ],
+      "runtime_executable": false,
+      "status_id": 220230201,
+      "modifier_name": "Monster_W2_Beast02_00_Bullet",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220230202",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220230202",
+      "name_zh_cn": "敌方状态220230202",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220230202"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220230202"
+      ],
+      "runtime_executable": false,
+      "status_id": 220230202,
+      "modifier_name": "Monster_W2_Beast02_00_Weak",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220230203",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220230203",
+      "name_zh_cn": "敌方状态220230203",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220230203"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220230203"
+      ],
+      "runtime_executable": false,
+      "status_id": 220230203,
+      "modifier_name": "MMonster_W2_Beast02_00_BlockDamage",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220230204",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220230204",
+      "name_zh_cn": "敌方状态220230204",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220230204"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220230204"
+      ],
+      "runtime_executable": false,
+      "status_id": 220230204,
+      "modifier_name": "Monster_Beast02_Attack_Sign",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220230205",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220230205",
+      "name_zh_cn": "敌方状态220230205",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220230205"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220230205"
+      ],
+      "runtime_executable": false,
+      "status_id": 220230205,
+      "modifier_name": "Monster_Common_Layer_DamageUP",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageAddedRatio",
+        "MDF_MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220320101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220320101",
+      "name_zh_cn": "敌方状态220320101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220320101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220320101"
+      ],
+      "runtime_executable": false,
+      "status_id": 220320101,
+      "modifier_name": "MMonster_W2_Lycan_00_RageStatus",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220320102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220320102",
+      "name_zh_cn": "敌方状态220320102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220320102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220320102"
+      ],
+      "runtime_executable": false,
+      "status_id": 220320102,
+      "modifier_name": "MMonster_W2_Lycan_00_RageStatusEnhance",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220320103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220320103",
+      "name_zh_cn": "敌方状态220320103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220320103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220320103"
+      ],
+      "runtime_executable": false,
+      "status_id": 220320103,
+      "modifier_name": "MMonster_W2_Lycan_RagePhase1Mark",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_Layer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220320111",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220320111",
+      "name_zh_cn": "敌方状态220320111",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220320111"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220320111"
+      ],
+      "runtime_executable": false,
+      "status_id": 220320111,
+      "modifier_name": "MMonster_W2_Lycan_01_RageStatus",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220320112",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220320112",
+      "name_zh_cn": "敌方状态220320112",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220320112"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220320112"
+      ],
+      "runtime_executable": false,
+      "status_id": 220320112,
+      "modifier_name": "MMonster_W2_Lycan_01_RageStatusEnhance",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220330101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220330101",
+      "name_zh_cn": "敌方状态220330101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220330101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220330101"
+      ],
+      "runtime_executable": false,
+      "status_id": 220330101,
+      "modifier_name": "MCommon_FearPre",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_LoseSP"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220330102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220330102",
+      "name_zh_cn": "敌方状态220330102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220330102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220330102"
+      ],
+      "runtime_executable": false,
+      "status_id": 220330102,
+      "modifier_name": "MCommon_Fear",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220330103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220330103",
+      "name_zh_cn": "敌方状态220330103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220330103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220330103"
+      ],
+      "runtime_executable": false,
+      "status_id": 220330103,
+      "modifier_name": "MMonster_W2_LycanMecha_00_RageStatus",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220330104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220330104",
+      "name_zh_cn": "敌方状态220330104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220330104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220330104"
+      ],
+      "runtime_executable": false,
+      "status_id": 220330104,
+      "modifier_name": "MMonster_W2_LycanMecha_00_Skill06_Impact",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220340112",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220340112",
+      "name_zh_cn": "敌方状态220340112",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220340112"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220340112"
+      ],
+      "runtime_executable": false,
+      "status_id": 220340112,
+      "modifier_name": "MMonster_W2_LycanKing_00_RageStatus",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedUpRatio",
+        "MDF_SpeedUpRatioPerWolf"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.220340115",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 220340115",
+      "name_zh_cn": "敌方状态220340115",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.220340115"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.220340115"
+      ],
+      "runtime_executable": false,
+      "status_id": 220340115,
+      "modifier_name": "MMonster_W2_LycanKing_00_RageStatusEnhance",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230020111",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230020111",
+      "name_zh_cn": "敌方状态230020111",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230020111"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230020111"
+      ],
+      "runtime_executable": false,
+      "status_id": 230020111,
+      "modifier_name": "MModifier_Monster_W3_TV_02_Side1",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230020112",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230020112",
+      "name_zh_cn": "敌方状态230020112",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230020112"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230020112"
+      ],
+      "runtime_executable": false,
+      "status_id": 230020112,
+      "modifier_name": "MModifier_Monster_W3_TV_02_Side2",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230020302",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230020302",
+      "name_zh_cn": "敌方状态230020302",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230020302"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230020302"
+      ],
+      "runtime_executable": false,
+      "status_id": 230020302,
+      "modifier_name": "Monster_W2_Beast01_03_Bleed",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030101",
+      "name_zh_cn": "敌方状态230030101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030101"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030101,
+      "modifier_name": "MModifier_Monster_W3_Dinosaur_00_SpeedDownRatio",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030102",
+      "name_zh_cn": "敌方状态230030102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030102"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030102,
+      "modifier_name": "MModifier_Monster_W3_Dinosaur_00_AttackUpRatio",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "Modifier_AttackUp_AttackUpLayer",
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030103",
+      "name_zh_cn": "敌方状态230030103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030103"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030103,
+      "modifier_name": "MModifier_Monster_W3_Dinosaur_00_OverHit",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_OverHitLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030104",
+      "name_zh_cn": "敌方状态230030104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030104"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030104,
+      "modifier_name": "MModifier_Monster_W3_Dinosaur_00_Calm",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030105",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030105",
+      "name_zh_cn": "敌方状态230030105",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030105"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030105"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030105,
+      "modifier_name": "MModifier_Monster_W3_Dinosaur_00_Fury",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030131",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030131",
+      "name_zh_cn": "敌方状态230030131",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030131"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030131"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030131,
+      "modifier_name": "MMonster_W3_Dinosaur_02_Burn",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030132",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030132",
+      "name_zh_cn": "敌方状态230030132",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030132"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030132"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030132,
+      "modifier_name": "MMonster_W3_Dinosaur_02_AttackRatioUp",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030133",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030133",
+      "name_zh_cn": "敌方状态230030133",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030133"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030133"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030133,
+      "modifier_name": "MModifier_Monster_W3_Theater_00_RLBoss_AllDamageTypeAddedRatio",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030201",
+      "name_zh_cn": "敌方状态230030201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030201"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030201,
+      "modifier_name": "Monster_Common_WeakControl",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030301",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030301",
+      "name_zh_cn": "敌方状态230030301",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030301"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030301"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030301,
+      "modifier_name": "Monster_W3_Figure_02_IsAiming",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DangerLevel"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230030302",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230030302",
+      "name_zh_cn": "敌方状态230030302",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230030302"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230030302"
+      ],
+      "runtime_executable": false,
+      "status_id": 230030302,
+      "modifier_name": "Monster_W3_Figure_02_AimTarget",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230040101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230040101",
+      "name_zh_cn": "敌方状态230040101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230040101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230040101"
+      ],
+      "runtime_executable": false,
+      "status_id": 230040101,
+      "modifier_name": "MMonster_W3_DollElite_Commnon_Basic",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230040102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230040102",
+      "name_zh_cn": "敌方状态230040102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230040102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230040102"
+      ],
+      "runtime_executable": false,
+      "status_id": 230040102,
+      "modifier_name": "MMonster_W3_DollElite_Commnon_TheChosenOne",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230040103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230040103",
+      "name_zh_cn": "敌方状态230040103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230040103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230040103"
+      ],
+      "runtime_executable": false,
+      "status_id": 230040103,
+      "modifier_name": "MMonster_W3_DollElite_Common_DamageTakenUp",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_ExploreDamageUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230040201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230040201",
+      "name_zh_cn": "敌方状态230040201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230040201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230040201"
+      ],
+      "runtime_executable": false,
+      "status_id": 230040201,
+      "modifier_name": "MModifier_Monster_W3_TV_02_FaceLock",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230130101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230130101",
+      "name_zh_cn": "敌方状态230130101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230130101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230130101"
+      ],
+      "runtime_executable": false,
+      "status_id": 230130101,
+      "modifier_name": "MMonster_W3_Dinosaur_01_Common_Growth",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230130102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230130102",
+      "name_zh_cn": "敌方状态230130102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230130102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230130102"
+      ],
+      "runtime_executable": false,
+      "status_id": 230130102,
+      "modifier_name": "MModifier_Monster_W3_Dinosaur_00_RLElite_SpeedUp",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.230130121",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 230130121",
+      "name_zh_cn": "敌方状态230130121",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.230130121"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.230130121"
+      ],
+      "runtime_executable": false,
+      "status_id": 230130121,
+      "modifier_name": "Monster_W3_Dinosaur_01_MonsterAssistBuff",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240120101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240120101",
+      "name_zh_cn": "敌方状态240120101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240120101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240120101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240120101,
+      "modifier_name": "MCommon_Unstable_Monster",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240120102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240120102",
+      "name_zh_cn": "敌方状态240120102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240120102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240120102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240120102,
+      "modifier_name": "MCommon_Shake_Monster",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240120401",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240120401",
+      "name_zh_cn": "敌方状态240120401",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240120401"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240120401"
+      ],
+      "runtime_executable": false,
+      "status_id": 240120401,
+      "modifier_name": "MModifier_Monster_AML_Minion03_01_StoneShieldEnhance",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240120402",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240120402",
+      "name_zh_cn": "敌方状态240120402",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240120402"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240120402"
+      ],
+      "runtime_executable": false,
+      "status_id": 240120402,
+      "modifier_name": "MModifier_Monster_AML_Minion03_01_Halo",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240120403",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240120403",
+      "name_zh_cn": "敌方状态240120403",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240120403"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240120403"
+      ],
+      "runtime_executable": false,
+      "status_id": 240120403,
+      "modifier_name": "MModifier_Monster_AML_Minion03_01_StoneShieldEnhance_Nikadory",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130101",
+      "name_zh_cn": "敌方状态240130101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130101,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_Skill03_Aim",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130102",
+      "name_zh_cn": "敌方状态240130102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130102,
+      "modifier_name": "MMonster_Heaven_StoneShield",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageResistance"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130103",
+      "name_zh_cn": "敌方状态240130103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130103"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130103,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_Skill04_DamageTakenUp",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageTakenUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130104",
+      "name_zh_cn": "敌方状态240130104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130104"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130104,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_Skill03_Target_UI",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130141",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130141",
+      "name_zh_cn": "敌方状态240130141",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130141"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130141"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130141,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_LocalLegend_DeathCountDown_Monster_Display",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_EntityScore"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130142",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130142",
+      "name_zh_cn": "敌方状态240130142",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130142"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130142"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130142,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_LocalLegend_DeathCountDown_Avatar_Display",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_EntityScore"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130143",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130143",
+      "name_zh_cn": "敌方状态240130143",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130143"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130143"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130143,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_LocalLegend_Skill03_Aim",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240130144",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240130144",
+      "name_zh_cn": "敌方状态240130144",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240130144"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240130144"
+      ],
+      "runtime_executable": false,
+      "status_id": 240130144,
+      "modifier_name": "MModifier_Monster_W4_Claymore_00_LocalLegend03_Skill03_Aim",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240140101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240140101",
+      "name_zh_cn": "敌方状态240140101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240140101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240140101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240140101,
+      "modifier_name": "Monster_W4_Nikadory_00_Shield",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageResistance_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240140102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240140102",
+      "name_zh_cn": "敌方状态240140102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240140102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240140102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240140102,
+      "modifier_name": "Monster_W4_Nikadory_00_Brave",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageUpRatio_PerLayer",
+        "MDF_EnergyAddRatio",
+        "MDF_MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240140103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240140103",
+      "name_zh_cn": "敌方状态240140103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240140103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240140103"
+      ],
+      "runtime_executable": false,
+      "status_id": 240140103,
+      "modifier_name": "Monster_W4_Nikadory_00_EnhanceShield",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageResistance_PerLayer",
+        "MDF_DamageUpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240140223",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240140223",
+      "name_zh_cn": "敌方状态240140223",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240140223"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240140223"
+      ],
+      "runtime_executable": false,
+      "status_id": 240140223,
+      "modifier_name": "Monster_W4_Nikadory_00_RLBoss_DamageUp",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageUpRatio_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240140307",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240140307",
+      "name_zh_cn": "敌方状态240140307",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240140307"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240140307"
+      ],
+      "runtime_executable": false,
+      "status_id": 240140307,
+      "modifier_name": "MCommon_Monster_AllDamageReduce",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240220101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240220101",
+      "name_zh_cn": "敌方状态240220101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240220101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240220101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240220101,
+      "modifier_name": "MCommon_FastAction",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240220102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240220102",
+      "name_zh_cn": "敌方状态240220102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240220102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240220102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240220102,
+      "modifier_name": "MCommon_FastAction_Permanent",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240230101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240230101",
+      "name_zh_cn": "敌方状态240230101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240230101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240230101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240230101,
+      "modifier_name": "MMonster_W4_Griffin_00_Debuff_Mark",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "_MixedMark_LoseHpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240230201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240230201",
+      "name_zh_cn": "敌方状态240230201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240230201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240230201"
+      ],
+      "runtime_executable": false,
+      "status_id": 240230201,
+      "modifier_name": "MMonster_W4_Unicorn_00_Debuff_Mark",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "_MixedMark_LoseHpRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240230202",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240230202",
+      "name_zh_cn": "敌方状态240230202",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240230202"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240230202"
+      ],
+      "runtime_executable": false,
+      "status_id": 240230202,
+      "modifier_name": "MMonster_W4_Unicorn_00_SignOnAvatar",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240230203",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240230203",
+      "name_zh_cn": "敌方状态240230203",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240230203"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240230203"
+      ],
+      "runtime_executable": false,
+      "status_id": 240230203,
+      "modifier_name": "MMonster_W4_Unicorn_00_SignOnAvatar2",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240320101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240320101",
+      "name_zh_cn": "敌方状态240320101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240320101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240320101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240320101,
+      "modifier_name": "MMonster_AML_Minion02_01_RallyHP_V2",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240320102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240320102",
+      "name_zh_cn": "敌方状态240320102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240320102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240320102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240320102,
+      "modifier_name": "MMonster_AML_Minion02_01_RallyHP_V2_Strongth",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_AllDamageTypeAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240320501",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240320501",
+      "name_zh_cn": "敌方状态240320501",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240320501"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240320501"
+      ],
+      "runtime_executable": false,
+      "status_id": 240320501,
+      "modifier_name": "MMonster_W2_Valkyrie01_02_SkillP01",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330101",
+      "name_zh_cn": "敌方状态240330101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330101,
+      "modifier_name": "MMonster_XP_Elite01_02_DefenceDown",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "#Skill06_P1_Ratio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330102",
+      "name_zh_cn": "敌方状态240330102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330102,
+      "modifier_name": "MMonster_XP_Elite01_02_Charge_Enhance",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330111",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330111",
+      "name_zh_cn": "敌方状态240330111",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330111"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330111"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330111,
+      "modifier_name": "MMonster_XP_Elite01_02_LocalLegend_Skill03_Mark",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330112",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330112",
+      "name_zh_cn": "敌方状态240330112",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330112"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330112"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330112,
+      "modifier_name": "MMonster_XP_Elite01_02_LocalLegend_DamageAdded",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_ShowValue1"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330114",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330114",
+      "name_zh_cn": "敌方状态240330114",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330114"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330114"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330114,
+      "modifier_name": "MMonster_AML_Minion02_01_LocalLegend_NegativeBlood",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_NegativeBlood"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330115",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330115",
+      "name_zh_cn": "敌方状态240330115",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330115"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330115"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330115,
+      "modifier_name": "MMonster_AML_Minion02_01_LocalLegend_NegativeBlood_Avatar",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_NegativeBlood"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330201",
+      "name_zh_cn": "敌方状态240330201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330201"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330201,
+      "modifier_name": "MMonster_W4_Claymore_01_Skill02_DeadLock_Self",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedAddedRatio",
+        "MDF_DamageReduce",
+        "DeadLock_HP_CurrentValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330202",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330202",
+      "name_zh_cn": "敌方状态240330202",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330202"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330202"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330202,
+      "modifier_name": "MMonster_W4_Claymore_01_Skill02_DeadLock_Target",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedAddedRatio",
+        "MDF_DamageReduce"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330203",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330203",
+      "name_zh_cn": "敌方状态240330203",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330203"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330203"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330203,
+      "modifier_name": "MMonster_W4_Claymore_01_Skill02_DeadLock_Win",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_AllDamageTypeAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330204",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330204",
+      "name_zh_cn": "敌方状态240330204",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330204"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330204"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330204,
+      "modifier_name": "MMonster_W4_Claymore_01_Skill02_DeadLock_PowerUp",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_AllDamageTypeAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330205",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330205",
+      "name_zh_cn": "敌方状态240330205",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330205"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330205"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330205,
+      "modifier_name": "MMonster_W4_Claymore_01_Skill02_DeadLock_Target_Servant",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_SpeedAddedRatio",
+        "MDF_DamageReduce"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330211",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330211",
+      "name_zh_cn": "敌方状态240330211",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330211"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330211"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330211,
+      "modifier_name": "MMonster_W4_Claymore_01_LocalLegend_BlackCurse_Active",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330212",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330212",
+      "name_zh_cn": "敌方状态240330212",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330212"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330212"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330212,
+      "modifier_name": "MMonster_W4_Claymore_01_LocalLegend_BlackCurse_InActive",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330213",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330213",
+      "name_zh_cn": "敌方状态240330213",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330213"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330213"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330213,
+      "modifier_name": "MMonster_W4_Claymore_01_LocalLegend_Fatigue",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_ShowValue1"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330214",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330214",
+      "name_zh_cn": "敌方状态240330214",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330214"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330214"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330214,
+      "modifier_name": "MMonster_W4_Claymore_01_LocalLegend_AllMonst",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_ShowValue1",
+        "MDF_ShowValue2"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330215",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330215",
+      "name_zh_cn": "敌方状态240330215",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330215"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330215"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330215,
+      "modifier_name": "Monster_W4_Claymore_01_LocalLegend_LockHP_Revive",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330216",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330216",
+      "name_zh_cn": "敌方状态240330216",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330216"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330216"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330216,
+      "modifier_name": "MMonster_W4_Claymore_01_LocalLegend_WhiteCurse_Active",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240330217",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240330217",
+      "name_zh_cn": "敌方状态240330217",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240330217"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240330217"
+      ],
+      "runtime_executable": false,
+      "status_id": 240330217,
+      "modifier_name": "MMonster_W4_Claymore_01_LocalLegend_WhiteCurse_InActive",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440101",
+      "name_zh_cn": "敌方状态240440101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440101,
+      "modifier_name": "Monster_W4_Theoroi_00_Creation",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageUpRatio",
+        "MDF_HPHealRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440102",
+      "name_zh_cn": "敌方状态240440102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440102"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440102,
+      "modifier_name": "Monster_W4_Theoroi_00_Reversion",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_CostHPRatio",
+        "MDF_CurrentSpecialSP"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440103",
+      "name_zh_cn": "敌方状态240440103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440103"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440103,
+      "modifier_name": "Monster_W4_Theoroi_00_Destruction",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_LoseHPRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440104",
+      "name_zh_cn": "敌方状态240440104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440104"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440104,
+      "modifier_name": "Monster_W4_Theoroi_00_Destruction_Self",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_EntityCountRemain"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440105",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440105",
+      "name_zh_cn": "敌方状态240440105",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440105"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440105"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440105,
+      "modifier_name": "Monster_W4_Theoroi_00_Phase1",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_CurrentCountRemain"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440106",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440106",
+      "name_zh_cn": "敌方状态240440106",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440106"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440106"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440106,
+      "modifier_name": "Monster_W4_Theoroi_00_Reload",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_PropertyValue",
+        "MDF_Count"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240440107",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240440107",
+      "name_zh_cn": "敌方状态240440107",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240440107"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240440107"
+      ],
+      "runtime_executable": false,
+      "status_id": 240440107,
+      "modifier_name": "Monster_W4_Theoroi_00_DamageTakenUp",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageTakenUpRatio_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240530114",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240530114",
+      "name_zh_cn": "敌方状态240530114",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240530114"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240530114"
+      ],
+      "runtime_executable": false,
+      "status_id": 240530114,
+      "modifier_name": "MMonster_W4_Manta_00_LocalLegend_Virus_Monster",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.240630101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 240630101",
+      "name_zh_cn": "敌方状态240630101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.240630101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.240630101"
+      ],
+      "runtime_executable": false,
+      "status_id": 240630101,
+      "modifier_name": "MMonster_W4_Serpent_00_Charge",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250120201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250120201",
+      "name_zh_cn": "敌方状态250120201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250120201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250120201"
+      ],
+      "runtime_executable": false,
+      "status_id": 250120201,
+      "modifier_name": "MMonster_W2_Beast01_05_Boss",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250121001",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250121001",
+      "name_zh_cn": "敌方状态250121001",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250121001"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250121001"
+      ],
+      "runtime_executable": false,
+      "status_id": 250121001,
+      "modifier_name": "MMonster_W5_Magical_00_Passive_Rain",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250121002",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250121002",
+      "name_zh_cn": "敌方状态250121002",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250121002"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250121002"
+      ],
+      "runtime_executable": false,
+      "status_id": 250121002,
+      "modifier_name": "MMonster_W5_Magical_00_Passive_Sun",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250121003",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250121003",
+      "name_zh_cn": "敌方状态250121003",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250121003"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250121003"
+      ],
+      "runtime_executable": false,
+      "status_id": 250121003,
+      "modifier_name": "MMonster_W5_Magical_00_DeathRattle_Rain",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250121004",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250121004",
+      "name_zh_cn": "敌方状态250121004",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250121004"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250121004"
+      ],
+      "runtime_executable": false,
+      "status_id": 250121004,
+      "modifier_name": "MMonster_W5_Magical_00_DeathRattle_Sun",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250121101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250121101",
+      "name_zh_cn": "敌方状态250121101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250121101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250121101"
+      ],
+      "runtime_executable": false,
+      "status_id": 250121101,
+      "modifier_name": "MMonster_W5_Limao_00_ElationDamageUp",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_ElationDamageAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130101",
+      "name_zh_cn": "敌方状态250130101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130101"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130101,
+      "modifier_name": "MModifier_Monster_W4_Claymore_02_Skill03_Aim",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130102",
+      "name_zh_cn": "敌方状态250130102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130102"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130102,
+      "modifier_name": "MModifier_Monster_W4_Claymore_02_Skill05_Speed",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130103",
+      "name_zh_cn": "敌方状态250130103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130103"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130103,
+      "modifier_name": "MModifier_Monster_W4_Claymore_02_Skill05_Status",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130104",
+      "name_zh_cn": "敌方状态250130104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130104"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130104,
+      "modifier_name": "MModifier_Monster_W4_Claymore_02_Elation",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130105",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130105",
+      "name_zh_cn": "敌方状态250130105",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130105"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130105"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130105,
+      "modifier_name": "MModifier_Monster_W4_Claymore_02_NoElation",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130106",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130106",
+      "name_zh_cn": "敌方状态250130106",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130106"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130106"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130106,
+      "modifier_name": "MModifier_Monster_W4_Claymore_02_Skill03_AllDamageTypeTaken",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_PropertyValue"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130401",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130401",
+      "name_zh_cn": "敌方状态250130401",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130401"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130401"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130401,
+      "modifier_name": "MMonster_W5_Ranger_00_Shield_Quantum",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.2501304010",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 2501304010",
+      "name_zh_cn": "敌方状态2501304010",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.2501304010"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.2501304010"
+      ],
+      "runtime_executable": false,
+      "status_id": 2501304010,
+      "modifier_name": "MMonster_W5_Ranger_00_Main_DamageUp",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageUp"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.2501304012",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 2501304012",
+      "name_zh_cn": "敌方状态2501304012",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.2501304012"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.2501304012"
+      ],
+      "runtime_executable": false,
+      "status_id": 2501304012,
+      "modifier_name": "MAvatar_AvatarChange_W5_Ranger_00_Shield",
+      "status_type": "Other",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.2501304013",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 2501304013",
+      "name_zh_cn": "敌方状态2501304013",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.2501304013"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.2501304013"
+      ],
+      "runtime_executable": false,
+      "status_id": 2501304013,
+      "modifier_name": "MMonster_W5_Ranger_00_Main_Ultra",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130402",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130402",
+      "name_zh_cn": "敌方状态250130402",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130402"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130402"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130402,
+      "modifier_name": "MMonster_W5_Ranger_00_Shield_Fire",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130403",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130403",
+      "name_zh_cn": "敌方状态250130403",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130403"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130403"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130403,
+      "modifier_name": "MMonster_W5_Ranger_00_Shield_Imaginary",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130404",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130404",
+      "name_zh_cn": "敌方状态250130404",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130404"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130404"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130404,
+      "modifier_name": "MMonster_W5_Ranger_00_Shield_Physical",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130405",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130405",
+      "name_zh_cn": "敌方状态250130405",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130405"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130405"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130405,
+      "modifier_name": "MMonster_W5_Ranger_00_Debuff_Quantum",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_AllDamageTypeTakenRatio",
+        "MDF_ResistanceDelta"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130406",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130406",
+      "name_zh_cn": "敌方状态250130406",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130406"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130406"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130406,
+      "modifier_name": "MMonster_W5_Ranger_00_Debuff_Fire",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_AllDamageTypeTakenRatio",
+        "MDF_ResistanceDelta"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130407",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130407",
+      "name_zh_cn": "敌方状态250130407",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130407"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130407"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130407,
+      "modifier_name": "MMonster_W5_Ranger_00_Debuff_Imaginary",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_AllDamageTypeTakenRatio",
+        "MDF_ResistanceDelta"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130408",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130408",
+      "name_zh_cn": "敌方状态250130408",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130408"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130408"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130408,
+      "modifier_name": "MMonster_W5_Ranger_00_Debuff_Physical",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_AllDamageTypeTakenRatio",
+        "MDF_ResistanceDelta"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250130409",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250130409",
+      "name_zh_cn": "敌方状态250130409",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250130409"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250130409"
+      ],
+      "runtime_executable": false,
+      "status_id": 250130409,
+      "modifier_name": "MMonster_W5_Ranger_00_Main_SpeedUp",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_SpeedUp"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.250140103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 250140103",
+      "name_zh_cn": "敌方状态250140103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.250140103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.250140103"
+      ],
+      "runtime_executable": false,
+      "status_id": 250140103,
+      "modifier_name": "MMonster_W5_Vtuber_00_InField",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280030101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280030101",
+      "name_zh_cn": "敌方状态280030101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280030101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280030101"
+      ],
+      "runtime_executable": false,
+      "status_id": 280030101,
+      "modifier_name": "XP_Ice_Elite_Powerful_Modifier",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280030121",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280030121",
+      "name_zh_cn": "敌方状态280030121",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280030121"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280030121"
+      ],
+      "runtime_executable": false,
+      "status_id": 280030121,
+      "modifier_name": "Monster_XP_Elite01_01_MonsterAssistBuff",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280030201",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280030201",
+      "name_zh_cn": "敌方状态280030201",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280030201"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280030201"
+      ],
+      "runtime_executable": false,
+      "status_id": 280030201,
+      "modifier_name": "XP_Elite_Fire_Skill07_AttackUp_Modifier",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "Modifier_AttackAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280030202",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280030202",
+      "name_zh_cn": "敌方状态280030202",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280030202"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280030202"
+      ],
+      "runtime_executable": false,
+      "status_id": 280030202,
+      "modifier_name": "XP_Fire_Elite_Burning_Modifier_2",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280030203",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280030203",
+      "name_zh_cn": "敌方状态280030203",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280030203"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280030203"
+      ],
+      "runtime_executable": false,
+      "status_id": 280030203,
+      "modifier_name": "MMonster_XP_Elite01_00_Burn",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280120301",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280120301",
+      "name_zh_cn": "敌方状态280120301",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280120301"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280120301"
+      ],
+      "runtime_executable": false,
+      "status_id": 280120301,
+      "modifier_name": "MMonster_AML_Minion04_00_Mark",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280120302",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280120302",
+      "name_zh_cn": "敌方状态280120302",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280120302"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280120302"
+      ],
+      "runtime_executable": false,
+      "status_id": 280120302,
+      "modifier_name": "MMonster_AML_Minion04_00_Overheat",
+      "status_type": "Debuff",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280130101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280130101",
+      "name_zh_cn": "敌方状态280130101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280130101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280130101"
+      ],
+      "runtime_executable": false,
+      "status_id": 280130101,
+      "modifier_name": "MMonster_AML_Elite01_00_Aim",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280240101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280240101",
+      "name_zh_cn": "敌方状态280240101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280240101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280240101"
+      ],
+      "runtime_executable": false,
+      "status_id": 280240101,
+      "modifier_name": "Monster_SW_Boss_00_DOT_Poison",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280240102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280240102",
+      "name_zh_cn": "敌方状态280240102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280240102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280240102"
+      ],
+      "runtime_executable": false,
+      "status_id": 280240102,
+      "modifier_name": "Monster_SW_Boss_00_DamageUp",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageUpRatio_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280240103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280240103",
+      "name_zh_cn": "敌方状态280240103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280240103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280240103"
+      ],
+      "runtime_executable": false,
+      "status_id": 280240103,
+      "modifier_name": "Monster_SW_Boss_00_DamageTakenUp",
+      "status_type": "Debuff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageTakenUpRatio_PerLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280240104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280240104",
+      "name_zh_cn": "敌方状态280240104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280240104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280240104"
+      ],
+      "runtime_executable": false,
+      "status_id": 280240104,
+      "modifier_name": "Monster_SW_Minion01_00_Split",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "Modifier_TurnCount"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280240105",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280240105",
+      "name_zh_cn": "敌方状态280240105",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280240105"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280240105"
+      ],
+      "runtime_executable": false,
+      "status_id": 280240105,
+      "modifier_name": "Monster_SW_Minion01_00_SplitEffect",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280250102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280250102",
+      "name_zh_cn": "敌方状态280250102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280250102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280250102"
+      ],
+      "runtime_executable": false,
+      "status_id": 280250102,
+      "modifier_name": "Monster_SW_Boss_01_DamageReduce",
+      "status_type": "Buff",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_DamageReduceRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280250111",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280250111",
+      "name_zh_cn": "敌方状态280250111",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280250111"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280250111"
+      ],
+      "runtime_executable": false,
+      "status_id": 280250111,
+      "modifier_name": "MMonster_SW_Boss_01_IF_SwarmArmor",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280250112",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280250112",
+      "name_zh_cn": "敌方状态280250112",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280250112"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280250112"
+      ],
+      "runtime_executable": false,
+      "status_id": 280250112,
+      "modifier_name": "MMonster_SW_Boss_01_IF_MinionsEnhancement",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [
+        "MDF_AttackAddedRatio"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280330101",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280330101",
+      "name_zh_cn": "敌方状态280330101",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280330101"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280330101"
+      ],
+      "runtime_executable": false,
+      "status_id": 280330101,
+      "modifier_name": "Monster_Company_Coin",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageUpRatio",
+        "MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280330102",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280330102",
+      "name_zh_cn": "敌方状态280330102",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280330102"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280330102"
+      ],
+      "runtime_executable": false,
+      "status_id": 280330102,
+      "modifier_name": "Monster_Company_Coin_Elite",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageUpRatio_PerLayer",
+        "MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280330103",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280330103",
+      "name_zh_cn": "敌方状态280330103",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280330103"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280330103"
+      ],
+      "runtime_executable": false,
+      "status_id": 280330103,
+      "modifier_name": "Monster_Company_Coin_Avater",
+      "status_type": "Buff",
+      "can_dispel": true,
+      "parameter_names": [
+        "MDF_DamageUpRatio_PerLayer",
+        "MaxLayer"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pf.enemy-status.280330104",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "enemy-status",
+      "name_en": "Enemy status 280330104",
+      "name_zh_cn": "敌方状态280330104",
+      "summary_en": "A released status modifier referenced by a selected enemy ability program.",
+      "summary_zh_cn": "由选定敌方能力程序引用的已发布状态修饰器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.enemy-status.280330104"
+      ],
+      "source_record_ids": [
+        "source.pf.enemy-status.280330104"
+      ],
+      "runtime_executable": false,
+      "status_id": 280330104,
+      "modifier_name": "Monster_W1_Mecha03_02_ChargeEffect",
+      "status_type": "Other",
+      "can_dispel": false,
+      "parameter_names": [],
+      "tags": []
+    }
+  ]
+}
