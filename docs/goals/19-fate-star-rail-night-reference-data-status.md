@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `fate-star-rail-night-reference-v1` |
-| State | `Ready` |
-| Active phase | Not started |
+| State | `InProgress` |
+| Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | — |
-| Next unblocked batch | `G19-P0-B1` |
+| Next unblocked batch | `G19-P0-B2` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -35,7 +35,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Awaiting execution-owned cache reproduction, inventory, manifest and contracts. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | B1 reproduced both pinned caches twice, froze the 89-file discovery seed and proved branch/path/runtime isolation. |
 | Phase 1 — Unique activity systems | `Pending` | Awaiting graph, participants, Mystic Codes, resources, progression and fights. |
 | Phase 2 — Encounters and complete pack | `Pending` | Awaiting pools, configs, encounters, enemy closure, rules and fixtures. |
 | Phase 3 — Excel and Sora | `Pending` | Awaiting isolated schemas/readers, four workbooks, deterministic exports and visual QA. |
@@ -45,7 +45,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G19-P0-B1` | `Pending` | — | Reproduce sources, freeze released boundary/base/remotes and prove isolation. |
+| `G19-P0-B1` | `Complete` | This row's containing commit | Reproduced clean detached caches twice; froze 25 dedicated FateRin tables plus 64 Fate configuration seeds at receipt digest `e75abcf…0cad`; verified base, upstream, source trees, ownership roots, named Currency Wars/RtBattle exclusions and no runtime lowering. `freeze-foundation.mjs --check` and `git diff --check` pass. Push and full remote equality are recorded by the containing commit publication before B2 starts. |
 | `G19-P0-B2` | `Pending` | — | Generate focused table/config/TextMap/Stage/enemy inventory and exclusions. |
 | `G19-P0-B3` | `Pending` | — | Freeze selector-backed manifests, denominators, ownership and exact-zero pools. |
 | `G19-P0-B4` | `Pending` | — | Freeze normalized, evidence, workbook, reconciliation and fixture contracts. |
