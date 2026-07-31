@@ -104,6 +104,7 @@ config/apocalyptic-shadow/
 config/apocalyptic-shadow-generated/
 tools/apocalyptic-shadow-reference/
 evidence/apocalyptic-shadow-reference-v1/
+policy/repository-checks.json  # generated-reader exemption only
 ```
 
 The three clean-generated `openpyxl` authoring surfaces are:

@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 4 — Candidate freeze |
 | Active batch | — |
-| Next unblocked batch | `G18-P4-B2` |
+| Next unblocked batch | `G18-P4-B3` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -28,7 +28,7 @@
 | Phase 1 — Mode systems | `Complete` | Profile/lifecycle, AV/progress/score, Steadfast Safeguard, Ruinous Embers, Word Shatter and all nine active Axiom options imported as runtime-disabled data. |
 | Phase 2 — Encounters and closure | `Complete` | Pools/bindings, nine encounter selectors, ten variants, 67 reachable skills, complete source/coverage/reconciliation rows and 42 fixture cases generated. No standalone status row is selected by the frozen closure. |
 | Phase 3 — Excel/Sora authoring | `Complete` | 35 isolated Sora tables, three complete deterministic workbooks, schema lock/templates/readers/debug export/bundle and a 35-page visual review all pass. |
-| Phase 4 — Candidate freeze | `InProgress` | Exact-once ownership/coverage, semantic fixtures and shared-row reconciliation pass; clean/repository gates remain. |
+| Phase 4 — Candidate freeze | `InProgress` | Exact-once ownership/coverage, semantic fixtures, reconciliation, deterministic regeneration, repository quick/full gates and clean-checkout verification pass; immutable registration remains. |
 
 ## Batch ledger
 
@@ -48,7 +48,7 @@
 | `G18-P3-B1` | `Complete` | This row's containing commit | Generated 35 isolated Sora tables across three schemas/workbooks, schema lock, templates, Rust readers, 35 debug tables and compressed binary bundle using Sora 0.3.0; workbooks use isolated `openpyxl==3.1.5`. |
 | `G18-P3-B2` | `Complete` | This row's containing commit | Proved byte-identical double workbook generation and Sora lock/readers/debug/binary regeneration; structurally verified 35 sheets/1,246 rows/zero formulas/runtime rows; rendered all 35 sheets into five reviewed contact sheets. |
 | `G18-P4-B1` | `Complete` | This row's containing commit | Candidate audit passes 129/129 exact-once obligations, 1,246 DataReady normalized rows, six exact-zero pools, 81 shared receipts/zero conflicts, 16 families/42 fixtures, zero blocking gaps and zero runtime rows. |
-| `G18-P4-B2` | `Pending` | — | Deterministic regeneration, repository and clean-checkout gates. |
+| `G18-P4-B2` | `Complete` | This row's containing commit | Focused deterministic regeneration, quick gate, 3602.2-second full gate and detached clean-checkout verification all pass; release-gate evidence records the isolated Python/Sora/source environments. |
 | `G18-P4-B3` | `Pending` | — | Immutable Candidate release snapshot. |
 
 ## Frozen counters
@@ -86,3 +86,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | `G18-P3-B1` | `generate-sora-schema.mjs`; isolated `.cache/g18-venv` with `openpyxl==3.1.5`; `author_workbooks.py`; `sora check/schema-lock/excel-template/gen/export` | Passed: three workbooks/35 sheets, 35 Sora tables/debug exports, generated readers and `config.sora`. Workspace dependency loader timed out three times without returning; no global environment was changed. |
 | 2026-08-01 | `G18-P3-B2` | `node tools/apocalyptic-shadow-reference/verify-authoring.mjs`; disposable print-area copies; headless LibreOffice; Poppler; `contact_sheets.py`; five contact-sheet visual inspection | Passed: deterministic authoring/export, 35/35 sheets rendered, no blank default sheet, clipping/overlap or formula/runtime defect. |
 | 2026-08-01 | `G18-P4-B1` | `execute-semantic-fixtures.mjs`; `audit-release.mjs`; refreshed review workbook/Sora debug/binary and 35-page visual review | Passed: 42/42 fixtures, 129 exact-once coverage rows, 81/81 conflict-free reconciliation receipts, 1,246 DataReady rows, zero blocking gaps/runtime rows. |
+| 2026-08-01 | `G18-P4-B2` | focused inventory/manifest/pool/pack/authoring/fixture/audit checks; `node tools/repository-check/run.mjs`; same with `--full`; detached clean-checkout focused suite and quick gate | Passed: quick 116.3s; full 3602.2s including Clippy and 33 workspace test harnesses; clean-checkout quick 5.1s. The full replacement command placed isolated `openpyxl==3.1.5` on `PATH`; no global Python mutation. |
