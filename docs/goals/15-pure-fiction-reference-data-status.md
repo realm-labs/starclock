@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `pure-fiction-reference-v1` |
-| State | `Ready` |
-| Active phase | Not started |
+| State | `InProgress` |
+| Active phase | Phase 0 — Scope, sources, manifest and contracts |
 | Active batch | — |
-| Next unblocked batch | `G15-P0-B1` |
+| Next unblocked batch | `G15-P0-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -21,7 +21,7 @@
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
 | Branch | Target `codex/goal15-pure-fiction-reference`; create it from current `origin/master` before `G15-P0-B1` |
-| Branch base | Pending execution-time freeze in `G15-P0-B1`; this plan is integrated by mainline merge commit `1e10d3c7…` |
+| Branch base | `92febad080dd4cf9997718d64b3648fc198ab1f8`; equal to `origin/master` and the remote execution branch before `G15-P0-B1` |
 | Parallel inspection | The 2026-07-30 audit covered the legacy setup base; `G15-P0-B1` must repeat it against current Goal 14, 16 and 17 work and the execution branch |
 | Parallel condition | Separate branch/worktree and six isolated Goal 15 roots while other Goals or integration work are active |
 | Publication policy | Push and remotely verify each completed batch before starting the next batch |
@@ -31,7 +31,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources, manifest and contracts | `Pending` | Awaiting execution-owned cache reproduction, focused inventory, active-release/Tierce/Starward manifest and authoring contracts. |
+| Phase 0 — Scope, sources, manifest and contracts | `InProgress` | Cache reproduction, Goal 03 verification, Version 4.4 scope and six-root isolation are frozen; focused inventory is next. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting profile/season flow, participants/loadouts, attempts, clocks, spawn/refill, scoring, objectives, Whimsicality, Grit/Fever and Cacophony semantics. |
 | Phase 2 — Content pools, services, events and enemies | `Pending` | Awaiting nonzero/zero pool proofs, themes/MazeBuffs/BattleEvents/configs, exact StageConfig waves, enemies, AI and abilities. |
 | Phase 3 — Independent Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
@@ -41,7 +41,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G15-P0-B1` | `Pending` | — | Reproduce caches, verify Goal 03 and concurrent boundaries, freeze released Version 4.4 scope and prove isolation. |
+| `G15-P0-B1` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; push with `git push origin HEAD:codex/goal15-pure-fiction-reference`, verify using `git ls-remote --heads origin codex/goal15-pure-fiction-reference`. Reproduced clean pinned revisions `fd978d6e…` and `7b349e39…`, verified Goal 03 Complete, froze base/remote equality `92febad0…`, Version 4.4 scope/exclusions and all six isolated roots without changing another cache, workbook or production bundle. |
 | `G15-P0-B2` | `Pending` | — | Inventory dedicated/adjacent tables, entry mappings, `FantasticStory*` and shared config/ability programs, TextMaps, StageConfig, enemies and exclusions. |
 | `G15-P0-B3` | `Pending` | — | Freeze active selectors, exact obligations/counts, Tierce/Starward semantics, ownership, reachability, exact-zero pools and scheduled/unreleased exclusions. |
 | `G15-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
