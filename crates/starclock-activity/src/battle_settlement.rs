@@ -152,9 +152,9 @@ impl ActivityMetricProjectionBinding {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivityBattleResultContract {
-    projection: Arc<BattleResultProjection>,
-    carry: Box<[ActivityParticipantCarryDefinition]>,
-    metrics: Box<[ActivityMetricProjectionBinding]>,
+    pub(crate) projection: Arc<BattleResultProjection>,
+    pub(crate) carry: Box<[ActivityParticipantCarryDefinition]>,
+    pub(crate) metrics: Box<[ActivityMetricProjectionBinding]>,
     digest: BattleSettlementContractDigest,
 }
 
@@ -329,7 +329,7 @@ impl ActivityCarryLedger {
             .into_boxed_slice()
     }
 
-    fn insert(&mut self, state: ActivityParticipantCarryState) {
+    pub(crate) fn insert(&mut self, state: ActivityParticipantCarryState) {
         self.0.insert(state.participant, state);
     }
 
@@ -455,8 +455,8 @@ fn ratio_of_hp(value: Hp, ratio: Ratio) -> Result<i64, ActivityCarryMutationErro
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ActivityAwaitingBattle {
-    identity: BattleResultIdentity,
-    contract: Arc<ActivityBattleResultContract>,
+    pub(crate) identity: BattleResultIdentity,
+    pub(crate) contract: Arc<ActivityBattleResultContract>,
 }
 
 impl ActivityAwaitingBattle {
@@ -548,8 +548,8 @@ impl ActivityBattleStartRequest {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivityBattleResultSubmission {
-    expected_state_hash: ActivityStateHash,
-    result: Box<BattleResult>,
+    pub(crate) expected_state_hash: ActivityStateHash,
+    pub(crate) result: Box<BattleResult>,
 }
 
 impl ActivityBattleResultSubmission {
@@ -836,7 +836,7 @@ fn validate_contract(
     Ok(())
 }
 
-fn validate_participant_results(
+pub(crate) fn validate_participant_results(
     attempt: &crate::battle_preparation::ActivityAttemptState,
     result: &BattleResult,
 ) -> Result<(), ActivityBattleSettlementError> {
@@ -859,7 +859,7 @@ fn validate_participant_results(
     Ok(())
 }
 
-fn apply_carry(
+pub(crate) fn apply_carry(
     definition: ActivityParticipantCarryDefinition,
     state: ParticipantBattleState,
 ) -> Result<ActivityParticipantCarryState, ActivityBattleSettlementError> {
@@ -915,7 +915,7 @@ fn apply_carry(
     })
 }
 
-fn metric_value(value: MetricValue) -> ActivityValue {
+pub(crate) fn metric_value(value: MetricValue) -> ActivityValue {
     match value {
         MetricValue::BoundedInteger(value) => ActivityValue::BoundedInteger(value),
         MetricValue::FixedScalar(value)

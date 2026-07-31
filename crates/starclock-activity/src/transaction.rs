@@ -247,6 +247,33 @@ impl ActivityTransactionState {
     pub fn slot(&self, id: ActivitySlotId) -> Option<&ActivityValue> {
         self.slots.get(&id)
     }
+    /// Returns one inventory snapshot in canonical content-ID order.
+    ///
+    /// This is a read-only battle-snapshot boundary. Callers cannot mutate the
+    /// inventory except through accepted Activity commands.
+    #[must_use]
+    pub fn inventory_entries(
+        &self,
+        id: ActivityInventoryId,
+    ) -> Option<impl ExactSizeIterator<Item = (u64, u32)> + '_> {
+        self.inventories
+            .get(&id)
+            .map(|entries| entries.iter().map(|(content, count)| (*content, *count)))
+    }
+    /// Whether the current node's most recent battle attempt has already
+    /// committed a verified result.
+    ///
+    /// A mode may use this read-only boundary to prevent preparing the same
+    /// encounter twice before an ordinary graph transition enters a new node.
+    #[must_use]
+    pub fn current_battle_attempt_is_settled(&self) -> bool {
+        self.attempt
+            .as_ref()
+            .is_some_and(ActivityAttemptState::is_settled)
+    }
+    pub(crate) const fn state_definition(&self) -> &ActivityStateDefinition {
+        &self.definition
+    }
     #[must_use]
     pub(crate) fn counter_value(&self, id: ActivitySlotId, key: u64) -> Option<i64> {
         match self.slots.get(&id)? {

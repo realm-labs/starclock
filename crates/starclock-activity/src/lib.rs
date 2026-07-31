@@ -10,6 +10,7 @@ mod activity_rng;
 mod aggregate;
 mod battle_preparation;
 mod battle_settlement;
+mod battle_settlement_in_place;
 mod codec;
 mod graph;
 mod graph_activity;
@@ -53,6 +54,9 @@ pub use battle_settlement::{
     ActivityParticipantCarryDefinition, ActivityParticipantCarryState, EnergyCarryPolicy,
     HpCarryPolicy, LifeCarryPolicy, MAX_COMPLETED_ACTIVITY_BATTLES, MetricSettlementPolicy,
     PresenceCarryPolicy,
+};
+pub use battle_settlement_in_place::{
+    ActivityBattleInPlaceSettlement, ActivityBattleInPlaceSettlementError,
 };
 pub use codec::{
     ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION, ActivityConfigDigest,

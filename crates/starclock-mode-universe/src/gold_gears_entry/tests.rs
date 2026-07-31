@@ -427,8 +427,8 @@ fn formal_entry_compiles_canonical_three_plane_activity_graph() {
     assert_eq!(
         graph.digest().bytes(),
         [
-            79, 7, 24, 58, 74, 83, 24, 146, 8, 164, 2, 166, 174, 105, 163, 219, 228, 145, 246, 120,
-            37, 45, 138, 27, 160, 76, 155, 165, 0, 11, 202, 72,
+            79, 7, 24, 58, 74, 83, 24, 146, 8, 164, 2, 166, 174, 105, 163, 219, 228, 145, 246,
+            120, 37, 45, 138, 27, 160, 76, 155, 165, 0, 11, 202, 72,
         ]
     );
     assert!(
@@ -565,4 +565,44 @@ pub(super) fn compiled_fixture(
             &factory.unique.dice[0],
         ))
         .expect("compiled fixture")
+}
+
+pub(super) fn compiled_battle_fixture(
+    factory: &GoldAndGearsRuntimeFactory,
+) -> GoldAndGearsRuntimeInstance {
+    let entries = (0_u8..4)
+        .map(|index| {
+            let byte = index + 1;
+            let build = OpaqueParticipantBuild::new(
+                CombatantSpecDigest::new([byte; 32]).expect("resolved digest"),
+                BuildDigest::new([byte + 32; 32]).expect("build digest"),
+                "gold-entry-battle-test-build-v1",
+                ParticipantSourceKind::CompiledBuild,
+            )
+            .expect("opaque build");
+            ParticipantLockEntry::new(
+                ParticipantId::new(u32::from(index) + 1).expect("participant"),
+                0,
+                index,
+                UnitDefinitionId::new(u32::from(index) + 1).expect("unit"),
+                build,
+            )
+            .expect("participant entry")
+        })
+        .collect();
+    let participants = ParticipantLock::seal(participant_policy(), entries)
+        .expect("battle participant lock");
+    let dice = &factory.unique.dice[0];
+    factory
+        .compile_entry(
+            GoldAndGearsEntry::new(
+                "gold-gears.area.401",
+                factory.unique.paths[0].identity.stable_key.clone(),
+                dice.identity.stable_key.clone(),
+                default_face_keys(factory, dice),
+                participants,
+            )
+            .with_unlocked_dice(all_dice(factory)),
+        )
+        .expect("compiled battle fixture")
 }

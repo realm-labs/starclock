@@ -139,31 +139,64 @@ pub(crate) struct AdventureOutcome {
     pub(crate) payloads: Box<[JsonPayload]>,
 }
 
-#[derive(Debug)]
-pub(super) struct EncounterGroup {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) parent_room: Option<StableKey>,
-    pub(super) areas: Box<[StableKey]>,
-    pub(super) payloads: Box<[JsonPayload]>,
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum EncounterRole {
+    GuideBoss,
+    CombatPool,
+    ElitePool,
+    FirstPlaneBossAlternative,
+    SecondPlaneBossAlternative,
+    FinalBoss,
 }
 
 #[derive(Debug)]
-pub(super) struct EncounterWave {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) group_id: i32,
-    pub(super) slots: Box<[StableKey]>,
-    pub(super) payload: JsonPayload,
+pub(crate) struct EncounterMember {
+    pub(crate) source_rogue_monster_id: Box<str>,
+    pub(crate) source_primary_monster_id: Box<str>,
+    pub(crate) source_stage_id: Box<str>,
+    pub(crate) weight: u64,
+    pub(crate) waves: Box<[StableKey]>,
 }
 
 #[derive(Debug)]
-pub(super) struct EnemySlot {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) wave_id: i32,
-    pub(super) enemy: StableKey,
-    pub(super) boss_choices: Box<[StableKey]>,
+pub(crate) struct EncounterGroup {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) source_group_id: Box<str>,
+    pub(crate) source_namespace: Box<str>,
+    pub(crate) role: EncounterRole,
+    pub(crate) parent_room: Option<StableKey>,
+    pub(crate) areas: Box<[StableKey]>,
+    pub(crate) members: Box<[EncounterMember]>,
+    pub(crate) payloads: Box<[JsonPayload]>,
+}
+
+#[derive(Debug)]
+pub(crate) struct EncounterWave {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) group_id: i32,
+    pub(crate) source_rogue_monster_id: Box<str>,
+    pub(crate) source_stage_id: Box<str>,
+    pub(crate) wave_index: u16,
+    pub(crate) slots: Box<[StableKey]>,
+    pub(crate) stage_type: Box<str>,
+    pub(crate) authored_stage_level: u16,
+    pub(crate) hard_level_group: u16,
+    pub(crate) stage_ability_ids: Box<[Box<str>]>,
+    pub(crate) payload: JsonPayload,
+}
+
+#[derive(Debug)]
+pub(crate) struct EnemySlot {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) wave_id: i32,
+    pub(crate) slot_index: u16,
+    pub(crate) source_slot: Box<str>,
+    pub(crate) source_monster_id: Box<str>,
+    pub(crate) enemy: StableKey,
+    pub(crate) boss_choices: Box<[StableKey]>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

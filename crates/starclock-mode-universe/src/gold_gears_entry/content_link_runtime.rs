@@ -9,12 +9,16 @@ use starclock_activity::{
 };
 
 use crate::{
+    ability_runtime::AbilityRuntimeCatalog,
+    battle_contribution::UniverseBattleContributionCompiler,
+    battle_materialization::catalog_composition::UniverseBattleCatalogComposition,
     blessing_runtime::{BlessingContributionSet, BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
     curio_runtime::CurioRuntimeCatalog,
     gold_gears_content::GoldAndGearsContentCatalog,
     id::BlessingId,
     path_runtime::PathRuntimeCatalog,
+    run_runtime::RunRuntimeCatalog,
 };
 
 use super::{
@@ -63,6 +67,11 @@ impl GoldAndGearsSharedContentDigests {
 
 #[derive(Clone, Debug)]
 pub(super) struct GoldAndGearsContentRuntimeCatalog {
+    pub(super) standard: Arc<UniverseCatalog>,
+    pub(super) battle_catalog: Arc<UniverseBattleCatalogComposition>,
+    pub(super) battle_contributions: Arc<UniverseBattleContributionCompiler>,
+    pub(super) abilities: Arc<AbilityRuntimeCatalog>,
+    pub(super) run: Arc<RunRuntimeCatalog>,
     pub(super) blessings: Arc<BlessingRuntimeCatalog>,
     pub(super) paths: Arc<PathRuntimeCatalog>,
     pub(super) shared_curios: Arc<CurioRuntimeCatalog>,
@@ -94,6 +103,22 @@ impl GoldAndGearsContentRuntimeCatalog {
             PathRuntimeCatalog::compile(&standard)
                 .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?,
         );
+        let abilities = Arc::new(
+            AbilityRuntimeCatalog::compile(&standard)
+                .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?,
+        );
+        let run = Arc::new(
+            RunRuntimeCatalog::compile(&standard)
+                .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?,
+        );
+        let battle_catalog = Arc::new(
+            UniverseBattleCatalogComposition::compile(&standard)
+                .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?,
+        );
+        let battle_contributions = Arc::new(
+            UniverseBattleContributionCompiler::compile(Arc::clone(&standard))
+                .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?,
+        );
         let shared_curios = Arc::new(
             CurioRuntimeCatalog::compile(&standard)
                 .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?,
@@ -123,6 +148,11 @@ impl GoldAndGearsContentRuntimeCatalog {
             curio: shared_curios.digest(),
         };
         Ok(Self {
+            standard,
+            battle_catalog,
+            battle_contributions,
+            abilities,
+            run,
             blessings,
             paths,
             shared_curios,

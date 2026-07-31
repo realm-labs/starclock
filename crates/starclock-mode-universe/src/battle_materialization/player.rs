@@ -19,7 +19,7 @@ use super::{
     materialization_digest::combatant_digest,
 };
 
-pub(super) fn player_participants(
+pub(crate) fn player_participants(
     universe: &UniverseCatalog,
     roster: &UniverseBattleRoster,
     contributions: &UniverseBattleContributionSet,

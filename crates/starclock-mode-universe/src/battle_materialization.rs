@@ -51,7 +51,7 @@ pub(crate) use occurrence::{
     CYCLE_BLESSING_COUNT_METRIC_PREFIX, DEFEATED_ENEMY_COUNT_METRIC,
     FIXED_BLESSING_COUNT_METRIC_PREFIX,
 };
-use player::player_participants;
+pub(crate) use player::player_participants;
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
     "standard-universe-battle-materialization-v2";

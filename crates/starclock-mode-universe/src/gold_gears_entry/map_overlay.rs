@@ -390,6 +390,18 @@ impl MapRuntimeCatalog {
             .map(|index| values[index].1)
     }
 
+    pub(super) fn node_domain_key(
+        &self,
+        state: &ActivityTransactionState,
+        node: NodeId,
+    ) -> Option<&str> {
+        let value = u32::try_from(self.node_domain_value(state, node)?).ok()?;
+        self.domains
+            .iter()
+            .find(|(_, id)| *id == value)
+            .map(|(key, _)| key.as_ref())
+    }
+
     fn creation_operations(
         &self,
         board: &BoardMapDefinition,

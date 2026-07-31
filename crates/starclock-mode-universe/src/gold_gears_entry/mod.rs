@@ -1,6 +1,10 @@
 //! Gold and Gears entry validation and generic Activity-state compilation.
 
 mod api;
+mod battle_enemy_catalog;
+mod battle_execution;
+mod battle_materialization;
+mod battle_snapshot;
 mod cognition;
 mod content_link_runtime;
 mod conundrum_auxiliary_runtime;
@@ -13,6 +17,7 @@ mod dice_face;
 mod dice_loadout;
 mod dice_passive;
 mod dice_resolution;
+mod encounter_runtime;
 mod error;
 mod knowledge;
 mod knowledge_execution;
@@ -40,6 +45,20 @@ mod validate;
 pub use api::{
     GOLD_AND_GEARS_ENTRY_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry,
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+};
+pub use battle_enemy_catalog::{
+    GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION, GoldAndGearsEnemyDefinitionBinding,
+};
+pub use battle_execution::{
+    GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsBattleExecution,
+    GoldAndGearsBattleExecutionError, GoldAndGearsBattleStart,
+};
+pub use battle_materialization::{
+    GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GoldAndGearsBattleMaterialization,
+};
+pub use battle_snapshot::{
+    GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION, GoldAndGearsBattleAssemblyContext,
+    GoldAndGearsBattleContributionSnapshot,
 };
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
 pub use content_link_runtime::{
@@ -79,6 +98,12 @@ pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
 pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
 pub use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
 pub use dice_resolution::GOLD_AND_GEARS_DICE_RUNTIME_REVISION;
+pub use encounter_runtime::{
+    GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION, GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY,
+    GOLD_AND_GEARS_ENCOUNTER_POLICY_REPLACEMENT_CONDITION,
+    GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION, GoldAndGearsEncounterEnemySlot,
+    GoldAndGearsEncounterRole, GoldAndGearsEncounterSelection, GoldAndGearsEncounterWave,
+};
 pub use error::GoldAndGearsEntryError;
 pub use knowledge::GOLD_AND_GEARS_KNOWLEDGE_REVISION;
 pub use knowledge_resolution::{
@@ -153,48 +178,4 @@ const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
 #[cfg(test)]
-mod cognition_tests;
-#[cfg(test)]
-mod content_runtime_tests;
-#[cfg(test)]
-mod conundrum_auxiliary_runtime_tests;
-#[cfg(test)]
-mod conundrum_runtime_tests;
-#[cfg(test)]
-mod conundrum_stats_modifier_tests;
-#[cfg(test)]
-mod dice_face_tests;
-#[cfg(test)]
-mod dice_loadout_tests;
-#[cfg(test)]
-mod dice_resolution_tests;
-#[cfg(test)]
-mod knowledge_resolution_tests;
-#[cfg(test)]
-mod knowledge_tests;
-#[cfg(test)]
-mod map_overlay_tests;
-#[cfg(test)]
-mod neural_runtime_tests;
-#[cfg(test)]
-mod occurrence_rule_runtime_tests;
-#[cfg(test)]
-mod occurrence_service_tests;
-#[cfg(test)]
-mod path_boost_rule_runtime_tests;
-#[cfg(test)]
-mod phase2_hardening_tests;
-#[cfg(test)]
-mod profile_rule_runtime_tests;
-#[cfg(test)]
-mod progression_runtime_tests;
-#[cfg(test)]
-mod resonance_rule_runtime_tests;
-#[cfg(test)]
-mod runtime_coverage_tests;
-#[cfg(test)]
-mod semantic_fixture_runtime_tests;
-#[cfg(test)]
-mod service_adventure_rule_runtime_tests;
-#[cfg(test)]
-mod tests;
+include!("test_modules.rs");
