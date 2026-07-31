@@ -1,0 +1,108 @@
+{
+  "schema_revision": "starclock.gold-and-gears-service-adventure-rule-execution.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P5-M07",
+  "observed_on": "2026-07-31",
+  "result": "Pass",
+  "frozen_partition": {
+    "path": "content-manifests/gold-and-gears-runtime-v1/rule-partitions.json",
+    "sha256": "ddcf8eef2ace4984c34a819846d0f25d28ee475a399b6d08de0dc26de85f62c4",
+    "family": "service-and-adventure",
+    "expected_rules": 38,
+    "ordered_rule_ids_sha256": "a98c578b600a3058399086b9877166dbf7b930e1657d4a8b775a2146af2e513a",
+    "terminal_bindings_sha256": "8677fb23560ee3558c64945cd7cdd082def2387ac18a4e6bafdb71a2a815e22e",
+    "gold_rules": 0,
+    "shared_rules": 38,
+    "exact_public_rules": 30,
+    "project_policy_rules": 8,
+    "native_handlers": 0,
+    "fixture_id": "gold-gears.fixture.service-and-adventure"
+  },
+  "runtime": {
+    "service_revision": "gold-and-gears-service-runtime-v1",
+    "adventure_revision": "gold-and-gears-adventure-runtime-v1",
+    "execution_revision": "gold-and-gears-service-adventure-execution-v1",
+    "policy_revision": "gold-and-gears-adventure-reward-policy-v1",
+    "policy_accuracy": "DeterministicProjectPolicyNotObservedParity",
+    "binding_api": "GoldAndGearsRuntimeInstance::service_adventure_rule_bindings",
+    "service_boundary": "ReleasedSharedExecutorWithActivityAccounting",
+    "adventure_boundary": "ExternalOutcomeThenActivitySettlement",
+    "runtime_json_file_reads": 0
+  },
+  "rule_denominators": {
+    "adventure_outcome_rules": 8,
+    "service_bridge_rules": 15,
+    "released_service_rules": 15,
+    "released_shared_executor_rules": 38,
+    "terminal_disposition": "ProductionExecuted"
+  },
+  "catalog": {
+    "services": 15,
+    "adventures": 8,
+    "service_digest": "021e650649cf66066432e97e55baac50b4315a48aaa910779ec10fd104777252",
+    "adventure_digest": "a6f7ed5ad7d4b5750ac17694cd8db05e528252ecbf42dfd8ee02ea4fc0403dec",
+    "execution_digest": "5134055e448b30948f4e0521d4b030bc3e0cd089f5d381284d7befc31eb0e83d"
+  },
+  "production_fixture_probe": {
+    "fixture_id": "gold-gears.fixture.service-and-adventure",
+    "structurally_resolved_services": 1,
+    "committed_service_purchases": 14,
+    "selected_shop_offers": 9,
+    "committed_adventure_settlements": 8,
+    "committed_activity_commands_including_funding": 23,
+    "deferred_state_entries": 22,
+    "shop_rng_draws": 9,
+    "reward_rng_draws": 24,
+    "final_state_hash": "2a9189487f34eb445c9d3a3a2c99a26451d680f7fcc8d6d14f44183a43b020f4",
+    "aggregate_fixture_execution_owner": "G14-P5-B1"
+  },
+  "validation": {
+    "frozen_rule_denominator_preserved": true,
+    "ordered_rule_identity_is_digest_bound": true,
+    "all_rules_are_source_attributed": true,
+    "exact_and_policy_accuracy_are_explicit": true,
+    "all_rules_bind_to_released_shared_executors": true,
+    "service_bridges_resolve_without_semantic_duplication": true,
+    "every_service_reaches_accounting_or_structural_execution": true,
+    "every_adventure_resolves_and_settles": true,
+    "external_adventure_physics_remains_outside_runtime": true,
+    "shop_and_reward_rng_streams_are_isolated": true,
+    "invalid_duplicate_and_stale_inputs_preserve_state_and_rng": true,
+    "all_rules_have_terminal_execution_evidence": true,
+    "protected_reference_roots_unchanged": true
+  },
+  "tests": {
+    "focused_service_adventure_rule_tests_passed": 4,
+    "entry_suite_passed": 100,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "143.8",
+    "quick_selected_harnesses": 53,
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3,
+    "quick_rust_receipt": "CacheMiss",
+    "final_quick_gate_seconds": "16.9",
+    "final_quick_rust_receipt": "CacheHit",
+    "final_quick_deferred_inputs": 2,
+    "discarded_quick_attempts": [
+      "QuickBudgetTimeoutAfterBuilding53SelectedHarnessesIn54.9Seconds"
+    ],
+    "full_gate_required": true,
+    "full_gate_passed": true,
+    "full_gate_seconds": "439.4",
+    "full_workspace_harnesses": 138,
+    "full_cache_dependent_checks_skipped": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe service_adventure_rule_runtime_tests -- --nocapture",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/goal14/verify-phase5-m07.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

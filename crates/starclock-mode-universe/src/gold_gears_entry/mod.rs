@@ -25,6 +25,7 @@ mod occurrence_types;
 mod plane_transition;
 mod profile_rule_runtime;
 mod progression_runtime;
+mod service_adventure_rule_runtime;
 mod service_adventure_runtime;
 mod service_adventure_types;
 mod state;
@@ -112,6 +113,7 @@ pub use progression_runtime::{
     GoldAndGearsResonanceContribution, GoldAndGearsResonanceKind, GoldAndGearsResonanceSet,
     GoldAndGearsTrailblazeBonusPlan, GoldAndGearsTrailblazeOffer,
 };
+pub use service_adventure_rule_runtime::GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION;
 pub use service_adventure_runtime::{
     GOLD_AND_GEARS_ADVENTURE_POLICY_ACCURACY, GOLD_AND_GEARS_ADVENTURE_POLICY_REVISION,
     GOLD_AND_GEARS_ADVENTURE_RUNTIME_REVISION, GOLD_AND_GEARS_SERVICE_RUNTIME_REVISION,
@@ -119,8 +121,10 @@ pub use service_adventure_runtime::{
 pub use service_adventure_types::{
     GoldAndGearsAdventureDefinition, GoldAndGearsAdventureExternalOutcome,
     GoldAndGearsAdventureMetric, GoldAndGearsAdventureRewardPlan, GoldAndGearsAdventureThreshold,
-    GoldAndGearsAdventureType, GoldAndGearsServiceDefinition, GoldAndGearsServiceKind,
-    GoldAndGearsServiceOfferSelector, GoldAndGearsServiceStock, GoldAndGearsTechniqueRule,
+    GoldAndGearsAdventureType, GoldAndGearsServiceAdventureRuleAccuracy,
+    GoldAndGearsServiceAdventureRuleBinding, GoldAndGearsServiceAdventureRuleKind,
+    GoldAndGearsServiceDefinition, GoldAndGearsServiceKind, GoldAndGearsServiceOfferSelector,
+    GoldAndGearsServiceStock, GoldAndGearsTechniqueRule,
 };
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
@@ -160,5 +164,7 @@ mod phase2_hardening_tests;
 mod profile_rule_runtime_tests;
 #[cfg(test)]
 mod progression_runtime_tests;
+#[cfg(test)]
+mod service_adventure_rule_runtime_tests;
 #[cfg(test)]
 mod tests;

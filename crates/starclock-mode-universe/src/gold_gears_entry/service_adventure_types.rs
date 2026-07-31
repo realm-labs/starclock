@@ -6,6 +6,76 @@ use super::curio_types::GoldAndGearsCurioCandidate;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
+pub enum GoldAndGearsServiceAdventureRuleKind {
+    AdventureOutcome,
+    ServiceBridge,
+    ReleasedService,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum GoldAndGearsServiceAdventureRuleAccuracy {
+    ExactPublic,
+    VersionedProjectPolicy,
+}
+
+/// One frozen Service or Adventure rule bound to the released shared executor.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsServiceAdventureRuleBinding {
+    pub(super) rule_id: Box<str>,
+    pub(super) owner_id: Box<str>,
+    pub(super) kind: GoldAndGearsServiceAdventureRuleKind,
+    pub(super) accuracy: GoldAndGearsServiceAdventureRuleAccuracy,
+}
+
+impl GoldAndGearsServiceAdventureRuleBinding {
+    #[must_use]
+    pub fn rule_id(&self) -> &str {
+        &self.rule_id
+    }
+
+    #[must_use]
+    pub fn owner_id(&self) -> &str {
+        &self.owner_id
+    }
+
+    #[must_use]
+    pub const fn kind(&self) -> GoldAndGearsServiceAdventureRuleKind {
+        self.kind
+    }
+
+    #[must_use]
+    pub const fn accuracy(&self) -> GoldAndGearsServiceAdventureRuleAccuracy {
+        self.accuracy
+    }
+
+    #[must_use]
+    pub const fn accuracy_name(&self) -> &'static str {
+        match self.accuracy {
+            GoldAndGearsServiceAdventureRuleAccuracy::ExactPublic => "ExactPublic",
+            GoldAndGearsServiceAdventureRuleAccuracy::VersionedProjectPolicy => {
+                "VersionedProjectPolicy"
+            }
+        }
+    }
+
+    #[must_use]
+    pub const fn executor(&self) -> &'static str {
+        "ReleasedSharedExecutor"
+    }
+
+    #[must_use]
+    pub const fn operation(&self) -> &'static str {
+        match self.kind {
+            GoldAndGearsServiceAdventureRuleKind::AdventureOutcome => "ResolveAdventureOutcome",
+            GoldAndGearsServiceAdventureRuleKind::ServiceBridge => "ExecuteServiceBridge",
+            GoldAndGearsServiceAdventureRuleKind::ReleasedService => "ExecuteReleasedService",
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
 pub enum GoldAndGearsServiceKind {
     BlessingShop,
     CurioShop,
@@ -60,6 +130,8 @@ pub struct GoldAndGearsServiceDefinition {
     pub(super) price_formula: Option<Box<str>>,
     pub(super) offer_pool: Option<Box<str>>,
     pub(super) stock: Box<[GoldAndGearsServiceStock]>,
+    pub(super) bridge_rule: Box<str>,
+    pub(super) released_rule: Box<str>,
 }
 
 impl GoldAndGearsServiceDefinition {
@@ -96,6 +168,16 @@ impl GoldAndGearsServiceDefinition {
     #[must_use]
     pub fn stock(&self) -> &[GoldAndGearsServiceStock] {
         &self.stock
+    }
+
+    #[must_use]
+    pub fn bridge_rule(&self) -> &str {
+        &self.bridge_rule
+    }
+
+    #[must_use]
+    pub fn released_rule(&self) -> &str {
+        &self.released_rule
     }
 }
 
@@ -151,6 +233,7 @@ pub struct GoldAndGearsAdventureDefinition {
     pub(super) maximum_value: u32,
     pub(super) time_limit_seconds: Option<u16>,
     pub(super) technique_rule: GoldAndGearsTechniqueRule,
+    pub(super) rule: Box<str>,
 }
 
 impl GoldAndGearsAdventureDefinition {
@@ -197,6 +280,11 @@ impl GoldAndGearsAdventureDefinition {
     #[must_use]
     pub const fn technique_rule(&self) -> GoldAndGearsTechniqueRule {
         self.technique_rule
+    }
+
+    #[must_use]
+    pub fn rule(&self) -> &str {
+        &self.rule
     }
 }
 

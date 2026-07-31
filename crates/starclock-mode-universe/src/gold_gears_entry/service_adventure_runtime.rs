@@ -27,7 +27,8 @@ use super::{
     service_adventure_types::{
         GoldAndGearsAdventureDefinition, GoldAndGearsAdventureExternalOutcome,
         GoldAndGearsAdventureMetric, GoldAndGearsAdventureRewardPlan,
-        GoldAndGearsAdventureThreshold, GoldAndGearsAdventureType, GoldAndGearsServiceDefinition,
+        GoldAndGearsAdventureThreshold, GoldAndGearsAdventureType,
+        GoldAndGearsServiceAdventureRuleBinding, GoldAndGearsServiceDefinition,
         GoldAndGearsServiceKind, GoldAndGearsServiceOfferSelector, GoldAndGearsServiceStock,
         GoldAndGearsTechniqueRule,
     },
@@ -56,6 +57,8 @@ pub(super) struct GoldAndGearsServiceAdventureRuntimeCatalog {
     adventures: Box<[GoldAndGearsAdventureDefinition]>,
     service_digest: [u8; 32],
     adventure_digest: [u8; 32],
+    rule_bindings: Box<[GoldAndGearsServiceAdventureRuleBinding]>,
+    execution_digest: [u8; 32],
 }
 
 impl GoldAndGearsServiceAdventureRuntimeCatalog {
@@ -83,6 +86,8 @@ impl GoldAndGearsServiceAdventureRuntimeCatalog {
         {
             return Err(GoldAndGearsEntryError::InvalidServiceRuntime);
         }
+        let (rule_bindings, execution_digest) =
+            super::service_adventure_rule_runtime::compile_rule_runtime(&services, &adventures)?;
         let service_digest = service_digest(&services);
         let adventure_digest = adventure_digest(&adventures);
         Ok(Self {
@@ -90,6 +95,8 @@ impl GoldAndGearsServiceAdventureRuntimeCatalog {
             adventures: adventures.into_boxed_slice(),
             service_digest,
             adventure_digest,
+            rule_bindings,
+            execution_digest,
         })
     }
 
@@ -104,6 +111,14 @@ impl GoldAndGearsServiceAdventureRuntimeCatalog {
             .binary_search_by_key(&id, |adventure| adventure.id)
             .ok()
             .map(|index| (index, &self.adventures[index]))
+    }
+
+    pub(super) fn rule_bindings(&self) -> &[GoldAndGearsServiceAdventureRuleBinding] {
+        &self.rule_bindings
+    }
+
+    pub(super) const fn execution_digest(&self) -> [u8; 32] {
+        self.execution_digest
     }
 }
 
@@ -521,12 +536,12 @@ fn compile_service(
     service: &Service,
     standard: &UniverseCatalog,
 ) -> Result<GoldAndGearsServiceDefinition, GoldAndGearsEntryError> {
-    if !service.shared
-        || standard
-            .services()
-            .iter()
-            .all(|candidate| candidate.stable_key() != service.key.as_str())
-    {
+    let released = standard
+        .services()
+        .iter()
+        .find(|candidate| candidate.stable_key() == service.key.as_str())
+        .ok_or(GoldAndGearsEntryError::InvalidServiceRuntime)?;
+    if !service.shared || released.rule_key().is_empty() || service.rule.as_str().is_empty() {
         return Err(GoldAndGearsEntryError::InvalidServiceRuntime);
     }
     let [parameters, selection, offer] = service.payloads.as_ref() else {
@@ -613,6 +628,8 @@ fn compile_service(
             .map(|key| key.as_str().into()),
         offer_pool,
         stock: stock.into_boxed_slice(),
+        bridge_rule: service.rule.as_str().into(),
+        released_rule: released.rule_key().into(),
     })
 }
 
@@ -719,6 +736,7 @@ fn compile_adventure(
             .transpose()
             .map_err(|_| GoldAndGearsEntryError::InvalidAdventureRuntime)?,
         technique_rule: technique_rule(&adventure.technique_rule)?,
+        rule: adventure.rule.as_str().into(),
     })
 }
 
