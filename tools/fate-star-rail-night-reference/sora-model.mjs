@@ -42,6 +42,20 @@ export const TABLES = [
   table("G19-P3-B1", "activity", "Traits", ["FateTrait"]),
   table("G19-P3-B1", "activity", "Levels", ["FateRinLevelUp", "FateExpReward"]),
   table("G19-P3-B1", "activity", "Unlocks", ["FateRinOwnerInitHougu"]),
+  table("G19-P3-B2", "bindings", "Masters", ["FateMaster", "FateHandbookMaster", "FateRinAvatar"]),
+  table("G19-P3-B2", "bindings", "Servants", ["FateRinCaseBoardServant"]),
+  table("G19-P3-B2", "bindings", "NoblePhantasms", ["FateHougu"]),
+  table("G19-P3-B2", "bindings", "NoblePhantasmLevels", ["FateRinHouguConfig"]),
+  table("G19-P3-B2", "bindings", "Rarities", ["FateRinHouguRarity"]),
+  table("G19-P3-B2", "bindings", "Tags", ["FateRinHouguTag"]),
+  table("G19-P3-B2", "bindings", "Keywords", ["FateRinHouguKeyword"]),
+  table("G19-P3-B2", "bindings", "Decks", ["FateRinDeck"]),
+  table("G19-P3-B2", "bindings", "DeckRecommendations", ["FateRinDeckRecommend"]),
+  table("G19-P3-B2", "bindings", "CommandSpells", ["FateReiju"]),
+  table("G19-P3-B2", "bindings", "CommandSpellAffixes", ["FateReijuAffix"]),
+  table("G19-P3-B2", "bindings", "Resources", ["FateConstValueClient", "FateConstValueCommon", "FateRinConstClient", "FateRinConstCommon"]),
+  table("G19-P3-B2", "bindings", "RuleBindings", ["FateGameplayConfig"]),
+  table("G19-P3-B2", "bindings", "LifecycleBindings", ["FateAffix", "FateTraitBuff"]),
 ];
 
 export function tablesThrough(batch) {
@@ -58,6 +72,9 @@ export function rowsForTable(root, definition) {
     "profile-graph.json",
     "participants.json",
     "progression-traits.json",
+    "noble-phantasms.json",
+    "command-spells.json",
+    "effects.json",
   ];
   const familySet = new Set(definition.families);
   const records = files.flatMap((file) =>

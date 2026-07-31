@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Excel and Sora |
 | Active batch | — |
-| Next unblocked batch | `G19-P3-B2` |
+| Next unblocked batch | `G19-P3-B3` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -62,7 +62,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P2-B4` | `Complete` | This row's containing commit | Closed eighteen manifest rows at `07e489d2…2d5b` (five variants, five templates, eight skills) plus ten template-derived character/AI program receipts at `fdbbfb0c…6372`; 15 AnimEvent paths are presentation exclusions and no typed separate ability-program path exists. Primary inventory remains stable; focused/quick gates and remote publication pass. |
 | `G19-P2-B5` | `Complete` | This row's containing commit | Assembled 17 files / 2,018 normalized records at pack digest `ae040b74…ecc3`; coverage is 1,904/1,904 with 1,491 eligible DataReady, 413 evidence-only, 13 explicit replaceable policies and zero unresolved. Generated 1,914 source receipts, 56 family fixtures and 11 peer reconciliation receipts (three concurrent peers deferred to merge). Focused/quick gates and remote publication pass. |
 | `G19-P3-B1` | `Complete` | This row's containing commit | Added fourteen isolated activity Sora tables containing 154 exact-once rows: one derived Candidate profile plus areas, difficulties, phases, zones, progress, boards, nodes, participants, teams, owners, traits, levels and unlocks. The generated schema binds only the dedicated workbook, preserves the normalized bilingual/provenance envelope as strings and rejects empty or duplicate stable IDs. Runtime loading remains disabled. |
-| `G19-P3-B2` | `Pending` | — | Add Mystic Code/deck/resource/Command Spell/trait Sora tables. |
+| `G19-P3-B2` | `Complete` | This row's containing commit | Added fourteen binding Sora tables with 597 exact-once rows for Masters, Servants, Noble Phantasms and levels, rarity/tag/keyword catalogs, decks/recommendations, Command Spells/affixes, resources and typed rule/lifecycle binding receipts. Together with B1 the isolated project exposes 28 non-empty tables / 751 rows with no duplicate stable key; opaque programs remain digests and are not lowered into runtime. |
 | `G19-P3-B3` | `Pending` | — | Add fight/buff/encounter/wave/enemy/mechanic-binding Sora tables. |
 | `G19-P3-B4` | `Pending` | — | Add review tables, locks, templates and isolated readers. |
 | `G19-P3-B5` | `Pending` | — | Generate and verify four complete openpyxl workbooks. |
