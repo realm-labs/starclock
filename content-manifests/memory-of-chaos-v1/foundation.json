@@ -1,0 +1,323 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-foundation.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "batch": "G17-P0-B1",
+  "snapshot": {
+    "game_version": "4.4",
+    "structured_access_date": "2026-07-22",
+    "reproduced_on": "2026-08-01",
+    "launch_commit": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+    "launch_tree": "124a0fcd5fea3a39d1254a1190fd9ee8a90acd9e"
+  },
+  "publication": {
+    "remote": "origin",
+    "branch": "codex/goal17-memory-of-chaos-reference",
+    "base": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+    "base_equals_origin_master_at_launch": true,
+    "remote_equality_command": "git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference"
+  },
+  "source_cache": {
+    "path": "/Users/mikai/.codex/source-caches/goal17-memory-of-chaos",
+    "isolated": true,
+    "repositories": [
+      {
+        "id": "turnbasedgamedata",
+        "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "tree": "2df8981c1bea512e21c8c900920c63002b381056",
+        "clean": true,
+        "detached": true,
+        "commit_readable": true,
+        "connectivity_check": "passed during G17-P0-B1"
+      },
+      {
+        "id": "StarRailRes",
+        "remote": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+        "tree": "1e6892227905e0dad002bb117d63464d7a5640a6",
+        "clean": true,
+        "detached": true,
+        "commit_readable": true,
+        "connectivity_check": "passed during G17-P0-B1"
+      }
+    ],
+    "required_files": [
+      {
+        "repository": "StarRailRes",
+        "path": "index_new/cn/characters.json",
+        "bytes": 98724,
+        "sha256": "a6b55f871e46b3668ca9ed2df6ba7bd370ea813fce644c0884c696f793a87b53"
+      },
+      {
+        "repository": "StarRailRes",
+        "path": "index_new/en/characters.json",
+        "bytes": 98711,
+        "sha256": "5ec5e172094e492a35700630dafe1f62e138cc474ff4cd290a71401ac25ad43f"
+      },
+      {
+        "repository": "StarRailRes",
+        "path": "info.json",
+        "bytes": 68,
+        "sha256": "7367a8d2bc67094638caa6dc4f950b1464ceeecab3f8e34dba299da34d3bc465"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "Config/ConfigAbility/BattleEventAbility_2.json",
+        "bytes": 1229013,
+        "sha256": "07e6a628c8342647a7ae6a72ce8e207381bddaefcad04af80aefbaeb19b29479"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "Config/ConfigAbility/Level/Level_MazeChallengeBuff_Ability.json",
+        "bytes": 157545,
+        "sha256": "abb24e57c91751f49d699ad8305c5f454102ef99e9da8aaee1054cd262c58a43"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "Config/ConfigAbility/StageBattleEventAbility.json",
+        "bytes": 20848,
+        "sha256": "aec7be2ec8fb9c957aa915e9af542b94691aa011b2c6dc7f025ee1a944b87aef"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "Config/Level/StageCommonTemplate.json",
+        "bytes": 36112,
+        "sha256": "e975a68d401253de5b3f8db0e1671a6c8dc5ffc0598ae23e37205e32efd2317e"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/BattleEventConfig.json",
+        "bytes": 311033,
+        "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeGeneralConfig.json",
+        "bytes": 1248,
+        "sha256": "3073193d0a7c7095684dfd402cf6e49de0454e873de33003c96834076e2e9379"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeGroupConfig.json",
+        "bytes": 31612,
+        "sha256": "cd6af0ae93fe8a61ef3312c866529eb5d1d319a5d5f7bb53b08137252f1a744f"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeMazeConfig.json",
+        "bytes": 530993,
+        "sha256": "36f47fa89983b99056287aa637fe7eb16913053c683ad885cc86bf5233c4bed1"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeMazeGroupExtra.json",
+        "bytes": 4862,
+        "sha256": "5e3580d7cca1c55af28e118969a57063ba056fb8db2741fbea5cb9371c945b2c"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeMazeRewardLine.json",
+        "bytes": 3191,
+        "sha256": "5543de2360e51fa43961f75a8ff1b2fa78d2ecf833918f5060369f062a5d138e"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeMazeTierce.json",
+        "bytes": 2590,
+        "sha256": "dd60879eea30b83b670ac6887cfa96903479fc71cb30af4b3821260b479d5b8c"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ChallengeTargetConfig.json",
+        "bytes": 24654,
+        "sha256": "8c8c4e0683963e4649a331bf2bd32814622fd55c13cf3475d9a451e0dae1bd09"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ConstValueChallengeClient.json",
+        "bytes": 570,
+        "sha256": "71d447465a0d34a80f7030931b8c1a900acb36023197358268cc7bbcce1051fa"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ConstValueChallengeCommon.json",
+        "bytes": 825,
+        "sha256": "a622410b8a105933141905fe471e5be8214e131d76d1b72f8e84554ae01d3b25"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MapEntrance.json",
+        "bytes": 196317,
+        "sha256": "5e0a562b26bf4e9625dbe5a85adc68b6e05851edb88ff162a38d29b85ecf0d3b"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MappingInfo.json",
+        "bytes": 586820,
+        "sha256": "2a8afa1efce8c7ffe3a6d62d8b45edd21dee8df2377df5737425e75fd11882b2"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MazeBuff.json",
+        "bytes": 1415760,
+        "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "bytes": 4089472,
+        "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MonsterSkillConfig.json",
+        "bytes": 2525751,
+        "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MonsterStatusConfig.json",
+        "bytes": 322987,
+        "sha256": "6c8fd02a63a8ee18583ca103d2f2208b969e3d69a0a3ea4cb796ecb0bb3935ce"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/MonsterTemplateConfig.json",
+        "bytes": 918769,
+        "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/ScheduleDataChallengeMaze.json",
+        "bytes": 5514,
+        "sha256": "b20f4f736a40fd9f10a8aaf2ba9a6bde3e9c71aa6e48bb95dbd06c21f70b7720"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "ExcelOutput/StageConfig.json",
+        "bytes": 25168437,
+        "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "TextMap/TextMapCHS.json",
+        "bytes": 48996604,
+        "sha256": "ec49e07932b4ed8aba9679e247d8e554ca69e831fea7931d94682551de567147"
+      },
+      {
+        "repository": "turnbasedgamedata",
+        "path": "TextMap/TextMapEN.json",
+        "bytes": 55206201,
+        "sha256": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+      }
+    ],
+    "required_files_sha256": "6c588f045bb11cb173b6beaa212c732601022122b94515bb4d79d54e8b483a0a"
+  },
+  "goal03": {
+    "state": "Complete",
+    "goal_id": "standard-universe-reference-v1",
+    "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+    "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+    "status_path": "docs/goals/03-standard-universe-reference-data-status.md",
+    "release_policy_path": "policy/standard-universe-reference.json",
+    "release_evidence_path": "evidence/standard-universe-reference-v1/release/release-evidence.json",
+    "evidence_schema_revision": "starclock.standard-universe-reference-release.v1"
+  },
+  "ownership_checkpoints": [
+    {
+      "path": "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "e5b16bb26e56b55c3f0af6f70ea0988c51c9cdc4a87c3269027096cbe3d645f2"
+    },
+    {
+      "path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085"
+    },
+    {
+      "path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850"
+    },
+    {
+      "path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758"
+    },
+    {
+      "path": "content-manifests/divergent-universe-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e"
+    },
+    {
+      "path": "content-manifests/currency-wars-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef"
+    },
+    {
+      "path": "content-manifests/anomaly-arbitration-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4"
+    },
+    {
+      "path": "content-manifests/galactic-baseballer-v1/content-manifest.json",
+      "revision": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+      "sha256": "92bf516ebb2c0baec8df4bbc5ccd435d090181fb4553db0261a4ce49a5b032a4"
+    }
+  ],
+  "isolation": {
+    "branch": "codex/goal17-memory-of-chaos-reference",
+    "worktree": "/Users/mikai/.codex/worktrees/goal17-memory-of-chaos/starclock",
+    "owned_roots": [
+      "content-manifests/memory-of-chaos-v1/",
+      "content-reference/memory-of-chaos-v1/",
+      "config/memory-of-chaos/",
+      "config/memory-of-chaos-generated/",
+      "tools/memory-of-chaos-reference/",
+      "evidence/memory-of-chaos-reference-v1/"
+    ],
+    "protected_concurrent_roots": [
+      "content-manifests/pure-fiction-v1/",
+      "content-manifests/apocalyptic-shadow-v1/",
+      "content-reference/pure-fiction-v1/",
+      "content-reference/apocalyptic-shadow-v1/"
+    ],
+    "shared_challenge_policy": "reconciliation-receipts-only-no-cross-goal-overwrite"
+  },
+  "scope": {
+    "lane": "Experimental-to-Candidate",
+    "runtime_implementation": false,
+    "active_selector_candidates": {
+      "schedule": 201033,
+      "group": 1033,
+      "ordinary_rows": "5201-5212",
+      "tierce": 5213,
+      "maze_buff": 3030146,
+      "objectives": [
+        251,
+        252,
+        253
+      ],
+      "battle_event": 30146
+    },
+    "candidates_are_denominator": false,
+    "scheduled_group_1034_enabled": false
+  },
+  "authoring": {
+    "format": "xlsx",
+    "editor": "python-openpyxl",
+    "authority": "sora-cli-0.3.0",
+    "workbooks": [
+      "MemoryOfChaos.xlsx",
+      "MemoryOfChaosBindings.xlsx",
+      "MemoryOfChaosReview.xlsx"
+    ]
+  },
+  "execution": {
+    "phases": 5,
+    "batches": 25,
+    "one_in_progress": true,
+    "push_each_batch": true,
+    "runtime_forbidden": true
+  }
+}

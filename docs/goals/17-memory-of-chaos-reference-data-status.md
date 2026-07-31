@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `memory-of-chaos-reference-v1` |
-| State | `Ready` |
-| Active phase | Not started |
+| State | `InProgress` |
+| Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | — |
-| Next unblocked batch | `G17-P0-B1` |
+| Next unblocked batch | `G17-P0-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -20,9 +20,9 @@
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
-| Branch | Target `codex/goal17-memory-of-chaos-reference`; create it from current `origin/master` before `G17-P0-B1` |
-| Branch base | Pending execution-time freeze in `G17-P0-B1`; this plan is integrated by the containing mainline merge commit |
-| Parallel inspection | The 2026-07-30 audit covered the original setup base; `G17-P0-B1` must repeat it against current Goal 14–16 work and the execution branch |
+| Branch | `codex/goal17-memory-of-chaos-reference`, tracking `origin/codex/goal17-memory-of-chaos-reference` |
+| Branch base | `92febad080dd4cf9997718d64b3648fc198ab1f8`, equal to `origin/master` and the execution remote branch at launch |
+| Parallel inspection | Reproduced 2026-08-01 against the main workspace and all registered worktrees; Goal 17 owns one dedicated worktree and six isolated roots. |
 | Parallel condition | Separate branch/worktree and six isolated Goal 17 roots while other Goals or integration work are active |
 | Publication policy | Push and remotely verify each completed batch before starting the next batch |
 | Blocking condition | None |
@@ -31,7 +31,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Awaiting execution-owned cache reproduction, focused inventory, active-season/Tierce manifest and authoring contracts. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | `G17-P0-B1` froze the execution-owned cache reproduction, Goal 03 and parallel isolation evidence; focused inventory remains in `G17-P0-B2`. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting profile/season flow, participants/loadouts, attempts, clocks, objectives/stars, resources, Turbulence and Tierce semantics. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool zero/nonzero proofs, shared events/configs, exact StageConfig waves, enemies, AI and abilities. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
@@ -41,7 +41,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G17-P0-B1` | `Pending` | — | Reproduce caches, verify Goal 03 and concurrent boundaries, freeze scope and prove isolation. |
+| `G17-P0-B1` | `Complete` | This row's containing commit | Reproduced 28 required-file receipts in isolated clean/detached caches at `turnbasedgamedata@fd978d6e…c3568` and `StarRailRes@7b349e39…7a93`; verified origins, commit/blob readability and `git fsck --connectivity-only --no-dangling`. Goal 03 is Complete at immutable commit `60ca52ed…89de`. The execution branch/upstream/base, all registered worktrees, six writable roots and eight committed Goal 07–13/16 ownership inputs are frozen in `content-manifests/memory-of-chaos-v1/foundation.json`. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/foundation.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P0-B2` | `Pending` | — | Inventory dedicated/adjacent tables, entry mappings, config/ability programs, TextMaps, StageConfig, enemies and exclusions. |
 | `G17-P0-B3` | `Pending` | — | Freeze active-season selectors, exact obligations/counts, Tierce semantics, ownership, reachability, proven-empty pools and exclusions. |
 | `G17-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
