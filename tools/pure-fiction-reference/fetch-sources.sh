@@ -31,9 +31,9 @@ git -C "$destination" sparse-checkout set \
   '/Config/ConfigAbility/Level/Level_MazeChallengeBuff_Ability.json' \
   '/Config/ConfigAbility/StageBattleEventAbility.json' \
   '/Config/Level/StageCommonTemplate.json' \
-  '/Config/Level/Stage/**' \
-  '/Config/Character/Monster/**'
+  '/Config/ConfigCharacter/Monster/**' \
+  '/Config/ConfigAbility/Monster/**' \
+  '/Config/ConfigAI/**'
 git -C "$destination" checkout --detach FETCH_HEAD
 test "$(git -C "$destination" rev-parse HEAD)" = "$revision"
 test -z "$(git -C "$destination" status --porcelain)"
-

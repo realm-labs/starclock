@@ -52,14 +52,17 @@ const adjacent = readdirSync(join(root, "ExcelOutput"))
 const fantastic = walk(join(root, "Config"))
   .map((path) => relative(root, path))
   .filter((path) => /FantasticStory.*\.json$/.test(path));
-const enemyPrograms = walk(join(root, "Config/Character/Monster"))
+const enemyCharacters = walk(join(root, "Config/ConfigCharacter/Monster"))
   .map((path) => relative(root, path))
-  .filter((path) => path.endsWith(".json"));
-const stagePrograms = walk(join(root, "Config/Level/Stage"))
+  .filter((path) => path.endsWith(".json") && !path.endsWith(".layout.json"));
+const enemyPrograms = walk(join(root, "Config/ConfigAbility/Monster"))
   .map((path) => relative(root, path))
-  .filter((path) => path.endsWith(".json"));
+  .filter((path) => path.endsWith(".json") && !path.endsWith(".layout.json"));
+const enemyAi = walk(join(root, "Config/ConfigAI"))
+  .map((path) => relative(root, path))
+  .filter((path) => path.endsWith(".json") && !path.endsWith(".layout.json"));
 
-const selected = [...new Set([...exactFiles, ...adjacent, ...fantastic, ...enemyPrograms, ...stagePrograms])]
+const selected = [...new Set([...exactFiles, ...adjacent, ...fantastic, ...enemyCharacters, ...enemyPrograms, ...enemyAi])]
   .sort((left, right) => left.localeCompare(right));
 const records = selected.map((path) => {
   const bytes = readFileSync(join(root, path));
@@ -68,8 +71,9 @@ const records = selected.map((path) => {
   else if (/FantasticStory/.test(path)) classification = "pure_fiction_program_candidate";
   else if (/ExcelOutput\/(Challenge(?!Story)|ConstValueChallenge)/.test(path)) classification = "adjacent_challenge_exclusion_candidate";
   else if (/TextMap/.test(path)) classification = "bilingual_identity_evidence";
-  else if (/Config\/Character\/Monster/.test(path)) classification = "enemy_program_closure_candidate";
-  else if (/Config\/Level\/Stage/.test(path)) classification = "stage_program_closure_candidate";
+  else if (/Config\/ConfigCharacter\/Monster/.test(path)) classification = "enemy_character_closure_candidate";
+  else if (/Config\/ConfigAbility\/Monster/.test(path)) classification = "enemy_ability_closure_candidate";
+  else if (/Config\/ConfigAI/.test(path)) classification = "enemy_ai_closure_candidate";
   return {
     path,
     classification,
@@ -95,4 +99,3 @@ if (check) {
   writeFileSync(output, canonical);
 }
 console.log(`Pure Fiction inventory verified: ${records.length} files`);
-

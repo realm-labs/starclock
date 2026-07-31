@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources, manifest and contracts |
 | Active batch | — |
-| Next unblocked batch | `G15-P0-B3` |
+| Next unblocked batch | `G15-P0-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -16,7 +16,7 @@
 | Starting source oracle | Dedicated `ChallengeStory*`/schedule/theme/target tables; shared entry, MazeBuff, BattleEvent, StageConfig, monster and `FantasticStory*`/level-program closure; CHS/EN TextMaps |
 | Active-season hypothesis | Schedule `202024` → group `2024` (`借虚成真` / `Falsehood to Fact`) → rows `20241`–`20244`, Tierce `20245`, nine StageConfig candidates, Grit/Fever buffs and three selectable Cacophonies; not a denominator until `G15-P0-B3` |
 | Focused inventory | Pending `G15-P0-B2` |
-| Content manifest | Denominators pending `G15-P0-B3` |
+| Content manifest | Generated exact-once manifest freezes schedule `202024`, group `2024`, stages `20241`–`20244`, Tierce `20245`, nine StageConfig rows, active buffs, all encounter slots and transitive summon/template/skill closure; group `2025` is fail-closed evidence-only |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -42,8 +42,8 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G15-P0-B1` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; push with `git push origin HEAD:codex/goal15-pure-fiction-reference`, verify using `git ls-remote --heads origin codex/goal15-pure-fiction-reference`. Reproduced clean pinned revisions `fd978d6e…` and `7b349e39…`, verified Goal 03 Complete, froze base/remote equality `92febad0…`, Version 4.4 scope/exclusions and all six isolated roots without changing another cache, workbook or production bundle. |
-| `G15-P0-B2` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed with `git push origin HEAD:codex/goal15-pure-fiction-reference` and verified by exact `git ls-remote`. Added an independently reproducible sparse-cache fetcher and deterministic `inventory.mjs --check`; the generated inventory hashes every dedicated/adjacent challenge table, entry/TextMap/StageConfig/shared program, every `FantasticStory*` program and the available stage/enemy program closure, while retaining ownership only as a later manifest decision. |
-| `G15-P0-B3` | `Pending` | — | Freeze active selectors, exact obligations/counts, Tierce/Starward semantics, ownership, reachability, exact-zero pools and scheduled/unreleased exclusions. |
+| `G15-P0-B2` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed with `git push origin HEAD:codex/goal15-pure-fiction-reference` and verified by exact `git ls-remote`. Added an independently reproducible sparse-cache fetcher and deterministic `inventory.mjs --check`; the current generated inventory hashes 1,816 dedicated/adjacent challenge, entry/TextMap/StageConfig, `FantasticStory*`, enemy character, AI and ability-program files while retaining ownership only as a manifest decision. P0-B3 expanded the inventory only to close selectors discovered from the active rows. |
+| `G15-P0-B3` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed and resolved exactly by `git ls-remote`. `manifest.mjs --check` freezes 796 obligations through schedule `202024` → group `2024` → four stages/eight ordinary nodes plus Tierce `20245`, nine StageConfig rows, all waves/slots, active MazeBuff/Grit/Fever/Cacophony records, recursive summon/template/skill/character-config/AI/ability/status closure, seven selector-backed zero-family proofs, 25 rule and 18 fixture families, and the scheduled-unreleased group `2025` exclusion. |
 | `G15-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G15-P1-B1` | `Pending` | — | Import profile, active season, entry/unlocks, stages/nodes, Tierce/Starward identity, legal order and outcomes. |
 | `G15-P1-B2` | `Pending` | — | Import participants, team/loadout uniqueness, snapshots/locks, attempts, retries, abandonment, reset and transitions. |
@@ -98,22 +98,22 @@ generated selector-closure proof.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profile/season/entry/terminal outcomes | TBD | 0 | 0 | Stable family plus the released season active in Version 4.4; historical and scheduled/unreleased seasons remain evidence-only. |
-| Stages/nodes/Tierce/Starward/transitions | TBD | 0 | 0 | Freeze ordinary topology and selected extensions without inferring team or node count from names. |
-| Participant/team/loadout/attempt records | TBD | 0 | 0 | Includes uniqueness, snapshots, locks, substitution, retry, abandonment and reset scope. |
-| Turn/AV clocks and wave lifecycle | TBD | 0 | 0 | Includes node scope, tick, wave boundary, refill order, timeout and early completion. |
-| Spawn queues/replacement rules | TBD | 0 | 0 | Includes ordered candidates, simultaneous defeats, slot reuse, final group and empty-candidate behavior. |
-| Initial resources/battle entry | TBD | 0 | 0 | Includes HP, Energy, Skill Points and selected entry operations. |
-| Score sources/caps/objectives/stars | TBD | 0 | 0 | Includes defeat/damage attribution, per-node cap, aggregation and settlement timing. |
-| Whimsicality/Grit/Fever | TBD | 0 | 0 | Includes triggers, per-target caps, thresholds, effects, target policies and teardown. |
-| Cacophony choices/effects | TBD | 0 | 0 | Includes every offered choice, eligibility, selected scope and base-rule interaction. |
-| Blessings/Curios/Occurrences/choices | TBD | 0 | 0 | Freeze exact reachable rows or a generated exact-zero proof per family. |
-| Services/currencies/shops | TBD | 0 | 0 | Reward/account tables do not prove a mechanically reachable service or currency. |
-| Themes/MazeBuffs/BattleEvents/configs | TBD | 0 | 0 | Includes every selected shared or mode-owned program and contribution. |
-| Encounter groups/waves/enemy slots | TBD | 0 | 0 | Resolve every ordinary and Tierce/Starward StageConfig row and spawn formation. |
-| Enemy skills/statuses/AI/abilities | TBD | 0 | 0 | Include complete transitive mechanic closure for every enabled variant. |
-| Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | TBD | 0 | 0 | Cover every unique lifecycle, spawn, score, seasonal, choice and encounter policy. |
+| Profile/season/entry/terminal outcomes | 1 / 1 / 1 / 2 | 0 | 0 | Stable family plus released active season; group `2025` is one separate evidence-only manifest exclusion. |
+| Stages/nodes/Tierce/Starward/transitions | 4 stages / 8 ordinary nodes / 1 Tierce / 1 Tierce node | 0 | 0 | Transition behavior is additionally frozen in the rule/fixture denominator. |
+| Participant/team/loadout/attempt records | 1 participant / 1 loadout / 1 attempt / 1 retry policy | 0 | 0 | Includes later semantic detail for uniqueness, snapshot, abandonment and reset. |
+| Turn/AV clocks and wave lifecycle | 4 clocks / 27 waves | 0 | 0 | Tierce clock meaning remains an explicit policy-bound research field rather than an invented clock row. |
+| Spawn queues/replacement rules | 1 policy / 63 authored slots | 0 | 0 | Ordered refill and simultaneous defeat behavior are frozen mechanic/fixture obligations. |
+| Initial resources/battle entry | 1 | 0 | 0 | Exact values or a visible released-text policy are required before DataReady. |
+| Score sources/caps/objectives/stars | 1 aggregation / 6 objective rows | 0 | 0 | Defeat/damage/cap/settlement behavior also has frozen rule/fixture obligations. |
+| Whimsicality/Grit/Fever | 2 base MazeBuffs / 3 Fever sub-buffs | 0 | 0 | Exact active group/stage bindings and three transition contributions. |
+| Cacophony choices/effects | 3 | 0 | 0 | MazeBuffs `3031359`, `3031362`, `3031361`. |
+| Blessings/Curios/Occurrences/choices | 4 exact-zero proofs | 0 | 0 | One generated selector-closure proof per family. |
+| Services/currencies/shops | 3 exact-zero proofs | 0 | 0 | One generated selector-closure proof per family. |
+| Themes/MazeBuffs/BattleEvents/configs | 1 theme / 1 BattleEvent / 4 active FantasticStory programs | 0 | 0 | Seasonal MazeBuff rows are counted in their mechanic families above. |
+| Encounter groups/waves/enemy slots | 9 StageConfig / 27 waves / 63 slots | 0 | 0 | Includes eight ordinary sides and one Tierce/Starward encounter. |
+| Enemy skills/statuses/AI/abilities | 42 variants / 41 templates / 164 skills / 41 character configs / 28 AI / 112 abilities / 168 statuses | 0 | 0 | Recursive summons and selected config/ability matches close from the nine StageConfig rows. |
+| Mechanic rules | 25 | 0 | 0 | Reference contributions only; no runtime executability claim. |
+| Semantic fixtures | 18 | 0 | 0 | One frozen fixture family per distinct lifecycle/spawn/score/seasonal/choice/encounter policy group. |
 
 ## Decisions
 
@@ -140,7 +140,7 @@ generated selector-closure proof.
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
 | `G15-R01` | `Resolved` | The generated source inventory closes the dedicated/shared table, entry mapping, TextMap, StageConfig, `FantasticStory*`, shared config and available enemy/stage program boundary. Enabled row-level closure remains manifest-owned. | P0-B2 | Reopen only when a selected manifest reference is absent from the hashed inventory or a stronger released source adds a required file. |
-| `G15-R02` | `Open` | Which released selectors prove group `2024` is the season active in Version 4.4 and exclude historical plus scheduled-but-unreleased group `2025`? | P0-B3 | Replace with an exact-once manifest whose rows carry structured and public release evidence and fail-closed exclusions. |
+| `G15-R02` | `Resolved` | Structured schedule `202024` and official Version 4.3/4.4 boundaries select group `2024`; schedule `202025`/group `2025` begins after the fixed access boundary and is evidence-only. | P0-B3 | Reopen only for a revisioned snapshot with a later access boundary. |
 | `G15-R03` | `Open` | What exact topology, participant slots, clock, objective and settlement semantics do Tierce `20245`, Starward and Fever add? | P0-B3 / P1-B1–B7 | Replace with decoded schema/reference joins and fixtures; record missing runtime capabilities for a later goal without changing runtime here. |
 | `G15-R04` | `Open` | What are the exact character/combat-form, Light Cone and Relic-instance uniqueness and loadout invalidation scopes across every ordinary and Tierce/Starward node? | P1-B2 | Replace with source-backed participant/lock rows and accepted/rejected/retry fixtures. |
 | `G15-R05` | `Open` | How do turn/AV budgets, node scope, wave transitions, continuous enemy replacement, timeout and early final-group completion compose? | P1-B3 | Replace with config/ability evidence or field-level policies carrying rejected alternatives and lifecycle fixtures. |
