@@ -3,13 +3,17 @@
 use std::collections::{BTreeSet, VecDeque};
 
 use starclock_activity::{
-    ActivityCause, ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed,
-    ActivityOperation, ActivityProgramDefinition, ActivityProgramId, ActivityRngContext,
-    ActivityRngStreams, ActivityStateHash, ActivityTerminalOutcome, ActivityTransactionOutcome,
-    ActivityTransactionState, AttemptId, BattleResultDigest, BattleSequence, NodeId,
+    ActivityCause, ActivityDefinitionIdentity, ActivityEdgeId, ActivityInstanceId,
+    ActivityMasterSeed, ActivityOperation, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRngContext, ActivityRngStreams, ActivityStateHash, ActivityTerminalOutcome,
+    ActivityTransactionOutcome, ActivityTransactionState, AttemptId, BattleResult,
+    BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId,
 };
 
-use crate::{battle_materialization::UniverseBattleRoster, digest::Encoder};
+use crate::{
+    battle_materialization::UniverseBattleRoster, digest::Encoder,
+    nested_battle_executor::NestedBattleExecutionReport,
+};
 
 use super::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleExecutionError, GoldAndGearsEncounterRole,
@@ -50,6 +54,16 @@ impl GoldAndGearsSeededRunRequest {
     pub const fn seed(self) -> u64 {
         self.seed
     }
+
+    #[must_use]
+    pub const fn identity(self) -> ActivityDefinitionIdentity {
+        self.identity
+    }
+
+    #[must_use]
+    pub const fn activity_instance(self) -> ActivityInstanceId {
+        self.activity_instance
+    }
 }
 
 /// One accepted boundary in a seeded complete-run transcript.
@@ -59,6 +73,48 @@ pub enum GoldAndGearsSeededRunStepKind {
     BossSelection,
     Traverse,
     Battle(GoldAndGearsEncounterRole),
+}
+
+/// Exact accepted action retained by component-addressed replay.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum GoldAndGearsSeededRunAction {
+    PlaneCreation {
+        source_node: NodeId,
+        plane: u8,
+    },
+    BossSelection {
+        source_node: NodeId,
+        plane: u8,
+        boss: Box<str>,
+    },
+    Traverse {
+        source_node: NodeId,
+        edge: ActivityEdgeId,
+    },
+    Battle {
+        source_node: NodeId,
+        role: GoldAndGearsEncounterRole,
+        group: Box<str>,
+        member: Box<str>,
+        effective_level: u16,
+    },
+}
+
+pub(super) struct GoldAndGearsSeededBattleRecord {
+    pub(super) start_identity: BattleResultIdentity,
+    pub(super) result: BattleResult,
+    pub(super) report: NestedBattleExecutionReport,
+}
+
+pub(super) struct GoldAndGearsSeededReplayStep {
+    pub(super) action: GoldAndGearsSeededRunAction,
+    pub(super) state_hash: ActivityStateHash,
+    pub(super) battle: Option<GoldAndGearsSeededBattleRecord>,
+}
+
+pub(super) struct GoldAndGearsRecordedExecution {
+    pub(super) report: GoldAndGearsSeededRunReport,
+    pub(super) replay: Box<[GoldAndGearsSeededReplayStep]>,
 }
 
 /// Canonical state evidence after one accepted seeded-run boundary.
@@ -172,6 +228,15 @@ impl GoldAndGearsRuntimeInstance {
         request: GoldAndGearsSeededRunRequest,
         roster: &UniverseBattleRoster,
     ) -> Result<GoldAndGearsSeededRunReport, GoldAndGearsSeededRunError> {
+        self.execute_seeded_run_recorded(request, roster)
+            .map(|execution| execution.report)
+    }
+
+    pub(super) fn execute_seeded_run_recorded(
+        &self,
+        request: GoldAndGearsSeededRunRequest,
+        roster: &UniverseBattleRoster,
+    ) -> Result<GoldAndGearsRecordedExecution, GoldAndGearsSeededRunError> {
         let mut state = ActivityTransactionState::new(
             self.state_definition().clone(),
             self.graph_definition().entry(),
@@ -191,6 +256,7 @@ impl GoldAndGearsRuntimeInstance {
         let starts = self.plane_starts().collect::<Vec<_>>();
         let mut created = [false; 3];
         let mut steps = Vec::new();
+        let mut replay = Vec::new();
         let mut battle_count = 0_u32;
 
         for _ in 0..MAX_STEPS {
@@ -211,13 +277,16 @@ impl GoldAndGearsRuntimeInstance {
                     battle_count,
                     &steps,
                 );
-                return Ok(GoldAndGearsSeededRunReport {
-                    seed: request.seed,
-                    terminal,
-                    final_state_hash,
-                    battle_count,
-                    steps: steps.into_boxed_slice(),
-                    transcript_digest,
+                return Ok(GoldAndGearsRecordedExecution {
+                    report: GoldAndGearsSeededRunReport {
+                        seed: request.seed,
+                        terminal,
+                        final_state_hash,
+                        battle_count,
+                        steps: steps.into_boxed_slice(),
+                        transcript_digest,
+                    },
+                    replay: replay.into_boxed_slice(),
                 });
             }
 
@@ -230,7 +299,7 @@ impl GoldAndGearsRuntimeInstance {
                     .map_err(GoldAndGearsSeededRunError::InvalidInput)?;
                 apply_program(self, &mut state, program)?;
                 created[plane] = true;
-                steps.push(step(
+                let accepted = step(
                     GoldAndGearsSeededRunStepKind::PlaneCreation,
                     node,
                     &state,
@@ -238,7 +307,17 @@ impl GoldAndGearsRuntimeInstance {
                     request,
                     None,
                     self,
-                ));
+                );
+                replay.push(GoldAndGearsSeededReplayStep {
+                    action: GoldAndGearsSeededRunAction::PlaneCreation {
+                        source_node: node,
+                        plane: u8::try_from(plane + 1)
+                            .expect("the frozen run has exactly three planes"),
+                    },
+                    state_hash: accepted.state_hash,
+                    battle: None,
+                });
+                steps.push(accepted);
                 continue;
             }
 
@@ -268,7 +347,7 @@ impl GoldAndGearsRuntimeInstance {
                         .compile_boss_selection(plane, boss)
                         .map_err(GoldAndGearsSeededRunError::InvalidInput)?;
                     apply_program(self, &mut state, program)?;
-                    steps.push(step(
+                    let accepted = step(
                         GoldAndGearsSeededRunStepKind::BossSelection,
                         node,
                         &state,
@@ -276,7 +355,17 @@ impl GoldAndGearsRuntimeInstance {
                         request,
                         None,
                         self,
-                    ));
+                    );
+                    replay.push(GoldAndGearsSeededReplayStep {
+                        action: GoldAndGearsSeededRunAction::BossSelection {
+                            source_node: node,
+                            plane,
+                            boss: boss.into(),
+                        },
+                        state_hash: accepted.state_hash,
+                        battle: None,
+                    });
+                    steps.push(accepted);
                 }
 
                 let selection = self
@@ -353,7 +442,7 @@ impl GoldAndGearsRuntimeInstance {
                         node,
                     });
                 }
-                steps.push(step(
+                let accepted = step(
                     GoldAndGearsSeededRunStepKind::Battle(role),
                     node,
                     &state,
@@ -361,7 +450,23 @@ impl GoldAndGearsRuntimeInstance {
                     request,
                     Some(execution.result().actual_digest()),
                     self,
-                ));
+                );
+                replay.push(GoldAndGearsSeededReplayStep {
+                    action: GoldAndGearsSeededRunAction::Battle {
+                        source_node: node,
+                        role,
+                        group: selection.group().into(),
+                        member: selection.source_rogue_monster_id().into(),
+                        effective_level: selection.effective_level(),
+                    },
+                    state_hash: accepted.state_hash,
+                    battle: Some(GoldAndGearsSeededBattleRecord {
+                        start_identity: start.handoff().identity(),
+                        result: execution.result().clone(),
+                        report: execution.report().clone(),
+                    }),
+                });
+                steps.push(accepted);
                 continue;
             }
 
@@ -385,7 +490,7 @@ impl GoldAndGearsRuntimeInstance {
                 ActivityProgramDefinition::new(id, vec![ActivityOperation::Traverse(edge)])
                     .map_err(|_| GoldAndGearsSeededRunError::ProgramRejected)?;
             apply_program(self, &mut state, program)?;
-            steps.push(step(
+            let accepted = step(
                 GoldAndGearsSeededRunStepKind::Traverse,
                 node,
                 &state,
@@ -393,7 +498,16 @@ impl GoldAndGearsRuntimeInstance {
                 request,
                 None,
                 self,
-            ));
+            );
+            replay.push(GoldAndGearsSeededReplayStep {
+                action: GoldAndGearsSeededRunAction::Traverse {
+                    source_node: node,
+                    edge,
+                },
+                state_hash: accepted.state_hash,
+                battle: None,
+            });
+            steps.push(accepted);
         }
         Err(GoldAndGearsSeededRunError::StepBudgetExceeded)
     }

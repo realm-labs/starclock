@@ -19,6 +19,7 @@ mod path_boost_rule_runtime_tests;
 mod phase2_hardening_tests;
 mod profile_rule_runtime_tests;
 mod progression_runtime_tests;
+mod replay_tests;
 mod resonance_rule_runtime_tests;
 mod runtime_coverage_tests;
 mod seeded_run_tests;

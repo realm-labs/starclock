@@ -31,6 +31,8 @@ mod path_boost_rule_runtime;
 mod plane_transition;
 mod profile_rule_runtime;
 mod progression_runtime;
+mod replay;
+mod replay_action;
 mod resonance_rule_runtime;
 mod runtime_coverage;
 mod seeded_run;
@@ -148,6 +150,13 @@ pub use progression_runtime::{
     GoldAndGearsResonanceContribution, GoldAndGearsResonanceKind, GoldAndGearsResonanceSet,
     GoldAndGearsTrailblazeBonusPlan, GoldAndGearsTrailblazeOffer,
 };
+pub use replay::{
+    GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION, GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION,
+    GoldAndGearsReplayDivergenceKind, GoldAndGearsReplayError, GoldAndGearsReplayReport,
+    RecordedGoldAndGearsRun, encode_gold_and_gears_replay, gold_and_gears_header_v2,
+    gold_and_gears_replay_compatibility, record_gold_and_gears_run, verify_gold_and_gears_replay,
+};
+pub use replay_action::GOLD_AND_GEARS_REPLAY_ACTION_VERSION;
 pub use resonance_rule_runtime::{
     GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION, GoldAndGearsResonanceCombatAttachment,
     GoldAndGearsResonanceCombatBinding, GoldAndGearsResonanceCombatSet,
@@ -158,8 +167,9 @@ pub use runtime_coverage::{
     GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION, GoldAndGearsRuntimeCoverageSummary,
 };
 pub use seeded_run::{
-    GOLD_AND_GEARS_SEEDED_RUN_REVISION, GoldAndGearsSeededRunError, GoldAndGearsSeededRunReport,
-    GoldAndGearsSeededRunRequest, GoldAndGearsSeededRunStep, GoldAndGearsSeededRunStepKind,
+    GOLD_AND_GEARS_SEEDED_RUN_REVISION, GoldAndGearsSeededRunAction, GoldAndGearsSeededRunError,
+    GoldAndGearsSeededRunReport, GoldAndGearsSeededRunRequest, GoldAndGearsSeededRunStep,
+    GoldAndGearsSeededRunStepKind,
 };
 pub use semantic_fixture_runtime::{
     GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION, GoldAndGearsSemanticFixtureBinding,
