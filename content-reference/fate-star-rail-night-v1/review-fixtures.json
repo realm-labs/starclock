@@ -3,7 +3,7 @@
   "goal_id": "fate-star-rail-night-reference-v1",
   "batch": "G19-P2-B5",
   "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
-  "count": 56,
+  "count": 58,
   "fixtures": [
     {
       "fixture_id": "fate-star-rail-night.fixture.battle-area",
@@ -68,6 +68,80 @@
         }
       ],
       "mechanism_quality": "DirectScalarReference"
+    },
+    {
+      "fixture_id": "fate-star-rail-night.fixture.battle-event",
+      "mechanic_family": "BattleEvent",
+      "initial_state": {
+        "stable_id": "fate-star-rail-night.shared.battle-event.20001.index-55"
+      },
+      "commands": [
+        {
+          "kind": "InspectReferenceFact"
+        }
+      ],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "family",
+          "value": "BattleEvent"
+        },
+        {
+          "op": "equals",
+          "path": "enabled",
+          "value": false
+        },
+        {
+          "op": "equals",
+          "path": "disposition",
+          "value": "ResearchRequired"
+        }
+      ],
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleEventConfig.json",
+          "locator": "index:55",
+          "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee"
+        }
+      ],
+      "mechanism_quality": "PolicyBoundary"
+    },
+    {
+      "fixture_id": "fate-star-rail-night.fixture.battle-target",
+      "mechanic_family": "BattleTarget",
+      "initial_state": {
+        "stable_id": "fate-star-rail-night.shared.battle-target.2001.index-0"
+      },
+      "commands": [
+        {
+          "kind": "InspectReferenceFact"
+        }
+      ],
+      "expected_facts": [
+        {
+          "op": "equals",
+          "path": "family",
+          "value": "BattleTarget"
+        },
+        {
+          "op": "equals",
+          "path": "enabled",
+          "value": false
+        },
+        {
+          "op": "equals",
+          "path": "disposition",
+          "value": "ResearchRequired"
+        }
+      ],
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:0",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "mechanism_quality": "PolicyBoundary"
     },
     {
       "fixture_id": "fate-star-rail-night.fixture.enemy-program",

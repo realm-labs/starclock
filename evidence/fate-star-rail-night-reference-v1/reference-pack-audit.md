@@ -1,7 +1,10 @@
 # Goal 19 Reference Pack Audit
 
 `G19-P2-B5` assembles seventeen pack files at canonical pack digest
-`ae040b74b3fddbb7e59807a435017311ec91e5892e364430636d25123bb7ecc3`.
+`3a931ae76149992b513fd7c1ff819a55225baa8e99c8530bc343338340854018`.
+
+P4-B2 added two missing policy-bound BattleEvent/BattleTarget fixture links;
+the current pack therefore contains 58 fixtures rather than the initial 56.
 
 - 1,904/1,904 manifest obligations are normalized exactly once;
 - 1,491 eligible rows are DataReady, including thirteen policy-bound rows;

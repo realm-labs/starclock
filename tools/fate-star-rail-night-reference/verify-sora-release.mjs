@@ -31,7 +31,7 @@ for (const file of debugFiles) {
   }
   rowCount += payload.table.rows.length;
 }
-assert(rowCount === 5_934, `expected 5934 rows, got ${rowCount}`);
+assert(rowCount === 5_936, `expected 5936 rows, got ${rowCount}`);
 const scratch = mkdtempSync(resolve(root, ".cache/g19-sora-release-"));
 try {
   const fresh = resolve(scratch, "release");

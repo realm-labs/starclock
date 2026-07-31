@@ -1,13 +1,13 @@
 # G19-P3-B6 — Sora Release and Visual Audit
 
 Pinned Sora 0.3.0 exported 48 debug tables and a Zstandard binary bundle. All
-5,934 rows retain their private ordinal and normalized stable key. Independent
+5,936 rows retain their private ordinal and normalized stable key. Independent
 full regeneration is byte-identical at generated-tree digest
-`3731b9d2b71043ddcdf8544f23414ac61b3963bdba57f8704b79abf6483ef50b`;
+`5bbda6ed878ef860175e3eccfcb82294ac49e84eee6c28e75bafb8b41857c0a6`;
 the bundle digest is
-`9f79157459e21f8fb8c17518037be66c219bc46d2221c89b9075b5ac35c0fc13`.
+`ce195a55c5056415a1672d50c4329bcea43173edc71bc0d4aa9fd0b130ed9bc7`.
 The standalone locked Rust loader parses the bundle and iterates all 48
-non-empty generated readers for exactly 5,934 rows. Nothing is imported by a
+non-empty generated readers for exactly 5,936 rows. Nothing is imported by a
 runtime crate.
 
 Artifact-tool 2.8.6+ rendered every sheet in three contiguous six-column bands:

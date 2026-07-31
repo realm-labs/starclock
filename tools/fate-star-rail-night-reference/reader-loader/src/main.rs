@@ -6,7 +6,7 @@ mod generated;
 use generated::{SoraConfig, runtime::SoraBundle};
 
 const EXPECTED_TABLES: usize = 48;
-const EXPECTED_ROWS: usize = 5_934;
+const EXPECTED_ROWS: usize = 5_936;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut arguments = std::env::args().skip(1);

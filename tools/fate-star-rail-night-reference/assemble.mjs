@@ -101,6 +101,27 @@ const fixtures = enabledFamilies.map((family) => {
     mechanism_quality: record.mechanism_quality,
   };
 });
+for (const family of [...new Set(manifest.obligations
+  .filter(({ disposition }) => disposition === "ResearchRequired")
+  .map(({ family }) => family))].sort(compareText)) {
+  const record = records.find((candidate) =>
+    candidate.family === family && candidate.disposition === "ResearchRequired");
+  assert(record, `missing policy-bound fixture source for ${family}`);
+  fixtures.push({
+    fixture_id: `fate-star-rail-night.fixture.${slug(family)}`,
+    mechanic_family: family,
+    initial_state: { stable_id: record.stable_id },
+    commands: [{ kind: "InspectReferenceFact" }],
+    expected_facts: [
+      { op: "equals", path: "family", value: family },
+      { op: "equals", path: "enabled", value: false },
+      { op: "equals", path: "disposition", value: "ResearchRequired" },
+    ],
+    source_refs: record.source_refs,
+    mechanism_quality: "PolicyBoundary",
+  });
+}
+fixtures.sort((left, right) => compareText(left.fixture_id, right.fixture_id));
 
 const peerManifestPaths = findPeerManifests();
 const localTriples = new Map(manifest.obligations.map((obligation) => [

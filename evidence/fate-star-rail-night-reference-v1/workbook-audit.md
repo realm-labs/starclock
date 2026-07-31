@@ -1,7 +1,7 @@
 # G19-P3-B5 — Workbook Authoring Audit
 
 Pinned `openpyxl==3.1.5` authored the four complete production workbooks from
-the Sora-generated clean templates. The result contains 48 sheets and 5,934
+the Sora-generated clean templates. The current result contains 48 sheets and 5,936
 rows. Each sheet preserves all seven Sora metadata rows, the exact field order,
 and the normalized stable-key order. No formula or Excel error is permitted.
 
@@ -12,10 +12,13 @@ generations are byte-identical to one another and to the committed targets:
 
 | Workbook | SHA-256 |
 |---|---|
-| `FateStarRailNight.xlsx` | `9dde5a7ef1408b3923127cc8ed2e108bfe70731e13fb9e3037e0cb4b2a9ee1fe` |
+| `FateStarRailNight.xlsx` | `4836dd7751a6fb60e7b89e68369ca68ce5b4df2b17a0d53f2f0c1b497d3b8932` |
 | `FateStarRailNightBindings.xlsx` | `c191e5484491020946206ac3b9ead8b12d86a7dfee431ea3a47b2a03a28b31f5` |
 | `FateStarRailNightCombat.xlsx` | `e053682107fc27b216fe1233cb75b5eec3511c2f4b6a781362fae14db829d30f` |
-| `FateStarRailNightReview.xlsx` | `dfa590263be2a632b13baeba100c9e21c42c21913ef502050d7e80dfc47305ec` |
+| `FateStarRailNightReview.xlsx` | `99f721b96b59ba1232756d7f263af66171c50e8519f6bf8d7689c035d20cb06c` |
+
+P4-B2 regenerated the profile and review workbooks after adding two missing
+policy-bound fixture links; bindings and combat bytes remained unchanged.
 
 The workspace dependency loader returned no artifact-tool runtime path in this
 desktop worktree. The repository's stricter production contract therefore

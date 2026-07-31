@@ -2,9 +2,9 @@
 
 The seven review tables contain 1,914 source receipts, 419 content and exact-zero
 pool audit rows, 1,904 exact-once coverage receipts, thirteen bounded research
-policies, eleven peer reconciliation receipts, 56 semantic fixtures and
+policies, eleven peer reconciliation receipts, 58 semantic fixtures and
 seventeen pack-file index rows. Together with the 41 gameplay tables, the four
-workbooks will carry 5,934 unique rows.
+workbooks carry 5,936 unique rows after the P4-B2 policy-fixture correction.
 
 Pinned `sora 0.3.0` generated the complete schema lock, four clean templates and
 50 isolated Rust reader files (48 table readers plus `mod.rs` and `runtime.rs`).
@@ -20,5 +20,5 @@ fnm exec --using 24.15.0 node tools/fate-star-rail-night-reference/verify-sora-t
 fnm exec --using 24.15.0 node tools/fate-star-rail-night-reference/verify-sora-foundation.mjs --root . --python python3
 ```
 
-Result: 48 tables / 5,934 rows, four templates, 50 reader files and zero
+Result: 48 tables / 5,936 rows, four templates, 50 reader files and zero
 regeneration drift.
