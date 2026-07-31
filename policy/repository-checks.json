@@ -56,11 +56,16 @@
         "kind": "generated",
         "reason": "Goal 13 isolated Sora 0.3.0 audit readers; regenerated and byte-verified by tools/anomaly-arbitration-reference/verify-sora-audit.mjs."
       },
-      {
-        "path": "config/galactic-baseballer-generated/readers/rust",
-        "kind": "generated",
-        "reason": "Goal 16 isolated Sora 0.3.0 reference readers; regenerated and byte-verified by tools/galactic-baseballer-reference/verify-sora-release.mjs."
-      }
+    {
+      "path": "config/galactic-baseballer-generated/readers/rust",
+      "kind": "generated",
+      "reason": "Goal 16 isolated Sora 0.3.0 reference readers; regenerated and byte-verified by tools/galactic-baseballer-reference/verify-sora-release.mjs."
+    },
+    {
+      "path": "config/pure-fiction-generated/readers/rust",
+      "kind": "generated",
+      "reason": "Goal 15 isolated Sora 0.3.0 reference readers; regenerated and byte-verified by tools/pure-fiction-reference/verify-authoring.mjs."
+    }
     ],
     "line_limit_exceptions": [],
     "allowed_public_reexports": [

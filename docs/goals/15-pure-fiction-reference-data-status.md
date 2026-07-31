@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Independent Sora and Excel |
 | Active batch | — |
-| Next unblocked batch | `G15-P3-B4` |
+| Next unblocked batch | `G15-P3-B5` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -34,7 +34,7 @@
 | Phase 0 — Scope, sources, manifest and contracts | `Complete` | Pinned caches, 1,816-file inventory, 796-obligation active manifest, exact exclusions/zero proofs and normalized/evidence/workbook/fixture contracts are machine-verified. |
 | Phase 1 — Unique mode systems | `Complete` | Profile/season/Tierce, participants/loadouts/attempts, clocks/refill, score/objectives, Whimsicality/Grit/Fever, three Cacophonies and initial-resource policies regenerate byte-identically. |
 | Phase 2 — Content pools, services, events and enemies | `Complete` | Seven exact-zero pool proofs, active event/program bindings, all nine encounters/27 waves/63 slots, complete 596-row enemy mechanic closure, 25 rule families, 18 fixtures and exact-once 796-row coverage are machine-verified. |
-| Phase 3 — Independent Sora and Excel | `InProgress` | Thirty core, mechanics and content-binding Sora tables are generated; review tables and owned generated artifacts are next. |
+| Phase 3 — Independent Sora and Excel | `InProgress` | All 37 isolated Sora tables, schema lock, three templates and 43 Rust reader modules are generated; complete workbook authoring is next. |
 | Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `Pending` | Awaiting exact-once audit, semantic fixtures, cross-goal receipts, regeneration and clean-checkout evidence. |
 
 ## Batch ledger
@@ -61,7 +61,7 @@
 | `G15-P3-B1` | `Complete` | This row's containing commit | Pushed to `origin/codex/goal15-pure-fiction-reference` with `git push origin HEAD:codex/goal15-pure-fiction-reference` and remotely resolved exactly using `git ls-remote --heads origin codex/goal15-pure-fiction-reference`. `generate-sora-schema.mjs --batch=G15-P3-B1 --check` freezes seven isolated, indexed Sora tables for profile, season, stage, node, Tierce/Starward, participant and attempt authoring with bilingual/provenance/quality envelopes and no production-bundle dependency. |
 | `G15-P3-B2` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `generate-sora-schema.mjs --batch=G15-P3-B2 --check` freezes seven isolated clock, spawn, score, objective, seasonal-mechanic, Cacophony and initial-resource tables; exact payload order is preserved as canonical JSON and unavailable semantics remain visibly quality-bound. |
 | `G15-P3-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `generate-sora-schema.mjs --batch=G15-P3-B3 --check` freezes 16 isolated pool-proof, theme, MazeBuff, event/program, encounter/wave/slot, enemy-closure and mechanic-rule tables. Shared enemy facts stay quality-labelled reference payloads instead of duplicated runtime semantics. |
-| `G15-P3-B4` | `Pending` | — | Add evidence/coverage/reconciliation/fixture tables and isolated locks/templates/readers. |
+| `G15-P3-B4` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. Sora 0.3.0 `check`, `schema-lock`, `excel-template` and Rust `gen` succeed for seven review tables and the complete 37-table project, producing lock `5e285b8d…4c99`, three isolated workbook templates and 43 reader modules without linking the reference package into production runtime. |
 | `G15-P3-B5` | `Pending` | — | Generate and structurally/semantically verify all three complete `openpyxl` workbooks. |
 | `G15-P3-B6` | `Pending` | — | Prove deterministic Sora export/load and visual review of every sheet and schema column. |
 | `G15-P4-B1` | `Pending` | — | Audit exact-once coverage, active-release selection, ownership, references, provenance, bilingual fields and exclusions. |
