@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
 | Active batch | — |
-| Next unblocked batch | `G15-P1-B6` |
+| Next unblocked batch | `G15-P1-B7` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -50,7 +50,7 @@
 | `G15-P1-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported four exact stage turn budgets plus one bounded continuous-refill policy, preserving 150/100 AV windows as an explicit challenge preset, independent node clocks, authored wave/slot order, stable simultaneous-defeat settlement, timeout score finalization and a stronger-evidence replacement condition. |
 | `G15-P1-B4` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported defeat, partial-damage and stage aggregation programs plus all six ordinary/Tierce objective identities. Authoritative event attribution, integer score transport, simultaneous event order, 30,000 ordinary and 45,000 Tierce clear-score boundaries are explicit; still-obfuscated Tierce thresholds remain policy-bound rather than guessed. |
 | `G15-P1-B5` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the two selected Whimsicality/base bindings and all three Grit/Fever contributions (`3031227`–`3031229`) with exact stage-ability keys and canonical parameter vectors; hidden target/tie behavior remains fixture-bound ProjectPolicy rather than observed parity. |
-| `G15-P1-B6` | `Pending` | — | Import selectable Cacophony choices, eligibility, timing, parameters, base-rule interactions and battle contributions. |
+| `G15-P1-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported all three selectable Cacophonies (`3031359`, `3031362`, `3031361`) with exact post-character-birth binding keys and canonical parameter order; attempt-node choice locking and base-rule interaction remain explicit future-runtime contribution boundaries. |
 | `G15-P1-B7` | `Pending` | — | Import initial resources, battle entry, cross-battle projections and remaining Tierce/Starward contributions. |
 | `G15-P2-B1` | `Pending` | — | Freeze selector-backed nonzero or exact-zero Blessing, Curio, Occurrence and event-choice pools. |
 | `G15-P2-B2` | `Pending` | — | Freeze selector-backed nonzero or exact-zero service, currency, shop and other content pools. |

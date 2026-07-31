@@ -1,0 +1,112 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "cacophonies.json",
+  "record_kind": "cacophony",
+  "records": [
+    {
+      "id": "pf.buff.3031359",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "cacophony",
+      "name_en": "cacophony 3031359",
+      "name_zh_cn": "cacophony 3031359",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031359"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031359"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031359,
+      "modifier_name": "ADV_StageAbility_3031359",
+      "binding_type": "StageAbilityAfterCharacterBorn",
+      "binding_key": "FantasticStory_PlusAbility_2261",
+      "parameters": [
+        "0.4",
+        "2",
+        "50",
+        "1"
+      ],
+      "display_type": "Fixed"
+    },
+    {
+      "id": "pf.buff.3031361",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "cacophony",
+      "name_en": "cacophony 3031361",
+      "name_zh_cn": "cacophony 3031361",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031361"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031361"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031361,
+      "modifier_name": "ADV_StageAbility_3031361",
+      "binding_type": "StageAbilityAfterCharacterBorn",
+      "binding_key": "FantasticStory_PlusAbility_2263",
+      "parameters": [
+        "1",
+        "0.03",
+        "2",
+        "10",
+        "2"
+      ],
+      "display_type": "Fixed"
+    },
+    {
+      "id": "pf.buff.3031362",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "cacophony",
+      "name_en": "cacophony 3031362",
+      "name_zh_cn": "cacophony 3031362",
+      "summary_en": "An exact active-season MazeBuff binding with canonical parameters.",
+      "summary_zh_cn": "带规范参数的当前周期精确迷宫增益绑定。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.buff.3031362"
+      ],
+      "source_record_ids": [
+        "source.pf.buff.3031362"
+      ],
+      "runtime_executable": false,
+      "buff_id": 3031362,
+      "modifier_name": "ADV_StageAbility_3031362",
+      "binding_type": "StageAbilityAfterCharacterBorn",
+      "binding_key": "FantasticStory_PlusAbility_2264",
+      "parameters": [
+        "0.15",
+        "2",
+        "40",
+        "3"
+      ],
+      "display_type": "Fixed"
+    }
+  ]
+}
