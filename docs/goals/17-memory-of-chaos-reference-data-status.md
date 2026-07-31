@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | — |
-| Next unblocked batch | `G17-P0-B3` |
+| Next unblocked batch | `G17-P0-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -16,7 +16,7 @@
 | Starting source oracle | Dedicated `ChallengeMaze*`/schedule/target/const tables; shared entry, MazeBuff, BattleEvent, StageConfig, monster and config/ability closure; CHS/EN TextMaps |
 | Active-season hypothesis | Schedule `201033` → group `1033` (`学院怪谈` / `Academy Ghost Story`) → rows `5201`–`5212`, Tierce `5213`, MazeBuff `3030146`, targets `251`–`253`, 25 StageConfig candidates and Battle Event `30146`; not a denominator until `G17-P0-B3` |
 | Focused inventory | 2,703 pinned receipts: 2,646 inherited Goal 03 enemy/mechanic files, 10 dedicated Memory/Forgotten Hall tables, 17 shared entry/stage/event/config/TextMap seeds, 26 named adjacent Challenge exclusions, one additional Challenge evidence table and three StarRailRes identity receipts |
-| Content manifest | Denominators pending `G17-P0-B3` |
+| Content manifest | 477 exact obligations: 172 MemoryOfChaos-owned and 305 Shared; active schedule `201033`, group `1033`, 12 ordinary stages, one Tierce, 25 StageConfig rows, 99 enemy slots, 41 variants/templates, 221 abilities and 10 exact-zero pool proofs |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -43,7 +43,7 @@
 |---|---|---|---|
 | `G17-P0-B1` | `Complete` | This row's containing commit | Reproduced 28 required-file receipts in isolated clean/detached caches at `turnbasedgamedata@fd978d6e…c3568` and `StarRailRes@7b349e39…7a93`; verified origins, commit/blob readability and `git fsck --connectivity-only --no-dangling`. Goal 03 is Complete at immutable commit `60ca52ed…89de`. The execution branch/upstream/base, all registered worktrees, six writable roots and eight committed Goal 07–13/16 ownership inputs are frozen in `content-manifests/memory-of-chaos-v1/foundation.json`. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/foundation.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` with 2,703 pinned receipts: 2,646 inherited Goal 03 enemy/mechanic files, 10 dedicated Memory/Forgotten Hall tables, 17 shared entry/stage/event/config/TextMap seeds, 26 named adjacent Challenge exclusions, one remaining Challenge evidence table and three StarRailRes identity receipts. The 25 active StageConfig rows remain planning candidates; membership and transitive closure are reserved for P0-B3. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/inventory.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
-| `G17-P0-B3` | `Pending` | — | Freeze active-season selectors, exact obligations/counts, Tierce semantics, ownership, reachability, proven-empty pools and exclusions. |
+| `G17-P0-B3` | `Complete` | This row's containing commit | Froze 477 exact obligations (172 MemoryOfChaos-owned, 305 Shared): active schedule `201033` and group `1033`; 12 ordinary stages; selected Tierce `5213`; six objectives; 25 released StageConfig rows; 99 exact wave/slot bindings; 41 enemy variants/templates; 221 inherited enemy abilities; 14 participant/attempt/clock/resource semantic obligations; and 10 generated empty-pool proofs. Tierce is proved as a separately selected extension after `5212` with one StageConfig `30123123`, targets `601`–`603` and countdown `45`; no third ordinary node/team/clock/settlement rule is inferred. Future schedule/group `201034`/`1034` are fail-closed exclusions. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/manifest.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G17-P1-B1` | `Pending` | — | Import profile, active season, entry/unlocks, floors/stages, ordinary nodes, Tierce identity, legal order and outcomes. |
 | `G17-P1-B2` | `Pending` | — | Import participants, team/loadout uniqueness, snapshots/locks, attempts, retries, reset and transitions. |
@@ -96,17 +96,17 @@ generated selector-closure proof.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profile/season/entry/terminal outcomes | TBD | 0 | 0 | Stable family plus active released Version 4.4 season; historical/future seasons remain evidence-only. |
-| Floors/stages/nodes/Tierce/transitions | TBD | 0 | 0 | Freeze ordinary topology and the exact selected Tierce role without assuming a third node from its name. |
-| Participant/team/loadout/attempt records | TBD | 0 | 0 | Includes uniqueness, snapshots, locks, substitution, retry and reset scope. |
-| Cycle/AV clocks and wave carry | TBD | 0 | 0 | Includes initial budget, first-cycle window, tick, node/wave boundary, expiry and failure. |
-| Initial resources/battle entry | TBD | 0 | 0 | Includes exact HP/Energy/Skill Point and selected entry operations. |
-| Targets/objectives/stars/aggregation | TBD | 0 | 0 | Includes completion, downed-character and remaining-cycle evaluation. |
-| Memory Turbulence/MazeBuff/BattleEvent | TBD | 0 | 0 | Includes parameters, triggers, hit state, target selection, True DMG and teardown. |
-| Blessings/Curios/Occurrences | TBD | 0 | 0 | Freeze exact reachable rows or an exact-zero selector proof for each family. |
-| Services/currencies/shops/choices | TBD | 0 | 0 | Reward/account tables do not prove a mechanically reachable service or currency. |
-| Encounter groups/waves/enemy slots | TBD | 0 | 0 | Resolve every ordinary and Tierce StageConfig row, variant, difficulty and boss phase. |
-| Enemy skills/statuses/AI/abilities | TBD | 0 | 0 | Include complete transitive mechanic closure for each enabled enemy variant. |
+| Profile/season/entry/terminal outcomes | 5 | 0 | 0 | Stable Memory family, active schedule/group and two entry locators; historical/future seasons remain evidence-only. |
+| Floors/stages/nodes/Tierce/transitions | 13 | 0 | 0 | Twelve ordinary stages plus one separately selected Tierce extension; exact StageConfig bindings are counted under encounters. |
+| Participant/team/loadout/attempt records | 6 | 0 | 0 | Non-shrinking obligations cover team slots, uniqueness, loadout locks, retry/reset and node transition. |
+| Cycle/AV clocks and wave carry | 6 | 0 | 0 | Initial budget, first-cycle window, tick, node/wave carry and expiry/failure ordering. |
+| Initial resources/battle entry | 2 | 0 | 0 | HP/Energy/Skill Point state and selected battle-entry operations. |
+| Targets/objectives/stars/aggregation | 6 | 0 | 0 | Ordinary objectives `251`–`253` and Tierce objectives `601`–`603`. |
+| Memory Turbulence/MazeBuff/BattleEvent | 2 | 0 | 0 | MazeBuff `3030146` and BattleEvent `30146`; derived operations are imported later. |
+| Blessings/Curios/Occurrences | 3 exact-zero proofs | 0 | 0 | Active selector closure contains no mechanically reachable row in any family. |
+| Services/currencies/shops/choices | 7 exact-zero proofs | 0 | 0 | Includes service, currency, shop, choice and analogous Rogue families. |
+| Encounter groups/waves/enemy slots | 124 | 0 | 0 | Twenty-five StageConfig rows and 99 ordered enemy slots. |
+| Enemy skills/statuses/AI/abilities | 303 | 0 | 0 | Forty-one exact variants, 41 inherited templates and 221 inherited abilities; transitive mechanics import remains Phase 2. |
 | Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
 | Semantic fixtures | TBD | 0 | 0 | Cover every unique lifecycle, objective, Turbulence and encounter policy. |
 
@@ -135,14 +135,14 @@ generated selector-closure proof.
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
 | `G17-R01` | `Open` | Which dedicated/shared table, entry mapping, TextMap, StageConfig, config/ability, enemy and AI files complete the focused inventory? | P0-B2 | Replace when generated inventory closes every enabled selector/reference and byte-identical double generation passes. |
-| `G17-R02` | `Open` | Which released selector proves group `1033` is the active Version 4.4 season and excludes historical groups plus scheduled-but-unreleased group `1034`? | P0-B3 | Replace with an exact-once manifest whose rows carry active-release selector/reference evidence and fail-closed exclusions. |
-| `G17-R03` | `Open` | What exact topology, participant slot, clock, objective and settlement semantics does selected Tierce record `5213` add? | P0-B3 / P1-B1–B6 | Replace with decoded schema/reference joins and fixtures; record any missing runtime capability for a later goal without changing runtime here. |
+| `G17-R02` | `Closed` | Schedule `201033` is active at the frozen 2026-08-01 boundary and explicitly selects group `1033`; schedule `201034` begins 2026-08-17 and group `1034` is excluded. | P0-B3 | Exact-once selector and exclusion receipts are frozen in `content-manifest.json`. |
+| `G17-R03` | `PolicyBound` | Group `1033` selects Tierce `5213` once after `5212`; it binds one StageConfig `30123123`, objectives `601`–`603` and countdown `45`. Participant/team, clock carry and settlement details remain unclaimed and are a later runtime prerequisite. | P0-B3 / P1-B1–B6 | Replace remaining fields with decoded schema/reference joins and fixtures; do not infer them from the Tierce name or obfuscated field adjacency. |
 | `G17-R04` | `Open` | What are the exact character/combat-form, Light Cone and Relic-instance uniqueness scopes and loadout invalidation rules across ordinary and Tierce nodes? | P1-B2 | Replace with source-backed participant/lock rows and accepted/rejected/retry fixtures. |
 | `G17-R05` | `Open` | How do the initial cycle budget, first-cycle AV, tick, wave boundary, node carry, Tierce carry, expiry and failure order compose? | P1-B3 | Replace with config/level evidence or field-level policies carrying alternatives and lifecycle fixtures. |
 | `G17-R06` | `Open` | When are completion, remaining-cycle and downed-character objectives evaluated, and how do their stars aggregate across all required nodes? | P1-B4 | Replace with typed objective/aggregation rows and fixtures for victory, failure, retry and partial completion. |
 | `G17-R07` | `Open` | What are the exact Memory Turbulence trigger filters, per-action hit gain, cap, cycle-start order, random target set, True-DMG calculation, attribution and empty-target behavior? | P1-B5 / P2-B2 | Replace with MazeBuff/BattleEvent/ability evidence and one fixture per distinct trigger/target/lifecycle boundary. |
 | `G17-R08` | `Open` | Which `ConfigList`, stage-template and challenge constants define initial HP, Energy, Skill Points and battle-entry state? | P1-B6 / P2-B2 | Replace with explicit selector-to-operation joins and initial-state fixtures; unsupported mappings fail closed. |
-| `G17-R09` | `Open` | Are any Blessings, Curios, Occurrences, services, currencies, shops, choices or analogous pools mechanically reachable? | P2-B1 | Replace each family with a selector-backed nonzero closure or generated exact-zero proof. |
+| `G17-R09` | `Closed` | The active schedule/group/stage/config closure exposes no mechanically reachable Blessing, Curio, Occurrence, service, currency, shop, choice or analogous Rogue selector. | P0-B3 / P2-B1 | Ten exact-zero proof obligations are frozen; P2-B1 promotes their generated audit rows to DataReady. |
 | `G17-R10` | `Open` | Which StageConfig waves, concrete enemy variants, levels, skills, statuses, AI, summons, phases and abilities define every ordinary and Tierce encounter? | P2-B3–B4 | Replace with complete encounter/enemy dossiers or an explicit nonblocking boundary for unavailable released evidence. |
 | `G17-R11` | `Open` | Which hidden ordering, timing, random selection, caps, rounding and fallback fields remain unavailable after bounded research? | P2-B5 / P4-B2 | Replace each field with exact/observed evidence or a reviewed approximation/project-policy row with a concrete stronger-evidence trigger. |
 
