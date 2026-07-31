@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique activity systems |
 | Active batch | — |
-| Next unblocked batch | `G19-P1-B6` |
+| Next unblocked batch | `G19-P1-B7` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -54,7 +54,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P1-B3` | `Complete` | This row's containing commit | Normalized 172 enabled Noble Phantasm/catalog rows at `7f7c6ef2…2223`: 34 core identities, 107 FateRin configs, three rarities, five tags, twelve keywords, four decks and seven recommendations. Core/config identities remain distinct and source-linked; focused/quick gates and remote publication pass. |
 | `G19-P1-B4` | `Complete` | This row's containing commit | Normalized 671 enabled effect rows at `38530013…b378`: 51 buffs, twelve slots, 383 Fate MazeBuff rows, 141 statuses, 64 trait buffs and twenty challenge selections. Parameter vectors are canonical and definition/state families stay separate; hidden target/order/stack/teardown semantics remain fixture-bound. Focused/quick gates and remote publication pass. |
 | `G19-P1-B5` | `Complete` | This row's containing commit | Normalized 223 enabled resource rows at `1cf7ed0c…fcc7`: 70 Command Spells/Reiju, 60 affixes, 71 common/client constants and 22 Reiju program digests. Definitions/affixes/constants/program identities remain separate; hidden settlement/order/reroll timing stays fixture-bound. Focused/quick gates and remote publication pass. |
-| `G19-P1-B6` | `Pending` | — | Import owners, traits/affixes, progression and carry/reset. |
+| `G19-P1-B6` | `Complete` | This row's containing commit | Normalized 137 enabled progression rows at `9c34bfff…bedf`: 71 affixes, thirty experience steps, nineteen traits, four levels, six initial owner/Noble-Phantasm bindings and seven trait program digests. Definition/progression/loadout identities stay separate and carry/reset timing remains fixture-bound. Focused/quick gates and remote publication pass. |
 | `G19-P1-B7` | `Pending` | — | Import story/map/Infinite Trial flow, objectives, retry and settlement. |
 | `G19-P2-B1` | `Pending` | — | Freeze reachable or exact-zero generic content/service/shop/currency pools. |
 | `G19-P2-B2` | `Pending` | — | Import fight/buff/BattleEvent/MazeBuff/config relationships. |
