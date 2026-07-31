@@ -1,0 +1,198 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-contracts.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P0-B4",
+  "manifest_binding": {
+    "path": "content-manifests/fate-star-rail-night-v1/content-manifest.json",
+    "obligations": 1904,
+    "canonical_obligations_sha256": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e"
+  },
+  "canonical_encoding": {
+    "text": "UTF-8",
+    "line_endings": "LF",
+    "json_indent_spaces": 2,
+    "trailing_newline": true,
+    "object_key_order": "schema-declared",
+    "set_order": "stable-id-ascending",
+    "sequence_order": "source-semantic-order",
+    "integer_transport": "exact-decimal-string-when-not-bounded-schema-integer",
+    "decimal_transport": "canonical-decimal-string-no-exponent",
+    "forbidden_authoritative_types": [
+      "f32",
+      "f64",
+      "usize",
+      "Excel float"
+    ],
+    "stable_id_pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+  },
+  "common_record_envelope": [
+    "stable_id",
+    "family",
+    "name_zh",
+    "name_en",
+    "summary_zh",
+    "summary_en",
+    "ownership",
+    "disposition",
+    "enabled",
+    "source_refs",
+    "evidence_quality",
+    "mechanism_quality",
+    "confidence",
+    "notes"
+  ],
+  "evidence_record": {
+    "required": [
+      "source_id",
+      "repository_or_url",
+      "revision_or_access_date",
+      "game_version",
+      "path_or_page",
+      "row_locator",
+      "sha256",
+      "evidence_quality",
+      "mechanism_quality",
+      "note"
+    ],
+    "quality_values": [
+      "ExactStructured",
+      "ExactPublicText",
+      "Observed",
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "approximation_required": [
+      "unavailable_fact",
+      "selected_policy",
+      "rejected_alternatives",
+      "rationale",
+      "affected_fixtures",
+      "replacement_condition"
+    ]
+  },
+  "reconciliation_record": {
+    "identity": [
+      "source_path",
+      "row_locator",
+      "source_sha256"
+    ],
+    "required": [
+      "peer_goal",
+      "peer_stable_id",
+      "local_stable_id",
+      "classification",
+      "semantic_result",
+      "decision",
+      "note"
+    ],
+    "result_values": [
+      "SharedIdentical",
+      "DistinctModeCopy",
+      "EvidenceOnly",
+      "Conflict"
+    ]
+  },
+  "fixture_record": {
+    "required": [
+      "fixture_id",
+      "mechanic_family",
+      "initial_state",
+      "commands",
+      "expected_facts",
+      "source_refs",
+      "mechanism_quality"
+    ],
+    "fact_language": [
+      "equals",
+      "contains",
+      "ordered_equals",
+      "absent"
+    ],
+    "execution_boundary": "reference-fact-evaluator-only-no-runtime-lowering"
+  },
+  "authoring": {
+    "editable_format": "xlsx",
+    "adapter": "python-openpyxl-3.1.5",
+    "schema_codegen_export": "sora-cli-0.3.0",
+    "workbook_policy": "complete-clean-target-no-overwrite",
+    "workbooks": [
+      {
+        "name": "FateStarRailNight.xlsx",
+        "sheets": [
+          "Profiles",
+          "Areas",
+          "Difficulties",
+          "Phases",
+          "BattleZones",
+          "Progress",
+          "CaseBoards",
+          "CaseBoardNodes",
+          "Participants",
+          "Teams",
+          "Owners",
+          "Traits",
+          "Levels",
+          "Unlocks"
+        ]
+      },
+      {
+        "name": "FateStarRailNightCombat.xlsx",
+        "sheets": [
+          "Stages",
+          "BattleAreas",
+          "Encounters",
+          "Waves",
+          "EnemySlots",
+          "EnemyVariants",
+          "EnemyTemplates",
+          "EnemySkills",
+          "EnemyStatuses",
+          "Buffs",
+          "MazeBuffs",
+          "BattleEvents",
+          "BattleTargets"
+        ]
+      },
+      {
+        "name": "FateStarRailNightBindings.xlsx",
+        "sheets": [
+          "Masters",
+          "Servants",
+          "NoblePhantasms",
+          "NoblePhantasmLevels",
+          "Rarities",
+          "Tags",
+          "Keywords",
+          "Decks",
+          "DeckRecommendations",
+          "CommandSpells",
+          "CommandSpellAffixes",
+          "Resources",
+          "RuleBindings",
+          "LifecycleBindings"
+        ]
+      },
+      {
+        "name": "FateStarRailNightReview.xlsx",
+        "sheets": [
+          "Sources",
+          "ContentAudit",
+          "Coverage",
+          "ResearchGaps",
+          "Reconciliation",
+          "ReviewFixtures",
+          "PackFiles"
+        ]
+      }
+    ],
+    "total_sheets": 48,
+    "json_runtime_loading": false
+  },
+  "output_roots": {
+    "normalized": "content-reference/fate-star-rail-night-v1/",
+    "sora_project": "config/fate-star-rail-night/",
+    "generated": "config/fate-star-rail-night-generated/",
+    "evidence": "evidence/fate-star-rail-night-reference-v1/"
+  },
+  "contract_sha256": "13db3c9f8cc8d28e840f30b8cbc89d0f68c9ae3e2d3d0af40b139e2fa34625b7"
+}

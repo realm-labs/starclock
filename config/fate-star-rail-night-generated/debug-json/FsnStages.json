@@ -1,0 +1,447 @@
+{
+  "table": {
+    "name": "FsnStages",
+    "rows": [
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\",\"Monster3\":\"8012010\",\"Monster4\":\"8012020\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425001\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425001\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425001"
+          },
+          "name_zh": {
+            "String": "Stage 425001"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:467\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425001"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\",\"Monster3\":\"8001010\",\"Monster4\":\"8003020\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425002\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425002\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425002"
+          },
+          "name_zh": {
+            "String": "Stage 425002"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:468\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425002"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\",\"Monster3\":\"8012010\",\"Monster4\":\"8012020\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425003\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425003\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425003"
+          },
+          "name_zh": {
+            "String": "Stage 425003"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:469\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425003"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\",\"Monster3\":\"8001010\",\"Monster4\":\"8003020\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425004\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425004\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425004"
+          },
+          "name_zh": {
+            "String": "Stage 425004"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:470\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425004"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\",\"Monster3\":\"8012010\",\"Monster4\":\"8012020\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425005\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425005\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425005"
+          },
+          "name_zh": {
+            "String": "Stage 425005"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:471\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425005"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\",\"Monster2\":\"8002040\",\"Monster3\":\"8012010\",\"Monster4\":\"8012020\"},{\"Monster0\":\"8012010\",\"Monster1\":\"8012020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425006\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425006\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425006"
+          },
+          "name_zh": {
+            "String": "Stage 425006"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:472\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425006"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\",\"Monster3\":\"8001010\",\"Monster4\":\"8003020\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425007\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425007\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425007"
+          },
+          "name_zh": {
+            "String": "Stage 425007"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:473\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425007"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "High"
+          },
+          "disposition": {
+            "String": "DataReady"
+          },
+          "enabled": {
+            "String": "true"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "Stage"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "mechanic_payload_json": {
+            "String": "{\"EliteGroup\":\"95\",\"ForbidExitBattle\":true,\"HardLevelGroup\":\"1\",\"Level\":\"80\",\"LevelLoseCondition\":[\"[CDT_WaitCustomString:Level_SpecialLose]\"],\"LevelWinCondition\":[\"[CDT_WaitCustomString:Level_SpecialWin]\"],\"MonsterList\":[{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\",\"Monster2\":\"8001010\",\"Monster3\":\"8001010\",\"Monster4\":\"8003020\"},{\"Monster0\":\"8001010\",\"Monster1\":\"8003020\"}],\"MonsterWarningRatio\":\"1\",\"StageAbilityConfig\":[\"Activity_Fate_Timer_Temp\",\"StageAbility_HalfSP\",\"Activity_Fate_TutorialTrigger\"],\"StageConfigData\":[{\"BFLIFKBEOPJ\":\"_Wave\",\"MNDFOPKBHKP\":\"3\"},{\"BFLIFKBEOPJ\":\"_IsEliteBattle\",\"MNDFOPKBHKP\":\"0\"},{\"BFLIFKBEOPJ\":\"_BGM\",\"MNDFOPKBHKP\":\"State_Season_Fate_Battle\"},{\"BFLIFKBEOPJ\":\"_StageInfiniteGroup\",\"MNDFOPKBHKP\":\"425008\"},{\"BFLIFKBEOPJ\":\"_CreateBattleEvent\",\"MNDFOPKBHKP\":\"61014\"}],\"StageID\":\"425008\",\"StageType\":\"FateActivity\",\"SubLevelGraphs\":[],\"TrialAvatarList\":[]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "Stage 425008"
+          },
+          "name_zh": {
+            "String": "Stage 425008"
+          },
+          "notes": {
+            "String": "Canonical source-shaped payload; runtime lowering is excluded."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:474\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.stage.425008"
+          },
+          "summary_en": {
+            "String": "Stage fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 Stage 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

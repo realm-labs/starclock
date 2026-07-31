@@ -1,0 +1,40 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-peer-reconciliation.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "comparison_rule": "exact source path + locator + evidence digest; same-locator digest drift is a conflict",
+  "peers": [
+    {
+      "peer_goal": "apocalyptic-shadow-v1",
+      "commit": "f9f70e208b2b69f74e31f01eef0e5d620fc959bb",
+      "peer_manifest": "content-manifests/apocalyptic-shadow-v1/content-manifest.json",
+      "peer_manifest_sha256": "d64e4e3609f6818e5e0d072205010f3d39082ddaab260e0e5b1ca20e037c23b1",
+      "exact_receipt_matches": [],
+      "match_count": 0,
+      "conflicts": [],
+      "conflict_count": 0,
+      "decision": "DistinctByExactReceipt"
+    },
+    {
+      "peer_goal": "memory-of-chaos-v1",
+      "commit": "50fa7e37e4a9d3c8656b809dd0f4db7cdfbd8be2",
+      "peer_manifest": "content-manifests/memory-of-chaos-v1/content-manifest.json",
+      "peer_manifest_sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce",
+      "exact_receipt_matches": [],
+      "match_count": 0,
+      "conflicts": [],
+      "conflict_count": 0,
+      "decision": "DistinctByExactReceipt"
+    },
+    {
+      "peer_goal": "pure-fiction-v1",
+      "commit": "6b30afecdb271a52e06e0922b2800fa0590e4cff",
+      "peer_manifest": "content-manifests/pure-fiction-v1/content-manifest.json",
+      "peer_manifest_sha256": "96295180a866e7787c2fea43b49fa454aef39015913b0920eeb4651afd1b52d9",
+      "exact_receipt_matches": [],
+      "match_count": 0,
+      "conflicts": [],
+      "conflict_count": 0,
+      "decision": "DistinctByExactReceipt"
+    }
+  ]
+}

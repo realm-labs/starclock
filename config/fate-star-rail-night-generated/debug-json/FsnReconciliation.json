@@ -1,0 +1,612 @@
+{
+  "table": {
+    "name": "FsnReconciliation",
+    "rows": [
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"anomaly-arbitration-v1\",\"peer_manifest\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"peer_manifest_sha256\":\"84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt anomaly-arbitration-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt anomaly-arbitration-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.anomaly-arbitration-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"apocalyptic-shadow-v1\",\"peer_manifest\":\"content-manifests/apocalyptic-shadow-v1/content-manifest.json\",\"peer_manifest_sha256\":\"d64e4e3609f6818e5e0d072205010f3d39082ddaab260e0e5b1ca20e037c23b1\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt apocalyptic-shadow-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt apocalyptic-shadow-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.apocalyptic-shadow-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"currency-wars-v1\",\"peer_manifest\":\"content-manifests/currency-wars-v1/content-manifest.json\",\"peer_manifest_sha256\":\"6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt currency-wars-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt currency-wars-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.currency-wars-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"divergent-universe-v1\",\"peer_manifest\":\"content-manifests/divergent-universe-v1/content-manifest.json\",\"peer_manifest_sha256\":\"5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt divergent-universe-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt divergent-universe-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.divergent-universe-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"galactic-baseballer-v1\",\"peer_manifest\":\"content-manifests/galactic-baseballer-v1/content-manifest.json\",\"peer_manifest_sha256\":\"92bf516ebb2c0baec8df4bbc5ccd435d090181fb4553db0261a4ce49a5b032a4\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt galactic-baseballer-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt galactic-baseballer-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.galactic-baseballer-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"gold-and-gears-v1\",\"peer_manifest\":\"content-manifests/gold-and-gears-v1/content-manifest.json\",\"peer_manifest_sha256\":\"88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt gold-and-gears-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt gold-and-gears-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.gold-and-gears-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"memory-of-chaos-v1\",\"peer_manifest\":\"content-manifests/memory-of-chaos-v1/content-manifest.json\",\"peer_manifest_sha256\":\"0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt memory-of-chaos-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt memory-of-chaos-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.memory-of-chaos-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"pure-fiction-v1\",\"peer_manifest\":\"content-manifests/pure-fiction-v1/content-manifest.json\",\"peer_manifest_sha256\":\"96295180a866e7787c2fea43b49fa454aef39015913b0920eeb4651afd1b52d9\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt pure-fiction-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt pure-fiction-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.pure-fiction-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"standard-universe-v1\",\"peer_manifest\":\"content-manifests/standard-universe-v1/content-manifest.json\",\"peer_manifest_sha256\":\"1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt standard-universe-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt standard-universe-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.standard-universe-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"swarm-disaster-v1\",\"peer_manifest\":\"content-manifests/swarm-disaster-v1/content-manifest.json\",\"peer_manifest_sha256\":\"e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt swarm-disaster-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt swarm-disaster-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.swarm-disaster-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReconciliationReceipt"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "mechanic_payload_json": {
+            "String": "{\"conflict_count\":0,\"conflicts\":[],\"decision\":\"DistinctByExactReceipt\",\"exact_receipt_matches\":[],\"match_count\":0,\"note\":\"Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.\",\"peer_goal\":\"unknowable-domain-v1\",\"peer_manifest\":\"content-manifests/unknowable-domain-v1/content-manifest.json\",\"peer_manifest_sha256\":\"7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758\"}"
+          },
+          "mechanism_quality": {
+            "String": "AuditOnly"
+          },
+          "name_en": {
+            "String": "ReconciliationReceipt unknowable-domain-v1"
+          },
+          "name_zh": {
+            "String": "ReconciliationReceipt unknowable-domain-v1"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reconciliationreceipt.unknowable-domain-v1"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,612 @@
+{
+  "table": {
+    "name": "FsnBattleTargets",
+    "rows": [
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_FantasticStoryBattleScore1\",\"HintStep\":[\"0\",\"30000\"],\"ID\":\"2001\",\"IconNum\":\"1\",\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"GreaterEqual\",\"SkipWhenSuccessOnEnterBattle\":true,\"TargetParam\":\"30000\",\"Type\":\"PassTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 2001"
+          },
+          "name_zh": {
+            "String": "BattleTarget 2001"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.2001.index-0"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_FantasticStoryBattleScore2\",\"HintStep\":[\"0\",\"60000\"],\"ID\":\"2002\",\"IconNum\":\"1\",\"MultiTarget\":[\"40000\",\"50000\"],\"MultiTargetIconType\":[],\"ParamType\":\"GreaterEqual\",\"ShowInScoreCounter\":true,\"TargetParam\":\"60000\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 2002"
+          },
+          "name_zh": {
+            "String": "BattleTarget 2002"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:1\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.2002.index-1"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_DeathCount\",\"HintStep\":[],\"ID\":\"3000\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3000"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3000"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:2\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3000.index-2"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_TurnLimit_PeakBattle_1\",\"HintStep\":[],\"ID\":\"3001\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"TargetParam\":\"4\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3001"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3001"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:3\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3001.index-3"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_TurnLimit_PeakBattle_2\",\"HintStep\":[],\"ID\":\"3002\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"TargetParam\":\"2\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3002"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3002"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:4\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3002.index-4"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_TurnLimit_PeakBattle_3\",\"HintStep\":[],\"ID\":\"3003\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"TargetParam\":\"6\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3003"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3003"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:5\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3003.index-5"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_TurnLimit_PeakBattle_4\",\"HintStep\":[],\"ID\":\"3004\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"TargetParam\":\"4\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3004"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3004"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:6\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3004.index-6"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_TurnLimit_PeakBattle_5\",\"HintStep\":[],\"ID\":\"3005\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"TargetParam\":\"2\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3005"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3005"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:7\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3005.index-7"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_TurnLimit_PeakBattle_7\",\"HintStep\":[],\"ID\":\"3007\",\"IconNum\":\"1\",\"IsFixableHeight\":true,\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"LessEqual\",\"TargetParam\":\"2\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 3007"
+          },
+          "name_zh": {
+            "String": "BattleTarget 3007"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:8\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.3007.index-8"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_FantasticStoryBattleScore1\",\"HintStep\":[\"0\",\"45000\"],\"ID\":\"4001\",\"IconNum\":\"1\",\"MultiTarget\":[],\"MultiTargetIconType\":[],\"ParamType\":\"GreaterEqual\",\"SkipWhenSuccessOnEnterBattle\":true,\"TargetParam\":\"45000\",\"Type\":\"PassTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 4001"
+          },
+          "name_zh": {
+            "String": "BattleTarget 4001"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:137\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.4001.index-137"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleTarget"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityName\":\"BattleTarget_FantasticStoryBattleScore2\",\"HintStep\":[\"0\",\"99000\"],\"ID\":\"4002\",\"IconNum\":\"1\",\"MultiTarget\":[\"60000\",\"75000\",\"90000\"],\"MultiTargetIconType\":[null,null,null],\"ParamType\":\"GreaterEqual\",\"ShowInScoreCounter\":true,\"TargetParam\":\"99000\",\"Type\":\"ChallengeTarget\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleTarget 4002"
+          },
+          "name_zh": {
+            "String": "BattleTarget 4002"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:138\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-target.4002.index-138"
+          },
+          "summary_en": {
+            "String": "BattleTarget fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleTarget 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}
