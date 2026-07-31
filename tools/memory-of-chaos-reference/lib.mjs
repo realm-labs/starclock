@@ -65,10 +65,13 @@ export function sourceRecordId(category, id) {
 
 export function structuredRef(category, id, note, mechanismQuality = "ExactRelationship") {
   const record = manifestRecord(category, id);
+  const repositorySource = !record.source_path.startsWith("docs/");
   return {
-    id: `turnbasedgamedata:${record.source_path}:${record.row_locator}`,
-    repository_or_url: "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
-    revision_or_access_date: sourceRevision,
+    id: `${repositorySource ? "turnbasedgamedata" : "starclock"}:${record.source_path}:${record.row_locator}`,
+    repository_or_url: repositorySource
+      ? "https://gitlab.com/Dimbreath/turnbasedgamedata.git"
+      : "https://github.com/realm-labs/starclock.git",
+    revision_or_access_date: repositorySource ? sourceRevision : "2026-08-01",
     game_version: "4.4",
     path_or_page: record.source_path,
     row_locator: record.row_locator,
@@ -76,6 +79,28 @@ export function structuredRef(category, id, note, mechanismQuality = "ExactRelat
     quality: record.evidence_quality,
     mechanism_quality: mechanismQuality,
     note,
+  };
+}
+
+export function publicRef(
+  id,
+  url,
+  locator,
+  fact,
+  mechanismQuality = "ExactRelationship",
+  gameVersion = "4.4",
+) {
+  return {
+    id,
+    repository_or_url: url,
+    revision_or_access_date: "accessed 2026-08-01",
+    game_version: gameVersion,
+    path_or_page: url,
+    row_locator: locator,
+    evidence_sha256: digest(fact),
+    quality: "ExactPublicText",
+    mechanism_quality: mechanismQuality,
+    note: fact,
   };
 }
 
