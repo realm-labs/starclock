@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Foundation and frozen denominator |
 | Active batch | — |
-| Next unblocked batch | `G18-P0-B2` |
+| Next unblocked batch | `G18-P0-B3` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -35,7 +35,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G18-P0-B1` | `Complete` | This row's containing commit | `foundation.json`: Goal 03 complete; both pinned revisions readable and clean/detached; branch base `92febad0`; six isolated roots and zero runtime/peer mutation policy frozen. |
-| `G18-P0-B2` | `Pending` | — | Focused source inventory and exclusions. |
+| `G18-P0-B2` | `Complete` | This row's containing commit | Deterministic inventory freezes 59 source files: 10 dedicated, 18 StrongChallenge mechanic/program, 10 shared-closure and 21 adjacent-exclusion files, each with byte length and SHA-256. |
 | `G18-P0-B3` | `Pending` | — | Frozen active selector, manifest, ownership and exact-zero proofs. |
 | `G18-P0-B4` | `Pending` | — | Frozen normalization/evidence/workbook/reconciliation/fixture contracts. |
 | `G18-P1-B1` | `Pending` | — | Profile, period, stages/nodes/Tierce, entry and outcomes. |
@@ -73,3 +73,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 |---|---|---|---|
 | 2026-08-01 | Planning | `git status --short --branch`; pinned source revision checks; direct inspection of `ScheduleDataChallengeBoss`, `ChallengeBossGroupConfig`, `ChallengeBossMazeConfig`, `ChallengeBossGroupExtra`, `ChallengeBossMazeExtra`, `ChallengeBossMazeTierce` and targets | Branch clean at `92febad0`; source revisions matched; active selector seed recorded. |
 | 2026-08-01 | `G18-P0-B1` | `git -C <cache> rev-parse HEAD`; `git -C <cache> status --short --branch`; Goal 03 ledger inspection; `git diff --name-only 92febad0..HEAD` | Passed; prerequisites and isolation recorded in `evidence/apocalyptic-shadow-reference-v1/foundation.json`. |
+| 2026-08-01 | `G18-P0-B2` | `node tools/apocalyptic-shadow-reference/inventory.mjs`; same with `--check` | 59 files frozen and deterministic: dedicated 10, mechanic-program 18, shared-closure 10, adjacent-exclusion 21. |
