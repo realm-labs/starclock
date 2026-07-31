@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `fate-star-rail-night-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Scope, sources and contracts |
+| Active phase | Phase 1 — Unique activity systems |
 | Active batch | — |
-| Next unblocked batch | `G19-P1-B1` |
+| Next unblocked batch | `G19-P1-B2` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -36,7 +36,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Reproduced sources, corrected the Fate/FateRin oracle, froze 1,904 obligations and six exact-zero pools, then bound 48 sheets across four workbook/evidence/Sora contracts. |
-| Phase 1 — Unique activity systems | `Pending` | Awaiting graph, participants, Mystic Codes, resources, progression and fights. |
+| Phase 1 — Unique activity systems | `InProgress` | `G19-P1-B1` is normalizing the released profile, graph, Case Boards and fight locators. |
 | Phase 2 — Encounters and complete pack | `Pending` | Awaiting pools, configs, encounters, enemy closure, rules and fixtures. |
 | Phase 3 — Excel and Sora | `Pending` | Awaiting isolated schemas/readers, four workbooks, deterministic exports and visual QA. |
 | Phase 4 — Audit and freeze | `Pending` | Awaiting ownership audit, semantic execution, reconciliation and Candidate release. |
@@ -49,7 +49,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked 177 files / 959,455 top-level rows at digest `48ebe846…f025`; corrected the planning oracle with 26 distinct `Fate` tables beside 25 `FateRin` tables; retained 31 Fate gameplay configs, 33 focused layouts, eight shared closure tables, two TextMaps and 48 identity indexes. Named exclusions cover 166 RtBattle paths, 23 Currency Wars Trait paths and two reward/talk tables. Push and remote equality are verified before B3 starts. |
 | `G19-P0-B3` | `Complete` | This row's containing commit | Froze 1,904 exact-once obligations at `d3d6000e…684e`: 1,398 Fate-owned, 93 shared and 413 evidence-only; 1,478 DataReady and 13 conservative BattleEvent/BattleTarget joins retained as research. Added BattleArea join tables to the current 179-file inventory and proved exact-zero Blessing/Curio/Occurrence/shop/service/generic-currency pools. Manifest/inventory regeneration checks pass; publication is remote-verified before B4. |
 | `G19-P0-B4` | `Complete` | This row's containing commit | Bound the 1,904-obligation manifest to canonical JSON/decimal/ID rules, common bilingual/provenance envelopes, field-level approximation, exact reconciliation identity and a closed semantic fact language. Froze 48 unique sheets across four clean-target openpyxl workbooks with Sora 0.3.0 authority at contract digest `13db3c9f…25b7`; focused and quick gates pass and publication is remote-verified before P1. |
-| `G19-P1-B1` | `Pending` | — | Import profile, graph, Case Boards, unlocks and outcomes. |
+| `G19-P1-B1` | `Complete` | This row's containing commit | Normalized 99 enabled rows at `0054237e…0b9b`: three areas, seven difficulties, ten phases, twelve battle zones, eight difficulty-progress rows, seven day-progress rows, six boards/18 nodes, four challenge fights, six story-fight locators and 18 map group/fight rows. Bilingual/provenance and lossless 64-bit/canonical-number checks pass; publication is remote-verified before B2. |
 | `G19-P1-B2` | `Pending` | — | Import participants, Masters/Servants, teams and loadout policies. |
 | `G19-P1-B3` | `Pending` | — | Import Treasures, Mystic Code catalog, tags, decks and acquisition. |
 | `G19-P1-B4` | `Pending` | — | Import Mystic Code costs, targets, effects, upgrades and lifecycle. |

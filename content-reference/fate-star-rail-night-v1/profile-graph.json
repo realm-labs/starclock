@@ -1,0 +1,3790 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-normalized.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P1-B1",
+  "purpose": "profile, area, difficulty, phase, progress, Case Board and fight graph",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "counts": {
+    "records": 99,
+    "enabled": 99,
+    "evidence_only": 0,
+    "families": {
+      "FateArea": 3,
+      "FateBattleZone": 12,
+      "FateDiffPassProgress": 8,
+      "FateDifficulty": 7,
+      "FatePhase": 10,
+      "FateRinCaseBoard": 6,
+      "FateRinCaseBoardInfo": 18,
+      "FateRinChallengeFight": 4,
+      "FateRinDayProgress": 7,
+      "FateRinHouguMapFight": 15,
+      "FateRinHouguMapGroup": 3,
+      "FateRinStoryFight": 6
+    }
+  },
+  "records": [
+    {
+      "stable_id": "fate-star-rail-night.fate-area.0001",
+      "family": "FateArea",
+      "name_zh": "前夜",
+      "name_en": "The Night Before",
+      "summary_zh": "保留 FateArea 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateArea mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateArea.json",
+          "locator": "index:0",
+          "sha256": "71345fb2edb525de2e0f5e1c9026a086409074df0f39268f1279432772470abf"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12927496900320682000",
+        "6594948133766771045",
+        "9909995690541294199"
+      ],
+      "mechanic_payload": {
+        "ANKBAKDHDJD": "Guide",
+        "BEOFPCAACEP": "1000000",
+        "ECCJCKCCPBP": [
+          "9021014",
+          "3321313",
+          "3231303",
+          "3231217",
+          "9021015",
+          "3231403",
+          "3231306",
+          "3231203"
+        ],
+        "FAEHFMIFPBG": "3151101",
+        "LMPLLJFMFEC": [
+          "200",
+          "175",
+          "150",
+          "125",
+          "100",
+          "75",
+          "50",
+          "0"
+        ],
+        "MHNEABPPJBG": [
+          "10",
+          "20",
+          "30",
+          "40",
+          "50",
+          "60",
+          "80"
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-area.0002",
+      "family": "FateArea",
+      "name_zh": "圣杯战争（加护）",
+      "name_en": "Holy Grail War (Protected)",
+      "summary_zh": "保留 FateArea 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateArea mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateArea.json",
+          "locator": "index:1",
+          "sha256": "71345fb2edb525de2e0f5e1c9026a086409074df0f39268f1279432772470abf"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "15798968641758912159",
+        "287784652657251959",
+        "3404784333992284603"
+      ],
+      "mechanic_payload": {
+        "ANKBAKDHDJD": "Train",
+        "BEOFPCAACEP": "2000000",
+        "ECCJCKCCPBP": [
+          "9021014",
+          "3321313",
+          "3231303",
+          "3231217",
+          "9021015",
+          "3231403",
+          "3231306",
+          "3231203"
+        ],
+        "LMPLLJFMFEC": [
+          "200",
+          "175",
+          "150",
+          "125",
+          "100",
+          "75",
+          "50",
+          "0"
+        ],
+        "MHNEABPPJBG": [
+          "15",
+          "25",
+          "35",
+          "45",
+          "55",
+          "66",
+          "88"
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-area.0003",
+      "family": "FateArea",
+      "name_zh": "圣杯战争（污染）",
+      "name_en": "Holy Grail War (Corrupted)",
+      "summary_zh": "保留 FateArea 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateArea mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateArea.json",
+          "locator": "index:2",
+          "sha256": "71345fb2edb525de2e0f5e1c9026a086409074df0f39268f1279432772470abf"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "13978100552297395566"
+      ],
+      "mechanic_payload": {
+        "ANKBAKDHDJD": "Formal",
+        "BEOFPCAACEP": "3000000",
+        "ECCJCKCCPBP": [],
+        "LMPLLJFMFEC": [
+          "300",
+          "250",
+          "200",
+          "175",
+          "150",
+          "125",
+          "100",
+          "0"
+        ],
+        "MHNEABPPJBG": [
+          "15",
+          "25",
+          "35",
+          "45",
+          "55",
+          "66",
+          "88"
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0001",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 1",
+      "name_en": "FateBattleZone entry 1",
+      "summary_zh": "保留 FateBattleZone 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:0",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10102",
+        "EOFGAIBKBNM": "1034101",
+        "LLKBBKNBNBG": "1",
+        "PKGJBPODCOG": "10101"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0002",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 2",
+      "name_en": "FateBattleZone entry 2",
+      "summary_zh": "保留 FateBattleZone 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:1",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10202",
+        "EOFGAIBKBNM": "2033202",
+        "LLKBBKNBNBG": "2",
+        "PKGJBPODCOG": "10201"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0003",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 3",
+      "name_en": "FateBattleZone entry 3",
+      "summary_zh": "保留 FateBattleZone 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:2",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10302",
+        "EOFGAIBKBNM": "1030101",
+        "LLKBBKNBNBG": "3",
+        "PKGJBPODCOG": "10301"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0004",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 4",
+      "name_en": "FateBattleZone entry 4",
+      "summary_zh": "保留 FateBattleZone 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:3",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10402",
+        "EOFGAIBKBNM": "2033101",
+        "LLKBBKNBNBG": "4",
+        "PKGJBPODCOG": "10401"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0005",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 5",
+      "name_en": "FateBattleZone entry 5",
+      "summary_zh": "保留 FateBattleZone 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:4",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10502",
+        "EOFGAIBKBNM": "2032101",
+        "LLKBBKNBNBG": "5",
+        "PKGJBPODCOG": "10501"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0006",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 6",
+      "name_en": "FateBattleZone entry 6",
+      "summary_zh": "保留 FateBattleZone 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:5",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10602",
+        "EOFGAIBKBNM": "1030401",
+        "LLKBBKNBNBG": "6",
+        "PKGJBPODCOG": "10601"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0007",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 7",
+      "name_en": "FateBattleZone entry 7",
+      "summary_zh": "保留 FateBattleZone 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:6",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10702",
+        "EOFGAIBKBNM": "2031301",
+        "LLKBBKNBNBG": "7",
+        "PKGJBPODCOG": "10701"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0008",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 8",
+      "name_en": "FateBattleZone entry 8",
+      "summary_zh": "保留 FateBattleZone 第 8 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 8; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:7",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10802",
+        "EOFGAIBKBNM": "2032201",
+        "LLKBBKNBNBG": "8",
+        "PKGJBPODCOG": "10801"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0009",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 9",
+      "name_en": "FateBattleZone entry 9",
+      "summary_zh": "保留 FateBattleZone 第 9 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 9; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:8",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "10902",
+        "EOFGAIBKBNM": "2031101",
+        "LLKBBKNBNBG": "9",
+        "PKGJBPODCOG": "10901"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0010",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 10",
+      "name_en": "FateBattleZone entry 10",
+      "summary_zh": "保留 FateBattleZone 第 10 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 10; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:9",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "11002",
+        "EOFGAIBKBNM": "2031201",
+        "LLKBBKNBNBG": "10",
+        "PKGJBPODCOG": "11001"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0011",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 11",
+      "name_en": "FateBattleZone entry 11",
+      "summary_zh": "保留 FateBattleZone 第 11 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 11; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:10",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "11002",
+        "EOFGAIBKBNM": "2031201",
+        "LLKBBKNBNBG": "11",
+        "PKGJBPODCOG": "11001"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-battle-zone.0012",
+      "family": "FateBattleZone",
+      "name_zh": "FateBattleZone 条目 12",
+      "name_en": "FateBattleZone entry 12",
+      "summary_zh": "保留 FateBattleZone 第 12 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateBattleZone mechanic record 12; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateBattleZone.json",
+          "locator": "index:11",
+          "sha256": "6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "BMAJPBPJNGD": "11002",
+        "EOFGAIBKBNM": "2031201",
+        "LLKBBKNBNBG": "12",
+        "PKGJBPODCOG": "11001"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0001",
+      "family": "FateDiffPassProgress",
+      "name_zh": "已通关战争前夜，请继续挑战",
+      "name_en": "Eve Of The War cleared. Please continue the challenge",
+      "summary_zh": "保留 FateDiffPassProgress 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:0",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "15081302720934571633",
+        "671872345689336793",
+        "8519915564627777067"
+      ],
+      "mechanic_payload": {},
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0002",
+      "family": "FateDiffPassProgress",
+      "name_zh": "已通关圣杯战争·污染等级1，请继续挑战",
+      "name_en": "Holy Grail War: Corruption Level 1 cleared. Please continue the challenge",
+      "summary_zh": "保留 FateDiffPassProgress 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:1",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11859150752050357295",
+        "13400333004136430957",
+        "4763438501376586287"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "1"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0003",
+      "family": "FateDiffPassProgress",
+      "name_zh": "获得装饰：Lancer棋子",
+      "name_en": "Obtained Decoration: Lancer Piece",
+      "summary_zh": "保留 FateDiffPassProgress 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:2",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11467965147447588647",
+        "13936582276940870067",
+        "2736867222121967506"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0004",
+      "family": "FateDiffPassProgress",
+      "name_zh": "已通关圣杯战争·污染等级3，请继续挑战",
+      "name_en": "Holy Grail War: Corruption Level 3 cleared. Please continue the challenge",
+      "summary_zh": "保留 FateDiffPassProgress 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:3",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12294418848409789239",
+        "17434656646002429031",
+        "9580448036912651518"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0005",
+      "family": "FateDiffPassProgress",
+      "name_zh": "已通关圣杯战争·污染等级4，请继续挑战",
+      "name_en": "Holy Grail War: Corruption Level 4 cleared. Please continue the challenge",
+      "summary_zh": "保留 FateDiffPassProgress 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:4",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11030999172011200369",
+        "216971500571657482",
+        "5942989615267442494"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "4"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0006",
+      "family": "FateDiffPassProgress",
+      "name_zh": "已通关圣杯战争·污染等级5，请继续挑战",
+      "name_en": "Holy Grail War: Corruption Level 5 cleared. Please continue the challenge",
+      "summary_zh": "保留 FateDiffPassProgress 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:5",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "10145538784122719919",
+        "12502009939829792762",
+        "9247976420521164337"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "5"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0007",
+      "family": "FateDiffPassProgress",
+      "name_zh": "已解锁圣杯战争·污染等级7",
+      "name_en": "Holy Grail War: Corruption Level 7 unlocked",
+      "summary_zh": "保留 FateDiffPassProgress 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:6",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "1449892308949754937",
+        "8934200906585476748",
+        "9532500766046074224"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "6"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-diff-pass-progress.0008",
+      "family": "FateDiffPassProgress",
+      "name_zh": "获得装饰：此世全部之恶",
+      "name_en": "Obtained Decoration: All the World's Evil",
+      "summary_zh": "保留 FateDiffPassProgress 第 8 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDiffPassProgress mechanic record 8; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDiffPassProgress.json",
+          "locator": "index:7",
+          "sha256": "f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "2610596491190989607",
+        "8719513631635314689"
+      ],
+      "mechanic_payload": {
+        "JIDGCHINCKC": "7"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0001",
+      "family": "FateDifficulty",
+      "name_zh": "无名过客",
+      "name_en": "Nameless Passerby",
+      "summary_zh": "保留 FateDifficulty 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:0",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "1659005832825893567",
+        "4640659226320055193",
+        "8977523863283992778"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "1",
+        "FAEHFMIFPBG": "3151102",
+        "JGBCKHKPPCA": [],
+        "LMPLLJFMFEC": [
+          "300",
+          "250",
+          "200",
+          "175",
+          "150",
+          "125",
+          "100",
+          "0"
+        ],
+        "PGLIPCKDFNB": []
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0002",
+      "family": "FateDifficulty",
+      "name_zh": "解锁更多令咒，选择令咒时可刷新一次",
+      "name_en": "Unlocks more Command Spells and gains one refresh during Command Spell selection",
+      "summary_zh": "保留 FateDifficulty 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:1",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "17288454994437846277",
+        "1931540916772388939",
+        "6006448002031882311"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "2",
+        "FAEHFMIFPBG": "3151103",
+        "JGBCKHKPPCA": [],
+        "LMPLLJFMFEC": [
+          "400",
+          "330",
+          "270",
+          "230",
+          "200",
+          "170",
+          "130",
+          "0"
+        ],
+        "PGLIPCKDFNB": [
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.4"
+          }
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0003",
+      "family": "FateDifficulty",
+      "name_zh": "敌方选手可以获得一些更强大的强化词条",
+      "name_en": "Enemy players can obtain more powerful enhancement affixes",
+      "summary_zh": "保留 FateDifficulty 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:2",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "15957453384541585045",
+        "2429112308342907759",
+        "6315484836439615755"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "3",
+        "FAEHFMIFPBG": "3151104",
+        "JGBCKHKPPCA": [
+          {
+            "Value": "3"
+          },
+          {
+            "Value": "5"
+          },
+          {
+            "Value": "7"
+          }
+        ],
+        "LMPLLJFMFEC": [
+          "500",
+          "420",
+          "330",
+          "290",
+          "250",
+          "210",
+          "170",
+          "0"
+        ],
+        "PGLIPCKDFNB": []
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0004",
+      "family": "FateDifficulty",
+      "name_zh": "一时英雄",
+      "name_en": "Temporary Hero",
+      "summary_zh": "保留 FateDifficulty 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:3",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "10212649512075952974",
+        "2928936745683853303",
+        "849685538499025117"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "4",
+        "FAEHFMIFPBG": "3151105",
+        "JGBCKHKPPCA": [],
+        "LMPLLJFMFEC": [
+          "600",
+          "500",
+          "400",
+          "350",
+          "300",
+          "250",
+          "200",
+          "0"
+        ],
+        "PGLIPCKDFNB": []
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0005",
+      "family": "FateDifficulty",
+      "name_zh": "一时英雄",
+      "name_en": "Temporary Hero",
+      "summary_zh": "保留 FateDifficulty 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:4",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "10651915857133560729",
+        "6602756577385603546",
+        "8636327457377157520"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "5",
+        "FAEHFMIFPBG": "3151106",
+        "JGBCKHKPPCA": [
+          {
+            "Value": "1"
+          }
+        ],
+        "LMPLLJFMFEC": [
+          "700",
+          "580",
+          "470",
+          "410",
+          "350",
+          "290",
+          "230",
+          "0"
+        ],
+        "PGLIPCKDFNB": [
+          {
+            "Value": "2"
+          }
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0006",
+      "family": "FateDifficulty",
+      "name_zh": "百世传颂",
+      "name_en": "Remembered in Time",
+      "summary_zh": "保留 FateDifficulty 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:5",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "17167281055707865340",
+        "1894202721704730858",
+        "2821713230255740623"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "6",
+        "FAEHFMIFPBG": "3151107",
+        "JGBCKHKPPCA": [],
+        "LMPLLJFMFEC": [
+          "850",
+          "710",
+          "570",
+          "500",
+          "430",
+          "350",
+          "280",
+          "0"
+        ],
+        "PGLIPCKDFNB": [
+          {
+            "Value": "0.6"
+          }
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-difficulty.0007",
+      "family": "FateDifficulty",
+      "name_zh": "永恒之星",
+      "name_en": "Eternal Star",
+      "summary_zh": "保留 FateDifficulty 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateDifficulty mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateDifficulty.json",
+          "locator": "index:6",
+          "sha256": "58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12132459861649200155",
+        "1994584614591459123",
+        "6024986411620346441"
+      ],
+      "mechanic_payload": {
+        "DJHMIDECBMH": "7",
+        "FAEHFMIFPBG": "3151108",
+        "JGBCKHKPPCA": [],
+        "LMPLLJFMFEC": [
+          "1000",
+          "830",
+          "670",
+          "580",
+          "500",
+          "420",
+          "330",
+          "0"
+        ],
+        "PGLIPCKDFNB": [
+          {
+            "Value": "2"
+          },
+          {
+            "Value": "1"
+          }
+        ]
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0001",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 1",
+      "name_en": "FatePhase entry 1",
+      "summary_zh": "保留 FatePhase 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:0",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "12",
+        "COPIFAPBMJH": "12",
+        "HFGNHCDNPHL": "1",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.6"
+          },
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0"
+          },
+          {
+            "Value": "0"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.589"
+          },
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.01"
+          },
+          {
+            "Value": "0.0009999999"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "20",
+        "MLNNCPNNDOO": [
+          "Common"
+        ],
+        "POCKPDCKPMA": "12"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0002",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 2",
+      "name_en": "FatePhase entry 2",
+      "summary_zh": "保留 FatePhase 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:1",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "16",
+        "COPIFAPBMJH": "16",
+        "HFGNHCDNPHL": "2",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.45"
+          },
+          {
+            "Value": "0.5"
+          },
+          {
+            "Value": "0.05"
+          },
+          {
+            "Value": "0"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.439"
+          },
+          {
+            "Value": "0.5"
+          },
+          {
+            "Value": "0.06"
+          },
+          {
+            "Value": "0.0009999999"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "30",
+        "MLNNCPNNDOO": [
+          "Reiju"
+        ],
+        "POCKPDCKPMA": "16"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0003",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 3",
+      "name_en": "FatePhase entry 3",
+      "summary_zh": "保留 FatePhase 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:2",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "19",
+        "COPIFAPBMJH": "19",
+        "HFGNHCDNPHL": "3",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.45"
+          },
+          {
+            "Value": "0.14"
+          },
+          {
+            "Value": "0.01"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.45"
+          },
+          {
+            "Value": "0.13"
+          },
+          {
+            "Value": "0.02"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "40",
+        "MLNNCPNNDOO": [
+          "Hougu"
+        ],
+        "POCKPDCKPMA": "19"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0004",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 4",
+      "name_en": "FatePhase entry 4",
+      "summary_zh": "保留 FatePhase 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:3",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "22",
+        "COPIFAPBMJH": "22",
+        "HFGNHCDNPHL": "4",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.45"
+          },
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.05"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.44"
+          },
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.06"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "45",
+        "MLNNCPNNDOO": [
+          "Reiju"
+        ],
+        "POCKPDCKPMA": "22"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0005",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 5",
+      "name_en": "FatePhase entry 5",
+      "summary_zh": "保留 FatePhase 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:4",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "25",
+        "COPIFAPBMJH": "25",
+        "HFGNHCDNPHL": "5",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.27"
+          },
+          {
+            "Value": "0.35"
+          },
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.08"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.25"
+          },
+          {
+            "Value": "0.35"
+          },
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.1"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "50",
+        "MLNNCPNNDOO": [
+          "Hougu"
+        ],
+        "POCKPDCKPMA": "25"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0006",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 6",
+      "name_en": "FatePhase entry 6",
+      "summary_zh": "保留 FatePhase 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:5",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "28",
+        "COPIFAPBMJH": "28",
+        "HFGNHCDNPHL": "6",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.23"
+          },
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.35"
+          },
+          {
+            "Value": "0.12"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.35"
+          },
+          {
+            "Value": "0.15"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "60",
+        "MLNNCPNNDOO": [
+          "Reiju"
+        ],
+        "POCKPDCKPMA": "28"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0007",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 7",
+      "name_en": "FatePhase entry 7",
+      "summary_zh": "保留 FatePhase 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:6",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "30",
+        "COPIFAPBMJH": "30",
+        "HFGNHCDNPHL": "7",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.17"
+          },
+          {
+            "Value": "0.25"
+          },
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.18"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.25"
+          },
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.2"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "70",
+        "MLNNCPNNDOO": [
+          "Hougu"
+        ],
+        "POCKPDCKPMA": "30"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0008",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 8",
+      "name_en": "FatePhase entry 8",
+      "summary_zh": "保留 FatePhase 第 8 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 8; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:7",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "35",
+        "COPIFAPBMJH": "35",
+        "HFGNHCDNPHL": "8",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.25"
+          },
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.2"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.4"
+          },
+          {
+            "Value": "0.25"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "80",
+        "MLNNCPNNDOO": [
+          "Common"
+        ],
+        "POCKPDCKPMA": "35"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0009",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 9",
+      "name_en": "FatePhase entry 9",
+      "summary_zh": "保留 FatePhase 第 9 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 9; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:8",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "40",
+        "COPIFAPBMJH": "40",
+        "HFGNHCDNPHL": "9",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.25"
+          },
+          {
+            "Value": "0.35"
+          },
+          {
+            "Value": "0.25"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.35"
+          },
+          {
+            "Value": "0.3"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "90",
+        "MLNNCPNNDOO": [
+          "Common"
+        ],
+        "POCKPDCKPMA": "40"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-phase.0010",
+      "family": "FatePhase",
+      "name_zh": "FatePhase 条目 10",
+      "name_en": "FatePhase entry 10",
+      "summary_zh": "保留 FatePhase 第 10 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FatePhase mechanic record 10; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FatePhase.json",
+          "locator": "index:9",
+          "sha256": "7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "AENCLGAIGMD": "50",
+        "COPIFAPBMJH": "50",
+        "HFGNHCDNPHL": "10",
+        "JAKDNHOHINO": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.3"
+          },
+          {
+            "Value": "0.35"
+          }
+        ],
+        "LKJNMGCBCAK": [
+          {
+            "Value": "0.15"
+          },
+          {
+            "Value": "0.2"
+          },
+          {
+            "Value": "0.25"
+          },
+          {
+            "Value": "0.4"
+          }
+        ],
+        "LOEPLBPFMEN": "102",
+        "MKPCBHODIFB": "100",
+        "MLNNCPNNDOO": [
+          "Common",
+          "Common",
+          "Common"
+        ],
+        "POCKPDCKPMA": "50"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0001",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 1",
+      "name_en": "FateRinCaseBoardInfo entry 1",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:0",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "15738906469824349764",
+        "3098760207267033287",
+        "372900313432161252",
+        "5898728298108064653",
+        "694396234746880687",
+        "886350345068403478"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Rin"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0002",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 2",
+      "name_en": "FateRinCaseBoardInfo entry 2",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:1",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11554374845142504146",
+        "11646136849434599320",
+        "1680120463844755503",
+        "16977889128928303418",
+        "2172858093566064653",
+        "2853526948655402819",
+        "3004087722007797393",
+        "844492868494935799"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "TrailblazerF",
+        "GMCBNNKJAGJ": "105440409"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0003",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 3",
+      "name_en": "FateRinCaseBoardInfo entry 3",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:2",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11098510722965470254",
+        "1140780230703608927",
+        "13605349905562979652",
+        "13756966225722028702",
+        "13912693718767916789",
+        "15071712682861642425",
+        "6015915097951704469",
+        "9913951398775088095"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "TrailblazerM",
+        "GMCBNNKJAGJ": "105440409"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0004",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 4",
+      "name_en": "FateRinCaseBoardInfo entry 4",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:3",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "13551571497213894464",
+        "148047908852293210",
+        "17071842251994942658",
+        "17765103503609462115",
+        "17913558541137467404",
+        "6173114440219153661",
+        "7492408099193940853"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Gilgamesh",
+        "GMCBNNKJAGJ": "105440306"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0005",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 5",
+      "name_en": "FateRinCaseBoardInfo entry 5",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:4",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12082738971776072442",
+        "14976964222695230108",
+        "2852458946418267808",
+        "3279579657221513882",
+        "605821602448884847",
+        "6332338522218935067"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Archer"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0006",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 6",
+      "name_en": "FateRinCaseBoardInfo entry 6",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:5",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "142096165747676894",
+        "3258786728207826211",
+        "5251331624962924691",
+        "6225268353846256415",
+        "7296457740465909707",
+        "7964495121206801013"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Saber"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0007",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 7",
+      "name_en": "FateRinCaseBoardInfo entry 7",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:6",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "10195697986373326099",
+        "10342107385742520685",
+        "2400207380655771124",
+        "3199986546566119238",
+        "6390582636723078527",
+        "8527864983550603092"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Lancer"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0008",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 8",
+      "name_en": "FateRinCaseBoardInfo entry 8",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 8 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 8; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:7",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11637577589790852529",
+        "11651059342290028728",
+        "15526068997468524612",
+        "1793922842163649684",
+        "4468001773857070788"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "XiuYe"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0009",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 9",
+      "name_en": "FateRinCaseBoardInfo entry 9",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 9 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 9; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:8",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "1493493068465312503",
+        "1656038531082756624",
+        "1689494176460138030",
+        "1867399205214678871",
+        "2043113815642899880"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Blade"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0010",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 10",
+      "name_en": "FateRinCaseBoardInfo entry 10",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 10 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 10; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:9",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "1006452282909417253",
+        "17084544644756273730",
+        "18385845085031727720",
+        "2421683064308004007",
+        "7534535359414642178"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "SilverWolf"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0011",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 11",
+      "name_en": "FateRinCaseBoardInfo entry 11",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 11 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 11; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:10",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12111587041255723109",
+        "5341896982518166219",
+        "7207680438669098230",
+        "7546744787952795597",
+        "7937542592280950228",
+        "8393262745572925868"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Herta"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0012",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 12",
+      "name_en": "FateRinCaseBoardInfo entry 12",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 12 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 12; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:11",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12055103760349118276",
+        "12623833315738270503",
+        "16932591173194199322",
+        "5573428945251758775",
+        "7068845454846796074",
+        "7798647574825001931"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Dr_Ratio"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0013",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 13",
+      "name_en": "FateRinCaseBoardInfo entry 13",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 13 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 13; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:12",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11421380344668901196",
+        "13137343009338624221",
+        "13272034252947858286",
+        "14546408866835828184",
+        "2671549071147894771",
+        "3035576040720258719",
+        "4863351906692365806",
+        "5211343790404694517",
+        "7055192908872166514"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Ashveil",
+        "GMCBNNKJAGJ": "105440304"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0014",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 14",
+      "name_en": "FateRinCaseBoardInfo entry 14",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 14 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 14; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:13",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "14844943357930562302",
+        "17830238414648979134",
+        "17961856653754640630",
+        "3169164828701988289",
+        "67175229196955503"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "OneWeek"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0015",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 15",
+      "name_en": "FateRinCaseBoardInfo entry 15",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 15 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 15; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:14",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "13719617943660579352",
+        "14651759554238271235",
+        "5278951695376789289",
+        "6818280563728525665",
+        "8667215395056088361",
+        "8830637246629965655",
+        "9489145598023951061",
+        "9606088977872394315"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Sparxie",
+        "GMCBNNKJAGJ": "105440304"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0016",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 16",
+      "name_en": "FateRinCaseBoardInfo entry 16",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 16 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 16; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:15",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11576099102601850244",
+        "16091313805361280078",
+        "16652820146607949935",
+        "18037713514464721281",
+        "4495239406131661169",
+        "7895697150187051670"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Castorice"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0017",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 17",
+      "name_en": "FateRinCaseBoardInfo entry 17",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 17 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 17; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:16",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "15132688896138763759",
+        "16601373559034903944",
+        "18322807787515024122",
+        "4345026939653865020",
+        "9390559621415174796"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Polyxia"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board-info.0018",
+      "family": "FateRinCaseBoardInfo",
+      "name_zh": "FateRinCaseBoardInfo 条目 18",
+      "name_en": "FateRinCaseBoardInfo entry 18",
+      "summary_zh": "保留 FateRinCaseBoardInfo 第 18 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoardInfo mechanic record 18; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+          "locator": "index:17",
+          "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11765666405473561675",
+        "13616032055236536746",
+        "1410375068520560128",
+        "14566142166257738706",
+        "1492678876721116774",
+        "17814988010414837324",
+        "18446138634042417097",
+        "2170232254408675813",
+        "3756798190449655115",
+        "8446239221995516258",
+        "9994997501701710068"
+      ],
+      "mechanic_payload": {
+        "BEDFGGKCODK": "Phainon",
+        "GMCBNNKJAGJ": "105440504"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board.0001",
+      "family": "FateRinCaseBoard",
+      "name_zh": "FateRinCaseBoard 条目 1",
+      "name_en": "FateRinCaseBoard entry 1",
+      "summary_zh": "保留 FateRinCaseBoard 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoard mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoard.json",
+          "locator": "index:0",
+          "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "GINFOPOAKHK": "Config/Level/FateRin/FateRinCaseBoardPerform_1_Day1Over_Static.json",
+        "GMCBNNKJAGJ": "105440013",
+        "PHFMCACHFIJ": "1"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board.0002",
+      "family": "FateRinCaseBoard",
+      "name_zh": "FateRinCaseBoard 条目 2",
+      "name_en": "FateRinCaseBoard entry 2",
+      "summary_zh": "保留 FateRinCaseBoard 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoard mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoard.json",
+          "locator": "index:1",
+          "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "GINFOPOAKHK": "Config/Level/FateRin/FateRinCaseBoardPerform_2_Day2Over_Static.json",
+        "GMCBNNKJAGJ": "105440208",
+        "PHFMCACHFIJ": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board.0003",
+      "family": "FateRinCaseBoard",
+      "name_zh": "FateRinCaseBoard 条目 3",
+      "name_en": "FateRinCaseBoard entry 3",
+      "summary_zh": "保留 FateRinCaseBoard 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoard mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoard.json",
+          "locator": "index:2",
+          "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "GINFOPOAKHK": "Config/Level/FateRin/FateRinCaseBoardPerform_3_Day3_1Over_Static.json",
+        "GMCBNNKJAGJ": "105440304",
+        "PHFMCACHFIJ": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board.0004",
+      "family": "FateRinCaseBoard",
+      "name_zh": "FateRinCaseBoard 条目 4",
+      "name_en": "FateRinCaseBoard entry 4",
+      "summary_zh": "保留 FateRinCaseBoard 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoard mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoard.json",
+          "locator": "index:3",
+          "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "GINFOPOAKHK": "Config/Level/FateRin/FateRinCaseBoardPerform_4_Day3_2Over_Static.json",
+        "GMCBNNKJAGJ": "105440313",
+        "PHFMCACHFIJ": "4"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board.0005",
+      "family": "FateRinCaseBoard",
+      "name_zh": "FateRinCaseBoard 条目 5",
+      "name_en": "FateRinCaseBoard entry 5",
+      "summary_zh": "保留 FateRinCaseBoard 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoard mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoard.json",
+          "locator": "index:4",
+          "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "GINFOPOAKHK": "Config/Level/FateRin/FateRinCaseBoardPerform_5_Day4Over_Static.json",
+        "GMCBNNKJAGJ": "105440405",
+        "PHFMCACHFIJ": "5"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-case-board.0006",
+      "family": "FateRinCaseBoard",
+      "name_zh": "FateRinCaseBoard 条目 6",
+      "name_en": "FateRinCaseBoard entry 6",
+      "summary_zh": "保留 FateRinCaseBoard 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinCaseBoard mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinCaseBoard.json",
+          "locator": "index:5",
+          "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "GINFOPOAKHK": "Config/Level/FateRin/FateRinCaseBoardPerform_Last_Static.json",
+        "GMCBNNKJAGJ": "105440504",
+        "PHFMCACHFIJ": "6"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-challenge-fight.0001",
+      "family": "FateRinChallengeFight",
+      "name_zh": "幻造顶级掠食者",
+      "name_en": "Imagenae Apex Depredator",
+      "summary_zh": "保留 FateRinChallengeFight 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinChallengeFight mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinChallengeFight.json",
+          "locator": "index:0",
+          "sha256": "d217869bdcf272a80bb9e7297cd83d97121f592b288b84b4a74203404eb48491"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11169810328513533655"
+      ],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429401",
+        "FOHHOOKJPIM": [
+          "3232001",
+          "3232002",
+          "3232003",
+          "3232004",
+          "3232005"
+        ],
+        "HNEIIAGADGO": "2051102",
+        "JFDHFPIIGCC": "5014020",
+        "PHFMCACHFIJ": "1"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-challenge-fight.0002",
+      "family": "FateRinChallengeFight",
+      "name_zh": "散装英雄王",
+      "name_en": "Knockoff King of Heroes",
+      "summary_zh": "保留 FateRinChallengeFight 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinChallengeFight mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinChallengeFight.json",
+          "locator": "index:1",
+          "sha256": "d217869bdcf272a80bb9e7297cd83d97121f592b288b84b4a74203404eb48491"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "14705405265487982942"
+      ],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429404",
+        "FOHHOOKJPIM": [
+          "3232301",
+          "3232302",
+          "3232303",
+          "3232304",
+          "3232305"
+        ],
+        "HNEIIAGADGO": "2033202",
+        "JFDHFPIIGCC": "3004010",
+        "PHFMCACHFIJ": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-challenge-fight.0003",
+      "family": "FateRinChallengeFight",
+      "name_zh": "练度不够的遐蝶",
+      "name_en": "Underleveled Castorice",
+      "summary_zh": "保留 FateRinChallengeFight 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinChallengeFight mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinChallengeFight.json",
+          "locator": "index:2",
+          "sha256": "d217869bdcf272a80bb9e7297cd83d97121f592b288b84b4a74203404eb48491"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "16394931068354225227"
+      ],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429403",
+        "FOHHOOKJPIM": [
+          "3232201",
+          "3232202",
+          "3232203",
+          "3232204",
+          "3232205"
+        ],
+        "HNEIIAGADGO": "2042303",
+        "JFDHFPIIGCC": "4014030",
+        "PHFMCACHFIJ": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-challenge-fight.0004",
+      "family": "FateRinChallengeFight",
+      "name_zh": "红骑士",
+      "name_en": "Red Knight",
+      "summary_zh": "保留 FateRinChallengeFight 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinChallengeFight mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinChallengeFight.json",
+          "locator": "index:3",
+          "sha256": "d217869bdcf272a80bb9e7297cd83d97121f592b288b84b4a74203404eb48491"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12428323996840655477"
+      ],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429402",
+        "FOHHOOKJPIM": [
+          "3232101",
+          "3232102",
+          "3232103",
+          "3232104",
+          "3232105"
+        ],
+        "HNEIIAGADGO": "2033101",
+        "JFDHFPIIGCC": "3024010",
+        "PHFMCACHFIJ": "4"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0001",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 1",
+      "name_en": "FateRinDayProgress entry 1",
+      "summary_zh": "保留 FateRinDayProgress 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:0",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440019",
+        "GNIFLCBGAAA": "1"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0002",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 2",
+      "name_en": "FateRinDayProgress entry 2",
+      "summary_zh": "保留 FateRinDayProgress 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:1",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440212",
+        "GNIFLCBGAAA": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0003",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 3",
+      "name_en": "FateRinDayProgress entry 3",
+      "summary_zh": "保留 FateRinDayProgress 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:2",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440313",
+        "GNIFLCBGAAA": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0004",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 4",
+      "name_en": "FateRinDayProgress entry 4",
+      "summary_zh": "保留 FateRinDayProgress 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:3",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440409",
+        "GNIFLCBGAAA": "4"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0005",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 5",
+      "name_en": "FateRinDayProgress entry 5",
+      "summary_zh": "保留 FateRinDayProgress 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:4",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440504",
+        "GNIFLCBGAAA": "5"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0006",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 6",
+      "name_en": "FateRinDayProgress entry 6",
+      "summary_zh": "保留 FateRinDayProgress 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:5",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440504",
+        "GNIFLCBGAAA": "6"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-day-progress.0007",
+      "family": "FateRinDayProgress",
+      "name_zh": "FateRinDayProgress 条目 7",
+      "name_en": "FateRinDayProgress entry 7",
+      "summary_zh": "保留 FateRinDayProgress 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinDayProgress mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinDayProgress.json",
+          "locator": "index:6",
+          "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DHONGKBFCNE": "105440603",
+        "GNIFLCBGAAA": "7"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0001",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "谜之使魔",
+      "name_en": "Mysterious Familiars",
+      "summary_zh": "保留 FateRinHouguMapFight 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:0",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12712251878649505731",
+        "15084259479017972334",
+        "16410271405847647180",
+        "17690008315646127871",
+        "7876842958917133059"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440701",
+          "105440706"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "2050301",
+        "HPJHKACDIMB": "429026",
+        "JFDHFPIIGCC": "5013030",
+        "JKCHLJNLLNA": "",
+        "KAHNDIPJGHI": "429016",
+        "MMEGCIGMALC": "2050365",
+        "NHAINGEIMJA": "429006",
+        "PHFMCACHFIJ": "1",
+        "PKLFLANJCDG": true
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0002",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "攻击性阅读物",
+      "name_en": "Aggressive Reading Material",
+      "summary_zh": "保留 FateRinHouguMapFight 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:1",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "12519511478367186928",
+        "2368248975866125372",
+        "245268975588226319",
+        "301254045070588654",
+        "3518655412119798711",
+        "8026811828252916434"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440702",
+          "105440707"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "2050301",
+        "JFDHFPIIGCC": "5012030",
+        "KAHNDIPJGHI": "429012",
+        "MMEGCIGMALC": "2050361",
+        "NHAINGEIMJA": "429002",
+        "OHFGNODANEP": "1005",
+        "PHFMCACHFIJ": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0003",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "总有一天，人人都会控大地兽的！",
+      "name_en": "Someday, everyone's gonna know how to ride dromas!",
+      "summary_zh": "保留 FateRinHouguMapFight 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:2",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "10457650039157056393",
+        "12741915944386256855",
+        "16243193753878102407",
+        "2156273605208412227",
+        "2874498321461484531",
+        "3429854088036228683"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440704",
+          "105440709"
+        ],
+        "EHAFJKIKKMC": "Friend",
+        "HNEIIAGADGO": "2050301",
+        "JFDHFPIIGCC": "4012020",
+        "KAHNDIPJGHI": "429013",
+        "MMEGCIGMALC": "2050363",
+        "NHAINGEIMJA": "429003",
+        "OHFGNODANEP": "6019",
+        "PHFMCACHFIJ": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0004",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "阿瓦隆",
+      "name_en": "Avalon",
+      "summary_zh": "保留 FateRinHouguMapFight 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:3",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "18082835847609839275"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440703",
+          "105440708"
+        ],
+        "HNEIIAGADGO": "2050301",
+        "JFDHFPIIGCC": "1014010",
+        "KAHNDIPJGHI": "429014",
+        "MMEGCIGMALC": "2050362",
+        "NHAINGEIMJA": "429004",
+        "OHFGNODANEP": "6013",
+        "PHFMCACHFIJ": "4"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0005",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "什么…？！",
+      "name_en": "What...!?",
+      "summary_zh": "保留 FateRinHouguMapFight 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:4",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "14056326703317561378",
+        "18040715279106826000",
+        "18072861555152028696",
+        "3928319358943187192",
+        "6426357787010133624",
+        "6521988475310452507"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440705",
+          "105440710"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "2050301",
+        "JFDHFPIIGCC": "3002030",
+        "KAHNDIPJGHI": "429015",
+        "MMEGCIGMALC": "2050364",
+        "NHAINGEIMJA": "429005",
+        "OHFGNODANEP": "6015",
+        "PHFMCACHFIJ": "5"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0006",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "会为我们的容颜倾倒也是理所当然！",
+      "name_en": "It's only natural that people fall head over heels for our looks!",
+      "summary_zh": "保留 FateRinHouguMapFight 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:5",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "13431808046296276716",
+        "1356978510124090068",
+        "4057139075136952801",
+        "6493836030961839200",
+        "8979056287609097945"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440802",
+          "105440803"
+        ],
+        "EHAFJKIKKMC": "Friend",
+        "HNEIIAGADGO": "1050101",
+        "HPJHKACDIMB": "429126",
+        "JFDHFPIIGCC": "4063010",
+        "JKCHLJNLLNA": "",
+        "KAHNDIPJGHI": "429116",
+        "MMEGCIGMALC": "1050165",
+        "NHAINGEIMJA": "429106",
+        "PHFMCACHFIJ": "6",
+        "PKLFLANJCDG": true
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0007",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "散装英雄王",
+      "name_en": "Knockoff King of Heroes",
+      "summary_zh": "保留 FateRinHouguMapFight 第 7 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 7; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:6",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11594885394688854322",
+        "12530709397419800782",
+        "12845083427647314907",
+        "1972853474058969242",
+        "3002140617165006478",
+        "3170425124709176863"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440804",
+          "105440808"
+        ],
+        "EHAFJKIKKMC": "Friend",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "3004010",
+        "KAHNDIPJGHI": "429112",
+        "MMEGCIGMALC": "1050161",
+        "NHAINGEIMJA": "429102",
+        "OHFGNODANEP": "2005",
+        "PHFMCACHFIJ": "7"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0008",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "邓恩",
+      "name_en": "Dunn",
+      "summary_zh": "保留 FateRinHouguMapFight 第 8 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 8; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:7",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "14913711144814702040",
+        "16435145658146362458",
+        "18233255013016195702",
+        "18394986359029214999",
+        "5276866484193295332",
+        "9192374993343614763"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440806",
+          "105440810"
+        ],
+        "EHAFJKIKKMC": "Friend",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "1003010",
+        "KAHNDIPJGHI": "429113",
+        "MMEGCIGMALC": "1050163",
+        "NHAINGEIMJA": "429103",
+        "OHFGNODANEP": "6010",
+        "PHFMCACHFIJ": "8"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0009",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "完美投影仪",
+      "name_en": "Perfect Projector",
+      "summary_zh": "保留 FateRinHouguMapFight 第 9 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 9; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:8",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "2248924826954459994"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440807",
+          "105440811"
+        ],
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "8022010",
+        "KAHNDIPJGHI": "429114",
+        "MMEGCIGMALC": "1050164",
+        "NHAINGEIMJA": "429104",
+        "OHFGNODANEP": "6011",
+        "PHFMCACHFIJ": "9"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0010",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "真是越来越栩栩如生了…",
+      "name_en": "It's starting to veer into the uncanny valley...",
+      "summary_zh": "保留 FateRinHouguMapFight 第 10 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 10; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:9",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "11387215840660450137",
+        "12803062621541092188",
+        "12862000436687543354",
+        "17793037612792783985",
+        "2943773988143571233",
+        "5627461661941698743"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440805",
+          "105440809"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "1004020",
+        "KAHNDIPJGHI": "429115",
+        "MMEGCIGMALC": "1050162",
+        "NHAINGEIMJA": "429105",
+        "OHFGNODANEP": "6014",
+        "PHFMCACHFIJ": "10"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0011",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "所以你为什么会在这里？！",
+      "name_en": "So why are YOU here!?",
+      "summary_zh": "保留 FateRinHouguMapFight 第 11 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 11; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:10",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "13959419622209587564",
+        "16851064861249982847",
+        "16919240924345521117",
+        "3747355862143399367",
+        "4265758705913191746"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440902",
+          "105440903"
+        ],
+        "EHAFJKIKKMC": "Friend",
+        "HNEIIAGADGO": "1050101",
+        "HPJHKACDIMB": "429226",
+        "JFDHFPIIGCC": "3024010",
+        "JKCHLJNLLNA": "",
+        "KAHNDIPJGHI": "429216",
+        "MMEGCIGMALC": "1052165",
+        "NHAINGEIMJA": "429206",
+        "PHFMCACHFIJ": "11",
+        "PKLFLANJCDG": true
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0012",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "谁问你了！",
+      "name_en": "Who asked you!",
+      "summary_zh": "保留 FateRinHouguMapFight 第 12 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 12; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:11",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "1433054794675520250",
+        "3452862472502459447",
+        "4688063592314502495",
+        "4935891710446255176",
+        "6203462982534388470"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440904",
+          "105440908"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "2013020",
+        "KAHNDIPJGHI": "429212",
+        "MMEGCIGMALC": "1052161",
+        "NHAINGEIMJA": "429202",
+        "OHFGNODANEP": "3005",
+        "PHFMCACHFIJ": "12"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0013",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "哼？",
+      "name_en": "Hmph?",
+      "summary_zh": "保留 FateRinHouguMapFight 第 13 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 13; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:12",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "10491078716741033451",
+        "12606766385777014036",
+        "13833106959402276451",
+        "15161039463344721267",
+        "3275425825276314202",
+        "4527139676569939002"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440905",
+          "105440909"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "8002080",
+        "KAHNDIPJGHI": "429213",
+        "MMEGCIGMALC": "1052162",
+        "NHAINGEIMJA": "429203",
+        "OHFGNODANEP": "6012",
+        "PHFMCACHFIJ": "13"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0014",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "赞！",
+      "name_en": "Nice!",
+      "summary_zh": "保留 FateRinHouguMapFight 第 14 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 14; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:13",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "14865318288349669696",
+        "14948279625245212255",
+        "17527324551097617081",
+        "18374955989118212546",
+        "7343572246509444418"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440906",
+          "105440910"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "5012110",
+        "KAHNDIPJGHI": "429214",
+        "MMEGCIGMALC": "1052163",
+        "NHAINGEIMJA": "429204",
+        "OHFGNODANEP": "6018",
+        "PHFMCACHFIJ": "14"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-fight.0015",
+      "family": "FateRinHouguMapFight",
+      "name_zh": "喀尔刻的机铠",
+      "name_en": "Circe's Mechatron",
+      "summary_zh": "保留 FateRinHouguMapFight 第 15 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapFight mechanic record 15; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapFight.json",
+          "locator": "index:14",
+          "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "1170369201467318618",
+        "16330660653288373211",
+        "6455978537279567960",
+        "6568848728989834744",
+        "6851286384637761638",
+        "9092105982712475029"
+      ],
+      "mechanic_payload": {
+        "BNGEMNHEMAK": [
+          "105440907",
+          "105440911"
+        ],
+        "EHAFJKIKKMC": "Enemy",
+        "HNEIIAGADGO": "1050101",
+        "JFDHFPIIGCC": "5012090",
+        "KAHNDIPJGHI": "429215",
+        "MMEGCIGMALC": "1052164",
+        "NHAINGEIMJA": "429205",
+        "OHFGNODANEP": "6023",
+        "PHFMCACHFIJ": "15"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-group.0001",
+      "family": "FateRinHouguMapGroup",
+      "name_zh": "鸽川区",
+      "name_en": "Dovebrook District",
+      "summary_zh": "保留 FateRinHouguMapGroup 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapGroup mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapGroup.json",
+          "locator": "index:0",
+          "sha256": "7ed5b737815aea9ddc493b0b343e2423473ee5637068a3bb595469855f2d5ce9"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "3790278115595503371"
+      ],
+      "mechanic_payload": {
+        "AJCDFGPPLJP": "105440017",
+        "CJEEEFLFFOL": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "LIPCDDAPHNF": "105440016",
+        "PHFMCACHFIJ": "1"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-group.0002",
+      "family": "FateRinHouguMapGroup",
+      "name_zh": "二维市",
+      "name_en": "Duomension City",
+      "summary_zh": "保留 FateRinHouguMapGroup 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapGroup mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapGroup.json",
+          "locator": "index:1",
+          "sha256": "7ed5b737815aea9ddc493b0b343e2423473ee5637068a3bb595469855f2d5ce9"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "17984248548944905518"
+      ],
+      "mechanic_payload": {
+        "AJCDFGPPLJP": "105440209",
+        "CJEEEFLFFOL": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "LIPCDDAPHNF": "105440208",
+        "PHFMCACHFIJ": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-hougu-map-group.0003",
+      "family": "FateRinHouguMapGroup",
+      "name_zh": "海原市",
+      "name_en": "Seafeld City",
+      "summary_zh": "保留 FateRinHouguMapGroup 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinHouguMapGroup mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinHouguMapGroup.json",
+          "locator": "index:2",
+          "sha256": "7ed5b737815aea9ddc493b0b343e2423473ee5637068a3bb595469855f2d5ce9"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [
+        "15812049722129229691"
+      ],
+      "mechanic_payload": {
+        "AJCDFGPPLJP": "105440306",
+        "CJEEEFLFFOL": [
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "LIPCDDAPHNF": "105440304",
+        "PHFMCACHFIJ": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-story-fight.0001",
+      "family": "FateRinStoryFight",
+      "name_zh": "FateRinStoryFight 条目 1",
+      "name_en": "FateRinStoryFight entry 1",
+      "summary_zh": "保留 FateRinStoryFight 第 1 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinStoryFight mechanic record 1; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinStoryFight.json",
+          "locator": "index:0",
+          "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429001",
+        "HNEIIAGADGO": "2050101",
+        "PHFMCACHFIJ": "1"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-story-fight.0002",
+      "family": "FateRinStoryFight",
+      "name_zh": "FateRinStoryFight 条目 2",
+      "name_en": "FateRinStoryFight entry 2",
+      "summary_zh": "保留 FateRinStoryFight 第 2 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinStoryFight mechanic record 2; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinStoryFight.json",
+          "locator": "index:1",
+          "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429101",
+        "HNEIIAGADGO": "1050101",
+        "PHFMCACHFIJ": "2"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-story-fight.0003",
+      "family": "FateRinStoryFight",
+      "name_zh": "FateRinStoryFight 条目 3",
+      "name_en": "FateRinStoryFight entry 3",
+      "summary_zh": "保留 FateRinStoryFight 第 3 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinStoryFight mechanic record 3; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinStoryFight.json",
+          "locator": "index:2",
+          "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429201",
+        "HNEIIAGADGO": "2042401",
+        "PHFMCACHFIJ": "3"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-story-fight.0004",
+      "family": "FateRinStoryFight",
+      "name_zh": "FateRinStoryFight 条目 4",
+      "name_en": "FateRinStoryFight entry 4",
+      "summary_zh": "保留 FateRinStoryFight 第 4 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinStoryFight mechanic record 4; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinStoryFight.json",
+          "locator": "index:3",
+          "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429301",
+        "HNEIIAGADGO": "2043101",
+        "PHFMCACHFIJ": "4"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-story-fight.0005",
+      "family": "FateRinStoryFight",
+      "name_zh": "FateRinStoryFight 条目 5",
+      "name_en": "FateRinStoryFight entry 5",
+      "summary_zh": "保留 FateRinStoryFight 第 5 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinStoryFight mechanic record 5; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinStoryFight.json",
+          "locator": "index:4",
+          "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429302",
+        "HNEIIAGADGO": "2043202",
+        "PHFMCACHFIJ": "5"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.fate-rin-story-fight.0006",
+      "family": "FateRinStoryFight",
+      "name_zh": "FateRinStoryFight 条目 6",
+      "name_en": "FateRinStoryFight entry 6",
+      "summary_zh": "保留 FateRinStoryFight 第 6 条已发布机械事实；字段语义待类型化阶段复核。",
+      "summary_en": "Released FateRinStoryFight mechanic record 6; typed field meaning remains reviewable.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/FateRinStoryFight.json",
+          "locator": "index:5",
+          "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "TransportedExact",
+      "confidence": "High",
+      "text_hashes": [],
+      "mechanic_payload": {
+        "DOBKKDIECDO": "429303",
+        "HNEIIAGADGO": "2043202",
+        "PHFMCACHFIJ": "6"
+      },
+      "notes": "Obfuscated upstream field names are transported without invented semantics; long text and assets are omitted."
+    }
+  ],
+  "canonical_records_sha256": "0054237e308da60c54362cf5e95a5acf36ef93893316f17f3f88436feaf60b9b"
+}
