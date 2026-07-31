@@ -1,0 +1,153 @@
+{
+  "table": {
+    "name": "MocSeasons",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "family_and_season:schedule-201033"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story schedule"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈日程"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"begins_at_server_time\":\"2026-07-06 04:00:00\",\"calendar_runtime_behavior_included\":false,\"coverage_state\":\"DataReady\",\"ends_at_server_time\":\"2026-08-17 04:00:00\",\"evidence_refs\":[{\"evidence_sha256\":\"2afcda7e4ce91c4d69ebd1a95127d19c2a0d76b36c6360df72a5e0777552e7e2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ScheduleDataChallengeMaze.json:ID=201033\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact released schedule bounds.\",\"path_or_page\":\"ExcelOutput/ScheduleDataChallengeMaze.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=201033\"}],\"game_version\":\"4.4\",\"id\":\"season.schedule-201033\",\"kind\":\"ScheduleSelector\",\"name_en\":\"Academy Ghost Story schedule\",\"name_zh_cn\":\"学院怪谈日程\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"family_and_season:schedule-201033\"],\"summary_en\":\"Selects the released Version 4.4 period from 6 July to 17 August 2026.\",\"summary_zh_cn\":\"选择2026年7月6日至8月17日开放的4.4版本档期。\",\"tags\":[\"active\",\"schedule\"],\"upstream_schedule_id\":201033}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ScheduleDataChallengeMaze.json:ID=201033"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "season.schedule-201033"
+          },
+          "summary_en": {
+            "String": "Selects the released Version 4.4 period from 6 July to 17 August 2026."
+          },
+          "summary_zh_cn": {
+            "String": "选择2026年7月6日至8月17日开放的4.4版本档期。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "active"
+              },
+              {
+                "String": "schedule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "family_and_season:group-1033"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"64103da034229e21f59df16787cccfce23fb7eb3e63cffb74034ee4f35f94fa6\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeGroupConfig.json:GroupID=1033\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact active group selector and Tierce binding.\",\"path_or_page\":\"ExcelOutput/ChallengeGroupConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"GroupID=1033\"},{\"evidence_sha256\":\"797d13c0c32b43cdaf124bb9a64e0b7a5d9b77e0d4bfbcb4dc32b09e408b896b\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14627468344272196063\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14627468344272196063\"},{\"evidence_sha256\":\"a92196ed5c7f9249e1705d9b050dc2ea5aaa24ecbd128842e1a081414babab7d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14627468344272196063\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14627468344272196063\"}],\"future_group_1034_included\":false,\"game_version\":\"4.4\",\"id\":\"season.group-1033\",\"kind\":\"Season\",\"maze_buff_id\":\"turbulence.3030146\",\"name_en\":\"Academy Ghost Story\",\"name_zh_cn\":\"学院怪谈\",\"ordinary_stage_ids\":[\"stage.5201\",\"stage.5202\",\"stage.5203\",\"stage.5204\",\"stage.5205\",\"stage.5206\",\"stage.5207\",\"stage.5208\",\"stage.5209\",\"stage.5210\",\"stage.5211\",\"stage.5212\"],\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schedule_id\":\"season.schedule-201033\",\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"family_and_season:group-1033\"],\"summary_en\":\"The active Version 4.4 Memory of Chaos season with twelve ordinary floors and one selected extension.\",\"summary_zh_cn\":\"4.4版本当前混沌回忆赛季，包含十二层常规关卡和一个单独选中的扩展关。\",\"tags\":[\"active\",\"season\"],\"tierce_id\":\"tierce.5213\",\"upstream_group_id\":1033}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeGroupConfig.json:GroupID=1033"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14627468344272196063"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14627468344272196063"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "season.group-1033"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 Memory of Chaos season with twelve ordinary floors and one selected extension."
+          },
+          "summary_zh_cn": {
+            "String": "4.4版本当前混沌回忆赛季，包含十二层常规关卡和一个单独选中的扩展关。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "active"
+              },
+              {
+                "String": "season"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

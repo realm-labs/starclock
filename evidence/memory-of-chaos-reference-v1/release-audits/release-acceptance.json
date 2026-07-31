@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-release-acceptance.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "lane": "Candidate",
+  "result": "Pass",
+  "runtime_profile": "Unreleased",
+  "source_revisions": {
+    "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "StarRailRes": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+    "shared_enemy_goal": "60ca52ed98c5c83d867d33bff7f88c69e0b389de"
+  },
+  "coverage": {
+    "required": 477,
+    "accounted": 477,
+    "data_ready": 477,
+    "fixture_families": 18,
+    "research_gaps": 29,
+    "blocking_research_gaps": 0
+  },
+  "reconciliation": {
+    "receipts": 305,
+    "matches": 303,
+    "compatible_projections": 2,
+    "conflicts": 0
+  },
+  "artifacts": {
+    "canonical_pack_sha256": "23c51c3f56daf63eae898c40d0720d400a64ad85326cdbd178ed9eff02cea8ac",
+    "manifest_sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce",
+    "schema_lock_sha256": "b072066c0e01c98e23f88aed9735d77cd8d92e42fee931281bcb995767dd4119",
+    "workbook_sha256": {
+      "MemoryOfChaos": "776c55b71b13c4d7fec06cfe35cbfa4c3da14e59332e2df67d41cbf417bfb2c9",
+      "MemoryOfChaosBindings": "ba3ba3775df3c6861947dca0eefeae31024b76117fa3bfcf41b3e36dca9b7084",
+      "MemoryOfChaosReview": "f0891ec169e16e97c91a49c18b3a6aa997c266ebea9c28d6b9de2b45833069ac"
+    },
+    "bundle_sha256": "a743e5f1459d636c5d906605416a91f1bae2636c96b2598bb66ab736daf32019",
+    "debug_tree_sha256": "51f8bd1a29d43efef7821d626cd4a1abd36094e96d3f0b7cb7889d1c584cf25d",
+    "coverage_audit_sha256": "843e8dadd0e9dc298c3ed6534e72a050381f032808dbb2f933c5b2971e4da7a7",
+    "semantic_fixture_results_sha256": "15783aed3b74d539b4d79603f2f1abf93c1fa4ace5b7ebd902412db4e25c7313"
+  },
+  "acceptance": {
+    "unified_verifier": "fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/verify-candidate-release.mjs",
+    "clean_prospective_tree": "Pass",
+    "clean_verifier": "fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/verify-candidate-release.mjs --clean-checkout",
+    "full_gate_with_source_cache": "Pass",
+    "full_gate": "fnm exec --using 24.15.0 node tools/repository-check/run.mjs --full --with-source-cache"
+  }
+}

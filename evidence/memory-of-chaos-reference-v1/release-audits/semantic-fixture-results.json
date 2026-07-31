@@ -1,0 +1,758 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-semantic-fixture-results.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "result": "Pass",
+  "execution_scope": "reference-review-only-no-runtime-parity-claim",
+  "fixture_families_required": 18,
+  "fixture_families_passed": 18,
+  "research_gaps_required": 29,
+  "research_gaps_passed": 29,
+  "blocking_research_gaps": 0,
+  "fixture_results": [
+    {
+      "fixture_id": "fixture.active-season-selection",
+      "family": "active-season-selection",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.active-season-selection.canonical"
+      ],
+      "commands_executed": [
+        "select schedule 201033",
+        "resolve group 1033"
+      ],
+      "expected_facts_verified": [
+        "group 1033 selected exactly once",
+        "group 1034 excluded"
+      ],
+      "machine_checks": [
+        "schedule-201033-selected",
+        "group-1033-selected",
+        "group-1034-excluded"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "5ca90f31b5b6a012d8b8e81fcc49510e"
+    },
+    {
+      "fixture_id": "fixture.ordinary-stage-order",
+      "family": "ordinary-stage-order",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.ordinary-stage-order.terminal-outcomes"
+      ],
+      "commands_executed": [
+        "enumerate active ordinary stages"
+      ],
+      "expected_facts_verified": [
+        "ordered IDs are 5201 through 5212",
+        "terminal outcomes are fail-closed"
+      ],
+      "machine_checks": [
+        "twelve-stages-in-order",
+        "two-nodes-per-stage",
+        "terminal-outcomes-fail-closed"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "de62f07c9632059068e68ea64c21e20d"
+    },
+    {
+      "fixture_id": "fixture.tierce-selected-extension",
+      "family": "tierce-selected-extension",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.tierce-selected-extension.independent-projection"
+      ],
+      "commands_executed": [
+        "complete stage 5212",
+        "select Tierce 5213"
+      ],
+      "expected_facts_verified": [
+        "one independent encounter 30123123",
+        "45 cycles",
+        "ordinary state not carried"
+      ],
+      "machine_checks": [
+        "selected-after-stage-5212",
+        "one-independent-encounter",
+        "ordinary-state-not-carried"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "c4e1ff7e7f46620e43042f9c5cd33975"
+    },
+    {
+      "fixture_id": "fixture.participant-uniqueness",
+      "family": "participant-uniqueness",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.participant-uniqueness.accept-two-disjoint-teams",
+        "fixture.participant-uniqueness.reject-duplicate-form",
+        "fixture.participant-uniqueness.team-slot-cardinality"
+      ],
+      "commands_executed": [
+        "submit two node teams",
+        "validate combat-form identities"
+      ],
+      "expected_facts_verified": [
+        "two disjoint teams accepted",
+        "duplicate combat form rejected"
+      ],
+      "machine_checks": [
+        "two-disjoint-slots-accepted",
+        "duplicate-form-rejected-byte-identically"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "8757cc7567c17468a7483eec3e94ff00"
+    },
+    {
+      "fixture_id": "fixture.loadout-lock-retry",
+      "family": "loadout-lock-retry",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.loadout-lock-retry.new-attempt-after-failure",
+        "fixture.loadout-lock-retry.node-transition-lock",
+        "fixture.loadout-lock-retry.reject-after-start-mutation"
+      ],
+      "commands_executed": [
+        "start attempt",
+        "request mutation",
+        "retry whole stage"
+      ],
+      "expected_facts_verified": [
+        "post-start mutation rejected byte-identically",
+        "retry creates fresh attempt"
+      ],
+      "machine_checks": [
+        "post-start-mutation-rejected",
+        "retry-uses-fresh-snapshot",
+        "partial-node-results-discarded"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "2f6a288f6d06ac7c577ac970cdefa13f"
+    },
+    {
+      "fixture_id": "fixture.cycle-first-av-window",
+      "family": "cycle-first-av-window",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.cycle-first-av-window.150-then-100"
+      ],
+      "commands_executed": [
+        "start fresh battle",
+        "consume 150 AV"
+      ],
+      "expected_facts_verified": [
+        "first window is 150 AV",
+        "later windows are 100 AV"
+      ],
+      "machine_checks": [
+        "first-window-150",
+        "later-window-100",
+        "canonical-decimal-encoding"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "525285b5029de65da6f376505edc9c96"
+    },
+    {
+      "fixture_id": "fixture.cycle-node-wave-carry",
+      "family": "cycle-node-wave-carry",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.cycle-node-wave-carry.expiry-before-start-rules",
+        "fixture.cycle-node-wave-carry.node2-fresh-window",
+        "fixture.cycle-node-wave-carry.stage-owned-budget",
+        "fixture.cycle-node-wave-carry.tick-before-cycle-start",
+        "fixture.cycle-node-wave-carry.wave-av-reset"
+      ],
+      "commands_executed": [
+        "cross wave",
+        "cross node",
+        "reach zero boundary"
+      ],
+      "expected_facts_verified": [
+        "remaining cycles persist",
+        "wave elapsed AV resets",
+        "Node 2 opens fresh 150 AV window"
+      ],
+      "machine_checks": [
+        "remaining-cycles-carried",
+        "wave-av-reset-to-150",
+        "node2-fresh-150",
+        "expiry-before-cycle-start"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "7fc02284cbdaa29dba41884c8d1dfa7b"
+    },
+    {
+      "fixture_id": "fixture.objective-star-aggregation",
+      "family": "objective-star-aggregation",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "commands_executed": [
+        "complete multiple attempts with different objectives"
+      ],
+      "expected_facts_verified": [
+        "best objectives latch independently",
+        "failed attempts contribute nothing"
+      ],
+      "machine_checks": [
+        "six-exact-thresholds",
+        "completed-attempts-union-independently",
+        "failed-attempt-contributes-nothing"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "98a1272f78f95927b560367f189c7a28"
+    },
+    {
+      "fixture_id": "fixture.turbulence-hit-accumulation",
+      "family": "turbulence-hit-accumulation",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.turbulence-hit-accumulation.canonical"
+      ],
+      "commands_executed": [
+        "use Ultimate",
+        "use Follow-Up ATK"
+      ],
+      "expected_facts_verified": [
+        "one hit stored per qualifying action",
+        "multi-hit action does not multiply gain"
+      ],
+      "machine_checks": [
+        "ultimate-adds-one",
+        "follow-up-adds-one",
+        "multi-hit-does-not-multiply"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "6745429f03922da433683a110794b71a"
+    },
+    {
+      "fixture_id": "fixture.turbulence-cap-cycle-start",
+      "family": "turbulence-cap-cycle-start",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.turbulence-cap-cycle-start.empty-target-reset"
+      ],
+      "commands_executed": [
+        "accumulate beyond cap",
+        "start cycle"
+      ],
+      "expected_facts_verified": [
+        "stored hit count caps at 15",
+        "accumulator resets after resolution"
+      ],
+      "machine_checks": [
+        "stored-hits-cap-at-15",
+        "cycle-start-resolves",
+        "accumulator-resets"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "98b9b86bb19e6a63994a44b17092bfec"
+    },
+    {
+      "fixture_id": "fixture.turbulence-target-true-damage",
+      "family": "turbulence-target-true-damage",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.turbulence-target-true-damage.random-per-hit",
+        "fixture.turbulence-target-true-damage.rank-coefficients"
+      ],
+      "commands_executed": [
+        "resolve one stored hit for each rank branch"
+      ],
+      "expected_facts_verified": [
+        "one target sampled per hit",
+        "coefficients are 0.12, 0.02 and 0.012"
+      ],
+      "machine_checks": [
+        "one-target-per-stored-hit",
+        "base-hp-true-damage",
+        "rank-coefficients-exact"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "e8b16f8b03652098dd488585b9d190d8"
+    },
+    {
+      "fixture_id": "fixture.initial-resources",
+      "family": "initial-resources",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.initial-resources.fresh-node-reset",
+        "fixture.initial-resources.tierce-config-equality"
+      ],
+      "commands_executed": [
+        "start Node 1",
+        "start Node 2"
+      ],
+      "expected_facts_verified": [
+        "full HP",
+        "half Energy",
+        "team maximum Skill Points",
+        "no cross-node resource carry"
+      ],
+      "machine_checks": [
+        "full-hp",
+        "half-energy",
+        "team-maximum-skill-points",
+        "fresh-node-reset"
+      ],
+      "mechanism_quality_floor": "ProjectPolicy",
+      "canonical_seed": "146390b31e2b6002d6bf49345dde91e0"
+    },
+    {
+      "fixture_id": "fixture.battle-entry-operations",
+      "family": "battle-entry-operations",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.battle-entry-operations.resolved-technique-contribution",
+        "fixture.event-config-binding.active-turbulence-chain"
+      ],
+      "commands_executed": [
+        "project shared level program"
+      ],
+      "expected_facts_verified": [
+        "activity buff binds before team creation",
+        "wave creation precedes battle start"
+      ],
+      "machine_checks": [
+        "bindings-before-team",
+        "wave-before-start",
+        "technique-is-optional-battle-spec-contribution"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "eefca260b92e0498be6abb1d293c7228"
+    },
+    {
+      "fixture_id": "fixture.encounter-wave-order",
+      "family": "encounter-wave-order",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.encounter-wave-order.canonical"
+      ],
+      "commands_executed": [
+        "load encounter 30123011",
+        "advance wave 1 to wave 2"
+      ],
+      "expected_facts_verified": [
+        "slot order is stable",
+        "wave 2 follows wave 1"
+      ],
+      "machine_checks": [
+        "25-encounters",
+        "50-ordered-waves",
+        "99-stably-ordered-slots"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "bdb6cfe30823fbdd15bc5035a6ae5a85"
+    },
+    {
+      "fixture_id": "fixture.enemy-transitive-closure",
+      "family": "enemy-transitive-closure",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.enemy-transitive-closure.canonical"
+      ],
+      "commands_executed": [
+        "resolve every slot variant transitively"
+      ],
+      "expected_facts_verified": [
+        "41 variants map to 41 templates",
+        "221 abilities are reachable"
+      ],
+      "machine_checks": [
+        "41-variants-reachable",
+        "41-templates-reachable",
+        "221-abilities-reachable"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "f4ce3c01bb29c3f01710685c1905c9f9"
+    },
+    {
+      "fixture_id": "fixture.empty-pool-selector-closure",
+      "family": "empty-pool-selector-closure",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.empty-pool-selector-closure.canonical"
+      ],
+      "commands_executed": [
+        "walk active selector closure"
+      ],
+      "expected_facts_verified": [
+        "all ten audited families contain zero reachable rows"
+      ],
+      "machine_checks": [
+        "ten-families-audited",
+        "zero-reachable-rows",
+        "unresolved-selector-fails-closed"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "ee08bd4393b18e8d003ca3c88237ff36"
+    },
+    {
+      "fixture_id": "fixture.future-season-exclusion",
+      "family": "future-season-exclusion",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.future-season-exclusion.canonical"
+      ],
+      "commands_executed": [
+        "evaluate schedule 201034 at frozen access boundary"
+      ],
+      "expected_facts_verified": [
+        "future group 1034 remains excluded",
+        "no preview row becomes a denominator"
+      ],
+      "machine_checks": [
+        "schedule-201034-excluded",
+        "group-1034-excluded",
+        "preview-not-denominator"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "dc8cff70c98784e8e700f911cad8bf20"
+    },
+    {
+      "fixture_id": "fixture.shared-row-reconciliation",
+      "family": "shared-row-reconciliation",
+      "result": "Pass",
+      "case_ids": [
+        "fixture.shared-row-reconciliation.canonical"
+      ],
+      "commands_executed": [
+        "compare source path, locator and digest"
+      ],
+      "expected_facts_verified": [
+        "303 enemy receipts match Goal 03",
+        "no shared conflict"
+      ],
+      "machine_checks": [
+        "303-exact-matches",
+        "2-compatible-projections",
+        "zero-conflicts"
+      ],
+      "mechanism_quality_floor": "ExactStructured",
+      "canonical_seed": "574646f975e5919a8978a3dd7b019c74"
+    }
+  ],
+  "replacement_condition_results": [
+    {
+      "gap_id": "research-gap.00b1e23675111cf0",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "objectives.json",
+      "source_record_id": "objective.603",
+      "affected_fixture_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "replacement_condition": "Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+    },
+    {
+      "gap_id": "research-gap.00f5cedf35315872",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "resource-rules.json",
+      "source_record_id": "projection.tierce-5213",
+      "affected_fixture_ids": [
+        "fixture.tierce-selected-extension.independent-projection"
+      ],
+      "replacement_condition": "Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace."
+    },
+    {
+      "gap_id": "research-gap.02ade7f5125fb5e3",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "participant-policies.json",
+      "source_record_id": "uniqueness.combat-form",
+      "affected_fixture_ids": [
+        "fixture.participant-uniqueness.reject-duplicate-form"
+      ],
+      "replacement_condition": "Replace the identity key with a released lineup validator trace that distinguishes base character and alternate forms."
+    },
+    {
+      "gap_id": "research-gap.036c36ff9633ab86",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "attempt-rules.json",
+      "source_record_id": "attempt-rule.node-transition",
+      "affected_fixture_ids": [
+        "fixture.loadout-lock-retry.node-transition-lock"
+      ],
+      "replacement_condition": "Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots."
+    },
+    {
+      "gap_id": "research-gap.087877f20c471739",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "profile.json",
+      "source_record_id": "outcome.abandonment",
+      "affected_fixture_ids": [
+        "fixture.ordinary-stage-order.terminal-outcomes"
+      ],
+      "replacement_condition": "Replace with released command traces or a decoded challenge lifecycle program."
+    },
+    {
+      "gap_id": "research-gap.0f915a462d58e01e",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "turbulence.json",
+      "source_record_id": "turbulence-program.30146",
+      "affected_fixture_ids": [
+        "fixture.turbulence-target-true-damage.random-per-hit"
+      ],
+      "replacement_condition": "Replace with a released RNG/candidate trace or decoded target-selection implementation."
+    },
+    {
+      "gap_id": "research-gap.10adc18378ed5448",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "resource-rules.json",
+      "source_record_id": "resource.battle-entry-operations",
+      "affected_fixture_ids": [
+        "fixture.battle-entry-operations.resolved-technique-contribution"
+      ],
+      "replacement_condition": "Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program."
+    },
+    {
+      "gap_id": "research-gap.160c98b31b7e3f40",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "resource-rules.json",
+      "source_record_id": "resource.initial-node-state",
+      "affected_fixture_ids": [
+        "fixture.initial-resources.fresh-node-reset"
+      ],
+      "replacement_condition": "Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition."
+    },
+    {
+      "gap_id": "research-gap.1974523ca8ee860a",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "clock-rules.json",
+      "source_record_id": "clock.expiry-failure",
+      "affected_fixture_ids": [
+        "fixture.cycle-node-wave-carry.expiry-before-start-rules"
+      ],
+      "replacement_condition": "Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary."
+    },
+    {
+      "gap_id": "research-gap.29d3eeead7fb17cc",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "objectives.json",
+      "source_record_id": "objective.602",
+      "affected_fixture_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "replacement_condition": "Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+    },
+    {
+      "gap_id": "research-gap.3ef26a95b2c2a2af",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "participant-policies.json",
+      "source_record_id": "loadout-lock.ordinary-stage",
+      "affected_fixture_ids": [
+        "fixture.loadout-lock-retry.reject-after-start-mutation"
+      ],
+      "replacement_condition": "Replace with released equipment lock/retry traces and instance ownership semantics."
+    },
+    {
+      "gap_id": "research-gap.54d91f16825a61b2",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "clock-rules.json",
+      "source_record_id": "clock.cycle-tick-boundary",
+      "affected_fixture_ids": [
+        "fixture.cycle-node-wave-carry.tick-before-cycle-start"
+      ],
+      "replacement_condition": "Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order."
+    },
+    {
+      "gap_id": "research-gap.73c318624d4cbc30",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "battle-events.json",
+      "source_record_id": "battle-event.30146",
+      "affected_fixture_ids": [
+        "fixture.event-config-binding.active-turbulence-chain"
+      ],
+      "replacement_condition": "Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce."
+    },
+    {
+      "gap_id": "research-gap.7c3b57dd5301d9ab",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "participant-policies.json",
+      "source_record_id": "participant-policy.ordinary-stage",
+      "affected_fixture_ids": [
+        "fixture.participant-uniqueness.accept-two-disjoint-teams"
+      ],
+      "replacement_condition": "Replace policy fields with a released lineup transaction trace or decoded participant program."
+    },
+    {
+      "gap_id": "research-gap.7e0feba5ce8a10ee",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "clock-rules.json",
+      "source_record_id": "clock.first-cycle-av-window",
+      "affected_fixture_ids": [
+        "fixture.cycle-first-av-window.150-then-100"
+      ],
+      "replacement_condition": "Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace."
+    },
+    {
+      "gap_id": "research-gap.83f44780072ee1c5",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "turbulence.json",
+      "source_record_id": "turbulence-program.30146",
+      "affected_fixture_ids": [
+        "fixture.turbulence-target-true-damage.rank-coefficients"
+      ],
+      "replacement_condition": "Replace with released integer damage vectors for all rank branches and boundary values."
+    },
+    {
+      "gap_id": "research-gap.919da36dd66de769",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "clock-rules.json",
+      "source_record_id": "clock.ordinary-stage-budget",
+      "affected_fixture_ids": [
+        "fixture.cycle-node-wave-carry.stage-owned-budget"
+      ],
+      "replacement_condition": "Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs."
+    },
+    {
+      "gap_id": "research-gap.9e47fca100bce0c6",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "objectives.json",
+      "source_record_id": "objective.251",
+      "affected_fixture_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "replacement_condition": "Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+    },
+    {
+      "gap_id": "research-gap.b119b9d28ce2f548",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "profile.json",
+      "source_record_id": "outcome.attempt-failure",
+      "affected_fixture_ids": [
+        "fixture.ordinary-stage-order.terminal-outcomes"
+      ],
+      "replacement_condition": "Replace with released command traces or a decoded challenge lifecycle program."
+    },
+    {
+      "gap_id": "research-gap.b7a20d86465fe20a",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "resource-rules.json",
+      "source_record_id": "resource.initial-node-state",
+      "affected_fixture_ids": [
+        "fixture.initial-resources.tierce-config-equality"
+      ],
+      "replacement_condition": "Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available."
+    },
+    {
+      "gap_id": "research-gap.b842b3241524a254",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "profile.json",
+      "source_record_id": "outcome.stage-clear",
+      "affected_fixture_ids": [
+        "fixture.ordinary-stage-order.terminal-outcomes"
+      ],
+      "replacement_condition": "Replace with released command traces or a decoded challenge lifecycle program."
+    },
+    {
+      "gap_id": "research-gap.c57734684d52f4d2",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "objectives.json",
+      "source_record_id": "objective.253",
+      "affected_fixture_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "replacement_condition": "Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+    },
+    {
+      "gap_id": "research-gap.c725b5f5a7540172",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "clock-rules.json",
+      "source_record_id": "clock.node-carry",
+      "affected_fixture_ids": [
+        "fixture.cycle-node-wave-carry.node2-fresh-window"
+      ],
+      "replacement_condition": "Replace partial-window behavior with a released cross-node gauge/countdown trace."
+    },
+    {
+      "gap_id": "research-gap.cc8f90a5e54f11fd",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "objectives.json",
+      "source_record_id": "objective.252",
+      "affected_fixture_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "replacement_condition": "Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+    },
+    {
+      "gap_id": "research-gap.d0ba4e6f1a6610c0",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "participant-policies.json",
+      "source_record_id": "team-slots.ordinary",
+      "affected_fixture_ids": [
+        "fixture.participant-uniqueness.team-slot-cardinality"
+      ],
+      "replacement_condition": "Replace cardinality and ordering with a released lineup schema if it differs."
+    },
+    {
+      "gap_id": "research-gap.e1fa4a37176573bb",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "clock-rules.json",
+      "source_record_id": "clock.wave-carry",
+      "affected_fixture_ids": [
+        "fixture.cycle-node-wave-carry.wave-av-reset"
+      ],
+      "replacement_condition": "Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch."
+    },
+    {
+      "gap_id": "research-gap.e2495daa041134cc",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "objectives.json",
+      "source_record_id": "objective.601",
+      "affected_fixture_ids": [
+        "fixture.objective-star-aggregation.cumulative-independent-objectives"
+      ],
+      "replacement_condition": "Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+    },
+    {
+      "gap_id": "research-gap.ef9403cc342d9888",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "turbulence.json",
+      "source_record_id": "turbulence-program.30146",
+      "affected_fixture_ids": [
+        "fixture.turbulence-cap-cycle-start.empty-target-reset"
+      ],
+      "replacement_condition": "Replace with a released empty-target or battle-end event trace."
+    },
+    {
+      "gap_id": "research-gap.fd36be9986b57de7",
+      "result": "Pass",
+      "blocking": false,
+      "source_file": "attempt-rules.json",
+      "source_record_id": "attempt-rule.retry-reset",
+      "affected_fixture_ids": [
+        "fixture.loadout-lock-retry.new-attempt-after-failure"
+      ],
+      "replacement_condition": "Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior."
+    }
+  ],
+  "result_sha256": "0cc306e7ed080ded5e331a297dc8649304e1821e3036e54ab03adc6611e91d3e"
+}

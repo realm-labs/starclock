@@ -1,0 +1,91 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "entries.json",
+  "record_kind": "EntryLocator",
+  "records": [
+    {
+      "id": "entry.1010201",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EntryLocator",
+      "name_en": "Forgotten Hall entrance",
+      "name_zh_cn": "忘却之庭入口",
+      "summary_en": "Shared town entrance used to reach the Memory family.",
+      "summary_zh_cn": "用于进入回忆家族的共享城镇入口。",
+      "game_version": "4.4",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "entry_and_unlock_locators:entrance-1010201"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/MapEntrance.json:ID=1010201",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MapEntrance.json",
+          "row_locator": "ID=1010201",
+          "evidence_sha256": "3fd62cdd2ece749615661fb9005248fa1f544859849fc1f8dbc1e0d25954a255",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact entry-plane locator."
+        }
+      ],
+      "tags": [
+        "entry",
+        "shared"
+      ],
+      "upstream_entrance_id": 1010201,
+      "entrance_type": "Town",
+      "plane_id": 10102,
+      "floor_id": 10102001,
+      "finish_main_mission_ids": [
+        1010302
+      ],
+      "story_prose_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "entry.3014002",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EntryLocator",
+      "name_en": "Memory challenge plane",
+      "name_zh_cn": "回忆挑战位面",
+      "summary_en": "Mode-owned exploration plane selected by every active ordinary floor and the Tierce extension.",
+      "summary_zh_cn": "全部当前常规层与扩展关共同选择的玩法专属探索位面。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "entry_and_unlock_locators:entrance-3014002"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/MapEntrance.json:ID=3014002",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MapEntrance.json",
+          "row_locator": "ID=3014002",
+          "evidence_sha256": "55d1bba7f881ef4d5b76b2bb8c1b931cb62ad71100d6c9a14369b6160437b0c6",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact entry-plane locator."
+        }
+      ],
+      "tags": [
+        "entry",
+        "mode-owned"
+      ],
+      "upstream_entrance_id": 3014002,
+      "entrance_type": "Explore",
+      "plane_id": 30140,
+      "floor_id": 30140002,
+      "finish_main_mission_ids": [],
+      "story_prose_included": false,
+      "runtime_executable": false
+    }
+  ]
+}

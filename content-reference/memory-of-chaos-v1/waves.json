@@ -1,0 +1,2258 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "waves.json",
+  "record_kind": "EncounterWave",
+  "records": [
+    {
+      "id": "wave.30123011.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123011 wave 1",
+      "name_zh_cn": "遭遇30123011第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123011",
+          "evidence_sha256": "7add2aef9fab86a4b16c85950b1671525e8b721e82161642d7a188de954f0208",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123011",
+      "upstream_stage_config_id": 30123011,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.001",
+        "enemy-slot.002"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123011.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123011.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123011 wave 2",
+      "name_zh_cn": "遭遇30123011第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123011",
+          "evidence_sha256": "7add2aef9fab86a4b16c85950b1671525e8b721e82161642d7a188de954f0208",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123011",
+      "upstream_stage_config_id": 30123011,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.003",
+        "enemy-slot.004"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123012.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123012 wave 1",
+      "name_zh_cn": "遭遇30123012第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123012",
+          "evidence_sha256": "0bb1c5ca5b30f6e5533d6a37c1d847268b075691c3eca34a4170d8ae5e491b8d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123012",
+      "upstream_stage_config_id": 30123012,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.005",
+        "enemy-slot.006"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123012.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123012.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123012 wave 2",
+      "name_zh_cn": "遭遇30123012第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123012",
+          "evidence_sha256": "0bb1c5ca5b30f6e5533d6a37c1d847268b075691c3eca34a4170d8ae5e491b8d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123012",
+      "upstream_stage_config_id": 30123012,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.007",
+        "enemy-slot.008"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123021.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123021 wave 1",
+      "name_zh_cn": "遭遇30123021第1波",
+      "summary_en": "Ordered wave 1 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123021",
+          "evidence_sha256": "56861870a08840025bf99f0ebb9af95a2eb692028e13926688769e82812f8219",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123021",
+      "upstream_stage_config_id": 30123021,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.009"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": "wave.30123021.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123021.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123021 wave 2",
+      "name_zh_cn": "遭遇30123021第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123021",
+          "evidence_sha256": "56861870a08840025bf99f0ebb9af95a2eb692028e13926688769e82812f8219",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123021",
+      "upstream_stage_config_id": 30123021,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.010",
+        "enemy-slot.011"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123022.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123022 wave 1",
+      "name_zh_cn": "遭遇30123022第1波",
+      "summary_en": "Ordered wave 1 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123022",
+          "evidence_sha256": "0256a249cf963f7eabeddc907e5a2eff2d48a33f6b6f6d56c8e2c88d679836cc",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123022",
+      "upstream_stage_config_id": 30123022,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.012"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": "wave.30123022.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123022.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123022 wave 2",
+      "name_zh_cn": "遭遇30123022第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123022",
+          "evidence_sha256": "0256a249cf963f7eabeddc907e5a2eff2d48a33f6b6f6d56c8e2c88d679836cc",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123022",
+      "upstream_stage_config_id": 30123022,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.013",
+        "enemy-slot.014"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123031.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123031 wave 1",
+      "name_zh_cn": "遭遇30123031第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123031",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123031",
+          "evidence_sha256": "1b1f9eab80e31c6e10606604a805d9148804bb05c038373e04a5d6f3c65f1a11",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123031",
+      "upstream_stage_config_id": 30123031,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.015",
+        "enemy-slot.016"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123031.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123031.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123031 wave 2",
+      "name_zh_cn": "遭遇30123031第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123031",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123031",
+          "evidence_sha256": "1b1f9eab80e31c6e10606604a805d9148804bb05c038373e04a5d6f3c65f1a11",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123031",
+      "upstream_stage_config_id": 30123031,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.017",
+        "enemy-slot.018"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123032.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123032 wave 1",
+      "name_zh_cn": "遭遇30123032第1波",
+      "summary_en": "Ordered wave 1 contains 3 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含3个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123032",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123032",
+          "evidence_sha256": "d262442aa541962a0eaa0a3a57da7d66b55b48edcce963dc22e9d367ce08a0c6",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123032",
+      "upstream_stage_config_id": 30123032,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.019",
+        "enemy-slot.020",
+        "enemy-slot.021"
+      ],
+      "enemy_slot_count": 3,
+      "next_wave_id": "wave.30123032.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123032.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123032 wave 2",
+      "name_zh_cn": "遭遇30123032第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123032",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123032",
+          "evidence_sha256": "d262442aa541962a0eaa0a3a57da7d66b55b48edcce963dc22e9d367ce08a0c6",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123032",
+      "upstream_stage_config_id": 30123032,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.022",
+        "enemy-slot.023"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123041.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123041 wave 1",
+      "name_zh_cn": "遭遇30123041第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123041",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123041",
+          "evidence_sha256": "b292effddad1bb9724fa2d578f3bc8a8be8d68bd8d2667dba386dc1d9b0356a3",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123041",
+      "upstream_stage_config_id": 30123041,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.024",
+        "enemy-slot.025"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123041.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123041.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123041 wave 2",
+      "name_zh_cn": "遭遇30123041第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123041",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123041",
+          "evidence_sha256": "b292effddad1bb9724fa2d578f3bc8a8be8d68bd8d2667dba386dc1d9b0356a3",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123041",
+      "upstream_stage_config_id": 30123041,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.026",
+        "enemy-slot.027"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123042.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123042 wave 1",
+      "name_zh_cn": "遭遇30123042第1波",
+      "summary_en": "Ordered wave 1 contains 3 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含3个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123042",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123042",
+          "evidence_sha256": "534b32c4e76f22ad4b8e2cfdd1436e27d3a1208c46d1a5399661553ba9f3afd1",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123042",
+      "upstream_stage_config_id": 30123042,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.028",
+        "enemy-slot.029",
+        "enemy-slot.030"
+      ],
+      "enemy_slot_count": 3,
+      "next_wave_id": "wave.30123042.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123042.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123042 wave 2",
+      "name_zh_cn": "遭遇30123042第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123042",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123042",
+          "evidence_sha256": "534b32c4e76f22ad4b8e2cfdd1436e27d3a1208c46d1a5399661553ba9f3afd1",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123042",
+      "upstream_stage_config_id": 30123042,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.031",
+        "enemy-slot.032"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123051.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123051 wave 1",
+      "name_zh_cn": "遭遇30123051第1波",
+      "summary_en": "Ordered wave 1 contains 3 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含3个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123051",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123051",
+          "evidence_sha256": "733a09ad4c9a83f80de0ef127c34789a15e9d6aa28d350fff8ee8269a6e355d0",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123051",
+      "upstream_stage_config_id": 30123051,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.033",
+        "enemy-slot.034",
+        "enemy-slot.035"
+      ],
+      "enemy_slot_count": 3,
+      "next_wave_id": "wave.30123051.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123051.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123051 wave 2",
+      "name_zh_cn": "遭遇30123051第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123051",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123051",
+          "evidence_sha256": "733a09ad4c9a83f80de0ef127c34789a15e9d6aa28d350fff8ee8269a6e355d0",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123051",
+      "upstream_stage_config_id": 30123051,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.036",
+        "enemy-slot.037"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123052.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123052 wave 1",
+      "name_zh_cn": "遭遇30123052第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123052",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123052",
+          "evidence_sha256": "e246840cf6d1ab1d185bd2b1af8b0d501ab9a3abc44ad7180413d50520b5a39a",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123052",
+      "upstream_stage_config_id": 30123052,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.038",
+        "enemy-slot.039"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123052.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123052.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123052 wave 2",
+      "name_zh_cn": "遭遇30123052第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123052",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123052",
+          "evidence_sha256": "e246840cf6d1ab1d185bd2b1af8b0d501ab9a3abc44ad7180413d50520b5a39a",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123052",
+      "upstream_stage_config_id": 30123052,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.040"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123061.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123061 wave 1",
+      "name_zh_cn": "遭遇30123061第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123061",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123061",
+          "evidence_sha256": "6a733ea7edd11b95bb3cda96e7b8cfbefe8f0c5941855f56af7c2ccdbfe52e3c",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123061",
+      "upstream_stage_config_id": 30123061,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.041",
+        "enemy-slot.042"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123061.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123061.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123061 wave 2",
+      "name_zh_cn": "遭遇30123061第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123061",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123061",
+          "evidence_sha256": "6a733ea7edd11b95bb3cda96e7b8cfbefe8f0c5941855f56af7c2ccdbfe52e3c",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123061",
+      "upstream_stage_config_id": 30123061,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.043",
+        "enemy-slot.044"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123062.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123062 wave 1",
+      "name_zh_cn": "遭遇30123062第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123062",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123062",
+          "evidence_sha256": "fcb996fa70bf63001b7b5db8d3988ee37caf4c179a216d73df285cca4ecbb37f",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123062",
+      "upstream_stage_config_id": 30123062,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.045",
+        "enemy-slot.046"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123062.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123062.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123062 wave 2",
+      "name_zh_cn": "遭遇30123062第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123062",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123062",
+          "evidence_sha256": "fcb996fa70bf63001b7b5db8d3988ee37caf4c179a216d73df285cca4ecbb37f",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123062",
+      "upstream_stage_config_id": 30123062,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.047",
+        "enemy-slot.048"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123071.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123071 wave 1",
+      "name_zh_cn": "遭遇30123071第1波",
+      "summary_en": "Ordered wave 1 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123071",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123071",
+          "evidence_sha256": "a563e9f4885b63dd9b963a98775284e849c9791a30e206c362cd36002449ac11",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123071",
+      "upstream_stage_config_id": 30123071,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.049"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": "wave.30123071.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123071.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123071 wave 2",
+      "name_zh_cn": "遭遇30123071第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123071",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123071",
+          "evidence_sha256": "a563e9f4885b63dd9b963a98775284e849c9791a30e206c362cd36002449ac11",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123071",
+      "upstream_stage_config_id": 30123071,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.050",
+        "enemy-slot.051"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123072.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123072 wave 1",
+      "name_zh_cn": "遭遇30123072第1波",
+      "summary_en": "Ordered wave 1 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123072",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123072",
+          "evidence_sha256": "cf99605a98657c82994123030ab03db6416355eaa31d612f3c4479260c18f715",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123072",
+      "upstream_stage_config_id": 30123072,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.052"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": "wave.30123072.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123072.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123072 wave 2",
+      "name_zh_cn": "遭遇30123072第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123072",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123072",
+          "evidence_sha256": "cf99605a98657c82994123030ab03db6416355eaa31d612f3c4479260c18f715",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123072",
+      "upstream_stage_config_id": 30123072,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.053",
+        "enemy-slot.054"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123081.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123081 wave 1",
+      "name_zh_cn": "遭遇30123081第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123081",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123081",
+          "evidence_sha256": "35bcef7ad3545a948f3609a9fb4ee809200a986d50c2dbe1607e3515ce1e6802",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123081",
+      "upstream_stage_config_id": 30123081,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.055",
+        "enemy-slot.056"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123081.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123081.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123081 wave 2",
+      "name_zh_cn": "遭遇30123081第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123081",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123081",
+          "evidence_sha256": "35bcef7ad3545a948f3609a9fb4ee809200a986d50c2dbe1607e3515ce1e6802",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123081",
+      "upstream_stage_config_id": 30123081,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.057",
+        "enemy-slot.058"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123082.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123082 wave 1",
+      "name_zh_cn": "遭遇30123082第1波",
+      "summary_en": "Ordered wave 1 contains 3 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含3个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123082",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123082",
+          "evidence_sha256": "187de3543e1d2883f335a5e6572eb9a092d598c1351464963c152df9f1cda249",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123082",
+      "upstream_stage_config_id": 30123082,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.059",
+        "enemy-slot.060",
+        "enemy-slot.061"
+      ],
+      "enemy_slot_count": 3,
+      "next_wave_id": "wave.30123082.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123082.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123082 wave 2",
+      "name_zh_cn": "遭遇30123082第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123082",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123082",
+          "evidence_sha256": "187de3543e1d2883f335a5e6572eb9a092d598c1351464963c152df9f1cda249",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123082",
+      "upstream_stage_config_id": 30123082,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.062",
+        "enemy-slot.063"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123091.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123091 wave 1",
+      "name_zh_cn": "遭遇30123091第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123091",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123091",
+          "evidence_sha256": "2dec470fc8e9a563ba2f024916bfbfeb3d1462c090b76a79485839f7d29d5dc9",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123091",
+      "upstream_stage_config_id": 30123091,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.064",
+        "enemy-slot.065"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123091.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123091.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123091 wave 2",
+      "name_zh_cn": "遭遇30123091第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123091",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123091",
+          "evidence_sha256": "2dec470fc8e9a563ba2f024916bfbfeb3d1462c090b76a79485839f7d29d5dc9",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123091",
+      "upstream_stage_config_id": 30123091,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.066",
+        "enemy-slot.067"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123092.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123092 wave 1",
+      "name_zh_cn": "遭遇30123092第1波",
+      "summary_en": "Ordered wave 1 contains 3 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含3个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123092",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123092",
+          "evidence_sha256": "346aebbfc253af5bc874362e8a0589cce5179864f39337417193bcf8c8b89c01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123092",
+      "upstream_stage_config_id": 30123092,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.068",
+        "enemy-slot.069",
+        "enemy-slot.070"
+      ],
+      "enemy_slot_count": 3,
+      "next_wave_id": "wave.30123092.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123092.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123092 wave 2",
+      "name_zh_cn": "遭遇30123092第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123092",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123092",
+          "evidence_sha256": "346aebbfc253af5bc874362e8a0589cce5179864f39337417193bcf8c8b89c01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123092",
+      "upstream_stage_config_id": 30123092,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.071",
+        "enemy-slot.072"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123101.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123101 wave 1",
+      "name_zh_cn": "遭遇30123101第1波",
+      "summary_en": "Ordered wave 1 contains 3 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含3个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123101",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123101",
+          "evidence_sha256": "f98e2e8929b6613c4a709d79d778e2a660ba13a366caba4cc66864dd61d4dbe5",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123101",
+      "upstream_stage_config_id": 30123101,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.073",
+        "enemy-slot.074",
+        "enemy-slot.075"
+      ],
+      "enemy_slot_count": 3,
+      "next_wave_id": "wave.30123101.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123101.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123101 wave 2",
+      "name_zh_cn": "遭遇30123101第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123101",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123101",
+          "evidence_sha256": "f98e2e8929b6613c4a709d79d778e2a660ba13a366caba4cc66864dd61d4dbe5",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123101",
+      "upstream_stage_config_id": 30123101,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.076"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123102.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123102 wave 1",
+      "name_zh_cn": "遭遇30123102第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123102",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123102",
+          "evidence_sha256": "96e47bf9ade41d8e8387a886b5daaed763dd2ee45496722f93ce4af5f06b60cb",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123102",
+      "upstream_stage_config_id": 30123102,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.077",
+        "enemy-slot.078"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123102.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123102.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123102 wave 2",
+      "name_zh_cn": "遭遇30123102第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123102",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123102",
+          "evidence_sha256": "96e47bf9ade41d8e8387a886b5daaed763dd2ee45496722f93ce4af5f06b60cb",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123102",
+      "upstream_stage_config_id": 30123102,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.079"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123111.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123111 wave 1",
+      "name_zh_cn": "遭遇30123111第1波",
+      "summary_en": "Ordered wave 1 contains 4 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含4个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123111",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123111",
+          "evidence_sha256": "25043dc94956858e8dea7e7d5cf7d97670a4e923ea0a280981e73bf3b6af13c9",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123111",
+      "upstream_stage_config_id": 30123111,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.080",
+        "enemy-slot.081",
+        "enemy-slot.082",
+        "enemy-slot.083"
+      ],
+      "enemy_slot_count": 4,
+      "next_wave_id": "wave.30123111.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123111.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123111 wave 2",
+      "name_zh_cn": "遭遇30123111第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123111",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123111",
+          "evidence_sha256": "25043dc94956858e8dea7e7d5cf7d97670a4e923ea0a280981e73bf3b6af13c9",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123111",
+      "upstream_stage_config_id": 30123111,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.084"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123112.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123112 wave 1",
+      "name_zh_cn": "遭遇30123112第1波",
+      "summary_en": "Ordered wave 1 contains 4 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含4个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123112",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123112",
+          "evidence_sha256": "be5daaae97c9ef9975081af68367717302da678671b73f75012619a00f82811c",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123112",
+      "upstream_stage_config_id": 30123112,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.085",
+        "enemy-slot.086",
+        "enemy-slot.087",
+        "enemy-slot.088"
+      ],
+      "enemy_slot_count": 4,
+      "next_wave_id": "wave.30123112.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123112.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123112 wave 2",
+      "name_zh_cn": "遭遇30123112第2波",
+      "summary_en": "Ordered wave 2 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123112",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123112",
+          "evidence_sha256": "be5daaae97c9ef9975081af68367717302da678671b73f75012619a00f82811c",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123112",
+      "upstream_stage_config_id": 30123112,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.089",
+        "enemy-slot.090"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123121.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123121 wave 1",
+      "name_zh_cn": "遭遇30123121第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123121",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123121",
+          "evidence_sha256": "29c16b09891b47eb9c6b96936ee5eff239b0c29c1efea20ec4156abb1d52b6b1",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123121",
+      "upstream_stage_config_id": 30123121,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.091",
+        "enemy-slot.092"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123121.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123121.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123121 wave 2",
+      "name_zh_cn": "遭遇30123121第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123121",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123121",
+          "evidence_sha256": "29c16b09891b47eb9c6b96936ee5eff239b0c29c1efea20ec4156abb1d52b6b1",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123121",
+      "upstream_stage_config_id": 30123121,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.093"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123122.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123122 wave 1",
+      "name_zh_cn": "遭遇30123122第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123122",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123122",
+          "evidence_sha256": "dc42addd144e16cdd315293d3669e2000a0a2e14c5b5062a1823b6fd25a8cd63",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123122",
+      "upstream_stage_config_id": 30123122,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.094",
+        "enemy-slot.095"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123122.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123122.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123122 wave 2",
+      "name_zh_cn": "遭遇30123122第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123122",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123122",
+          "evidence_sha256": "dc42addd144e16cdd315293d3669e2000a0a2e14c5b5062a1823b6fd25a8cd63",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "ordinary",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123122",
+      "upstream_stage_config_id": 30123122,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.096"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123123.1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123123 wave 1",
+      "name_zh_cn": "遭遇30123123第1波",
+      "summary_en": "Ordered wave 1 contains 2 exact enemy slots.",
+      "summary_zh_cn": "有序波次1包含2个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123123",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123123",
+          "evidence_sha256": "16efc78836358dd4c7e942c0de2792c698cfbe3ff413fb6a8e80d3a2f9cb62e0",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "tierce",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123123",
+      "upstream_stage_config_id": 30123123,
+      "wave_index": 1,
+      "enemy_slot_ids": [
+        "enemy-slot.097",
+        "enemy-slot.098"
+      ],
+      "enemy_slot_count": 2,
+      "next_wave_id": "wave.30123123.2",
+      "transition_clock_rule_id": "clock.wave-carry",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "wave.30123123.2",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Encounter 30123123 wave 2",
+      "name_zh_cn": "遭遇30123123第2波",
+      "summary_en": "Ordered wave 2 contains 1 exact enemy slots.",
+      "summary_zh_cn": "有序波次2包含1个精确敌方槽位。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123123",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "row_locator": "StageID=30123123",
+          "evidence_sha256": "16efc78836358dd4c7e942c0de2792c698cfbe3ff413fb6a8e80d3a2f9cb62e0",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact selected StageConfig, difficulty, level, wave and monster binding."
+        }
+      ],
+      "tags": [
+        "tierce",
+        "wave"
+      ],
+      "encounter_id": "encounter.30123123",
+      "upstream_stage_config_id": 30123123,
+      "wave_index": 2,
+      "enemy_slot_ids": [
+        "enemy-slot.099"
+      ],
+      "enemy_slot_count": 1,
+      "next_wave_id": null,
+      "transition_clock_rule_id": null,
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "approximations": [],
+      "runtime_executable": false
+    }
+  ]
+}

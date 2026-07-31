@@ -1,0 +1,96 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "tierce.json",
+  "record_kind": "Tierce",
+  "records": [
+    {
+      "id": "tierce.5213",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "Tierce",
+      "name_en": "Academy Ghost Story extension",
+      "name_zh_cn": "学院怪谈扩展关",
+      "summary_en": "A separately selected extension after floor 12 with one encounter, three objectives and a 45-cycle countdown.",
+      "summary_zh_cn": "第十二层之后单独选择的扩展关，包含一场遭遇、三个目标和45轮倒计时。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "tierce:tierce-5213"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeTierce.json:PHFMCACHFIJ=5213",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeTierce.json",
+          "row_locator": "PHFMCACHFIJ=5213",
+          "evidence_sha256": "8b9a3f7d8c8f3feb702759575ffbb7d9cd2887cc1d9e8ed57c8016b3cf1122da",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact group selector, predecessor, encounter, objective and countdown joins."
+        }
+      ],
+      "tags": [
+        "extension",
+        "tierce"
+      ],
+      "upstream_tierce_id": 5213,
+      "predecessor_upstream_id": 5212,
+      "predecessor_stage_id": "stage.5212",
+      "entrance_id": "entry.3014002",
+      "stage_config_ids": [
+        "encounter.30123123"
+      ],
+      "preview_enemy_ids": [
+        5014010
+      ],
+      "damage_type_hints": [
+        "Fire",
+        "Imaginary"
+      ],
+      "challenge_countdown": 45,
+      "objective_ids": [
+        "objective.601",
+        "objective.602",
+        "objective.603"
+      ],
+      "interpretation": "SeparateSelectedExtensionAfterOrdinaryFloor12",
+      "does_not_imply": [
+        "OrdinaryThirdNode",
+        "ThirdTeam",
+        "OrdinaryClockCarry",
+        "OrdinarySettlementReuse"
+      ],
+      "unresolved_runtime_prerequisites": [
+        "ParticipantScope",
+        "ClockCarry",
+        "SettlementSemantics"
+      ],
+      "activity_projection": {
+        "section_kind": "SeparateTierceExtension",
+        "carries_ordinary_stage_state": false,
+        "participant_policy": "UnresolvedFailClosed",
+        "clock": {
+          "initial_remaining_cycles": 45,
+          "ownership_scope": "IndependentTierceSectionProjectPolicy",
+          "carry_from_ordinary_floor_12": false
+        },
+        "encounter_ids": [
+          "encounter.30123123"
+        ],
+        "objective_ids": [
+          "objective.601",
+          "objective.602",
+          "objective.603"
+        ],
+        "settlement_scope": "IndependentTierceBestObjectiveRecordProjectPolicy",
+        "reward_payloads_included": false,
+        "runtime_publishable": false
+      },
+      "runtime_executable": false
+    }
+  ]
+}

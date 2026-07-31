@@ -1,0 +1,2037 @@
+{
+  "table": {
+    "name": "MocResearchGaps",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for No downed characters"
+          },
+          "name_zh_cn": {
+            "String": "无角色倒下的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"e7d56c5aecd451492ba8eb88ed1f57ad1fa003c062950a80512ef527ce2d8197\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:00b1e23675111cf0\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for objectives.json:objective.603.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:00b1e23675111cf0\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.00b1e23675111cf0\",\"kind\":\"ResearchGap\",\"known_facts\":\"Target 603 exactly selects DEAD_AVATAR; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"name_en\":\"Policy boundary for No downed characters\",\"name_zh_cn\":\"无角色倒下的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Evaluate complete without a downed allied combat form only after TierceExtension completion, then latch this one-star objective independently into the season-stage best record.\",\"source_file\":\"objectives.json\",\"source_record_id\":\"objective.603\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:00b1e23675111cf0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.00b1e23675111cf0"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Tierce extension projection"
+          },
+          "name_zh_cn": {
+            "String": "Tierce扩展关投影的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.tierce-selected-extension.independent-projection\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"4401f50dd5fee681c1368a9ddc332132cce2ba92ff6e7c6ecddea28ee2fab147\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:00f5cedf35315872\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for resource-rules.json:projection.tierce-5213.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:00f5cedf35315872\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.00f5cedf35315872\",\"kind\":\"ResearchGap\",\"known_facts\":\"Group 1033 selects Tierce 5213 once after 5212; the exact row binds one encounter, countdown 45 and objectives 601–603, but participant and settlement schema fields remain obfuscated.\",\"name_en\":\"Policy boundary for Tierce extension projection\",\"name_zh_cn\":\"Tierce扩展关投影的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"The policy preserves every proved binding without turning obfuscated adjacency into runtime semantics.\",\"rejected_alternatives\":[\"ordinary third node\",\"third team inferred from name\",\"carry floor-12 clock\",\"reuse ordinary reward settlement\"],\"replacement_condition\":\"Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Create an independent extension Section with no ordinary state carry; keep participant resolution fail-closed and settlement reward-free.\",\"source_file\":\"resource-rules.json\",\"source_record_id\":\"projection.tierce-5213\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:00f5cedf35315872"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.00f5cedf35315872"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Combat-form uniqueness"
+          },
+          "name_zh_cn": {
+            "String": "战斗形态唯一性的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.participant-uniqueness.reject-duplicate-form\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"275649ae7012146128fb61382b3abe98b8f1674f8cbee3ddb8fcb4066f8b3cb8\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:02ade7f5125fb5e3\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for participant-policies.json:uniqueness.combat-form.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:02ade7f5125fb5e3\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.02ade7f5125fb5e3\",\"kind\":\"ResearchGap\",\"known_facts\":\"Two different teams are required; released rows do not expose the client uniqueness-key implementation.\",\"name_en\":\"Policy boundary for Combat-form uniqueness\",\"name_zh_cn\":\"战斗形态唯一性的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Resolved combat-form identity is the lowest stable project identity and preserves rejected-command atomicity.\",\"rejected_alternatives\":[\"allow duplicates\",\"deduplicate silently\",\"key only by display character name\"],\"replacement_condition\":\"Replace the identity key with a released lineup validator trace that distinguishes base character and alternate forms.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Reject a repeated resolved combat-form identity across the two team slots before mutation.\",\"source_file\":\"participant-policies.json\",\"source_record_id\":\"uniqueness.combat-form\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace the identity key with a released lineup validator trace that distinguishes base character and alternate forms.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace the identity key with a released lineup validator trace that distinguishes base character and alternate forms.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:02ade7f5125fb5e3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.02ade7f5125fb5e3"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace the identity key with a released lineup validator trace that distinguishes base character and alternate forms."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace the identity key with a released lineup validator trace that distinguishes base character and alternate forms."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Ordinary node transition"
+          },
+          "name_zh_cn": {
+            "String": "常规节点转移的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.loadout-lock-retry.node-transition-lock\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"a91a33dda43d44cc925f6ad1bba286309fd450c1fc8370790e2a669310877a3e\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:036c36ff9633ab86\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for attempt-rules.json:attempt-rule.node-transition.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:036c36ff9633ab86\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.036c36ff9633ab86\",\"kind\":\"ResearchGap\",\"known_facts\":\"Active stages select two ordered nodes; the challenge design declares fresh per-node battle state and pre-start loadout locking.\",\"name_en\":\"Policy boundary for Ordinary node transition\",\"name_zh_cn\":\"常规节点转移的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Typed transition projections preserve battle/activity ownership and deterministic replay.\",\"rejected_alternatives\":[\"enter Node 2 after failure\",\"carry HP/Energy/effects between unrelated teams\",\"edit team 2 between nodes\"],\"replacement_condition\":\"Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Require Node 1 victory, preserve only typed section projections, and instantiate Node 2 from the locked second-team snapshot.\",\"source_file\":\"attempt-rules.json\",\"source_record_id\":\"attempt-rule.node-transition\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:036c36ff9633ab86"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.036c36ff9633ab86"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released transition trace if Version 4.4 permits lineup mutation or additional carry slots."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Attempt abandonment"
+          },
+          "name_zh_cn": {
+            "String": "放弃尝试的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"1f0bf3ab6218a7b31482d801b6bcabd0040768e470611cd8f4aec60a6d2053e6\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:087877f20c471739\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for profile.json:outcome.abandonment.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:087877f20c471739\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.087877f20c471739\",\"kind\":\"ResearchGap\",\"known_facts\":\"The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.\",\"name_en\":\"Policy boundary for Attempt abandonment\",\"name_zh_cn\":\"放弃尝试的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Fail-closed lifecycle data preserves command atomicity without claiming observed parity.\",\"rejected_alternatives\":[\"commit partial failed-node state\",\"treat abandonment as completion\"],\"replacement_condition\":\"Replace with released command traces or a decoded challenge lifecycle program.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Abandonment tears down the active battle without publishing runtime completion.\",\"source_file\":\"profile.json\",\"source_record_id\":\"outcome.abandonment\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with released command traces or a decoded challenge lifecycle program.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with released command traces or a decoded challenge lifecycle program.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:087877f20c471739"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.087877f20c471739"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with released command traces or a decoded challenge lifecycle program."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with released command traces or a decoded challenge lifecycle program."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Academy Ghost Story Turbulence program"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈记忆紊流程序的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.turbulence-target-true-damage.random-per-hit\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"8870f5cdff15d260ea7c56f7785488d9dbca838fb795fac7161979e49ae5f5d0\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:0f915a462d58e01e\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for turbulence.json:turbulence-program.30146.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:0f915a462d58e01e\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.0f915a462d58e01e\",\"kind\":\"ResearchGap\",\"known_facts\":\"The exact program uses random Retarget over AllDarkTeam with IncludeLimbo=true and MaxNumber=1, but does not expose canonical candidate ordering or RNG stream identity.\",\"name_en\":\"Policy boundary for Academy Ghost Story Turbulence program\",\"name_zh_cn\":\"学院怪谈记忆紊流程序的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Stable per-hit integer sampling preserves the program's Retarget placement and deterministic replay.\",\"rejected_alternatives\":[\"collection iteration order\",\"floating probability draw\",\"one target sampled once for all hits\"],\"replacement_condition\":\"Replace with a released RNG/candidate trace or decoded target-selection implementation.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Sort eligible enemy entities by stable EntityId and sample one integer index from a dedicated labeled stream for every stored hit.\",\"source_file\":\"turbulence.json\",\"source_record_id\":\"turbulence-program.30146\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released RNG/candidate trace or decoded target-selection implementation.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released RNG/candidate trace or decoded target-selection implementation.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:0f915a462d58e01e"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.0f915a462d58e01e"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released RNG/candidate trace or decoded target-selection implementation."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released RNG/candidate trace or decoded target-selection implementation."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Battle-entry operation order"
+          },
+          "name_zh_cn": {
+            "String": "战斗入场操作顺序的策略边界"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.battle-entry-operations.resolved-technique-contribution\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"7e7f57c4a7bee31641ccef186c514bd5967628b204bc5783f33ecc00c3ba6220\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:10adc18378ed5448\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for resource-rules.json:resource.battle-entry-operations.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:10adc18378ed5448\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.10adc18378ed5448\",\"kind\":\"ResearchGap\",\"known_facts\":\"The exact shared level program orders generic bindings/team/wave/entry operations; independent released guidance supports pre-battle Technique use, but the frozen active selector closure contains no technique transaction rows.\",\"name_en\":\"Policy boundary for Battle-entry operation order\",\"name_zh_cn\":\"战斗入场操作顺序的策略边界\",\"ownership\":\"Shared\",\"rationale\":\"This preserves adapter/build/activity ownership and the exact shared entry boundary without adding runtime scripting.\",\"rejected_alternatives\":[\"let combat query account Technique Points\",\"execute arbitrary technique scripts\",\"discard a validated entry contribution\"],\"replacement_condition\":\"Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Accept only already-resolved Technique battle-entry contributions in BattleSpec, apply them at TriggerModifierEnterBattle, and keep Technique Point spending outside battle state.\",\"source_file\":\"resource-rules.json\",\"source_record_id\":\"resource.battle-entry-operations\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:10adc18378ed5448"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.10adc18378ed5448"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Initial node battle resources"
+          },
+          "name_zh_cn": {
+            "String": "节点战斗初始资源的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.initial-resources.fresh-node-reset\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"720b44aecfd949af978f83be6f6d552a1ff8925fef6ae0cb692945bbdf44bd36\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:160c98b31b7e3f40\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for resource-rules.json:resource.initial-node-state.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:160c98b31b7e3f40\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.160c98b31b7e3f40\",\"kind\":\"ResearchGap\",\"known_facts\":\"Stable-family released guidance supports half Energy and maximum Skill Points; no active Version 4.4 row in the frozen closure encodes allied initial HP or the semantic definition of ConfigList 200001.\",\"name_en\":\"Policy boundary for Initial node battle resources\",\"name_zh_cn\":\"节点战斗初始资源的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Per-battle reset follows independent team ownership and leaves team-specific maximum SP catalog-resolved.\",\"rejected_alternatives\":[\"carry HP/Energy/SP from the other team\",\"start damaged\",\"hard-code a universal numeric SP maximum\"],\"replacement_condition\":\"Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Initialize each fresh node at full HP, half max Energy and the resolved team's Skill Point maximum.\",\"source_file\":\"resource-rules.json\",\"source_record_id\":\"resource.initial-node-state\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:160c98b31b7e3f40"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.160c98b31b7e3f40"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Clock expiry and failure"
+          },
+          "name_zh_cn": {
+            "String": "轮次耗尽与失败的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.cycle-node-wave-carry.expiry-before-start-rules\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"8f2d81c667472f31b1fac8769a348f8be2557cfaca5d6aad908b7cef636079b1\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:1974523ca8ee860a\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for clock-rules.json:clock.expiry-failure.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:1974523ca8ee860a\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.1974523ca8ee860a\",\"kind\":\"ResearchGap\",\"known_facts\":\"ChallengeCountDown is 30 and the challenge design states that a failed node terminates the attempt; the source closure does not expose the exact zero-boundary callback order.\",\"name_en\":\"Policy boundary for Clock expiry and failure\",\"name_zh_cn\":\"轮次耗尽与失败的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Fail-before-new-work ordering is deterministic and prevents post-expiry mutations while remaining replaceable by stronger traces.\",\"rejected_alternatives\":[\"allow a full zero-labelled cycle\",\"run Turbulence after expiry\",\"transition nodes and then fail\"],\"replacement_condition\":\"Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Expire on the tick that produces zero, before cycle-start effects, wave transitions or Node 2 entry.\",\"source_file\":\"clock-rules.json\",\"source_record_id\":\"clock.expiry-failure\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:1974523ca8ee860a"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.1974523ca8ee860a"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for At least 30 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余30轮的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"2a8232474c2fbae80de845f4f5fa6d06ab0e41e5ce2dbda7666b01087a6a0322\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:29d3eeead7fb17cc\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for objectives.json:objective.602.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:29d3eeead7fb17cc\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.29d3eeead7fb17cc\",\"kind\":\"ResearchGap\",\"known_facts\":\"Target 602 exactly selects ROUNDS_LEFT with parameter 30; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"name_en\":\"Policy boundary for At least 30 cycles remaining\",\"name_zh_cn\":\"至少剩余30轮的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Evaluate complete with at least 30 remaining cycles only after TierceExtension completion, then latch this one-star objective independently into the season-stage best record.\",\"source_file\":\"objectives.json\",\"source_record_id\":\"objective.602\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:29d3eeead7fb17cc"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.29d3eeead7fb17cc"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Stage loadout lock"
+          },
+          "name_zh_cn": {
+            "String": "关卡配装锁定的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.loadout-lock-retry.reject-after-start-mutation\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"a7b73219b1834c282b4ad60af78e2f35717c962032d7e9c91cdbb57f30486318\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:3ef26a95b2c2a2af\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for participant-policies.json:loadout-lock.ordinary-stage.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:3ef26a95b2c2a2af\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.3ef26a95b2c2a2af\",\"kind\":\"ResearchGap\",\"known_facts\":\"The normative challenge design fixes loadouts and the configuration digest before Node 1; released Memory rows do not encode equipment-instance mutation behavior.\",\"name_en\":\"Policy boundary for Stage loadout lock\",\"name_zh_cn\":\"关卡配装锁定的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Immutable loadouts make replay/config identity stable and keep combat independent from account inventory.\",\"rejected_alternatives\":[\"read live account equipment during Node 2\",\"allow same Relic instance in both teams\",\"silently refresh snapshots\"],\"replacement_condition\":\"Replace with released equipment lock/retry traces and instance ownership semantics.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Capture immutable resolved loadout digests for both teams at accepted stage start and reject in-attempt substitution.\",\"source_file\":\"participant-policies.json\",\"source_record_id\":\"loadout-lock.ordinary-stage\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with released equipment lock/retry traces and instance ownership semantics.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with released equipment lock/retry traces and instance ownership semantics.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:3ef26a95b2c2a2af"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.3ef26a95b2c2a2af"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with released equipment lock/retry traces and instance ownership semantics."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with released equipment lock/retry traces and instance ownership semantics."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Cycle tick boundary"
+          },
+          "name_zh_cn": {
+            "String": "轮次计数边界的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.cycle-node-wave-carry.tick-before-cycle-start\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"275b4449c92457db7e5f8f4a618ad1df797665ce85047d05ab13524b9141d99a\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:54d91f16825a61b2\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for clock-rules.json:clock.cycle-tick-boundary.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:54d91f16825a61b2\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.54d91f16825a61b2\",\"kind\":\"ResearchGap\",\"known_facts\":\"Memory Turbulence is described and programmed at cycle start; released rows do not encode its order relative to Activity clock decrement and reaction draining.\",\"name_en\":\"Policy boundary for Cycle tick boundary\",\"name_zh_cn\":\"轮次计数边界的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"A single typed boundary preserves command/event ordering and prevents expired clocks from producing another cycle-start effect.\",\"rejected_alternatives\":[\"decrement during an action\",\"execute Turbulence before expiry\",\"let interrupts decrement cycles directly\"],\"replacement_condition\":\"Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Commit the decrement after prior-cycle reactions drain and before any next-cycle Turbulence callback.\",\"source_file\":\"clock-rules.json\",\"source_record_id\":\"clock.cycle-tick-boundary\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:54d91f16825a61b2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.54d91f16825a61b2"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Academy Ghost Story battle event"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈战斗事件的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.event-config-binding.active-turbulence-chain\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"aa1557204534cc8b975706ec76dacf7455f7ac4b9ba9ff48c9da3f27f500d9e4\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:73c318624d4cbc30\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for battle-events.json:battle-event.30146.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:73c318624d4cbc30\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.73c318624d4cbc30\",\"kind\":\"ResearchGap\",\"known_facts\":\"Group 1033 and all 12 ordinary rows select MazeBuff 3030146; MazeBuff 3030146 and BattleEvent 30146 have identical six-value parameter vectors, and the exact event selects BattleEventAbility_Challenge_Month_46. The sparse released tables do not expose a direct MazeBuff-to-BattleEvent foreign-key field or Tierce application branch.\",\"name_en\":\"Policy boundary for Academy Ghost Story battle event\",\"name_zh_cn\":\"学院怪谈战斗事件的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"The binding preserves the exact identity/program/parameter chain while isolating the one missing dispatch edge.\",\"rejected_alternatives\":[\"derive arbitrary events from numeric prefixes\",\"silently apply the event to Tierce\",\"omit the exact active ability program\"],\"replacement_condition\":\"Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Bind BattleEvent 30146 to ordinary battles as the proved Turbulence contribution and keep Tierce application policy-bound rather than inferred solely from group membership.\",\"source_file\":\"battle-events.json\",\"source_record_id\":\"battle-event.30146\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:73c318624d4cbc30"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.73c318624d4cbc30"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Ordinary stage participants"
+          },
+          "name_zh_cn": {
+            "String": "常规关卡参战策略的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.participant-uniqueness.accept-two-disjoint-teams\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"6bda6ce4b186dcfd2bbcd138bcbd9b8730ec1c524391dce505f8df51f6007749\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:7c3b57dd5301d9ab\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for participant-policies.json:participant-policy.ordinary-stage.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:7c3b57dd5301d9ab\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.7c3b57dd5301d9ab\",\"kind\":\"ResearchGap\",\"known_facts\":\"Every active ordinary stage declares StageNum=2 and two node selector families; released public guidance says Memory of Chaos requires two teams.\",\"name_en\":\"Policy boundary for Ordinary stage participants\",\"name_zh_cn\":\"常规关卡参战策略的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"The generic challenge design fixes a stage configuration before Node 1 and section-scoped uniqueness prevents ambiguous ownership.\",\"rejected_alternatives\":[\"select Node 2 team after Node 1\",\"reuse one combat form across both slots\",\"inherit ordinary policy for Tierce\"],\"replacement_condition\":\"Replace policy fields with a released lineup transaction trace or decoded participant program.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Capture two disjoint teams atomically before accepting Node 1; do not project this ordinary-stage policy onto Tierce.\",\"source_file\":\"participant-policies.json\",\"source_record_id\":\"participant-policy.ordinary-stage\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace policy fields with a released lineup transaction trace or decoded participant program.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace policy fields with a released lineup transaction trace or decoded participant program.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:7c3b57dd5301d9ab"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.7c3b57dd5301d9ab"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace policy fields with a released lineup transaction trace or decoded participant program."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace policy fields with a released lineup transaction trace or decoded participant program."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for First-cycle Action Value window"
+          },
+          "name_zh_cn": {
+            "String": "首轮行动值窗口的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.cycle-first-av-window.150-then-100\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"9fe9fb72de4771ccdbb0c51ffdfb0c3bd3d710544fbe3700a4420fe381db5916\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:7e0feba5ce8a10ee\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for clock-rules.json:clock.first-cycle-av-window.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:7e0feba5ce8a10ee\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.7e0feba5ce8a10ee\",\"kind\":\"ResearchGap\",\"known_facts\":\"The challenge architecture records the commonly observed 150/100 cycle preset but requires each profile to select it; no active Version 4.4 row or program in the frozen closure explicitly selects the numeric preset.\",\"name_en\":\"Policy boundary for First-cycle Action Value window\",\"name_zh_cn\":\"首轮行动值窗口的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"The explicit preset is implementation-ready while the parity limitation and stronger-evidence trigger remain visible.\",\"rejected_alternatives\":[\"100 AV for every cycle\",\"carry a partial AV window across nodes\",\"leave the battle scheduler without a window\"],\"replacement_condition\":\"Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Select 150 AV for the first cycle of each fresh node battle and 100 AV afterward as a deterministic Candidate reference policy.\",\"source_file\":\"clock-rules.json\",\"source_record_id\":\"clock.first-cycle-av-window\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:7e0feba5ce8a10ee"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.7e0feba5ce8a10ee"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Academy Ghost Story Turbulence program"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈记忆紊流程序的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.turbulence-target-true-damage.rank-coefficients\"],\"approximation_index\":1,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"5026d971c2db3e78f9fff43fd0c6774b5c09d43c1953dcb9ff60d5fe3fcd3aa4\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:83f44780072ee1c5\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for turbulence.json:turbulence-program.30146.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:83f44780072ee1c5\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.83f44780072ee1c5\",\"kind\":\"ResearchGap\",\"known_facts\":\"The exact program multiplies selected-target BaseHP by rank-specific decimal coefficients and marks the attack TrueDamage; its authoritative fixed-point rounding boundary is not encoded.\",\"name_en\":\"Policy boundary for Academy Ghost Story Turbulence program\",\"name_zh_cn\":\"学院怪谈记忆紊流程序的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"One named boundary matches project numeric policy and remains replaceable by a golden trace.\",\"rejected_alternatives\":[\"binary floating point\",\"round half up\",\"round each intermediate operation\"],\"replacement_condition\":\"Replace with released integer damage vectors for all rank branches and boundary values.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Multiply canonical fixed-point BaseHP by the exact decimal coefficient and round down toward zero once at the damage boundary.\",\"source_file\":\"turbulence.json\",\"source_record_id\":\"turbulence-program.30146\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with released integer damage vectors for all rank branches and boundary values.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with released integer damage vectors for all rank branches and boundary values.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:83f44780072ee1c5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.83f44780072ee1c5"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with released integer damage vectors for all rank branches and boundary values."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with released integer damage vectors for all rank branches and boundary values."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Ordinary stage cycle budget"
+          },
+          "name_zh_cn": {
+            "String": "常规关卡轮次预算的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.cycle-node-wave-carry.stage-owned-budget\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"9df736c0fac72add0b5dac2b8d3870f07dc0416a802393d987f499310554ad70\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:919da36dd66de769\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for clock-rules.json:clock.ordinary-stage-budget.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:919da36dd66de769\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.919da36dd66de769\",\"kind\":\"ResearchGap\",\"known_facts\":\"All twelve active ChallengeMazeConfig rows carry ChallengeCountDown=30; the source rows do not encode Activity clock ownership.\",\"name_en\":\"Policy boundary for Ordinary stage cycle budget\",\"name_zh_cn\":\"常规关卡轮次预算的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"The normative Memory profile requires stage-owned carry, while keeping the exact value snapshot-authored.\",\"rejected_alternatives\":[\"independent 30-cycle clocks per node\",\"a hidden universal mode constant\",\"inherit 30 for Tierce\"],\"replacement_condition\":\"Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Create one Section-owned remaining-cycle slot with initial value 30 for each accepted ordinary-stage attempt.\",\"source_file\":\"clock-rules.json\",\"source_record_id\":\"clock.ordinary-stage-budget\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:919da36dd66de769"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.919da36dd66de769"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for At least 10 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余10轮的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"c89ed9ef6b2c672238607a91baf40ffa4f92931bdd38ba51d263f639b30b382d\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:9e47fca100bce0c6\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for objectives.json:objective.251.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:9e47fca100bce0c6\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.9e47fca100bce0c6\",\"kind\":\"ResearchGap\",\"known_facts\":\"Target 251 exactly selects ROUNDS_LEFT with parameter 10; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"name_en\":\"Policy boundary for At least 10 cycles remaining\",\"name_zh_cn\":\"至少剩余10轮的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Evaluate complete with at least 10 remaining cycles only after OrdinaryStage completion, then latch this one-star objective independently into the season-stage best record.\",\"source_file\":\"objectives.json\",\"source_record_id\":\"objective.251\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:9e47fca100bce0c6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.9e47fca100bce0c6"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Attempt failure"
+          },
+          "name_zh_cn": {
+            "String": "尝试失败的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"7d58d81a37daeba2ba263f5712bbe482255f97b65e036e57134b1e3e5f925ee7\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:b119b9d28ce2f548\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for profile.json:outcome.attempt-failure.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:b119b9d28ce2f548\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.b119b9d28ce2f548\",\"kind\":\"ResearchGap\",\"known_facts\":\"The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.\",\"name_en\":\"Policy boundary for Attempt failure\",\"name_zh_cn\":\"尝试失败的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Fail-closed lifecycle data preserves command atomicity without claiming observed parity.\",\"rejected_alternatives\":[\"commit partial failed-node state\",\"treat abandonment as completion\"],\"replacement_condition\":\"Replace with released command traces or a decoded challenge lifecycle program.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"A failed node leaves no partial authoritative node result.\",\"source_file\":\"profile.json\",\"source_record_id\":\"outcome.attempt-failure\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with released command traces or a decoded challenge lifecycle program.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with released command traces or a decoded challenge lifecycle program.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:b119b9d28ce2f548"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.b119b9d28ce2f548"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with released command traces or a decoded challenge lifecycle program."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with released command traces or a decoded challenge lifecycle program."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Initial node battle resources"
+          },
+          "name_zh_cn": {
+            "String": "节点战斗初始资源的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.initial-resources.tierce-config-equality\"],\"approximation_index\":1,\"approximations\":[],\"blocking\":false,\"confidence\":\"Low\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"93c7e5740f5bdc2fa569f87efc640047ecff0998c4646195baabfbdde3ec471d\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:b7a20d86465fe20a\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for resource-rules.json:resource.initial-node-state.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:b7a20d86465fe20a\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.b7a20d86465fe20a\",\"kind\":\"ResearchGap\",\"known_facts\":\"All 24 ordinary node selectors and Tierce 5213 select ConfigList 200001, but the pinned sparse source does not expose that identifier's schema.\",\"name_en\":\"Policy boundary for Initial node battle resources\",\"name_zh_cn\":\"节点战斗初始资源的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Selector equality is strong compatibility evidence but remains explicitly weaker than a decoded definition.\",\"rejected_alternatives\":[\"invent Tierce-only resource overrides\",\"inherit ordinary mutable battle state\",\"treat numeric equality alone as observed semantics\"],\"replacement_condition\":\"Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Apply the same Candidate initial-resource policy to Tierce while retaining the unresolved selector meaning.\",\"source_file\":\"resource-rules.json\",\"source_record_id\":\"resource.initial-node-state\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:b7a20d86465fe20a"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.b7a20d86465fe20a"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Stage clear"
+          },
+          "name_zh_cn": {
+            "String": "关卡通关的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"6645ec04675e9f227cc76608a07495b4b94095568c578493c7de0bc8906b9f84\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:b842b3241524a254\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for profile.json:outcome.stage-clear.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:b842b3241524a254\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.b842b3241524a254\",\"kind\":\"ResearchGap\",\"known_facts\":\"The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.\",\"name_en\":\"Policy boundary for Stage clear\",\"name_zh_cn\":\"关卡通关的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Fail-closed lifecycle data preserves command atomicity without claiming observed parity.\",\"rejected_alternatives\":[\"commit partial failed-node state\",\"treat abandonment as completion\"],\"replacement_condition\":\"Replace with released command traces or a decoded challenge lifecycle program.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"All required selected nodes are complete.\",\"source_file\":\"profile.json\",\"source_record_id\":\"outcome.stage-clear\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with released command traces or a decoded challenge lifecycle program.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with released command traces or a decoded challenge lifecycle program.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:b842b3241524a254"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.b842b3241524a254"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with released command traces or a decoded challenge lifecycle program."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with released command traces or a decoded challenge lifecycle program."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for No downed characters"
+          },
+          "name_zh_cn": {
+            "String": "无角色倒下的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"bc26298968795ad4b8e56d4cca86cc8770accba11f537c876ccceacbce34e6b0\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:c57734684d52f4d2\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for objectives.json:objective.253.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:c57734684d52f4d2\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.c57734684d52f4d2\",\"kind\":\"ResearchGap\",\"known_facts\":\"Target 253 exactly selects DEAD_AVATAR; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"name_en\":\"Policy boundary for No downed characters\",\"name_zh_cn\":\"无角色倒下的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Evaluate complete without a downed allied combat form only after OrdinaryStage completion, then latch this one-star objective independently into the season-stage best record.\",\"source_file\":\"objectives.json\",\"source_record_id\":\"objective.253\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:c57734684d52f4d2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.c57734684d52f4d2"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Node-to-node cycle carry"
+          },
+          "name_zh_cn": {
+            "String": "节点间轮次携带的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.cycle-node-wave-carry.node2-fresh-window\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"50c48d2216982defdf0d0053eb4932f8d8432268862814eb34d6a638be8c7129\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:c725b5f5a7540172\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for clock-rules.json:clock.node-carry.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:c725b5f5a7540172\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.c725b5f5a7540172\",\"kind\":\"ResearchGap\",\"known_facts\":\"The normative Memory profile owns one stage clock across nodes and creates a fresh battle/timeline for Node 2; released Version 4.4 rows do not expose partial-window carry.\",\"name_en\":\"Policy boundary for Node-to-node cycle carry\",\"name_zh_cn\":\"节点间轮次携带的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Integer-only Activity projection keeps battle timelines independent and makes the unresolved client boundary explicit.\",\"rejected_alternatives\":[\"reset Node 2 to 30\",\"carry Node 1 partial AV\",\"carry Node 1 battle state\"],\"replacement_condition\":\"Replace partial-window behavior with a released cross-node gauge/countdown trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Carry only the finalized integer remaining-cycle slot, then initialize Node 2 with the explicit first-cycle AV window.\",\"source_file\":\"clock-rules.json\",\"source_record_id\":\"clock.node-carry\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace partial-window behavior with a released cross-node gauge/countdown trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace partial-window behavior with a released cross-node gauge/countdown trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:c725b5f5a7540172"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.c725b5f5a7540172"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace partial-window behavior with a released cross-node gauge/countdown trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace partial-window behavior with a released cross-node gauge/countdown trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for At least 20 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余20轮的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"d2f789d86c741a13fe1c484f80514c00930373979744e1a97aad36717e054e69\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:cc8f90a5e54f11fd\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for objectives.json:objective.252.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:cc8f90a5e54f11fd\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.cc8f90a5e54f11fd\",\"kind\":\"ResearchGap\",\"known_facts\":\"Target 252 exactly selects ROUNDS_LEFT with parameter 20; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"name_en\":\"Policy boundary for At least 20 cycles remaining\",\"name_zh_cn\":\"至少剩余20轮的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Evaluate complete with at least 20 remaining cycles only after OrdinaryStage completion, then latch this one-star objective independently into the season-stage best record.\",\"source_file\":\"objectives.json\",\"source_record_id\":\"objective.252\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 24
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:cc8f90a5e54f11fd"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.cc8f90a5e54f11fd"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Two ordinary team slots"
+          },
+          "name_zh_cn": {
+            "String": "两支常规队伍槽位的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.participant-uniqueness.team-slot-cardinality\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"0fd7c0afde88e8590d7b4e5409a1764e610d6bf8992ba41ab43396e64be88441\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:d0ba4e6f1a6610c0\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for participant-policies.json:team-slots.ordinary.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:d0ba4e6f1a6610c0\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.d0ba4e6f1a6610c0\",\"kind\":\"ResearchGap\",\"known_facts\":\"The active rows contain two ordered node selector sets, and released guidance requires two teams.\",\"name_en\":\"Policy boundary for Two ordinary team slots\",\"name_zh_cn\":\"两支常规队伍槽位的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"This is the smallest deterministic projection of two ordered challenge nodes onto generic team slots.\",\"rejected_alternatives\":[\"one shared team\",\"unordered team selection\",\"more than four deployed members\"],\"replacement_condition\":\"Replace cardinality and ordering with a released lineup schema if it differs.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Bind exactly one 1-to-4-member team to each node index.\",\"source_file\":\"participant-policies.json\",\"source_record_id\":\"team-slots.ordinary\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace cardinality and ordering with a released lineup schema if it differs.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace cardinality and ordering with a released lineup schema if it differs.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 25
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:d0ba4e6f1a6610c0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.d0ba4e6f1a6610c0"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace cardinality and ordering with a released lineup schema if it differs."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace cardinality and ordering with a released lineup schema if it differs."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Wave cycle carry"
+          },
+          "name_zh_cn": {
+            "String": "波次间轮次携带的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.cycle-node-wave-carry.wave-av-reset\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"730cd8bee34b548a21719eaf1e06f21bde7bcd987533062b81846d6881f029fd\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:e1fa4a37176573bb\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for clock-rules.json:clock.wave-carry.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:e1fa4a37176573bb\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.e1fa4a37176573bb\",\"kind\":\"ResearchGap\",\"known_facts\":\"All selected StageConfig rows declare two waves; independent released public evidence says remaining Cycles are shared while elapsed Action Value resets at a new wave or battle.\",\"name_en\":\"Policy boundary for Wave cycle carry\",\"name_zh_cn\":\"波次间轮次携带的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"This separates the shared Activity clock from the battle-local wave Action Value window and follows the strongest available released cross-check.\",\"rejected_alternatives\":[\"carry partial elapsed AV\",\"decrement once solely because a wave ended\",\"reset the stage budget\"],\"replacement_condition\":\"Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Carry the Section remaining-cycle integer and initialize the new wave with the 150-AV first window.\",\"source_file\":\"clock-rules.json\",\"source_record_id\":\"clock.wave-carry\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 26
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:e1fa4a37176573bb"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.e1fa4a37176573bb"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for At least 15 cycles remaining"
+          },
+          "name_zh_cn": {
+            "String": "至少剩余15轮的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.objective-star-aggregation.cumulative-independent-objectives\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"fd49da1354d1e797b238959b5f53c25eb0ced1b05746152b4e25e5e66c3ec7ab\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:e2495daa041134cc\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for objectives.json:objective.601.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:e2495daa041134cc\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.e2495daa041134cc\",\"kind\":\"ResearchGap\",\"known_facts\":\"Target 601 exactly selects ROUNDS_LEFT with parameter 15; stable-family public guidance identifies survival/cycle stars and cumulative objective progress.\",\"name_en\":\"Policy boundary for At least 15 cycles remaining\",\"name_zh_cn\":\"至少剩余15轮的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"Independent monotonic objective receipts preserve cumulative progress without importing account reward payloads.\",\"rejected_alternatives\":[\"evaluate on an incomplete or failed attempt\",\"require all three objectives in one attempt\",\"sum duplicate completions of the same objective\"],\"replacement_condition\":\"Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Evaluate complete with at least 15 remaining cycles only after TierceExtension completion, then latch this one-star objective independently into the season-stage best record.\",\"source_file\":\"objectives.json\",\"source_record_id\":\"objective.601\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 27
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:e2495daa041134cc"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.e2495daa041134cc"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace timing, survival scope or cumulative behavior with a released Version 4.4 objective settlement trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Academy Ghost Story Turbulence program"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈记忆紊流程序的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.turbulence-cap-cycle-start.empty-target-reset\"],\"approximation_index\":2,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"3614c0ec6dc992f3342cb0a5dfbc89ab43be90d93c37d8a6b4f39b096a873ab9\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:ef9403cc342d9888\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for turbulence.json:turbulence-program.30146.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:ef9403cc342d9888\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.ef9403cc342d9888\",\"kind\":\"ResearchGap\",\"known_facts\":\"The loop contains Retarget work followed by an unconditional accumulator reset; source behavior for an empty AllDarkTeam alias is not separately documented.\",\"name_en\":\"Policy boundary for Academy Ghost Story Turbulence program\",\"name_zh_cn\":\"学院怪谈记忆紊流程序的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"No-op plus teardown is the smallest bounded interpretation of the task list and generic battle ownership.\",\"rejected_alternatives\":[\"retain hits across an empty cycle\",\"fault the battle\",\"keep modifiers after battle\"],\"replacement_condition\":\"Replace with a released empty-target or battle-end event trace.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"An empty candidate set deals no damage and still resets the accumulator; battle teardown removes the event and its owned modifiers.\",\"source_file\":\"turbulence.json\",\"source_record_id\":\"turbulence-program.30146\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace with a released empty-target or battle-end event trace.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace with a released empty-target or battle-end event trace.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 28
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:ef9403cc342d9888"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.ef9403cc342d9888"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace with a released empty-target or battle-end event trace."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace with a released empty-target or battle-end event trace."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Policy boundary for Attempt, retry and reset"
+          },
+          "name_zh_cn": {
+            "String": "尝试、重试与重置的策略边界"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixture_ids\":[\"fixture.loadout-lock-retry.new-attempt-after-failure\"],\"approximation_index\":0,\"approximations\":[],\"blocking\":false,\"confidence\":\"Medium\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"6c4bd6e21b4955872c1c1fe7a052c05c123711f7c09f5999d1c5bfe81c5942a9\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:research-gap:fd36be9986b57de7\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Field-level replacement condition for attempt-rules.json:attempt-rule.retry-reset.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"research-gap:fd36be9986b57de7\"}],\"game_version\":\"4.4\",\"id\":\"research-gap.fd36be9986b57de7\",\"kind\":\"ResearchGap\",\"known_facts\":\"The challenge design requires an attempt boundary and states that a failed node terminates the attempt; released rows do not expose current client retry shortcuts.\",\"name_en\":\"Policy boundary for Attempt, retry and reset\",\"name_zh_cn\":\"尝试、重试与重置的策略边界\",\"ownership\":\"MemoryOfChaos\",\"rationale\":\"This fail-closed policy avoids claiming single-node retry parity until released traces prove the shortcut and its snapshot rules.\",\"rejected_alternatives\":[\"resume a failed mutable battle\",\"publish Node 1 as stage completion\",\"reuse live mutable loadouts\"],\"replacement_condition\":\"Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior.\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"selected_behavior\":\"Model retry as a new whole-stage attempt with fresh accepted-start snapshots and no partial completion reuse.\",\"source_file\":\"attempt-rules.json\",\"source_record_id\":\"attempt-rule.retry-reset\",\"source_record_ids\":[],\"state\":\"PolicyBound\",\"summary_en\":\"Nonblocking Candidate policy retained until: Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior.\",\"summary_zh_cn\":\"非阻塞候选策略；满足以下条件时替换：Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior.\",\"tags\":[\"candidate\",\"nonblocking\",\"policy-bound\",\"research-gap\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 29
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:research-gap:fd36be9986b57de7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "research-gap.fd36be9986b57de7"
+          },
+          "summary_en": {
+            "String": "Nonblocking Candidate policy retained until: Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞候选策略；满足以下条件时替换：Replace retry granularity with a released Version 4.4 retry trace, especially any Node 2-only restart behavior."
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "policy-bound"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

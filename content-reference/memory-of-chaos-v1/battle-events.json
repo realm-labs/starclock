@@ -1,0 +1,250 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "battle-events.json",
+  "record_kind": "BattleEventBinding",
+  "records": [
+    {
+      "id": "battle-event.30146",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "BattleEventBinding",
+      "name_en": "Academy Ghost Story battle event",
+      "name_zh_cn": "学院怪谈战斗事件",
+      "summary_en": "Binds the active Memory Turbulence parameter vector and ability to every ordinary stage through the shared level template.",
+      "summary_zh_cn": "通过共享关卡模板，将有效记忆紊流参数与能力绑定到每个常规关卡。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3030146",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "row_locator": "ID=3030146",
+          "evidence_sha256": "4c1579968911fe0e72ed1e6aab9c5d46b9a0c3f356a2fb3d36185cea3adec540",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact active MazeBuff and parameter vector."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30146",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/BattleEventConfig.json",
+          "row_locator": "BattleEventID=30146",
+          "evidence_sha256": "ba0bcb919bba2c75dd363f1c442f9326133726fa75a2252ae89775b3d402db56",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact BattleEvent identity, subtype, properties, parameters and ability list."
+        },
+        {
+          "id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_2.json",
+          "row_locator": "AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "evidence_sha256": "4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact active BattleEvent ability program and modifier graph."
+        },
+        {
+          "id": "turnbasedgamedata:Config/Level/StageCommonTemplate.json:main task list containing AddActivityMazeBuffBinding",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/Level/StageCommonTemplate.json",
+          "row_locator": "main task list containing AddActivityMazeBuffBinding",
+          "evidence_sha256": "8f21c3c496ff0c9fb0340cf1a83f41810676e75150ccbf2ac33045317a9f7bbb",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact shared stage-template order for activity buff, team, wave and battle start."
+        }
+      ],
+      "tags": [
+        "battle-event",
+        "binding",
+        "stage-template",
+        "turbulence"
+      ],
+      "upstream_group_id": 1033,
+      "upstream_maze_buff_id": 3030146,
+      "upstream_battle_event_id": 30146,
+      "event_sub_type": "AbyssTurnCountDownEvent",
+      "team": "TeamNeutral",
+      "hard_level": true,
+      "base_hp_override": "90",
+      "speed": "100",
+      "ability_names": [
+        "BattleEventAbility_Challenge_Month_46"
+      ],
+      "parameter_vector": [
+        "0.5",
+        "1",
+        "15",
+        "0.12",
+        "0.02",
+        "0.012"
+      ],
+      "maze_buff_parameter_vector": [
+        "0.5",
+        "1",
+        "15",
+        "0.12",
+        "0.02",
+        "0.012"
+      ],
+      "ordinary_stage_ids": [
+        5201,
+        5202,
+        5203,
+        5204,
+        5205,
+        5206,
+        5207,
+        5208,
+        5209,
+        5210,
+        5211,
+        5212
+      ],
+      "tierce_stage_id": 5213,
+      "tierce_binding": "GroupSelectedButApplicationSemanticsPolicyBound",
+      "shared_level_program": "Config/Level/StageCommonTemplate.json",
+      "selected_stage_bindings": [
+        {
+          "stage_config_id": 30123011,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123012,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123021,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123022,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123031,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123032,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123041,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123042,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123051,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123052,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123061,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123062,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123071,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123072,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123081,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123082,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123091,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123092,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123101,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123102,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123111,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123112,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123121,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123122,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        },
+        {
+          "stage_config_id": 30123123,
+          "level_graph_path": "Config/Level/StageCommonTemplate.json"
+        }
+      ],
+      "template_operation_order": {
+        "add_activity_maze_buff_binding": 9,
+        "create_player_team": 10,
+        "wave_monster": 13,
+        "start_battle": 35
+      },
+      "relation_quality": "ExactRowsAndParameterEqualityWithPolicyBoundMazeBuffToEventDispatch",
+      "authoritative_decimals": "CanonicalStrings",
+      "approximations": [
+        {
+          "known_facts": "Group 1033 and all 12 ordinary rows select MazeBuff 3030146; MazeBuff 3030146 and BattleEvent 30146 have identical six-value parameter vectors, and the exact event selects BattleEventAbility_Challenge_Month_46. The sparse released tables do not expose a direct MazeBuff-to-BattleEvent foreign-key field or Tierce application branch.",
+          "selected_behavior": "Bind BattleEvent 30146 to ordinary battles as the proved Turbulence contribution and keep Tierce application policy-bound rather than inferred solely from group membership.",
+          "rejected_alternatives": [
+            "derive arbitrary events from numeric prefixes",
+            "silently apply the event to Tierce",
+            "omit the exact active ability program"
+          ],
+          "rationale": "The binding preserves the exact identity/program/parameter chain while isolating the one missing dispatch edge.",
+          "affected_fixture_ids": [
+            "fixture.event-config-binding.active-turbulence-chain"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace the dispatch field with a decoded MazeBuff-to-BattleEvent selector or released Version 4.4 battle-creation trace, including Tierce."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

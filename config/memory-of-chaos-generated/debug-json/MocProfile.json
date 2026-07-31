@@ -1,0 +1,260 @@
+{
+  "table": {
+    "name": "MocProfile",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "family_and_season:memory-family"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Memory of Chaos"
+          },
+          "name_zh_cn": {
+            "String": "混沌回忆"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"challenge_group_type\":\"Memory\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"ab0b382f6fc71f9743eea1d427e308b50fae52c567c5710bbe784f031f310675\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeGeneralConfig.json:ChallengeGroupType=Memory\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released challenge-family row selects the stable Memory family.\",\"path_or_page\":\"ExcelOutput/ChallengeGeneralConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ChallengeGroupType=Memory\"}],\"game_version\":\"4.4\",\"goto_id\":218,\"guide_conditions\":[{\"Param\":\"4010106\",\"Type\":\"FinishMainMission\"}],\"id\":\"profile.memory-of-chaos\",\"kind\":\"Profile\",\"name_en\":\"Memory of Chaos\",\"name_zh_cn\":\"混沌回忆\",\"ownership\":\"MemoryOfChaos\",\"release_lane\":\"CandidateReferenceOnly\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"family_and_season:memory-family\"],\"summary_en\":\"A rotating two-node challenge profile in the shared Memory family.\",\"summary_zh_cn\":\"属于回忆家族、按期更新的双节点挑战玩法。\",\"tags\":[\"challenge\",\"forgotten-hall\",\"memory\"]}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeGeneralConfig.json:ChallengeGroupType=Memory"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "profile.memory-of-chaos"
+          },
+          "summary_en": {
+            "String": "A rotating two-node challenge profile in the shared Memory family."
+          },
+          "summary_zh_cn": {
+            "String": "属于回忆家族、按期更新的双节点挑战玩法。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "challenge"
+              },
+              {
+                "String": "forgotten-hall"
+              },
+              {
+                "String": "memory"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Stage clear"
+          },
+          "name_zh_cn": {
+            "String": "关卡通关"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"confidence\":\"Medium\",\"known_facts\":\"The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.\",\"rationale\":\"Fail-closed lifecycle data preserves command atomicity without claiming observed parity.\",\"rejected_alternatives\":[\"commit partial failed-node state\",\"treat abandonment as completion\"],\"replacement_condition\":\"Replace with released command traces or a decoded challenge lifecycle program.\",\"selected_behavior\":\"All required selected nodes are complete.\"}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"dae4698b4ba6b2505ee058270434422719a23463b38251a11999edf0c2bb34bf\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:outcome.stage-clear\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"All required selected nodes are complete.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"outcome.stage-clear\"}],\"game_version\":\"4.4\",\"id\":\"outcome.stage-clear\",\"kind\":\"TerminalOutcome\",\"name_en\":\"Stage clear\",\"name_zh_cn\":\"关卡通关\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"summary_en\":\"All required selected nodes are complete.\",\"summary_zh_cn\":\"所有必需节点完成后关卡才结算。\",\"tags\":[\"lifecycle\",\"terminal\"]}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:outcome.stage-clear"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.stage-clear"
+          },
+          "summary_en": {
+            "String": "All required selected nodes are complete."
+          },
+          "summary_zh_cn": {
+            "String": "所有必需节点完成后关卡才结算。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "lifecycle"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Attempt failure"
+          },
+          "name_zh_cn": {
+            "String": "尝试失败"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"confidence\":\"Medium\",\"known_facts\":\"The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.\",\"rationale\":\"Fail-closed lifecycle data preserves command atomicity without claiming observed parity.\",\"rejected_alternatives\":[\"commit partial failed-node state\",\"treat abandonment as completion\"],\"replacement_condition\":\"Replace with released command traces or a decoded challenge lifecycle program.\",\"selected_behavior\":\"A failed node leaves no partial authoritative node result.\"}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"9135bcaffb4469f74b7e8b2c7c555d1814936d5d37d1fa44712fba82ad9764a6\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:outcome.attempt-failure\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"A failed node leaves no partial authoritative node result.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"outcome.attempt-failure\"}],\"game_version\":\"4.4\",\"id\":\"outcome.attempt-failure\",\"kind\":\"TerminalOutcome\",\"name_en\":\"Attempt failure\",\"name_zh_cn\":\"尝试失败\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"summary_en\":\"A failed node leaves no partial authoritative node result.\",\"summary_zh_cn\":\"节点失败不会留下部分权威结果。\",\"tags\":[\"lifecycle\",\"terminal\"]}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:outcome.attempt-failure"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.attempt-failure"
+          },
+          "summary_en": {
+            "String": "A failed node leaves no partial authoritative node result."
+          },
+          "summary_zh_cn": {
+            "String": "节点失败不会留下部分权威结果。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "lifecycle"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Attempt abandonment"
+          },
+          "name_zh_cn": {
+            "String": "放弃尝试"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.ordinary-stage-order.terminal-outcomes\"],\"confidence\":\"Medium\",\"known_facts\":\"The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.\",\"rationale\":\"Fail-closed lifecycle data preserves command atomicity without claiming observed parity.\",\"rejected_alternatives\":[\"commit partial failed-node state\",\"treat abandonment as completion\"],\"replacement_condition\":\"Replace with released command traces or a decoded challenge lifecycle program.\",\"selected_behavior\":\"Abandonment tears down the active battle without publishing runtime completion.\"}],\"coverage_state\":\"DataReady\",\"evidence_refs\":[{\"evidence_sha256\":\"70600a90a677c42de227564d535956a36ea2199e35ed774baad204c9f5f88732\",\"game_version\":\"4.4\",\"id\":\"starclock:memory-of-chaos-policy:outcome.abandonment\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Abandonment tears down the active battle without publishing runtime completion.\",\"path_or_page\":\"docs/goals/17-memory-of-chaos-reference-data.md\",\"quality\":\"ProjectPolicy\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"row_locator\":\"outcome.abandonment\"}],\"game_version\":\"4.4\",\"id\":\"outcome.abandonment\",\"kind\":\"TerminalOutcome\",\"name_en\":\"Attempt abandonment\",\"name_zh_cn\":\"放弃尝试\",\"ownership\":\"MemoryOfChaos\",\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[],\"summary_en\":\"Abandonment tears down the active battle without publishing runtime completion.\",\"summary_zh_cn\":\"放弃时拆除当前战斗，且不产生运行时通关记录。\",\"tags\":[\"lifecycle\",\"terminal\"]}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:memory-of-chaos-policy:outcome.abandonment"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.abandonment"
+          },
+          "summary_en": {
+            "String": "Abandonment tears down the active battle without publishing runtime completion."
+          },
+          "summary_zh_cn": {
+            "String": "放弃时拆除当前战斗，且不产生运行时通关记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "lifecycle"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

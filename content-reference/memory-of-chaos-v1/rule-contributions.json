@@ -1,0 +1,146 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "rule-contributions.json",
+  "record_kind": "RuleContribution",
+  "records": [
+    {
+      "id": "rule-contribution.turbulence.damage-amplifier",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "RuleContribution",
+      "name_en": "Ultimate and Follow-Up damage amplifier",
+      "name_zh_cn": "终结技与追加攻击增伤",
+      "summary_en": "Contributes a 50% allied damage multiplier for Ultimate and Follow-Up ATK damage.",
+      "summary_zh_cn": "为我方终结技与追加攻击伤害贡献50%增伤乘区。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_2.json",
+          "row_locator": "AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "evidence_sha256": "4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact active BattleEvent ability program and modifier graph."
+        }
+      ],
+      "tags": [
+        "reference-only",
+        "rule-contribution",
+        "turbulence"
+      ],
+      "contributor_id": "battle-event.30146",
+      "contribution_phase": "DamageCalculation",
+      "operation": {
+        "attack_types": [
+          "Insert",
+          "Ultra"
+        ],
+        "ratio": "0.5",
+        "stacking": "ReplaceByCaster"
+      },
+      "handler_kind": "ReferenceOnlyNoRuntimeRegistration",
+      "runtime_publishable": false,
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "rule-contribution.turbulence.stored-hit-accumulator",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "RuleContribution",
+      "name_en": "Stored-hit accumulator",
+      "name_zh_cn": "储存攻击累计器",
+      "summary_en": "Contributes one stored hit per qualifying action, capped at 15.",
+      "summary_zh_cn": "每个符合条件的动作贡献1段储存攻击，上限15段。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_2.json",
+          "row_locator": "AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "evidence_sha256": "4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact active BattleEvent ability program and modifier graph."
+        }
+      ],
+      "tags": [
+        "reference-only",
+        "rule-contribution",
+        "turbulence"
+      ],
+      "contributor_id": "battle-event.30146",
+      "contribution_phase": "AfterQualifyingAction",
+      "operation": {
+        "increment": 1,
+        "cap": 15,
+        "granularity": "OncePerAction"
+      },
+      "handler_kind": "ReferenceOnlyNoRuntimeRegistration",
+      "runtime_publishable": false,
+      "approximations": [],
+      "runtime_executable": false
+    },
+    {
+      "id": "rule-contribution.turbulence.cycle-start-burst",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "RuleContribution",
+      "name_en": "Cycle-start True Damage burst",
+      "name_zh_cn": "轮开始真实伤害爆发",
+      "summary_en": "Consumes stored hits at cycle start as per-hit random-target BaseHP True Damage, then resets the accumulator.",
+      "summary_zh_cn": "轮开始时逐段随机选敌，按目标基础生命造成真实伤害，随后清空累计器。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_2.json",
+          "row_locator": "AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "evidence_sha256": "4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact active BattleEvent ability program and modifier graph."
+        }
+      ],
+      "tags": [
+        "reference-only",
+        "rule-contribution",
+        "turbulence"
+      ],
+      "contributor_id": "battle-event.30146",
+      "contribution_phase": "CycleStart",
+      "operation": {
+        "trigger_event": "OnPhase1",
+        "target_selection": "RandomOnePerStoredHit",
+        "coefficient_by_rank": {
+          "rank_1_or_2": "0.12",
+          "rank_3": "0.02",
+          "fallback": "0.012"
+        },
+        "reset_after_resolution": true
+      },
+      "handler_kind": "ReferenceOnlyNoRuntimeRegistration",
+      "runtime_publishable": false,
+      "approximations": [],
+      "runtime_executable": false
+    }
+  ]
+}
