@@ -366,14 +366,17 @@ fn lower_communing_choice(
     row: &SwarmDisasterCommuningChoice,
 ) -> Result<CommuningChoiceDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    json(&row.eligibility_json, &row.stable_key)?;
-    json(&row.point_deltas_json, &row.stable_key)?;
     Ok(CommuningChoiceDefinition {
         id: CommuningChoiceId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
+        source_id: nonempty(&row.source_id, &row.stable_key)?,
+        aeon_id: scalar(&row.aeon_id, &row.stable_key)?,
         shared_path: stable(&row.path_id)?,
         story_stage: scalar_u16(&row.story_stage, &row.stable_key)?,
+        eligibility: json(&row.eligibility_json, &row.stable_key)?,
+        point_deltas: json(&row.point_deltas_json, &row.stable_key)?,
         operations: json(&row.ordered_operations_json, &row.stable_key)?,
+        rogue_npc_id: scalar(&row.rogue_npc_id, &row.stable_key)?,
     })
 }
 
@@ -462,10 +465,17 @@ fn lower_cabinet(
     Ok(CabinetDefinition {
         id: CabinetId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
+        source_id: nonempty(&row.source_id, &row.stable_key)?,
+        sort: positive_u16(row.sort, &row.stable_key)?,
+        cabinet_type: nonempty(&row.cabinet_type, &row.stable_key)?,
         objective_id: nonempty(&row.objective_id, &row.stable_key)?,
         prerequisite_keys: optional_text_list(row.prerequisite_ids.as_deref(), &row.stable_key)?,
         unlock_keys: optional_text_list(row.unlocks_cabinet_ids.as_deref(), &row.stable_key)?,
         point_deltas: json(&row.point_deltas_json, &row.stable_key)?,
+        description_parameters: scalar_list(
+            row.description_parameters.as_deref(),
+            &row.stable_key,
+        )?,
     })
 }
 

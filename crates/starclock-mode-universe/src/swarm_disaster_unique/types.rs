@@ -132,9 +132,14 @@ pub(super) struct DiceControlDefinition {
 pub(super) struct CommuningChoiceDefinition {
     pub(super) id: CommuningChoiceId,
     pub(super) key: Box<str>,
+    pub(super) source_id: Box<str>,
+    pub(super) aeon_id: Box<str>,
     pub(super) shared_path: Box<str>,
     pub(super) story_stage: u16,
+    pub(super) eligibility: Box<str>,
+    pub(super) point_deltas: Box<str>,
     pub(super) operations: Box<str>,
+    pub(super) rogue_npc_id: Box<str>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -189,10 +194,14 @@ pub(super) struct TrailEffectDefinition {
 pub(super) struct CabinetDefinition {
     pub(super) id: CabinetId,
     pub(super) key: Box<str>,
+    pub(super) source_id: Box<str>,
+    pub(super) sort: u16,
+    pub(super) cabinet_type: Box<str>,
     pub(super) objective_id: Box<str>,
     pub(super) prerequisite_keys: Box<[Box<str>]>,
     pub(super) unlock_keys: Box<[Box<str>]>,
     pub(super) point_deltas: Box<str>,
+    pub(super) description_parameters: Box<[Box<str>]>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

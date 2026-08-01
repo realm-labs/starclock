@@ -93,6 +93,61 @@ pub(crate) struct SwarmDiceTargetRuntimeInput {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmCommuningRuntimeInput {
+    pub(crate) choices: Box<[SwarmCommuningChoiceRuntimeInput]>,
+    pub(crate) dimensions: Box<[SwarmCommuningDimensionRuntimeInput]>,
+    pub(crate) adjustments: Box<[SwarmCommuningAdjustmentRuntimeInput]>,
+    pub(crate) cabinets: Box<[SwarmCabinetRuntimeInput]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmCommuningChoiceRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) source_id: Box<str>,
+    pub(crate) aeon_id: Box<str>,
+    pub(crate) shared_path: Box<str>,
+    pub(crate) story_stage: u16,
+    pub(crate) eligibility: Box<str>,
+    pub(crate) point_deltas: Box<str>,
+    pub(crate) operations: Box<str>,
+    pub(crate) rogue_npc_id: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmCommuningDimensionRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) shared_path: Box<str>,
+    pub(crate) maximum: u16,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmCommuningAdjustmentRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) dimension_id: u32,
+    pub(crate) source_id: Box<str>,
+    pub(crate) source_kind: Box<str>,
+    pub(crate) ordinal: u16,
+    pub(crate) delta: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmCabinetRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) source_id: Box<str>,
+    pub(crate) sort: u16,
+    pub(crate) cabinet_type: Box<str>,
+    pub(crate) objective_id: Box<str>,
+    pub(crate) prerequisite_keys: Box<[Box<str>]>,
+    pub(crate) unlock_keys: Box<[Box<str>]>,
+    pub(crate) point_deltas: Box<str>,
+    pub(crate) description_parameters: Box<[Box<str>]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct SwarmDiceControlRuntimeInput {
     pub(crate) id: u32,
     pub(crate) key: Box<str>,
@@ -213,6 +268,70 @@ impl SwarmDisasterUniqueCatalog {
             })
             .collect::<Vec<_>>()
             .into_boxed_slice()
+    }
+
+    pub(crate) fn communing_runtime_input(&self) -> SwarmCommuningRuntimeInput {
+        SwarmCommuningRuntimeInput {
+            choices: self
+                .communing_choices
+                .iter()
+                .map(|row| SwarmCommuningChoiceRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    source_id: row.source_id.clone(),
+                    aeon_id: row.aeon_id.clone(),
+                    shared_path: row.shared_path.clone(),
+                    story_stage: row.story_stage,
+                    eligibility: row.eligibility.clone(),
+                    point_deltas: row.point_deltas.clone(),
+                    operations: row.operations.clone(),
+                    rogue_npc_id: row.rogue_npc_id.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            dimensions: self
+                .communing_dimensions
+                .iter()
+                .map(|row| SwarmCommuningDimensionRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    shared_path: row.shared_path.clone(),
+                    maximum: row.maximum,
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            adjustments: self
+                .point_adjustments
+                .iter()
+                .map(|row| SwarmCommuningAdjustmentRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    dimension_id: row.dimension.0,
+                    source_id: row.source_id.clone(),
+                    source_kind: row.source_kind.clone(),
+                    ordinal: row.ordinal,
+                    delta: row.delta.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            cabinets: self
+                .cabinets
+                .iter()
+                .map(|row| SwarmCabinetRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    source_id: row.source_id.clone(),
+                    sort: row.sort,
+                    cabinet_type: row.cabinet_type.clone(),
+                    objective_id: row.objective_id.clone(),
+                    prerequisite_keys: row.prerequisite_keys.clone(),
+                    unlock_keys: row.unlock_keys.clone(),
+                    point_deltas: row.point_deltas.clone(),
+                    description_parameters: row.description_parameters.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        }
     }
 
     pub(crate) fn dice_control_runtime_input(&self) -> Box<[SwarmDiceControlRuntimeInput]> {

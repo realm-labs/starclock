@@ -326,6 +326,103 @@ impl SwarmDisasterRuntimeInstance {
             .flatten()
     }
 
+    /// Returns the seven released choices for a Communing story stage.
+    pub fn communing_choices(&self, story_stage: u16) -> impl Iterator<Item = &str> {
+        self.communing.choices(story_stage)
+    }
+
+    /// Whether an authored Communing choice is currently eligible.
+    pub fn communing_choice_available(
+        &self,
+        state: &ActivityTransactionState,
+        story_stage: u16,
+        choice: &str,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        self.communing.choice_available(state, story_stage, choice)
+    }
+
+    /// Compiles one branch-scoped Communing choice counter increment.
+    ///
+    /// Released story choices do not directly grant permanent Communing
+    /// points. The accepted program consumes no RNG and closes that stage for
+    /// the current Attempt.
+    pub fn compile_communing_choice(
+        &self,
+        state: &ActivityTransactionState,
+        story_stage: u16,
+        choice: &str,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.communing.compile_choice(state, story_stage, choice)
+    }
+
+    /// Returns the accepted-choice count for one shared Path.
+    pub fn communing_choice_count(
+        &self,
+        state: &ActivityTransactionState,
+        shared_path: &str,
+    ) -> Result<i64, UniverseCatalogLoadError> {
+        self.communing.choice_count(state, shared_path)
+    }
+
+    /// Returns persistent Communing points for a dimension or shared Path.
+    pub fn communing_points(
+        &self,
+        state: &ActivityTransactionState,
+        dimension: &str,
+    ) -> Result<i64, UniverseCatalogLoadError> {
+        self.communing.dimension_points(state, dimension)
+    }
+
+    /// Returns the released per-dimension maximum.
+    #[must_use]
+    pub fn communing_maximum(&self, dimension: &str) -> Option<i64> {
+        self.communing.dimension_maximum(dimension)
+    }
+
+    /// Returns currently eligible Pathstrider cabinets in authored order.
+    pub fn available_pathstrider_cabinets<'a>(
+        &'a self,
+        state: &ActivityTransactionState,
+    ) -> Result<Box<[&'a str]>, UniverseCatalogLoadError> {
+        self.communing.available_cabinets(state)
+    }
+
+    /// Whether one authored Pathstrider cabinet is currently eligible.
+    pub fn pathstrider_cabinet_available(
+        &self,
+        state: &ActivityTransactionState,
+        cabinet: &str,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        self.communing.cabinet_available(state, cabinet)
+    }
+
+    /// Returns the exact released objective that authorizes a cabinet.
+    #[must_use]
+    pub fn pathstrider_cabinet_objective(&self, cabinet: &str) -> Option<&str> {
+        self.communing.cabinet_objective(cabinet)
+    }
+
+    /// Returns prerequisite cabinets in authored order.
+    #[must_use]
+    pub fn pathstrider_cabinet_prerequisites(
+        &self,
+        cabinet: &str,
+    ) -> Option<impl ExactSizeIterator<Item = &str>> {
+        self.communing.cabinet_prerequisites(cabinet)
+    }
+
+    /// Compiles an objective-authorized cabinet completion and ordered point
+    /// grants. Each increment clamps independently to its dimension maximum.
+    pub fn compile_pathstrider_cabinet_completion(
+        &self,
+        state: &ActivityTransactionState,
+        cabinet: &str,
+        completed_objective: &str,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.communing
+            .compile_cabinet_completion(state, cabinet, completed_objective)
+    }
+
     /// Compiles one plane's canonical node-domain and beacon initialization.
     ///
     /// The caller owns `rng`; successful compilation consumes only labeled

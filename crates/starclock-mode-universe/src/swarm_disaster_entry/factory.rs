@@ -8,7 +8,8 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    countdown, dice_control, face_effect, map_overlay, plane_transition, state, topology,
+    communing, countdown, dice_control, face_effect, map_overlay, plane_transition, state,
+    topology,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -46,6 +47,9 @@ impl SwarmDisasterRuntimeFactory {
         let dice_controls = Arc::new(dice_control::DiceControlRuntimeCatalog::compile(
             &unique.dice_control_runtime_input(),
         )?);
+        let communing = Arc::new(communing::CommuningRuntimeCatalog::compile(
+            unique.communing_runtime_input(),
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -56,6 +60,7 @@ impl SwarmDisasterRuntimeFactory {
             audience,
             dice_controls,
             face_effects,
+            communing,
         })
     }
 
@@ -130,6 +135,7 @@ impl SwarmDisasterRuntimeFactory {
             audience,
             dice_controls,
             face_effects: Arc::clone(&self.face_effects),
+            communing: Arc::clone(&self.communing),
         })
     }
 }

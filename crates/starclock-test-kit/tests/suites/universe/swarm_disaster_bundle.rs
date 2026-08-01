@@ -289,6 +289,40 @@ fn public_factory_compiles_entry_topology_and_labeled_dice_controls() {
     apply(&instance, &mut face_state, &activation);
     assert!(!instance.dice_reroll_available(&face_state).unwrap());
 
+    let mut communing_state = ActivityTransactionState::new(
+        instance.state_definition().clone(),
+        instance.graph_definition().entry(),
+    );
+    assert_eq!(instance.communing_choices(4).count(), 7);
+    let choice = instance
+        .compile_communing_choice(&communing_state, 4, "swarm-disaster.communing-choice.441")
+        .unwrap();
+    apply(&instance, &mut communing_state, &choice);
+    assert_eq!(
+        instance
+            .communing_choice_count(&communing_state, "universe.path.preservation")
+            .unwrap(),
+        1
+    );
+    assert_eq!(
+        instance.pathstrider_cabinet_objective("swarm-disaster.pathstrider-cabinet.22"),
+        Some("6013222")
+    );
+    let cabinet = instance
+        .compile_pathstrider_cabinet_completion(
+            &communing_state,
+            "swarm-disaster.pathstrider-cabinet.22",
+            "6013222",
+        )
+        .unwrap();
+    apply(&instance, &mut communing_state, &cabinet);
+    assert_eq!(
+        instance
+            .communing_points(&communing_state, "swarm-disaster.communing-dimension.6",)
+            .unwrap(),
+        2
+    );
+
     assert_eq!(
         instance.boss_choices().collect::<Vec<_>>(),
         [

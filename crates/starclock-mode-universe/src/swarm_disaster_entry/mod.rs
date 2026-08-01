@@ -1,6 +1,7 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 
 mod audience;
+mod communing;
 mod countdown;
 mod dice_control;
 mod face_effect;
@@ -36,6 +37,8 @@ pub const SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION: &str = "swarm-disaster-audie
 pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-control-v1";
 /// Versioned typed face-selector, target and deferred-effect policy.
 pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-policy-v1";
+/// Versioned Communing choice, point, and Pathstrider cabinet policy.
+pub const SWARM_DISASTER_COMMUNING_REVISION: &str = "swarm-disaster-communing-runtime-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -134,6 +137,7 @@ pub struct SwarmDisasterRuntimeFactory {
     audience: Arc<audience::AudienceRuntimeCatalog>,
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
+    communing: Arc<communing::CommuningRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -154,10 +158,13 @@ pub struct SwarmDisasterRuntimeInstance {
     audience: audience::CompiledAudienceRuntime,
     dice_controls: dice_control::CompiledDiceControls,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
+    communing: Arc<communing::CommuningRuntimeCatalog>,
 }
 
 #[cfg(test)]
 mod audience_tests;
+#[cfg(test)]
+mod communing_tests;
 #[cfg(test)]
 mod countdown_tests;
 #[cfg(test)]

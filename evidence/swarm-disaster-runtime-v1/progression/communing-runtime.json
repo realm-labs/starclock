@@ -1,0 +1,152 @@
+{
+  "schema_revision": "starclock.swarm-disaster-communing-runtime.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P3-B4",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "communing_choices": 21,
+    "communing_dimensions": 7,
+    "supporting_point_adjustments": 55,
+    "pathstrider_cabinets": 31,
+    "assigned_source_obligations": 59,
+    "policy_affected_records": 122
+  },
+  "choice_contract": {
+    "story_stage_counts": {
+      "4": 7,
+      "6": 7,
+      "7": 7
+    },
+    "operation": "IncrementAeonChoiceCounter",
+    "delta": 1,
+    "direct_permanent_point_deltas": 0,
+    "once_scope": "MainStoryBranch",
+    "stage_exclusivity": "OneAcceptedChoicePerStoryStagePerAttempt",
+    "state_owner": "Attempt",
+    "state_carry": "Reset",
+    "rng_draws": 0
+  },
+  "dimension_contract": {
+    "dimension_count": 7,
+    "maximum_each": 20,
+    "state_owner": "Activity",
+    "state_carry": "CarryExact",
+    "increment_order": "AuthoredSourceListOrder",
+    "clamp_timing": "AfterEachOrderedIncrement",
+    "run_boundary_decrease": false,
+    "authoritative_float_fields": 0
+  },
+  "cabinet_contract": {
+    "normal_cabinets": 24,
+    "hidden_cabinets": 7,
+    "normal_roots": 1,
+    "normal_root": "swarm-disaster.pathstrider-cabinet.22",
+    "prerequisite_edges": 33,
+    "outgoing_unlock_edges": 33,
+    "edge_policy": "InvertUnlockCabinetIDIntoPrerequisite",
+    "normal_reachability": "All24ReachableFromRoot",
+    "unique_objectives": 31,
+    "description_parameters": 34,
+    "point_adjustments": 55,
+    "completion_authority": "ExactReleasedObjective",
+    "late_stale_program": "AtomicReject",
+    "corrupt_completion_state": "TypedReject"
+  },
+  "compatibility": {
+    "default_entry_state_hash": "a1bcf8bea2889ae5d33062a27eebc64594adcf908039f004a0e22c05cf41de8c",
+    "seeded_cabinet_completion_hash": "687b174b4b55e384fe87d3c6b36841d6a6d01f329f6f5a0493831a9da677f1f1",
+    "replay_release_state": "PreReleaseGoal20",
+    "new_replay_revision_required_now": false
+  },
+  "policy_boundaries": [
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-communing-choices",
+      "state": "VersionedExecutablePolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-communing-runtime-v1",
+      "affected_record_count": 23,
+      "remaining_owner": null
+    },
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-communing-dimensions",
+      "state": "VersionedExecutablePolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-communing-runtime-v1",
+      "affected_record_count": 9,
+      "remaining_owner": null
+    },
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-cabinets",
+      "state": "VersionedExecutablePolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-communing-runtime-v1",
+      "affected_record_count": 90,
+      "remaining_owner": null
+    }
+  ],
+  "deferred_semantics": [
+    {
+      "semantic_fixture_id": "swarm-disaster.fixture.communing-choice",
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "execution_batch": "G20-P5-B1",
+      "state": "Pending",
+      "mechanic_rule_id": "swarm-disaster.mechanic-rule.communing-choice",
+      "mechanic_rule_batch": "G20-P5-M05",
+      "mechanic_rule_state": "Pending"
+    },
+    {
+      "semantic_fixture_id": "swarm-disaster.fixture.communing-dimension-points",
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "execution_batch": "G20-P5-B1",
+      "state": "Pending",
+      "mechanic_rule_id": "swarm-disaster.mechanic-rule.communing-dimension-points",
+      "mechanic_rule_batch": "G20-P5-M05",
+      "mechanic_rule_state": "Pending"
+    }
+  ],
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "embedded_sora_json_lowered_once_at_factory_load": true,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 11,
+    "public_reexports_added": 0,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/communing.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "communing_unit_passed": 7,
+    "entry_lifecycle_unit_passed": 42,
+    "swarm_unit_passed": 53,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "initial_quick_dependency_boundary_failure": "communing.rs not yet registered as a private embedded-field lowering owner",
+    "cold_quick_timeout_seconds": 180.0,
+    "cold_quick_harness_build_seconds": 100.7,
+    "quick_gate_result": "PassAfterFullGateCache",
+    "quick_gate_seconds": "75.9",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "295.6",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "210.3"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry::communing_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase3-b4.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}
