@@ -613,13 +613,15 @@ impl SwarmDisasterRuntimeInstance {
     /// Returns the two released displayed boss choices in stable source order.
     #[must_use]
     pub fn boss_choices(&self) -> impl ExactSizeIterator<Item = &str> {
-        self.transitions.choices()
+        self.boss_rules.transitions(&self.transitions).choices()
     }
 
     /// Returns the explicitly selected boss for `plane_layer`, when present.
     #[must_use]
     pub fn selected_boss(&self, state: &ActivityTransactionState, plane_layer: u8) -> Option<&str> {
-        self.transitions.selected_boss(state, plane_layer)
+        self.boss_rules
+            .transitions(&self.transitions)
+            .selected_boss(state, plane_layer)
     }
 
     /// Compiles caller-explicit displayed-boss selection for one plane.
@@ -631,7 +633,9 @@ impl SwarmDisasterRuntimeInstance {
         plane_layer: u8,
         boss: &str,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        self.transitions.compile_selection(plane_layer, boss)
+        self.boss_rules
+            .transitions(&self.transitions)
+            .compile_selection(plane_layer, boss)
     }
 
     /// Compiles atomic post-boss traversal or final Activity completion.
@@ -648,14 +652,16 @@ impl SwarmDisasterRuntimeInstance {
         let boss_decay =
             self.disarray_rules
                 .completion_requirements(&self.countdown, state, plane_layer)?;
-        self.transitions.compile_completion(
-            boss_decay,
-            state,
-            &self.graph,
-            &self.planes,
-            plane_layer,
-            self.progression_rules.trail_next_plane_rerolls(self),
-        )
+        self.boss_rules
+            .transitions(&self.transitions)
+            .compile_completion(
+                boss_decay,
+                state,
+                &self.graph,
+                &self.planes,
+                plane_layer,
+                self.progression_rules.trail_next_plane_rerolls(self),
+            )
     }
 
     /// Applies selected Trail run-start resources exactly once through an

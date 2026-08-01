@@ -101,6 +101,7 @@ assert(JSON.stringify(universeJsonUsers) === JSON.stringify([
   "crates/starclock-mode-universe/src/swarm_disaster_content/map_access.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/audience.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/audience_rule_runtime.rs",
+  "crates/starclock-mode-universe/src/swarm_disaster_entry/boss_rule_runtime.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/communing.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/communing_rule_runtime.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/content_runtime.rs",

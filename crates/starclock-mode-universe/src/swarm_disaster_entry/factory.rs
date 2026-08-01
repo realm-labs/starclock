@@ -8,8 +8,8 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    audience_rule_runtime, communing, communing_rule_runtime, content_runtime, countdown,
-    curio_rule_runtime, dice_control, disarray_rule_runtime, face_effect, map_overlay,
+    audience_rule_runtime, boss_rule_runtime, communing, communing_rule_runtime, content_runtime,
+    countdown, curio_rule_runtime, dice_control, disarray_rule_runtime, face_effect, map_overlay,
     occurrence_rule_runtime, occurrence_runtime, path_rule_runtime, path_runtime,
     pathstrider_progress, plane_transition, profile_rule_runtime, progression_rule_runtime,
     service_adventure_runtime, service_rule_runtime, state, topology_rule_runtime, trail,
@@ -56,6 +56,10 @@ impl SwarmDisasterRuntimeFactory {
         let transitions = Arc::new(plane_transition::PlaneTransitionRuntimeCatalog::compile(
             structural.boss_choice_runtime_input(),
         )?);
+        let boss_rules = Arc::new(boss_rule_runtime::BossRuleRuntimeCatalog::compile([
+            mechanic_rule(&content, "boss-choice-consequence")?,
+            mechanic_rule(&content, "final-boss-consequence")?,
+        ])?);
         let audience_input = unique.audience_runtime_input();
         let face_effects = Arc::new(face_effect::DiceFaceRuntimeCatalog::compile(
             &audience_input.faces,
@@ -139,6 +143,7 @@ impl SwarmDisasterRuntimeFactory {
             countdown,
             disarray_rules,
             transitions,
+            boss_rules,
             audience,
             audience_rules,
             dice_controls,
@@ -244,6 +249,7 @@ impl SwarmDisasterRuntimeFactory {
             countdown: Arc::clone(&self.countdown),
             disarray_rules: Arc::clone(&self.disarray_rules),
             transitions: Arc::clone(&self.transitions),
+            boss_rules: Arc::clone(&self.boss_rules),
             audience,
             audience_rules: Arc::clone(&self.audience_rules),
             dice_controls,
