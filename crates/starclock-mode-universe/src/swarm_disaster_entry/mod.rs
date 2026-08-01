@@ -2,6 +2,7 @@
 mod audience;
 mod audience_rule_runtime;
 mod communing;
+mod communing_rule_runtime;
 mod content_runtime;
 mod countdown;
 mod dice_control;
@@ -154,6 +155,7 @@ pub struct SwarmDisasterRuntimeFactory {
     occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
     service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
+    communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
     path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
@@ -185,6 +187,7 @@ pub struct SwarmDisasterRuntimeInstance {
     occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
     service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
+    communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
     path_runtime: path_runtime::CompiledPathRuntime,

@@ -8,10 +8,10 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    audience_rule_runtime, communing, content_runtime, countdown, dice_control,
-    disarray_rule_runtime, face_effect, map_overlay, occurrence_runtime, path_runtime,
-    pathstrider_progress, plane_transition, profile_rule_runtime, service_adventure_runtime, state,
-    topology_rule_runtime, trail,
+    audience_rule_runtime, communing, communing_rule_runtime, content_runtime, countdown,
+    dice_control, disarray_rule_runtime, face_effect, map_overlay, occurrence_runtime,
+    path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
+    service_adventure_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -74,6 +74,12 @@ impl SwarmDisasterRuntimeFactory {
         let communing = Arc::new(communing::CommuningRuntimeCatalog::compile(
             unique.communing_runtime_input(),
         )?);
+        let communing_rules = Arc::new(
+            communing_rule_runtime::CommuningRuleRuntimeCatalog::compile([
+                mechanic_rule(&content, "communing-choice")?,
+                mechanic_rule(&content, "communing-dimension-points")?,
+            ])?,
+        );
         let trail = Arc::new(trail::TrailRuntimeCatalog::compile(
             unique.trail_runtime_input(),
         )?);
@@ -117,6 +123,7 @@ impl SwarmDisasterRuntimeFactory {
             occurrences,
             service_adventure,
             communing,
+            communing_rules,
             content_runtime,
             trail,
             path_runtime,
@@ -211,6 +218,7 @@ impl SwarmDisasterRuntimeFactory {
             occurrences: Arc::clone(&self.occurrences),
             service_adventure: Arc::clone(&self.service_adventure),
             communing: Arc::clone(&self.communing),
+            communing_rules: Arc::clone(&self.communing_rules),
             content_runtime: Arc::clone(&self.content_runtime),
             trail,
             path_runtime,
