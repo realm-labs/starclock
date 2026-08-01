@@ -241,27 +241,27 @@ impl ServiceAdventureRuntimeCatalog {
 impl SwarmDisasterRuntimeInstance {
     #[must_use]
     pub fn service_runtime_digest(&self) -> [u8; 32] {
-        self.service_adventure.service_digest
+        self.service_runtime().service_digest
     }
 
     #[must_use]
     pub fn adventure_runtime_digest(&self) -> [u8; 32] {
-        self.service_adventure.adventure_digest
+        self.service_runtime().adventure_digest
     }
 
     #[must_use]
     pub fn service_count(&self) -> usize {
-        self.service_adventure.services.len()
+        self.service_runtime().services.len()
     }
 
     #[must_use]
     pub fn adventure_count(&self) -> usize {
-        self.service_adventure.adventures.len()
+        self.service_runtime().adventures.len()
     }
 
     #[must_use]
     pub fn initial_cosmic_fragments(&self) -> i64 {
-        self.service_adventure.currency.initial_value
+        self.service_runtime().currency.initial_value
     }
 
     pub fn compile_service_purchase(
@@ -270,7 +270,7 @@ impl SwarmDisasterRuntimeInstance {
         offered_unit_cost: u32,
         expected_uses: u8,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let service = self.service_adventure.service(service)?;
+        let service = self.service_runtime().service(service)?;
         if service.kind == ServiceKind::Currency {
             return Err(reference("Currency initialization is not a purchase"));
         }
@@ -317,7 +317,7 @@ impl SwarmDisasterRuntimeInstance {
         maximum: u16,
         rng: &mut ActivityRngStreams,
     ) -> Result<Box<[BlessingId]>, UniverseCatalogLoadError> {
-        let service = self.service_adventure.service(service)?;
+        let service = self.service_runtime().service(service)?;
         if service.kind != ServiceKind::BlessingShop {
             return Err(reference("Service is not a Blessing shop"));
         }
@@ -340,7 +340,7 @@ impl SwarmDisasterRuntimeInstance {
         maximum: u16,
         rng: &mut ActivityRngStreams,
     ) -> Result<Box<[u32]>, UniverseCatalogLoadError> {
-        let service = self.service_adventure.service(service)?;
+        let service = self.service_runtime().service(service)?;
         if service.kind != ServiceKind::CurioShop {
             return Err(reference("Service is not a Curio shop"));
         }
@@ -364,7 +364,7 @@ impl SwarmDisasterRuntimeInstance {
         blessing: Option<BlessingId>,
         curio: Option<u32>,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let adventure = self.service_adventure.adventure(adventure)?;
+        let adventure = self.service_runtime().adventure(adventure)?;
         if adventure
             .accepted_tiers
             .iter()
@@ -402,7 +402,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         beacon: &str,
     ) -> Result<(u32, &str), UniverseCatalogLoadError> {
-        self.service_adventure
+        self.service_runtime()
             .beacons
             .iter()
             .find(|row| row.beacon_key.as_ref() == beacon)

@@ -12,7 +12,7 @@ use super::{
     curio_rule_runtime, dice_control, disarray_rule_runtime, face_effect, map_overlay,
     occurrence_rule_runtime, occurrence_runtime, path_rule_runtime, path_runtime,
     pathstrider_progress, plane_transition, profile_rule_runtime, progression_rule_runtime,
-    service_adventure_runtime, state, topology_rule_runtime, trail,
+    service_adventure_runtime, service_rule_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -128,6 +128,9 @@ impl SwarmDisasterRuntimeFactory {
                 content_runtime.standard(),
             )?,
         );
+        let service_rules = Arc::new(service_rule_runtime::ServiceRuleRuntimeCatalog::compile(
+            mechanic_rule(&content, "service-and-adventure")?,
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -143,6 +146,7 @@ impl SwarmDisasterRuntimeFactory {
             occurrences,
             occurrence_rules,
             service_adventure,
+            service_rules,
             communing,
             communing_rules,
             content_runtime,
@@ -247,6 +251,7 @@ impl SwarmDisasterRuntimeFactory {
             occurrences: Arc::clone(&self.occurrences),
             occurrence_rules: Arc::clone(&self.occurrence_rules),
             service_adventure: Arc::clone(&self.service_adventure),
+            service_rules: Arc::clone(&self.service_rules),
             communing: Arc::clone(&self.communing),
             communing_rules: Arc::clone(&self.communing_rules),
             content_runtime: Arc::clone(&self.content_runtime),
