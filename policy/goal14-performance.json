@@ -1,0 +1,90 @@
+{
+  "schema_revision": "starclock.goal14-performance.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P8-B2",
+  "workload_revision": "gold-and-gears-runtime-workloads-v1",
+  "material_regression_ratio_milli": 1200,
+  "stable_runner": {
+    "id": "starclock-bench-win10-i7-10700f-v1",
+    "samples": 3,
+    "platform": "win32",
+    "architecture": "x64",
+    "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)"
+  },
+  "broad_ci": {
+    "profile": "windows-x64-native",
+    "command": "node tools/goal14/run-native-ci.mjs --performance --broad-ci",
+    "maximum_total_elapsed_ns": 30000000000
+  },
+  "shape_invariants": {
+    "catalog_clone_count": 0,
+    "catalog_compositions_per_factory": 1,
+    "replay_prefix_reconstructions": 0,
+    "warm_assembly_allocations": 0,
+    "warm_assembly_cache_hits": 10000,
+    "allocation_measurement_authoritative": false,
+    "concurrent_allocation_scope": "coordinator-thread-only",
+    "cache_state_is_authoritative": false
+  },
+  "rows": [
+    {
+      "id": "catalog-load-and-lower",
+      "iterations": 1,
+      "expected_final_digest": "75adcb92a81c64126db0972fd6bc1c1db332438f4938aa378595ec77c6cfc3ed",
+      "stable": {"maximum_elapsed_ns": 2500000000, "maximum_allocation_bytes": 900000000, "maximum_peak_live_bytes": 134217728, "maximum_retained_bytes": 134217728},
+      "broad_ci": {"maximum_elapsed_ns": 8000000000, "maximum_allocation_bytes": 1200000000, "maximum_peak_live_bytes": 201326592, "maximum_retained_bytes": 201326592}
+    },
+    {
+      "id": "factory-start-all-matrix-entries",
+      "iterations": 25,
+      "expected_final_digest": "e818a8bb5c749e5b1f1b993a835da24ad6fef2f846b3f5f138d36e60cf6068b4",
+      "stable": {"maximum_elapsed_ns": 15000000, "maximum_allocation_bytes": 2097152, "maximum_peak_live_bytes": 1048576, "maximum_retained_bytes": 1048576},
+      "broad_ci": {"maximum_elapsed_ns": 100000000, "maximum_allocation_bytes": 4194304, "maximum_peak_live_bytes": 2097152, "maximum_retained_bytes": 2097152}
+    },
+    {
+      "id": "complete-run-replay",
+      "iterations": 1,
+      "expected_final_digest": "1c6c0e0ab23686de8522fb405945f4227f3a5afda4c87efd444154e1a0384e88",
+      "stable": {"maximum_elapsed_ns": 750000000, "maximum_allocation_bytes": 450000000, "maximum_peak_live_bytes": 134217728, "maximum_retained_bytes": 134217728},
+      "broad_ci": {"maximum_elapsed_ns": 3000000000, "maximum_allocation_bytes": 700000000, "maximum_peak_live_bytes": 201326592, "maximum_retained_bytes": 201326592}
+    },
+    {
+      "id": "trigger-heavy-dice-knowledge",
+      "iterations": 100,
+      "expected_final_digest": "6f13ee0e657a1fb27bbe589af6a1605c607ca916c510e52992bcf82b825c0645",
+      "stable": {"maximum_elapsed_ns": 1000000000, "maximum_allocation_bytes": 600000000, "maximum_peak_live_bytes": 33554432, "maximum_retained_bytes": 1048576},
+      "broad_ci": {"maximum_elapsed_ns": 4000000000, "maximum_allocation_bytes": 900000000, "maximum_peak_live_bytes": 134217728, "maximum_retained_bytes": 8388608}
+    },
+    {
+      "id": "warm-battle-assembly",
+      "iterations": 10000,
+      "expected_final_digest": "50e70e9d8a2a60a6d4fb7ad2edc85313025c62bd44bcd0fa744a6021b13c218c",
+      "stable": {"maximum_elapsed_ns": 30000000, "maximum_allocation_bytes": 0, "maximum_peak_live_bytes": 0, "maximum_retained_bytes": 0},
+      "broad_ci": {"maximum_elapsed_ns": 200000000, "maximum_allocation_bytes": 0, "maximum_peak_live_bytes": 0, "maximum_retained_bytes": 0}
+    },
+    {
+      "id": "concurrent-shared-catalog",
+      "iterations": 16,
+      "expected_final_digest": "fee4b50896c25e1b8106d267688f3b506f0f8c5fc5a9df3b422bed3dd586fe4e",
+      "stable": {"maximum_elapsed_ns": 5000000000, "maximum_allocation_bytes": 1048576, "maximum_peak_live_bytes": 1048576, "maximum_retained_bytes": 1048576},
+      "broad_ci": {"maximum_elapsed_ns": 12000000000, "maximum_allocation_bytes": 2097152, "maximum_peak_live_bytes": 2097152, "maximum_retained_bytes": 2097152}
+    },
+    {
+      "id": "invalid-command-and-replay-corruption",
+      "iterations": 4096,
+      "expected_final_digest": "2d270601575c556230bb04e3908814e997c9ab925b69f9e8881d099375ec775b",
+      "stable": {"maximum_elapsed_ns": 10000000, "maximum_allocation_bytes": 2097152, "maximum_peak_live_bytes": 1048576, "maximum_retained_bytes": 1048576},
+      "broad_ci": {"maximum_elapsed_ns": 200000000, "maximum_allocation_bytes": 8388608, "maximum_peak_live_bytes": 2097152, "maximum_retained_bytes": 2097152}
+    }
+  ],
+  "contracts": {
+    "p0_workload_identity_is_exact": true,
+    "stable_runner_records_three_samples": true,
+    "broad_ci_executes_on_windows_x64_native": true,
+    "allocation_measurements_are_non_authoritative": true,
+    "concurrent_allocation_is_coordinator_only": true,
+    "cache_state_is_not_hashed": true,
+    "every_material_regression_requires_review": true,
+    "numeric_ceilings_are_frozen_after_first_executable_baseline": true
+  }
+}

@@ -58,6 +58,11 @@ impl GoldAndGearsBattleAssemblyContext {
     pub const fn extrapolation(&self) -> Option<&GoldAndGearsExtrapolationSelection> {
         self.extrapolation.as_ref()
     }
+
+    #[must_use]
+    pub const fn previous_battle_completed(&self) -> bool {
+        self.previous_battle_completed
+    }
 }
 
 /// Auditable contribution counts and component digests consumed by one battle.

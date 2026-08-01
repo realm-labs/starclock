@@ -11,6 +11,7 @@ use starclock_activity::{
 use super::{
     GoldAndGearsEntryError,
     battle_enemy_catalog::GoldAndGearsBattleCatalogComposition,
+    battle_materialization_cache::GoldAndGearsBattleMaterializationCache,
     cognition::CognitionRuntimeCatalog,
     content_link_runtime::GoldAndGearsContentRuntimeCatalog,
     conundrum_runtime::{CompiledConundrumRuntime, ConundrumRuntimeCatalog},
@@ -447,6 +448,9 @@ impl GoldAndGearsRuntimeFactory {
             content_runtime: Arc::clone(&self.content_runtime),
             encounter_runtime,
             battle_catalog: Arc::clone(&self.battle_catalog),
+            battle_materialization_cache: Arc::new(
+                GoldAndGearsBattleMaterializationCache::default(),
+            ),
         })
     }
 
@@ -504,6 +508,7 @@ pub struct GoldAndGearsRuntimeInstance {
     pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
     pub(super) encounter_runtime: CompiledEncounterRuntime,
     pub(super) battle_catalog: Arc<GoldAndGearsBattleCatalogComposition>,
+    pub(super) battle_materialization_cache: Arc<GoldAndGearsBattleMaterializationCache>,
 }
 
 impl GoldAndGearsRuntimeInstance {

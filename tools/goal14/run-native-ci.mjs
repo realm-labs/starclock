@@ -3,8 +3,16 @@
 import process from "node:process";
 import { execFileSync } from "node:child_process";
 
-if (process.argv.length !== 3 || process.argv[2] !== "--hardening")
-  throw new Error("usage: run-native-ci.mjs --hardening");
+const options = process.argv.slice(2);
+if (options.length === 2 && options[0] === "--performance" && options[1] === "--broad-ci") {
+  execFileSync("node", ["tools/goal14/verify-performance.mjs", ".", "--run", "--broad-ci"], {
+    stdio: "inherit",
+  });
+  console.log("Goal 14 native broad-CI performance gate passed.");
+  process.exit(0);
+}
+if (options.length !== 1 || options[0] !== "--hardening")
+  throw new Error("usage: run-native-ci.mjs --hardening | --performance --broad-ci");
 
 for (const [command, args] of [
   ["cargo", ["test", "-p", "starclock-mode-universe", "gold_gears_entry::hardening_tests", "--all-features", "--", "--test-threads", "1"]],

@@ -443,7 +443,7 @@ impl CompiledEncounterRuntime {
         (EXPECTED_GROUPS, EXPECTED_WAVES, EXPECTED_SLOTS)
     }
 
-    #[cfg(test)]
+    #[cfg(any(test, feature = "benchmark-harness"))]
     pub(super) fn node_at(&self, plane: u8, position: u16) -> Option<NodeId> {
         self.nodes
             .iter()

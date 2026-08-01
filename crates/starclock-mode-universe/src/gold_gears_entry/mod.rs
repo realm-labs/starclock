@@ -5,7 +5,10 @@ pub mod baseline_fixture;
 mod battle_enemy_catalog;
 mod battle_execution;
 mod battle_materialization;
+mod battle_materialization_cache;
 mod battle_snapshot;
+#[cfg(feature = "benchmark-harness")]
+pub mod benchmark;
 mod cognition;
 mod content_link_runtime;
 mod conundrum_auxiliary_runtime;
@@ -55,16 +58,15 @@ pub use baseline_controller::{
     GoldAndGearsBaselineDecision, GoldAndGearsBaselineError, GoldAndGearsBaselineRunReport,
     GoldAndGearsCommandFamily, GoldAndGearsOfferedAction, GoldAndGearsOfferedCommand,
 };
-pub use battle_enemy_catalog::{
-    GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION, GoldAndGearsEnemyDefinitionBinding,
-};
+pub use battle_enemy_catalog::GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION;
+pub use battle_enemy_catalog::GoldAndGearsEnemyDefinitionBinding;
 pub use battle_execution::{
     GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsBattleExecution,
     GoldAndGearsBattleExecutionError, GoldAndGearsBattleStart,
 };
-pub use battle_materialization::{
-    GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GoldAndGearsBattleMaterialization,
-};
+pub use battle_materialization::GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION;
+pub use battle_materialization::GoldAndGearsBattleMaterialization;
+pub use battle_materialization_cache::GoldAndGearsBattleAssemblyCacheMetrics;
 pub use battle_snapshot::{
     GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION, GoldAndGearsBattleAssemblyContext,
     GoldAndGearsBattleContributionSnapshot,
@@ -145,9 +147,8 @@ pub use path_boost_rule_runtime::{
     GoldAndGearsPathBoostRuleKind, GoldAndGearsPathBoostRuleOwnership,
 };
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
-pub use profile_rule_runtime::{
-    GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION, GoldAndGearsProfileRuleExecution,
-};
+pub use profile_rule_runtime::GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION;
+pub use profile_rule_runtime::GoldAndGearsProfileRuleExecution;
 pub use progression_runtime::{
     GOLD_AND_GEARS_EXTRAPOLATION_POLICY_ACCURACY, GOLD_AND_GEARS_EXTRAPOLATION_POLICY_REVISION,
     GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION, GoldAndGearsExtrapolationContext,
@@ -170,9 +171,8 @@ pub use resonance_rule_runtime::{
     GoldAndGearsResonanceRuleAccuracy, GoldAndGearsResonanceRuleBinding,
     GoldAndGearsResonanceRuleKind, GoldAndGearsResonanceRuleOwnership,
 };
-pub use runtime_coverage::{
-    GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION, GoldAndGearsRuntimeCoverageSummary,
-};
+pub use runtime_coverage::GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION;
+pub use runtime_coverage::GoldAndGearsRuntimeCoverageSummary;
 pub use seeded_run::{
     GOLD_AND_GEARS_SEEDED_RUN_REVISION, GoldAndGearsSeededRunAction, GoldAndGearsSeededRunError,
     GoldAndGearsSeededRunReport, GoldAndGearsSeededRunRequest, GoldAndGearsSeededRunStep,

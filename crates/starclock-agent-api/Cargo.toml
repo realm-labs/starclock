@@ -23,8 +23,13 @@ name = "g06_dynamic_assembly_benchmark"
 path = "examples/g06_dynamic_assembly_benchmark.rs"
 required-features = ["benchmark-harness"]
 
+[[example]]
+name = "g14_gold_gears_benchmark"
+path = "examples/g14_gold_gears_benchmark.rs"
+required-features = ["benchmark-harness"]
+
 [features]
-benchmark-harness = []
+benchmark-harness = ["starclock-mode-universe/benchmark-harness"]
 
 [dependencies]
 serde.workspace = true

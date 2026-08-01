@@ -200,7 +200,7 @@ impl GoldAndGearsRuntimeInstance {
             return Err(GoldAndGearsBattleExecutionError::StaleState);
         }
         let materialization = self
-            .materialize_current_battle(state, selection, roster, context)
+            .resolve_current_battle(expected_state_hash, state, selection, roster, context)
             .map_err(GoldAndGearsBattleExecutionError::InvalidInput)?;
         let node = state.current_node();
         let section = self

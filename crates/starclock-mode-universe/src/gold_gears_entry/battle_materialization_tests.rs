@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityRngContext,
@@ -121,6 +123,32 @@ fn current_activity_snapshot_materializes_a_real_validated_battle() {
         GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION,
         "gold-and-gears-battle-snapshot-v1"
     );
+}
+
+#[test]
+fn repeated_current_battle_resolution_uses_bounded_non_authoritative_cache() {
+    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let (state, selection) = selected_combat(&instance, 0x1408_0201);
+    let roster = roster(&instance);
+    let context = GoldAndGearsBattleAssemblyContext::new(Vec::new(), false);
+    let state_hash = starclock_activity::ActivityStateHash::new([0x82; 32]).unwrap();
+    let before = instance.battle_assembly_cache_metrics();
+    let first = instance
+        .resolve_current_battle(state_hash, &state, &selection, &roster, &context)
+        .unwrap();
+    let after_miss = instance.battle_assembly_cache_metrics();
+    let second = instance
+        .resolve_current_battle(state_hash, &state, &selection, &roster, &context)
+        .unwrap();
+    let after_hit = instance.battle_assembly_cache_metrics();
+
+    assert!(Arc::ptr_eq(&first, &second));
+    assert_eq!(first.digest(), second.digest());
+    assert_eq!(after_miss.misses - before.misses, 1);
+    assert_eq!(after_miss.entries - before.entries, 1);
+    assert_eq!(after_hit.hits - after_miss.hits, 1);
+    assert_eq!(after_hit.misses, after_miss.misses);
+    assert_eq!(after_hit.evictions, after_miss.evictions);
 }
 
 #[test]

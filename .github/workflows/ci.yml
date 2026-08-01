@@ -60,6 +60,9 @@ jobs:
         run: node tools/goal07/run-native-release.mjs . --run
       - name: Execute Goal 14 Gold and Gears determinism hardening natively
         run: node tools/goal14/run-native-ci.mjs --hardening
+      - name: Enforce Goal 14 Gold and Gears broad performance budgets
+        if: matrix.profile == 'windows-x64-native'
+        run: node tools/goal14/run-native-ci.mjs --performance --broad-ci
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence
