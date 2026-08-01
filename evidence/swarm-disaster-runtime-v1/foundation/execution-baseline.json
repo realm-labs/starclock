@@ -1,0 +1,61 @@
+{
+  "schema_revision": "starclock.swarm-disaster-runtime-foundation.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P0-B1",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "start_commit": "9787ff90a0baaa91b9a7d78537617dc9240c2474",
+  "start_tree": "67105743b07aa047fc3ca7a6333356c87fa36782",
+  "immutable_prerequisites": {
+    "verified_goal_count": 10,
+    "all_registered_snapshots_checked": 19,
+    "first_goal": "core-combat-v1",
+    "reference_goal": "swarm-disaster-reference-v1",
+    "latest_runtime_prerequisite": "gold-and-gears-runtime-v1"
+  },
+  "candidate_reference": {
+    "profile_id": "swarm-disaster.profile.v1",
+    "source_obligations": 6963,
+    "mechanic_rules": 23,
+    "semantic_fixture_families": 23,
+    "policy_boundaries": 31,
+    "candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "normalized_pack_sha256": "82f3ffc444a1cdcd8bcba5a946bee3a3c8d58527b93a1c9d77f285697401b2d8"
+  },
+  "merged_candidate_audit": {
+    "result": "Pass",
+    "modes": 6,
+    "manifest_records": 46110,
+    "pairwise_mode_pairs": 15,
+    "conflicts": 0,
+    "runtime_loading_enabled_modes": 0
+  },
+  "execution_package": {
+    "phases": 9,
+    "batches": 51,
+    "protected_roots": 5,
+    "historical_runtime_crate_trees": 9,
+    "next_batch": "G20-P0-B2"
+  },
+  "toolchain": {
+    "node": "24.15.0",
+    "python": "isolated temporary Python 3.14.6 virtual environment",
+    "openpyxl": "3.1.5",
+    "initial_full_gate_result": "Stopped before repository validation because the shell exposed no python command",
+    "substitute_policy": "Prepend an isolated temporary virtual environment containing the pinned openpyxl version; do not modify repository or global Python dependencies"
+  },
+  "verification": {
+    "quick_gate": "Pass with three generated/release/CI inputs deferred",
+    "full_gate": "Pass",
+    "full_gate_seconds": "154.0",
+    "generated_checks": 33,
+    "source_cache_checks_skipped": 4,
+    "workspace_test_harnesses": 34
+  },
+  "commands": [
+    "node tools/repository-check/verify-release-snapshots.mjs",
+    "node tools/reference-integration/verify.mjs",
+    "node tools/goal20/verify-foundation.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}
