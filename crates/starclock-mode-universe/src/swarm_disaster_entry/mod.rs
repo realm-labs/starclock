@@ -14,6 +14,7 @@ mod factory;
 mod instance;
 mod map_overlay;
 mod occurrence_runtime;
+mod path_rule_runtime;
 mod path_runtime;
 mod pathstrider_progress;
 mod plane_transition;
@@ -90,6 +91,7 @@ pub struct SwarmDisasterRuntimeFactory {
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
     path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
+    path_rules: Arc<path_rule_runtime::PathRuleRuntimeCatalog>,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
     progression_rules: Arc<progression_rule_runtime::ProgressionRuleRuntimeCatalog>,
     profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
@@ -123,6 +125,7 @@ pub struct SwarmDisasterRuntimeInstance {
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
     path_runtime: path_runtime::CompiledPathRuntime,
+    path_rules: Arc<path_rule_runtime::PathRuleRuntimeCatalog>,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
     progression_rules: Arc<progression_rule_runtime::ProgressionRuleRuntimeCatalog>,
     profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,

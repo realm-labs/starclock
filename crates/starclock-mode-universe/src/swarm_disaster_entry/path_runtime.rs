@@ -371,7 +371,7 @@ impl CompiledPathRuntime {
         Ok(Some(program(BONUS_PROGRAM_BASE + bonus.id, operations)?))
     }
 
-    fn compile_interplays(
+    pub(super) fn compile_interplays(
         &self,
         state: &ActivityTransactionState,
         blessing_counts: &[(String, u16)],
@@ -410,7 +410,7 @@ impl CompiledPathRuntime {
         }
     }
 
-    fn active_interplays<'a>(
+    pub(super) fn active_interplays<'a>(
         &'a self,
         state: &ActivityTransactionState,
     ) -> Result<Vec<(&'a str, &'a str, &'a str)>, UniverseCatalogLoadError> {
@@ -435,6 +435,42 @@ impl CompiledPathRuntime {
             })
             .collect()
     }
+
+    pub(super) fn progression_unlock_id(&self) -> Option<&str> {
+        self.path.mode_unlock.as_deref()
+    }
+
+    pub(super) const fn is_propagation(&self) -> bool {
+        self.path.propagation
+    }
+
+    pub(super) fn boost_binding(&self) -> (&str, &str) {
+        (&self.path.boost.key, &self.path.boost.binding_key)
+    }
+
+    pub(super) fn resonance_bindings(
+        &self,
+    ) -> impl ExactSizeIterator<Item = (&str, &str, u16, &str)> {
+        self.path.resonances.iter().map(|resonance| {
+            (
+                resonance.key.as_ref(),
+                resonance.shared_key.as_ref(),
+                resonance.threshold,
+                resonance.binding_key.as_ref(),
+            )
+        })
+    }
+
+    pub(super) fn resonance_parameters(
+        &self,
+        key: &str,
+    ) -> Option<impl ExactSizeIterator<Item = &str>> {
+        self.path
+            .resonances
+            .iter()
+            .find(|resonance| resonance.key.as_ref() == key)
+            .map(|resonance| resonance.parameters.iter().map(AsRef::as_ref))
+    }
 }
 
 impl SwarmDisasterRuntimeInstance {
@@ -449,46 +485,31 @@ impl SwarmDisasterRuntimeInstance {
 
     /// The selected Path's exact mode unlock, including Propagation `1000008`.
     pub fn path_progression_unlock_id(&self) -> Option<&str> {
-        self.path_runtime.path.mode_unlock.as_deref()
+        self.path_rules.progression_unlock_id(self)
     }
 
     #[must_use]
     pub const fn path_is_propagation(&self) -> bool {
-        self.path_runtime.path.propagation
+        self.path_runtime.is_propagation()
     }
 
     /// Selected Path boost as `(row, StageAbility)`.
     pub fn path_boost_binding(&self) -> (&str, &str) {
-        (
-            &self.path_runtime.path.boost.key,
-            &self.path_runtime.path.boost.binding_key,
-        )
+        self.path_rules.boost_binding(self)
     }
 
     /// Base Resonance followed by its three Formations in stable binding order.
     pub fn path_resonance_bindings(
         &self,
     ) -> impl ExactSizeIterator<Item = (&str, &str, u16, &str)> {
-        self.path_runtime.path.resonances.iter().map(|resonance| {
-            (
-                resonance.key.as_ref(),
-                resonance.shared_key.as_ref(),
-                resonance.threshold,
-                resonance.binding_key.as_ref(),
-            )
-        })
+        self.path_rules.resonance_bindings(self)
     }
 
     pub fn path_resonance_parameters(
         &self,
         key: &str,
     ) -> Option<impl ExactSizeIterator<Item = &str>> {
-        self.path_runtime
-            .path
-            .resonances
-            .iter()
-            .find(|resonance| resonance.key.as_ref() == key)
-            .map(|resonance| resonance.parameters.iter().map(AsRef::as_ref))
+        self.path_rules.resonance_parameters(self, key)
     }
 
     /// Activates every newly satisfied main/sub Path `3 + 3` threshold once.
@@ -497,8 +518,8 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         distinct_blessing_counts: &[(String, u16)],
     ) -> Result<Option<ActivityProgramDefinition>, UniverseCatalogLoadError> {
-        self.path_runtime
-            .compile_interplays(state, distinct_blessing_counts)
+        self.path_rules
+            .compile_interplays(self, state, distinct_blessing_counts)
     }
 
     /// Active immutable Interplay contributions as `(row, sub Path, binding)`.
@@ -506,7 +527,7 @@ impl SwarmDisasterRuntimeInstance {
         &'a self,
         state: &ActivityTransactionState,
     ) -> Result<Vec<(&'a str, &'a str, &'a str)>, UniverseCatalogLoadError> {
-        self.path_runtime.active_interplays(state)
+        self.path_rules.active_interplays(self, state)
     }
 
     #[must_use]

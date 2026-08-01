@@ -10,7 +10,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     audience_rule_runtime, communing, communing_rule_runtime, content_runtime, countdown,
     dice_control, disarray_rule_runtime, face_effect, map_overlay, occurrence_runtime,
-    path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
+    path_rule_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
     progression_rule_runtime, service_adventure_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
@@ -96,6 +96,10 @@ impl SwarmDisasterRuntimeFactory {
             unique.path_runtime_input(),
             &pathstrider,
         )?);
+        let path_rules = Arc::new(path_rule_runtime::PathRuleRuntimeCatalog::compile([
+            mechanic_rule(&content, "path-and-propagation-unlock")?,
+            mechanic_rule(&content, "resonance-interplay")?,
+        ])?);
         let profile_rule = Arc::new(profile_rule_runtime::ProfileRuleRuntimeCatalog::compile(
             content
                 .mechanic_rule_runtime_input("profile-entry")
@@ -133,6 +137,7 @@ impl SwarmDisasterRuntimeFactory {
             content_runtime,
             trail,
             path_runtime,
+            path_rules,
             pathstrider,
             progression_rules,
             profile_rule,
@@ -179,7 +184,8 @@ impl SwarmDisasterRuntimeFactory {
                     .ok_or_else(|| reference("unknown Trailblaze bonus"))
             })
             .transpose()?;
-        let path_runtime = self.path_runtime.select(
+        let path_runtime = self.path_rules.select(
+            &self.path_runtime,
             &entry.path,
             audience.unlock_id(),
             entry.trailblaze_bonus.as_deref(),
@@ -233,6 +239,7 @@ impl SwarmDisasterRuntimeFactory {
             content_runtime: Arc::clone(&self.content_runtime),
             trail,
             path_runtime,
+            path_rules: Arc::clone(&self.path_rules),
             pathstrider: Arc::clone(&self.pathstrider),
             progression_rules: Arc::clone(&self.progression_rules),
             profile_rule: Arc::clone(&self.profile_rule),
