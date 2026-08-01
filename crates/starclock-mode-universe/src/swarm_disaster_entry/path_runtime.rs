@@ -73,6 +73,23 @@ enum DeferredKind {
     CurioNegative,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum PendingContentKind {
+    Blessing,
+    CurioAny,
+    CurioErrorCode,
+    CurioNegative,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) struct PendingContentRequest {
+    pub(super) key: u64,
+    pub(super) kind: PendingContentKind,
+    pub(super) count: u16,
+    pub(super) minimum_rarity: u8,
+    pub(super) maximum_rarity: u8,
+}
+
 #[derive(Clone, Debug)]
 struct RuntimePath {
     id: u32,
@@ -264,6 +281,46 @@ impl PathRuntimeCatalog {
 }
 
 impl CompiledPathRuntime {
+    pub(super) fn pending_content_requests(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<Box<[PendingContentRequest]>, UniverseCatalogLoadError> {
+        let Some(bonus) = &self.bonus else {
+            return Ok(Box::new([]));
+        };
+        bonus
+            .requests
+            .iter()
+            .enumerate()
+            .filter_map(|(ordinal, request)| {
+                let key = match request_key(bonus.id, ordinal, request.kind) {
+                    Ok(key) => key,
+                    Err(error) => return Some(Err(error)),
+                };
+                match counter_value(state, DEFERRED, key) {
+                    Ok(0) => None,
+                    Ok(value) if value == i64::from(request.count) => {
+                        Some(Ok(PendingContentRequest {
+                            key,
+                            kind: match request.kind {
+                                DeferredKind::Blessing => PendingContentKind::Blessing,
+                                DeferredKind::CurioAny => PendingContentKind::CurioAny,
+                                DeferredKind::CurioErrorCode => PendingContentKind::CurioErrorCode,
+                                DeferredKind::CurioNegative => PendingContentKind::CurioNegative,
+                            },
+                            count: request.count,
+                            minimum_rarity: request.minimum_rarity,
+                            maximum_rarity: request.maximum_rarity,
+                        }))
+                    }
+                    Ok(_) => Some(Err(invalid("invalid partial deferred content request"))),
+                    Err(error) => Some(Err(error)),
+                }
+            })
+            .collect::<Result<Vec<_>, _>>()
+            .map(Vec::into_boxed_slice)
+    }
+
     fn compile_bonus(
         &self,
         state: &ActivityTransactionState,

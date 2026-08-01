@@ -253,7 +253,7 @@ fn stale_cabinet_program_rejects_atomically_and_seeded_hash_is_stable() {
     assert_eq!(state_bytes(&instance, &state, &rng), before);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "687b174b4b55e384fe87d3c6b36841d6a6d01f329f6f5a0493831a9da677f1f1"
+        "d4c657f0025dced86543ef0e96b370039eb2623d06787b7fd4d4f175b13c7c1a"
     );
 }
 

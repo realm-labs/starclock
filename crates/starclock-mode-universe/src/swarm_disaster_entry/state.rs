@@ -1,6 +1,7 @@
 use starclock_activity::{
-    ActivityScope, ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition,
-    ActivityStateSource, ActivityStateVisibility, ActivityValue, SlotCarryPolicy, SlotResetPoint,
+    ActivityInventoryDefinition, ActivityInventoryId, ActivityScope, ActivitySlotDefinition,
+    ActivitySlotId, ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility,
+    ActivityValue, SlotCarryPolicy, SlotResetPoint,
 };
 
 use crate::{
@@ -25,6 +26,8 @@ pub(super) const NODE_BEACON: u32 = 0x5344_000D;
 const NODE_VISIT: u32 = 0x5344_000E;
 pub(super) const DICE_RESOLUTION: u32 = 0x5344_000F;
 pub(super) const COMMUNING_CHOICE: u32 = 0x5344_0010;
+pub(super) const BLESSING_INVENTORY: u32 = 0x5344_1001;
+pub(super) const CURIO_INVENTORY: u32 = 0x5344_1002;
 
 pub(super) struct SwarmStateCompileInput<'a> {
     pub(super) area: SwarmDisasterEntryArea,
@@ -203,7 +206,29 @@ pub(super) fn compile(
             false,
         )?,
     ];
-    ActivityStateDefinition::new(slots, vec![], vec![]).map_err(|_| invalid_state())
+    let inventories = vec![
+        inventory(BLESSING_INVENTORY, 144, 2)?,
+        inventory(CURIO_INVENTORY, 66, 1)?,
+    ];
+    ActivityStateDefinition::new(slots, inventories, vec![]).map_err(|_| invalid_state())
+}
+
+fn inventory(
+    id: u32,
+    maximum_entries: u32,
+    maximum_stack: u32,
+) -> Result<ActivityInventoryDefinition, UniverseCatalogLoadError> {
+    ActivityInventoryDefinition::new(
+        ActivityInventoryId::new(id).expect("static Swarm inventory ID is non-zero"),
+        ActivityScope::Activity,
+        maximum_entries,
+        maximum_stack,
+        SlotCarryPolicy::CarryExact,
+        ActivityStateVisibility::Player,
+        ActivityStateSource::new(0x5344_1500_0000_0000 + u64::from(id))
+            .expect("static Swarm inventory source is non-zero"),
+    )
+    .map_err(|_| invalid_state())
 }
 
 #[allow(clippy::too_many_arguments)]

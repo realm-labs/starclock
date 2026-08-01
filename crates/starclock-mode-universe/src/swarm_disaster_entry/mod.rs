@@ -1,6 +1,7 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 mod audience;
 mod communing;
+mod content_runtime;
 mod countdown;
 mod dice_control;
 mod face_effect;
@@ -30,14 +31,11 @@ use crate::{
 pub const SWARM_DISASTER_ENTRY_REVISION: &str = "swarm-disaster-entry-profile-v1";
 /// Versioned deterministic root-board and forward-route construction policy.
 pub const SWARM_DISASTER_TOPOLOGY_REVISION: &str = "swarm-disaster-topology-policy-v1";
-/// Versioned explicit-boss and post-boss plane-completion policy.
 pub const SWARM_DISASTER_PLANE_COMPLETION_REVISION: &str =
     "swarm-disaster-plane-completion-policy-v1";
-/// Versioned Audience Die definition and persistent Path-rule policy.
 pub const SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION: &str = "swarm-disaster-audience-runtime-v1";
 /// Versioned roll, reroll, cheat and abandon execution policy.
 pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-control-v1";
-/// Versioned typed face-selector, target and deferred-effect policy.
 pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-policy-v1";
 /// Versioned Communing choice, point, and Pathstrider cabinet policy.
 pub const SWARM_DISASTER_COMMUNING_REVISION: &str = "swarm-disaster-communing-runtime-v1";
@@ -146,6 +144,7 @@ pub struct SwarmDisasterRuntimeFactory {
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
+    content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
     path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
@@ -170,6 +169,7 @@ pub struct SwarmDisasterRuntimeInstance {
     dice_controls: dice_control::CompiledDiceControls,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
+    content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
     path_runtime: path_runtime::CompiledPathRuntime,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,

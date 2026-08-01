@@ -197,7 +197,7 @@ fn seeded_random_activation_freezes_state_and_rng_hash() {
     commit(&instance, &mut state, program);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "f1e01b18da341f42204c866741635c5ce7936ef7a53dde9f13e038f83dc1d308"
+        "5a12a2cae9169de3054e60e7d6c583f51d2c706a0d8ea219e3da44d64dee83b5"
     );
 }
 

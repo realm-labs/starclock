@@ -127,7 +127,7 @@ fn run_start_activity_effects_commit_once_and_stale_program_rejects() {
     let rng = activity_rng(&instance, 0x2041_0000);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "a344d30e1758726afcc2139c5eb743eb8bb97c4a4894907e379330e4008e7e25"
+        "ba6e5bd81b0bde09885b535d3434c8eeebc84d027fb22b25db703d0995b33838"
     );
 }
 

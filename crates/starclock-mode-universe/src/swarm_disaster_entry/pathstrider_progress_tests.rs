@@ -230,7 +230,7 @@ fn chapter_availability_uses_current_plane_and_persistent_communing_points() {
     let rng = activity_rng(&instance, 0x2042_0001);
     assert_eq!(
         state_hash(&instance, &third, &rng),
-        "0de89fb9d17395c45b004010aae96a98a9cfea12a981d79a4f421d8b83738eeb"
+        "f7c9363e1513fb3b7f853980c1c7c89a06437533ee82dcd183b05fe1b49d5d79"
     );
 }
 

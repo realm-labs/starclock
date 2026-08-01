@@ -210,7 +210,7 @@ fn seeded_control_sequence_freezes_state_and_rng_hash() {
 
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "cb2265aa09d422ff673db0378d5279f81873810cf6243337fdca2edc67adb283"
+        "1480a1997138978ba76f5f4514d689274fffd500d5cdef1298efaa516fa7a6e2"
     );
 }
 
