@@ -520,6 +520,8 @@ fn validate_paths(catalog: &SwarmDisasterUniqueCatalog) -> Result<(), SwarmDisas
         };
         if die.shared_path != path.shared_path
             || resonance.path != path.id
+            || path.formation_keys.len() != 3
+            || path.battle_event_groups.is_empty()
             || !sorts.insert(path.sort)
         {
             return fail(SwarmDisasterUniqueErrorKind::Reference, &path.key);
@@ -533,6 +535,8 @@ fn validate_paths(catalog: &SwarmDisasterUniqueCatalog) -> Result<(), SwarmDisas
     for resonance in &catalog.resonances {
         if !paths.contains_key(&resonance.path)
             || resonance.shared_resonance.is_empty()
+            || resonance.energy_max.is_empty()
+            || resonance.initial_energy.is_empty()
             || resonance.effect_program.is_empty()
         {
             return fail(SwarmDisasterUniqueErrorKind::Reference, &resonance.key);

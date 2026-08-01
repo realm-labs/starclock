@@ -260,6 +260,11 @@ pub(super) struct PathDefinition {
     pub(super) audience_die: AudienceDieId,
     pub(super) resonance: ResonanceId,
     pub(super) sort: u16,
+    pub(super) mode_unlock: Option<Box<str>>,
+    pub(super) propagation_unlock: Box<str>,
+    pub(super) formation_keys: Box<[Box<str>]>,
+    pub(super) battle_event_groups: Box<str>,
+    pub(super) extra_effect_keys: Box<[Box<str>]>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -276,6 +281,11 @@ pub(super) struct ResonanceDefinition {
     pub(super) key: Box<str>,
     pub(super) path: PathId,
     pub(super) shared_resonance: Box<str>,
+    pub(super) threshold: u16,
+    pub(super) energy_max: Box<str>,
+    pub(super) initial_energy: Box<str>,
+    pub(super) parameters: Box<[Box<str>]>,
+    pub(super) mechanic_tags: Box<[Box<str>]>,
     pub(super) effect_program: Box<str>,
 }
 

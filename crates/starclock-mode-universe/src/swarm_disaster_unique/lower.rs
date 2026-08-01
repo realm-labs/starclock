@@ -578,6 +578,11 @@ fn lower_path(row: &SwarmDisasterPath) -> Result<PathDefinition, SwarmDisasterUn
         audience_die: AudienceDieId(positive(row.audience_die_id, &row.stable_key)?),
         resonance: ResonanceId(positive(row.resonance_id, &row.stable_key)?),
         sort: positive_u16(row.sort, &row.stable_key)?,
+        mode_unlock: optional_stable(row.mode_unlock_id.as_deref(), &row.stable_key)?,
+        propagation_unlock: json(&row.propagation_unlock_json, &row.stable_key)?,
+        formation_keys: optional_text_list(row.formation_ids.as_deref(), &row.stable_key)?,
+        battle_event_groups: json(&row.battle_event_groups_json, &row.stable_key)?,
+        extra_effect_keys: optional_text_list(row.extra_effect_ids.as_deref(), &row.stable_key)?,
     })
 }
 
@@ -600,13 +605,16 @@ fn lower_resonance(
     row: &SwarmDisasterResonance,
 ) -> Result<ResonanceDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    scalar(&row.energy_max, &row.stable_key)?;
-    scalar(&row.initial_energy, &row.stable_key)?;
     Ok(ResonanceDefinition {
         id: ResonanceId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
         path: PathId(positive(row.path_id, &row.stable_key)?),
         shared_resonance: stable(&row.shared_resonance_id)?,
+        threshold: nonnegative_u16(row.threshold, &row.stable_key)?,
+        energy_max: scalar(&row.energy_max, &row.stable_key)?,
+        initial_energy: scalar(&row.initial_energy, &row.stable_key)?,
+        parameters: optional_value_list(row.parameter_values.as_deref(), &row.stable_key)?,
+        mechanic_tags: optional_text_list(row.mechanic_tags.as_deref(), &row.stable_key)?,
         effect_program: json(&row.effect_program_json, &row.stable_key)?,
     })
 }
@@ -724,7 +732,21 @@ fn scalar_list(
         },
     )
 }
-
+fn optional_value_list(
+    values: Option<&[String]>,
+    key: &str,
+) -> Result<Box<[Box<str>]>, SwarmDisasterUniqueError> {
+    values.map_or_else(
+        || Ok(Vec::<Box<str>>::new().into_boxed_slice()),
+        |values| {
+            values
+                .iter()
+                .map(|value| nonempty(value, key))
+                .collect::<Result<Vec<_>, _>>()
+                .map(Vec::into_boxed_slice)
+        },
+    )
+}
 fn optional_stable(
     value: Option<&str>,
     key: &str,
@@ -735,7 +757,6 @@ fn optional_stable(
         })
         .transpose()
 }
-
 fn positive(value: i32, key: &str) -> Result<u32, SwarmDisasterUniqueError> {
     u32::try_from(value)
         .ok()

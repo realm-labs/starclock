@@ -1,5 +1,4 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
-
 mod audience;
 mod communing;
 mod countdown;
@@ -9,6 +8,7 @@ mod face_operation;
 mod factory;
 mod instance;
 mod map_overlay;
+mod path_runtime;
 mod pathstrider_progress;
 mod plane_transition;
 mod simultaneous;
@@ -17,9 +17,8 @@ mod topology;
 mod trail;
 mod validate;
 
-use std::sync::Arc;
-
 use starclock_activity::{ActivityStateDefinition, ParticipantLock};
+use std::sync::Arc;
 
 use crate::{
     swarm_disaster_content::SwarmDisasterContentCatalog,
@@ -148,6 +147,7 @@ pub struct SwarmDisasterRuntimeFactory {
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
+    path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
 }
 
@@ -171,6 +171,7 @@ pub struct SwarmDisasterRuntimeInstance {
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
+    path_runtime: path_runtime::CompiledPathRuntime,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
 }
 

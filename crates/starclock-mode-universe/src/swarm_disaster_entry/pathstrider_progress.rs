@@ -28,6 +28,7 @@ pub(super) struct PathstriderRuntimeCatalog {
     objectives: Box<[RuntimeObjective]>,
     finishes: Box<[RuntimeFinish]>,
     chapters: Box<[RuntimeChapter]>,
+    known_unlocks: Box<[Box<str>]>,
 }
 
 #[derive(Clone, Debug)]
@@ -71,11 +72,27 @@ impl PathstriderRuntimeCatalog {
         let objectives = compile_objectives(&input)?;
         let (finishes, _, _) = compile_finishes(&input)?;
         let chapters = compile_chapters(&input.chapters)?;
+        let mut known_unlocks = input
+            .unlocks
+            .iter()
+            .map(|unlock| unlock.key.clone())
+            .collect::<Vec<_>>();
+        known_unlocks.sort_unstable();
+        if known_unlocks.len() != 110 || known_unlocks.windows(2).any(|pair| pair[0] >= pair[1]) {
+            return Err(invalid("Pathstrider unlock identity denominator drift"));
+        }
         Ok(Self {
             objectives,
             finishes,
             chapters,
+            known_unlocks: known_unlocks.into_boxed_slice(),
         })
+    }
+
+    pub(super) fn contains_known_unlock(&self, key: &str) -> bool {
+        self.known_unlocks
+            .binary_search_by(|unlock| unlock.as_ref().cmp(key))
+            .is_ok()
     }
 
     fn objective_cabinet(&self, condition: &str) -> Result<&str, UniverseCatalogLoadError> {

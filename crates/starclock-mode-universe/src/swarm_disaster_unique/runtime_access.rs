@@ -148,6 +148,67 @@ pub(crate) struct SwarmPathstriderRuntimeInput {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathRuntimeInput {
+    pub(crate) bonuses: Box<[SwarmBonusRuntimeInput]>,
+    pub(crate) paths: Box<[SwarmPathRuntimeDefinitionInput]>,
+    pub(crate) boosts: Box<[SwarmPathBoostRuntimeInput]>,
+    pub(crate) resonances: Box<[SwarmResonanceRuntimeInput]>,
+    pub(crate) interplays: Box<[SwarmInterplayRuntimeInput]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmBonusRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) effect_program: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathRuntimeDefinitionInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) shared_path: Box<str>,
+    pub(crate) resonance_id: u32,
+    pub(crate) mode_unlock: Option<Box<str>>,
+    pub(crate) propagation_unlock: Box<str>,
+    pub(crate) formation_keys: Box<[Box<str>]>,
+    pub(crate) battle_event_groups: Box<str>,
+    pub(crate) extra_effect_keys: Box<[Box<str>]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathBoostRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) path_id: u32,
+    pub(crate) effect_program: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmResonanceRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) path_id: u32,
+    pub(crate) shared_resonance: Box<str>,
+    pub(crate) threshold: u16,
+    pub(crate) energy_max: Box<str>,
+    pub(crate) initial_energy: Box<str>,
+    pub(crate) parameters: Box<[Box<str>]>,
+    pub(crate) mechanic_tags: Box<[Box<str>]>,
+    pub(crate) effect_program: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmInterplayRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) main_path_id: u32,
+    pub(crate) sub_path_id: u32,
+    pub(crate) thresholds: Box<str>,
+    pub(crate) effect_program: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct SwarmPathstriderObjectiveRuntimeInput {
     pub(crate) id: u32,
     pub(crate) key: Box<str>,
@@ -532,6 +593,78 @@ impl SwarmDisasterUniqueCatalog {
                     layer: row.layer,
                     threshold: row.threshold.clone(),
                     mechanical_unlock: row.mechanical_unlock.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        }
+    }
+
+    pub(crate) fn path_runtime_input(&self) -> SwarmPathRuntimeInput {
+        SwarmPathRuntimeInput {
+            bonuses: self
+                .bonuses
+                .iter()
+                .map(|row| SwarmBonusRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    effect_program: row.effect_program.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            paths: self
+                .paths
+                .iter()
+                .map(|row| SwarmPathRuntimeDefinitionInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    shared_path: row.shared_path.clone(),
+                    resonance_id: row.resonance.0,
+                    mode_unlock: row.mode_unlock.clone(),
+                    propagation_unlock: row.propagation_unlock.clone(),
+                    formation_keys: row.formation_keys.clone(),
+                    battle_event_groups: row.battle_event_groups.clone(),
+                    extra_effect_keys: row.extra_effect_keys.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            boosts: self
+                .path_boosts
+                .iter()
+                .map(|row| SwarmPathBoostRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    path_id: row.path.0,
+                    effect_program: row.effect_program.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            resonances: self
+                .resonances
+                .iter()
+                .map(|row| SwarmResonanceRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    path_id: row.path.0,
+                    shared_resonance: row.shared_resonance.clone(),
+                    threshold: row.threshold,
+                    energy_max: row.energy_max.clone(),
+                    initial_energy: row.initial_energy.clone(),
+                    parameters: row.parameters.clone(),
+                    mechanic_tags: row.mechanic_tags.clone(),
+                    effect_program: row.effect_program.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            interplays: self
+                .interplays
+                .iter()
+                .map(|row| SwarmInterplayRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    main_path_id: row.main_path.0,
+                    sub_path_id: row.sub_path.0,
+                    thresholds: row.thresholds.clone(),
+                    effect_program: row.effect_program.clone(),
                 })
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),

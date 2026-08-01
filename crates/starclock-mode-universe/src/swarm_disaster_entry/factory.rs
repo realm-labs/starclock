@@ -8,8 +8,8 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    communing, countdown, dice_control, face_effect, map_overlay, pathstrider_progress,
-    plane_transition, state, topology, trail,
+    communing, countdown, dice_control, face_effect, map_overlay, path_runtime,
+    pathstrider_progress, plane_transition, state, topology, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -56,6 +56,10 @@ impl SwarmDisasterRuntimeFactory {
         let pathstrider = Arc::new(pathstrider_progress::PathstriderRuntimeCatalog::compile(
             unique.pathstrider_runtime_input(),
         )?);
+        let path_runtime = Arc::new(path_runtime::PathRuntimeCatalog::compile(
+            unique.path_runtime_input(),
+            &pathstrider,
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -68,6 +72,7 @@ impl SwarmDisasterRuntimeFactory {
             face_effects,
             communing,
             trail,
+            path_runtime,
             pathstrider,
         })
     }
@@ -104,6 +109,11 @@ impl SwarmDisasterRuntimeFactory {
                     .ok_or_else(|| reference("unknown Trailblaze bonus"))
             })
             .transpose()?;
+        let path_runtime = self.path_runtime.select(
+            &entry.path,
+            audience.unlock_id(),
+            entry.trailblaze_bonus.as_deref(),
+        )?;
         let countdown = self
             .unique
             .initial_countdown()
@@ -146,6 +156,7 @@ impl SwarmDisasterRuntimeFactory {
             face_effects: Arc::clone(&self.face_effects),
             communing: Arc::clone(&self.communing),
             trail,
+            path_runtime,
             pathstrider: Arc::clone(&self.pathstrider),
         })
     }
