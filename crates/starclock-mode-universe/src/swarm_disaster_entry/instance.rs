@@ -137,6 +137,103 @@ impl SwarmDisasterRuntimeInstance {
         self.audience.initialization_applied(state)
     }
 
+    /// Whether an initial authored roll is currently available.
+    pub fn dice_roll_available(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.roll_available(state, &faces)
+    }
+
+    /// Whether a charged authored reroll is currently available.
+    pub fn dice_reroll_available(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.reroll_available(state, &faces)
+    }
+
+    /// Whether an exact-face charged cheat is currently available.
+    pub fn dice_cheat_available(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.cheat_available(state, &faces)
+    }
+
+    /// Whether the unlocked authored abandon control is currently available.
+    pub fn dice_abandon_available(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.abandon_available(state, &faces)
+    }
+
+    /// Rolls the selected Die in authored Sort then stable-face-ID order.
+    ///
+    /// Exactly one Spawn-stream draw is consumed. An empty candidate set or
+    /// unavailable lifecycle state rejects without consuming RNG.
+    pub fn compile_dice_roll(
+        &self,
+        state: &ActivityTransactionState,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.compile_roll(state, &faces, rng)
+    }
+
+    /// Consumes one typed reroll charge and draws from the same authored faces.
+    pub fn compile_dice_reroll(
+        &self,
+        state: &ActivityTransactionState,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.compile_reroll(state, &faces, rng)
+    }
+
+    /// Consumes one typed cheat charge and selects an exact authored face.
+    /// Cheats consume no RNG.
+    pub fn compile_dice_cheat(
+        &self,
+        state: &ActivityTransactionState,
+        selected_face: &str,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls
+            .compile_cheat(state, &faces, selected_face)
+    }
+
+    /// Abandons the current face, grants the authored reward and closes this
+    /// Attempt's dice phase. The optional authored control must be unlocked.
+    pub fn compile_dice_abandon(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        let faces = self.audience.face_ids().collect::<Vec<_>>();
+        self.dice_controls.compile_abandon(state, &faces)
+    }
+
+    /// Returns the currently selected authored face, when one exists.
+    #[must_use]
+    pub fn dice_resolution_face<'a>(&'a self, state: &ActivityTransactionState) -> Option<&'a str> {
+        self.dice_controls
+            .resolution_face_id(state)
+            .and_then(|id| self.audience.face_key(id))
+    }
+
+    /// Returns the stable resolution code: roll 1, reroll 2, cheat 3, abandon 4.
+    pub fn dice_resolution_kind(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<Option<u8>, UniverseCatalogLoadError> {
+        self.dice_controls.resolution_kind(state)
+    }
+
     /// Compiles one plane's canonical node-domain and beacon initialization.
     ///
     /// The caller owns `rng`; successful compilation consumes only labeled

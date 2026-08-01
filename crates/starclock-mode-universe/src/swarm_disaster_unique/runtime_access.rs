@@ -77,6 +77,18 @@ pub(crate) struct SwarmAudienceFaceRuntimeInput {
     pub(crate) sort: u16,
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmDiceControlRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) operation: Box<str>,
+    pub(crate) resource_cost: Box<str>,
+    pub(crate) result_order: Box<str>,
+    pub(crate) fallback_policy: Box<str>,
+    pub(crate) abandon_reward: Box<str>,
+    pub(crate) unlock_id: Option<Box<str>>,
+}
+
 impl SwarmDisasterUniqueCatalog {
     pub(crate) fn countdown_runtime_input(&self) -> Option<SwarmCountdownRuntimeInput> {
         let countdown = self.countdown.first()?;
@@ -166,5 +178,22 @@ impl SwarmDisasterUniqueCatalog {
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
         }
+    }
+
+    pub(crate) fn dice_control_runtime_input(&self) -> Box<[SwarmDiceControlRuntimeInput]> {
+        self.dice_controls
+            .iter()
+            .map(|row| SwarmDiceControlRuntimeInput {
+                id: row.id.0,
+                key: row.key.clone(),
+                operation: row.operation.clone(),
+                resource_cost: row.resource_cost.clone(),
+                result_order: row.result_order.clone(),
+                fallback_policy: row.fallback_policy.clone(),
+                abandon_reward: row.abandon_reward.clone(),
+                unlock_id: row.unlock_id.clone(),
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice()
     }
 }

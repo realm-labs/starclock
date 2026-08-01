@@ -363,6 +363,21 @@ impl CompiledAudienceRuntime {
         self.definition.faces.iter().map(|face| face.key.as_ref())
     }
 
+    pub(super) fn face_ids(&self) -> impl ExactSizeIterator<Item = (&str, u32)> {
+        self.definition
+            .faces
+            .iter()
+            .map(|face| (face.key.as_ref(), face.id))
+    }
+
+    pub(super) fn face_key(&self, id: u32) -> Option<&str> {
+        self.definition
+            .faces
+            .iter()
+            .find(|face| face.id == id)
+            .map(|face| face.key.as_ref())
+    }
+
     pub(super) fn initial_rule(&self) -> &str {
         &self.definition.initial.operation
     }

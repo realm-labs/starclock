@@ -8,7 +8,7 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    countdown, map_overlay, plane_transition, state, topology,
+    countdown, dice_control, map_overlay, plane_transition, state, topology,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -40,6 +40,9 @@ impl SwarmDisasterRuntimeFactory {
         let audience = Arc::new(audience::AudienceRuntimeCatalog::compile(
             unique.audience_runtime_input(),
         )?);
+        let dice_controls = Arc::new(dice_control::DiceControlRuntimeCatalog::compile(
+            &unique.dice_control_runtime_input(),
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -48,6 +51,7 @@ impl SwarmDisasterRuntimeFactory {
             countdown,
             transitions,
             audience,
+            dice_controls,
         })
     }
 
@@ -67,7 +71,10 @@ impl SwarmDisasterRuntimeFactory {
         let audience =
             self.audience
                 .select(&entry.path, &entry.audience_die, &entry.audience_unlocks)?;
-        let audience_state = audience.state_values()?;
+        let dice_controls = self.dice_controls.select(&entry.dice_control_unlocks)?;
+        let mut audience_state = audience.state_values()?.into_vec();
+        audience_state.extend(dice_controls.state_values());
+        audience_state.sort_unstable_by_key(|(key, _)| *key);
         let communing = canonical_communing(&self.unique, &entry.communing_points)?;
         let progression = canonical_progression(&self.unique, &entry.unlocked_progression)?;
         let bonus = entry
@@ -117,6 +124,7 @@ impl SwarmDisasterRuntimeFactory {
             countdown: Arc::clone(&self.countdown),
             transitions: Arc::clone(&self.transitions),
             audience,
+            dice_controls,
         })
     }
 }

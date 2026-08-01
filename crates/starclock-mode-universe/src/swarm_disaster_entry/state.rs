@@ -13,7 +13,7 @@ const ENTRY: u32 = 0x5344_0001;
 pub(super) const AUDIENCE_DIE: u32 = 0x5344_0002;
 const COMMUNING: u32 = 0x5344_0003;
 const PROGRESSION: u32 = 0x5344_0004;
-const RESOURCES: u32 = 0x5344_0005;
+pub(super) const RESOURCES: u32 = 0x5344_0005;
 pub(super) const CONTENT: u32 = 0x5344_0006;
 const DEFERRED: u32 = 0x5344_0007;
 pub(super) const COUNTDOWN: u32 = 0x5344_0008;
@@ -23,7 +23,7 @@ pub(super) const NODE_STATE: u32 = 0x5344_000B;
 pub(super) const NODE_DOMAIN: u32 = 0x5344_000C;
 pub(super) const NODE_BEACON: u32 = 0x5344_000D;
 const NODE_VISIT: u32 = 0x5344_000E;
-const DICE_RESOLUTION: u32 = 0x5344_000F;
+pub(super) const DICE_RESOLUTION: u32 = 0x5344_000F;
 const COMMUNING_CHOICE: u32 = 0x5344_0010;
 
 pub(super) struct SwarmStateCompileInput<'a> {

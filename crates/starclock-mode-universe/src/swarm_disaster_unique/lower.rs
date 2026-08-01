@@ -346,9 +346,6 @@ fn lower_dice_control(
     row: &SwarmDisasterDiceRollControl,
 ) -> Result<DiceControlDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    for value in [&row.abandon_reward_json, &row.fallback_policy_json] {
-        json(value, &row.stable_key)?;
-    }
     if row.result_order != "AuthoredSortThenStableFaceId" {
         return invalid(&row.stable_key);
     }
@@ -357,6 +354,10 @@ fn lower_dice_control(
         key: stable(&row.stable_key)?,
         operation: nonempty(&row.operation, &row.stable_key)?,
         resource_cost: json(&row.resource_cost_json, &row.stable_key)?,
+        result_order: nonempty(&row.result_order, &row.stable_key)?,
+        fallback_policy: json(&row.fallback_policy_json, &row.stable_key)?,
+        abandon_reward: json(&row.abandon_reward_json, &row.stable_key)?,
+        unlock_id: optional_stable(row.unlock_id.as_deref(), &row.stable_key)?,
     })
 }
 

@@ -117,6 +117,10 @@ pub(super) struct DiceControlDefinition {
     pub(super) key: Box<str>,
     pub(super) operation: Box<str>,
     pub(super) resource_cost: Box<str>,
+    pub(super) result_order: Box<str>,
+    pub(super) fallback_policy: Box<str>,
+    pub(super) abandon_reward: Box<str>,
+    pub(super) unlock_id: Option<Box<str>>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

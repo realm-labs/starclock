@@ -2,6 +2,7 @@
 
 mod audience;
 mod countdown;
+mod dice_control;
 mod factory;
 mod instance;
 mod map_overlay;
@@ -29,6 +30,8 @@ pub const SWARM_DISASTER_PLANE_COMPLETION_REVISION: &str =
     "swarm-disaster-plane-completion-policy-v1";
 /// Versioned Audience Die definition and persistent Path-rule policy.
 pub const SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION: &str = "swarm-disaster-audience-runtime-v1";
+/// Versioned roll, reroll, cheat and abandon execution policy.
+pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-control-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -38,6 +41,7 @@ pub struct SwarmDisasterEntry {
     audience_die: Box<str>,
     participants: ParticipantLock,
     audience_unlocks: Box<[Box<str>]>,
+    dice_control_unlocks: Box<[Box<str>]>,
     communing_points: Box<[(Box<str>, u16)]>,
     unlocked_progression: Box<[Box<str>]>,
     trailblaze_bonus: Option<Box<str>>,
@@ -57,6 +61,7 @@ impl SwarmDisasterEntry {
             audience_die: audience_die.into(),
             participants,
             audience_unlocks: Box::new([]),
+            dice_control_unlocks: Box::new([]),
             communing_points: Box::new([]),
             unlocked_progression: Box::new([]),
             trailblaze_bonus: None,
@@ -70,6 +75,20 @@ impl SwarmDisasterEntry {
     #[must_use]
     pub fn with_audience_unlocks(mut self, unlocks: Vec<String>) -> Self {
         self.audience_unlocks = unlocks
+            .into_iter()
+            .map(String::into_boxed_str)
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        self
+    }
+
+    /// Supplies authored unlock IDs for optional Audience Die controls.
+    ///
+    /// The released catalog currently defines only the `1000022` abandon
+    /// unlock. Unknown or duplicate control unlocks fail closed.
+    #[must_use]
+    pub fn with_dice_control_unlocks(mut self, unlocks: Vec<String>) -> Self {
+        self.dice_control_unlocks = unlocks
             .into_iter()
             .map(String::into_boxed_str)
             .collect::<Vec<_>>()
@@ -109,6 +128,7 @@ pub struct SwarmDisasterRuntimeFactory {
     countdown: Arc<countdown::CountdownRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: Arc<audience::AudienceRuntimeCatalog>,
+    dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -127,12 +147,15 @@ pub struct SwarmDisasterRuntimeInstance {
     countdown: Arc<countdown::CountdownRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: audience::CompiledAudienceRuntime,
+    dice_controls: dice_control::CompiledDiceControls,
 }
 
 #[cfg(test)]
 mod audience_tests;
 #[cfg(test)]
 mod countdown_tests;
+#[cfg(test)]
+mod dice_control_tests;
 #[cfg(test)]
 mod map_overlay_tests;
 #[cfg(test)]

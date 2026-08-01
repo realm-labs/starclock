@@ -1,5 +1,7 @@
 use starclock_activity::{
-    ActivityCause, ActivityTransactionOutcome, ActivityTransactionState, BuildDigest,
+    ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
+    ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityRngContext,
+    ActivityRngStreams, ActivityTransactionOutcome, ActivityTransactionState, BuildDigest,
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
     ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
 };
@@ -147,7 +149,7 @@ fn component_roots_are_mode_scoped_and_controller_sensitive() {
 }
 
 #[test]
-fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
+fn public_factory_compiles_entry_topology_and_labeled_dice_controls() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let instance = factory
         .compile_entry(
@@ -157,7 +159,8 @@ fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
                 "swarm-disaster.audience-die.8",
                 participants(),
             )
-            .with_audience_unlocks(audience_unlocks()),
+            .with_audience_unlocks(audience_unlocks())
+            .with_dice_control_unlocks(vec!["1000022".into()]),
         )
         .unwrap();
     assert_eq!(instance.difficulty(), 5);
@@ -228,6 +231,40 @@ fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
             .audience_initialization_applied(&audience_state)
             .unwrap()
     );
+    let identity = ActivityDefinitionIdentity::new(
+        ActivityDefinitionId::new(20).unwrap(),
+        ActivityDefinitionDigest::new([0x20; 32]).unwrap(),
+        ActivityConfigDigest::new([0x53; 32]).unwrap(),
+    );
+    let mut rng = ActivityRngStreams::new(ActivityRngContext::new(
+        ActivityMasterSeed::from_u64(0x2003_3206),
+        identity.id(),
+        identity.definition_digest(),
+        identity.config_digest(),
+        instance.graph_definition().digest(),
+        ActivityInstanceId::new(1).unwrap(),
+        None,
+        Some(instance.graph_definition().entry()),
+        None,
+        0,
+    ));
+    let roll = instance
+        .compile_dice_roll(&audience_state, &mut rng)
+        .unwrap();
+    apply(&instance, &mut audience_state, &roll);
+    assert!(instance.dice_resolution_face(&audience_state).is_some());
+    assert_eq!(
+        instance.dice_resolution_kind(&audience_state).unwrap(),
+        Some(1)
+    );
+    let abandon = instance.compile_dice_abandon(&audience_state).unwrap();
+    apply(&instance, &mut audience_state, &abandon);
+    assert_eq!(instance.dice_resolution_face(&audience_state), None);
+    assert_eq!(
+        instance.dice_resolution_kind(&audience_state).unwrap(),
+        Some(4)
+    );
+    assert!(!instance.dice_roll_available(&audience_state).unwrap());
 
     assert_eq!(
         instance.boss_choices().collect::<Vec<_>>(),
