@@ -8,9 +8,10 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    communing, content_runtime, countdown, dice_control, disarray_rule_runtime, face_effect,
-    map_overlay, occurrence_runtime, path_runtime, pathstrider_progress, plane_transition,
-    profile_rule_runtime, service_adventure_runtime, state, topology_rule_runtime, trail,
+    audience_rule_runtime, communing, content_runtime, countdown, dice_control,
+    disarray_rule_runtime, face_effect, map_overlay, occurrence_runtime, path_runtime,
+    pathstrider_progress, plane_transition, profile_rule_runtime, service_adventure_runtime, state,
+    topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -63,6 +64,13 @@ impl SwarmDisasterRuntimeFactory {
         let dice_controls = Arc::new(dice_control::DiceControlRuntimeCatalog::compile(
             &unique.dice_control_runtime_input(),
         )?);
+        let audience_rules = Arc::new(audience_rule_runtime::AudienceRuleRuntimeCatalog::compile(
+            [
+                mechanic_rule(&content, "audience-die-passive")?,
+                mechanic_rule(&content, "dice-face-targeting")?,
+                mechanic_rule(&content, "dice-roll-reroll-cheat")?,
+            ],
+        )?);
         let communing = Arc::new(communing::CommuningRuntimeCatalog::compile(
             unique.communing_runtime_input(),
         )?);
@@ -103,6 +111,7 @@ impl SwarmDisasterRuntimeFactory {
             disarray_rules,
             transitions,
             audience,
+            audience_rules,
             dice_controls,
             face_effects,
             occurrences,
@@ -130,9 +139,12 @@ impl SwarmDisasterRuntimeFactory {
             .unique
             .entry_selection(&entry.path, &entry.audience_die)
             .ok_or_else(|| reference("Path and Audience Die are not a released pair"))?;
-        let audience =
-            self.audience
-                .select(&entry.path, &entry.audience_die, &entry.audience_unlocks)?;
+        let audience = self.audience_rules.select(
+            &self.audience,
+            &entry.path,
+            &entry.audience_die,
+            &entry.audience_unlocks,
+        )?;
         let dice_controls = self.dice_controls.select(&entry.dice_control_unlocks)?;
         let mut audience_state = audience.state_values()?.into_vec();
         audience_state.extend(dice_controls.state_values());
@@ -193,6 +205,7 @@ impl SwarmDisasterRuntimeFactory {
             disarray_rules: Arc::clone(&self.disarray_rules),
             transitions: Arc::clone(&self.transitions),
             audience,
+            audience_rules: Arc::clone(&self.audience_rules),
             dice_controls,
             face_effects: Arc::clone(&self.face_effects),
             occurrences: Arc::clone(&self.occurrences),

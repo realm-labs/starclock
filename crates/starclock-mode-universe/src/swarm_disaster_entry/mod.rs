@@ -1,5 +1,6 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 mod audience;
+mod audience_rule_runtime;
 mod communing;
 mod content_runtime;
 mod countdown;
@@ -147,6 +148,7 @@ pub struct SwarmDisasterRuntimeFactory {
     disarray_rules: Arc<disarray_rule_runtime::DisarrayRuleRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: Arc<audience::AudienceRuntimeCatalog>,
+    audience_rules: Arc<audience_rule_runtime::AudienceRuleRuntimeCatalog>,
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
@@ -177,6 +179,7 @@ pub struct SwarmDisasterRuntimeInstance {
     disarray_rules: Arc<disarray_rule_runtime::DisarrayRuleRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: audience::CompiledAudienceRuntime,
+    audience_rules: Arc<audience_rule_runtime::AudienceRuleRuntimeCatalog>,
     dice_controls: dice_control::CompiledDiceControls,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,

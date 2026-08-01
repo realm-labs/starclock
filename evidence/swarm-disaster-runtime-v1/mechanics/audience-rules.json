@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.swarm-disaster-audience-rule-execution.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P5-M04",
+  "observed_on": "2026-08-02",
+  "result": "Pass",
+  "partition": {
+    "executor": "SwarmAudienceDieRuleExecutor",
+    "expected_rules": 3,
+    "executed_rules": 3,
+    "exact_structured_rules": 0,
+    "project_policy_rules": 3,
+    "families": ["audience-die-passive", "dice-face-targeting", "dice-roll-reroll-cheat"]
+  },
+  "runtime_binding": {
+    "revision": "swarm-disaster-audience-rule-runtime-v1",
+    "domain": "Activity",
+    "source_disposition": "ReferenceOnly",
+    "runtime_disposition": "ProductionActivityPrograms",
+    "rule_ids": [
+      "swarm-disaster.mechanic-rule.audience-die-passive",
+      "swarm-disaster.mechanic-rule.dice-face-targeting",
+      "swarm-disaster.mechanic-rule.dice-roll-reroll-cheat"
+    ],
+    "ordered_operation_counts": [4, 4, 4],
+    "unresolved_behavior": "FailClosed",
+    "activity_state_machine": "ExistingGenericActivityTransactionState",
+    "audience_runtime": "ExistingAudienceRuntimeCatalog",
+    "control_runtime": "ExistingDiceControlRuntimeCatalog",
+    "face_runtime": "ExistingDiceFaceRuntimeCatalog"
+  },
+  "production_execution": {
+    "audience_dice": 8,
+    "audience_faces": 42,
+    "passive_kinds": 8,
+    "initialization": "ExactlyOnceActivityProgram",
+    "controls": ["abandon", "cheat", "reroll", "roll"],
+    "roll_rng": "OneSpawnDraw",
+    "reroll_rng": "OneSpawnDrawAndOneCharge",
+    "cheat_rng": "ZeroDrawAndOneCharge",
+    "face_activation_stages": [27, 8, 7],
+    "face_target_modes": [25, 12, 5],
+    "face_duration_modes": [25, 2, 8, 7],
+    "finite_turn_durations": 5,
+    "target_candidate_order": "StableNodeId",
+    "target_rng": "Spawn",
+    "empty_legal_target": "CommittedNoOpZeroDraw",
+    "stale_program": "AtomicReject"
+  },
+  "compatibility": {
+    "runtime_digest": "dc3d9dcdb8f387e2281e43cc81b405ec4e27f9861d9a9fc65a89e91ac1f54111",
+    "replay_release_state": "PreReleaseGoal20"
+  },
+  "deferred_fixtures": {
+    "fixture_ids": [
+      "swarm-disaster.fixture.audience-die-passive",
+      "swarm-disaster.fixture.dice-face-targeting",
+      "swarm-disaster.fixture.dice-roll-reroll-cheat"
+    ],
+    "ordered_operation_count": 12,
+    "expected_fact_count": 15,
+    "source_record_count": 8,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "production_binding_state": "PreTerminalProductionParity"
+  },
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 1,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 912,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/audience_rule_runtime.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "audience_rule_unit_passed": 3,
+    "entry_lifecycle_unit_passed": 90,
+    "swarm_unit_passed": 101,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "132.5",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "236.9",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "170.2"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib audience_rule_runtime --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase5-m04.mjs",
+    "node tools/repository-check/run.mjs",
+    "PATH=<temporary-python-3.14.6-venv>/bin:$PATH STARCLOCK_PYTHON=<temporary-python-3.14.6-venv>/bin/python node tools/repository-check/run.mjs --full"
+  ]
+}
