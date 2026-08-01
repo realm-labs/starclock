@@ -95,7 +95,10 @@ impl PathstriderRuntimeCatalog {
             .is_ok()
     }
 
-    fn objective_cabinet(&self, condition: &str) -> Result<&str, UniverseCatalogLoadError> {
+    pub(super) fn objective_cabinet(
+        &self,
+        condition: &str,
+    ) -> Result<&str, UniverseCatalogLoadError> {
         self.objectives
             .iter()
             .find(|objective| objective.condition.as_ref() == condition)
@@ -103,7 +106,7 @@ impl PathstriderRuntimeCatalog {
             .ok_or_else(|| reference("unknown Pathstrider external quest condition"))
     }
 
-    fn compile_progress(
+    pub(super) fn compile_progress(
         &self,
         state: &ActivityTransactionState,
         condition: &str,
@@ -144,7 +147,9 @@ impl PathstriderRuntimeCatalog {
         program(FINISH_PROGRAM_BASE + finish.id, operations).map(Some)
     }
 
-    fn finish_conditions(&self) -> impl ExactSizeIterator<Item = (&str, &str, &str, u32)> {
+    pub(super) fn finish_conditions(
+        &self,
+    ) -> impl ExactSizeIterator<Item = (&str, &str, &str, u32)> {
         self.finishes.iter().map(|finish| {
             (
                 finish.key.as_ref(),
@@ -155,14 +160,17 @@ impl PathstriderRuntimeCatalog {
         })
     }
 
-    fn finish_parameters(&self, condition: &str) -> Option<impl ExactSizeIterator<Item = &str>> {
+    pub(super) fn finish_parameters(
+        &self,
+        condition: &str,
+    ) -> Option<impl ExactSizeIterator<Item = &str>> {
         self.finishes
             .iter()
             .find(|finish| finish.key.as_ref() == condition)
             .map(|finish| finish.parameters.iter().map(Box::as_ref))
     }
 
-    fn unlock_applied(
+    pub(super) fn unlock_applied(
         &self,
         state: &ActivityTransactionState,
         unlock_key: &str,
@@ -180,7 +188,7 @@ impl PathstriderRuntimeCatalog {
         }
     }
 
-    fn compile_chapter_availability(
+    pub(super) fn compile_chapter_availability(
         &self,
         instance: &SwarmDisasterRuntimeInstance,
         state: &ActivityTransactionState,
@@ -224,7 +232,9 @@ impl PathstriderRuntimeCatalog {
         program(CHAPTER_PROGRAM_BASE + u32::from(layer), operations).map(Some)
     }
 
-    fn chapters(&self) -> impl ExactSizeIterator<Item = (&str, u8, Option<(u32, u16)>, bool)> {
+    pub(super) fn chapters(
+        &self,
+    ) -> impl ExactSizeIterator<Item = (&str, u8, Option<(u32, u16)>, bool)> {
         self.chapters.iter().map(|chapter| {
             (
                 chapter.key.as_ref(),
@@ -235,7 +245,7 @@ impl PathstriderRuntimeCatalog {
         })
     }
 
-    fn chapter_available(
+    pub(super) fn chapter_available(
         &self,
         state: &ActivityTransactionState,
         key: &str,
@@ -271,19 +281,15 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         external_condition: &str,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let cabinet = self.pathstrider.objective_cabinet(external_condition)?;
-        let objective = external_condition
-            .strip_prefix("swarm-disaster.external-quest-condition.")
-            .ok_or_else(|| reference("invalid Pathstrider external quest condition"))?;
-        self.communing
-            .compile_cabinet_completion(state, cabinet, objective)
+        self.progression_rules
+            .compile_objective_completion(self, state, external_condition)
     }
 
     /// Enabled released FinishWay descriptors in stable condition order.
     pub fn pathstrider_finish_conditions(
         &self,
     ) -> impl ExactSizeIterator<Item = (&str, &str, &str, u32)> {
-        self.pathstrider.finish_conditions()
+        self.progression_rules.finish_conditions(self)
     }
 
     /// Canonical locator parameters for one enabled FinishWay.
@@ -291,7 +297,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         condition: &str,
     ) -> Option<impl ExactSizeIterator<Item = &str>> {
-        self.pathstrider.finish_parameters(condition)
+        self.progression_rules.finish_parameters(self, condition)
     }
 
     /// Records nondecreasing external progress after an accepted Activity
@@ -302,8 +308,8 @@ impl SwarmDisasterRuntimeInstance {
         condition: &str,
         observed_progress: u32,
     ) -> Result<Option<ActivityProgramDefinition>, UniverseCatalogLoadError> {
-        self.pathstrider
-            .compile_progress(state, condition, observed_progress)
+        self.progression_rules
+            .compile_progress(self, state, condition, observed_progress)
     }
 
     /// Whether one explicitly Swarm-enabled DLC unlock has committed.
@@ -312,14 +318,14 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         unlock: &str,
     ) -> Result<bool, UniverseCatalogLoadError> {
-        self.pathstrider.unlock_applied(state, unlock)
+        self.progression_rules.unlock_applied(self, state, unlock)
     }
 
     /// Chapter locators with plane/point thresholds and unresolved-bonus flag.
     pub fn mechanical_chapters(
         &self,
     ) -> impl ExactSizeIterator<Item = (&str, u8, Option<(u32, u16)>, bool)> {
-        self.pathstrider.chapters()
+        self.progression_rules.chapters(self)
     }
 
     /// Makes every newly eligible mechanical chapter available atomically.
@@ -327,7 +333,8 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         state: &ActivityTransactionState,
     ) -> Result<Option<ActivityProgramDefinition>, UniverseCatalogLoadError> {
-        self.pathstrider.compile_chapter_availability(self, state)
+        self.progression_rules
+            .compile_chapter_availability(self, state)
     }
 
     /// Whether one mechanical chapter availability flag has committed.
@@ -336,7 +343,8 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         chapter: &str,
     ) -> Result<bool, UniverseCatalogLoadError> {
-        self.pathstrider.chapter_available(state, chapter)
+        self.progression_rules
+            .chapter_available(self, state, chapter)
     }
 }
 

@@ -654,7 +654,7 @@ impl SwarmDisasterRuntimeInstance {
             &self.graph,
             &self.planes,
             plane_layer,
-            self.trail.next_plane_rerolls(),
+            self.progression_rules.trail_next_plane_rerolls(self),
         )
     }
 
@@ -664,12 +664,12 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         state: &ActivityTransactionState,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        self.trail.compile_run_start(state)
+        self.progression_rules.compile_trail_run_start(self, state)
     }
 
     /// Selected Trail nodes in canonical dimension/threshold/source order.
     pub fn communing_trail_nodes(&self) -> impl ExactSizeIterator<Item = (&str, u16)> {
-        self.trail.nodes()
+        self.progression_rules.trail_nodes(self)
     }
 
     /// Returns the selected predecessor chain for one selected Trail node.
@@ -677,14 +677,14 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         node: &str,
     ) -> Option<impl ExactSizeIterator<Item = &str>> {
-        self.trail.prerequisites(node)
+        self.progression_rules.trail_prerequisites(self, node)
     }
 
     /// Immutable BattleSpec-bound Trail effect references and provenance.
     pub fn communing_trail_battle_effects(
         &self,
     ) -> impl ExactSizeIterator<Item = (&str, &str, &str)> {
-        self.trail.battle()
+        self.progression_rules.trail_battle_effects(self)
     }
 
     /// Canonical scalar parameters for one selected battle effect reference.
@@ -692,7 +692,8 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         effect_ref: &str,
     ) -> Option<impl ExactSizeIterator<Item = &str>> {
-        self.trail.battle_parameters(effect_ref)
+        self.progression_rules
+            .trail_battle_effect_parameters(self, effect_ref)
     }
 
     /// Canonical digest of selected Trail nodes and exact effect parameters.
@@ -710,12 +711,14 @@ impl SwarmDisasterRuntimeInstance {
         boss: bool,
         previous_first_plane_completed: bool,
     ) -> Result<Option<ActivityProgramDefinition>, UniverseCatalogLoadError> {
-        self.trail.compile_battle_entry_accounting(
-            state,
-            plane_layer,
-            boss,
-            previous_first_plane_completed,
-        )
+        self.progression_rules
+            .compile_trail_battle_entry_accounting(
+                self,
+                state,
+                plane_layer,
+                boss,
+                previous_first_plane_completed,
+            )
     }
 
     /// Returns the current authoritative Countdown.

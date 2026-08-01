@@ -11,7 +11,7 @@ use super::{
     audience_rule_runtime, communing, communing_rule_runtime, content_runtime, countdown,
     dice_control, disarray_rule_runtime, face_effect, map_overlay, occurrence_runtime,
     path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
-    service_adventure_runtime, state, topology_rule_runtime, trail,
+    progression_rule_runtime, service_adventure_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -86,6 +86,12 @@ impl SwarmDisasterRuntimeFactory {
         let pathstrider = Arc::new(pathstrider_progress::PathstriderRuntimeCatalog::compile(
             unique.pathstrider_runtime_input(),
         )?);
+        let progression_rules = Arc::new(
+            progression_rule_runtime::ProgressionRuleRuntimeCatalog::compile([
+                mechanic_rule(&content, "communing-trail-effect")?,
+                mechanic_rule(&content, "pathstrider-progress")?,
+            ])?,
+        );
         let path_runtime = Arc::new(path_runtime::PathRuntimeCatalog::compile(
             unique.path_runtime_input(),
             &pathstrider,
@@ -128,6 +134,7 @@ impl SwarmDisasterRuntimeFactory {
             trail,
             path_runtime,
             pathstrider,
+            progression_rules,
             profile_rule,
             topology_rules,
         })
@@ -157,7 +164,11 @@ impl SwarmDisasterRuntimeFactory {
         audience_state.extend(dice_controls.state_values());
         audience_state.sort_unstable_by_key(|(key, _)| *key);
         let communing = canonical_communing(&self.unique, &entry.communing_points)?;
-        let trail = self.trail.select(&entry.unlocked_progression, &communing)?;
+        let trail = self.progression_rules.select_trail(
+            &self.trail,
+            &entry.unlocked_progression,
+            &communing,
+        )?;
         let progression = canonical_progression(&self.unique, &entry.unlocked_progression)?;
         let bonus = entry
             .trailblaze_bonus
@@ -223,6 +234,7 @@ impl SwarmDisasterRuntimeFactory {
             trail,
             path_runtime,
             pathstrider: Arc::clone(&self.pathstrider),
+            progression_rules: Arc::clone(&self.progression_rules),
             profile_rule: Arc::clone(&self.profile_rule),
             topology_rules: Arc::clone(&self.topology_rules),
         })

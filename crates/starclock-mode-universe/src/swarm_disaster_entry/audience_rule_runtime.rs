@@ -202,7 +202,7 @@ impl AudienceRuleRuntimeCatalog {
         instance.dice_controls.compile_abandon(
             state,
             &faces(instance),
-            instance.trail.abandon_reward(),
+            instance.progression_rules.trail_abandon_reward(instance),
         )
     }
 
