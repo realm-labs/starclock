@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Contract, audit and execution plan |
 | Active batch | None |
-| Next unblocked batch | `G20-P0-B3` |
+| Next unblocked batch | `G20-P0-B4` |
 | Snapshot | Version 4.4 / Goal 09 reference release dated 2026-07-29 |
 | Profile | `swarm-disaster.profile.v1` |
 | Candidate bundle | `385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362` |
@@ -23,7 +23,7 @@
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Contract, audit and execution plan | `InProgress` | P0-B1 freezes prerequisites and the runtime baseline. P0-B2 assigns 6,963 obligations, 23 rules, 23 fixtures and 31 inherited policies exactly once across 12 mechanic partitions with zero gaps/duplicates and zero admitted native handlers. |
+| Phase 0 — Contract, audit and execution plan | `InProgress` | P0-B1 freezes prerequisites/runtime baseline; P0-B2 assigns the exact 6,963/23/23/31 denominator; P0-B3 freezes minimal public/private catalog boundaries, 16 typed slots, generic commands/events, 10 component identities, eight RNG labels, replay migration and seven failure policies. |
 | Phase 1 — Bundle and catalogs | `Pending` | — |
 | Phase 2 — Entry, topology, Countdown and Disarray | `Pending` | — |
 | Phase 3 — Audience Dice and Communing Device | `Pending` | — |
@@ -42,7 +42,7 @@ commands, counts, digests and executable evidence in the completing commit.
 |---|---|---|---|
 | `G20-P0-B1` | `Complete` | This batch commit | `node tools/repository-check/verify-release-snapshots.mjs`, `node tools/reference-integration/verify.mjs`, `node tools/goal20/verify-foundation.mjs` and the quick gate pass. `policy/goal20-foundation.json` freezes 10 prerequisites, all 19 registered snapshot checks, the exact Goal 09 artifacts and 6,963/23/23/31 denominator, five immutable roots, nine runtime crate trees, 51 planned batches and current numeric/RNG/replay/adapter revisions. The first full attempt stopped because this shell exposed no `python`; an isolated temporary Python 3.14.6 environment with pinned `openpyxl==3.1.5` made no repository/global dependency change, then full passed in 154.0s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. No runtime source changed. |
 | `G20-P0-B2` | `Complete` | This batch commit | `node tools/goal20/generate-dispositions.mjs --check` proves exact-once 6,963/23/23/31 assignment. Source targets are 6,282 `Integrated`, 652 `SharedIntegrated`, six `ExternalOutcome` and 23 `Metadata`; 23 rules split into three `ExactStructured` and 20 `VersionedProjectPolicy` assignments across 12 frozen P5 partitions. All 31 policy rows retain `InheritedPolicy`, exact affected-record digests and implementation owners; zero gaps, duplicates or native handlers. Runtime-disposition SHA-256 `c3e7e82a…dc00`; partition SHA-256 `20e5e240…4b10`. The final isolated-Python full gate passed in 116.2s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
-| `G20-P0-B3` | `Pending` | — | Freeze catalog/API/state/identity/RNG/replay/failure contracts. |
+| `G20-P0-B3` | `Complete` | This batch commit | `node tools/goal20/verify-runtime-contract.mjs` freezes four intentional public mode types, four physical/three logical scopes, 16 typed slot families, five existing Activity command kinds, nine transaction event families, 10 ordered components, eight existing RNG labels and seven failure boundaries. Candidate/generated inputs remain private; P0 admits zero native handlers; Standard and Gold replay revisions/bytes remain preserved. The isolated-Python full gate passed in 167.8s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
 | `G20-P0-B4` | `Pending` | — | Freeze coverage matrix, vertical slice, workloads, CI and release scaffold. |
 | `G20-P1-B1` | `Pending` | — | Private 65-table Candidate bundle loading. |
 | `G20-P1-B2` | `Pending` | — | Component/catalog/registry identity composition. |

@@ -1,0 +1,227 @@
+{
+  "schema_revision": "starclock.goal20-runtime-contract.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P0-B3",
+  "catalog_boundary": {
+    "public_domain_types": [
+      "SwarmDisasterRuntimeFactory",
+      "SwarmDisasterRuntimeInstance",
+      "SwarmDisasterEntry",
+      "SwarmDisasterControllerIdentity"
+    ],
+    "public_generic_types_reused": [
+      "GraphActivityCommand",
+      "GraphActivityResolution",
+      "ActivityPlayerView",
+      "ActivityDebugView",
+      "ActivityBattleHandoff",
+      "BattleSpec",
+      "BattleResult",
+      "ConfigurationComponentSet",
+      "ReplayCompatibilityV2"
+    ],
+    "private_inputs": [
+      "config/swarm-disaster-generated/config.sora",
+      "generated Sora table modules",
+      "Goal 09 workbook rows",
+      "Goal 09 normalized JSON",
+      "Goal 09 debug JSON",
+      "handler payload codecs",
+      "rule-lowering intermediate values"
+    ],
+    "factory_load_inputs": [
+      "core combat bundle",
+      "released Standard Universe shared-content bundle",
+      "Goal 09 Swarm Disaster bundle"
+    ],
+    "contracts": {
+      "generated_rows_never_escape_private_lowering": true,
+      "runtime_reads_only_sora_bundles": true,
+      "catalogs_are_immutable_and_arc_shareable": true,
+      "wrong_schema_revision_digest_or_table_closure_fails_before_start": true,
+      "factory_owns_the_only_production_assembly_path": true,
+      "no_public_coverage_or_catalog_identity_alias_until_a_real_consumer_requires_it": true
+    }
+  },
+  "scope_contract": {
+    "physical": [
+      {"authoring":"run","activity_scope":"Activity"},
+      {"authoring":"plane","activity_scope":"Section"},
+      {"authoring":"board interaction node","activity_scope":"Node"},
+      {"authoring":"node visit or retry","activity_scope":"Attempt"}
+    ],
+    "logical_classes": [
+      {"id":"swarm-disaster.plane-board.v1","parent":null,"key":"plane ordinal plus board stable ID","maximum_instances":3},
+      {"id":"swarm-disaster.board-node-visit.v1","parent":"swarm-disaster.plane-board.v1","key":"board node stable ID plus visit sequence","maximum_instances":1991},
+      {"id":"swarm-disaster.node-interaction.v1","parent":"swarm-disaster.board-node-visit.v1","key":"interaction kind plus canonical ordinal","maximum_instances":8192}
+    ],
+    "contracts": {
+      "no_new_activity_scope_enum": true,
+      "logical_scope_identity_enters_state_hash": true,
+      "revisit_creates_a_fresh_instance": true,
+      "battle_and_shorter_scopes_remain_combat_owned": true
+    }
+  },
+  "slot_families": [
+    {"id":"swarm-disaster.entry-selection.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"difficulty, Path and Audience Die selections"},
+    {"id":"swarm-disaster.audience-die.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"selected die, faces, unlock and persistent passive state"},
+    {"id":"swarm-disaster.communing-dimensions.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"seven dimension values, cabinets and choice counters"},
+    {"id":"swarm-disaster.progression.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"Communing Trail, Pathstrider, bonuses, Path unlock and Interplays"},
+    {"id":"swarm-disaster.run-resources.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"currency, reroll, cheat, abandon and service-owned resources"},
+    {"id":"swarm-disaster.content-lifecycle.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"Curio states, charges, Occurrence and service lifecycle"},
+    {"id":"swarm-disaster.deferred-effects.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Debug","purpose":"source-keyed effects awaiting their declared consumer"},
+    {"id":"swarm-disaster.countdown.v1","scope":"Activity","kind":"BoundedInteger","visibility":"Player","purpose":"current Countdown value and transition marker"},
+    {"id":"swarm-disaster.planar-disarray.v1","scope":"Activity","kind":"BoundedCounterMap","visibility":"Player","purpose":"Disarray level, cap and boss-decay contribution state"},
+    {"id":"swarm-disaster.plane-state.v1","scope":"Section","kind":"BoundedCounterMap","visibility":"Player","purpose":"plane ordinal, board, boss choice and plane-local counters"},
+    {"id":"swarm-disaster.board-node-state.v1","scope":"Section","kind":"BoundedCounterMap","visibility":"Player","purpose":"created, replaced, copied, blanked and consumed node states"},
+    {"id":"swarm-disaster.board-node-domain.v1","scope":"Section","kind":"BoundedCounterMap","visibility":"Player","purpose":"effective domain identity per board node"},
+    {"id":"swarm-disaster.board-node-beacon.v1","scope":"Section","kind":"BoundedCounterMap","visibility":"Player","purpose":"effective beacon identity per board node"},
+    {"id":"swarm-disaster.node-visit.v1","scope":"Node","kind":"BoundedCounterMap","visibility":"Debug","purpose":"visit-local clear, route, room and interaction markers"},
+    {"id":"swarm-disaster.dice-resolution.v1","scope":"Attempt","kind":"BoundedCounterMap","visibility":"Player","purpose":"roll, reroll, cheat, abandon, target and ordered face resolution"},
+    {"id":"swarm-disaster.communing-choice.v1","scope":"Attempt","kind":"BoundedCounterMap","visibility":"Player","purpose":"offered choice, selected branch and ordered point adjustments"}
+  ],
+  "immutable_graph_overlay": {
+    "model": "validated-static-superset-plus-typed-state-overlay-v1",
+    "contracts": {
+      "all_possible_nodes_and_edges_are_validated_before_start": true,
+      "created_blank_replaced_or_copied_state_is_stored_in_bounded_slots": true,
+      "legal_route_offers_filter_the_static_superset_through_current_state": true,
+      "map_mutation_never_edits_the_immutable_activity_definition": true,
+      "map_mutation_commits_through_activity_operations": true,
+      "handler_output_cannot_bypass_visit_limits_or_transaction_rollback": true
+    }
+  },
+  "command_contract": {
+    "api_revision": "starclock-activity-api-v2",
+    "generic_kinds": ["ChooseOption","StartBattle","SubmitBattleResult","SubmitExternalOutcome","Abandon"],
+    "mode_action_families": [
+      {"family":"entry and progression selection","generic_kind":"ChooseOption"},
+      {"family":"route and boss choice","generic_kind":"ChooseOption"},
+      {"family":"dice roll, reroll, cheat and abandon reward","generic_kind":"ChooseOption"},
+      {"family":"Communing, Occurrence, reward and service choice","generic_kind":"ChooseOption"},
+      {"family":"battle preparation","generic_kind":"StartBattle"},
+      {"family":"nested battle settlement","generic_kind":"SubmitBattleResult"},
+      {"family":"Adventure result","generic_kind":"SubmitExternalOutcome"},
+      {"family":"run abandonment","generic_kind":"Abandon"}
+    ],
+    "contracts": {
+      "no_swarm_disaster_command_enum": true,
+      "every_player_action_is_currently_offered": true,
+      "every_command_binds_state_hash_and_decision_id": true,
+      "rejection_preserves_state_rng_and_hash_bytes": true
+    }
+  },
+  "event_contract": {
+    "activity_transaction_families": ["SlotChanged","CounterChanged","InventoryChanged","ModifierChanged","ParticipantCarryChanged","EdgeTraversed","DecisionOffered","Terminal","Faulted"],
+    "battle_boundary_families": ["BattleRequested","BattleResultAccepted","BattleTerminalFault"],
+    "contracts": {
+      "no_second_mode_event_log": true,
+      "every_authoritative_mutation_emits_a_generic_event": true,
+      "mode_source_identity_is_retained_in_cause_or_typed_source_state": true,
+      "ordered_events_enter_replay_and_hash_evidence": true
+    }
+  },
+  "registry_contract": {
+    "activity": {
+      "registry_revision": "activity-handler-registry-v1",
+      "bundles": [
+        {"id":"starclock.activity.core","revision":"activity-handler-registry-v1","dependencies":[]},
+        {"id":"starclock.mode.swarm-disaster","revision":"swarm-disaster-activity-handlers-v1","dependencies":["starclock.activity.core"]}
+      ],
+      "p0_admitted_handlers": 0
+    },
+    "combat": {"component_id":"swarm-disaster-combat-rules","revision":"swarm-disaster-rule-registry-v1","p0_admitted_handlers":0},
+    "contracts": {
+      "registries_are_static_immutable_and_canonically_composed": true,
+      "duplicate_ids_revisions_or_dependencies_fail_catalog_construction": true,
+      "shared_executor_code_does_not_import_a_standard_profile_registry": true,
+      "handlers_return_only_checked_generic_operations": true,
+      "filesystem_discovery_dynamic_libraries_and_global_mutation_are_forbidden": true
+    }
+  },
+  "component_contract": {
+    "component_set_revision": 1,
+    "ordered_components": [
+      {"kind":"CombatCatalog","id":"combat-catalog","revision_source":"materialized catalog"},
+      {"kind":"BuildCatalog","id":"build-catalog","revision_source":"resolved build catalog"},
+      {"kind":"ActivityCore","id":"swarm-disaster-activity","revision_source":"activity state codec/hash"},
+      {"kind":"ModeProfile","id":"swarm-disaster-profile","revision_source":"swarm-disaster-profile-v1"},
+      {"kind":"ModeContent","id":"swarm-disaster-content","revision_source":"swarm-disaster-content-v1"},
+      {"kind":"ModeContent","id":"universe-shared-content","revision_source":"universe-shared-content-v1"},
+      {"kind":"ActivityHandlerRegistry","id":"swarm-disaster-activity-handlers","revision_source":"composed registry"},
+      {"kind":"CombatRuleRegistry","id":"swarm-disaster-combat-rules","revision_source":"composed registry"},
+      {"kind":"EncounterOverlay","id":"swarm-disaster-encounter-overlay","revision_source":"swarm-disaster-encounter-overlay-v1"},
+      {"kind":"Controller","id":"selected by caller","revision_source":"selected controller"}
+    ],
+    "contracts": {
+      "only_consumed_components_enter_the_root": true,
+      "swarm_content_and_shared_content_have_separate_digests": true,
+      "unrelated_modes_never_enter_the_component_set": true,
+      "standard_and_gold_component_bytes_are_unchanged": true,
+      "component_mismatch_is_checked_before_command_execution": true
+    }
+  },
+  "rng_contract": {
+    "activity_rng_revision": "starclock-activity-rng-v2",
+    "algorithm_revision": "chacha8-rand-0.10.2-intmap-v1",
+    "labels": [
+      {"label":"Graph","purpose":"board, room, domain and beacon construction"},
+      {"label":"Encounter","purpose":"encounter group and member selection"},
+      {"label":"Reward","purpose":"Blessing, Curio and progression rewards"},
+      {"label":"Shop","purpose":"shop offers, rerolls and purchases"},
+      {"label":"Occurrence","purpose":"Occurrence and named policy outcomes"},
+      {"label":"Spawn","purpose":"Audience Die roll and face targeting"},
+      {"label":"ExternalOutcomeTest","purpose":"bounded external-outcome conformance only"},
+      {"label":"Battle","purpose":"per-battle seed derivation only"}
+    ],
+    "contracts": {
+      "all_candidates_are_stably_ordered": true,
+      "purpose_ids_are_nonzero_and_frozen_by_mechanic": true,
+      "empty_candidate_sets_consume_no_draw": true,
+      "rejected_transactions_restore_all_draw_counters": true,
+      "dice_resolution_uses_only_spawn": true,
+      "battle_rng_is_derived_and_never_drawn_as_activity_choice": true,
+      "system_thread_and_float_randomness_are_forbidden": true
+    }
+  },
+  "replay_contract": {
+    "envelope": "ReplayV2",
+    "mode_revision": "swarm-disaster-real-battle-replay-v1",
+    "event_payload_revision": 5,
+    "activity_api_revision": "starclock-activity-api-v2",
+    "agent_schema_revision": "agent-api-v1",
+    "mcp_protocol_revision": "2025-11-25",
+    "cli_schema_revision": "starclock-cli-swarm-disaster-v1",
+    "migration": {
+      "standard_universe_revision":"standard-universe-real-battle-replay-v1",
+      "gold_and_gears_revision":"gold-and-gears-real-battle-replay-v1",
+      "prior_replay_bytes_rewritten":false,
+      "legacy_verifiers_retained":true,
+      "swarm_replay_uses_a_distinct_entry_and_component_set":true
+    },
+    "first_divergence_order": ["Component","Catalog","Assembly","ActivityCommand","BattleCommand","Event","BattleState","BattleResult","ActivityState"],
+    "contracts": {
+      "recorded_battle_results_are_reexecuted_not_trusted": true,
+      "complete_event_payloads_and_state_hashes_are_compared": true,
+      "unknown_revisions_and_records_fail_closed": true,
+      "agent_cli_and_mcp_use_one_encoder_and_verifier": true,
+      "live_session_state_is_inert_during_replay_verification": true
+    }
+  },
+  "failure_contract": [
+    {"boundary":"catalog load or lowering","policy":"typed construction error; no runtime instance"},
+    {"boundary":"invalid or stale offered command","policy":"typed rejection; state, RNG and hash byte-identical"},
+    {"boundary":"empty random candidate set","policy":"omit unavailable option or typed fail-closed fault; zero draws"},
+    {"boundary":"checked arithmetic, scope, budget or handler failure","policy":"versioned deterministic Activity fault through the ordinary transaction boundary"},
+    {"boundary":"nested executor infrastructure failure","policy":"restore pre-start Activity hash, append no report, permit deterministic retry"},
+    {"boundary":"combat-owned terminal fault","policy":"sealed Faulted BattleResult through the declared projection"},
+    {"boundary":"replay identity or payload mismatch","policy":"report first divergence without mutating a live session"}
+  ],
+  "contracts": {
+    "public_catalog_and_interface_surface_is_minimal": true,
+    "private_generated_boundary_is_fail_closed": true,
+    "scope_slot_command_event_and_failure_families_are_closed": true,
+    "registry_and_component_identity_is_mode_composable": true,
+    "rng_and_replay_migrations_preserve_prior_compatibility": true
+  }
+}

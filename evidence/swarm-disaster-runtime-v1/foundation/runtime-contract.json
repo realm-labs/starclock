@@ -1,0 +1,32 @@
+{
+  "schema_revision": "starclock.swarm-disaster-runtime-contract-evidence.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P0-B3",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "public_mode_types": 4,
+  "physical_scopes": 4,
+  "logical_scope_classes": 3,
+  "slot_families": 16,
+  "generic_command_kinds": 5,
+  "activity_transaction_event_families": 9,
+  "component_identities": 10,
+  "activity_rng_labels": 8,
+  "failure_policies": 7,
+  "native_handlers_admitted": 0,
+  "activity_api_revision": "starclock-activity-api-v2",
+  "activity_rng_revision": "starclock-activity-rng-v2",
+  "activity_state_hash_revision": "sha256-v5",
+  "component_set_revision": 1,
+  "swarm_replay_revision": "swarm-disaster-real-battle-replay-v1",
+  "standard_replay_revision_preserved": "standard-universe-real-battle-replay-v1",
+  "gold_replay_revision_preserved": "gold-and-gears-real-battle-replay-v1",
+  "command": "node tools/goal20/verify-runtime-contract.mjs",
+  "repository_full_gate": {
+    "result": "Pass",
+    "seconds": "167.8",
+    "generated_checks": 33,
+    "source_cache_checks_skipped": 4,
+    "workspace_test_harnesses": 34
+  }
+}
