@@ -18,6 +18,7 @@ mod service_adventure_runtime;
 mod simultaneous;
 mod state;
 mod topology;
+mod topology_rule_runtime;
 mod trail;
 mod validate;
 
@@ -154,6 +155,7 @@ pub struct SwarmDisasterRuntimeFactory {
     path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
     profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
+    topology_rules: Arc<topology_rule_runtime::TopologyRuleRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -182,6 +184,7 @@ pub struct SwarmDisasterRuntimeInstance {
     path_runtime: path_runtime::CompiledPathRuntime,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
     profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
+    topology_rules: Arc<topology_rule_runtime::TopologyRuleRuntimeCatalog>,
 }
 
 #[cfg(test)]

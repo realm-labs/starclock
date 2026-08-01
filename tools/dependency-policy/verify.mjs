@@ -110,6 +110,7 @@ assert(JSON.stringify(universeJsonUsers) === JSON.stringify([
   "crates/starclock-mode-universe/src/swarm_disaster_entry/pathstrider_progress.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/profile_rule_runtime.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/service_adventure_runtime.rs",
+  "crates/starclock-mode-universe/src/swarm_disaster_entry/topology_rule_runtime.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/trail.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_structural/lower.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_unique/lower.rs",

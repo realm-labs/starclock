@@ -1,0 +1,131 @@
+{
+  "schema_revision": "starclock.swarm-disaster-topology-rule-execution.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P5-M02",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "partition": {
+    "executor": "SwarmTopologyRuleExecutor",
+    "expected_rules": 4,
+    "executed_rules": 4,
+    "exact_structured_rules": 1,
+    "project_policy_rules": 3,
+    "families": [
+      "beacon-copy-and-blanking",
+      "domain-replacement",
+      "topology-event-order",
+      "topology-generation"
+    ]
+  },
+  "runtime_binding": {
+    "revision": "swarm-disaster-topology-rule-runtime-v1",
+    "domain": "Activity",
+    "source_disposition": "ReferenceOnly",
+    "runtime_disposition": "ProductionTopologyAndActivityPrograms",
+    "rules": [
+      {
+        "id": "swarm-disaster.mechanic-rule.beacon-copy-and-blanking",
+        "trigger": "DiceFaceAccepted",
+        "ordered_operations": 4,
+        "accuracy": "VersionedProjectPolicy"
+      },
+      {
+        "id": "swarm-disaster.mechanic-rule.domain-replacement",
+        "trigger": "DiceFaceAccepted",
+        "ordered_operations": 3,
+        "accuracy": "VersionedProjectPolicy"
+      },
+      {
+        "id": "swarm-disaster.mechanic-rule.topology-event-order",
+        "trigger": "TopologyEventMatched",
+        "ordered_operations": 3,
+        "accuracy": "ExactStructured"
+      },
+      {
+        "id": "swarm-disaster.mechanic-rule.topology-generation",
+        "trigger": "PlaneGraphRequested",
+        "ordered_operations": 4,
+        "accuracy": "VersionedProjectPolicy"
+      }
+    ],
+    "unresolved_behavior": "ExactPerSourceRule",
+    "activity_state_machine": "ExistingGenericActivityTransactionState",
+    "graph_compiler": "ExistingBoundedActivityGraphCompiler",
+    "map_program_compiler": "ExistingMapRuntimeCatalog"
+  },
+  "production_execution": {
+    "formal_planes": 3,
+    "compiled_nodes": 48,
+    "compiled_edges": 61,
+    "maximum_total_visits": 48,
+    "creation_operation_counts": [33, 84, 24],
+    "event_descriptor_precedes_creation": true,
+    "event_candidate_order": "AuthoredStableOrder",
+    "empty_event_candidates": "TypedRejectZeroDraw",
+    "random_stream": "Graph",
+    "domain_replacement": "TypedNodeOverlayProgram",
+    "copy_preserves_target_beacon": true,
+    "blanking_preserves_target_beacon": true,
+    "blanking_filters_legal_routes": true,
+    "invalid_graph_node": "RejectBeforeMutation",
+    "runtime_json_file_reads": 0
+  },
+  "compatibility": {
+    "runtime_digest": "1c0355415697a57d2273f99158beb66d5f47b98827744fffd4e1bea3ba8ffde8",
+    "graph_policy_revision": "swarm-disaster-topology-policy-v1",
+    "replay_release_state": "PreReleaseGoal20"
+  },
+  "deferred_fixtures": {
+    "fixture_ids": [
+      "swarm-disaster.fixture.beacon-copy-and-blanking",
+      "swarm-disaster.fixture.domain-replacement",
+      "swarm-disaster.fixture.topology-event-order",
+      "swarm-disaster.fixture.topology-generation"
+    ],
+    "ordered_operation_count": 14,
+    "expected_fact_count": 18,
+    "source_record_count": 15,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "production_binding_state": "PreTerminalProductionParity"
+  },
+  "validation": {
+    "second_activity_state_machine_added": false,
+    "second_graph_compiler_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 1,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 908,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/topology_rule_runtime.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "topology_rule_unit_passed": 3,
+    "entry_lifecycle_unit_passed": 84,
+    "swarm_unit_passed": 95,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "3.1",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "251.9",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "184.4"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib topology_rule_runtime --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase5-m02.mjs",
+    "node tools/repository-check/run.mjs",
+    "PATH=<temporary-python-3.14.6-venv>/bin:$PATH STARCLOCK_PYTHON=<temporary-python-3.14.6-venv>/bin/python node tools/repository-check/run.mjs --full"
+  ]
+}

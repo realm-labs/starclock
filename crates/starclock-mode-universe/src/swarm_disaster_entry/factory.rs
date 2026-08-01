@@ -10,7 +10,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     communing, content_runtime, countdown, dice_control, face_effect, map_overlay,
     occurrence_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
-    service_adventure_runtime, state, topology, trail,
+    service_adventure_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -30,6 +30,14 @@ impl SwarmDisasterRuntimeFactory {
         let map = Arc::new(map_overlay::MapRuntimeCatalog::compile(
             structural.map_structural_input(),
             content.map_runtime_input()?,
+        )?);
+        let topology_rules = Arc::new(topology_rule_runtime::TopologyRuleRuntimeCatalog::compile(
+            [
+                mechanic_rule(&content, "beacon-copy-and-blanking")?,
+                mechanic_rule(&content, "domain-replacement")?,
+                mechanic_rule(&content, "topology-event-order")?,
+                mechanic_rule(&content, "topology-generation")?,
+            ],
         )?);
         let countdown = Arc::new(countdown::CountdownRuntimeCatalog::compile(
             unique
@@ -97,6 +105,7 @@ impl SwarmDisasterRuntimeFactory {
             path_runtime,
             pathstrider,
             profile_rule,
+            topology_rules,
         })
     }
 
@@ -145,7 +154,7 @@ impl SwarmDisasterRuntimeFactory {
             .content
             .initial_currency()
             .ok_or_else(|| error("invalid initial currency"))?;
-        let topology = topology::compile(
+        let topology = self.topology_rules.compile_topology(
             self.structural
                 .topology_input(area.id)
                 .ok_or_else(|| reference("Swarm topology input is incomplete"))?,
@@ -185,6 +194,19 @@ impl SwarmDisasterRuntimeFactory {
             path_runtime,
             pathstrider: Arc::clone(&self.pathstrider),
             profile_rule: Arc::clone(&self.profile_rule),
+            topology_rules: Arc::clone(&self.topology_rules),
         })
     }
+}
+
+fn mechanic_rule(
+    content: &SwarmDisasterContentCatalog,
+    family: &str,
+) -> Result<
+    crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput,
+    UniverseCatalogLoadError,
+> {
+    content
+        .mechanic_rule_runtime_input(family)
+        .ok_or_else(|| error("Swarm topology mechanic rule is missing"))
 }

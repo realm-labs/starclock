@@ -481,11 +481,14 @@ impl SwarmDisasterRuntimeInstance {
             .filter(|node| node.section().get() == section && node.kind().terminal().is_none())
             .map(|node| node.id())
             .collect::<Vec<_>>();
-        self.map.compile_creation(
-            &plane.board_key,
-            &nodes,
-            plane.end,
-            super::map_overlay::terminal_domain(plane_ordinal)?,
+        self.topology_rules.compile_creation(
+            &self.map,
+            super::topology_rule_runtime::PlaneMapContext {
+                board: &plane.board_key,
+                nodes: &nodes,
+                terminal: plane.end,
+                terminal_domain: super::map_overlay::terminal_domain(plane_ordinal)?,
+            },
             rng,
         )
     }
@@ -514,13 +517,16 @@ impl SwarmDisasterRuntimeInstance {
             .filter(|node| node.section().get() == section && node.kind().terminal().is_none())
             .map(|node| node.id())
             .collect::<Vec<_>>();
-        self.map.compile_event_then_creation(
-            &plane.board_key,
+        self.topology_rules.compile_event_then_creation(
+            &self.map,
+            super::topology_rule_runtime::PlaneMapContext {
+                board: &plane.board_key,
+                nodes: &nodes,
+                terminal: plane.end,
+                terminal_domain: super::map_overlay::terminal_domain(plane_ordinal)?,
+            },
             trigger,
             parameter,
-            &nodes,
-            plane.end,
-            super::map_overlay::terminal_domain(plane_ordinal)?,
             rng,
         )
     }
@@ -535,7 +541,8 @@ impl SwarmDisasterRuntimeInstance {
         beacon: Option<&str>,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
         self.require_graph_node(target)?;
-        self.map.compile_replacement(target, domain, beacon)
+        self.topology_rules
+            .compile_replacement(&self.map, target, domain, beacon)
     }
 
     /// Compiles a source-domain copy while preserving the target beacon.
@@ -546,7 +553,7 @@ impl SwarmDisasterRuntimeInstance {
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
         self.require_graph_node(source)?;
         self.require_graph_node(target)?;
-        self.map.compile_copy(source, target)
+        self.topology_rules.compile_copy(&self.map, source, target)
     }
 
     /// Compiles target blanking without changing the immutable graph.
@@ -558,7 +565,7 @@ impl SwarmDisasterRuntimeInstance {
         target: NodeId,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
         self.require_graph_node(target)?;
-        self.map.compile_blank(target)
+        self.topology_rules.compile_blank(&self.map, target)
     }
 
     /// Returns outgoing edges whose target node is not blanked in `state`.
