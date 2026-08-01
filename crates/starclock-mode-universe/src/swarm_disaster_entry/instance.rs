@@ -57,6 +57,86 @@ impl SwarmDisasterRuntimeInstance {
         self.planes.iter().map(|plane| plane.end)
     }
 
+    /// Returns the selected Path's authored Audience ordering position.
+    #[must_use]
+    pub fn audience_path_sort(&self) -> u16 {
+        self.audience.path_sort()
+    }
+
+    /// Returns the authored unlock ID, or `None` for the always-available Path.
+    #[must_use]
+    pub fn audience_path_unlock_id(&self) -> Option<&str> {
+        self.audience.unlock_id()
+    }
+
+    /// Whether selecting this Audience Path requires its authored unlock ID.
+    #[must_use]
+    pub fn audience_path_requires_unlock(&self) -> bool {
+        self.audience.requires_unlock()
+    }
+
+    /// Returns selected Die faces in authored Sort then stable-ID order.
+    #[must_use]
+    pub fn audience_die_faces(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.audience.faces()
+    }
+
+    /// Returns the selected Path's run-start effect operation.
+    #[must_use]
+    pub fn audience_initial_rule(&self) -> &str {
+        self.audience.initial_rule()
+    }
+
+    /// Returns primary run-start parameters in authored slot order.
+    #[must_use]
+    pub fn audience_initial_parameters(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.audience.initial_parameters()
+    }
+
+    /// Returns secondary run-start parameters in authored slot order.
+    #[must_use]
+    pub fn audience_initial_secondary_parameters(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.audience.initial_secondary_parameters()
+    }
+
+    /// Returns the persistent selected-Path graph-rule operation.
+    #[must_use]
+    pub fn audience_passive_rule(&self) -> &str {
+        self.audience.passive_rule()
+    }
+
+    /// Returns primary persistent graph-rule parameters in authored order.
+    #[must_use]
+    pub fn audience_passive_parameters(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.audience.passive_parameters()
+    }
+
+    /// Returns secondary persistent graph-rule parameters in authored order.
+    #[must_use]
+    pub fn audience_passive_secondary_parameters(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.audience.passive_secondary_parameters()
+    }
+
+    /// Compiles one-time run-start Maze Buff and persistent passive activation.
+    ///
+    /// This program consumes no RNG and records the selected typed graph rules
+    /// in existing Activity-owned slots. Later rule execution remains owned by
+    /// the frozen mechanic partition rather than by a second state machine.
+    pub fn compile_audience_initialization(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.audience.compile_initialization(state)
+    }
+
+    /// Whether the one-time Audience initialization has committed exactly once.
+    pub fn audience_initialization_applied(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        self.audience.initialization_applied(state)
+    }
+
     /// Compiles one plane's canonical node-domain and beacon initialization.
     ///
     /// The caller owns `rng`; successful compilation consumes only labeled

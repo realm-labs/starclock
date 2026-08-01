@@ -9,7 +9,7 @@ use starclock_activity::{
 
 use crate::error::UniverseCatalogLoadErrorKind;
 
-use super::{SwarmDisasterEntry, SwarmDisasterRuntimeFactory};
+use super::SwarmDisasterRuntimeFactory;
 
 #[test]
 fn creation_executes_bounded_domain_beacon_overlays_on_graph_stream() {
@@ -182,7 +182,7 @@ fn factory() -> SwarmDisasterRuntimeFactory {
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> super::SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(SwarmDisasterEntry::new(
+        .compile_entry(super::tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",

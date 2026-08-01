@@ -12,7 +12,7 @@ use crate::{
 };
 
 use super::{
-    SWARM_DISASTER_PLANE_COMPLETION_REVISION, SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
+    SWARM_DISASTER_PLANE_COMPLETION_REVISION, SwarmDisasterRuntimeFactory,
     SwarmDisasterRuntimeInstance,
 };
 
@@ -124,7 +124,7 @@ fn first_plane_completion_resets_section_and_carries_countdown_disarray() {
     )));
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "e2275ed8d02b8536077105aaa909be468fcef928aac373cc335613cc3d14a30f"
+        "a1bcf8bea2889ae5d33062a27eebc64594adcf908039f004a0e22c05cf41de8c"
     );
 }
 
@@ -310,7 +310,7 @@ fn factory() -> SwarmDisasterRuntimeFactory {
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(SwarmDisasterEntry::new(
+        .compile_entry(super::tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",

@@ -55,20 +55,34 @@ pub(super) struct BossDecayDefinition {
 pub(super) struct AudiencePathDefinition {
     pub(super) id: AudiencePathId,
     pub(super) key: Box<str>,
+    pub(super) source_id: Box<str>,
     pub(super) audience_die: AudienceDieId,
     pub(super) shared_path: Box<str>,
     pub(super) sort: u16,
+    pub(super) unlock_id: Option<Box<str>>,
+    pub(super) unlock_policy: Box<str>,
     pub(super) initial_program: Box<str>,
     pub(super) passive_program: Box<str>,
+    pub(super) description_parameters: Box<[Box<str>]>,
+    pub(super) rogue_buff_type: Box<str>,
+    pub(super) battle_event_buff_group: Box<str>,
+    pub(super) battle_event_enhance_buff_group: Box<str>,
+    pub(super) extra_effect_refs: Box<[Box<str>]>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(super) struct AudienceDieDefinition {
     pub(super) id: AudienceDieId,
     pub(super) key: Box<str>,
+    pub(super) source_id: Box<str>,
     pub(super) audience_path: AudiencePathId,
     pub(super) shared_path: Box<str>,
     pub(super) face_keys: Box<[Box<str>]>,
+    pub(super) roll_policy: Box<str>,
+    pub(super) unlock_id: Option<Box<str>>,
+    pub(super) initial_effect_parameters: Box<[Box<str>]>,
+    pub(super) passive_description_parameters: Box<[Box<str>]>,
+    pub(super) extra_effect_refs: Box<[Box<str>]>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

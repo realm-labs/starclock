@@ -3,7 +3,7 @@ use starclock_activity::{
     ActivityTransactionState, ActivityValue, SlotCarryPolicy,
 };
 
-use super::{SwarmDisasterEntry, SwarmDisasterRuntimeFactory, state};
+use super::{SwarmDisasterRuntimeFactory, state};
 
 #[test]
 fn catalog_denominators_and_activity_carry_are_exact() {
@@ -164,7 +164,7 @@ fn factory() -> SwarmDisasterRuntimeFactory {
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> super::SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(SwarmDisasterEntry::new(
+        .compile_entry(super::tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",

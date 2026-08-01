@@ -150,17 +150,39 @@ fn component_roots_are_mode_scoped_and_controller_sensitive() {
 fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let instance = factory
-        .compile_entry(SwarmDisasterEntry::new(
-            "swarm-disaster.area.205",
-            "universe.path.propagation",
-            "swarm-disaster.audience-die.8",
-            participants(),
-        ))
+        .compile_entry(
+            SwarmDisasterEntry::new(
+                "swarm-disaster.area.205",
+                "universe.path.propagation",
+                "swarm-disaster.audience-die.8",
+                participants(),
+            )
+            .with_audience_unlocks(audience_unlocks()),
+        )
         .unwrap();
     assert_eq!(instance.difficulty(), 5);
     assert_eq!(instance.state_definition().slots().len(), 16);
     assert_eq!(instance.graph_definition().nodes().len(), 48);
     assert_eq!(instance.graph_definition().edges().len(), 61);
+    assert_eq!(instance.audience_path_sort(), 8);
+    assert_eq!(instance.audience_path_unlock_id(), Some("1000008"));
+    assert!(instance.audience_path_requires_unlock());
+    assert_eq!(instance.audience_initial_rule(), "AddMazeBuff");
+    assert_eq!(
+        instance.audience_initial_parameters().collect::<Vec<_>>(),
+        ["641270"]
+    );
+    assert_eq!(instance.audience_passive_rule(), "RandomGenSwarm");
+    assert_eq!(
+        instance.audience_die_faces().collect::<Vec<_>>(),
+        [
+            "swarm-disaster.dice-face.805",
+            "swarm-disaster.dice-face.801",
+            "swarm-disaster.dice-face.802",
+            "swarm-disaster.dice-face.803",
+            "swarm-disaster.dice-face.804",
+        ]
+    );
     assert_eq!(
         instance.chessboards().collect::<Vec<_>>(),
         [
@@ -193,6 +215,19 @@ fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
     decay
         .validate_against(instance.state_definition(), instance.graph_definition())
         .unwrap();
+    let mut audience_state = ActivityTransactionState::new(
+        instance.state_definition().clone(),
+        instance.graph_definition().entry(),
+    );
+    let audience = instance
+        .compile_audience_initialization(&audience_state)
+        .unwrap();
+    apply(&instance, &mut audience_state, &audience);
+    assert!(
+        instance
+            .audience_initialization_applied(&audience_state)
+            .unwrap()
+    );
 
     assert_eq!(
         instance.boss_choices().collect::<Vec<_>>(),
@@ -288,4 +323,13 @@ fn participants() -> ParticipantLock {
         })
         .collect();
     ParticipantLock::seal(policy, entries).unwrap()
+}
+
+fn audience_unlocks() -> Vec<String> {
+    [
+        "1000008", "1000013", "1000014", "1000015", "1000016", "1000017", "1000018",
+    ]
+    .into_iter()
+    .map(str::to_owned)
+    .collect()
 }

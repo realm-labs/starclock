@@ -10,11 +10,11 @@ use crate::{
 };
 
 const ENTRY: u32 = 0x5344_0001;
-const AUDIENCE_DIE: u32 = 0x5344_0002;
+pub(super) const AUDIENCE_DIE: u32 = 0x5344_0002;
 const COMMUNING: u32 = 0x5344_0003;
 const PROGRESSION: u32 = 0x5344_0004;
 const RESOURCES: u32 = 0x5344_0005;
-const CONTENT: u32 = 0x5344_0006;
+pub(super) const CONTENT: u32 = 0x5344_0006;
 const DEFERRED: u32 = 0x5344_0007;
 pub(super) const COUNTDOWN: u32 = 0x5344_0008;
 pub(super) const DISARRAY: u32 = 0x5344_0009;
@@ -26,15 +26,30 @@ const NODE_VISIT: u32 = 0x5344_000E;
 const DICE_RESOLUTION: u32 = 0x5344_000F;
 const COMMUNING_CHOICE: u32 = 0x5344_0010;
 
+pub(super) struct SwarmStateCompileInput<'a> {
+    pub(super) area: SwarmDisasterEntryArea,
+    pub(super) selection: SwarmDisasterEntrySelection,
+    pub(super) communing: &'a [(u32, u16)],
+    pub(super) progression: &'a [u64],
+    pub(super) bonus: Option<u32>,
+    pub(super) countdown: i64,
+    pub(super) currency: i64,
+    pub(super) audience_state: &'a [(u64, i64)],
+}
+
 pub(super) fn compile(
-    area: SwarmDisasterEntryArea,
-    selection: SwarmDisasterEntrySelection,
-    communing: &[(u32, u16)],
-    progression: &[u64],
-    bonus: Option<u32>,
-    countdown: i64,
-    currency: i64,
+    input: SwarmStateCompileInput<'_>,
 ) -> Result<ActivityStateDefinition, UniverseCatalogLoadError> {
+    let SwarmStateCompileInput {
+        area,
+        selection,
+        communing,
+        progression,
+        bonus,
+        countdown,
+        currency,
+        audience_state,
+    } = input;
     let entry = vec![
         (1, i64::from(area.id)),
         (2, i64::from(area.difficulty)),
@@ -63,7 +78,7 @@ pub(super) fn compile(
         map(
             AUDIENCE_DIE,
             ActivityScope::Activity,
-            vec![(1, i64::from(selection.audience_die_id))],
+            audience_state.to_vec(),
             64,
             0,
             i64::from(u32::MAX),

@@ -246,15 +246,28 @@ fn lower_audience_path(
     row: &SwarmDisasterAudiencePath,
 ) -> Result<AudiencePathDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    json(&row.unlock_policy_json, &row.stable_key)?;
     Ok(AudiencePathDefinition {
         id: AudiencePathId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
+        source_id: nonempty(&row.source_id, &row.stable_key)?,
         audience_die: AudienceDieId(positive(row.audience_die_id, &row.stable_key)?),
         shared_path: stable(&row.path_id)?,
         sort: positive_u16(row.sort, &row.stable_key)?,
+        unlock_id: optional_stable(row.unlock_id.as_deref(), &row.stable_key)?,
+        unlock_policy: json(&row.unlock_policy_json, &row.stable_key)?,
         initial_program: json(&row.initial_effects_json, &row.stable_key)?,
         passive_program: json(&row.passive_effects_json, &row.stable_key)?,
+        description_parameters: scalar_list(
+            row.description_parameters.as_deref(),
+            &row.stable_key,
+        )?,
+        rogue_buff_type: nonempty(&row.rogue_buff_type, &row.stable_key)?,
+        battle_event_buff_group: nonempty(&row.battle_event_buff_group, &row.stable_key)?,
+        battle_event_enhance_buff_group: nonempty(
+            &row.battle_event_enhance_buff_group,
+            &row.stable_key,
+        )?,
+        extra_effect_refs: optional_text_list(row.extra_effect_refs.as_deref(), &row.stable_key)?,
     })
 }
 
@@ -262,13 +275,24 @@ fn lower_audience_die(
     row: &SwarmDisasterAudienceDie,
 ) -> Result<AudienceDieDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    json(&row.roll_policy_json, &row.stable_key)?;
     Ok(AudienceDieDefinition {
         id: AudienceDieId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
+        source_id: nonempty(&row.source_id, &row.stable_key)?,
         audience_path: AudiencePathId(positive(row.audience_path_id, &row.stable_key)?),
         shared_path: stable(&row.path_id)?,
         face_keys: text_list(&row.face_ids, &row.stable_key)?,
+        roll_policy: json(&row.roll_policy_json, &row.stable_key)?,
+        unlock_id: optional_stable(row.unlock_id.as_deref(), &row.stable_key)?,
+        initial_effect_parameters: scalar_list(
+            row.initial_effect_parameters.as_deref(),
+            &row.stable_key,
+        )?,
+        passive_description_parameters: scalar_list(
+            row.passive_description_parameters.as_deref(),
+            &row.stable_key,
+        )?,
+        extra_effect_refs: optional_text_list(row.extra_effect_refs.as_deref(), &row.stable_key)?,
     })
 }
 
@@ -665,6 +689,33 @@ fn optional_text_list(
         || Ok(Vec::<Box<str>>::new().into_boxed_slice()),
         |values| text_list(values, key),
     )
+}
+
+fn scalar_list(
+    values: Option<&[String]>,
+    key: &str,
+) -> Result<Box<[Box<str>]>, SwarmDisasterUniqueError> {
+    values.map_or_else(
+        || Ok(Vec::<Box<str>>::new().into_boxed_slice()),
+        |values| {
+            values
+                .iter()
+                .map(|value| scalar(value, key))
+                .collect::<Result<Vec<_>, _>>()
+                .map(Vec::into_boxed_slice)
+        },
+    )
+}
+
+fn optional_stable(
+    value: Option<&str>,
+    key: &str,
+) -> Result<Option<Box<str>>, SwarmDisasterUniqueError> {
+    value
+        .map(|value| {
+            stable(value).map_err(|_| error(SwarmDisasterUniqueErrorKind::Identifier, key))
+        })
+        .transpose()
 }
 
 fn positive(value: i32, key: &str) -> Result<u32, SwarmDisasterUniqueError> {

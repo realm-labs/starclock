@@ -7,8 +7,8 @@ use crate::{
 };
 
 use super::{
-    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, countdown,
-    map_overlay, plane_transition, state, topology,
+    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
+    countdown, map_overlay, plane_transition, state, topology,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -37,6 +37,9 @@ impl SwarmDisasterRuntimeFactory {
         let transitions = Arc::new(plane_transition::PlaneTransitionRuntimeCatalog::compile(
             structural.boss_choice_runtime_input(),
         )?);
+        let audience = Arc::new(audience::AudienceRuntimeCatalog::compile(
+            unique.audience_runtime_input(),
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -44,6 +47,7 @@ impl SwarmDisasterRuntimeFactory {
             map,
             countdown,
             transitions,
+            audience,
         })
     }
 
@@ -60,6 +64,10 @@ impl SwarmDisasterRuntimeFactory {
             .unique
             .entry_selection(&entry.path, &entry.audience_die)
             .ok_or_else(|| reference("Path and Audience Die are not a released pair"))?;
+        let audience =
+            self.audience
+                .select(&entry.path, &entry.audience_die, &entry.audience_unlocks)?;
+        let audience_state = audience.state_values()?;
         let communing = canonical_communing(&self.unique, &entry.communing_points)?;
         let progression = canonical_progression(&self.unique, &entry.unlocked_progression)?;
         let bonus = entry
@@ -84,15 +92,16 @@ impl SwarmDisasterRuntimeFactory {
                 .topology_input(area.id)
                 .ok_or_else(|| reference("Swarm topology input is incomplete"))?,
         )?;
-        let state = state::compile(
+        let state = state::compile(state::SwarmStateCompileInput {
             area,
             selection,
-            &communing,
-            &progression,
+            communing: &communing,
+            progression: &progression,
             bonus,
             countdown,
             currency,
-        )?
+            audience_state: &audience_state,
+        })?
         .with_logical_scopes(topology.scopes);
         Ok(SwarmDisasterRuntimeInstance {
             area: entry.area,
@@ -107,6 +116,7 @@ impl SwarmDisasterRuntimeFactory {
             map: Arc::clone(&self.map),
             countdown: Arc::clone(&self.countdown),
             transitions: Arc::clone(&self.transitions),
+            audience,
         })
     }
 }

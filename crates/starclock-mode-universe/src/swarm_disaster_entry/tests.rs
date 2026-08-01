@@ -12,10 +12,29 @@ use super::*;
 pub(super) const BUNDLE: &[u8] =
     include_bytes!("../../../../config/swarm-disaster-generated/config.sora");
 
+pub(super) fn released_entry(
+    area: impl Into<Box<str>>,
+    path: impl Into<Box<str>>,
+    audience_die: impl Into<Box<str>>,
+    participants: ParticipantLock,
+) -> SwarmDisasterEntry {
+    SwarmDisasterEntry::new(area, path, audience_die, participants)
+        .with_audience_unlocks(audience_unlocks())
+}
+
+pub(super) fn audience_unlocks() -> Vec<String> {
+    [
+        "1000008", "1000013", "1000014", "1000015", "1000016", "1000017", "1000018",
+    ]
+    .into_iter()
+    .map(str::to_owned)
+    .collect()
+}
+
 #[test]
 fn compiles_entry_into_exact_sixteen_slot_activity_profile() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let entry = SwarmDisasterEntry::new(
+    let entry = released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
@@ -66,7 +85,7 @@ fn compiles_all_five_difficulties_and_eight_path_die_pairs() {
     for difficulty in 1_u8..=5 {
         for (path, die) in pairs {
             let instance = factory
-                .compile_entry(SwarmDisasterEntry::new(
+                .compile_entry(released_entry(
                     format!("swarm-disaster.area.20{difficulty}"),
                     path,
                     die,
@@ -86,7 +105,7 @@ fn compiles_all_five_difficulties_and_eight_path_die_pairs() {
 fn compiles_canonical_bounded_three_plane_topology() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let instance = factory
-        .compile_entry(SwarmDisasterEntry::new(
+        .compile_entry(released_entry(
             "swarm-disaster.area.205",
             "universe.path.propagation",
             "swarm-disaster.audience-die.8",
@@ -147,7 +166,7 @@ fn compiles_canonical_bounded_three_plane_topology() {
 fn topology_scopes_and_route_validation_are_bounded_and_fail_closed() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let instance = factory
-        .compile_entry(SwarmDisasterEntry::new(
+        .compile_entry(released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
@@ -195,7 +214,7 @@ fn topology_scopes_and_route_validation_are_bounded_and_fail_closed() {
 #[test]
 fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let mismatch = SwarmDisasterEntry::new(
+    let mismatch = released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.2",
@@ -205,7 +224,7 @@ fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
         factory.compile_entry(mismatch).unwrap_err().kind(),
         UniverseCatalogLoadErrorKind::InvalidReference
     );
-    let duplicate = SwarmDisasterEntry::new(
+    let duplicate = released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
@@ -231,7 +250,7 @@ fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
         LoadoutLockScope::Activity,
     )
     .unwrap();
-    let invalid = SwarmDisasterEntry::new(
+    let invalid = released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
@@ -241,7 +260,7 @@ fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
         factory.compile_entry(invalid).unwrap_err().kind(),
         UniverseCatalogLoadErrorKind::InvalidDefinition
     );
-    let guide_area = SwarmDisasterEntry::new(
+    let guide_area = released_entry(
         "swarm-disaster.area.101",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
@@ -251,7 +270,7 @@ fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
         factory.compile_entry(guide_area).unwrap_err().kind(),
         UniverseCatalogLoadErrorKind::InvalidReference
     );
-    let overflow = SwarmDisasterEntry::new(
+    let overflow = released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
@@ -266,7 +285,7 @@ fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
         factory.compile_entry(overflow).unwrap_err().kind(),
         UniverseCatalogLoadErrorKind::InvalidDefinition
     );
-    let unknown_bonus = SwarmDisasterEntry::new(
+    let unknown_bonus = released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
