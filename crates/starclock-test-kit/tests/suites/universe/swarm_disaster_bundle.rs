@@ -281,7 +281,7 @@ fn public_factory_compiles_entry_topology_and_labeled_dice_controls() {
     let roll = instance.compile_dice_roll(&face_state, &mut rng).unwrap();
     apply(&instance, &mut face_state, &roll);
     let activation = instance
-        .compile_dice_face_activation(&face_state, None, &mut rng)
+        .compile_simultaneous_resolution(&face_state, None, None, None, (None, None), &mut rng)
         .unwrap();
     activation
         .validate_against(instance.state_definition(), instance.graph_definition())

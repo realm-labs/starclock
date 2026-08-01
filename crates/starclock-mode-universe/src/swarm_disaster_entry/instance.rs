@@ -423,6 +423,41 @@ impl SwarmDisasterRuntimeInstance {
             .compile_cabinet_completion(state, cabinet, completed_objective)
     }
 
+    /// Compiles one five-tier Phase 3 boundary into a single Activity program.
+    ///
+    /// The versioned ProjectPolicy order is movement/Countdown, selected face,
+    /// optional map replacement, optional Communing choice, then optional
+    /// cabinet completion. `rng` is transactional: a later validation failure
+    /// restores every stream. No new mode-owned state machine is introduced.
+    // Goal 20 freezes exactly four public mode types; grouping the two optional
+    // Communing operations avoids introducing a fifth request wrapper type.
+    #[allow(clippy::type_complexity)]
+    pub fn compile_simultaneous_resolution(
+        &self,
+        state: &ActivityTransactionState,
+        movement: Option<(NodeId, &[(u32, i64)])>,
+        explicit_face_target: Option<NodeId>,
+        map_replacement: Option<(NodeId, &str, Option<&str>)>,
+        communing: (Option<(u16, &str)>, Option<(&str, &str)>),
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        let mut request = super::simultaneous::SwarmSimultaneousResolution::new()
+            .with_face_activation(explicit_face_target);
+        if let Some((target, adjustments)) = movement {
+            request = request.with_movement(target, adjustments);
+        }
+        if let Some((target, domain, beacon)) = map_replacement {
+            request = request.with_map_replacement(target, domain, beacon);
+        }
+        if let Some((story_stage, choice)) = communing.0 {
+            request = request.with_communing_choice(story_stage, choice);
+        }
+        if let Some((cabinet, objective)) = communing.1 {
+            request = request.with_cabinet_completion(cabinet, objective);
+        }
+        super::simultaneous::compile(self, state, request, rng)
+    }
+
     /// Compiles one plane's canonical node-domain and beacon initialization.
     ///
     /// The caller owns `rng`; successful compilation consumes only labeled

@@ -10,6 +10,7 @@ mod factory;
 mod instance;
 mod map_overlay;
 mod plane_transition;
+mod simultaneous;
 mod state;
 mod topology;
 mod validate;
@@ -39,6 +40,8 @@ pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-cont
 pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-policy-v1";
 /// Versioned Communing choice, point, and Pathstrider cabinet policy.
 pub const SWARM_DISASTER_COMMUNING_REVISION: &str = "swarm-disaster-communing-runtime-v1";
+/// Versioned five-tier atomic Phase 3 resolution policy.
+pub const SWARM_DISASTER_SIMULTANEOUS_REVISION: &str = "swarm-disaster-simultaneous-resolution-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -175,5 +178,7 @@ mod face_effect_tests;
 mod map_overlay_tests;
 #[cfg(test)]
 mod plane_transition_tests;
+#[cfg(test)]
+mod simultaneous_tests;
 #[cfg(test)]
 mod tests;
