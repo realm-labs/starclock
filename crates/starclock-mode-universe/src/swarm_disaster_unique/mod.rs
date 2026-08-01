@@ -1,5 +1,6 @@
 //! Immutable catalog for Swarm Disaster mode-unique systems.
 
+pub(super) mod entry_access;
 mod lower;
 mod types;
 mod validate;

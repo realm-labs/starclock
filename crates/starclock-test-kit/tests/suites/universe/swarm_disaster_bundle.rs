@@ -1,8 +1,15 @@
+use starclock_activity::{
+    BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
+    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
+};
+use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
-    error::UniverseCatalogLoadErrorKind, gold_gears_components::gold_and_gears_component_set,
+    error::UniverseCatalogLoadErrorKind,
+    gold_gears_components::gold_and_gears_component_set,
     gold_gears_identity::GoldAndGearsCatalogIdentity,
     swarm_disaster_catalog::validate_swarm_disaster_bundle,
     swarm_disaster_components::swarm_disaster_component_set,
+    swarm_disaster_entry::{SwarmDisasterEntry, SwarmDisasterRuntimeFactory},
 };
 use starclock_replay::component::ConfigurationComponentKind;
 
@@ -138,6 +145,21 @@ fn component_roots_are_mode_scoped_and_controller_sensitive() {
     assert_ne!(swarm.root(), gold.root());
 }
 
+#[test]
+fn public_factory_compiles_a_locked_entry_without_rng() {
+    let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = factory
+        .compile_entry(SwarmDisasterEntry::new(
+            "swarm-disaster.area.205",
+            "universe.path.propagation",
+            "swarm-disaster.audience-die.8",
+            participants(),
+        ))
+        .unwrap();
+    assert_eq!(instance.difficulty(), 5);
+    assert_eq!(instance.state_definition().slots().len(), 16);
+}
+
 fn swarm_components(controller: u8) -> starclock_replay::component::ConfigurationComponentSet {
     swarm_disaster_component_set(
         BUNDLE,
@@ -149,4 +171,36 @@ fn swarm_components(controller: u8) -> starclock_replay::component::Configuratio
         ("baseline-controller", "baseline-v1", [controller; 32]),
     )
     .unwrap()
+}
+
+fn participants() -> ParticipantLock {
+    let policy = ParticipantPolicy::new(
+        1,
+        1,
+        4,
+        ParticipantUniquenessScope::Activity,
+        LoadoutLockScope::Activity,
+    )
+    .unwrap();
+    let entries = (0_u8..4)
+        .map(|index| {
+            let byte = index + 1;
+            let build = OpaqueParticipantBuild::new(
+                CombatantSpecDigest::new([byte; 32]).unwrap(),
+                BuildDigest::new([byte + 32; 32]).unwrap(),
+                "swarm-entry-integration-v1",
+                ParticipantSourceKind::CompiledBuild,
+            )
+            .unwrap();
+            ParticipantLockEntry::new(
+                ParticipantId::new(u32::from(index) + 1).unwrap(),
+                0,
+                index,
+                UnitDefinitionId::new(30_001 + u32::from(index)).unwrap(),
+                build,
+            )
+            .unwrap()
+        })
+        .collect();
+    ParticipantLock::seal(policy, entries).unwrap()
 }

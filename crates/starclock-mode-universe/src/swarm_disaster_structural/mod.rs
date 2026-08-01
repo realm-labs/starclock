@@ -16,6 +16,12 @@ use types::{
 pub(crate) const EXPECTED_STRUCTURAL_ROWS: usize = 6_716;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) struct SwarmDisasterEntryArea {
+    pub(super) id: u32,
+    pub(super) difficulty: u8,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum SwarmDisasterStructuralErrorKind {
     Metadata,
     Identifier,
@@ -135,6 +141,22 @@ impl SwarmDisasterStructuralCatalog {
         value
             .parse::<u8>()
             .is_ok_and(|difficulty| self.areas.iter().any(|row| row.difficulty == difficulty))
+    }
+
+    pub(super) fn entry_area(&self, key: &str) -> Option<SwarmDisasterEntryArea> {
+        self.areas
+            .iter()
+            .find(|row| row.stable_key.as_ref() == key && row.kind == types::AreaKind::Formal)
+            .map(|row| SwarmDisasterEntryArea {
+                id: row.id.0,
+                difficulty: row.difficulty,
+            })
+    }
+
+    pub(super) fn has_runtime_profile(&self) -> bool {
+        self.profiles
+            .iter()
+            .any(|row| row.stable_key.as_ref() == "swarm-disaster.profile.v1")
     }
 }
 

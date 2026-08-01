@@ -1,0 +1,70 @@
+{
+  "schema_revision": "starclock.swarm-disaster-entry-profile-evidence.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P2-B1",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "entry_obligations": {
+    "count": 12,
+    "entry_points": 3,
+    "formal_difficulties": 5,
+    "guide_areas_rejected": 3,
+    "runtime_profiles": 1
+  },
+  "compiled_matrix": {
+    "formal_difficulties": 5,
+    "path_audience_die_pairs": 8,
+    "valid_combinations": 40,
+    "rng_draws": 0
+  },
+  "participant_lock": {
+    "minimum_teams": 1,
+    "maximum_teams": 1,
+    "maximum_participants": 4,
+    "uniqueness_scope": "Activity",
+    "loadout_lock_scope": "Activity"
+  },
+  "activity_profile": {
+    "slot_families": 16,
+    "activity_scope_slots": 9,
+    "section_scope_slots": 4,
+    "node_scope_slots": 1,
+    "attempt_scope_slots": 2,
+    "initial_countdown": 20,
+    "initial_cosmic_fragments": 50,
+    "authoritative_float_fields": 0
+  },
+  "progression_input": {
+    "communing_dimensions": 7,
+    "maximum_enforced_per_dimension": true,
+    "trail_cabinet_interplay_keys_validated": true,
+    "trailblaze_bonus_keys_validated": true,
+    "duplicate_keys_rejected": true
+  },
+  "boundary": {
+    "public_types_implemented": [
+      "SwarmDisasterEntry",
+      "SwarmDisasterRuntimeFactory",
+      "SwarmDisasterRuntimeInstance"
+    ],
+    "controller_type_deferred_to_controller_batch": "SwarmDisasterControllerIdentity",
+    "generated_public_types": 0,
+    "public_reexports_added": 0,
+    "profile_entry_rule_terminalized": false,
+    "profile_entry_fixture_claimed_executed": false
+  },
+  "tests": {
+    "entry_unit_passed": 3,
+    "swarm_unit_passed": 14,
+    "identity_integration_passed": 5
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal20/verify-phase2-b1.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

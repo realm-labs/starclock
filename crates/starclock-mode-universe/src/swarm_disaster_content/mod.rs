@@ -125,6 +125,10 @@ impl SwarmDisasterContentCatalog {
             + self.audit.manifest_rows
             + self.audit.pack_rows
     }
+
+    pub(super) fn initial_currency(&self) -> Option<i64> {
+        self.currencies.first()?.initial_value.parse().ok()
+    }
 }
 
 #[cfg(test)]
