@@ -10,9 +10,9 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     audience_rule_runtime, communing, communing_rule_runtime, content_runtime, countdown,
     curio_rule_runtime, dice_control, disarray_rule_runtime, face_effect, map_overlay,
-    occurrence_runtime, path_rule_runtime, path_runtime, pathstrider_progress, plane_transition,
-    profile_rule_runtime, progression_rule_runtime, service_adventure_runtime, state,
-    topology_rule_runtime, trail,
+    occurrence_rule_runtime, occurrence_runtime, path_rule_runtime, path_runtime,
+    pathstrider_progress, plane_transition, profile_rule_runtime, progression_rule_runtime,
+    service_adventure_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -116,6 +116,12 @@ impl SwarmDisasterRuntimeFactory {
         let occurrences = Arc::new(occurrence_runtime::OccurrenceRuntimeCatalog::compile(
             &content.interaction_runtime_input(),
         )?);
+        let occurrence_rules = Arc::new(
+            occurrence_rule_runtime::OccurrenceRuleRuntimeCatalog::compile(mechanic_rule(
+                &content,
+                "occurrence-choice",
+            )?)?,
+        );
         let service_adventure = Arc::new(
             service_adventure_runtime::ServiceAdventureRuntimeCatalog::compile(
                 &content.interaction_runtime_input(),
@@ -135,6 +141,7 @@ impl SwarmDisasterRuntimeFactory {
             dice_controls,
             face_effects,
             occurrences,
+            occurrence_rules,
             service_adventure,
             communing,
             communing_rules,
@@ -238,6 +245,7 @@ impl SwarmDisasterRuntimeFactory {
             dice_controls,
             face_effects: Arc::clone(&self.face_effects),
             occurrences: Arc::clone(&self.occurrences),
+            occurrence_rules: Arc::clone(&self.occurrence_rules),
             service_adventure: Arc::clone(&self.service_adventure),
             communing: Arc::clone(&self.communing),
             communing_rules: Arc::clone(&self.communing_rules),

@@ -186,12 +186,17 @@ impl OccurrenceRuntimeCatalog {
 impl SwarmDisasterRuntimeInstance {
     #[must_use]
     pub fn occurrence_runtime_digest(&self) -> [u8; 32] {
-        self.occurrences.digest()
+        self.occurrence_rules
+            .occurrences(&self.occurrences)
+            .digest()
     }
 
     #[must_use]
     pub fn occurrence_count(&self) -> usize {
-        self.occurrences.occurrences.len()
+        self.occurrence_rules
+            .occurrences(&self.occurrences)
+            .occurrences
+            .len()
     }
 
     pub fn select_occurrence(
@@ -200,9 +205,8 @@ impl SwarmDisasterRuntimeInstance {
         weighted_candidates: &[(String, u64)],
         rng: &mut ActivityRngStreams,
     ) -> Result<Option<Box<str>>, UniverseCatalogLoadError> {
-        let candidates = self
-            .occurrences
-            .weighted_candidates(pool, weighted_candidates)?;
+        let occurrences = self.occurrence_rules.occurrences(&self.occurrences);
+        let candidates = occurrences.weighted_candidates(pool, weighted_candidates)?;
         let weights = candidates
             .iter()
             .map(|(_, weight)| *weight)
@@ -229,19 +233,19 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         occurrence: &str,
     ) -> Result<Box<[Box<str>]>, UniverseCatalogLoadError> {
-        let occurrence = self
-            .occurrences
+        let occurrences = self.occurrence_rules.occurrences(&self.occurrences);
+        let occurrence = occurrences
             .occurrence(occurrence)
             .ok_or_else(|| reference("unknown Swarm Occurrence"))?;
         occurrence
             .variants
             .iter()
             .map(|id| {
-                self.occurrences
+                occurrences
                     .variants
                     .binary_search_by_key(id, |row| row.id)
                     .ok()
-                    .map(|index| self.occurrences.variants[index].key.clone())
+                    .map(|index| occurrences.variants[index].key.clone())
                     .ok_or_else(|| invalid("Occurrence variant mapping failure"))
             })
             .collect::<Result<Vec<_>, _>>()
@@ -252,8 +256,8 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         variant: &str,
     ) -> Result<Box<[Box<str>]>, UniverseCatalogLoadError> {
-        let variant = self
-            .occurrences
+        let occurrences = self.occurrence_rules.occurrences(&self.occurrences);
+        let variant = occurrences
             .variants
             .iter()
             .find(|row| row.key.as_ref() == variant)
@@ -262,11 +266,11 @@ impl SwarmDisasterRuntimeInstance {
             .choices
             .iter()
             .map(|id| {
-                self.occurrences
+                occurrences
                     .choices
                     .binary_search_by_key(id, |row| row.id)
                     .ok()
-                    .map(|index| self.occurrences.choices[index].key.clone())
+                    .map(|index| occurrences.choices[index].key.clone())
                     .ok_or_else(|| invalid("Occurrence choice mapping failure"))
             })
             .collect::<Result<Vec<_>, _>>()
@@ -280,8 +284,8 @@ impl SwarmDisasterRuntimeInstance {
         maximum: u16,
         rng: &mut ActivityRngStreams,
     ) -> Result<Box<[u64]>, UniverseCatalogLoadError> {
-        let choice = self
-            .occurrences
+        let occurrences = self.occurrence_rules.occurrences(&self.occurrences);
+        let choice = occurrences
             .choice(choice)
             .filter(|choice| choice.seeded_uniform)
             .ok_or_else(|| reference("Occurrence choice has no random outcome policy"))?;

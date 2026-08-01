@@ -1,0 +1,91 @@
+{
+  "schema_revision": "starclock.swarm-disaster-occurrence-rule-execution.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P5-M09",
+  "observed_on": "2026-08-02",
+  "result": "Pass",
+  "partition": {
+    "executor": "SwarmOccurrenceRuleExecutor",
+    "expected_rules": 1,
+    "executed_rules": 1,
+    "exact_structured_rules": 1,
+    "project_policy_rules": 0,
+    "families": ["occurrence-choice"]
+  },
+  "runtime_binding": {
+    "revision": "swarm-disaster-occurrence-rule-runtime-v1",
+    "domain": "Activity",
+    "source_disposition": "ReferenceOnly",
+    "runtime_disposition": "ProductionOccurrenceCatalogAndLabeledRng",
+    "rule_id": "swarm-disaster.mechanic-rule.occurrence-choice",
+    "trigger": "OccurrenceChoiceAccepted",
+    "ordered_operation_count": 4,
+    "unresolved_behavior": "NotApplicable",
+    "occurrence_runtime": "ExistingOccurrenceRuntimeCatalog"
+  },
+  "production_execution": {
+    "occurrences": 75,
+    "variants": 57,
+    "choices": 308,
+    "seeded_random_choices": 60,
+    "occurrence_pool": 55,
+    "the_swarm_pool": 14,
+    "encounter_pool": 3,
+    "deal_pool": 3,
+    "candidate_order": "HandbookOrderThenStableId",
+    "weight_source": "OwningBindingRequired",
+    "rng_label": "Occurrence",
+    "absent_or_cross_pool_binding": "FailClosed",
+    "zero_work_draws": 0,
+    "fixture_variant": "swarm-disaster.occurrence-variant.110301",
+    "fixture_choice": "swarm-disaster.occurrence-choice.110301.04"
+  },
+  "compatibility": {
+    "runtime_digest": "65dcb9286df7a0457737396024b04c6a1e5f3b91eedc4f3859f5eebf75cf79d2",
+    "occurrence_catalog_digest": "d3d1a2fe70dc05cbd8046df2e7f56f1a2cb8668739dc9da1f5ff6527d0607bd1",
+    "occurrence_seed": 41,
+    "selected_occurrence": "swarm-disaster.occurrence.2",
+    "random_outcome_seed": 43,
+    "selected_outcome_candidates": [10, 30],
+    "replay_release_state": "PreReleaseGoal20"
+  },
+  "deferred_fixtures": {
+    "fixture_ids": ["swarm-disaster.fixture.occurrence-choice"],
+    "ordered_operation_count": 4,
+    "expected_fact_count": 5,
+    "source_record_count": 2,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "production_binding_state": "PreTerminalProductionParity"
+  },
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 1,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 923,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/occurrence_rule_runtime.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "occurrence_rule_unit_passed": 3,
+    "entry_lifecycle_unit_passed": 105,
+    "swarm_unit_passed": 116,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "source_policy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "3.1",
+    "quick_gate_cache": "Hit",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "242.8",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "172.7"
+  }
+}

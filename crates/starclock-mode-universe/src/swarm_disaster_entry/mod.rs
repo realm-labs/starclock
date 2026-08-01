@@ -14,6 +14,7 @@ mod face_operation;
 mod factory;
 mod instance;
 mod map_overlay;
+mod occurrence_rule_runtime;
 mod occurrence_runtime;
 mod path_rule_runtime;
 mod path_runtime;
@@ -86,6 +87,7 @@ pub struct SwarmDisasterRuntimeFactory {
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
+    occurrence_rules: Arc<occurrence_rule_runtime::OccurrenceRuleRuntimeCatalog>,
     service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
@@ -121,6 +123,7 @@ pub struct SwarmDisasterRuntimeInstance {
     dice_controls: dice_control::CompiledDiceControls,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
+    occurrence_rules: Arc<occurrence_rule_runtime::OccurrenceRuleRuntimeCatalog>,
     service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
