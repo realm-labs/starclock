@@ -118,6 +118,10 @@
       "command": ["node", "tools/config-production/verify.mjs"]
     },
     {
+      "name": "Goal 14 release audits",
+      "command": ["node", "tools/goal14/verify-release-audits.mjs", "."]
+    },
+    {
       "name": "representative domain-catalog golden",
       "command": ["node", "tools/config-catalog/verify.mjs"]
     },
