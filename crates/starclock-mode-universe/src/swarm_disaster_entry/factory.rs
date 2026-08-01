@@ -9,10 +9,11 @@ use crate::{
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     audience_rule_runtime, boss_rule_runtime, communing, communing_rule_runtime, content_runtime,
-    countdown, curio_rule_runtime, dice_control, disarray_rule_runtime, face_effect, map_overlay,
-    occurrence_rule_runtime, occurrence_runtime, path_rule_runtime, path_runtime,
-    pathstrider_progress, plane_transition, profile_rule_runtime, progression_rule_runtime,
-    service_adventure_runtime, service_rule_runtime, state, topology_rule_runtime, trail,
+    countdown, curio_rule_runtime, dice_control, disarray_rule_runtime, encounter_rule_runtime,
+    face_effect, map_overlay, occurrence_rule_runtime, occurrence_runtime, path_rule_runtime,
+    path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
+    progression_rule_runtime, service_adventure_runtime, service_rule_runtime, state,
+    topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -60,6 +61,12 @@ impl SwarmDisasterRuntimeFactory {
             mechanic_rule(&content, "boss-choice-consequence")?,
             mechanic_rule(&content, "final-boss-consequence")?,
         ])?);
+        let encounter_rule = Arc::new(
+            encounter_rule_runtime::EncounterRuleRuntimeCatalog::compile(mechanic_rule(
+                &content,
+                "encounter-selection",
+            )?)?,
+        );
         let audience_input = unique.audience_runtime_input();
         let face_effects = Arc::new(face_effect::DiceFaceRuntimeCatalog::compile(
             &audience_input.faces,
@@ -144,6 +151,7 @@ impl SwarmDisasterRuntimeFactory {
             disarray_rules,
             transitions,
             boss_rules,
+            encounter_rule,
             audience,
             audience_rules,
             dice_controls,
@@ -250,6 +258,7 @@ impl SwarmDisasterRuntimeFactory {
             disarray_rules: Arc::clone(&self.disarray_rules),
             transitions: Arc::clone(&self.transitions),
             boss_rules: Arc::clone(&self.boss_rules),
+            encounter_rule: Arc::clone(&self.encounter_rule),
             audience,
             audience_rules: Arc::clone(&self.audience_rules),
             dice_controls,

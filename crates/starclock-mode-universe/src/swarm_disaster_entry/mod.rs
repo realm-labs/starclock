@@ -9,6 +9,7 @@ mod countdown;
 mod curio_rule_runtime;
 mod dice_control;
 mod disarray_rule_runtime;
+mod encounter_rule_runtime;
 mod entry;
 mod face_effect;
 mod face_operation;
@@ -85,6 +86,7 @@ pub struct SwarmDisasterRuntimeFactory {
     disarray_rules: Arc<disarray_rule_runtime::DisarrayRuleRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     boss_rules: Arc<boss_rule_runtime::BossRuleRuntimeCatalog>,
+    encounter_rule: Arc<encounter_rule_runtime::EncounterRuleRuntimeCatalog>,
     audience: Arc<audience::AudienceRuntimeCatalog>,
     audience_rules: Arc<audience_rule_runtime::AudienceRuleRuntimeCatalog>,
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
@@ -123,6 +125,7 @@ pub struct SwarmDisasterRuntimeInstance {
     disarray_rules: Arc<disarray_rule_runtime::DisarrayRuleRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     boss_rules: Arc<boss_rule_runtime::BossRuleRuntimeCatalog>,
+    encounter_rule: Arc<encounter_rule_runtime::EncounterRuleRuntimeCatalog>,
     audience: audience::CompiledAudienceRuntime,
     audience_rules: Arc<audience_rule_runtime::AudienceRuleRuntimeCatalog>,
     dice_controls: dice_control::CompiledDiceControls,
