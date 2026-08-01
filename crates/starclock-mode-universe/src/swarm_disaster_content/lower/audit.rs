@@ -1,4 +1,4 @@
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use crate::swarm_disaster_generated::{
     SoraConfig, swarm_disaster_coverage::SwarmDisasterCoverage,
@@ -33,7 +33,7 @@ pub(super) fn lower(source: &SoraConfig) -> Result<LoweredAudit, SwarmDisasterCo
         .collect::<Result<Vec<_>, _>>()?
         .into_boxed_slice();
     let source_keys = validate_sources(source)?;
-    validate_coverage(source, &source_keys)?;
+    let coverage_categories = validate_coverage(source, &source_keys)?;
     validate_gaps(source)?;
     validate_fixtures(source)?;
     let review_fixtures = source
@@ -85,6 +85,7 @@ pub(super) fn lower(source: &SoraConfig) -> Result<LoweredAudit, SwarmDisasterCo
                 .map_err(|_| super::error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
             fixture_families: u16::try_from(manifest.semantic_fixture_family_count)
                 .map_err(|_| super::error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
+            coverage_categories,
         },
     ))
 }
@@ -173,11 +174,12 @@ fn source_metadata(row: &SwarmDisasterSourceRecord) -> Result<(), SwarmDisasterC
 fn validate_coverage(
     source: &SoraConfig,
     source_ids: &BTreeSet<&str>,
-) -> Result<(), SwarmDisasterContentError> {
+) -> Result<Box<[CoverageCategoryDefinition]>, SwarmDisasterContentError> {
     if source.swarm_disaster_coverage().len() != 6_963 {
         return fail(SwarmDisasterContentErrorKind::Denominator, "coverage");
     }
     let mut records = BTreeSet::new();
+    let mut categories = BTreeMap::<&str, u32>::new();
     for row in source.swarm_disaster_coverage().ordered_rows() {
         coverage_metadata(row)?;
         if !records.insert((
@@ -188,8 +190,21 @@ fn validate_coverage(
         }) {
             return fail(SwarmDisasterContentErrorKind::Reference, &row.stable_key);
         }
+        let count = categories.entry(&row.manifest_category).or_default();
+        *count = count
+            .checked_add(1)
+            .ok_or_else(|| super::error(SwarmDisasterContentErrorKind::Denominator, "coverage"))?;
     }
-    Ok(())
+    categories
+        .into_iter()
+        .map(|(key, obligations)| {
+            Ok(CoverageCategoryDefinition {
+                key: stable(key, key)?,
+                obligations,
+            })
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .map(Vec::into_boxed_slice)
 }
 
 fn coverage_metadata(row: &SwarmDisasterCoverage) -> Result<(), SwarmDisasterContentError> {

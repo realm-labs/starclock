@@ -300,4 +300,11 @@ pub(super) struct AuditCatalogSummary {
     pub(super) frozen_obligations: u32,
     pub(super) mechanic_rules: u16,
     pub(super) fixture_families: u16,
+    pub(super) coverage_categories: Box<[CoverageCategoryDefinition]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct CoverageCategoryDefinition {
+    pub(crate) key: Box<str>,
+    pub(crate) obligations: u32,
 }

@@ -12,8 +12,8 @@ use super::{
     countdown, curio_rule_runtime, dice_control, disarray_rule_runtime, encounter_rule_runtime,
     face_effect, map_overlay, occurrence_rule_runtime, occurrence_runtime, path_rule_runtime,
     path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
-    progression_rule_runtime, semantic_fixture_runtime, service_adventure_runtime,
-    service_rule_runtime, state, topology_rule_runtime, trail,
+    progression_rule_runtime, runtime_coverage, semantic_fixture_runtime,
+    service_adventure_runtime, service_rule_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -144,6 +144,10 @@ impl SwarmDisasterRuntimeFactory {
         )?);
         let semantic_fixtures =
             Arc::new(semantic_fixture_runtime::SemanticFixtureRuntimeCatalog::compile(&content)?);
+        let runtime_coverage = Arc::new(runtime_coverage::RuntimeCoverageCatalog::compile(
+            &content,
+            semantic_fixtures.digest(),
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -163,6 +167,7 @@ impl SwarmDisasterRuntimeFactory {
             service_adventure,
             service_rules,
             semantic_fixtures,
+            runtime_coverage,
             communing,
             communing_rules,
             content_runtime,

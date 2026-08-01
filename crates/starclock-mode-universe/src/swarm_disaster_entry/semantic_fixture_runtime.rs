@@ -51,6 +51,10 @@ impl SemanticFixtureRuntimeCatalog {
         let digest = execution_digest(&bindings, &inputs, encounter_shape);
         Ok(Self { digest })
     }
+
+    pub(super) const fn digest(&self) -> [u8; 32] {
+        self.digest
+    }
 }
 
 fn fixture_bindings(
