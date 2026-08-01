@@ -593,7 +593,8 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         adjustments: &[(u32, i64)],
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        self.countdown.compile_move(state, adjustments)
+        self.disarray_rules
+            .compile_move(&self.countdown, state, adjustments)
     }
 
     /// Compiles non-movement Countdown changes in stable operation-ID order.
@@ -605,7 +606,8 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         adjustments: &[(u32, i64)],
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        self.countdown.compile_adjustments(state, adjustments)
+        self.disarray_rules
+            .compile_adjustments(&self.countdown, state, adjustments)
     }
 
     /// Compiles one not-yet-selected, released Swarm boss-decay contribution.
@@ -617,7 +619,8 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         keys: &[&str],
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        self.countdown.compile_boss_decay_selection(state, keys)
+        self.disarray_rules
+            .compile_boss_decay_selection(&self.countdown, state, keys)
     }
 
     /// Returns the two released displayed boss choices in stable source order.
@@ -655,8 +658,11 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
         plane_layer: u8,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        let boss_decay =
+            self.disarray_rules
+                .completion_requirements(&self.countdown, state, plane_layer)?;
         self.transitions.compile_completion(
-            &self.countdown,
+            boss_decay,
             state,
             &self.graph,
             &self.planes,
@@ -730,7 +736,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         state: &ActivityTransactionState,
     ) -> Result<i64, UniverseCatalogLoadError> {
-        self.countdown.countdown(state)
+        self.disarray_rules.countdown(&self.countdown, state)
     }
 
     /// Returns the current uncapped Planar Disarray level.
@@ -738,7 +744,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         state: &ActivityTransactionState,
     ) -> Result<i64, UniverseCatalogLoadError> {
-        self.countdown.disarray_level(state)
+        self.disarray_rules.disarray_level(&self.countdown, state)
     }
 
     /// Returns cumulative enemy damage, mitigation and Speed percentages.
@@ -749,7 +755,8 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         state: &ActivityTransactionState,
     ) -> Result<(i64, i64, i64), UniverseCatalogLoadError> {
-        self.countdown.disarray_modifiers(state)
+        self.disarray_rules
+            .disarray_modifiers(&self.countdown, state)
     }
 
     /// Whether the current Countdown is at or below the catalog warning value.
@@ -757,7 +764,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         state: &ActivityTransactionState,
     ) -> Result<bool, UniverseCatalogLoadError> {
-        self.countdown.warning_active(state)
+        self.disarray_rules.warning_active(&self.countdown, state)
     }
 
     fn require_graph_node(&self, node: NodeId) -> Result<(), UniverseCatalogLoadError> {

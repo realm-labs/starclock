@@ -4,6 +4,7 @@ mod communing;
 mod content_runtime;
 mod countdown;
 mod dice_control;
+mod disarray_rule_runtime;
 mod face_effect;
 mod face_operation;
 mod factory;
@@ -143,6 +144,7 @@ pub struct SwarmDisasterRuntimeFactory {
     content: Arc<SwarmDisasterContentCatalog>,
     map: Arc<map_overlay::MapRuntimeCatalog>,
     countdown: Arc<countdown::CountdownRuntimeCatalog>,
+    disarray_rules: Arc<disarray_rule_runtime::DisarrayRuleRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: Arc<audience::AudienceRuntimeCatalog>,
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
@@ -172,6 +174,7 @@ pub struct SwarmDisasterRuntimeInstance {
     planes: Box<[topology::CompiledPlane]>,
     map: Arc<map_overlay::MapRuntimeCatalog>,
     countdown: Arc<countdown::CountdownRuntimeCatalog>,
+    disarray_rules: Arc<disarray_rule_runtime::DisarrayRuleRuntimeCatalog>,
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: audience::CompiledAudienceRuntime,
     dice_controls: dice_control::CompiledDiceControls,

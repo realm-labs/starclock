@@ -13,7 +13,6 @@ use crate::{
 };
 
 use super::{
-    countdown::CountdownRuntimeCatalog,
     dice_control::REROLL_CHARGE_KEY,
     state::{PLANE, RESOURCES},
     topology::CompiledPlane,
@@ -131,7 +130,7 @@ impl PlaneTransitionRuntimeCatalog {
 
     pub(super) fn compile_completion(
         &self,
-        countdown: &CountdownRuntimeCatalog,
+        boss_decay_conditions: Vec<ActivityCondition>,
         state: &ActivityTransactionState,
         graph: &ActivityGraphDefinition,
         planes: &[CompiledPlane],
@@ -166,7 +165,7 @@ impl PlaneTransitionRuntimeCatalog {
                 integer(i64::from(plane_layer)),
             ),
         ];
-        conditions.extend(countdown.completion_requirements(state, plane_layer)?);
+        conditions.extend(boss_decay_conditions);
         let mut operations = vec![ActivityOperation::Require(ActivityCondition::All(
             conditions.into_boxed_slice(),
         ))];

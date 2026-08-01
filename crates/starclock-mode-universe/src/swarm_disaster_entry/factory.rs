@@ -8,9 +8,9 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    communing, content_runtime, countdown, dice_control, face_effect, map_overlay,
-    occurrence_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
-    service_adventure_runtime, state, topology_rule_runtime, trail,
+    communing, content_runtime, countdown, dice_control, disarray_rule_runtime, face_effect,
+    map_overlay, occurrence_runtime, path_runtime, pathstrider_progress, plane_transition,
+    profile_rule_runtime, service_adventure_runtime, state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -43,6 +43,13 @@ impl SwarmDisasterRuntimeFactory {
             unique
                 .countdown_runtime_input()
                 .ok_or_else(|| error("Swarm Countdown runtime input is missing"))?,
+        )?);
+        let disarray_rules = Arc::new(disarray_rule_runtime::DisarrayRuleRuntimeCatalog::compile(
+            [
+                mechanic_rule(&content, "boss-decay-stack")?,
+                mechanic_rule(&content, "countdown-lifecycle")?,
+                mechanic_rule(&content, "planar-disarray-transition")?,
+            ],
         )?);
         let transitions = Arc::new(plane_transition::PlaneTransitionRuntimeCatalog::compile(
             structural.boss_choice_runtime_input(),
@@ -93,6 +100,7 @@ impl SwarmDisasterRuntimeFactory {
             content: Arc::new(content),
             map,
             countdown,
+            disarray_rules,
             transitions,
             audience,
             dice_controls,
@@ -182,6 +190,7 @@ impl SwarmDisasterRuntimeFactory {
             planes: topology.planes,
             map: Arc::clone(&self.map),
             countdown: Arc::clone(&self.countdown),
+            disarray_rules: Arc::clone(&self.disarray_rules),
             transitions: Arc::clone(&self.transitions),
             audience,
             dice_controls,

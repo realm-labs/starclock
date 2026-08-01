@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.swarm-disaster-disarray-rule-execution.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P5-M03",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "partition": {
+    "executor": "SwarmDisarrayRuleExecutor",
+    "expected_rules": 3,
+    "executed_rules": 3,
+    "exact_structured_rules": 0,
+    "project_policy_rules": 3,
+    "families": ["boss-decay-stack", "countdown-lifecycle", "planar-disarray-transition"]
+  },
+  "runtime_binding": {
+    "revision": "swarm-disaster-disarray-rule-runtime-v1",
+    "source_disposition": "ReferenceOnly",
+    "runtime_disposition": "ProductionActivityAndCrossBattleProjection",
+    "rule_ids": [
+      "swarm-disaster.mechanic-rule.boss-decay-stack",
+      "swarm-disaster.mechanic-rule.countdown-lifecycle",
+      "swarm-disaster.mechanic-rule.planar-disarray-transition"
+    ],
+    "rule_domains": ["CrossBattle", "Activity", "CrossBattle"],
+    "ordered_operation_counts": [4, 4, 4],
+    "unresolved_behavior": "FailClosed",
+    "activity_state_machine": "ExistingGenericActivityTransactionState",
+    "countdown_runtime": "ExistingCountdownRuntimeCatalog"
+  },
+  "production_execution": {
+    "initial_countdown": 20,
+    "movement_delta": -1,
+    "warning_threshold": 5,
+    "countdown_carry": "CarryExact",
+    "disarray_entry_boundary": "AcceptedMoveWithPreMoveCountdownZero",
+    "disarray_level_uncapped": true,
+    "modifier_cap_level": 20,
+    "level_vectors": {
+      "1": [5, 4, 0],
+      "5": [25, 20, 0],
+      "6": [35, 24, 5],
+      "20": [275, 80, 125],
+      "21": [275, 80, 125]
+    },
+    "enabled_boss_decay_rows": 15,
+    "disabled_boss_decay_rows": 27,
+    "maximum_selected_thresholds": 2,
+    "selection_order": "StableSourceId",
+    "duplicate_threshold": "RejectBeforeMutation",
+    "plane_completion_guard": "ExactSelectedThresholds"
+  },
+  "compatibility": {
+    "runtime_digest": "01ae0ca55d1fa4db3290c9fe2209f18219e7b3b76112b3faf5bb25fddc08cf12",
+    "replay_release_state": "PreReleaseGoal20"
+  },
+  "deferred_fixtures": {
+    "fixture_ids": [
+      "swarm-disaster.fixture.boss-decay-stack",
+      "swarm-disaster.fixture.countdown-lifecycle",
+      "swarm-disaster.fixture.planar-disarray-transition"
+    ],
+    "ordered_operation_count": 12,
+    "expected_fact_count": 15,
+    "source_record_count": 5,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "production_binding_state": "PreTerminalProductionParity"
+  },
+  "validation": {
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 1,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 910,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/disarray_rule_runtime.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "disarray_rule_unit_passed": 3,
+    "entry_lifecycle_unit_passed": 87,
+    "swarm_unit_passed": 98,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "132.1",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "253.1",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "182.1"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib disarray_rule_runtime --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase5-m03.mjs",
+    "node tools/repository-check/run.mjs",
+    "PATH=<temporary-python-3.14.6-venv>/bin:$PATH STARCLOCK_PYTHON=<temporary-python-3.14.6-venv>/bin/python node tools/repository-check/run.mjs --full"
+  ]
+}
