@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Bundle and catalogs |
 | Active batch | None |
-| Next unblocked batch | `G20-P1-B2` |
+| Next unblocked batch | `G20-P1-B3` |
 | Snapshot | Version 4.4 / Goal 09 reference release dated 2026-07-29 |
 | Profile | `swarm-disaster.profile.v1` |
 | Candidate bundle | `385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362` |
@@ -24,7 +24,7 @@
 | Phase | State | Exit evidence |
 |---|---|---|
 | Phase 0 — Contract, audit and execution plan | `Complete` | P0-B1–B4 freeze prerequisites/runtime baseline, exact 6,963/23/23/31 assignments, minimal APIs/state/identity, a 16-run matrix covering 5 difficulties/8 Paths and dice/42 faces/8 Countdown-Disarray cases, 31 policy owners, seven workloads, CI and 13 release gates. |
-| Phase 1 — Bundle and catalogs | `InProgress` | `G20-P1-B1` loads the exact private 65-table Candidate bundle and freezes all pre-lowering rejection boundaries. |
+| Phase 1 — Bundle and catalogs | `InProgress` | `G20-P1-B1` loads the exact private 65-table Candidate bundle; `G20-P1-B2` freezes component/catalog/registry identities without changing prior mode roots. |
 | Phase 2 — Entry, topology, Countdown and Disarray | `Pending` | — |
 | Phase 3 — Audience Dice and Communing Device | `Pending` | — |
 | Phase 4 — Progression, content and battle contributions | `Pending` | — |
@@ -45,7 +45,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G20-P0-B3` | `Complete` | This batch commit | `node tools/goal20/verify-runtime-contract.mjs` freezes four intentional public mode types, four physical/three logical scopes, 16 typed slot families, five existing Activity command kinds, nine transaction event families, 10 ordered components, eight existing RNG labels and seven failure boundaries. Candidate/generated inputs remain private; P0 admits zero native handlers; Standard and Gold replay revisions/bytes remain preserved. The isolated-Python full gate passed in 167.8s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
 | `G20-P0-B4` | `Complete` | This batch commit | `node tools/goal20/generate-coverage-matrix.mjs --check` and `node tools/goal20/verify-phase0.mjs` freeze 16 valid three-plane runs covering five difficulties, eight paired Paths/Audience Dice, all 42 faces, eight Countdown/Disarray boundary cases and 31 policy probes. The first real-combat vertical slice, seven performance workloads, zero-clone/allocation structural budgets, three native plus three compile-only CI profiles and 13 release gates close. The isolated-Python Phase 0 full gate passed in 232.6s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
 | `G20-P1-B1` | `Complete` | This batch commit | `cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features` and `cargo test -p starclock-mode-universe --lib swarm_disaster_catalog --all-features` prove the exact Goal 09 bundle loads 65 private Sora tables/33,380 rows and preserves the 6,963/23/23/31 manifest denominators. Digest, format, schema fingerprint, table closure, manifest revision and row-denominator rejection families are covered before lowering. Generated rows and summary/error types remain private, no `pub use` is added, and the only new public surface is a generated-type-free validation function returning the existing catalog error. Clippy and `node tools/goal20/verify-phase1-b1.mjs` pass. The quick gate exhausted its 180-second budget while running selected workspace tests; the first full attempt exposed a legacy hard-coded `python` call, then an isolated Python 3.14.6 environment with pinned `openpyxl==3.1.5`, both on `PATH` and in `STARCLOCK_PYTHON`, passed `node tools/repository-check/run.mjs --full` in 244.5s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
-| `G20-P1-B2` | `Pending` | — | Component/catalog/registry identity composition. |
+| `G20-P1-B2` | `Complete` | This batch commit | The private catalog identity separates Candidate bundle, shared content, profile, Activity registry and composition digests. `swarm_disaster_component_set` returns the existing generic `ConfigurationComponentSet` with exactly 10 canonical components and no new public domain type or `pub use`. The static registry composes core plus one empty Swarm bundle with zero admitted handlers. Two new integration tests and two new unit tests freeze five digest vectors, controller sensitivity and the existing Gold fixture root; source-blob checks prove Standard and Gold handler/component composers remain byte-identical to the `G20-P1-B1` baseline. Clippy and `node tools/goal20/verify-phase1-b2.mjs` pass. The quick gate passed in 147.8s and deferred two generated/release/CI inputs; an isolated Python 3.14.6 environment with pinned `openpyxl==3.1.5` then passed the full gate in 198.6s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
 | `G20-P1-B3` | `Pending` | — | Structural profile/topology catalog lowering. |
 | `G20-P1-B4` | `Pending` | — | Unique mode-system catalog lowering. |
 | `G20-P1-B5` | `Pending` | — | Content/encounter/rule lowering and catalog coverage. |

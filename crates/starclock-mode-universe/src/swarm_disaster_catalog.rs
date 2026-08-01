@@ -27,7 +27,7 @@ const HEADER_LEN: usize = 24;
 const SECTION_ENTRY_LEN: usize = 28;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-struct SwarmDisasterBundleSummary {
+pub(crate) struct SwarmDisasterBundleSummary {
     bundle_digest: [u8; 32],
     table_count: usize,
     row_count: usize,
@@ -38,7 +38,7 @@ struct SwarmDisasterBundleSummary {
 }
 
 impl SwarmDisasterBundleSummary {
-    const fn bundle_digest(self) -> [u8; 32] {
+    pub(crate) const fn bundle_digest(self) -> [u8; 32] {
         self.bundle_digest
     }
 
@@ -107,12 +107,7 @@ impl std::error::Error for SwarmDisasterBundleLoadError {}
 /// Production construction remains owned by the future Swarm Disaster runtime factory;
 /// this function is a generated-type-free diagnostic boundary.
 pub fn validate_swarm_disaster_bundle(bytes: &[u8]) -> Result<(), UniverseCatalogLoadError> {
-    let (summary, _) = load_swarm_disaster_bundle(bytes).map_err(|error| {
-        UniverseCatalogLoadError::new(
-            UniverseCatalogLoadErrorKind::InvalidEmbeddedData,
-            error.to_string(),
-        )
-    })?;
+    let (summary, _) = load_validated_swarm_disaster_bundle(bytes)?;
     if !summary.matches_contract() {
         return Err(UniverseCatalogLoadError::new(
             UniverseCatalogLoadErrorKind::InvalidEmbeddedData,
@@ -120,6 +115,17 @@ pub fn validate_swarm_disaster_bundle(bytes: &[u8]) -> Result<(), UniverseCatalo
         ));
     }
     Ok(())
+}
+
+pub(crate) fn load_validated_swarm_disaster_bundle(
+    bytes: &[u8],
+) -> Result<(SwarmDisasterBundleSummary, SoraConfig), UniverseCatalogLoadError> {
+    load_swarm_disaster_bundle(bytes).map_err(|error| {
+        UniverseCatalogLoadError::new(
+            UniverseCatalogLoadErrorKind::InvalidEmbeddedData,
+            error.to_string(),
+        )
+    })
 }
 
 fn load_swarm_disaster_bundle(

@@ -1,0 +1,67 @@
+{
+  "schema_revision": "starclock.swarm-disaster-identity-composition.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P1-B2",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "catalog": {
+    "revision": "swarm-disaster-v4.4-runtime-v1",
+    "profile_revision": "swarm-disaster-profile-v1",
+    "content_revision": "swarm-disaster-content-v1",
+    "shared_content_revision": "universe-shared-content-v1",
+    "swarm_content_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "shared_content_sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+    "profile_identity_sha256": "7da5ca6cf03042937a206245bd82ec4a78e495d638b6bb0c07a6eabccd020468",
+    "composition_sha256": "8f299749c3d723e1738996ebfc11c5729ce2acd5f4e4d8e9a81b71c8e3007618"
+  },
+  "activity_registry": {
+    "registry_revision": "activity-handler-registry-v1",
+    "mode_bundle_id": "starclock.mode.swarm-disaster",
+    "mode_bundle_revision": "swarm-disaster-activity-handlers-v1",
+    "dependencies": [
+      "starclock.activity.core"
+    ],
+    "bundles": 2,
+    "admitted_handlers": 0,
+    "sha256": "670cc53e9b314b20e1fe0752dbb20a70c5404d28e82ffcc4c00a2e8c4cce0528"
+  },
+  "components": {
+    "revision": 1,
+    "count": 10,
+    "swarm_mode_content_components": 1,
+    "shared_mode_content_components": 1,
+    "unrelated_mode_components": 0,
+    "fixture_root_sha256": "26b6943c7fd7f078afc0870d015b7b4400b8b5f5d8b4a0b8aec1e22df5f07a0a"
+  },
+  "compatibility": {
+    "baseline_commit": "d67efe4660daa0401454a06c4fb1a5a56383ab0e",
+    "standard_handler_bundle_blob": "9dae3f37987b365b3c28e1f40c863e918d2510f0",
+    "standard_component_composer_blob": "4b7e8a4a4c095eb29ee0ea9c706d545571659afc",
+    "gold_components_blob": "2dfc515cbb0e7a099aef56bb7fd200c2962d4e22",
+    "gold_identity_blob": "2017b9b50eadfec7f8550c2d124e05b99ced802f",
+    "gold_handler_bundle_blob": "55f255ee22d24f3a57a17747d254c0f5e5dd36b3",
+    "gold_fixture_root_sha256": "93c50f430cf8950bb40fc180d355adbc6719d8f56ae434da4f8aac3068509b18",
+    "standard_and_gold_sources_unchanged": true,
+    "swarm_registry_excludes_other_mode_bundles": true,
+    "controller_digest_changes_component_root": true
+  },
+  "boundary": {
+    "new_public_domain_types": 0,
+    "public_reexports_added": 0,
+    "private_catalog_identity": true,
+    "component_composer_returns_existing_generic_type": true
+  },
+  "tests": {
+    "new_integration_passed": 2,
+    "new_unit_passed": 2,
+    "golden_digest_vectors": 5
+  },
+  "commands": [
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal20/verify-phase1-b2.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}
