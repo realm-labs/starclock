@@ -287,6 +287,23 @@ impl CompiledDiceControls {
         }
     }
 
+    pub(super) fn activation_prefix(
+        &self,
+        state: &ActivityTransactionState,
+        expected_face: u32,
+    ) -> Result<Vec<ActivityOperation>, UniverseCatalogLoadError> {
+        let selected = counter_value(state, DICE_RESOLUTION, SELECTED_FACE_KEY)?;
+        let closed = counter_value(state, DICE_RESOLUTION, PHASE_CLOSED_KEY)?;
+        if selected != i64::from(expected_face) || closed != 0 {
+            return Err(reference("Swarm dice face is not available for activation"));
+        }
+        Ok(vec![
+            require_counter(DICE_RESOLUTION, SELECTED_FACE_KEY, selected),
+            require_counter(DICE_RESOLUTION, PHASE_CLOSED_KEY, 0),
+            set_counter(DICE_RESOLUTION, PHASE_CLOSED_KEY, 1),
+        ])
+    }
+
     pub(super) fn roll_available(
         &self,
         state: &ActivityTransactionState,

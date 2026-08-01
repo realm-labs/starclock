@@ -72,9 +72,24 @@ pub(crate) struct SwarmDiceRarityRuntimeInput {
 pub(crate) struct SwarmAudienceFaceRuntimeInput {
     pub(crate) id: u32,
     pub(crate) key: Box<str>,
+    pub(crate) source_id: Box<str>,
     pub(crate) die_id: u32,
     pub(crate) rarity_id: u32,
+    pub(crate) target_id: u32,
     pub(crate) sort: u16,
+    pub(crate) activation_stage: u8,
+    pub(crate) effect_program: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmDiceTargetRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) source_id: Box<str>,
+    pub(crate) candidate_filter: Box<str>,
+    pub(crate) ordering: Box<str>,
+    pub(crate) cardinality: Box<str>,
+    pub(crate) no_legal_target: Box<str>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -171,13 +186,33 @@ impl SwarmDisasterUniqueCatalog {
                 .map(|row| SwarmAudienceFaceRuntimeInput {
                     id: row.id.0,
                     key: row.key.clone(),
+                    source_id: row.source_id.clone(),
                     die_id: row.audience_die.0,
                     rarity_id: row.rarity.0,
+                    target_id: row.target.0,
                     sort: row.sort,
+                    activation_stage: row.activation_stage,
+                    effect_program: row.effect_program.clone(),
                 })
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
         }
+    }
+
+    pub(crate) fn dice_target_runtime_input(&self) -> Box<[SwarmDiceTargetRuntimeInput]> {
+        self.dice_targets
+            .iter()
+            .map(|row| SwarmDiceTargetRuntimeInput {
+                id: row.id.0,
+                key: row.key.clone(),
+                source_id: row.source_id.clone(),
+                candidate_filter: row.candidate_filter.clone(),
+                ordering: row.ordering.clone(),
+                cardinality: row.cardinality.clone(),
+                no_legal_target: row.no_legal_target.clone(),
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice()
     }
 
     pub(crate) fn dice_control_runtime_input(&self) -> Box<[SwarmDiceControlRuntimeInput]> {

@@ -3,6 +3,8 @@
 mod audience;
 mod countdown;
 mod dice_control;
+mod face_effect;
+mod face_operation;
 mod factory;
 mod instance;
 mod map_overlay;
@@ -32,6 +34,8 @@ pub const SWARM_DISASTER_PLANE_COMPLETION_REVISION: &str =
 pub const SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION: &str = "swarm-disaster-audience-runtime-v1";
 /// Versioned roll, reroll, cheat and abandon execution policy.
 pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-control-v1";
+/// Versioned typed face-selector, target and deferred-effect policy.
+pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-policy-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -129,6 +133,7 @@ pub struct SwarmDisasterRuntimeFactory {
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: Arc<audience::AudienceRuntimeCatalog>,
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
+    face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -148,6 +153,7 @@ pub struct SwarmDisasterRuntimeInstance {
     transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
     audience: audience::CompiledAudienceRuntime,
     dice_controls: dice_control::CompiledDiceControls,
+    face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
 }
 
 #[cfg(test)]
@@ -156,6 +162,8 @@ mod audience_tests;
 mod countdown_tests;
 #[cfg(test)]
 mod dice_control_tests;
+#[cfg(test)]
+mod face_effect_tests;
 #[cfg(test)]
 mod map_overlay_tests;
 #[cfg(test)]

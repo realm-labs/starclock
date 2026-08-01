@@ -234,6 +234,98 @@ impl SwarmDisasterRuntimeInstance {
         self.dice_controls.resolution_kind(state)
     }
 
+    /// Activates the currently selected face through its typed target policy.
+    ///
+    /// Explicit selectors accept one eligible node. Random selectors consume
+    /// only the labeled Spawn target stream. An empty legal set commits the
+    /// versioned no-op result without consuming RNG.
+    pub fn compile_dice_face_activation(
+        &self,
+        state: &ActivityTransactionState,
+        explicit_target: Option<NodeId>,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.face_effects.compile_activation(
+            &self.dice_controls,
+            &self.map,
+            state,
+            explicit_target,
+            rng,
+        )
+    }
+
+    /// Returns the authored activation stage: immediate 1, post-movement 2,
+    /// or next-battle contribution 3.
+    #[must_use]
+    pub fn dice_face_activation_stage(&self, face: &str) -> Option<u8> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::activation_stage)
+    }
+
+    /// Returns the versioned target contract for one selected-Die face.
+    #[must_use]
+    pub fn dice_face_target_contract(&self, face: &str) -> Option<&'static str> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::target_contract)
+    }
+
+    /// Returns the typed selector name for one selected-Die face.
+    #[must_use]
+    pub fn dice_face_selector(&self, face: &str) -> Option<&'static str> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::selector_name)
+    }
+
+    /// Returns the typed duration name for one selected-Die face.
+    #[must_use]
+    pub fn dice_face_duration(&self, face: &str) -> Option<&'static str> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::duration_name)
+    }
+
+    /// Returns the authored operation name for one selected-Die face.
+    #[must_use]
+    pub fn dice_face_operation(&self, face: &str) -> Option<&'static str> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::operation_name)
+    }
+
+    /// Returns exact canonical parameters scaled by one million.
+    #[must_use]
+    pub fn dice_face_parameters_scaled(&self, face: &str) -> Option<&[i64]> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::parameters_scaled)
+    }
+
+    /// Returns exact description parameters scaled by one million.
+    #[must_use]
+    pub fn dice_face_description_scaled(&self, face: &str) -> Option<&[i64]> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::description_scaled)
+    }
+
+    /// Returns a finite next-battle turn duration when one is authored.
+    #[must_use]
+    pub fn dice_face_turn_duration(&self, face: &str) -> Option<u16> {
+        self.dice_face_runtime(face)
+            .and_then(super::face_effect::RuntimeDiceFace::turn_duration)
+    }
+
+    /// Returns released source-effect references in authored order.
+    #[must_use]
+    pub fn dice_face_effect_references(&self, face: &str) -> Option<&[u32]> {
+        self.dice_face_runtime(face)
+            .map(super::face_effect::RuntimeDiceFace::effect_references)
+    }
+
+    fn dice_face_runtime(&self, face: &str) -> Option<&super::face_effect::RuntimeDiceFace> {
+        self.audience
+            .faces()
+            .any(|candidate| candidate == face)
+            .then(|| self.face_effects.face(face))
+            .flatten()
+    }
+
     /// Compiles one plane's canonical node-domain and beacon initialization.
     ///
     /// The caller owns `rng`; successful compilation consumes only labeled

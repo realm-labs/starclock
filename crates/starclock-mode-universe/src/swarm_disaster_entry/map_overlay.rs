@@ -14,7 +14,10 @@ use crate::{
     swarm_disaster_structural::map_access::SwarmDisasterMapStructuralInput,
 };
 
-use super::state::{NODE_BEACON, NODE_DOMAIN, NODE_STATE, PLANE};
+use super::{
+    face_effect::{FaceSelector, MERCY_TARGET_BASE},
+    state::{DEFERRED, NODE_BEACON, NODE_DOMAIN, NODE_STATE, PLANE},
+};
 
 pub(super) const MAP_EVENT_PURPOSE: u16 = 0x5301;
 pub(super) const CREATE_COUNT_PURPOSE: u16 = 0x5302;
@@ -333,6 +336,77 @@ impl MapRuntimeCatalog {
                 .map(|(_, id)| *id)
                 .ok_or_else(|| invalid("unknown Swarm beacon"))
         })
+    }
+
+    pub(super) fn dice_face_candidates(
+        &self,
+        state: &ActivityTransactionState,
+        selector: FaceSelector,
+    ) -> Result<Box<[NodeId]>, UniverseCatalogLoadError> {
+        let combat = self.domain("swarm-disaster.domain.monsternormal")?;
+        let elite = self.domain("swarm-disaster.domain.monsterelite")?;
+        let occurrence = self.domain("swarm-disaster.domain.event")?;
+        let boss = self.domain("swarm-disaster.domain.monsterboss")?;
+        let swarm = self.domain("swarm-disaster.domain.monsterswarm")?;
+        let swarm_boss = self.domain("swarm-disaster.domain.monsterswarmboss")?;
+        let swarm_occurrence = self.domain("swarm-disaster.domain.swarmevent")?;
+        let domains = map_values(state, NODE_DOMAIN)?;
+        let node_states = map_values(state, NODE_STATE)?;
+        let deferred = map_values(state, DEFERRED)?;
+        let mut candidates = Vec::new();
+        for (raw, domain) in domains {
+            let active = node_states
+                .binary_search_by_key(raw, |(key, _)| *key)
+                .ok()
+                .is_some_and(|index| node_states[index].1 != NODE_STATE_BLANKED);
+            if !active {
+                continue;
+            }
+            let domain = u32::try_from(*domain)
+                .map_err(|_| invalid("invalid Swarm dice-face candidate domain"))?;
+            let node = u32::try_from(*raw)
+                .ok()
+                .and_then(NodeId::new)
+                .ok_or_else(|| invalid("invalid Swarm dice-face candidate node"))?;
+            let has_mercy = deferred
+                .binary_search_by_key(&(MERCY_TARGET_BASE + *raw), |(key, _)| *key)
+                .ok()
+                .is_some_and(|index| deferred[index].1 != 0);
+            let selected = match selector {
+                FaceSelector::Any => true,
+                FaceSelector::NonBoss => domain != boss && domain != swarm_boss,
+                FaceSelector::Combat => domain == combat,
+                FaceSelector::Elite => domain == elite,
+                FaceSelector::Occurrence => domain == occurrence,
+                FaceSelector::CombatSwarmElite => [combat, swarm, elite].contains(&domain),
+                FaceSelector::CombatSwarm => domain == swarm,
+                FaceSelector::Swarm => [swarm, swarm_occurrence].contains(&domain),
+                FaceSelector::Boss => [boss, swarm_boss].contains(&domain),
+                FaceSelector::WithoutMercy => !has_mercy,
+            };
+            if selected {
+                candidates.push((domain, node));
+            }
+        }
+        candidates.sort_unstable_by_key(|(domain, node)| (*domain, *node));
+        if candidates.windows(2).any(|pair| pair[0].1 == pair[1].1) {
+            return Err(invalid("duplicate Swarm dice-face target candidate"));
+        }
+        Ok(candidates
+            .into_iter()
+            .map(|(_, node)| node)
+            .collect::<Vec<_>>()
+            .into_boxed_slice())
+    }
+}
+
+fn map_values(
+    state: &ActivityTransactionState,
+    slot_id: u32,
+) -> Result<&[(u64, i64)], UniverseCatalogLoadError> {
+    match state.slot(slot(slot_id)) {
+        Some(ActivityValue::BoundedCounterMap(values)) => Ok(values),
+        _ => Err(invalid("invalid Swarm map overlay slot")),
     }
 }
 

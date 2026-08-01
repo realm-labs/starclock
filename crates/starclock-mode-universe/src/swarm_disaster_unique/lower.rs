@@ -312,14 +312,15 @@ fn lower_dice_face(
     row: &SwarmDisasterDiceFace,
 ) -> Result<DiceFaceDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    positive_u8(row.activation_stage, &row.stable_key)?;
     Ok(DiceFaceDefinition {
         id: DiceFaceId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
+        source_id: nonempty(&row.source_id, &row.stable_key)?,
         audience_die: AudienceDieId(positive(row.audience_die_id, &row.stable_key)?),
         rarity: DiceRarityId(positive(row.rarity_id, &row.stable_key)?),
         target: DiceTargetId(positive(row.target_rule_id, &row.stable_key)?),
         sort: positive_u16(row.sort, &row.stable_key)?,
+        activation_stage: positive_u8(row.activation_stage, &row.stable_key)?,
         effect_program: json(&row.effect_program_json, &row.stable_key)?,
     })
 }
@@ -328,9 +329,6 @@ fn lower_dice_target(
     row: &SwarmDisasterDiceTargetRule,
 ) -> Result<DiceTargetDefinition, SwarmDisasterUniqueError> {
     metadata(&row.stable_key, &row.schema_revision, &row.kind)?;
-    for value in [&row.cardinality_json, &row.no_legal_target_json] {
-        json(value, &row.stable_key)?;
-    }
     if row.ordering != "StableDomainThenNodeId" {
         return invalid(&row.stable_key);
     }
@@ -339,6 +337,9 @@ fn lower_dice_target(
         key: stable(&row.stable_key)?,
         source_id: nonempty(&row.source_id, &row.stable_key)?,
         candidate_filter: json(&row.candidate_filter_json, &row.stable_key)?,
+        ordering: nonempty(&row.ordering, &row.stable_key)?,
+        cardinality: json(&row.cardinality_json, &row.stable_key)?,
+        no_legal_target: json(&row.no_legal_target_json, &row.stable_key)?,
     })
 }
 

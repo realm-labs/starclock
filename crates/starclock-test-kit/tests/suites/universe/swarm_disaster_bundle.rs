@@ -252,7 +252,15 @@ fn public_factory_compiles_entry_topology_and_labeled_dice_controls() {
         .compile_dice_roll(&audience_state, &mut rng)
         .unwrap();
     apply(&instance, &mut audience_state, &roll);
-    assert!(instance.dice_resolution_face(&audience_state).is_some());
+    let rolled_face = instance.dice_resolution_face(&audience_state).unwrap();
+    assert!(instance.dice_face_activation_stage(rolled_face).is_some());
+    assert!(instance.dice_face_target_contract(rolled_face).is_some());
+    assert!(instance.dice_face_selector(rolled_face).is_some());
+    assert!(instance.dice_face_duration(rolled_face).is_some());
+    assert!(instance.dice_face_operation(rolled_face).is_some());
+    assert!(instance.dice_face_parameters_scaled(rolled_face).is_some());
+    assert!(instance.dice_face_description_scaled(rolled_face).is_some());
+    assert!(instance.dice_face_effect_references(rolled_face).is_some());
     assert_eq!(
         instance.dice_resolution_kind(&audience_state).unwrap(),
         Some(1)
@@ -265,6 +273,21 @@ fn public_factory_compiles_entry_topology_and_labeled_dice_controls() {
         Some(4)
     );
     assert!(!instance.dice_roll_available(&audience_state).unwrap());
+
+    let mut face_state = ActivityTransactionState::new(
+        instance.state_definition().clone(),
+        instance.graph_definition().entry(),
+    );
+    let roll = instance.compile_dice_roll(&face_state, &mut rng).unwrap();
+    apply(&instance, &mut face_state, &roll);
+    let activation = instance
+        .compile_dice_face_activation(&face_state, None, &mut rng)
+        .unwrap();
+    activation
+        .validate_against(instance.state_definition(), instance.graph_definition())
+        .unwrap();
+    apply(&instance, &mut face_state, &activation);
+    assert!(!instance.dice_reroll_available(&face_state).unwrap());
 
     assert_eq!(
         instance.boss_choices().collect::<Vec<_>>(),

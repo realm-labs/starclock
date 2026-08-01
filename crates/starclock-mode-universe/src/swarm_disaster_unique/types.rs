@@ -96,10 +96,12 @@ pub(super) struct DiceRarityDefinition {
 pub(super) struct DiceFaceDefinition {
     pub(super) id: DiceFaceId,
     pub(super) key: Box<str>,
+    pub(super) source_id: Box<str>,
     pub(super) audience_die: AudienceDieId,
     pub(super) rarity: DiceRarityId,
     pub(super) target: DiceTargetId,
     pub(super) sort: u16,
+    pub(super) activation_stage: u8,
     pub(super) effect_program: Box<str>,
 }
 
@@ -109,6 +111,9 @@ pub(super) struct DiceTargetDefinition {
     pub(super) key: Box<str>,
     pub(super) source_id: Box<str>,
     pub(super) candidate_filter: Box<str>,
+    pub(super) ordering: Box<str>,
+    pub(super) cardinality: Box<str>,
+    pub(super) no_legal_target: Box<str>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
