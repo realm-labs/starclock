@@ -1,10 +1,12 @@
 {
-  "schema_revision": "starclock.ci-matrix.v3",
-  "reviewed_on": "2026-07-17",
+  "schema_revision": "starclock.ci-matrix.v4",
+  "reviewed_on": "2026-08-01",
   "workflow": ".github/workflows/ci.yml",
-  "repository_gate": "node tools/repository-check/run.mjs",
-  "goal02_native_gate": "cargo test -p starclock-test-kit --test exhaustive_suite schema_property_contract --all-features && cargo test -p starclock-test-kit --test adapter_suite --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features",
-  "goal05_native_gate": "node tools/goal05/run-native-hardening.mjs --run",
+  "repository_gate": "node tools/repository-check/run.mjs --full",
+  "native_test_execution_passes": 1,
+  "historical_goal_gates_reexecuted": false,
+  "native_timeout_minutes": 40,
+  "compile_only_timeout_minutes": 20,
   "evidence_retention_days": 30,
   "golden_suites": [
     {

@@ -78,8 +78,10 @@ if (record) {
   assert(/^[0-9a-f]{64}$/u.test(evidence.policy_sha256),
     "historical hardening policy evidence digest is invalid");
   const workflow = text(".github/workflows/ci.yml");
-  assert(workflow.includes(policy.commands[0].program), "current workflow no longer executes native Rust tooling");
-  assert(workflow.includes("tools/goal05/run-native-hardening.mjs"), "current workflow removed the Goal 05 gate");
+  assert(workflow.includes("node tools/repository-check/run.mjs --full"),
+    "current workflow no longer executes the full repository gate");
+  assert(!workflow.includes("tools/goal05/run-native-hardening.mjs"),
+    "current workflow unexpectedly replays the historical Goal 05 gate");
   assert(/^[0-9a-f]{64}$/u.test(evidence.workflow_sha256), "historical workflow evidence digest is invalid");
   assert(Object.keys(evidence.source_sha256).length === policy.source_targets.length,
     "historical source evidence digest denominator drift");

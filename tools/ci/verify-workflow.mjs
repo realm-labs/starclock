@@ -6,8 +6,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy/ci-matrix.json"), "utf8"));
 const workflow = fs.readFileSync(path.join(root, policy.workflow), "utf8").replaceAll("\r\n", "\n");
 
-assert(policy.schema_revision === "starclock.ci-matrix.v3", "unexpected CI policy schema");
-assert(policy.repository_gate === "node tools/repository-check/run.mjs", "CI must use the local repository runner");
+assert(policy.schema_revision === "starclock.ci-matrix.v4", "unexpected CI policy schema");
+assert(policy.repository_gate === "node tools/repository-check/run.mjs --full",
+  "native CI must use the full repository runner exactly once");
+assert(policy.native_test_execution_passes === 1,
+  "native CI test execution must remain a single full-repository pass");
+assert(policy.historical_goal_gates_reexecuted === false,
+  "native CI must not replay historical Goal gates");
+assert(policy.native_timeout_minutes === 40, "native CI timeout changed without review");
+assert(policy.compile_only_timeout_minutes === 20, "compile-only CI timeout changed without review");
 assert(policy.evidence_retention_days === 30, "CI evidence retention changed without review");
 assert(JSON.stringify(policy.golden_suites.map((suite) => suite.id)) === JSON.stringify(["numeric", "rng", "codec", "battle", "build", "replay", "agent-schema", "agent-trace", "universe-integration"]), "golden suite inventory changed without review");
 for (const suite of policy.golden_suites) {
@@ -62,10 +69,10 @@ requireText("permissions:\n  contents: read", "workflow permissions must remain 
 requireText("fetch-depth: 0", "native CI must fetch immutable Goal completion commits");
 requireText("node-version-file: .node-version", "workflow must install .node-version");
 requireText("rustup toolchain install 1.97.0", "workflow must install the pinned Rust toolchain");
+requireText(`timeout-minutes: ${policy.native_timeout_minutes}`, "native CI timeout differs from policy");
+requireText(`timeout-minutes: ${policy.compile_only_timeout_minutes}`, "compile-only CI timeout differs from policy");
 requireText("run: node tools/sora/install.mjs", "native CI must install checksum-bound Sora");
 requireText(`run: ${policy.repository_gate}`, "native CI must call the repository runner verbatim");
-requireText(`run: ${policy.goal02_native_gate}`, "native CI must execute the Goal 02 schema and trace gate verbatim");
-requireText(`run: ${policy.goal05_native_gate}`, "native CI must execute the Goal 05 real-universe hardening gate verbatim");
 requireText("run: cargo check --workspace --all-targets --all-features --target \"${{ matrix.target }}\"", "compile-only CI must use cargo check");
 requireText("if: matrix.profile == 'linux-arm64-compile'", "Linux ARM64 compile profile must install its cross compiler");
 requireText("gcc-aarch64-linux-gnu", "Linux ARM64 compile profile lacks the required cross compiler package");
@@ -74,6 +81,10 @@ requireText("if-no-files-found: error", "missing evidence must fail artifact upl
 requireText(`retention-days: ${policy.evidence_retention_days}`, "evidence retention differs from policy");
 assert(!workflow.includes("cargo test --target \"${{ matrix.target }}\""), "compile-only targets must not execute tests");
 assert(!workflow.includes("tools/goal04/run-native-ci.mjs"), "current CI must not rerun historical Goal 04 acceptance");
+assert(!/Execute Goal|tools\/goal\d+\/run-native/iu.test(workflow),
+  "current CI must not rerun Goal-specific test gates");
+assert(workflow.split(`run: ${policy.repository_gate}`).length - 1 === 1,
+  "full repository gate must occur exactly once in the workflow source");
 
 console.log(`CI workflow contract verified: ${policy.native_profiles.length} native and ${policy.compile_only_profiles.length} compile-only profiles.`);
 

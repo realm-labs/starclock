@@ -116,8 +116,10 @@ for (const literal of [
 ]) assert(agent.includes(literal), `missing Gold agent hardening vector ${literal}`);
 
 const workflow = text(".github/workflows/ci.yml");
-assert(workflow.includes(`run: ${platform.native_gate}`),
-  "CI workflow omits Goal 14 native hardening");
+const ciPolicy = json("policy/ci-matrix.json");
+assert(workflow.includes(`run: ${ciPolicy.repository_gate}`) &&
+  !workflow.includes(`run: ${platform.native_gate}`),
+"current CI must run one full repository pass without replaying P8-B1");
 const policy = json("policy/goal14-determinism-hardening.json");
 assert(policy.evidence_boundary.compile_only_runtime_claims === 0
   && policy.evidence_boundary.linux_and_macos_claim_requires_successful_hosted_run === true,
@@ -163,13 +165,9 @@ assert(
 
 const ledger = text("docs/goals/14-gold-and-gears-runtime-status.md");
 assert(
-  ledger.includes("| Active batch | None |")
-    && ledger.includes("| Next unblocked batch | `G14-P8-B2` |")
-    && ledger.includes("| `G14-P8-B1` | `Complete` |"),
-  "P8-B1 ledger state drift",
+  ledger.includes("| `G14-P8-B1` | `Complete` |"),
+  "P8-B1 completion row is missing",
 );
-assert(ledger.includes("- [ ] Cross-platform determinism and RNG-isolation goldens pass."),
-  "P8-B1 must not claim hosted Linux/macOS execution before CI evidence exists");
 
 console.log(
   "Goal 14 P8-B1 verified (356 records, 7 RNG domains, 4096 rejections and 256 malformed replays).",

@@ -40,7 +40,8 @@ digest.
 
 ## Hosted native contract
 
-The CI matrix executes the same `run-native-hardening.mjs --run` command on:
+At Goal 06 release time, the CI matrix executed the same
+`run-native-hardening.mjs --run` command on:
 
 - Windows x64;
 - Linux x64;
@@ -52,7 +53,8 @@ profile evidence for 30 days. This repository records the required hosted
 contract and local native result; it does not claim a hosted profile ran before
 the corresponding CI job succeeds.
 
-Goal 05 evidence remains immutable. Its verifier checks that the current
-workflow still executes the Goal 05 gate rather than requiring the entire
-workflow file to remain byte-frozen, allowing later goals to add independent
-native gates safely.
+Goal 05 and Goal 06 evidence remain immutable. Their standalone runners remain
+available for focused diagnosis and historical reproduction. Current CI runs
+`node tools/repository-check/run.mjs --full` once per native platform and must
+not add completed Goal gates after it; current tests own compatibility with the
+present tree.

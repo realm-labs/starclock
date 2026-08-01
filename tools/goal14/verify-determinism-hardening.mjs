@@ -36,8 +36,10 @@ assert(
   "compile-only profile inventory drift",
 );
 const workflow = normalizedText(".github/workflows/ci.yml");
-assert(workflow.includes(`run: ${policy.native_gate}`),
-  "native CI omits the Goal 14 hardening gate");
+assert(workflow.includes(`run: ${inherited.repository_gate}`),
+  "native CI omits the single full repository gate");
+assert(!workflow.includes(`run: ${policy.native_gate}`),
+  "native CI unexpectedly replays the Goal 14 hardening tests");
 const runner = normalizedText("tools/goal14/run-native-ci.mjs");
 for (const marker of [
   "gold_gears_entry::hardening_tests",

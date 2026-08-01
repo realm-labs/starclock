@@ -236,7 +236,9 @@ node tools/repository-check/run.mjs --full
 The full profile executes generated-artifact drift, all-target/all-feature
 Clippy and all workspace tests. It compiles test harnesses once, executes
 independent harness binaries with bounded process-level parallelism, and runs
-doctests separately. Artifact/evidence validators must not recursively execute
+doctests separately. Each native CI job invokes this full profile exactly once;
+completed Goal runners are standalone reproduction tools, not additive CI
+stages. Artifact/evidence validators must not recursively execute
 Rust tests in this profile: the workspace runner owns that coverage exactly
 once. Standalone goal validators may still run their focused Rust tests when
 invoked directly. The workspace contains 10 integration-test targets: five

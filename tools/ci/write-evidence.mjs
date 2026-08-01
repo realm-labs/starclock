@@ -27,7 +27,7 @@ if (process.env.GITHUB_ACTIONS === "true") {
 
 const expectedManifest = JSON.parse(fs.readFileSync(path.join(root, "config/sora-golden/expected-manifest.json"), "utf8"));
 const evidence = {
-  schema_revision: "starclock.ci-evidence.v1",
+  schema_revision: "starclock.ci-evidence.v2",
   profile: profile.id,
   execution_mode: profile.execution_mode,
   tests_executed: profile.tests_executed,
@@ -58,8 +58,10 @@ const evidence = {
     id: suite.id,
     disposition: profile.execution_mode === "native" ? "executed" : "compiled-not-executed"
   })),
-  goal02_native_gate: profile.execution_mode === "native" ? policy.goal02_native_gate : null,
-  goal05_native_gate: profile.execution_mode === "native" ? policy.goal05_native_gate : null
+  native_test_execution_passes: profile.execution_mode === "native"
+    ? policy.native_test_execution_passes
+    : 0,
+  historical_goal_gates_reexecuted: false
 };
 
 if (profile.execution_mode === "native") {

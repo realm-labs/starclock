@@ -10,14 +10,16 @@ const workflow = (await readFile(policy.workflow, "utf8")).replaceAll("\r\n", "\
 const fail = (message) => { throw new Error(`Agent native CI matrix: ${message}`); };
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 
-if (policy.schema_revision !== "starclock.ci-matrix.v3" || report.schema_revision !== "starclock.ci-golden-matrix.v2") fail("matrix revision drift");
+if (policy.schema_revision !== "starclock.ci-matrix.v4" || report.schema_revision !== "starclock.ci-golden-matrix.v2") fail("matrix revision drift");
 const suiteIds = policy.golden_suites.map(({ id }) => id);
 const agentSchemaIndex = suiteIds.indexOf("agent-schema");
 if (agentSchemaIndex < 0 || suiteIds[agentSchemaIndex + 1] !== "agent-trace") fail("Goal 02 suite inventory drift");
-if (!policy.goal02_native_gate.includes("schema_property_contract") || !policy.goal02_native_gate.includes("standard_session_loop") || !policy.goal02_native_gate.includes("mcp_stdio") || !policy.goal02_native_gate.includes("http_conformance")) fail("native Goal 02 command is incomplete");
 const nativeWorkflow = workflow.slice(0, workflow.indexOf("  compile-only:"));
 const compileWorkflow = workflow.slice(workflow.indexOf("  compile-only:"));
-if (!nativeWorkflow.includes(policy.goal02_native_gate) || compileWorkflow.includes(policy.goal02_native_gate)) fail("Goal 02 runtime gate is not native-only");
+if (policy.native_test_execution_passes !== 1 || policy.historical_goal_gates_reexecuted !== false)
+  fail("current native CI must execute one full repository pass without historical Goal gates");
+if (!nativeWorkflow.includes(policy.repository_gate) || compileWorkflow.includes(policy.repository_gate))
+  fail("the single full repository test gate is not native-only");
 
 const contract = report.agent_contract;
 if (contract.schema_revision !== agent.schema_revision || contract.schema_bundle_sha256 !== agent.schema_bundle_sha256) fail("schema contract drift");

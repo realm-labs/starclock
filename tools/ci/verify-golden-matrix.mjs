@@ -9,14 +9,16 @@ const bless = process.argv.slice(2).includes("--bless");
 assert(process.argv.slice(2).every((argument) => argument === "--bless"), "usage: verify-golden-matrix.mjs [--bless]");
 const policyBytes = fs.readFileSync(path.join(root, "policy/ci-matrix.json"));
 const policy = JSON.parse(policyBytes);
-assert(policy.schema_revision === "starclock.ci-matrix.v3", "unsupported CI matrix revision");
+assert(policy.schema_revision === "starclock.ci-matrix.v4", "unsupported CI matrix revision");
 
 const attributes = execFileSync("git", ["check-attr", "eol", "--", "content-reference/v4.4/characters.json"], { cwd: root, encoding: "utf8" });
 assert(attributes.trim().endsWith("eol: lf"), "prepared reference JSON does not have a checkout-stable LF policy");
 const workflow = fs.readFileSync(path.join(root, policy.workflow), "utf8").replaceAll("\r\n", "\n");
 assert(workflow.includes("gcc-aarch64-linux-gnu"), "Linux ARM64 cross-compiler installation is absent");
 assert(workflow.includes(policy.repository_gate), "native matrix does not execute the repository gate");
-assert(workflow.includes(policy.goal02_native_gate), "native matrix does not execute Goal 02 schema/trace vectors");
+assert(policy.native_test_execution_passes === 1
+  && policy.historical_goal_gates_reexecuted === false,
+"native matrix must execute every current test once without replaying historical Goal gates");
 assert(workflow.includes("cargo check --workspace --all-targets --all-features"), "compile-only matrix does not compile all test targets");
 
 const suites = policy.golden_suites.map((suite) => ({
@@ -100,7 +102,7 @@ function verifyFrozenReport(frozen) {
     assert(current !== undefined, `current CI policy removed frozen suite ${suite.id}`);
     assert(current.claim === suite.claim, `${suite.id}: frozen claim drift`);
     assert(JSON.stringify(current.test_targets) === JSON.stringify(
-      suite.targets.map(({ path: targetPath }) => targetPath),
+      suite.targets.map(({ path: targetPath }) => currentTarget(targetPath)),
     ), `${suite.id}: frozen target inventory drift`);
   }
   for (const suite of frozen.suites)
@@ -134,6 +136,28 @@ function verifyFrozenReport(frozen) {
     frozen.agent_contract.replay_sha256,
   ])
     assert(/^[0-9a-f]{64}$/u.test(value), "invalid frozen contract digest");
+}
+
+function currentTarget(target) {
+  const moved = new Map([
+    ["crates/starclock-combat/tests/numeric_golden.rs", "crates/starclock-test-kit/tests/suites/core/combat/numeric_golden.rs"],
+    ["crates/starclock-combat/tests/numeric_formula_oracle.rs", "crates/starclock-test-kit/tests/suites/core/combat/numeric_formula_oracle.rs"],
+    ["crates/starclock-combat/tests/toughness_formula.rs", "crates/starclock-test-kit/tests/suites/core/combat/toughness_formula.rs"],
+    ["crates/starclock-combat/tests/rng_golden.rs", "crates/starclock-test-kit/tests/suites/core/combat/rng_golden.rs"],
+    ["crates/starclock-replay/tests/codec_golden.rs", "crates/starclock-test-kit/tests/suites/activity/replay/codec_golden.rs"],
+    ["crates/starclock-combat/tests/battle_boundary.rs", "crates/starclock-test-kit/tests/suites/core/combat/battle_boundary.rs"],
+    ["crates/starclock-combat/tests/damage_lifecycle.rs", "crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle.rs"],
+    ["crates/starclock-mode-standard/tests/standard_profile.rs", "crates/starclock-test-kit/tests/suites/core/mode_standard/standard_profile.rs"],
+    ["crates/starclock-build/tests/build_identity.rs", "crates/starclock-test-kit/tests/suites/core/build/build_identity.rs"],
+    ["crates/starclock-build/tests/eidolon_compilation.rs", "crates/starclock-test-kit/tests/suites/core/build/eidolon_compilation.rs"],
+    ["crates/starclock-build/tests/light_cone_compilation.rs", "crates/starclock-test-kit/tests/suites/core/build/light_cone_compilation.rs"],
+    ["crates/starclock-replay/tests/activity_replay.rs", "crates/starclock-test-kit/tests/suites/activity/replay/activity_replay.rs"],
+    ["crates/starclock-replay/tests/battle_property_contract.rs", "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs"],
+    ["crates/starclock-agent-api/tests/schema_property_contract.rs", "crates/starclock-test-kit/tests/suites/exhaustive/agent_api/schema_property_contract.rs"],
+    ["crates/starclock-agent-api/tests/standard_session_loop.rs", "crates/starclock-test-kit/tests/suites/adapter/agent_api/standard_session_loop.rs"],
+    ["crates/starclock-mcp/tests/http_conformance.rs", "crates/starclock-test-kit/tests/suites/adapter/mcp/http_conformance.rs"],
+  ]);
+  return moved.get(target) ?? target;
 }
 
 function profileEvidence(profile, disposition, runtimeClaim) {

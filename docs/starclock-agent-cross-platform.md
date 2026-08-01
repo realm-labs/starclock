@@ -1,15 +1,16 @@
 # Starclock agent cross-platform evidence
 
-Goal 02 extends the pinned CI matrix with two suites. `agent-schema` executes
-the exact `agent-api-v1` schema/golden bundle and canonical value properties.
+Goal 02 added two suites to the pinned CI matrix. `agent-schema` executes the
+exact `agent-api-v1` schema/golden bundle and canonical value properties.
 `agent-trace` executes the shared nine-hash, 987-byte replay artifact through
 the in-process session API, stdio MCP and authorized real-TCP HTTP MCP.
 
 The native matrix is Windows x64 (`windows-2025`), Linux x64
-(`ubuntu-24.04`) and macOS ARM64 (`macos-15`). Each native job first runs the
-complete repository gate and then explicitly runs the Goal 02 schema and three
-transport tests. A successful per-run artifact may therefore mark both suites
-`executed` for the exact checked commit and hosted image.
+(`ubuntu-24.04`) and macOS ARM64 (`macos-15`). Each native job runs
+`node tools/repository-check/run.mjs --full` exactly once. That gate owns all
+current tests, including the Goal 02 schema and transport coverage; CI must not
+replay completed Goal runners after it. A successful per-run artifact may mark
+both suites `executed` for the exact checked commit and hosted image.
 
 Windows ARM64, Linux ARM64 and macOS x64 are deliberately compile-only. Their
 jobs compile all workspace targets and test sources but run no target binary.

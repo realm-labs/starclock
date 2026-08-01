@@ -71,8 +71,10 @@ assert(ci.broad_ci_profile === "windows-x64-native" &&
   ci.stable_runner_regression_check_passed === true && ci.compile_only_runtime_claims === 0,
 "P8-B2 CI evidence drift");
 const workflow = text(".github/workflows/ci.yml");
-assert(workflow.includes(`if: matrix.profile == '${ci.broad_ci_profile}'`) &&
-  workflow.includes(`run: ${ci.broad_ci_command}`), "P8-B2 broad CI workflow drift");
+const ciPolicy = json("policy/ci-matrix.json");
+assert(workflow.includes(`run: ${ciPolicy.repository_gate}`) &&
+  !workflow.includes(`run: ${ci.broad_ci_command}`),
+"current CI must run one full repository pass without replaying P8-B2");
 
 const tests = evidence.tests;
 assert(tests.full_gold_entry_tests === 139 && tests.all_agent_api_tests === 32 &&
@@ -94,8 +96,7 @@ for (const [path, maximum] of [
 ]) assert(text(path).split(/\r?\n/u).length <= maximum, `${path} exceeds ${maximum} lines`);
 
 const ledger = text("docs/goals/14-gold-and-gears-runtime-status.md");
-assert(ledger.includes("| Active batch | None |") &&
-  ledger.includes("| Next unblocked batch | `G14-P8-B3` |") &&
-  ledger.includes("| `G14-P8-B2` | `Complete` |"), "P8-B2 ledger state drift");
+assert(ledger.includes("| `G14-P8-B2` | `Complete` |"),
+  "P8-B2 completion row is missing");
 
 console.log("Goal 14 P8-B2 verified (7 workloads, 3 stable samples, 10000 zero-allocation warm hits).");

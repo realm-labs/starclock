@@ -26,8 +26,10 @@ assert(currentMatrixPolicy.wall_budget_seconds >= policy.wall_budget_seconds,
   "current native matrix budget regressed below the historical budget");
 assert(policy.commands.length === 4, "hardening command denominator drift");
 const workflow = text(".github/workflows/ci.yml");
-assert(workflow.includes("run: node tools/goal06/run-native-hardening.mjs . --run"),
-  "native CI no longer executes the Goal 06 hardening gate");
+assert(workflow.includes("run: node tools/repository-check/run.mjs --full"),
+  "native CI no longer executes the full repository gate");
+assert(!workflow.includes("run: node tools/goal06/run-native-hardening.mjs . --run"),
+  "native CI unexpectedly replays the historical Goal 06 gate");
 const ciMatrix = json("policy/ci-matrix.json");
 assert(equal(ciMatrix.native_profiles.map(({ id }) => id), policy.native_profiles),
   "native CI profile denominator drift");
@@ -70,8 +72,8 @@ assert(/^[0-9a-f]{64}$/.test(evidence.policy_sha256),
   "historical hardening policy evidence digest is invalid");
 assert(/^[0-9a-f]{64}$/.test(evidence.workflow_sha256),
   "historical workflow evidence digest is invalid");
-assert(workflow.includes("run: node tools/goal06/run-native-hardening.mjs . --run"),
-  "current workflow removed the Goal 06 native gate");
+assert(workflow.includes("run: node tools/repository-check/run.mjs --full"),
+  "current workflow removed the single full repository gate");
 assert(Object.keys(evidence.source_sha256).length === policy.source_targets.length,
   "historical source evidence digest denominator drift");
 for (const [target, digestValue] of Object.entries(evidence.source_sha256))

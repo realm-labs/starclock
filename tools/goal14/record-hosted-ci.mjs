@@ -31,7 +31,7 @@ try {
     if (!file.endsWith(".json")) return [];
     const bytes = fs.readFileSync(file);
     const evidence = JSON.parse(bytes.toString("utf8"));
-    if (evidence.schema_revision !== "starclock.ci-evidence.v1") return [];
+    if (evidence.schema_revision !== "starclock.ci-evidence.v2") return [];
     return [{
       profile: evidence.profile,
       execution_mode: evidence.execution_mode,

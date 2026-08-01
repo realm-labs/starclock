@@ -34,8 +34,10 @@ assert(Object.values(policy.contracts).every((value) => value === true),
 
 const workflow = text(".github/workflows/ci.yml").replaceAll("\r\n", "\n");
 const ci = json("policy/ci-matrix.json");
-assert(workflow.includes(`run: ${policy.native_gate}`),
-  "native CI does not execute the Goal 07 release gate");
+assert(workflow.includes(`run: ${ci.repository_gate}`),
+  "native CI does not execute the full repository gate");
+assert(!workflow.includes(`run: ${policy.native_gate}`),
+  "native CI unexpectedly replays the historical Goal 07 release gate");
 assert(equal(ci.native_profiles.map(({ id }) => id), policy.native_profiles),
   "Goal 07 native profile set differs from the CI policy");
 assert(equal(ci.compile_only_profiles.map(({ id }) => id),
@@ -43,9 +45,9 @@ assert(equal(ci.compile_only_profiles.map(({ id }) => id),
 "Goal 07 compile-only profile set differs from the CI policy");
 const nativeWorkflow = workflow.slice(0, workflow.indexOf("  compile-only:"));
 const compileOnlyWorkflow = workflow.slice(workflow.indexOf("  compile-only:"));
-assert(nativeWorkflow.includes(policy.native_gate)
-  && !compileOnlyWorkflow.includes(policy.native_gate),
-"Goal 07 runtime gate must remain native-only");
+assert(nativeWorkflow.includes(ci.repository_gate)
+  && !compileOnlyWorkflow.includes(ci.repository_gate),
+"the single full repository test gate must remain native-only");
 for (const target of policy.source_targets)
   assert(exists(target), `Goal 07 native source target is missing: ${target}`);
 verifyCorpusSources();

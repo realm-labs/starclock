@@ -218,10 +218,11 @@ function medianRows(reports) {
 
 function validateWorkflow() {
   const workflow = text(".github/workflows/ci.yml").replaceAll("\r\n", "\n");
-  assert(workflow.includes(`if: matrix.profile == '${policy.broad_ci.profile}'`),
-    "Goal 14 broad performance profile is absent from CI");
-  assert(workflow.includes(`run: ${policy.broad_ci.command}`),
-    "Goal 14 broad performance command is absent from CI");
+  const ci = json("policy/ci-matrix.json");
+  assert(workflow.includes(`run: ${ci.repository_gate}`),
+    "current CI omits the single full repository gate");
+  assert(!workflow.includes(`run: ${policy.broad_ci.command}`),
+    "current CI unexpectedly replays the historical Goal 14 performance gate");
 }
 
 function validateStableHost() {

@@ -111,13 +111,13 @@ partitions, so this is not yet a complete World claim.
 
 ## CI matrix
 
-Goal 04 inherits three native jobs—Windows x64, Linux x64 and macOS ARM64—and
-three compile-only alternate CPU targets. Native jobs run
-`node tools/goal04/run-native-ci.mjs --foundation` in addition to the existing
-repository and Goal 02 gates. They also run the native determinism hardening gate
-added by `G04-P6-B2`. Windows x64 alone executes the broad performance sample;
-the stable three-sample baseline remains tied to the named local runner rather
-than pretending hosted machines have stable timing.
+Goal 04 inherited three native jobs—Windows x64, Linux x64 and macOS ARM64—and
+three compile-only alternate CPU targets. Its Goal-specific foundation,
+determinism and broad-performance commands record the release-time proof and
+remain available for manual reproduction. Current native CI instead runs the
+full repository gate exactly once; it does not stack completed Goal runners.
+The stable three-sample performance baseline remains tied to the named local
+runner rather than pretending hosted machines have stable timing.
 
 Compile-only jobs never claim deterministic execution. Only native profiles may
 produce runtime/hash evidence. Action commits, Rust 1.97.0, Node 24.15.0 and the
