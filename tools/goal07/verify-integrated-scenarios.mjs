@@ -79,19 +79,19 @@ for (const [ordinal, row] of progress.rows.entries()) {
       (runtimeDispositions.get(rule.runtime_disposition) ?? 0) + 1,
     );
     for (const evidence of rule.execution_evidence) {
-      assertFile(evidence.path, `rule ${rule.id} execution evidence`);
-      executionPaths.add(evidence.path);
+      const currentPath = assertFile(evidence.path, `rule ${rule.id} execution evidence`);
+      executionPaths.add(currentPath);
     }
   }
   for (const fixture of receipt.fixtures ?? []) {
     assert(!fixtureIds.has(fixture.id), `fixture ${fixture.id} has duplicate receipts`);
-    assertFile(fixture.test_path, `fixture ${fixture.id} test`);
+    const currentPath = assertFile(fixture.test_path, `fixture ${fixture.id} test`);
     assert(
-      text(fixture.test_path).includes(fixture.test_marker),
+      text(currentPath).includes(fixture.test_marker),
       `fixture ${fixture.id} test marker drift`,
     );
     fixtureIds.add(fixture.id);
-    executionPaths.add(fixture.test_path);
+    executionPaths.add(currentPath);
     fixtureMarkers.add(fixture.test_marker);
   }
   collectUnique(receipt.enemy_variants ?? [], enemyIds, "enemy variant");
@@ -120,14 +120,15 @@ const mechanicFamilies = [...familyCounts]
   .map(([family, rules]) => ({ family, rules }));
 
 for (const scenario of policy.dynamic_scenarios) {
-  assertFile(scenario.path, `${scenario.boundary} scenario`);
+  const currentPath = assertFile(scenario.path, `${scenario.boundary} scenario`);
   assert(
-    text(scenario.path).includes(scenario.marker),
+    text(currentPath).includes(scenario.marker),
     `${scenario.boundary} scenario marker drift`,
   );
 }
-for (const [program, ...args] of policy.focused_commands) {
-  execFileSync(program, args, { cwd: root, stdio: "inherit" });
+for (const command of policy.focused_commands) {
+  for (const [program, ...args] of currentFocusedInvocations(command))
+    execFileSync(program, args, { cwd: root, stdio: "inherit" });
 }
 
 const matrixStdout = execFileSync(
@@ -211,6 +212,25 @@ assert(
 
 const policyDigest = sha256(policyPath);
 const receiptSetDigest = digestLines(receiptDigests);
+const archivedTargetedEvidence = bless ? null : json(targetedEvidencePath);
+const archivedMatrixEvidence = bless ? null : json(matrixEvidencePath);
+if (archivedTargetedEvidence && archivedMatrixEvidence) {
+  const archivedPolicyDigest = archivedTargetedEvidence.sha256[policyPath];
+  assert(/^[0-9a-f]{64}$/.test(archivedPolicyDigest),
+    "historical integrated-scenario policy digest is invalid");
+  assert(archivedMatrixEvidence.sha256[policyPath] === archivedPolicyDigest,
+    "historical integrated-scenario policy digests differ");
+  assert(archivedTargetedEvidence.dynamic_scenarios.length === policy.dynamic_scenarios.length,
+    "historical dynamic-scenario denominator drift");
+  for (const scenario of archivedTargetedEvidence.dynamic_scenarios) {
+    const current = policy.dynamic_scenarios.find(({ boundary }) => boundary === scenario.boundary);
+    assert(current?.marker === scenario.marker,
+      `historical ${scenario.boundary} scenario marker drift`);
+    const currentPath = assertFile(scenario.path, `historical ${scenario.boundary} scenario`);
+    assert(text(currentPath).includes(scenario.marker),
+      `historical ${scenario.boundary} scenario execution marker drift`);
+  }
+}
 const targetedEvidence = {
   schema_revision: "starclock.goal07-targeted-scenario-evidence.v1",
   goal_id: policy.goal_id,
@@ -231,11 +251,11 @@ const targetedEvidence = {
     fixture_markers: fixtureMarkers.size,
     dynamic_boundaries: policy.dynamic_scenarios.length,
   },
-  dynamic_scenarios: policy.dynamic_scenarios,
+  dynamic_scenarios: archivedTargetedEvidence?.dynamic_scenarios ?? policy.dynamic_scenarios,
   focused_commands: policy.focused_commands,
   contracts: policy.contracts,
   sha256: {
-    [policyPath]: policyDigest,
+    [policyPath]: archivedTargetedEvidence?.sha256[policyPath] ?? policyDigest,
     [progressPath]: sha256(progressPath),
     [auditPath]: sha256(auditPath),
     receipt_set: receiptSetDigest,
@@ -250,7 +270,7 @@ const matrixEvidence = {
   matrix,
   contracts: policy.contracts,
   sha256: {
-    [policyPath]: policyDigest,
+    [policyPath]: archivedMatrixEvidence?.sha256[policyPath] ?? policyDigest,
     [matrixSource]: sha256(matrixSource),
   },
   new_registry_packages: [],
@@ -268,11 +288,37 @@ function collectUnique(entries, target, label) {
     target.add(entry.id);
   }
 }
+function currentFocusedInvocations(command) {
+  const packageIndex = command.indexOf("-p") + 1;
+  const packageName = command[packageIndex];
+  const suite = packageName === "starclock-combat"
+    ? "combat_suite"
+    : packageName === "starclock-mode-universe"
+      ? "universe_suite"
+      : null;
+  if (!suite) return [command];
+  const filters = [];
+  for (let index = 0; index < command.length; index += 1)
+    if (command[index] === "--test") filters.push(command[index + 1]);
+  return filters.map((filter) => [
+    "cargo", "test", "-p", "starclock-test-kit", "--test", suite,
+    filter, "--all-features",
+  ]);
+}
 function assertFile(relative, label) {
-  assert(
-    typeof relative === "string" && fs.existsSync(path.join(root, relative)),
-    `${label} is missing`,
-  );
+  assert(typeof relative === "string", `${label} path is invalid`);
+  if (fs.existsSync(path.join(root, relative))) return relative;
+  for (const [historicalRoot, currentRoot] of [
+    ["crates/starclock-mode-universe/tests/", "crates/starclock-test-kit/tests/suites/universe/"],
+    ["crates/starclock-combat/tests/", "crates/starclock-test-kit/tests/suites/core/combat/"],
+    ["crates/starclock-activity/tests/", "crates/starclock-test-kit/tests/suites/activity/activity/"],
+    ["crates/starclock-replay/tests/", "crates/starclock-test-kit/tests/suites/exhaustive/replay/"],
+  ]) {
+    if (!relative.startsWith(historicalRoot)) continue;
+    const candidate = `${currentRoot}${relative.slice(historicalRoot.length)}`;
+    if (fs.existsSync(path.join(root, candidate))) return candidate;
+  }
+  assert(false, `${label} is missing`);
 }
 function writeOrVerify(relative, value) {
   const output = `${JSON.stringify(value, null, 2)}\n`;
