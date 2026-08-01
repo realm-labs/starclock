@@ -9,7 +9,7 @@ use crate::{
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     communing, countdown, dice_control, face_effect, map_overlay, plane_transition, state,
-    topology,
+    topology, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -50,6 +50,9 @@ impl SwarmDisasterRuntimeFactory {
         let communing = Arc::new(communing::CommuningRuntimeCatalog::compile(
             unique.communing_runtime_input(),
         )?);
+        let trail = Arc::new(trail::TrailRuntimeCatalog::compile(
+            unique.trail_runtime_input(),
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -61,6 +64,7 @@ impl SwarmDisasterRuntimeFactory {
             dice_controls,
             face_effects,
             communing,
+            trail,
         })
     }
 
@@ -85,6 +89,7 @@ impl SwarmDisasterRuntimeFactory {
         audience_state.extend(dice_controls.state_values());
         audience_state.sort_unstable_by_key(|(key, _)| *key);
         let communing = canonical_communing(&self.unique, &entry.communing_points)?;
+        let trail = self.trail.select(&entry.unlocked_progression, &communing)?;
         let progression = canonical_progression(&self.unique, &entry.unlocked_progression)?;
         let bonus = entry
             .trailblaze_bonus
@@ -136,6 +141,7 @@ impl SwarmDisasterRuntimeFactory {
             dice_controls,
             face_effects: Arc::clone(&self.face_effects),
             communing: Arc::clone(&self.communing),
+            trail,
         })
     }
 }

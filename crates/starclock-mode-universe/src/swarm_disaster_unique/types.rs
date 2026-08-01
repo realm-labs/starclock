@@ -187,7 +187,9 @@ pub(super) struct TrailEffectDefinition {
     pub(super) key: Box<str>,
     pub(super) node: TrailNodeId,
     pub(super) ordinal: u16,
+    pub(super) domain: Box<str>,
     pub(super) operations: Box<str>,
+    pub(super) battle_projection: Box<str>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

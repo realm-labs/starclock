@@ -104,6 +104,7 @@ assert(JSON.stringify(universeJsonUsers) === JSON.stringify([
   "crates/starclock-mode-universe/src/swarm_disaster_entry/countdown.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/dice_control.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_entry/face_effect.rs",
+  "crates/starclock-mode-universe/src/swarm_disaster_entry/trail.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_structural/lower.rs",
   "crates/starclock-mode-universe/src/swarm_disaster_unique/lower.rs",
 ]), `serde_json escaped the private Universe embedded-field lowering owners: ${universeJsonUsers.join(", ")}`);

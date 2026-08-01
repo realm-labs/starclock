@@ -238,6 +238,7 @@ impl CompiledDiceControls {
         &self,
         state: &ActivityTransactionState,
         faces: &[(&str, u32)],
+        reward_bonus: i64,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
         let previous = require_open_selected_face(state, faces)?;
         let control = self.control(ControlKind::Abandon)?;
@@ -247,8 +248,13 @@ impl CompiledDiceControls {
             return Err(reference("Swarm abandon control is not unlocked"));
         }
         let fragments = counter_value(state, RESOURCES, COSMIC_FRAGMENTS_KEY)?;
+        let reward = control
+            .abandon_reward
+            .checked_add(reward_bonus)
+            .filter(|value| *value >= 0)
+            .ok_or_else(|| invalid("Swarm abandon reward contribution is invalid"))?;
         let next_fragments = fragments
-            .checked_add(control.abandon_reward)
+            .checked_add(reward)
             .filter(|value| *value <= 1_000_000_000)
             .ok_or_else(|| invalid("Swarm abandon reward exceeds resource bounds"))?;
         resolution_program(

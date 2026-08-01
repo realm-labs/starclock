@@ -101,6 +101,44 @@ pub(crate) struct SwarmCommuningRuntimeInput {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmTrailRuntimeInput {
+    pub(crate) nodes: Box<[SwarmTrailNodeRuntimeInput]>,
+    pub(crate) prerequisites: Box<[SwarmTrailPrerequisiteRuntimeInput]>,
+    pub(crate) effects: Box<[SwarmTrailEffectRuntimeInput]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmTrailNodeRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) dimension_id: u32,
+    pub(crate) effect_keys: Box<[Box<str>]>,
+    pub(crate) prerequisite_keys: Box<[Box<str>]>,
+    pub(crate) threshold: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmTrailPrerequisiteRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) node_id: u32,
+    pub(crate) required_node_id: u32,
+    pub(crate) ordinal: u16,
+    pub(crate) required_points: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmTrailEffectRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) node_id: u32,
+    pub(crate) ordinal: u16,
+    pub(crate) domain: Box<str>,
+    pub(crate) operations: Box<str>,
+    pub(crate) battle_projection: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct SwarmCommuningChoiceRuntimeInput {
     pub(crate) id: u32,
     pub(crate) key: Box<str>,
@@ -328,6 +366,51 @@ impl SwarmDisasterUniqueCatalog {
                     unlock_keys: row.unlock_keys.clone(),
                     point_deltas: row.point_deltas.clone(),
                     description_parameters: row.description_parameters.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        }
+    }
+
+    pub(crate) fn trail_runtime_input(&self) -> SwarmTrailRuntimeInput {
+        SwarmTrailRuntimeInput {
+            nodes: self
+                .trail_nodes
+                .iter()
+                .map(|row| SwarmTrailNodeRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    dimension_id: row.dimension.0,
+                    effect_keys: row.effect_keys.clone(),
+                    prerequisite_keys: row.prerequisite_keys.clone(),
+                    threshold: row.threshold.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            prerequisites: self
+                .trail_prerequisites
+                .iter()
+                .map(|row| SwarmTrailPrerequisiteRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    node_id: row.node.0,
+                    required_node_id: row.required_node.0,
+                    ordinal: row.ordinal,
+                    required_points: row.required_points.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            effects: self
+                .trail_effects
+                .iter()
+                .map(|row| SwarmTrailEffectRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    node_id: row.node.0,
+                    ordinal: row.ordinal,
+                    domain: row.domain.clone(),
+                    operations: row.operations.clone(),
+                    battle_projection: row.battle_projection.clone(),
                 })
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),

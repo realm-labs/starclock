@@ -13,6 +13,7 @@ mod plane_transition;
 mod simultaneous;
 mod state;
 mod topology;
+mod trail;
 mod validate;
 
 use std::sync::Arc;
@@ -42,6 +43,8 @@ pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-po
 pub const SWARM_DISASTER_COMMUNING_REVISION: &str = "swarm-disaster-communing-runtime-v1";
 /// Versioned five-tier atomic Phase 3 resolution policy.
 pub const SWARM_DISASTER_SIMULTANEOUS_REVISION: &str = "swarm-disaster-simultaneous-resolution-v1";
+/// Versioned Communing Trail prerequisite and effect projection policy.
+pub const SWARM_DISASTER_TRAIL_REVISION: &str = "swarm-disaster-communing-trail-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -141,6 +144,7 @@ pub struct SwarmDisasterRuntimeFactory {
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
+    trail: Arc<trail::TrailRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -162,6 +166,7 @@ pub struct SwarmDisasterRuntimeInstance {
     dice_controls: dice_control::CompiledDiceControls,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
+    trail: trail::CompiledTrailRuntime,
 }
 
 #[cfg(test)]
@@ -182,3 +187,5 @@ mod plane_transition_tests;
 mod simultaneous_tests;
 #[cfg(test)]
 mod tests;
+#[cfg(test)]
+mod trail_tests;

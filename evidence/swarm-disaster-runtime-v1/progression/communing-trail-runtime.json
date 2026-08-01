@@ -1,0 +1,129 @@
+{
+  "schema_revision": "starclock.swarm-disaster-communing-trail-runtime.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P4-B1",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "trail_nodes": 63,
+    "trail_effects": 63,
+    "trail_prerequisites": 56,
+    "assigned_source_obligations": 63,
+    "policy_affected_records": 112
+  },
+  "selection_contract": {
+    "dimension_count": 7,
+    "nodes_per_dimension": 9,
+    "thresholds": [1, 3, 5, 7, 9, 11, 13, 16, 20],
+    "roots": 7,
+    "predecessor_edges": 56,
+    "predecessor_policy": "ReleasedThresholdThenStableTalentIdImmediatePredecessor",
+    "threshold_authority": "PersistentCommuningDimensionPoints",
+    "missing_threshold": "TypedReject",
+    "missing_predecessor": "TypedReject"
+  },
+  "effect_contract": {
+    "activity_only": 5,
+    "activity_and_battle": 2,
+    "battle_only": 56,
+    "battle_projections": 58,
+    "battle_boundary": "BattleSpecCreation",
+    "ordered_operations_per_effect": 1,
+    "run_start": {
+      "cosmic_fragments": 100,
+      "cheat_attempts": 1,
+      "countdown": 2,
+      "once_scope": "Activity"
+    },
+    "dice": {
+      "abandon_reward_bonus": 10,
+      "next_plane_rerolls": 1
+    },
+    "conditional_battle_entry": {
+      "eligible_plane": 1,
+      "excluded_boss": true,
+      "requires_previous_first_plane_completion": true,
+      "eligible_battle_limit": 4,
+      "target_max_hp_ratio": "0.99"
+    }
+  },
+  "atomicity": {
+    "all_activity_mutation_uses_activity_operations": true,
+    "run_start_repeated_compilation": "TypedReject",
+    "run_start_stale_program": "AtomicReject",
+    "battle_entry_stale_program": "AtomicReject",
+    "rng_draws": 0,
+    "authoritative_float_fields": 0
+  },
+  "compatibility": {
+    "default_entry_state_hash": "a1bcf8bea2889ae5d33062a27eebc64594adcf908039f004a0e22c05cf41de8c",
+    "all_trail_contribution_digest": "9bf0490a5f6937805444f1a9edc10b72dd14630aab6506e0af0447aa9c1965f6",
+    "seeded_all_trail_run_start_hash": "a344d30e1758726afcc2139c5eb743eb8bb97c4a4894907e379330e4008e7e25",
+    "replay_release_state": "PreReleaseGoal20",
+    "new_replay_revision_required_now": false
+  },
+  "policy_boundaries": [
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-communing-trail-prerequisites",
+      "state": "VersionedExecutablePolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-communing-trail-v1",
+      "affected_record_count": 112,
+      "remaining_owner": null
+    }
+  ],
+  "deferred_semantics": [
+    {
+      "semantic_fixture_id": "swarm-disaster.fixture.communing-trail-effect",
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "source_record_count": 2,
+      "execution_batch": "G20-P5-B1",
+      "state": "Pending",
+      "mechanic_rule_id": "swarm-disaster.mechanic-rule.communing-trail-effect",
+      "mechanic_rule_batch": "G20-P5-M06",
+      "mechanic_rule_state": "Pending"
+    }
+  ],
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "embedded_sora_json_lowered_once_at_factory_load": true,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 7,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 890,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/trail.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "trail_unit_passed": 6,
+    "entry_lifecycle_unit_passed": 53,
+    "swarm_unit_passed": 64,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "130.8",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "239.4",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "172.8"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry::trail_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase4-b1.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

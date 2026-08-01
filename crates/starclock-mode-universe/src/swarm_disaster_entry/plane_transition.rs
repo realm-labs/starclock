@@ -12,7 +12,13 @@ use crate::{
     swarm_disaster_structural::transition_access::SwarmBossChoiceRuntimeInput,
 };
 
-use super::{countdown::CountdownRuntimeCatalog, state::PLANE, topology::CompiledPlane};
+use super::{
+    countdown::CountdownRuntimeCatalog,
+    dice_control::REROLL_CHARGE_KEY,
+    state::{PLANE, RESOURCES},
+    topology::CompiledPlane,
+    trail,
+};
 
 const BOSS_SELECTION_PROGRAM_BASE: u32 = 0x5360_0000;
 const PLANE_COMPLETION_PROGRAM_BASE: u32 = 0x5360_0010;
@@ -130,6 +136,7 @@ impl PlaneTransitionRuntimeCatalog {
         graph: &ActivityGraphDefinition,
         planes: &[CompiledPlane],
         plane_layer: u8,
+        next_plane_rerolls: i64,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
         require_plane_layer(plane_layer)?;
         let plane = planes
@@ -167,6 +174,13 @@ impl PlaneTransitionRuntimeCatalog {
             PLANE_COMPLETED_LAYER_KEY,
             i64::from(plane_layer),
         ));
+        if plane_layer < 3 && next_plane_rerolls != 0 {
+            operations.push(trail::add_counter(
+                RESOURCES,
+                REROLL_CHARGE_KEY,
+                next_plane_rerolls,
+            ));
+        }
         operations.push(ActivityOperation::Traverse(edge.id()));
         if plane_layer == 3 {
             operations.push(ActivityOperation::Terminal(

@@ -215,7 +215,8 @@ impl SwarmDisasterRuntimeInstance {
         state: &ActivityTransactionState,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
         let faces = self.audience.face_ids().collect::<Vec<_>>();
-        self.dice_controls.compile_abandon(state, &faces)
+        self.dice_controls
+            .compile_abandon(state, &faces, self.trail.abandon_reward())
     }
 
     /// Returns the currently selected authored face, when one exists.
@@ -653,6 +654,67 @@ impl SwarmDisasterRuntimeInstance {
             &self.graph,
             &self.planes,
             plane_layer,
+            self.trail.next_plane_rerolls(),
+        )
+    }
+
+    /// Applies selected Trail run-start resources exactly once through an
+    /// ordinary accepted Activity transaction.
+    pub fn compile_trail_run_start(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.trail.compile_run_start(state)
+    }
+
+    /// Selected Trail nodes in canonical dimension/threshold/source order.
+    pub fn communing_trail_nodes(&self) -> impl ExactSizeIterator<Item = (&str, u16)> {
+        self.trail.nodes()
+    }
+
+    /// Returns the selected predecessor chain for one selected Trail node.
+    pub fn communing_trail_prerequisites(
+        &self,
+        node: &str,
+    ) -> Option<impl ExactSizeIterator<Item = &str>> {
+        self.trail.prerequisites(node)
+    }
+
+    /// Immutable BattleSpec-bound Trail effect references and provenance.
+    pub fn communing_trail_battle_effects(
+        &self,
+    ) -> impl ExactSizeIterator<Item = (&str, &str, &str)> {
+        self.trail.battle()
+    }
+
+    /// Canonical scalar parameters for one selected battle effect reference.
+    pub fn communing_trail_battle_effect_parameters(
+        &self,
+        effect_ref: &str,
+    ) -> Option<impl ExactSizeIterator<Item = &str>> {
+        self.trail.battle_parameters(effect_ref)
+    }
+
+    /// Canonical digest of selected Trail nodes and exact effect parameters.
+    #[must_use]
+    pub const fn communing_trail_digest(&self) -> [u8; 32] {
+        self.trail.digest()
+    }
+
+    /// Accounts for the bounded First Plane non-boss entry-damage effect.
+    /// The immutable damage ratio remains a BattleSpec contribution.
+    pub fn compile_trail_battle_entry_accounting(
+        &self,
+        state: &ActivityTransactionState,
+        plane_layer: u8,
+        boss: bool,
+        previous_first_plane_completed: bool,
+    ) -> Result<Option<ActivityProgramDefinition>, UniverseCatalogLoadError> {
+        self.trail.compile_battle_entry_accounting(
+            state,
+            plane_layer,
+            boss,
+            previous_first_plane_completed,
         )
     }
 

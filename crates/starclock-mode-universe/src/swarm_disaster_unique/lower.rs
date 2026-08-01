@@ -454,7 +454,9 @@ fn lower_trail_effect(
         key: stable(&row.stable_key)?,
         node: TrailNodeId(positive(row.node_id, &row.stable_key)?),
         ordinal: nonnegative_u16(row.ordinal, &row.stable_key)?,
+        domain: nonempty(&row.domain, &row.stable_key)?,
         operations: json(&row.ordered_operations_json, &row.stable_key)?,
+        battle_projection: json(&row.battle_projection_json, &row.stable_key)?,
     })
 }
 
