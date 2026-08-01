@@ -146,7 +146,7 @@ fn component_roots_are_mode_scoped_and_controller_sensitive() {
 }
 
 #[test]
-fn public_factory_compiles_a_locked_entry_without_rng() {
+fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let instance = factory
         .compile_entry(SwarmDisasterEntry::new(
@@ -158,6 +158,16 @@ fn public_factory_compiles_a_locked_entry_without_rng() {
         .unwrap();
     assert_eq!(instance.difficulty(), 5);
     assert_eq!(instance.state_definition().slots().len(), 16);
+    assert_eq!(instance.graph_definition().nodes().len(), 48);
+    assert_eq!(instance.graph_definition().edges().len(), 61);
+    assert_eq!(
+        instance.chessboards().collect::<Vec<_>>(),
+        [
+            "swarm-disaster.chessboard.20111",
+            "swarm-disaster.chessboard.20121",
+            "swarm-disaster.chessboard.20131",
+        ]
+    );
 }
 
 fn swarm_components(controller: u8) -> starclock_replay::component::ConfigurationComponentSet {

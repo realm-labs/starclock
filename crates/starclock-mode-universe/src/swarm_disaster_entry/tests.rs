@@ -1,6 +1,6 @@
 use starclock_activity::{
-    ActivityValue, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
-    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ActivityTerminalOutcome, ActivityValue, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
+    ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
     ParticipantUniquenessScope,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
@@ -61,6 +61,7 @@ fn compiles_all_five_difficulties_and_eight_path_die_pairs() {
         ("universe.path.elation", "swarm-disaster.audience-die.7"),
         ("universe.path.propagation", "swarm-disaster.audience-die.8"),
     ];
+    let mut expected_graph = None;
     for difficulty in 1_u8..=5 {
         for (path, die) in pairs {
             let instance = factory
@@ -74,8 +75,120 @@ fn compiles_all_five_difficulties_and_eight_path_die_pairs() {
             assert_eq!(instance.difficulty(), difficulty);
             assert_eq!(instance.path(), path);
             assert_eq!(instance.audience_die(), die);
+            let digest = instance.graph_definition().digest();
+            assert_eq!(*expected_graph.get_or_insert(digest), digest);
         }
     }
+}
+
+#[test]
+fn compiles_canonical_bounded_three_plane_topology() {
+    let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = factory
+        .compile_entry(SwarmDisasterEntry::new(
+            "swarm-disaster.area.205",
+            "universe.path.propagation",
+            "swarm-disaster.audience-die.8",
+            participants(policy()),
+        ))
+        .unwrap();
+    let graph = instance.graph_definition();
+
+    assert_eq!(
+        SWARM_DISASTER_TOPOLOGY_REVISION,
+        "swarm-disaster-topology-policy-v1"
+    );
+    assert_eq!(
+        instance.planes().collect::<Vec<_>>(),
+        [
+            "swarm-disaster.plane.2011",
+            "swarm-disaster.plane.2012",
+            "swarm-disaster.plane.2013",
+        ]
+    );
+    assert_eq!(
+        instance.chessboards().collect::<Vec<_>>(),
+        [
+            "swarm-disaster.chessboard.20111",
+            "swarm-disaster.chessboard.20121",
+            "swarm-disaster.chessboard.20131",
+        ]
+    );
+    assert_eq!(graph.nodes().len(), 48);
+    assert_eq!(graph.edges().len(), 61);
+    assert_eq!(graph.maximum_total_visits(), 48);
+    assert!(graph.nodes().iter().all(|node| node.maximum_visits() == 1));
+    assert!(
+        graph
+            .edges()
+            .iter()
+            .all(|edge| edge.maximum_traversals() == 1)
+    );
+    assert_eq!(
+        graph
+            .nodes()
+            .iter()
+            .filter(|node| node.kind().terminal() == Some(ActivityTerminalOutcome::Completed))
+            .count(),
+        1
+    );
+    assert_eq!(
+        graph.digest().bytes(),
+        [
+            0xe3, 0x71, 0xd5, 0xf7, 0xd6, 0x8f, 0x58, 0x9e, 0x50, 0xdd, 0x57, 0xe0, 0x33, 0xa8,
+            0x57, 0x24, 0x16, 0x63, 0xa1, 0xa1, 0x02, 0x60, 0x21, 0x6b, 0x33, 0x42, 0xa0, 0xfa,
+            0xac, 0x4f, 0x1c, 0x80,
+        ]
+    );
+}
+
+#[test]
+fn topology_scopes_and_route_validation_are_bounded_and_fail_closed() {
+    let factory = SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = factory
+        .compile_entry(SwarmDisasterEntry::new(
+            "swarm-disaster.area.201",
+            "universe.path.preservation",
+            "swarm-disaster.audience-die.1",
+            participants(policy()),
+        ))
+        .unwrap();
+    let scopes = instance.state_definition().logical_scopes();
+    assert_eq!(scopes.classes().len(), 3);
+    assert_eq!(scopes.bindings().len(), 48);
+    assert_eq!(
+        scopes
+            .classes()
+            .iter()
+            .map(|class| (class.id().get(), class.maximum_instances()))
+            .collect::<Vec<_>>(),
+        [
+            (super::topology::PLANE_BOARD_SCOPE_CLASS, 3),
+            (super::topology::BOARD_NODE_VISIT_SCOPE_CLASS, 1_991),
+            (super::topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
+        ]
+    );
+    assert_eq!(
+        scopes
+            .bindings()
+            .iter()
+            .filter(|binding| binding.path().len() == 3)
+            .count(),
+        47
+    );
+
+    let mut bad_order = factory.structural.topology_input(1).unwrap();
+    bad_order.planes[0].plane_number = 2;
+    assert_eq!(
+        super::topology::compile(bad_order).unwrap_err().kind(),
+        UniverseCatalogLoadErrorKind::InvalidGraph
+    );
+    let mut bad_route = factory.structural.topology_input(1).unwrap();
+    bad_route.planes[0].edges[0].target = bad_route.planes[0].edges[0].source;
+    assert_eq!(
+        super::topology::compile(bad_route).unwrap_err().kind(),
+        UniverseCatalogLoadErrorKind::InvalidGraph
+    );
 }
 
 #[test]

@@ -1,5 +1,6 @@
 //! Immutable Swarm Disaster structural catalog lowered from private Sora rows.
 
+pub(super) mod entry_access;
 mod lower;
 mod types;
 

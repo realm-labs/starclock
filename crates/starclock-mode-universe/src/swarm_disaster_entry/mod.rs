@@ -1,6 +1,8 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 
+mod instance;
 mod state;
+mod topology;
 mod validate;
 
 use std::sync::Arc;
@@ -18,6 +20,8 @@ use validate::{
 
 /// Entry compiler revision for deterministic Swarm Disaster profiles.
 pub const SWARM_DISASTER_ENTRY_REVISION: &str = "swarm-disaster-entry-profile-v1";
+/// Versioned deterministic root-board and forward-route construction policy.
+pub const SWARM_DISASTER_TOPOLOGY_REVISION: &str = "swarm-disaster-topology-policy-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -130,6 +134,11 @@ impl SwarmDisasterRuntimeFactory {
             .content
             .initial_currency()
             .ok_or_else(|| error("invalid initial currency"))?;
+        let topology = topology::compile(
+            self.structural
+                .topology_input(area.id)
+                .ok_or_else(|| reference("Swarm topology input is incomplete"))?,
+        )?;
         let state = state::compile(
             area,
             selection,
@@ -138,7 +147,8 @@ impl SwarmDisasterRuntimeFactory {
             bonus,
             countdown,
             currency,
-        )?;
+        )?
+        .with_logical_scopes(topology.scopes);
         Ok(SwarmDisasterRuntimeInstance {
             area: entry.area,
             difficulty: area.difficulty,
@@ -147,6 +157,8 @@ impl SwarmDisasterRuntimeFactory {
             participants: Arc::new(entry.participants),
             trailblaze_bonus: entry.trailblaze_bonus,
             state,
+            graph: topology.graph,
+            planes: topology.planes,
         })
     }
 }
@@ -161,37 +173,8 @@ pub struct SwarmDisasterRuntimeInstance {
     participants: Arc<ParticipantLock>,
     trailblaze_bonus: Option<Box<str>>,
     state: ActivityStateDefinition,
-}
-
-impl SwarmDisasterRuntimeInstance {
-    #[must_use]
-    pub fn area(&self) -> &str {
-        &self.area
-    }
-    #[must_use]
-    pub const fn difficulty(&self) -> u8 {
-        self.difficulty
-    }
-    #[must_use]
-    pub fn path(&self) -> &str {
-        &self.path
-    }
-    #[must_use]
-    pub fn audience_die(&self) -> &str {
-        &self.audience_die
-    }
-    #[must_use]
-    pub fn participants(&self) -> &ParticipantLock {
-        &self.participants
-    }
-    #[must_use]
-    pub fn trailblaze_bonus(&self) -> Option<&str> {
-        self.trailblaze_bonus.as_deref()
-    }
-    #[must_use]
-    pub const fn state_definition(&self) -> &ActivityStateDefinition {
-        &self.state
-    }
+    graph: starclock_activity::ActivityGraphDefinition,
+    planes: Box<[topology::CompiledPlane]>,
 }
 
 #[cfg(test)]
