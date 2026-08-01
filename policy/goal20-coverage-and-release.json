@@ -1,0 +1,116 @@
+{
+  "schema_revision": "starclock.goal20-coverage-and-release.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P0-B4",
+  "inputs": {
+    "areas":{"path":"content-reference/swarm-disaster-v1/areas.json","sha256":"716224b854f058c5d5be9eae544affc8398ba6ebf84694aea321db465b68de42"},
+    "audience_paths":{"path":"content-reference/swarm-disaster-v1/audience-paths.json","sha256":"8b48f1739eb09fa97ad102ef2198ebf75ac316d73d6789693a6904a7cef287b8"},
+    "audience_dice":{"path":"content-reference/swarm-disaster-v1/audience-dice.json","sha256":"ab666ddb9ae490723d1a0b041a9552efae4ce6f953347a024142266becd7de5a"},
+    "dice_faces":{"path":"content-reference/swarm-disaster-v1/dice-faces.json","sha256":"a9eeb4a59f711492c0f03ecee4517bfdb0b35e472cb34b44fbabd5da206ddfb1"},
+    "runtime_dispositions":{"path":"content-manifests/swarm-disaster-runtime-v1/runtime-dispositions.json","sha256":"c3e7e82a4eecd05ffacec315e3b2e14bf6c42f994e06e745b119636074dfdc00"},
+    "ci_matrix":{"path":"policy/ci-matrix.json","sha256":"9eefae31b752e44d534110541993575728ef366e37aa1a86277a9e7b22557975"},
+    "inherited_performance":{"path":"policy/goal07-performance-budgets.json","sha256":"1140de617c1bbae212d25e45b707be8c0e662abff5c77038888293fc2b4c7531"}
+  },
+  "coverage_matrix": {
+    "revision":"swarm-disaster-seeded-matrix-v1",
+    "seed_start":20001,
+    "unlock_profile":"all-released-swarm-disaster-v1",
+    "formal_difficulties":5,
+    "audience_paths":8,
+    "audience_dice":8,
+    "baseline_runs":8,
+    "boundary_runs":8,
+    "complete_runs":16,
+    "countdown_initial":20,
+    "disarray_levels":[0,1,5,10,20],
+    "boundary_cases":[
+      "initial-countdown-20",
+      "accepted-move-one-to-zero",
+      "accepted-move-zero-enters-disarray-one",
+      "disarray-five",
+      "disarray-ten",
+      "disarray-twenty-cap",
+      "cross-plane-countdown-carry",
+      "final-boss-decay"
+    ],
+    "contracts": {
+      "every_formal_difficulty_is_covered":true,
+      "every_audience_path_and_paired_die_is_covered":true,
+      "every_die_face_is_reachable_from_a_covered_die":true,
+      "countdown_and_disarray_transition_boundaries_are_covered":true,
+      "disarray_level_twenty_cap_is_covered":true,
+      "all_thirty_one_policy_boundaries_have_a_matrix_probe":true,
+      "matrix_is_not_claimed_as_a_cartesian_product":true
+    }
+  },
+  "first_vertical_slice": {
+    "id":"swarm-disaster-vertical-slice-v1",
+    "seed":20001,
+    "area":"swarm-disaster.area.201",
+    "path":"universe.path.preservation",
+    "audience_die":"swarm-disaster.audience-die.1",
+    "countdown_initial":20,
+    "required_boundaries":[
+      "entry and paired Path/Audience Die validation",
+      "three-plane immutable graph construction",
+      "one roll and authored face resolution",
+      "one Countdown decrement and Disarray transition probe",
+      "one Communing Device point adjustment",
+      "one atomic Occurrence or service interaction",
+      "one real nested battle using current contributions",
+      "verified participant carry and Activity settlement",
+      "component-addressed replay verification",
+      "rejected-command state and RNG equality"
+    ],
+    "comparison":"same inputs with the Audience Die contribution disabled",
+    "contracts": {
+      "uses_production_lowered_values":true,
+      "uses_real_combat_not_reference_projection":true,
+      "does_not_claim_complete_content_coverage":true,
+      "must_pass_before_broader_mechanic_partitions":true
+    }
+  },
+  "policy_terminal_states":["VersionedExecutablePolicy","MetadataOnly","ReplacedByStrongerEvidence","TerminalBlocker"],
+  "performance": {
+    "workload_revision":"swarm-disaster-runtime-workloads-v1",
+    "stable_runner_samples":3,
+    "material_regression_ratio_milli":1200,
+    "workloads":[
+      {"id":"catalog-load-and-lower","iterations":1,"claim":"load three bundles, validate 65 Swarm tables and lower immutable catalogs"},
+      {"id":"factory-start-all-matrix-entries","iterations":16,"claim":"construct every seeded matrix entry from one shared immutable factory"},
+      {"id":"complete-run-replay","iterations":1,"claim":"complete and freshly verify the first production run"},
+      {"id":"trigger-heavy-dice-topology","iterations":100,"claim":"repeat bounded dice, Countdown and graph-overlay reactions"},
+      {"id":"warm-battle-assembly","iterations":10000,"claim":"assemble repeated current-state battle input from cache"},
+      {"id":"concurrent-shared-catalog","iterations":16,"claim":"complete same-seed sessions sharing only immutable catalogs"},
+      {"id":"invalid-command-and-replay-corruption","iterations":4096,"claim":"reject stale commands and bounded replay mutations without state drift"}
+    ],
+    "structural_budgets":{"catalog_clones_per_run":0,"catalog_compositions_per_factory":1,"replay_prefix_reconstructions":0,"warm_assembly_allocations":0,"command_wall_budget_seconds":180},
+    "contracts":{"elapsed_and_allocation_baselines_are_recorded_on_the_named_runner":true,"allocation_measurements_are_non_authoritative":true,"cache_state_is_not_hashed":true,"every_material_regression_requires_review":true,"numeric_ceilings_are_frozen_after_the_first_executable_baseline":true}
+  },
+  "ci": {
+    "native_profiles":["windows-x64-native","linux-x64-native","macos-arm64-native"],
+    "compile_only_profiles":["windows-arm64-compile","linux-arm64-compile","macos-x64-compile"],
+    "suite_id":"swarm-disaster-runtime",
+    "native_claims":["16 seeded complete runs","23 production semantic fixture families","component and replay corruption matrix","CLI agent and MCP offered-command parity","determinism and RNG isolation goldens"],
+    "compile_only_claim":"workspace and Swarm runtime compile for the named target; no execution claim",
+    "retention_days":30,
+    "contracts":{"all_three_native_profiles_execute_the_same_goldens":true,"compile_only_profiles_never_claim_runtime_evidence":true,"workflow_actions_remain_commit_pinned":true,"per_host_evidence_binds_the_checked_commit":true}
+  },
+  "release_scaffold": {
+    "planned_phases":9,
+    "planned_batches":51,
+    "required_source_obligations":6963,
+    "required_mechanic_rules":23,
+    "required_fixture_families":23,
+    "required_policy_boundaries":31,
+    "release_batch":"G20-P8-B4",
+    "release_evidence_path":"evidence/swarm-disaster-runtime-v1/release/release-evidence.json",
+    "release_policy_path":"policy/goal20-release-contract.json",
+    "clean_checkout_command":"node tools/goal20/verify-release-contract.mjs . --release --require-clean",
+    "full_repository_command":"node tools/repository-check/run.mjs --full",
+    "source_cache_command":"node tools/repository-check/run.mjs --full --with-source-cache",
+    "required_gates":["foundation","dispositions","runtime-contract","bundle-and-catalog","activity-and-mechanics","nested-battle","seeded-matrix","replay-and-interfaces","hardening","performance","native-ci","release-audits","clean-checkout"],
+    "contracts":{"candidate_reference_roots_remain_immutable":true,"all_dispositions_are_terminal_before_release":true,"all_policy_boundaries_are_terminal_before_release":true,"all_matrix_replays_verify_freshly":true,"all_production_surfaces_use_one_runtime_factory":true,"full_and_clean_checkout_gates_pass":true,"completion_snapshot_is_registered_only_after_the_release_commit":true}
+  },
+  "contracts":{"matrix_rows_are_generated_from_frozen_candidate_inputs":true,"first_slice_precedes_broad_claims":true,"policy_ownership_is_exact_and_fail_closed":true,"performance_and_ci_claims_distinguish_execution_from_compilation":true,"release_scaffold_cannot_mark_partial_work_complete":true}
+}
