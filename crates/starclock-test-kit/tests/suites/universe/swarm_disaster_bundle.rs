@@ -168,6 +168,16 @@ fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
             "swarm-disaster.chessboard.20131",
         ]
     );
+    let replacement = instance
+        .compile_node_replacement(
+            instance.graph_definition().entry(),
+            "swarm-disaster.domain.reward",
+            Some("swarm-disaster.beacon.1"),
+        )
+        .unwrap();
+    replacement
+        .validate_against(instance.state_definition(), instance.graph_definition())
+        .unwrap();
 }
 
 fn swarm_components(controller: u8) -> starclock_replay::component::ConfigurationComponentSet {

@@ -1,6 +1,7 @@
 //! Immutable content, encounter, rule and coverage catalogs for Swarm Disaster.
 
 mod lower;
+pub(super) mod map_access;
 mod types;
 mod validate;
 

@@ -9,7 +9,8 @@ use crate::error::UniverseCatalogLoadErrorKind;
 
 use super::*;
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/swarm-disaster-generated/config.sora");
+pub(super) const BUNDLE: &[u8] =
+    include_bytes!("../../../../config/swarm-disaster-generated/config.sora");
 
 #[test]
 fn compiles_entry_into_exact_sixteen_slot_activity_profile() {
@@ -282,7 +283,7 @@ fn rejects_mismatched_die_duplicate_progression_and_participant_policy() {
     );
 }
 
-fn policy() -> ParticipantPolicy {
+pub(super) fn policy() -> ParticipantPolicy {
     ParticipantPolicy::new(
         1,
         1,
@@ -293,7 +294,7 @@ fn policy() -> ParticipantPolicy {
     .unwrap()
 }
 
-fn participants(policy: ParticipantPolicy) -> ParticipantLock {
+pub(super) fn participants(policy: ParticipantPolicy) -> ParticipantLock {
     let entries = (0_u8..4)
         .map(|index| {
             let byte = index + 1;

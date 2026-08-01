@@ -1,6 +1,7 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 
 mod instance;
+mod map_overlay;
 mod state;
 mod topology;
 mod validate;
@@ -82,6 +83,7 @@ pub struct SwarmDisasterRuntimeFactory {
     structural: Arc<SwarmDisasterStructuralCatalog>,
     unique: Arc<SwarmDisasterUniqueCatalog>,
     content: Arc<SwarmDisasterContentCatalog>,
+    map: Arc<map_overlay::MapRuntimeCatalog>,
 }
 
 impl SwarmDisasterRuntimeFactory {
@@ -95,10 +97,15 @@ impl SwarmDisasterRuntimeFactory {
         {
             return Err(error("Swarm Disaster runtime profile identity mismatch"));
         }
+        let map = Arc::new(map_overlay::MapRuntimeCatalog::compile(
+            structural.map_structural_input(),
+            content.map_runtime_input()?,
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
             content: Arc::new(content),
+            map,
         })
     }
 
@@ -159,6 +166,7 @@ impl SwarmDisasterRuntimeFactory {
             state,
             graph: topology.graph,
             planes: topology.planes,
+            map: Arc::clone(&self.map),
         })
     }
 }
@@ -175,7 +183,10 @@ pub struct SwarmDisasterRuntimeInstance {
     state: ActivityStateDefinition,
     graph: starclock_activity::ActivityGraphDefinition,
     planes: Box<[topology::CompiledPlane]>,
+    map: Arc<map_overlay::MapRuntimeCatalog>,
 }
 
+#[cfg(test)]
+mod map_overlay_tests;
 #[cfg(test)]
 mod tests;
