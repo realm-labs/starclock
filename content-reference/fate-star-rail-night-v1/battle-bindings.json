@@ -1,0 +1,2303 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-shared-normalized.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P2-B2",
+  "purpose": "BattleArea, MazeBuff, BattleEvent and BattleTarget relationships",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "counts": {
+    "manifest_obligations": 67,
+    "records": 67,
+    "families": {
+      "BattleArea": 18,
+      "BattleAreaConfig": 13,
+      "BattleEvent": 2,
+      "BattleTarget": 11,
+      "MazeBuff": 23
+    },
+    "disposition": {
+      "DataReady": 54,
+      "ResearchRequired": 13
+    }
+  },
+  "records": [
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.1001.index-0",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 1001",
+      "name_en": "BattleAreaConfig 1001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:0",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "1001"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.1002.index-1",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 1002",
+      "name_en": "BattleAreaConfig 1002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:1",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "1002"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.1050101.index-43",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 1050101",
+      "name_en": "BattleAreaConfig 1050101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:43",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "1050101"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2031301.index-7",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2031301",
+      "name_en": "BattleAreaConfig 2031301",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:7",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2031301"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2033202.index-9",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2033202",
+      "name_en": "BattleAreaConfig 2033202",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:9",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2033202"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2042303.index-25",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2042303",
+      "name_en": "BattleAreaConfig 2042303",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:25",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2042303"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2042401.index-27",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2042401",
+      "name_en": "BattleAreaConfig 2042401",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:27",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2042401"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2043101.index-28",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2043101",
+      "name_en": "BattleAreaConfig 2043101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:28",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2043101"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2043202.index-32",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2043202",
+      "name_en": "BattleAreaConfig 2043202",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:32",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2043202"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2050101.index-42",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2050101",
+      "name_en": "BattleAreaConfig 2050101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:42",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2050101"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2050301.index-44",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2050301",
+      "name_en": "BattleAreaConfig 2050301",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:44",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2050301"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.2051102.index-45",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 2051102",
+      "name_en": "BattleAreaConfig 2051102",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:45",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2051102"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area-config.8001.index-5",
+      "family": "BattleAreaConfig",
+      "name_zh": "BattleAreaConfig 8001",
+      "name_en": "BattleAreaConfig 8001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleAreaConfig 事实。",
+      "summary_en": "BattleAreaConfig fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+          "locator": "index:5",
+          "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "8001"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-28",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:28",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "1",
+        "BattleAreaID": "1",
+        "FloorID": "10301001",
+        "ID": "1030101",
+        "IsLegacy": true,
+        "PlaneID": "10301"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-29",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:29",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "1",
+        "BattleAreaID": "1",
+        "FloorID": "20311001",
+        "ID": "2031101",
+        "IsLegacy": true,
+        "PlaneID": "20311"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-31",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:31",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "3",
+        "BattleAreaID": "1",
+        "FloorID": "20312001",
+        "ID": "2031201",
+        "IsLegacy": true,
+        "PlaneID": "20312"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-33",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:33",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "1",
+        "BattleAreaID": "1",
+        "FloorID": "20322001",
+        "ID": "2032201",
+        "IsLegacy": true,
+        "PlaneID": "20322"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-35",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:35",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "1",
+        "BattleAreaID": "1",
+        "FloorID": "20321001",
+        "ID": "2032101",
+        "IsLegacy": true,
+        "PlaneID": "20321"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-37",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:37",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "30",
+        "BattleAreaID": "1",
+        "FloorID": "10304001",
+        "ID": "1030401",
+        "IsLegacy": true,
+        "PlaneID": "10304"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-38",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:38",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "1",
+        "BattleAreaID": "1",
+        "FloorID": "20331001",
+        "ID": "2033101",
+        "IsLegacy": true,
+        "PlaneID": "20331"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1.index-42",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1",
+      "name_en": "BattleArea 1",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:42",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BattleAreaGroupID": "7",
+        "BattleAreaID": "1",
+        "FloorID": "10341001",
+        "ID": "1034101",
+        "IsLegacy": true,
+        "PlaneID": "10341"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.1050101.index-84",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 1050101",
+      "name_en": "BattleArea 1050101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:84",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "1050101",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "1050101"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2031301.index-32",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2031301",
+      "name_en": "BattleArea 2031301",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:32",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2031301",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2031301"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2033202.index-40",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2033202",
+      "name_en": "BattleArea 2033202",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:40",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2033202",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2033202"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2042303.index-67",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2042303",
+      "name_en": "BattleArea 2042303",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:67",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2042303",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2042303"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2042401.index-68",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2042401",
+      "name_en": "BattleArea 2042401",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:68",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2042401",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2042401"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2043101.index-69",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2043101",
+      "name_en": "BattleArea 2043101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:69",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2043101",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2043101"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2043202.index-73",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2043202",
+      "name_en": "BattleArea 2043202",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:73",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2043202",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2043202"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2050101.index-83",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2050101",
+      "name_en": "BattleArea 2050101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:83",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2050101",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2050101"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2050301.index-85",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2050301",
+      "name_en": "BattleArea 2050301",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:85",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2050301",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2050301"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-area.2051102.index-86",
+      "family": "BattleArea",
+      "name_zh": "BattleArea 2051102",
+      "name_en": "BattleArea 2051102",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleArea 事实。",
+      "summary_en": "BattleArea fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleArea.json",
+          "locator": "index:86",
+          "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "ID": "2051102",
+        "IsUseUnifiedConfig": true,
+        "UnifiedConfigID": "2051102"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-event.20001.index-55",
+      "family": "BattleEvent",
+      "name_zh": "BattleEvent 20001",
+      "name_en": "BattleEvent 20001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleEvent 事实。",
+      "summary_en": "BattleEvent fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleEventConfig.json",
+          "locator": "index:55",
+          "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityList": [
+          "BattleEventAbility_CocoliaP1_00_RL",
+          "BattleEventAbility_CocoliaP1_00_RL_Insert"
+        ],
+        "AssetPackName": "0",
+        "BattleEventID": "20001",
+        "BattleEventName": "BattleEventName_20001",
+        "DescrptionText": "",
+        "EventSubType": "AssistEvent",
+        "OverrideProperty": [
+          {
+            "PropertyType": "BaseAttack",
+            "Value": {
+              "Value": "100"
+            }
+          },
+          {
+            "PropertyType": "Level",
+            "Value": {
+              "Value": "1"
+            }
+          },
+          {
+            "PropertyType": "CriticalChance",
+            "Value": {
+              "Value": "1"
+            }
+          },
+          {
+            "PropertyType": "CriticalDamage",
+            "Value": {
+              "Value": "1"
+            }
+          }
+        ],
+        "ParamList": [],
+        "Team": "TeamDark"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-event.20002.index-56",
+      "family": "BattleEvent",
+      "name_zh": "BattleEvent 20002",
+      "name_en": "BattleEvent 20002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleEvent 事实。",
+      "summary_en": "BattleEvent fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleEventConfig.json",
+          "locator": "index:56",
+          "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityList": [
+          "BattleEventAbility_W2_Kafka_00_RL",
+          "BattleEventAbility_W2_Kafka_00_RL_Insert"
+        ],
+        "AssetPackName": "0",
+        "BattleEventID": "20002",
+        "BattleEventName": "BattleEventName_20002",
+        "DescrptionText": "",
+        "EventSubType": "AssistEvent",
+        "OverrideProperty": [
+          {
+            "PropertyType": "BaseAttack",
+            "Value": {
+              "Value": "100"
+            }
+          },
+          {
+            "PropertyType": "Level",
+            "Value": {
+              "Value": "1"
+            }
+          },
+          {
+            "PropertyType": "CriticalChance",
+            "Value": {
+              "Value": "1"
+            }
+          },
+          {
+            "PropertyType": "CriticalDamage",
+            "Value": {
+              "Value": "1"
+            }
+          }
+        ],
+        "ParamList": [],
+        "Team": "TeamDark"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.2001.index-0",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 2001",
+      "name_en": "BattleTarget 2001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:0",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_FantasticStoryBattleScore1",
+        "HintStep": [
+          "0",
+          "30000"
+        ],
+        "ID": "2001",
+        "IconNum": "1",
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "GreaterEqual",
+        "SkipWhenSuccessOnEnterBattle": true,
+        "TargetParam": "30000",
+        "Type": "PassTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.2002.index-1",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 2002",
+      "name_en": "BattleTarget 2002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:1",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_FantasticStoryBattleScore2",
+        "HintStep": [
+          "0",
+          "60000"
+        ],
+        "ID": "2002",
+        "IconNum": "1",
+        "MultiTarget": [
+          "40000",
+          "50000"
+        ],
+        "MultiTargetIconType": [],
+        "ParamType": "GreaterEqual",
+        "ShowInScoreCounter": true,
+        "TargetParam": "60000",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3000.index-2",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3000",
+      "name_en": "BattleTarget 3000",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:2",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_DeathCount",
+        "HintStep": [],
+        "ID": "3000",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3001.index-3",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3001",
+      "name_en": "BattleTarget 3001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:3",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_TurnLimit_PeakBattle_1",
+        "HintStep": [],
+        "ID": "3001",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "TargetParam": "4",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3002.index-4",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3002",
+      "name_en": "BattleTarget 3002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:4",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_TurnLimit_PeakBattle_2",
+        "HintStep": [],
+        "ID": "3002",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "TargetParam": "2",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3003.index-5",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3003",
+      "name_en": "BattleTarget 3003",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:5",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_TurnLimit_PeakBattle_3",
+        "HintStep": [],
+        "ID": "3003",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "TargetParam": "6",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3004.index-6",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3004",
+      "name_en": "BattleTarget 3004",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:6",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_TurnLimit_PeakBattle_4",
+        "HintStep": [],
+        "ID": "3004",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "TargetParam": "4",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3005.index-7",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3005",
+      "name_en": "BattleTarget 3005",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:7",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_TurnLimit_PeakBattle_5",
+        "HintStep": [],
+        "ID": "3005",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "TargetParam": "2",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.3007.index-8",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 3007",
+      "name_en": "BattleTarget 3007",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:8",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_TurnLimit_PeakBattle_7",
+        "HintStep": [],
+        "ID": "3007",
+        "IconNum": "1",
+        "IsFixableHeight": true,
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "LessEqual",
+        "TargetParam": "2",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.4001.index-137",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 4001",
+      "name_en": "BattleTarget 4001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:137",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_FantasticStoryBattleScore1",
+        "HintStep": [
+          "0",
+          "45000"
+        ],
+        "ID": "4001",
+        "IconNum": "1",
+        "MultiTarget": [],
+        "MultiTargetIconType": [],
+        "ParamType": "GreaterEqual",
+        "SkipWhenSuccessOnEnterBattle": true,
+        "TargetParam": "45000",
+        "Type": "PassTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.battle-target.4002.index-138",
+      "family": "BattleTarget",
+      "name_zh": "BattleTarget 4002",
+      "name_en": "BattleTarget 4002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 BattleTarget 事实。",
+      "summary_en": "BattleTarget fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "ResearchRequired",
+      "enabled": false,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/BattleTargetConfig.json",
+          "locator": "index:138",
+          "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "ResearchRequired",
+      "mechanic_payload": {
+        "AbilityName": "BattleTarget_FantasticStoryBattleScore2",
+        "HintStep": [
+          "0",
+          "99000"
+        ],
+        "ID": "4002",
+        "IconNum": "1",
+        "MultiTarget": [
+          "60000",
+          "75000",
+          "90000"
+        ],
+        "MultiTargetIconType": [
+          null,
+          null,
+          null
+        ],
+        "ParamType": "GreaterEqual",
+        "ShowInScoreCounter": true,
+        "TargetParam": "99000",
+        "Type": "ChallengeTarget"
+      },
+      "notes": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.2031101.index-926",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 2031101",
+      "name_en": "MazeBuff 2031101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:926",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "ID": "2031101",
+        "InBattleBindingKey": "StageAbility_Maze_BattleEvent60010",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeModifier_BattleEvent60010",
+        "ParamList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.2050101.index-1644",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 2050101",
+      "name_en": "MazeBuff 2050101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1644",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "2050101",
+        "InBattleBindingKey": "StageAbility_2050101",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffPool": "31",
+        "MazeBuffType": "Team",
+        "ModifierName": "ADV_StageAbility_2050101",
+        "ParamList": [
+          {
+            "Value": "0.1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.2051102.index-1901",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 2051102",
+      "name_en": "MazeBuff 2051102",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1901",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "ID": "2051102",
+        "InBattleBindingKey": "",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_2051102",
+        "ParamList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232001.index-1925",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232001",
+      "name_en": "MazeBuff 3232001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1925",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232001",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_1_1",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232002.index-1926",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232002",
+      "name_en": "MazeBuff 3232002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1926",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232002",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_1_2",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232003.index-1927",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232003",
+      "name_en": "MazeBuff 3232003",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1927",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232003",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_1_3",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "3"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232004.index-1928",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232004",
+      "name_en": "MazeBuff 3232004",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1928",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232004",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_1_4",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          },
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232005.index-1929",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232005",
+      "name_en": "MazeBuff 3232005",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1929",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232005",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_1_5",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232101.index-1930",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232101",
+      "name_en": "MazeBuff 3232101",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1930",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232101",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_2_1",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232102.index-1931",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232102",
+      "name_en": "MazeBuff 3232102",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1931",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232102",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_2_2",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232103.index-1932",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232103",
+      "name_en": "MazeBuff 3232103",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1932",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232103",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_2_3",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232104.index-1933",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232104",
+      "name_en": "MazeBuff 3232104",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1933",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232104",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_2_4",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          },
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232105.index-1934",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232105",
+      "name_en": "MazeBuff 3232105",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1934",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232105",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_2_5",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.45"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232201.index-1935",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232201",
+      "name_en": "MazeBuff 3232201",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1935",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232201",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_3_1",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232202.index-1936",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232202",
+      "name_en": "MazeBuff 3232202",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1936",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232202",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_3_2",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232203.index-1937",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232203",
+      "name_en": "MazeBuff 3232203",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1937",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232203",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_3_3",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.25"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232204.index-1938",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232204",
+      "name_en": "MazeBuff 3232204",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1938",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232204",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_3_4",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          },
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232205.index-1939",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232205",
+      "name_en": "MazeBuff 3232205",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1939",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232205",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_3_5",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232301.index-1940",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232301",
+      "name_en": "MazeBuff 3232301",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1940",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232301",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_4_1",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232302.index-1941",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232302",
+      "name_en": "MazeBuff 3232302",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1941",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232302",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_4_2",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.1"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232303.index-1942",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232303",
+      "name_en": "MazeBuff 3232303",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1942",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232303",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_4_3",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          },
+          {
+            "Value": "0.25"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232304.index-1943",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232304",
+      "name_en": "MazeBuff 3232304",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1943",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232304",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_4_4",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "1"
+          },
+          {
+            "Value": "0.5"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.maze-buff.3232305.index-1944",
+      "family": "MazeBuff",
+      "name_zh": "MazeBuff 3232305",
+      "name_en": "MazeBuff 3232305",
+      "summary_zh": "由 Fate 直接引用闭包选中的 MazeBuff 事实。",
+      "summary_en": "MazeBuff fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MazeBuff.json",
+          "locator": "index:1944",
+          "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DirectScalarReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "BuffEffect": "",
+        "BuffRarity": "1",
+        "BuffSeries": "1",
+        "DisplayType": "Fixed",
+        "ID": "3232305",
+        "InBattleBindingKey": "Activity_FateRin_Ability_Challenge_4_5",
+        "InBattleBindingType": "StageAbilityBeforeCharacterBorn",
+        "Lv": "1",
+        "LvMax": "1",
+        "MazeBuffType": "Level",
+        "ModifierName": "ADV_StageAbility_MazeCommon_Empty",
+        "ParamList": [
+          {
+            "Value": "0.25"
+          }
+        ]
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    }
+  ],
+  "canonical_records_sha256": "0cd67f048abb8bbc6d689730f861f93a9a6ef0f74c8b47345fcfd7298d9674a2"
+}

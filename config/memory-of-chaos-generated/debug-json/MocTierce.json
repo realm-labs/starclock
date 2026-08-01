@@ -1,0 +1,77 @@
+{
+  "table": {
+    "name": "MocTierce",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "tierce:tierce-5213"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Academy Ghost Story extension"
+          },
+          "name_zh_cn": {
+            "String": "学院怪谈扩展关"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"activity_projection\":{\"carries_ordinary_stage_state\":false,\"clock\":{\"carry_from_ordinary_floor_12\":false,\"initial_remaining_cycles\":45,\"ownership_scope\":\"IndependentTierceSectionProjectPolicy\"},\"encounter_ids\":[\"encounter.30123123\"],\"objective_ids\":[\"objective.601\",\"objective.602\",\"objective.603\"],\"participant_policy\":\"UnresolvedFailClosed\",\"reward_payloads_included\":false,\"runtime_publishable\":false,\"section_kind\":\"SeparateTierceExtension\",\"settlement_scope\":\"IndependentTierceBestObjectiveRecordProjectPolicy\"},\"challenge_countdown\":45,\"coverage_state\":\"DataReady\",\"damage_type_hints\":[\"Fire\",\"Imaginary\"],\"does_not_imply\":[\"OrdinaryThirdNode\",\"ThirdTeam\",\"OrdinaryClockCarry\",\"OrdinarySettlementReuse\"],\"entrance_id\":\"entry.3014002\",\"evidence_refs\":[{\"evidence_sha256\":\"8b9a3f7d8c8f3feb702759575ffbb7d9cd2887cc1d9e8ed57c8016b3cf1122da\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/ChallengeMazeTierce.json:PHFMCACHFIJ=5213\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact group selector, predecessor, encounter, objective and countdown joins.\",\"path_or_page\":\"ExcelOutput/ChallengeMazeTierce.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"PHFMCACHFIJ=5213\"}],\"game_version\":\"4.4\",\"id\":\"tierce.5213\",\"interpretation\":\"SeparateSelectedExtensionAfterOrdinaryFloor12\",\"kind\":\"Tierce\",\"name_en\":\"Academy Ghost Story extension\",\"name_zh_cn\":\"学院怪谈扩展关\",\"objective_ids\":[\"objective.601\",\"objective.602\",\"objective.603\"],\"ownership\":\"MemoryOfChaos\",\"predecessor_stage_id\":\"stage.5212\",\"predecessor_upstream_id\":5212,\"preview_enemy_ids\":[5014010],\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"tierce:tierce-5213\"],\"stage_config_ids\":[\"encounter.30123123\"],\"summary_en\":\"A separately selected extension after floor 12 with one encounter, three objectives and a 45-cycle countdown.\",\"summary_zh_cn\":\"第十二层之后单独选择的扩展关，包含一场遭遇、三个目标和45轮倒计时。\",\"tags\":[\"extension\",\"tierce\"],\"unresolved_runtime_prerequisites\":[\"ParticipantScope\",\"ClockCarry\",\"SettlementSemantics\"],\"upstream_tierce_id\":5213}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengeMazeTierce.json:PHFMCACHFIJ=5213"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "tierce.5213"
+          },
+          "summary_en": {
+            "String": "A separately selected extension after floor 12 with one encounter, three objectives and a 45-cycle countdown."
+          },
+          "summary_zh_cn": {
+            "String": "第十二层之后单独选择的扩展关，包含一场遭遇、三个目标和45轮倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "extension"
+              },
+              {
+                "String": "tierce"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

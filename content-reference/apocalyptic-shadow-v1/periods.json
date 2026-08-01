@@ -1,0 +1,58 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "periods.json",
+  "record_kind": "period",
+  "records": [
+    {
+      "id": "period.203019",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "period",
+      "name_en": "Vanguard Knight",
+      "name_zh_cn": "兵锋骑士",
+      "summary_en": "The active Version 4.4 Apocalyptic Shadow period.",
+      "summary_zh_cn": "4.4 版本当前生效的末日幻影周期。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "group.3019",
+        "period.203019"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.group.3019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeBossGroupConfig.json",
+          "locator": "GroupID=3019",
+          "sha256": "2070b86dc168c94d61c2991c92d7d4e8e0910c4056abbc85d52364fb15cb3869",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        },
+        {
+          "source_id": "src.period.203019",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ScheduleDataChallengeBoss.json",
+          "locator": "ID=203019",
+          "sha256": "e1359d2d19727c18a0f903006794b25f65d996beb6793321bba028174f32bec6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "schedule_id": 203019,
+      "group_id": 3019,
+      "begin_time": "2026-07-20 04:00:00",
+      "end_time": "2026-08-31 04:00:00",
+      "later_group_id_excluded": 3020,
+      "runtime_executable": false
+    }
+  ]
+}

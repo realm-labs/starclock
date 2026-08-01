@@ -1,0 +1,3197 @@
+{
+  "table": {
+    "name": "FsnReviewFixtures",
+    "rows": [
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"BattleArea\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.battle-area\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.battle-area.1.index-28\"},\"mechanic_family\":\"BattleArea\",\"mechanism_quality\":\"DirectScalarReference\",\"source_refs\":[{\"locator\":\"index:28\",\"path\":\"ExcelOutput/BattleArea.json\",\"sha256\":\"5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-area"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-area"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.battle-area"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"BattleAreaConfig\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.battle-area-config\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.battle-area-config.1001.index-0\"},\"mechanic_family\":\"BattleAreaConfig\",\"mechanism_quality\":\"DirectScalarReference\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/BattleAreaUnifiedConfig.json\",\"sha256\":\"7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-area-config"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-area-config"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.battle-area-config"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"BattleEvent\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":false},{\"op\":\"equals\",\"path\":\"disposition\",\"value\":\"ResearchRequired\"}],\"fixture_id\":\"fate-star-rail-night.fixture.battle-event\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.battle-event.20001.index-55\"},\"mechanic_family\":\"BattleEvent\",\"mechanism_quality\":\"PolicyBoundary\",\"source_refs\":[{\"locator\":\"index:55\",\"path\":\"ExcelOutput/BattleEventConfig.json\",\"sha256\":\"e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-event"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-event"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.battle-event"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"BattleTarget\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":false},{\"op\":\"equals\",\"path\":\"disposition\",\"value\":\"ResearchRequired\"}],\"fixture_id\":\"fate-star-rail-night.fixture.battle-target\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.battle-target.2001.index-0\"},\"mechanic_family\":\"BattleTarget\",\"mechanism_quality\":\"PolicyBoundary\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/BattleTargetConfig.json\",\"sha256\":\"f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-target"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.battle-target"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.battle-target"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"EnemyProgram\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.enemy-program\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.enemy-program.aiconfig.8001010\"},\"mechanic_family\":\"EnemyProgram\",\"mechanism_quality\":\"ProgramDigestExact\",\"source_refs\":[{\"locator\":\"file\",\"path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"sha256\":\"1a0b5e6f2307d7f0c84a95f9e76083f4cad36007fe9b73b0397681e4186f724d\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "ProgramDigestExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-program"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-program"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.enemy-program"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"EnemySkill\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.enemy-skill\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.enemy-skill.800101001.index-2847\"},\"mechanic_family\":\"EnemySkill\",\"mechanism_quality\":\"EnemyTemplateSkillReference\",\"source_refs\":[{\"locator\":\"index:2847\",\"path\":\"ExcelOutput/MonsterSkillConfig.json\",\"sha256\":\"89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "EnemyTemplateSkillReference"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-skill"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-skill"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.enemy-skill"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"EnemySlot\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.enemy-slot\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.enemy-slot.425001-1-1\"},\"mechanic_family\":\"EnemySlot\",\"mechanism_quality\":\"DerivedExact\",\"source_refs\":[{\"locator\":\"index:467\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "DerivedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-slot"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-slot"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.enemy-slot"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"EnemyTemplate\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.enemy-template\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.enemy-template.8001010.index-495\"},\"mechanic_family\":\"EnemyTemplate\",\"mechanism_quality\":\"EnemyVariantTemplateReference\",\"source_refs\":[{\"locator\":\"index:495\",\"path\":\"ExcelOutput/MonsterTemplateConfig.json\",\"sha256\":\"4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "EnemyVariantTemplateReference"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-template"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-template"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.enemy-template"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"EnemyVariant\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.enemy-variant\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.enemy-variant.8001010.index-1941\"},\"mechanic_family\":\"EnemyVariant\",\"mechanism_quality\":\"FateStageMonsterReference\",\"source_refs\":[{\"locator\":\"index:1941\",\"path\":\"ExcelOutput/MonsterConfig.json\",\"sha256\":\"258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "FateStageMonsterReference"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-variant"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.enemy-variant"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.enemy-variant"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateAffix\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-affix\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-affix.0001\"},\"mechanic_family\":\"FateAffix\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateAffix.json\",\"sha256\":\"688d02164e81610ec25140900013592efca33f298ea26d75d173f86c77ff2ea5\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-affix"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-affix"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-affix"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateArea\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-area\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-area.0001\"},\"mechanic_family\":\"FateArea\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateArea.json\",\"sha256\":\"71345fb2edb525de2e0f5e1c9026a086409074df0f39268f1279432772470abf\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-area"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-area"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-area"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateBattleZone\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-battle-zone\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-battle-zone.0001\"},\"mechanic_family\":\"FateBattleZone\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateBattleZone.json\",\"sha256\":\"6ae74af8c768571a910f1193de4919278e2638e24063b2cb7c3ec1702a154fc6\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-battle-zone"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-battle-zone"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-battle-zone"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateBuff\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-buff\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-buff.0001\"},\"mechanic_family\":\"FateBuff\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateBuff.json\",\"sha256\":\"34d168e5f9e5ea2a62f048b586c4a2a96055baa340ba97c1ee939e919fd926ee\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-buff"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-buff"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-buff"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateBuffSlot\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-buff-slot\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-buff-slot.0001\"},\"mechanic_family\":\"FateBuffSlot\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateBuffSlot.json\",\"sha256\":\"4f8008cb22198df88d551cda8e0701e29b0d20a754eeeb773f5826442a59913e\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-buff-slot"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-buff-slot"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-buff-slot"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateClazz\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-clazz\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-clazz.0001\"},\"mechanic_family\":\"FateClazz\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateClazz.json\",\"sha256\":\"556c978454c9a61659faaae2f026ab35af9c6de3e8f7890d7214576e28d752f9\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-clazz"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-clazz"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-clazz"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateConstValueClient\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-const-value-client\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-const-value-client.0001\"},\"mechanic_family\":\"FateConstValueClient\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateConstValueClient.json\",\"sha256\":\"1540b2d35c124abd2e87b834585b6127c03062d2c72876ff788b3af381fe46cf\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-const-value-client"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-const-value-client"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-const-value-client"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateConstValueCommon\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-const-value-common\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-const-value-common.0001\"},\"mechanic_family\":\"FateConstValueCommon\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateConstValueCommon.json\",\"sha256\":\"764e4eeda743c288c53a3302e7455b33ac187e50ff41f7e3fc93c694c8bb1777\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-const-value-common"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-const-value-common"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-const-value-common"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateDiffPassProgress\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-diff-pass-progress\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-diff-pass-progress.0001\"},\"mechanic_family\":\"FateDiffPassProgress\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateDiffPassProgress.json\",\"sha256\":\"f4bf1c0ac21416568389a28942756b0f0ae6a1670287d118a15c92c667b8582d\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-diff-pass-progress"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-diff-pass-progress"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-diff-pass-progress"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateDifficulty\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-difficulty\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-difficulty.0001\"},\"mechanic_family\":\"FateDifficulty\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateDifficulty.json\",\"sha256\":\"58bd52ee425ff87ece047a36885081f248534fc574b8151be07391b2c6017088\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-difficulty"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-difficulty"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-difficulty"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateExpReward\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-exp-reward\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-exp-reward.0001\"},\"mechanic_family\":\"FateExpReward\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateExpReward.json\",\"sha256\":\"bc0aa2845a79bdb06aae6e9a91ce2467ec34a4ed33c62af3361e824f2bb4f1f8\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-exp-reward"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-exp-reward"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-exp-reward"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateGameplayConfig\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-gameplay-config\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.config.config-gameplays-fate-master-config-fate-master-config-mar-7th-json\"},\"mechanic_family\":\"FateGameplayConfig\",\"mechanism_quality\":\"ProgramDigestExact\",\"source_refs\":[{\"locator\":\"file\",\"path\":\"Config/Gameplays/Fate/MasterConfig/FateMasterConfig_Mar_7th.json\",\"sha256\":\"24e9f97cfdf2bc4455a484c9d5be9df7214418622595fffeb764215b747621df\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "ProgramDigestExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-gameplay-config"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-gameplay-config"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-gameplay-config"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateHandbookMaster\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-handbook-master\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-handbook-master.0001\"},\"mechanic_family\":\"FateHandbookMaster\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateHandbookMaster.json\",\"sha256\":\"0eb048ab13fa3e37baa1631008247ea5ea6e47adf110a1c0e77f40fa4791bbf1\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-handbook-master"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-handbook-master"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-handbook-master"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateHougu\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-hougu\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-hougu.0001\"},\"mechanic_family\":\"FateHougu\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateHougu.json\",\"sha256\":\"6ab6069d2a4ef25fd504d997d8da46a277bba88556794316692e659d61601828\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-hougu"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-hougu"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-hougu"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateMaster\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-master\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-master.0001\"},\"mechanic_family\":\"FateMaster\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateMaster.json\",\"sha256\":\"2640a6e6614a16f86dac7897793aeb8fbf6e2f2e82dce84550922691b37e75e5\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-master"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-master"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-master"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateMazeBuff\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-maze-buff\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-maze-buff.0001\"},\"mechanic_family\":\"FateMazeBuff\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateMazeBuff.json\",\"sha256\":\"f422db146f3a350e46789770646457412413dbfe63bff5c7f2bce7ad057cd1d2\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-maze-buff"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-maze-buff"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-maze-buff"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateMonsterPool\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-monster-pool\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-monster-pool.0001\"},\"mechanic_family\":\"FateMonsterPool\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateMonsterPool.json\",\"sha256\":\"704ff6d6b7802b59b05717dacc5f23506b2705ae4a72beef5af302c72113ea5a\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-monster-pool"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-monster-pool"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-monster-pool"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FatePhase\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-phase\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-phase.0001\"},\"mechanic_family\":\"FatePhase\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FatePhase.json\",\"sha256\":\"7a68c3a8f0b39eaeb39acaf63f2848868fb21b93b6f21353ef40eea992ab40b3\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-phase"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-phase"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-phase"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateReiju\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-reiju\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-reiju.0001\"},\"mechanic_family\":\"FateReiju\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateReiju.json\",\"sha256\":\"48e87977fa6345a6c81cc42d0dcb419f8d3cef59305376beb67eb77fd9c56328\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-reiju"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-reiju"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-reiju"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateReijuAffix\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-reiju-affix\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-reiju-affix.0001\"},\"mechanic_family\":\"FateReijuAffix\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateReijuAffix.json\",\"sha256\":\"1080b640c463d7e552f97759855b76c946c7256940482854253c57806d9534b3\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-reiju-affix"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-reiju-affix"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-reiju-affix"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinAvatar\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-avatar\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-avatar.0001\"},\"mechanic_family\":\"FateRinAvatar\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinAvatar.json\",\"sha256\":\"e28b03098c188dd6ee12021f6d0cd78da667a415baafd1be9495c313a9e1e96b\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-avatar"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-avatar"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-avatar"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinCaseBoard\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-case-board\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-case-board.0001\"},\"mechanic_family\":\"FateRinCaseBoard\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinCaseBoard.json\",\"sha256\":\"51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-case-board"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinCaseBoardInfo\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-case-board-info\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-case-board-info.0001\"},\"mechanic_family\":\"FateRinCaseBoardInfo\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinCaseBoardInfo.json\",\"sha256\":\"ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board-info"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board-info"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-case-board-info"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinCaseBoardServant\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-case-board-servant\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-case-board-servant.0001\"},\"mechanic_family\":\"FateRinCaseBoardServant\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinCaseBoardServant.json\",\"sha256\":\"cd4381213ab4b63ff80f76eda6cb8c3010ea7e47c3b52216467462c846185600\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board-servant"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board-servant"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-case-board-servant"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinCaseBoardTeamInfo\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-case-board-team-info\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-case-board-team-info.0001\"},\"mechanic_family\":\"FateRinCaseBoardTeamInfo\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinCaseBoardTeamInfo.json\",\"sha256\":\"49e2f7f05a6216438d090ce40c707e783e64fc36638cb0f74ff4f7420a5118fc\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board-team-info"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-case-board-team-info"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-case-board-team-info"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinChallengeFight\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-challenge-fight\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-challenge-fight.0001\"},\"mechanic_family\":\"FateRinChallengeFight\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinChallengeFight.json\",\"sha256\":\"d217869bdcf272a80bb9e7297cd83d97121f592b288b84b4a74203404eb48491\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-challenge-fight"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-challenge-fight"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-challenge-fight"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinChallengeFightBuff\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-challenge-fight-buff\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-challenge-fight-buff.0001\"},\"mechanic_family\":\"FateRinChallengeFightBuff\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinChallengeFightBuff.json\",\"sha256\":\"2af4aff0e0f446510800f5df3b865c24d0e4f9a3687be000dbca4b783a768235\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-challenge-fight-buff"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-challenge-fight-buff"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-challenge-fight-buff"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinConstClient\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-const-client\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-const-client.0001\"},\"mechanic_family\":\"FateRinConstClient\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinConstClient.json\",\"sha256\":\"e193a130708156c2b3ba72d06a26262833046cdf81684bc7db22044b6b65c647\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-const-client"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-const-client"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-const-client"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinConstCommon\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-const-common\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-const-common.0001\"},\"mechanic_family\":\"FateRinConstCommon\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinConstCommon.json\",\"sha256\":\"50d9c67c03b81e304d753ff1e24a6d741a836c6345938a1b97ccae52793bf5a4\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-const-common"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-const-common"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-const-common"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinDayProgress\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-day-progress\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-day-progress.0001\"},\"mechanic_family\":\"FateRinDayProgress\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinDayProgress.json\",\"sha256\":\"81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-day-progress"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-day-progress"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-day-progress"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinDeck\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-deck\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-deck.0001\"},\"mechanic_family\":\"FateRinDeck\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinDeck.json\",\"sha256\":\"eb119df231084dc04e5a543518a8df181b0d77d22dbe711fae6f561a9c4f38ce\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-deck"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-deck"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-deck"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinDeckRecommend\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-deck-recommend\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-deck-recommend.0001\"},\"mechanic_family\":\"FateRinDeckRecommend\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinDeckRecommend.json\",\"sha256\":\"73ab2257a69c9cc60113f43d3daf16d64284b730a1facf44009af45cfe0f067f\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-deck-recommend"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-deck-recommend"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-deck-recommend"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinHouguConfig\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-hougu-config\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-hougu-config.0001\"},\"mechanic_family\":\"FateRinHouguConfig\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguConfig.json\",\"sha256\":\"0be811921375bc010bf6e9f2c3328fdfb094845dc2cec204988fc764c5589e6b\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-config"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-config"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-hougu-config"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinHouguKeyword\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-hougu-keyword\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-hougu-keyword.0001\"},\"mechanic_family\":\"FateRinHouguKeyword\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguKeyword.json\",\"sha256\":\"783532b9044c5f1a62ba142716b7746519e010455e8c9dd6d9720ac6d1779455\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-keyword"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-keyword"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-hougu-keyword"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinHouguMapFight\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-hougu-map-fight\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-hougu-map-fight.0001\"},\"mechanic_family\":\"FateRinHouguMapFight\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguMapFight.json\",\"sha256\":\"ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-map-fight"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-map-fight"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-hougu-map-fight"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinHouguMapGroup\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-hougu-map-group\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-hougu-map-group.0001\"},\"mechanic_family\":\"FateRinHouguMapGroup\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguMapGroup.json\",\"sha256\":\"7ed5b737815aea9ddc493b0b343e2423473ee5637068a3bb595469855f2d5ce9\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-map-group"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-map-group"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-hougu-map-group"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinHouguRarity\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-hougu-rarity\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-hougu-rarity.0001\"},\"mechanic_family\":\"FateRinHouguRarity\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguRarity.json\",\"sha256\":\"a5c9c2586427798d2f072134b4fb23bf7da87665fb4c6a663157db90bffc1d76\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-rarity"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-rarity"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-hougu-rarity"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinHouguTag\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-hougu-tag\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-hougu-tag.0001\"},\"mechanic_family\":\"FateRinHouguTag\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguTag.json\",\"sha256\":\"950c4cdbe26cd0226c1bd29c7419706b19fb8046fa2b8b9f9fc0b3c8518bba2b\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-tag"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-hougu-tag"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-hougu-tag"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinLevelUp\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-level-up\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-level-up.0001\"},\"mechanic_family\":\"FateRinLevelUp\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinLevelUp.json\",\"sha256\":\"3296d05c0d09bebdacd2592461ee228f6e42bc99c7c5d9c89c98725a2bca9dc7\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-level-up"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-level-up"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-level-up"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinOwner\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-owner\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-owner.0001\"},\"mechanic_family\":\"FateRinOwner\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinOwner.json\",\"sha256\":\"8626a24409b7329a0f736651426f7a2c72e31e205148af69acc622bac3c320db\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-owner"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-owner"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-owner"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinOwnerInitHougu\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-owner-init-hougu\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-owner-init-hougu.0001\"},\"mechanic_family\":\"FateRinOwnerInitHougu\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinOwnerInitHougu.json\",\"sha256\":\"db3230b764e3bbb4d2c7659891834ab38cfa5c853a8af69ab5477671ec34e371\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-owner-init-hougu"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-owner-init-hougu"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-owner-init-hougu"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateRinStoryFight\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-rin-story-fight\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-rin-story-fight.0001\"},\"mechanic_family\":\"FateRinStoryFight\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinStoryFight.json\",\"sha256\":\"f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-story-fight"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-rin-story-fight"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-rin-story-fight"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateStatusConfig\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-status-config\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-status-config.0001\"},\"mechanic_family\":\"FateStatusConfig\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateStatusConfig.json\",\"sha256\":\"75586ef65f7ef911bd0544b416a5a7828fa1dea208b338b0f0b28687702df70c\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-status-config"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-status-config"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-status-config"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateTrait\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-trait\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-trait.0001\"},\"mechanic_family\":\"FateTrait\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateTrait.json\",\"sha256\":\"4c4f3f581a6614edf941858d661781d5cefc62b447b6ebf3f220eb49fdb437a9\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-trait"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-trait"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-trait"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"FateTraitBuff\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.fate-trait-buff\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.fate-trait-buff.0001\"},\"mechanic_family\":\"FateTraitBuff\",\"mechanism_quality\":\"TransportedExact\",\"source_refs\":[{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateTraitBuff.json\",\"sha256\":\"7fa76c53d1552f4f5d57a2531e2754b4db8a21c2d4549c5df2fdb74b7b63c94e\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "TransportedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-trait-buff"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.fate-trait-buff"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.fate-trait-buff"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"MazeBuff\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.maze-buff\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.shared.maze-buff.2031101.index-926\"},\"mechanic_family\":\"MazeBuff\",\"mechanism_quality\":\"DirectScalarReference\",\"source_refs\":[{\"locator\":\"index:926\",\"path\":\"ExcelOutput/MazeBuff.json\",\"sha256\":\"2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.maze-buff"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.maze-buff"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.maze-buff"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 56
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"PoolAudit\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.pool-audit\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.pool-audit.blessing\"},\"mechanic_family\":\"PoolAudit\",\"mechanism_quality\":\"SelectorClosureExact\",\"source_refs\":[{\"locator\":\"selector-closure:Blessing\",\"path\":\"content-manifests/fate-star-rail-night-v1/source-inventory.json\",\"sha256\":\"13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "SelectorClosureExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.pool-audit"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.pool-audit"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.pool-audit"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 57
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"Stage\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.stage\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.stage.425001\"},\"mechanic_family\":\"Stage\",\"mechanism_quality\":\"ExactStageTypeSelector\",\"source_refs\":[{\"locator\":\"index:467\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "ExactStageTypeSelector"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.stage"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.stage"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.stage"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "EvidenceOnly"
+          },
+          "disposition": {
+            "String": "EvidenceOnly"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "DerivedAudit"
+          },
+          "family": {
+            "String": "ReviewFixture"
+          },
+          "id": {
+            "Integer": 58
+          },
+          "mechanic_payload_json": {
+            "String": "{\"commands\":[{\"kind\":\"InspectReferenceFact\"}],\"expected_facts\":[{\"op\":\"equals\",\"path\":\"family\",\"value\":\"Wave\"},{\"op\":\"equals\",\"path\":\"enabled\",\"value\":true}],\"fixture_id\":\"fate-star-rail-night.fixture.wave\",\"initial_state\":{\"stable_id\":\"fate-star-rail-night.wave.425001-1\"},\"mechanic_family\":\"Wave\",\"mechanism_quality\":\"DerivedExact\",\"source_refs\":[{\"locator\":\"index:467\",\"path\":\"ExcelOutput/StageConfig.json\",\"sha256\":\"89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f\"}]}"
+          },
+          "mechanism_quality": {
+            "String": "DerivedExact"
+          },
+          "name_en": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.wave"
+          },
+          "name_zh": {
+            "String": "ReviewFixture fate-star-rail-night.fixture.wave"
+          },
+          "notes": {
+            "String": "Review-only row; excluded from runtime and the mechanical row denominator."
+          },
+          "ownership": {
+            "String": "EvidenceOnly"
+          },
+          "source_refs_json": {
+            "String": "[]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.review.reviewfixture.fate-star-rail-night.fixture.wave"
+          },
+          "summary_en": {
+            "String": "Retains the audit identity and canonical payload."
+          },
+          "summary_zh": {
+            "String": "保留审计身份和规范化负载。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

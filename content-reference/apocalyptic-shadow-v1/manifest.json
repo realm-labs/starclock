@@ -1,0 +1,54 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "manifest.json",
+  "record_kind": "manifest-receipt",
+  "records": [
+    {
+      "id": "manifest.apocalyptic-shadow-v1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "manifest-receipt",
+      "name_en": "Manifest receipt",
+      "name_zh_cn": "清单回执",
+      "summary_en": "The frozen manifest denominator and active selector receipt.",
+      "summary_zh_cn": "冻结清单分母与当前选择器回执。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "manifest_record_count": 129,
+      "active_selector": {
+        "schedule_id": 203019,
+        "group_id": 3019,
+        "ordinary_stage_ids": [
+          30191,
+          30192,
+          30193,
+          30194
+        ],
+        "tierce_id": 30195,
+        "excluded_later_group_id": 3020
+      },
+      "exact_once_required": true,
+      "runtime_executable": false
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "seasons.json",
+  "record_kind": "SeasonOrSchedule",
+  "records": [
+    {
+      "id": "season.schedule-201033",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ScheduleSelector",
+      "name_en": "Academy Ghost Story schedule",
+      "name_zh_cn": "学院怪谈日程",
+      "summary_en": "Selects the released Version 4.4 period from 6 July to 17 August 2026.",
+      "summary_zh_cn": "选择2026年7月6日至8月17日开放的4.4版本档期。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "family_and_season:schedule-201033"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ScheduleDataChallengeMaze.json:ID=201033",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ScheduleDataChallengeMaze.json",
+          "row_locator": "ID=201033",
+          "evidence_sha256": "2afcda7e4ce91c4d69ebd1a95127d19c2a0d76b36c6360df72a5e0777552e7e2",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact released schedule bounds."
+        }
+      ],
+      "tags": [
+        "active",
+        "schedule"
+      ],
+      "upstream_schedule_id": 201033,
+      "begins_at_server_time": "2026-07-06 04:00:00",
+      "ends_at_server_time": "2026-08-17 04:00:00",
+      "calendar_runtime_behavior_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "season.group-1033",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "Season",
+      "name_en": "Academy Ghost Story",
+      "name_zh_cn": "学院怪谈",
+      "summary_en": "The active Version 4.4 Memory of Chaos season with twelve ordinary floors and one selected extension.",
+      "summary_zh_cn": "4.4版本当前混沌回忆赛季，包含十二层常规关卡和一个单独选中的扩展关。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "family_and_season:group-1033"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeGroupConfig.json:GroupID=1033",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeGroupConfig.json",
+          "row_locator": "GroupID=1033",
+          "evidence_sha256": "64103da034229e21f59df16787cccfce23fb7eb3e63cffb74034ee4f35f94fa6",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact active group selector and Tierce binding."
+        },
+        {
+          "id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14627468344272196063",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "row_locator": "Hash=14627468344272196063",
+          "evidence_sha256": "797d13c0c32b43cdaf124bb9a64e0b7a5d9b77e0d4bfbcb4dc32b09e408b896b",
+          "quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released zh_cn display text for this identity."
+        },
+        {
+          "id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14627468344272196063",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "row_locator": "Hash=14627468344272196063",
+          "evidence_sha256": "a92196ed5c7f9249e1705d9b050dc2ea5aaa24ecbd128842e1a081414babab7d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released en display text for this identity."
+        }
+      ],
+      "tags": [
+        "active",
+        "season"
+      ],
+      "upstream_group_id": 1033,
+      "schedule_id": "season.schedule-201033",
+      "maze_buff_id": "turbulence.3030146",
+      "ordinary_stage_ids": [
+        "stage.5201",
+        "stage.5202",
+        "stage.5203",
+        "stage.5204",
+        "stage.5205",
+        "stage.5206",
+        "stage.5207",
+        "stage.5208",
+        "stage.5209",
+        "stage.5210",
+        "stage.5211",
+        "stage.5212"
+      ],
+      "tierce_id": "tierce.5213",
+      "future_group_1034_included": false,
+      "runtime_executable": false
+    }
+  ]
+}

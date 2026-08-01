@@ -1,0 +1,42 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-foundation.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "batch": "G18-P0-B1",
+  "audit_date": "2026-08-01",
+  "branch_base": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+  "goal03_state": "Complete",
+  "sources": {
+    "turnbasedgamedata": {
+      "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "worktree_state": "clean-detached",
+      "required_commit_readable": true
+    },
+    "starrailres": {
+      "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "worktree_state": "clean-detached",
+      "required_commit_readable": true
+    }
+  },
+  "isolation": {
+    "branch": "codex/goal18-apocalyptic-shadow-reference",
+    "allowed_roots": [
+      "content-manifests/apocalyptic-shadow-v1/",
+      "content-reference/apocalyptic-shadow-v1/",
+      "config/apocalyptic-shadow/",
+      "config/apocalyptic-shadow-generated/",
+      "docs/goals/18-apocalyptic-shadow-reference-data",
+      "evidence/apocalyptic-shadow-reference-v1/",
+      "tools/apocalyptic-shadow-reference/",
+      "policy/repository-checks.json#generated-reader-exemption-only"
+    ],
+    "runtime_changes_permitted": false,
+    "peer_artifact_changes_permitted": false
+  },
+  "snapshot": {
+    "game_version": "4.4",
+    "active_schedule_seed": 203019,
+    "active_group_seed": 3019,
+    "later_group_excluded": 3020
+  },
+  "result": "Passed"
+}

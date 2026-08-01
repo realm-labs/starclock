@@ -1,0 +1,919 @@
+{
+  "table": {
+    "name": "ApsMechanicRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "attempt-retry"
+          },
+          "name_zh_cn": {
+            "String": "attempt-retry"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"attempt-retry\",\"id\":\"mechanic-rule.attempt-retry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":2,\"name_en\":\"attempt-retry\",\"name_zh_cn\":\"attempt-retry\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.attempt-retry"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "av-window-expiry"
+          },
+          "name_zh_cn": {
+            "String": "av-window-expiry"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"av-window-expiry\",\"id\":\"mechanic-rule.av-window-expiry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"av-window-expiry\",\"name_zh_cn\":\"av-window-expiry\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.av-window-expiry"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "axiom-ember-contribution"
+          },
+          "name_zh_cn": {
+            "String": "axiom-ember-contribution"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"axiom-ember-contribution\",\"id\":\"mechanic-rule.axiom-ember-contribution\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"axiom-ember-contribution\",\"name_zh_cn\":\"axiom-ember-contribution\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.axiom-ember-contribution"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "boss-progress-partial"
+          },
+          "name_zh_cn": {
+            "String": "boss-progress-partial"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"boss-progress-partial\",\"id\":\"mechanic-rule.boss-progress-partial\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":2,\"name_en\":\"boss-progress-partial\",\"name_zh_cn\":\"boss-progress-partial\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.boss-progress-partial"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "buff-selection-teardown"
+          },
+          "name_zh_cn": {
+            "String": "buff-selection-teardown"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"buff-selection-teardown\",\"id\":\"mechanic-rule.buff-selection-teardown\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"buff-selection-teardown\",\"name_zh_cn\":\"buff-selection-teardown\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.buff-selection-teardown"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000006
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"empty-pool-proof\",\"id\":\"mechanic-rule.empty-pool-proof\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":6,\"name_en\":\"empty-pool-proof\",\"name_zh_cn\":\"empty-pool-proof\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.empty-pool-proof"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000007
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "encounter-enemy-closure"
+          },
+          "name_zh_cn": {
+            "String": "encounter-enemy-closure"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"encounter-enemy-closure\",\"id\":\"mechanic-rule.encounter-enemy-closure\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"encounter-enemy-closure\",\"name_zh_cn\":\"encounter-enemy-closure\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.encounter-enemy-closure"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000008
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "loadout-lock"
+          },
+          "name_zh_cn": {
+            "String": "loadout-lock"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"loadout-lock\",\"id\":\"mechanic-rule.loadout-lock\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":2,\"name_en\":\"loadout-lock\",\"name_zh_cn\":\"loadout-lock\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.loadout-lock"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000009
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "profile-entry"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"profile-entry\",\"id\":\"mechanic-rule.profile-entry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"profile-entry\",\"name_zh_cn\":\"profile-entry\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.profile-entry"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000010
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "rejected-command-boundary"
+          },
+          "name_zh_cn": {
+            "String": "rejected-command-boundary"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"rejected-command-boundary\",\"id\":\"mechanic-rule.rejected-command-boundary\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":2,\"name_en\":\"rejected-command-boundary\",\"name_zh_cn\":\"rejected-command-boundary\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.rejected-command-boundary"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000011
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "score-aggregation"
+          },
+          "name_zh_cn": {
+            "String": "score-aggregation"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"score-aggregation\",\"id\":\"mechanic-rule.score-aggregation\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"score-aggregation\",\"name_zh_cn\":\"score-aggregation\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.score-aggregation"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000012
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "stage-node-order"
+          },
+          "name_zh_cn": {
+            "String": "stage-node-order"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"stage-node-order\",\"id\":\"mechanic-rule.stage-node-order\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":2,\"name_en\":\"stage-node-order\",\"name_zh_cn\":\"stage-node-order\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.stage-node-order"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000013
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "steadfast-safeguard"
+          },
+          "name_zh_cn": {
+            "String": "steadfast-safeguard"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"steadfast-safeguard\",\"id\":\"mechanic-rule.steadfast-safeguard\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"steadfast-safeguard\",\"name_zh_cn\":\"steadfast-safeguard\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.steadfast-safeguard"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000014
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "target-star-evaluation"
+          },
+          "name_zh_cn": {
+            "String": "target-star-evaluation"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"target-star-evaluation\",\"id\":\"mechanic-rule.target-star-evaluation\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"target-star-evaluation\",\"name_zh_cn\":\"target-star-evaluation\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.target-star-evaluation"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000015
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "team-uniqueness"
+          },
+          "name_zh_cn": {
+            "String": "team-uniqueness"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"team-uniqueness\",\"id\":\"mechanic-rule.team-uniqueness\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":3,\"name_en\":\"team-uniqueness\",\"name_zh_cn\":\"team-uniqueness\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.team-uniqueness"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000016
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "tierce-selection"
+          },
+          "name_zh_cn": {
+            "String": "tierce-selection"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"family_id\":\"tierce-selection\",\"id\":\"mechanic-rule.tierce-selection\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"tierce-selection\",\"name_zh_cn\":\"tierce-selection\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A non-shrinking semantic review family; it does not execute runtime behavior.\",\"summary_zh_cn\":\"不可缩减的语义复核族；不执行运行时行为。\"}"
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.tierce-selection"
+          },
+          "summary_en": {
+            "String": "A non-shrinking semantic review family; it does not execute runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的语义复核族；不执行运行时行为。"
+          }
+        }
+      }
+    ]
+  }
+}

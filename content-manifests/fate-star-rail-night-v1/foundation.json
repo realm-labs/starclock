@@ -1,0 +1,517 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-foundation.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P0-B1",
+  "snapshot": {
+    "game_version": "4.4",
+    "released_date": "2026-07-24",
+    "access_date": "2026-08-01",
+    "content_lane": "Experimental",
+    "target_lane": "Candidate",
+    "runtime_released": false
+  },
+  "launch": {
+    "base": "92febad080dd4cf9997718d64b3648fc198ab1f8",
+    "branch": "codex/goal19-fate-star-rail-night-reference",
+    "upstream": "origin/codex/goal19-fate-star-rail-night-reference",
+    "package_commit": "d3380a6b4a749968ad0d56a37f84df73b1d1bff4"
+  },
+  "repositories": [
+    {
+      "cache_name": "turnbasedgamedata",
+      "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "tree": "2df8981c1bea512e21c8c900920c63002b381056",
+      "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git"
+    },
+    {
+      "cache_name": "StarRailRes",
+      "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "tree": "1e6892227905e0dad002bb117d63464d7a5640a6",
+      "remote": "https://github.com/Mar-7th/StarRailRes.git"
+    }
+  ],
+  "source_seed": {
+    "membership_rule": "explicit-faterin-selector-and-transitive-reference-closure",
+    "seed_is_denominator": false,
+    "dedicated_table_count": 25,
+    "focused_config_count": 64,
+    "files": [
+      {
+        "path": "Config/ConfigAI/Monster_W1_Soldier03_00_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_W1_Soldier04_00_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_W2_Mecha03_00_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_W2_Valkyrie02_00_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_W4_Claymore_02_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_W4_PolluxPart_00_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_W5_Pam_00_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAI/Monster_XP_Elite02_01_AI_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W1_Soldier03_00_Ability_FateRin.layout.json",
+        "bytes": 1426,
+        "sha256": "3e828c9b47ab386082c36c582676e695f6b1fdacd278cc962b60126cecd99d89"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W2_Mecha03_00_Ability_FateRin.layout.json",
+        "bytes": 1405,
+        "sha256": "a318e49e4a239f5baae3d8b7cce39d223d878a6bc94ba511f06aa9b4ebc8ac85"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W2_Valkyrie02_00_Ability_FateRin.layout.json",
+        "bytes": 1384,
+        "sha256": "cd3433fabfe466d54e7c36e82a593c58b8dad46cef01b22b20ccb506d28d6795"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W3_Clock_03_Ability_FateRin.layout.json",
+        "bytes": 1221,
+        "sha256": "84bb4e99c15cbbe1db0fb4126c7c6798e6f90dc6ce6e2f0c6cfb18c0ee26ad1c"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W3_Figure_00_Ability_FateRin.layout.json",
+        "bytes": 627,
+        "sha256": "fb77bb5c75f2fe586eefe58bed6b461b53c933cbe8224802f103ace383534586"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W3_Figure_01_Ability_FateRin.layout.json",
+        "bytes": 627,
+        "sha256": "cb310d5df72d993eae4d3c14a512ea805590f2026ef0b482e1007dd485d2b98e"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W3_Figure_02_Ability_FateRin.layout.json",
+        "bytes": 627,
+        "sha256": "04244ac83e8d7889bedad9bf1830fee396a69d1f47b46d05c9802daf924420f2"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W3_TV_03_Ability_FateRin.layout.json",
+        "bytes": 319,
+        "sha256": "a9f278bd930c241621f33dfb9853ea6185eab70cfeeaafe3b37049545b323267"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_Claymore_00_Ability_FateRin.layout.json",
+        "bytes": 1100,
+        "sha256": "e565972b1c51e306047db297dedc9b8301a89c13cbeaefd23a34f47be3d885ef"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_Claymore_02_Ability_FateRin.layout.json",
+        "bytes": 907,
+        "sha256": "5e34a562006ecff5c96269d1957ebc80117543a79b989d5721f9629debfd7abe"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_DawnsEyePart_00_Ability_FateRin.layout.json",
+        "bytes": 656,
+        "sha256": "00db40fbbfeda9fe20db08634ab0317cbafd7bcd0b68e4939ac188bfde41a475"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_DawnsEye_00_Ability_FateRin.layout.json",
+        "bytes": 629,
+        "sha256": "065365c475a7b08e32899159fac060efb99577424f3289e877bdc42010f4159f"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_PolluxPart_00_Ability_FateRin.layout.json",
+        "bytes": 1578,
+        "sha256": "d855490f5fd3acf44e152b2a2d0993681cb49c7d7d14655be11a34b4a68569bd"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_Pollux_00_Ability_FateRin.layout.json",
+        "bytes": 2151,
+        "sha256": "3d0ab9893aa80e79b98c225f496ffb130748a9cef093d1a3442beb47cdaceac7"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_Scholar_00_Ability_FateRin.layout.json",
+        "bytes": 728,
+        "sha256": "e72b8dfe42cdd549a4b995d580f4ae7bd5416c1d395a126801c92689d626fcee"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W4_Serpent_00_Ability_FateRin.layout.json",
+        "bytes": 1044,
+        "sha256": "276298c1e8ef23a8b704883cfcb8952ecd62cccc18696502ccb15b342e6e9d03"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability_FateRin.layout.json",
+        "bytes": 1551,
+        "sha256": "813c4264815ed6d1088275d377c956cd308e16740f0ff6fc4123283c27f425ee"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W5_JK_00_Ability_FateRin.layout.json",
+        "bytes": 166,
+        "sha256": "f0a09253d24334a8999ffc516db41284e73f109e302c542d33000f29c9c9f361"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W5_Limao_00_Ability_FateRin.layout.json",
+        "bytes": 607,
+        "sha256": "c7b2122d3c1fa44d1b19cdbb3502bdcc5464397995abf50de1dca5ef62f36a18"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W5_Magical_00_Ability_FateRin.layout.json",
+        "bytes": 172,
+        "sha256": "12abf59a82bfe8fed185f96252076cdf6473e3d9bd07c323d20d7818769e11a8"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W5_Pam_00_Ability_FateRin.layout.json",
+        "bytes": 2123,
+        "sha256": "aa08d54d56347a32bb2c14960ff4d355651e2cf1036a9ee2d11304d3eddd9a5c"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_W5_Peacock_00_Ability_FateRin.layout.json",
+        "bytes": 1384,
+        "sha256": "4acf54f9f4b15490370b42dc093824a80c45afb783a72056e6243a5f7afa2f2a"
+      },
+      {
+        "path": "Config/ConfigAbility/Monster/Monster_XP_Minion04_04_Ability_FateRin.layout.json",
+        "bytes": 1051,
+        "sha256": "3d02eeb08aead6bf13933a259e2e9ec57e28f6feb224ad5bbb07819faaf3e7de"
+      },
+      {
+        "path": "Config/ConfigAnimEvents/Monster/Designer/Monster_W5_Magical_00_Designer_AnimEvent_FateRin.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/ConfigCharacter/BattleEvent/Activity_FateRin_Phainon_Config.layout.json",
+        "bytes": 27,
+        "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+      },
+      {
+        "path": "Config/Gameplays/Fate/MasterConfig/FateMasterConfig_Mar_7th.json",
+        "bytes": 600,
+        "sha256": "24e9f97cfdf2bc4455a484c9d5be9df7214418622595fffeb764215b747621df"
+      },
+      {
+        "path": "Config/Gameplays/Fate/MasterConfig/FateMasterConfig_Topaz.json",
+        "bytes": 255,
+        "sha256": "d38df56f0df60c559f73500628ad9de9939f035ceda6110658a2d8b288901a0e"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_Berserk.json",
+        "bytes": 258,
+        "sha256": "81fa3d2b15fbad6c764148ce23ce73a9a780fedca588d5a962ec6c158a5ddfcf"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_CompleteTrust.json",
+        "bytes": 691,
+        "sha256": "27905f62a045a223a564f65f61ee9b61edf80511cec619996344e94167462c97"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_DamageAmplification.json",
+        "bytes": 892,
+        "sha256": "1983b24f029a98d58bb59124f189a8e401717c168f414265a01959aee721afc4"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_DamageGold.json",
+        "bytes": 892,
+        "sha256": "423db75eb3cd466f5f9300c83c36ce9841cf1480e9adf3ea05ba3833c3549a3d"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_DoubleWinning.json",
+        "bytes": 575,
+        "sha256": "6e90fe1d10fb4c37f05d9233e97f4a33dc5c341045c769d4750fa187832f8249"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_Duel.json",
+        "bytes": 596,
+        "sha256": "1dd9e68fec81baeab05bb744c03a57c400da1fef0e699ee416bfeae7a297e8d9"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_GoldDerivative.json",
+        "bytes": 1297,
+        "sha256": "9cf6ac7250cec6cc3d13035901ad5488e3bc0ffc9d2d7710fe499510134dc9df"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_GraveRobber.json",
+        "bytes": 892,
+        "sha256": "051e13da240a7cbf5c6ef574d1c0f43edc3c23eafa2a9617d0f4f6f168705d59"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_GreatVictory1.json",
+        "bytes": 492,
+        "sha256": "01a18518c3cc33e6df6f9208f83e418b067c4782eb20dedea51033e16528e9ad"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_GreatVictory2.json",
+        "bytes": 492,
+        "sha256": "c6ced45889fc38d7c4537c937b6a936b63da5ef27ad6077fc74ac05cec1b93ae"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_HardCommit.json",
+        "bytes": 588,
+        "sha256": "eb188bdf363dd02d4e0eee642e259b24c90632d82440bc0d63e6ceafcde945a3"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_HouguCollection.json",
+        "bytes": 1708,
+        "sha256": "6653ab9cfd0c35b5c410d9870b55b0d8e1816708cb638a33b054301ffc7b2165"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_ManaConversion.json",
+        "bytes": 258,
+        "sha256": "b35ef0a53ef7c172e867bba421bbef79ba293722d157e5f0d96c13decf0c43bd"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_MoraleBoost.json",
+        "bytes": 892,
+        "sha256": "12e7cdd94590cfee49cee67812df21edd83bfb2f78c04d8f78b2abbe3c8d70ed"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_NobleMortgage.json",
+        "bytes": 580,
+        "sha256": "da0af53a7e558b969afb7b5674be181c8599900c3dfe2363645ec2b00bc12d37"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_Reversal.json",
+        "bytes": 895,
+        "sha256": "2f98a740cd761595d852f398e592f54650f7e22e0b0b41a68683b1876a5c8bd6"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_Ritual.json",
+        "bytes": 576,
+        "sha256": "8fd0fe60c54569632424e93971a6401de673c69c43b048feaa14f64607c99fbd"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_Sacrifice.json",
+        "bytes": 809,
+        "sha256": "a4a08ee070a894f5a25cae37469b74ca817a10ea92a77f134f79f9eb69d91cf2"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_SuperCaster.json",
+        "bytes": 612,
+        "sha256": "2d08ec0d8eaa89c6afe5fa83e66cbd54e1317ad40a97cf941107c5c5b43c59ed"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_SuperLancer.json",
+        "bytes": 258,
+        "sha256": "b35ef0a53ef7c172e867bba421bbef79ba293722d157e5f0d96c13decf0c43bd"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_SuperSaber.json",
+        "bytes": 946,
+        "sha256": "aa4dadb8e77bc893dfbb07094bcef632171087e546adef9b5fb4cfa925f8b929"
+      },
+      {
+        "path": "Config/Gameplays/Fate/ReijuConfig/FateReijuContent_TimeChanged.json",
+        "bytes": 3466,
+        "sha256": "bdadea59c157f8e211a9a219518c1bafcb10b67eff74641886f9e65a5badcca0"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitBase_Caster.json",
+        "bytes": 730,
+        "sha256": "a5db70acc4574c0f98438859dc8f7b3cefa14aec42c8772b01d92e275273e805"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitContent_20501.json",
+        "bytes": 551,
+        "sha256": "f2202b1279bbd3cfb440f1e3716ec55e624ce8d48bcfdf8e39ef59316efb8284"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitContent_20502.json",
+        "bytes": 556,
+        "sha256": "d2ee8542efd7f042274b6892c95a9c71ca028ca167726daf51cbe02d334d79e8"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitContent_20603.json",
+        "bytes": 486,
+        "sha256": "aa7732281e92521c4d7c1496eaab8748769f7e3f2333f2aeb0a40e6e7a10cf4f"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitContent_20703.json",
+        "bytes": 890,
+        "sha256": "0c5e7e287f64cd3a85cd21ca43f8b618a4590304fd621ffd56cccd566b70155e"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitContent_CasterLevel1.json",
+        "bytes": 282,
+        "sha256": "a3cf5b25d73db673de4bfd37a315b8efa072b63cd26e63ce76c8c19a8a7ff081"
+      },
+      {
+        "path": "Config/Gameplays/Fate/TraitConfig/FateTraitContent_CasterLevel3.json",
+        "bytes": 282,
+        "sha256": "c268515c905c986f6f9f3609b57a17631fc6653c379b702c9217da12166f16b6"
+      },
+      {
+        "path": "ExcelOutput/FateRinAvatar.json",
+        "bytes": 4279,
+        "sha256": "e28b03098c188dd6ee12021f6d0cd78da667a415baafd1be9495c313a9e1e96b"
+      },
+      {
+        "path": "ExcelOutput/FateRinCaseBoard.json",
+        "bytes": 900,
+        "sha256": "51df50363cd91e8e122b2721e6c15da9b9c145b8bfd9f615d7224c41716fe56f"
+      },
+      {
+        "path": "ExcelOutput/FateRinCaseBoardInfo.json",
+        "bytes": 11714,
+        "sha256": "ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa"
+      },
+      {
+        "path": "ExcelOutput/FateRinCaseBoardServant.json",
+        "bytes": 1840,
+        "sha256": "cd4381213ab4b63ff80f76eda6cb8c3010ea7e47c3b52216467462c846185600"
+      },
+      {
+        "path": "ExcelOutput/FateRinCaseBoardTeamInfo.json",
+        "bytes": 1762,
+        "sha256": "49e2f7f05a6216438d090ce40c707e783e64fc36638cb0f74ff4f7420a5118fc"
+      },
+      {
+        "path": "ExcelOutput/FateRinChallengeFight.json",
+        "bytes": 1510,
+        "sha256": "d217869bdcf272a80bb9e7297cd83d97121f592b288b84b4a74203404eb48491"
+      },
+      {
+        "path": "ExcelOutput/FateRinChallengeFightBuff.json",
+        "bytes": 922,
+        "sha256": "2af4aff0e0f446510800f5df3b865c24d0e4f9a3687be000dbca4b783a768235"
+      },
+      {
+        "path": "ExcelOutput/FateRinConstClient.json",
+        "bytes": 2637,
+        "sha256": "e193a130708156c2b3ba72d06a26262833046cdf81684bc7db22044b6b65c647"
+      },
+      {
+        "path": "ExcelOutput/FateRinConstCommon.json",
+        "bytes": 1454,
+        "sha256": "50d9c67c03b81e304d753ff1e24a6d741a836c6345938a1b97ccae52793bf5a4"
+      },
+      {
+        "path": "ExcelOutput/FateRinDayProgress.json",
+        "bytes": 422,
+        "sha256": "81d34e4be0209486b664874b31f7d9aabf28337e648768d0dee3851ad0b45056"
+      },
+      {
+        "path": "ExcelOutput/FateRinDeck.json",
+        "bytes": 1469,
+        "sha256": "eb119df231084dc04e5a543518a8df181b0d77d22dbe711fae6f561a9c4f38ce"
+      },
+      {
+        "path": "ExcelOutput/FateRinDeckRecommend.json",
+        "bytes": 2110,
+        "sha256": "73ab2257a69c9cc60113f43d3daf16d64284b730a1facf44009af45cfe0f067f"
+      },
+      {
+        "path": "ExcelOutput/FateRinHouguConfig.json",
+        "bytes": 91483,
+        "sha256": "0be811921375bc010bf6e9f2c3328fdfb094845dc2cec204988fc764c5589e6b"
+      },
+      {
+        "path": "ExcelOutput/FateRinHouguKeyword.json",
+        "bytes": 1991,
+        "sha256": "783532b9044c5f1a62ba142716b7746519e010455e8c9dd6d9720ac6d1779455"
+      },
+      {
+        "path": "ExcelOutput/FateRinHouguMapFight.json",
+        "bytes": 10084,
+        "sha256": "ad4f8a11d1c2e24b36a220357ca88e424c3eb39f8e653085b7dd689a74889d78"
+      },
+      {
+        "path": "ExcelOutput/FateRinHouguMapGroup.json",
+        "bytes": 682,
+        "sha256": "7ed5b737815aea9ddc493b0b343e2423473ee5637068a3bb595469855f2d5ce9"
+      },
+      {
+        "path": "ExcelOutput/FateRinHouguRarity.json",
+        "bytes": 185,
+        "sha256": "a5c9c2586427798d2f072134b4fb23bf7da87665fb4c6a663157db90bffc1d76"
+      },
+      {
+        "path": "ExcelOutput/FateRinHouguTag.json",
+        "bytes": 606,
+        "sha256": "950c4cdbe26cd0226c1bd29c7419706b19fb8046fa2b8b9f9fc0b3c8518bba2b"
+      },
+      {
+        "path": "ExcelOutput/FateRinLevelUp.json",
+        "bytes": 495,
+        "sha256": "3296d05c0d09bebdacd2592461ee228f6e42bc99c7c5d9c89c98725a2bca9dc7"
+      },
+      {
+        "path": "ExcelOutput/FateRinMainMissions.json",
+        "bytes": 350,
+        "sha256": "20f4e2f638ddeb62eae8868f7882f8ba7f98200f0fe2159a0d4f15703098a786"
+      },
+      {
+        "path": "ExcelOutput/FateRinOwner.json",
+        "bytes": 603,
+        "sha256": "8626a24409b7329a0f736651426f7a2c72e31e205148af69acc622bac3c320db"
+      },
+      {
+        "path": "ExcelOutput/FateRinOwnerInitHougu.json",
+        "bytes": 361,
+        "sha256": "db3230b764e3bbb4d2c7659891834ab38cfa5c853a8af69ab5477671ec34e371"
+      },
+      {
+        "path": "ExcelOutput/FateRinResidentReward.json",
+        "bytes": 520,
+        "sha256": "dc57b51e111ec282b3dc296c383552bd8278b672561538b25b42db3a236edf6d"
+      },
+      {
+        "path": "ExcelOutput/FateRinStoryFight.json",
+        "bytes": 512,
+        "sha256": "f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94"
+      },
+      {
+        "path": "ExcelOutput/FateRinSwitchDayTalk.json",
+        "bytes": 1605,
+        "sha256": "761d363c7ae2bea490ee071e477d7b363f0c88a7f4a0b1cb7ce6cd2cb3646a31"
+      }
+    ],
+    "canonical_sha256": "e75abcf749370ac1c03b729adc844eed9f873e5bd3d7dd1827772b5b38440cad"
+  },
+  "isolation": {
+    "owned_roots": [
+      "content-manifests/fate-star-rail-night-v1/",
+      "content-reference/fate-star-rail-night-v1/",
+      "config/fate-star-rail-night/",
+      "config/fate-star-rail-night-generated/",
+      "tools/fate-star-rail-night-reference/",
+      "evidence/fate-star-rail-night-reference-v1/"
+    ],
+    "protected_runtime_roots": [
+      "crates/",
+      "config/generated/",
+      "config/universe-generated/"
+    ],
+    "adjacent_exclusions": [
+      "Currency Wars Fate Bonds",
+      "Config/Activity/RtBattle",
+      "story prose",
+      "account rewards",
+      "presentation assets"
+    ]
+  },
+  "contracts": {
+    "authoritative_authoring": "xlsx-via-python-openpyxl",
+    "schema_export_authority": "sora-cli-0.3.0",
+    "json_runtime_loading": false,
+    "runtime_implementation": false,
+    "zero_requires_selector_closure": true,
+    "provenance_required": true
+  }
+}

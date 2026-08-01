@@ -1,0 +1,70 @@
+{
+  "table": {
+    "name": "ApsPeriods",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "group.3019"
+              },
+              {
+                "String": "period.203019"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Vanguard Knight"
+          },
+          "name_zh_cn": {
+            "String": "兵锋骑士"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"begin_time\":\"2026-07-20 04:00:00\",\"coverage_state\":\"DataReady\",\"end_time\":\"2026-08-31 04:00:00\",\"evidence_quality\":\"ExactStructured\",\"group_id\":3019,\"id\":\"period.203019\",\"kind\":\"period\",\"later_group_id_excluded\":3020,\"manifest_record_ids\":[\"group.3019\",\"period.203019\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Vanguard Knight\",\"name_zh_cn\":\"兵锋骑士\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schedule_id\":203019,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"GroupID=3019\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2070b86dc168c94d61c2991c92d7d4e8e0910c4056abbc85d52364fb15cb3869\",\"source_id\":\"src.group.3019\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=203019\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ScheduleDataChallengeBoss.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e1359d2d19727c18a0f903006794b25f65d996beb6793321bba028174f32bec6\",\"source_id\":\"src.period.203019\"}],\"summary_en\":\"The active Version 4.4 Apocalyptic Shadow period.\",\"summary_zh_cn\":\"4.4 版本当前生效的末日幻影周期。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.group.3019"
+              },
+              {
+                "String": "src.period.203019"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "period.203019"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 Apocalyptic Shadow period."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当前生效的末日幻影周期。"
+          }
+        }
+      }
+    ]
+  }
+}

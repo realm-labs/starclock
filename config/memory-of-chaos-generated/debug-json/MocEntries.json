@@ -1,0 +1,147 @@
+{
+  "table": {
+    "name": "MocEntries",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "entry_and_unlock_locators:entrance-1010201"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Forgotten Hall entrance"
+          },
+          "name_zh_cn": {
+            "String": "忘却之庭入口"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"entrance_type\":\"Town\",\"evidence_refs\":[{\"evidence_sha256\":\"3fd62cdd2ece749615661fb9005248fa1f544859849fc1f8dbc1e0d25954a255\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/MapEntrance.json:ID=1010201\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact entry-plane locator.\",\"path_or_page\":\"ExcelOutput/MapEntrance.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=1010201\"}],\"finish_main_mission_ids\":[1010302],\"floor_id\":10102001,\"game_version\":\"4.4\",\"id\":\"entry.1010201\",\"kind\":\"EntryLocator\",\"name_en\":\"Forgotten Hall entrance\",\"name_zh_cn\":\"忘却之庭入口\",\"ownership\":\"Shared\",\"plane_id\":10102,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"entry_and_unlock_locators:entrance-1010201\"],\"story_prose_included\":false,\"summary_en\":\"Shared town entrance used to reach the Memory family.\",\"summary_zh_cn\":\"用于进入回忆家族的共享城镇入口。\",\"tags\":[\"entry\",\"shared\"],\"upstream_entrance_id\":1010201}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MapEntrance.json:ID=1010201"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "entry.1010201"
+          },
+          "summary_en": {
+            "String": "Shared town entrance used to reach the Memory family."
+          },
+          "summary_zh_cn": {
+            "String": "用于进入回忆家族的共享城镇入口。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "entry_and_unlock_locators:entrance-3014002"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Memory challenge plane"
+          },
+          "name_zh_cn": {
+            "String": "回忆挑战位面"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"entrance_type\":\"Explore\",\"evidence_refs\":[{\"evidence_sha256\":\"55d1bba7f881ef4d5b76b2bb8c1b931cb62ad71100d6c9a14369b6160437b0c6\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/MapEntrance.json:ID=3014002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact entry-plane locator.\",\"path_or_page\":\"ExcelOutput/MapEntrance.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=3014002\"}],\"finish_main_mission_ids\":[],\"floor_id\":30140002,\"game_version\":\"4.4\",\"id\":\"entry.3014002\",\"kind\":\"EntryLocator\",\"name_en\":\"Memory challenge plane\",\"name_zh_cn\":\"回忆挑战位面\",\"ownership\":\"MemoryOfChaos\",\"plane_id\":30140,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_record_ids\":[\"entry_and_unlock_locators:entrance-3014002\"],\"story_prose_included\":false,\"summary_en\":\"Mode-owned exploration plane selected by every active ordinary floor and the Tierce extension.\",\"summary_zh_cn\":\"全部当前常规层与扩展关共同选择的玩法专属探索位面。\",\"tags\":[\"entry\",\"mode-owned\"],\"upstream_entrance_id\":3014002}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MapEntrance.json:ID=3014002"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "entry.3014002"
+          },
+          "summary_en": {
+            "String": "Mode-owned exploration plane selected by every active ordinary floor and the Tierce extension."
+          },
+          "summary_zh_cn": {
+            "String": "全部当前常规层与扩展关共同选择的玩法专属探索位面。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "mode-owned"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

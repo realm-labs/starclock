@@ -1,0 +1,265 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "turbulence.json",
+  "record_kind": "MemoryTurbulenceOrProgram",
+  "records": [
+    {
+      "id": "turbulence.3030146",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "MemoryTurbulence",
+      "name_en": "Memory Turbulence",
+      "name_zh_cn": "记忆紊流",
+      "summary_en": "Boosts allied Ultimate and Follow-Up ATK damage by 50%; each qualifying action adds one stored hit, up to 15.",
+      "summary_zh_cn": "我方终结技与追加攻击伤害提高50%；每次符合条件的动作增加1段储存攻击，最多15段。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "turbulence_and_battle_event:maze-buff-3030146"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3030146",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "row_locator": "ID=3030146",
+          "evidence_sha256": "4c1579968911fe0e72ed1e6aab9c5d46b9a0c3f356a2fb3d36185cea3adec540",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact active MazeBuff identity, bilingual hashes and six parameters."
+        },
+        {
+          "id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12134845965523193828",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "row_locator": "Hash=12134845965523193828",
+          "evidence_sha256": "a9e521e71aa326826e46c143fa5f973e3cda90734e42276f980b291a4d332f27",
+          "quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released zh_cn display text for this identity."
+        },
+        {
+          "id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12134845965523193828",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "row_locator": "Hash=12134845965523193828",
+          "evidence_sha256": "1110e2c9d0fa837b01517da11fc6f988e5b1721cfefdd4677a97d590e80ee98a",
+          "quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released en display text for this identity."
+        },
+        {
+          "id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_2.json",
+          "row_locator": "AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "evidence_sha256": "4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact active Turbulence callback, predicate, accumulator, random-retarget and True-DMG program."
+        }
+      ],
+      "tags": [
+        "follow-up",
+        "memory-turbulence",
+        "true-damage",
+        "ultimate"
+      ],
+      "upstream_maze_buff_id": 3030146,
+      "upstream_battle_event_id": 30146,
+      "ability_name": "BattleEventAbility_Challenge_Month_46",
+      "damage_boost_ratio": "0.5",
+      "qualifying_attack_types": [
+        "Insert",
+        "Ultra"
+      ],
+      "hit_gain_per_qualifying_action": 1,
+      "hit_cap": 15,
+      "accumulation_granularity": "OncePerQualifyingActionNotPerHit",
+      "follow_up_detection": "InsertObservedAfterHitThenCommittedAfterAttack",
+      "ultimate_detection": "UltraObservedAfterSkillUse",
+      "once_guard": "DV_ChargeTriggeredPerAction",
+      "stacking": "ReplaceByCaster",
+      "authoritative_decimals": "CanonicalStrings",
+      "runtime_executable": false
+    },
+    {
+      "id": "turbulence-program.30146",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "TurbulenceProgram",
+      "name_en": "Academy Ghost Story Turbulence program",
+      "name_zh_cn": "学院怪谈记忆紊流程序",
+      "summary_en": "At cycle start, consumes stored hits against one random enemy per hit and then resets the accumulator.",
+      "summary_zh_cn": "轮开始时逐段随机选择一名敌人造成伤害，随后清空累计段数。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "turbulence_and_battle_event:battle-event-30146"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30146",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/BattleEventConfig.json",
+          "row_locator": "BattleEventID=30146",
+          "evidence_sha256": "ba0bcb919bba2c75dd363f1c442f9326133726fa75a2252ae89775b3d402db56",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact BattleEvent subtype, ability binding, event properties and parameters."
+        },
+        {
+          "id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_2.json:AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_2.json",
+          "row_locator": "AbilityList.Name=BattleEventAbility_Challenge_Month_46",
+          "evidence_sha256": "4cf076ae111cc0b2e43b536d19fdc26b9037790c4519e5174f80fab74090999d",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact active Turbulence callback, predicate, accumulator, random-retarget and True-DMG program."
+        }
+      ],
+      "tags": [
+        "battle-event",
+        "cycle-start",
+        "random-target",
+        "true-damage"
+      ],
+      "upstream_battle_event_id": 30146,
+      "event_sub_type": "AbyssTurnCountDownEvent",
+      "event_team": "TeamNeutral",
+      "trigger_event": "OnPhase1",
+      "trigger_interpretation": "CycleStart",
+      "trigger_predicate": "StoredHitCountGreaterEqualOne",
+      "loop_count": "StoredHitCountSnapshot",
+      "target_alias": "AllDarkTeam",
+      "target_selection": "RandomOnePerStoredHit",
+      "include_limbo": true,
+      "max_targets_per_hit": 1,
+      "damage_type_tag": "Physical",
+      "attack_type": "TrueDamage",
+      "final_formula_type": "ByBaseDamage",
+      "can_trigger_last_kill": true,
+      "damage_base_property": "SelectedTarget.BaseHP",
+      "rank_coefficient_branches": [
+        {
+          "compare_rank_values": [
+            1,
+            2
+          ],
+          "coefficient": "0.12"
+        },
+        {
+          "compare_rank_values": [
+            3
+          ],
+          "coefficient": "0.02"
+        },
+        {
+          "compare_rank_values": [
+            "fallback"
+          ],
+          "coefficient": "0.012"
+        }
+      ],
+      "accumulator_reset": "ZeroAfterLoopOrEmptyCandidateResolution",
+      "operation_type_counts": {
+        "RPG.GameCore.AddModifier": 3,
+        "RPG.GameCore.AttackData": 3,
+        "RPG.GameCore.ByAnd": 3,
+        "RPG.GameCore.ByAny": 1,
+        "RPG.GameCore.ByAttackType": 2,
+        "RPG.GameCore.ByCompareDynamicValue": 4,
+        "RPG.GameCore.ByCompareMonsterRank": 3,
+        "RPG.GameCore.ByCurrentSkillType": 1,
+        "RPG.GameCore.ByTargetTeam": 4,
+        "RPG.GameCore.DamageByAttackProperty": 3,
+        "RPG.GameCore.LoopExecuteTaskList": 1,
+        "RPG.GameCore.ModifyDamageData": 1,
+        "RPG.GameCore.OwnerEntityAddAbility": 3,
+        "RPG.GameCore.PredicateTaskList": 8,
+        "RPG.GameCore.RemoveEffect": 1,
+        "RPG.GameCore.Retarget": 1,
+        "RPG.GameCore.SetDynamicValue": 8,
+        "RPG.GameCore.SetDynamicValueByAddValue": 2,
+        "RPG.GameCore.SetDynamicValueByProperty": 1,
+        "RPG.GameCore.SetTeamFormation": 1,
+        "RPG.GameCore.ShowAttackTime": 4,
+        "RPG.GameCore.TargetAlias": 27,
+        "RPG.GameCore.TriggerAbility": 1,
+        "RPG.GameCore.TriggerEffect": 2,
+        "RPG.GameCore.WaitSecond": 4
+      },
+      "deterministic_policy": {
+        "rng_stream_label": "memory-of-chaos/turbulence/30146/target",
+        "candidate_order": "StableEntityIdAscending",
+        "sample_method": "ProjectOwnedIntegerUniformIndex",
+        "damage_rounding": "RoundDownTowardZeroAtDamageBoundary",
+        "empty_candidate_behavior": "NoDamageThenResetAccumulator",
+        "teardown": "RemoveBattleEventAndOwnedModifiersAtBattleEnd"
+      },
+      "approximations": [
+        {
+          "known_facts": "The exact program uses random Retarget over AllDarkTeam with IncludeLimbo=true and MaxNumber=1, but does not expose canonical candidate ordering or RNG stream identity.",
+          "selected_behavior": "Sort eligible enemy entities by stable EntityId and sample one integer index from a dedicated labeled stream for every stored hit.",
+          "rejected_alternatives": [
+            "collection iteration order",
+            "floating probability draw",
+            "one target sampled once for all hits"
+          ],
+          "rationale": "Stable per-hit integer sampling preserves the program's Retarget placement and deterministic replay.",
+          "affected_fixture_ids": [
+            "fixture.turbulence-target-true-damage.random-per-hit"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with a released RNG/candidate trace or decoded target-selection implementation."
+        },
+        {
+          "known_facts": "The exact program multiplies selected-target BaseHP by rank-specific decimal coefficients and marks the attack TrueDamage; its authoritative fixed-point rounding boundary is not encoded.",
+          "selected_behavior": "Multiply canonical fixed-point BaseHP by the exact decimal coefficient and round down toward zero once at the damage boundary.",
+          "rejected_alternatives": [
+            "binary floating point",
+            "round half up",
+            "round each intermediate operation"
+          ],
+          "rationale": "One named boundary matches project numeric policy and remains replaceable by a golden trace.",
+          "affected_fixture_ids": [
+            "fixture.turbulence-target-true-damage.rank-coefficients"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released integer damage vectors for all rank branches and boundary values."
+        },
+        {
+          "known_facts": "The loop contains Retarget work followed by an unconditional accumulator reset; source behavior for an empty AllDarkTeam alias is not separately documented.",
+          "selected_behavior": "An empty candidate set deals no damage and still resets the accumulator; battle teardown removes the event and its owned modifiers.",
+          "rejected_alternatives": [
+            "retain hits across an empty cycle",
+            "fault the battle",
+            "keep modifiers after battle"
+          ],
+          "rationale": "No-op plus teardown is the smallest bounded interpretation of the task list and generic battle ownership.",
+          "affected_fixture_ids": [
+            "fixture.turbulence-cap-cycle-start.empty-target-reset"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with a released empty-target or battle-end event trace."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

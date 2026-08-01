@@ -1,0 +1,368 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-source-inventory.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "generated_at_policy": "deterministic-no-wall-clock",
+  "counts": {
+    "adjacent-exclusion": 21,
+    "dedicated": 10,
+    "mechanic-program": 18,
+    "shared-closure": 10
+  },
+  "files": [
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeActivityConfig.json",
+      "byte_length": 433,
+      "sha256": "58a9ed1ff3516d03d23d32af6cb30b0d69574b891ec12e7c60e25f99b4e8c157"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeBadgeConfig.json",
+      "byte_length": 15531,
+      "sha256": "0ed1754d54be5d6782edb31874960a76d8c03da4cb72c1554d3b1d111d02fd07"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeMazeConfig.json",
+      "byte_length": 530993,
+      "sha256": "36f47fa89983b99056287aa637fe7eb16913053c683ad885cc86bf5233c4bed1"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeMazeGroupExtra.json",
+      "byte_length": 4862,
+      "sha256": "5e3580d7cca1c55af28e118969a57063ba056fb8db2741fbea5cb9371c945b2c"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeMazeRewardLine.json",
+      "byte_length": 3191,
+      "sha256": "5543de2360e51fa43961f75a8ff1b2fa78d2ecf833918f5060369f062a5d138e"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeMazeTierce.json",
+      "byte_length": 2590,
+      "sha256": "dd60879eea30b83b670ac6887cfa96903479fc71cb30af4b3821260b479d5b8c"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengePeakBossConfig.json",
+      "byte_length": 2503,
+      "sha256": "b52a1fb0479195aa0be750840be050524e364eb4c12b5ca3160d3e02941b222a"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengePeakCommonConst.json",
+      "byte_length": 3730,
+      "sha256": "5a75fb5bfc973c6f5988c5856e606ea7d114fbb02dc70b2e416f12061722d9cb"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengePeakConfig.json",
+      "byte_length": 14623,
+      "sha256": "e6ceba6e59322c948d89335c1afceeec3932b7c06e62bdaf76daa4b0a022c1f1"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengePeakGroupConfig.json",
+      "byte_length": 9001,
+      "sha256": "673b85595bbd1d0548c5fc1c4df8e2141fbd4236c6673bd15aaf51b1d8fa6e03"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengePeakReward.json",
+      "byte_length": 1657,
+      "sha256": "9e3fa89419eb5db1c16e0608bf2adb1ffef411d3a4174c7c27fc839cd67a92b4"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengePeakRewardOR.json",
+      "byte_length": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeSkipConfig.json",
+      "byte_length": 220,
+      "sha256": "1405046377feae572fdf7de513b0464cd9ecd60532019e45983a72977e467314"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryGroupConfig.json",
+      "byte_length": 12986,
+      "sha256": "16c5ea9b538ec25ec4cf2005363fb28c95df03d3d57a473d3d6946b29297666e"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryGroupExtra.json",
+      "byte_length": 17522,
+      "sha256": "1df1f4a007221cccc5901d961164d0a3b7970da3de615db03be9b3fa23f33ebd"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryMazeConfig.json",
+      "byte_length": 81681,
+      "sha256": "845f35fc44d5cf0e52f88a29c8b913249615209d31027736c8bcd9f3934fa107"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryMazeExtra.json",
+      "byte_length": 12402,
+      "sha256": "d945d5b832fc26a278e6a03af95a35d86bb875d34f91625f033ae56ba9f8560e"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryMazeTierce.json",
+      "byte_length": 2712,
+      "sha256": "efb48f5f2187229ca663509c5c454a3c5d2c8c0c4204034864f431176090c773"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryRewardLine.json",
+      "byte_length": 1760,
+      "sha256": "d7f91f9926f09151b26d7842d3407f8ccd27cb6c5959d66b109698437fba6ec3"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryTargetConfig.json",
+      "byte_length": 1212,
+      "sha256": "86be96945e373e31beba4f9346da168e24f37e55a541b6feb930373672b55fb9"
+    },
+    {
+      "classification": "adjacent-exclusion",
+      "source_path": "ExcelOutput/ChallengeStoryTheme.json",
+      "byte_length": 2465,
+      "sha256": "e2b11fe122b79556e7dc5aa69bc1b55fcd9437d308c9d4efcdf42396dadfd8f1"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossConstValue.json",
+      "byte_length": 330,
+      "sha256": "4d50b0f05728de5a36c8fd7fb18cd53c4216a3d9480b7f2e0bd5c276ab33e3b9"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossGroupConfig.json",
+      "byte_length": 10334,
+      "sha256": "f674fa7bc0a413a0ce4182deb68f7849cb0f12b160fbce4b77ab344ea69794f2"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossGroupExtra.json",
+      "byte_length": 13340,
+      "sha256": "ae6f2308ea3fe822fe5b301f1c5da66a3c60de08cdc93f657512cb7646665d14"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossMazeConfig.json",
+      "byte_length": 69928,
+      "sha256": "d17aacde503180e22d86bc50c3cfb28dce2bf83b7b1d3f038978ce85605ea7a3"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossMazeExtra.json",
+      "byte_length": 6729,
+      "sha256": "554daca556e8497e64c330a62308d5f0b225bf0016e6782071f2b6a7f9d99173"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossMazeTierce.json",
+      "byte_length": 3919,
+      "sha256": "caf624b7b1421e9b3bc9089e77a96bffd916a993b50267a9edc62fc1e541d0b9"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossRewardLine.json",
+      "byte_length": 881,
+      "sha256": "307a49b7705e18009d39bd093d58b2c2b99ac263200875f0deeb21fbd5eacdc3"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ChallengeBossTargetConfig.json",
+      "byte_length": 1206,
+      "sha256": "30e50f59373abd4f1cc671dae24f60d4067a506eed5fe6066cec51385caad749"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/ScheduleDataChallengeBoss.json",
+      "byte_length": 2082,
+      "sha256": "8775530ffdab5a480fd5710ed1884079d9278b261300d7e6529e7db297add973"
+    },
+    {
+      "classification": "dedicated",
+      "source_path": "ExcelOutput/StrongChallengeBossDetail.json",
+      "byte_length": 2262,
+      "sha256": "8e3d02907af1e75e569fa067b9d273c4da1241b4380e1ea80ac975b889b6fb77"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_BossEnhance_Ability.json",
+      "byte_length": 85768,
+      "sha256": "91d4e50e5ee6f331e78325ed5ffbdd31d524efc49238ba0aaec7bcf46195e4e4"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_BossEnhance_Ability.layout.json",
+      "byte_length": 562,
+      "sha256": "19ac0eec3a9411488384e36e60191b0ae778de20117a0b5c86ca8ba1a348eff3"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json",
+      "byte_length": 42797,
+      "sha256": "1e4bc83be479c6d58e7d630837b46814e75558951ff5f5c7e1920c13a747286f"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.layout.json",
+      "byte_length": 312,
+      "sha256": "dd809bc61e5b96cc7c71ba843ff5db5ab9345f892851168cc6d58f7dabdc7a27"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_Talent_Ability.json",
+      "byte_length": 91984,
+      "sha256": "512a3d1594820873576d031916bc01f042640186e108e81d2a5aeccb538bc3ba"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallenge_Talent_Ability.layout.json",
+      "byte_length": 4434,
+      "sha256": "8fbcd88dc43c5a2f54be2bbb00a0e412195afe73239ab5b5d72e076c3309228b"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_BattleEvent_Ability.json",
+      "byte_length": 48,
+      "sha256": "1f99f82abe88c1bc387bb20d69aa462ed4aa40a39bd3d5e51898eb35a47009df"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_BattleEvent_Ability.layout.json",
+      "byte_length": 27,
+      "sha256": "3462a95d60a7145f91e76bc9256d95cdd2ecc090de0438aa7f220bbfb0986594"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_Environment_Ability.json",
+      "byte_length": 416548,
+      "sha256": "7c8347de29cbd46c68ed3d543641aadf1d08536df1a7d7fff87a8e3e66592868"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_Environment_Ability.layout.json",
+      "byte_length": 6339,
+      "sha256": "15d717ce981c076fa4dab959f18778424e759e1e954d7d881cc654042edab92e"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_MonsterTag_Ability.json",
+      "byte_length": 103270,
+      "sha256": "dd3f785fd473e675c31c00d20f85cb064a42d0c4a8b1e63c5dbd5e809f0c9675"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_MonsterTag_Ability.layout.json",
+      "byte_length": 1502,
+      "sha256": "aff0d2a2c4aab1572bbb9064a0566659ff27194ac04d32404607106210b199b2"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_Talent_Ability.json",
+      "byte_length": 677627,
+      "sha256": "a738ab2936f5975d046e8293c1fa0afd9ca0349fafd263874fe05b720d2b647b"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "Config/ConfigAbility/BattleEvent/StrongChallengeEX_Talent_Ability.layout.json",
+      "byte_length": 14856,
+      "sha256": "870452a2440d13293a9d4ea2cbc7f1024428f4bf611c475af47d280580288b6b"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "ExcelOutput/StrongChallengeBossDetail.json",
+      "byte_length": 2262,
+      "sha256": "8e3d02907af1e75e569fa067b9d273c4da1241b4380e1ea80ac975b889b6fb77"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "ExcelOutput/StrongChallengeBuffConfig.json",
+      "byte_length": 1822,
+      "sha256": "09d098f42f00c6927879171cb3c77cf941c517947d4dbf187d36a945a6dbaf4e"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "ExcelOutput/StrongChallengeQuestGroup.json",
+      "byte_length": 522,
+      "sha256": "985a8e8c362befb9c78f2a284da54dfafb60f8f54c4ca86958b6f6855175498d"
+    },
+    {
+      "classification": "mechanic-program",
+      "source_path": "ExcelOutput/StrongChallengeStage.json",
+      "byte_length": 12424,
+      "sha256": "ad9c8540ca270d125d39bac0754eb459b7878c8b84820da6b43ad2cd7e64ba83"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/BattleEventConfig.json",
+      "byte_length": 311033,
+      "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/ChallengeGeneralConfig.json",
+      "byte_length": 1248,
+      "sha256": "3073193d0a7c7095684dfd402cf6e49de0454e873de33003c96834076e2e9379"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "byte_length": 1415760,
+      "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "byte_length": 4089472,
+      "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "byte_length": 2525751,
+      "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "byte_length": 322987,
+      "sha256": "6c8fd02a63a8ee18583ca103d2f2208b969e3d69a0a3ea4cb796ecb0bb3935ce"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "byte_length": 918769,
+      "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "ExcelOutput/StageConfig.json",
+      "byte_length": 25168437,
+      "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "TextMap/TextMapCHS.json",
+      "byte_length": 48996604,
+      "sha256": "ec49e07932b4ed8aba9679e247d8e554ca69e831fea7931d94682551de567147"
+    },
+    {
+      "classification": "shared-closure",
+      "source_path": "TextMap/TextMapEN.json",
+      "byte_length": 55206201,
+      "sha256": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+    }
+  ]
+}

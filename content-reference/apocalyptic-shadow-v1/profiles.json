@@ -1,0 +1,45 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "profiles.json",
+  "record_kind": "profile",
+  "records": [
+    {
+      "id": "apocalyptic-shadow-v1",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "profile",
+      "name_en": "Apocalyptic Shadow",
+      "name_zh_cn": "末日幻影",
+      "summary_en": "A released rotating boss challenge family.",
+      "summary_zh_cn": "已发布的轮换首领挑战玩法家族。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "group_id": 3019,
+      "active_period_id": 203019,
+      "entry_goto_id": 232,
+      "early_access_content_id": 200001,
+      "runtime_state": "Unreleased",
+      "runtime_executable": false
+    }
+  ]
+}

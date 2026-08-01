@@ -1,0 +1,178 @@
+{
+  "table": {
+    "name": "PfResearchGap",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.continuous_spawn"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Hidden refill tie ordering"
+          },
+          "name_zh_cn": {
+            "String": "隐藏补位并列顺序"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"affected_fixtures\":[\"pf.fixture.spawn_refill_order\",\"pf.fixture.simultaneous_defeats\"],\"blocking\":false,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"gap.hidden-spawn-order\",\"kind\":\"research-gap\",\"manifest_record_ids\":[\"pf.rule.continuous_spawn\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Hidden refill tie ordering\",\"name_zh_cn\":\"隐藏补位并列顺序\",\"ownership\":\"PureFiction\",\"rejected_alternatives\":[\"filesystem-order\",\"unordered-map-order\"],\"release_state\":\"Released\",\"replacement_condition\":\"pinned released engine enumeration or reproducible Version 4.4 observation\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"selected_policy\":\"stable-wave-then-slot\",\"source_record_ids\":[\"source.pf.rule.continuous_spawn\"],\"summary_en\":\"Stable wave/slot ordering is a deterministic project policy until retained released engine evidence replaces it.\",\"summary_zh_cn\":\"在保留的已发布引擎证据替代前，使用稳定波次/槽位顺序作为确定性项目策略。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.continuous_spawn"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gap.hidden-spawn-order"
+          },
+          "summary_en": {
+            "String": "Stable wave/slot ordering is a deterministic project policy until retained released engine evidence replaces it."
+          },
+          "summary_zh_cn": {
+            "String": "在保留的已发布引擎证据替代前，使用稳定波次/槽位顺序作为确定性项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.initial_resources"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Initial resource selector"
+          },
+          "name_zh_cn": {
+            "String": "初始资源选择器"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"blocking\":false,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"gap.initial-resources\",\"kind\":\"research-gap\",\"manifest_record_ids\":[\"pf.contract.initial_resources\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Initial resource selector\",\"name_zh_cn\":\"初始资源选择器\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"replacement_condition\":\"released active selector exposes exact HP, Energy or Skill Point overrides\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.initial_resources\"],\"summary_en\":\"No active row exposes a season-specific override, so ordinary challenge defaults remain an explicit policy boundary.\",\"summary_zh_cn\":\"当前行未暴露周期专属覆盖，因此普通挑战默认值保持为显式策略边界。\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.initial_resources"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gap.initial-resources"
+          },
+          "summary_en": {
+            "String": "No active row exposes a season-specific override, so ordinary challenge defaults remain an explicit policy boundary."
+          },
+          "summary_zh_cn": {
+            "String": "当前行未暴露周期专属覆盖，因此普通挑战默认值保持为显式策略边界。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.tierce.20245"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Tierce target field decoding"
+          },
+          "name_zh_cn": {
+            "String": "第三战区目标字段解码"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"blocking\":false,\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"gap.tierce-target-thresholds\",\"kind\":\"research-gap\",\"manifest_record_ids\":[\"pf.tierce.20245\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Tierce target field decoding\",\"name_zh_cn\":\"第三战区目标字段解码\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"replacement_condition\":\"released schema or observation decodes each threshold\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"selected_policy\":\"preserve-raw-target-identities\",\"source_record_ids\":[\"source.pf.tierce.20245\"],\"summary_en\":\"Target identities are exact; undisclosed threshold interpretation remains reference-only.\",\"summary_zh_cn\":\"目标标识精确；未公开的阈值解释保持资料态。\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.tierce.20245"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gap.tierce-target-thresholds"
+          },
+          "summary_en": {
+            "String": "Target identities are exact; undisclosed threshold interpretation remains reference-only."
+          },
+          "summary_zh_cn": {
+            "String": "目标标识精确；未公开的阈值解释保持资料态。"
+          }
+        }
+      }
+    ]
+  }
+}

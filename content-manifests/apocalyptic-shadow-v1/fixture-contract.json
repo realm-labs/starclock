@@ -1,0 +1,31 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-fixture-contract.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "required_families": [
+    {"id": "profile-entry", "minimum_cases": 1},
+    {"id": "stage-node-order", "minimum_cases": 2},
+    {"id": "tierce-selection", "minimum_cases": 1},
+    {"id": "team-uniqueness", "minimum_cases": 3},
+    {"id": "loadout-lock", "minimum_cases": 2},
+    {"id": "attempt-retry", "minimum_cases": 2},
+    {"id": "av-window-expiry", "minimum_cases": 3},
+    {"id": "boss-progress-partial", "minimum_cases": 2},
+    {"id": "score-aggregation", "minimum_cases": 3},
+    {"id": "target-star-evaluation", "minimum_cases": 3},
+    {"id": "steadfast-safeguard", "minimum_cases": 3},
+    {"id": "axiom-ember-contribution", "minimum_cases": 3},
+    {"id": "buff-selection-teardown", "minimum_cases": 3},
+    {"id": "encounter-enemy-closure", "minimum_cases": 3},
+    {"id": "empty-pool-proof", "minimum_cases": 6},
+    {"id": "rejected-command-boundary", "minimum_cases": 2}
+  ],
+  "result_fields": [
+    "fixture_id", "family_id", "inputs", "expected", "actual", "passed",
+    "evidence_ref_ids", "blocking_gap_ids"
+  ],
+  "release_requirement": {
+    "failed_fixture_count": 0,
+    "blocking_gap_count": 0,
+    "every_family_minimum_met": true
+  }
+}

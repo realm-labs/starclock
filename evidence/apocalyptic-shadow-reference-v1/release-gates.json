@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-release-gates.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "batch": "G18-P4-B2",
+  "audit_date": "2026-08-01",
+  "environment": {
+    "node": "24.15.0",
+    "sora": "0.3.0",
+    "openpyxl": "3.1.5",
+    "python_environment": ".cache/g18-venv"
+  },
+  "gates": [
+    {
+      "name": "focused-deterministic-regeneration",
+      "result": "Passed",
+      "details": "59-file inventory, 129-obligation manifest, six exact-zero pools, seven pack batches, three workbooks, 35 Sora tables/readers/debug exports/binary bundle, 42 semantic fixtures and the Candidate audit regenerated or drift-checked."
+    },
+    {
+      "name": "repository-quick",
+      "command": "PATH=$PWD/.cache/g18-venv/bin:$PATH fnm exec --using 24.15.0 -- node tools/repository-check/run.mjs",
+      "duration_seconds": "116.3",
+      "result": "Passed"
+    },
+    {
+      "name": "repository-full",
+      "command": "PATH=$PWD/.cache/g18-venv/bin:$PATH fnm exec --using 24.15.0 -- node tools/repository-check/run.mjs --full",
+      "duration_seconds": "3602.2",
+      "result": "Passed",
+      "details": "Clippy passed; 33 workspace test harnesses passed in 369.3 seconds; all generated, release and immutable-snapshot audits passed. The first invocation without the isolated Python environment stopped in an unrelated Standard Universe workbook verifier because global Python lacked openpyxl; the recorded replacement command passed without modifying global Python."
+    },
+    {
+      "name": "clean-checkout-focused-and-quick",
+      "result": "Passed",
+      "details": "A detached shared-object clone at G18-P4-B1 plus the G18-P4-B2 patch used isolated symlinks to the two pinned source repositories, Sora 0.3.0 and the Goal-owned Python environment. All focused deterministic checks passed; the clean-checkout quick gate passed in 5.1 seconds."
+    }
+  ],
+  "source_cache_note": "The shared main-workspace turnbasedgamedata cache no longer resolved to the pinned public repository during clean-checkout setup. Goal 18 did not mutate it; a Goal-owned clean detached clone at fd978d6ef09f941fba644c731ab54abd6f7c3568 was used for the release checks.",
+  "result": "Passed"
+}

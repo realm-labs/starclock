@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfSeason",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.season.2024"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Falsehood to Fact"
+          },
+          "name_zh_cn": {
+            "String": "借虚成真"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"begin_time\":\"2026-06-22 04:00:00\",\"coverage_state\":\"DataReady\",\"enabled\":true,\"end_time\":\"2026-08-03 04:00:00\",\"evidence_quality\":\"ExactStructured\",\"game_version_snapshot\":\"4.4\",\"group_id\":2024,\"id\":\"pf.season.2024\",\"kind\":\"season\",\"manifest_record_ids\":[\"pf.season.2024\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Falsehood to Fact\",\"name_zh_cn\":\"借虚成真\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"schedule_id\":202024,\"scheduled_unreleased_group_id\":2025,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.season.2024\"],\"summary_en\":\"The Pure Fiction season active at the frozen Version 4.4 access boundary.\",\"summary_zh_cn\":\"在冻结4.4版本访问边界生效的虚构叙事周期。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.season.2024"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.season.2024"
+          },
+          "summary_en": {
+            "String": "The Pure Fiction season active at the frozen Version 4.4 access boundary."
+          },
+          "summary_zh_cn": {
+            "String": "在冻结4.4版本访问边界生效的虚构叙事周期。"
+          }
+        }
+      }
+    ]
+  }
+}

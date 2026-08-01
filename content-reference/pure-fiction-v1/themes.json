@@ -1,0 +1,34 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "themes.json",
+  "record_kind": "theme",
+  "records": [
+    {
+      "id": "pf.theme.4",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "theme",
+      "name_en": "Falsehood to Fact theme",
+      "name_zh_cn": "借虚成真主题",
+      "summary_en": "The active group selects released theme identity 4.",
+      "summary_zh_cn": "当前组选择已发布主题标识4。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.theme.4"
+      ],
+      "source_record_ids": [
+        "source.pf.theme.4"
+      ],
+      "runtime_executable": false,
+      "theme_id": 4,
+      "presentation_fields_excluded": true
+    }
+  ]
+}

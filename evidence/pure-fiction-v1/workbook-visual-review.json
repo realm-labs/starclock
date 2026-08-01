@@ -1,0 +1,76 @@
+{
+  "schema_revision": "starclock.pure-fiction-workbook-visual-review.v1",
+  "render_pipeline": [
+    "prepare_visual_review.py",
+    "LibreOffice headless PDF export",
+    "pdftoppm PNG rendering at 72 DPI",
+    "contact_sheets.py"
+  ],
+  "rendered_pages": 37,
+  "reviewed_pages": 37,
+  "review_scope": "Rows 1-10 and all schema columns A:P on every sheet",
+  "observations": [
+    "All 37 sheets render as nonblank single-page landscape previews.",
+    "All 15 authored headers are present with consistent dark-blue styling.",
+    "Representative bilingual, provenance and canonical JSON cells are visible.",
+    "No clipped header band, overlapping object, formula error or blank required table was observed."
+  ],
+  "workbooks": [
+    {
+      "file": "PureFiction.xlsx",
+      "sha256": "e24350c324c9f9e596324f88b833a2e3b76a58749ea9b4226e014b305ea39f6f",
+      "sheets": [
+        "Profile",
+        "Season",
+        "Stage",
+        "Node",
+        "TierceStarward",
+        "ParticipantPolicy",
+        "AttemptPolicy"
+      ]
+    },
+    {
+      "file": "PureFictionBindings.xlsx",
+      "sha256": "a4dd01c49092848646b6ec8cdc5f8ec32329f389625bae3c4e73d634b145a754",
+      "sheets": [
+        "Clock",
+        "SpawnProgram",
+        "ScoreProgram",
+        "Objective",
+        "SeasonalMechanic",
+        "Cacophony",
+        "InitialResource",
+        "PoolProof",
+        "Theme",
+        "MazeBuff",
+        "BattleEvent",
+        "AbilityProgram",
+        "Encounter",
+        "Wave",
+        "EnemySlot",
+        "EnemyVariant",
+        "EnemyTemplate",
+        "EnemySkill",
+        "EnemyCharacterConfig",
+        "EnemyAI",
+        "EnemyAbility",
+        "EnemyStatus",
+        "MechanicRule"
+      ]
+    },
+    {
+      "file": "PureFictionReview.xlsx",
+      "sha256": "ffc5ba9ac8b53d360f935e703674af694798d8c68d9e4559125268e2aa4ca9aa",
+      "sheets": [
+        "SourceRecord",
+        "ContentAudit",
+        "Coverage",
+        "ResearchGap",
+        "Reconciliation",
+        "SemanticFixture",
+        "PackFile"
+      ]
+    }
+  ],
+  "result": "Passed"
+}

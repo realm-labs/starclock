@@ -1,0 +1,48 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-release-audit.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "lane": "Candidate",
+  "result": "Pass",
+  "normalized_files": 27,
+  "primary_files": 21,
+  "primary_records": 560,
+  "manifest_required": 477,
+  "exact_once_claims": 477,
+  "data_ready_claims": 477,
+  "ownership_counts": {
+    "MemoryOfChaos": 172,
+    "Shared": 305
+  },
+  "compatible_ownership_projections": [
+    "clock_and_resource_contracts:battle-entry-operations",
+    "family_and_season:memory-family"
+  ],
+  "bilingual_rows": 560,
+  "provenance_rows": 560,
+  "canonical_sources": 594,
+  "resolved_normalized_references": 698,
+  "active_schedule_id": 201033,
+  "active_group_id": 1033,
+  "ordinary_stage_ids": [
+    "stage.5201",
+    "stage.5202",
+    "stage.5203",
+    "stage.5204",
+    "stage.5205",
+    "stage.5206",
+    "stage.5207",
+    "stage.5208",
+    "stage.5209",
+    "stage.5210",
+    "stage.5211",
+    "stage.5212"
+  ],
+  "tierce_id": 5213,
+  "tierce_policy_boundary": "UnresolvedFailClosed",
+  "future_exclusions": [
+    201034,
+    1034
+  ],
+  "runtime_publishable": false,
+  "audited_claims_sha256": "9f55a763028b866dc16e26a5d4e922a526e207fbd44312c485385c241d5a3130"
+}

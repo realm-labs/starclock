@@ -1,0 +1,29 @@
+package = "starclock_pure_fiction_reference_config"
+includes = [
+  "schema/system-core.toml",
+  "schema/system-mechanics.toml",
+  "schema/bindings.toml",
+  "schema/review.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "../pure-fiction-generated/schema.lock"
+excel_templates = "../pure-fiction-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "../pure-fiction-generated/readers/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "../pure-fiction-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "../pure-fiction-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

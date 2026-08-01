@@ -1,0 +1,38 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "spawn-programs.json",
+  "record_kind": "spawn-program",
+  "records": [
+    {
+      "id": "spawn.continuous-refill",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "spawn-program",
+      "name_en": "Continuous enemy refill",
+      "name_zh_cn": "敌人连续补位",
+      "summary_en": "The selected StageConfig infinite group refills defeated slots within a bounded clock.",
+      "summary_zh_cn": "选定StageConfig的无限组在有限时钟内补充已被击败的槽位。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.spawn_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.spawn_policy"
+      ],
+      "runtime_executable": false,
+      "ordering": "authored-wave-then-slot",
+      "refill_boundary": "after-defeat-settlement",
+      "simultaneous_defeat_order": "stable-slot-order",
+      "maximum_authored_slots": 63,
+      "end_of_pool": "finalize-or-clock-expiry",
+      "replacement_condition": "replace policy ordering when released engine observation is retained"
+    }
+  ]
+}

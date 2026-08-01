@@ -22,7 +22,7 @@ for (const goal of policy.goals) {
   const status = snapshotText(goal, goal.status_path);
   const releasePolicy = JSON.parse(snapshotText(goal, goal.release_policy_path));
   const evidence = JSON.parse(snapshotText(goal, goal.release_evidence_path));
-  assert(status.includes("| State | `Complete` |") || status.includes("| Final state | `Complete` |"),
+  assert(/\| (?:State|Final state) \| `Complete`(?: —[^|]*)? \|/u.test(status),
     `${goal.goal_id}: completion snapshot is not Complete`);
   assert(releasePolicy.goal_id === goal.goal_id, `${goal.goal_id}: release policy goal differs`);
   assert(evidence.goal_id === goal.goal_id, `${goal.goal_id}: release evidence goal differs`);

@@ -1,0 +1,38 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-schema.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "canonical_encoding": {
+    "charset": "UTF-8",
+    "line_endings": "LF",
+    "terminal_newline": true,
+    "object_keys": "lexical-at-generation-boundaries",
+    "record_order": "stable-id",
+    "digest": "SHA-256",
+    "authoritative_decimals": "canonical strings"
+  },
+  "required_common_fields": [
+    "id", "schema_revision", "kind", "name_en", "name_zh_cn",
+    "summary_en", "summary_zh_cn", "ownership", "coverage_state",
+    "evidence_quality", "mechanism_quality", "manifest_record_ids",
+    "source_refs", "runtime_executable"
+  ],
+  "files": [
+    "profiles.json", "periods.json", "stages.json", "nodes.json",
+    "participant-policies.json", "team-slots.json", "loadout-records.json",
+    "attempts.json", "transitions.json", "clocks.json", "boss-progress.json",
+    "scores.json", "objectives.json", "stars.json", "safeguards.json",
+    "axioms.json", "embers.json", "buffs.json", "mechanic-contributions.json",
+    "pool-audits.json", "encounters.json", "encounter-waves.json",
+    "enemy-slots.json", "enemies.json", "enemy-skills.json",
+    "enemy-statuses.json", "ability-bindings.json", "mechanic-rules.json",
+    "sources.json", "reconciliation.json", "research-gaps.json",
+    "coverage.json", "review-fixtures.json", "manifest.json", "pack-index.json"
+  ],
+  "coverage_states": ["DataReady", "ResearchGap", "Excluded"],
+  "release_invariants": {
+    "runtime_executable_rows": 0,
+    "blocking_research_gaps": 0,
+    "manifest_exact_once": true,
+    "shared_rows_require_reconciliation_receipts": true
+  }
+}

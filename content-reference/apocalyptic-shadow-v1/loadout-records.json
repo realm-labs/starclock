@@ -1,0 +1,109 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "loadout-records.json",
+  "record_kind": "loadout-record",
+  "records": [
+    {
+      "id": "loadout-record.cross-team-invalidation",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Cross-team duplicate invalidation",
+      "name_zh_cn": "跨队重复实例失效",
+      "summary_en": "Cross-team duplicate invalidation",
+      "summary_zh_cn": "跨队重复实例失效",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "rejection_is_atomic": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "loadout-record.retry-replacement",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Retry replacement boundary",
+      "name_zh_cn": "重试替换边界",
+      "summary_en": "Retry replacement boundary",
+      "summary_zh_cn": "重试替换边界",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "mutation_allowed_before_new_attempt": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "loadout-record.team-snapshot",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Attempt team snapshot",
+      "name_zh_cn": "尝试队伍快照",
+      "summary_en": "Attempt team snapshot",
+      "summary_zh_cn": "尝试队伍快照",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "apocalyptic-shadow-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.apocalyptic-shadow-v1",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/18-standard-and-challenge-modes.md",
+          "locator": "Apocalyptic Shadow",
+          "sha256": "8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "includes": [
+        "character-form",
+        "light-cone-instance",
+        "relic-instances"
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

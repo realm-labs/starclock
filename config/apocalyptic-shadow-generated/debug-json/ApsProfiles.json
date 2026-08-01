@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "ApsProfiles",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Apocalyptic Shadow"
+          },
+          "name_zh_cn": {
+            "String": "末日幻影"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"active_period_id\":203019,\"coverage_state\":\"DataReady\",\"early_access_content_id\":200001,\"entry_goto_id\":232,\"evidence_quality\":\"ProjectPolicy\",\"group_id\":3019,\"id\":\"apocalyptic-shadow-v1\",\"kind\":\"profile\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Apocalyptic Shadow\",\"name_zh_cn\":\"末日幻影\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"runtime_state\":\"Unreleased\",\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"A released rotating boss challenge family.\",\"summary_zh_cn\":\"已发布的轮换首领挑战玩法家族。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "apocalyptic-shadow-v1"
+          },
+          "summary_en": {
+            "String": "A released rotating boss challenge family."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的轮换首领挑战玩法家族。"
+          }
+        }
+      }
+    ]
+  }
+}

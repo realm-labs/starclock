@@ -1,0 +1,235 @@
+{
+  "table": {
+    "name": "ApsTransitions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Node result projection"
+          },
+          "name_zh_cn": {
+            "String": "节点结果投影"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"battle_mutates_activity_directly\":false,\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"transition.node-result\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Node result projection\",\"name_zh_cn\":\"节点结果投影\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Node result projection\",\"summary_zh_cn\":\"节点结果投影\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "transition.node-result"
+          },
+          "summary_en": {
+            "String": "Node result projection"
+          },
+          "summary_zh_cn": {
+            "String": "节点结果投影"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Retry creates a new attempt"
+          },
+          "name_zh_cn": {
+            "String": "重试创建新尝试"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"transition.retry\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Retry creates a new attempt\",\"name_zh_cn\":\"重试创建新尝试\",\"ownership\":\"ApocalypticShadow\",\"previous_authoritative_result_immutable\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Retry creates a new attempt\",\"summary_zh_cn\":\"重试创建新尝试\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "transition.retry"
+          },
+          "summary_en": {
+            "String": "Retry creates a new attempt"
+          },
+          "summary_zh_cn": {
+            "String": "重试创建新尝试"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Predecessor stage unlock"
+          },
+          "name_zh_cn": {
+            "String": "前置难度解锁"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"transition.stage-unlock\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Predecessor stage unlock\",\"name_zh_cn\":\"前置难度解锁\",\"ordinary_chain\":[30191,30192,30193,30194],\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Predecessor stage unlock\",\"summary_zh_cn\":\"前置难度解锁\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "transition.stage-unlock"
+          },
+          "summary_en": {
+            "String": "Predecessor stage unlock"
+          },
+          "summary_zh_cn": {
+            "String": "前置难度解锁"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Tierce selection boundary"
+          },
+          "name_zh_cn": {
+            "String": "第三战区选择边界"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"transition.tierce\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Tierce selection boundary\",\"name_zh_cn\":\"第三战区选择边界\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"selected_by_group_field\":\"TierceID\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Tierce selection boundary\",\"summary_zh_cn\":\"第三战区选择边界\",\"tierce_id\":30195}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "transition.tierce"
+          },
+          "summary_en": {
+            "String": "Tierce selection boundary"
+          },
+          "summary_zh_cn": {
+            "String": "第三战区选择边界"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "profile.json",
+  "record_kind": "ProfileOrOutcome",
+  "records": [
+    {
+      "id": "profile.memory-of-chaos",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "Profile",
+      "name_en": "Memory of Chaos",
+      "name_zh_cn": "混沌回忆",
+      "summary_en": "A rotating two-node challenge profile in the shared Memory family.",
+      "summary_zh_cn": "属于回忆家族、按期更新的双节点挑战玩法。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "family_and_season:memory-family"
+      ],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeGeneralConfig.json:ChallengeGroupType=Memory",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeGeneralConfig.json",
+          "row_locator": "ChallengeGroupType=Memory",
+          "evidence_sha256": "ab0b382f6fc71f9743eea1d427e308b50fae52c567c5710bbe784f031f310675",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Released challenge-family row selects the stable Memory family."
+        }
+      ],
+      "tags": [
+        "challenge",
+        "forgotten-hall",
+        "memory"
+      ],
+      "challenge_group_type": "Memory",
+      "goto_id": 218,
+      "guide_conditions": [
+        {
+          "Type": "FinishMainMission",
+          "Param": "4010106"
+        }
+      ],
+      "release_lane": "CandidateReferenceOnly",
+      "runtime_executable": false
+    },
+    {
+      "id": "outcome.stage-clear",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "Stage clear",
+      "name_zh_cn": "关卡通关",
+      "summary_en": "All required selected nodes are complete.",
+      "summary_zh_cn": "所有必需节点完成后关卡才结算。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "starclock:memory-of-chaos-policy:outcome.stage-clear",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "outcome.stage-clear",
+          "evidence_sha256": "dae4698b4ba6b2505ee058270434422719a23463b38251a11999edf0c2bb34bf",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "All required selected nodes are complete."
+        }
+      ],
+      "tags": [
+        "lifecycle",
+        "terminal"
+      ],
+      "approximations": [
+        {
+          "known_facts": "The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.",
+          "selected_behavior": "All required selected nodes are complete.",
+          "rejected_alternatives": [
+            "commit partial failed-node state",
+            "treat abandonment as completion"
+          ],
+          "rationale": "Fail-closed lifecycle data preserves command atomicity without claiming observed parity.",
+          "affected_fixture_ids": [
+            "fixture.ordinary-stage-order.terminal-outcomes"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released command traces or a decoded challenge lifecycle program."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "outcome.attempt-failure",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "Attempt failure",
+      "name_zh_cn": "尝试失败",
+      "summary_en": "A failed node leaves no partial authoritative node result.",
+      "summary_zh_cn": "节点失败不会留下部分权威结果。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "starclock:memory-of-chaos-policy:outcome.attempt-failure",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "outcome.attempt-failure",
+          "evidence_sha256": "9135bcaffb4469f74b7e8b2c7c555d1814936d5d37d1fa44712fba82ad9764a6",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "A failed node leaves no partial authoritative node result."
+        }
+      ],
+      "tags": [
+        "lifecycle",
+        "terminal"
+      ],
+      "approximations": [
+        {
+          "known_facts": "The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.",
+          "selected_behavior": "A failed node leaves no partial authoritative node result.",
+          "rejected_alternatives": [
+            "commit partial failed-node state",
+            "treat abandonment as completion"
+          ],
+          "rationale": "Fail-closed lifecycle data preserves command atomicity without claiming observed parity.",
+          "affected_fixture_ids": [
+            "fixture.ordinary-stage-order.terminal-outcomes"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released command traces or a decoded challenge lifecycle program."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "outcome.abandonment",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "Attempt abandonment",
+      "name_zh_cn": "放弃尝试",
+      "summary_en": "Abandonment tears down the active battle without publishing runtime completion.",
+      "summary_zh_cn": "放弃时拆除当前战斗，且不产生运行时通关记录。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "starclock:memory-of-chaos-policy:outcome.abandonment",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "outcome.abandonment",
+          "evidence_sha256": "70600a90a677c42de227564d535956a36ea2199e35ed774baad204c9f5f88732",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Abandonment tears down the active battle without publishing runtime completion."
+        }
+      ],
+      "tags": [
+        "lifecycle",
+        "terminal"
+      ],
+      "approximations": [
+        {
+          "known_facts": "The released selector identifies ordered challenge stages and node encounters; no released row encodes command-level terminal atomicity.",
+          "selected_behavior": "Abandonment tears down the active battle without publishing runtime completion.",
+          "rejected_alternatives": [
+            "commit partial failed-node state",
+            "treat abandonment as completion"
+          ],
+          "rationale": "Fail-closed lifecycle data preserves command atomicity without claiming observed parity.",
+          "affected_fixture_ids": [
+            "fixture.ordinary-stage-order.terminal-outcomes"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released command traces or a decoded challenge lifecycle program."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

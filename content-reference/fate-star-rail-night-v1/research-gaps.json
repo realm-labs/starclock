@@ -1,0 +1,217 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-policies.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P2-B5",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "count": 13,
+  "policies": [
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-event-000055",
+      "obligation_id": "shared-battle-event-000055",
+      "unavailable_fact": "Typed operation meaning for BattleEvent index:55",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-event"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-event-000056",
+      "obligation_id": "shared-battle-event-000056",
+      "unavailable_fact": "Typed operation meaning for BattleEvent index:56",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-event"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000000",
+      "obligation_id": "shared-battle-target-000000",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:0",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000001",
+      "obligation_id": "shared-battle-target-000001",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:1",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000002",
+      "obligation_id": "shared-battle-target-000002",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:2",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000003",
+      "obligation_id": "shared-battle-target-000003",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:3",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000004",
+      "obligation_id": "shared-battle-target-000004",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:4",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000005",
+      "obligation_id": "shared-battle-target-000005",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:5",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000006",
+      "obligation_id": "shared-battle-target-000006",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:6",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000007",
+      "obligation_id": "shared-battle-target-000007",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:7",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000008",
+      "obligation_id": "shared-battle-target-000008",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:8",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000137",
+      "obligation_id": "shared-battle-target-000137",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:137",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    },
+    {
+      "policy_id": "fate-star-rail-night.policy.shared-battle-target-000138",
+      "obligation_id": "shared-battle-target-000138",
+      "unavailable_fact": "Typed operation meaning for BattleTarget index:138",
+      "selected_policy": "IdentityOnlyNoOperationLowering",
+      "rejected_alternatives": [
+        "AssumeScalarMatchDefinesOperation",
+        "DiscardObligation"
+      ],
+      "rationale": "The scalar reference is exact, but no released typed field or program proves its operation semantics.",
+      "affected_fixtures": [
+        "fate-star-rail-night.fixture.battle-target"
+      ],
+      "replacement_condition": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics.",
+      "evidence_quality": "ProjectPolicy"
+    }
+  ]
+}

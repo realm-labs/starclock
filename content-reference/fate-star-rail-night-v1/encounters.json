@@ -1,0 +1,3558 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-shared-normalized.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P2-B3",
+  "purpose": "FateActivity stages, ordered waves and enemy slots",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "counts": {
+    "manifest_obligations": 8,
+    "records": 112,
+    "families": {
+      "EnemySlot": 80,
+      "Stage": 8,
+      "Wave": 24
+    },
+    "disposition": {
+      "DataReady": 112
+    }
+  },
+  "records": [
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.1.1",
+      "name_en": "EnemySlot 425001.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.1.2",
+      "name_en": "EnemySlot 425001.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.1.3",
+      "name_en": "EnemySlot 425001.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.2.1",
+      "name_en": "EnemySlot 425001.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.2.2",
+      "name_en": "EnemySlot 425001.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.2.3",
+      "name_en": "EnemySlot 425001.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.2.4",
+      "name_en": "EnemySlot 425001.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.2.5",
+      "name_en": "EnemySlot 425001.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.3.1",
+      "name_en": "EnemySlot 425001.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425001-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425001.3.2",
+      "name_en": "EnemySlot 425001.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.1.1",
+      "name_en": "EnemySlot 425002.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.1.2",
+      "name_en": "EnemySlot 425002.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.1.3",
+      "name_en": "EnemySlot 425002.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.2.1",
+      "name_en": "EnemySlot 425002.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.2.2",
+      "name_en": "EnemySlot 425002.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.2.3",
+      "name_en": "EnemySlot 425002.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.2.4",
+      "name_en": "EnemySlot 425002.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.2.5",
+      "name_en": "EnemySlot 425002.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.3.1",
+      "name_en": "EnemySlot 425002.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425002-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425002.3.2",
+      "name_en": "EnemySlot 425002.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.1.1",
+      "name_en": "EnemySlot 425003.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.1.2",
+      "name_en": "EnemySlot 425003.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.1.3",
+      "name_en": "EnemySlot 425003.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.2.1",
+      "name_en": "EnemySlot 425003.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.2.2",
+      "name_en": "EnemySlot 425003.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.2.3",
+      "name_en": "EnemySlot 425003.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.2.4",
+      "name_en": "EnemySlot 425003.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.2.5",
+      "name_en": "EnemySlot 425003.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.3.1",
+      "name_en": "EnemySlot 425003.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425003-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425003.3.2",
+      "name_en": "EnemySlot 425003.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.1.1",
+      "name_en": "EnemySlot 425004.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.1.2",
+      "name_en": "EnemySlot 425004.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.1.3",
+      "name_en": "EnemySlot 425004.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.2.1",
+      "name_en": "EnemySlot 425004.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.2.2",
+      "name_en": "EnemySlot 425004.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.2.3",
+      "name_en": "EnemySlot 425004.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.2.4",
+      "name_en": "EnemySlot 425004.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.2.5",
+      "name_en": "EnemySlot 425004.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.3.1",
+      "name_en": "EnemySlot 425004.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425004-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425004.3.2",
+      "name_en": "EnemySlot 425004.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.1.1",
+      "name_en": "EnemySlot 425005.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.1.2",
+      "name_en": "EnemySlot 425005.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.1.3",
+      "name_en": "EnemySlot 425005.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.2.1",
+      "name_en": "EnemySlot 425005.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.2.2",
+      "name_en": "EnemySlot 425005.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.2.3",
+      "name_en": "EnemySlot 425005.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.2.4",
+      "name_en": "EnemySlot 425005.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.2.5",
+      "name_en": "EnemySlot 425005.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.3.1",
+      "name_en": "EnemySlot 425005.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425005-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425005.3.2",
+      "name_en": "EnemySlot 425005.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.1.1",
+      "name_en": "EnemySlot 425006.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.1.2",
+      "name_en": "EnemySlot 425006.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.1.3",
+      "name_en": "EnemySlot 425006.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.2.1",
+      "name_en": "EnemySlot 425006.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.2.2",
+      "name_en": "EnemySlot 425006.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.2.3",
+      "name_en": "EnemySlot 425006.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8002040"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.2.4",
+      "name_en": "EnemySlot 425006.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.2.5",
+      "name_en": "EnemySlot 425006.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.3.1",
+      "name_en": "EnemySlot 425006.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8012010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425006-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425006.3.2",
+      "name_en": "EnemySlot 425006.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8012020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.1.1",
+      "name_en": "EnemySlot 425007.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.1.2",
+      "name_en": "EnemySlot 425007.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.1.3",
+      "name_en": "EnemySlot 425007.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.2.1",
+      "name_en": "EnemySlot 425007.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.2.2",
+      "name_en": "EnemySlot 425007.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.2.3",
+      "name_en": "EnemySlot 425007.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.2.4",
+      "name_en": "EnemySlot 425007.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.2.5",
+      "name_en": "EnemySlot 425007.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.3.1",
+      "name_en": "EnemySlot 425007.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425007-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425007.3.2",
+      "name_en": "EnemySlot 425007.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-1-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.1.1",
+      "name_en": "EnemySlot 425008.1.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "1",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-1-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.1.2",
+      "name_en": "EnemySlot 425008.1.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "1",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-1-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.1.3",
+      "name_en": "EnemySlot 425008.1.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "1",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-2-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.2.1",
+      "name_en": "EnemySlot 425008.2.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "2",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-2-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.2.2",
+      "name_en": "EnemySlot 425008.2.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "2",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-2-3",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.2.3",
+      "name_en": "EnemySlot 425008.2.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "2",
+        "slot_order": "3",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-2-4",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.2.4",
+      "name_en": "EnemySlot 425008.2.4",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "2",
+        "slot_order": "4",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-2-5",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.2.5",
+      "name_en": "EnemySlot 425008.2.5",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "2",
+        "slot_order": "5",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-3-1",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.3.1",
+      "name_en": "EnemySlot 425008.3.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "3",
+        "slot_order": "1",
+        "enemy_variant_source_id": "8001010"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-slot.425008-3-2",
+      "family": "EnemySlot",
+      "name_zh": "EnemySlot 425008.3.2",
+      "name_en": "EnemySlot 425008.3.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 EnemySlot。",
+      "summary_en": "EnemySlot derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "wave_order": "3",
+        "slot_order": "2",
+        "enemy_variant_source_id": "8003020"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425001",
+      "family": "Stage",
+      "name_zh": "Stage 425001",
+      "name_en": "Stage 425001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040",
+            "Monster3": "8012010",
+            "Monster4": "8012020"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425001"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425001",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425002",
+      "family": "Stage",
+      "name_zh": "Stage 425002",
+      "name_en": "Stage 425002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010",
+            "Monster3": "8001010",
+            "Monster4": "8003020"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425002"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425002",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425003",
+      "family": "Stage",
+      "name_zh": "Stage 425003",
+      "name_en": "Stage 425003",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040",
+            "Monster3": "8012010",
+            "Monster4": "8012020"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425003"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425003",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425004",
+      "family": "Stage",
+      "name_zh": "Stage 425004",
+      "name_en": "Stage 425004",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010",
+            "Monster3": "8001010",
+            "Monster4": "8003020"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425004"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425004",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425005",
+      "family": "Stage",
+      "name_zh": "Stage 425005",
+      "name_en": "Stage 425005",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040",
+            "Monster3": "8012010",
+            "Monster4": "8012020"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425005"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425005",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425006",
+      "family": "Stage",
+      "name_zh": "Stage 425006",
+      "name_en": "Stage 425006",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020",
+            "Monster2": "8002040",
+            "Monster3": "8012010",
+            "Monster4": "8012020"
+          },
+          {
+            "Monster0": "8012010",
+            "Monster1": "8012020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425006"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425006",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425007",
+      "family": "Stage",
+      "name_zh": "Stage 425007",
+      "name_en": "Stage 425007",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010",
+            "Monster3": "8001010",
+            "Monster4": "8003020"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425007"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425007",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.stage.425008",
+      "family": "Stage",
+      "name_zh": "Stage 425008",
+      "name_en": "Stage 425008",
+      "summary_zh": "由 Fate 直接引用闭包选中的 Stage 事实。",
+      "summary_en": "Stage fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactStageTypeSelector",
+      "confidence": "High",
+      "mechanic_payload": {
+        "EliteGroup": "95",
+        "ForbidExitBattle": true,
+        "HardLevelGroup": "1",
+        "Level": "80",
+        "LevelLoseCondition": [
+          "[CDT_WaitCustomString:Level_SpecialLose]"
+        ],
+        "LevelWinCondition": [
+          "[CDT_WaitCustomString:Level_SpecialWin]"
+        ],
+        "MonsterList": [
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020",
+            "Monster2": "8001010",
+            "Monster3": "8001010",
+            "Monster4": "8003020"
+          },
+          {
+            "Monster0": "8001010",
+            "Monster1": "8003020"
+          }
+        ],
+        "MonsterWarningRatio": "1",
+        "StageAbilityConfig": [
+          "Activity_Fate_Timer_Temp",
+          "StageAbility_HalfSP",
+          "Activity_Fate_TutorialTrigger"
+        ],
+        "StageConfigData": [
+          {
+            "BFLIFKBEOPJ": "_Wave",
+            "MNDFOPKBHKP": "3"
+          },
+          {
+            "BFLIFKBEOPJ": "_IsEliteBattle",
+            "MNDFOPKBHKP": "0"
+          },
+          {
+            "BFLIFKBEOPJ": "_BGM",
+            "MNDFOPKBHKP": "State_Season_Fate_Battle"
+          },
+          {
+            "BFLIFKBEOPJ": "_StageInfiniteGroup",
+            "MNDFOPKBHKP": "425008"
+          },
+          {
+            "BFLIFKBEOPJ": "_CreateBattleEvent",
+            "MNDFOPKBHKP": "61014"
+          }
+        ],
+        "StageID": "425008",
+        "StageType": "FateActivity",
+        "SubLevelGraphs": [],
+        "TrialAvatarList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425001-1",
+      "family": "Wave",
+      "name_zh": "Wave 425001.1",
+      "name_en": "Wave 425001.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425001-2",
+      "family": "Wave",
+      "name_zh": "Wave 425001.2",
+      "name_en": "Wave 425001.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425001-3",
+      "family": "Wave",
+      "name_zh": "Wave 425001.3",
+      "name_en": "Wave 425001.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:467",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425001",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425002-1",
+      "family": "Wave",
+      "name_zh": "Wave 425002.1",
+      "name_en": "Wave 425002.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425002-2",
+      "family": "Wave",
+      "name_zh": "Wave 425002.2",
+      "name_en": "Wave 425002.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425002-3",
+      "family": "Wave",
+      "name_zh": "Wave 425002.3",
+      "name_en": "Wave 425002.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:468",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425002",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425003-1",
+      "family": "Wave",
+      "name_zh": "Wave 425003.1",
+      "name_en": "Wave 425003.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425003-2",
+      "family": "Wave",
+      "name_zh": "Wave 425003.2",
+      "name_en": "Wave 425003.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425003-3",
+      "family": "Wave",
+      "name_zh": "Wave 425003.3",
+      "name_en": "Wave 425003.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:469",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425003",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425004-1",
+      "family": "Wave",
+      "name_zh": "Wave 425004.1",
+      "name_en": "Wave 425004.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425004-2",
+      "family": "Wave",
+      "name_zh": "Wave 425004.2",
+      "name_en": "Wave 425004.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425004-3",
+      "family": "Wave",
+      "name_zh": "Wave 425004.3",
+      "name_en": "Wave 425004.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:470",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425004",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425005-1",
+      "family": "Wave",
+      "name_zh": "Wave 425005.1",
+      "name_en": "Wave 425005.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425005-2",
+      "family": "Wave",
+      "name_zh": "Wave 425005.2",
+      "name_en": "Wave 425005.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425005-3",
+      "family": "Wave",
+      "name_zh": "Wave 425005.3",
+      "name_en": "Wave 425005.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:471",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425005",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425006-1",
+      "family": "Wave",
+      "name_zh": "Wave 425006.1",
+      "name_en": "Wave 425006.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425006-2",
+      "family": "Wave",
+      "name_zh": "Wave 425006.2",
+      "name_en": "Wave 425006.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425006-3",
+      "family": "Wave",
+      "name_zh": "Wave 425006.3",
+      "name_en": "Wave 425006.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:472",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425006",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425007-1",
+      "family": "Wave",
+      "name_zh": "Wave 425007.1",
+      "name_en": "Wave 425007.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425007-2",
+      "family": "Wave",
+      "name_zh": "Wave 425007.2",
+      "name_en": "Wave 425007.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425007-3",
+      "family": "Wave",
+      "name_zh": "Wave 425007.3",
+      "name_en": "Wave 425007.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:473",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425007",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425008-1",
+      "family": "Wave",
+      "name_zh": "Wave 425008.1",
+      "name_en": "Wave 425008.1",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "order": "1"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425008-2",
+      "family": "Wave",
+      "name_zh": "Wave 425008.2",
+      "name_en": "Wave 425008.2",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "order": "2"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    },
+    {
+      "stable_id": "fate-star-rail-night.wave.425008-3",
+      "family": "Wave",
+      "name_zh": "Wave 425008.3",
+      "name_en": "Wave 425008.3",
+      "summary_zh": "从 FateActivity StageConfig 顺序派生的 Wave。",
+      "summary_en": "Wave derived in source order from FateActivity StageConfig.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/StageConfig.json",
+          "locator": "index:474",
+          "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "DerivedExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "stage_id": "425008",
+        "order": "3"
+      },
+      "notes": "Derived child of one manifest Stage obligation; does not enlarge the exact-once source denominator."
+    }
+  ],
+  "canonical_records_sha256": "b8db101d46245a4915fde7f515fca88d30f3fbe6cbf3ffad641c15ebac8124e5"
+}

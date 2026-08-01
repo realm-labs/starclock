@@ -1,0 +1,1982 @@
+{
+  "table": {
+    "name": "MocEncounters",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123011"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5201 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5201节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":273,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"7add2aef9fab86a4b16c85950b1671525e8b721e82161642d7a188de954f0208\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123011\"},{\"evidence_sha256\":\"dd28b433080e97676197aadc122d9078c898d73535ce8b787a8179e9be7934e9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=6366857954791301483\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=6366857954791301483\"},{\"evidence_sha256\":\"7ea714dc980af5bec54daf88a1e47a09e17d438816ba69392ff4e5b48419233c\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=6366857954791301483\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=6366857954791301483\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123011\",\"kind\":\"Encounter\",\"level\":68,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5201,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5201 node 1 encounter\",\"name_zh_cn\":\"关卡5201节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Frigid Prowler\",\"zh_cn\":\"深寒徘徊者\"},\"source_record_ids\":[\"stage_configs:stage-config-30123011\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123011 at level 68 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123011，等级68，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123011,\"wave_count\":2,\"wave_ids\":[\"wave.30123011.1\",\"wave.30123011.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123011"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=6366857954791301483"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=6366857954791301483"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123011"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123011 at level 68 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123011，等级68，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123012"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5201 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5201节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":273,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"0bb1c5ca5b30f6e5533d6a37c1d847268b075691c3eca34a4170d8ae5e491b8d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123012\"},{\"evidence_sha256\":\"95da2038d56b0fb45e92e3d77714ac8243abf8fe150d08f75a79237868a8fa64\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17363227603743607405\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=17363227603743607405\"},{\"evidence_sha256\":\"89c952d917c00b7195acf9ea3aff80b31e8c893ad194785e8876651690324848\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=17363227603743607405\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=17363227603743607405\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123012\",\"kind\":\"Encounter\",\"level\":68,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5201,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5201 node 2 encounter\",\"name_zh_cn\":\"关卡5201节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Aurumaton Spectral Envoy\",\"zh_cn\":\"金人勾魂使\"},\"source_record_ids\":[\"stage_configs:stage-config-30123012\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123012 at level 68 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123012，等级68，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123012,\"wave_count\":2,\"wave_ids\":[\"wave.30123012.1\",\"wave.30123012.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123012"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17363227603743607405"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17363227603743607405"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123012"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123012 at level 68 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123012，等级68，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123021"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5202 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5202节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":274,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"56861870a08840025bf99f0ebb9af95a2eb692028e13926688769e82812f8219\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123021\"},{\"evidence_sha256\":\"c11cd4ba3875cb9da37e575c893d0f3c10e0ad66f6250093851046742e1fd798\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9524722474129506048\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9524722474129506048\"},{\"evidence_sha256\":\"b495016f22bdf3b10e28bb7c63fcb913abee8fc28d40f0e86da14745aba231c1\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=9524722474129506048\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9524722474129506048\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123021\",\"kind\":\"Encounter\",\"level\":70,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5202,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5202 node 1 encounter\",\"name_zh_cn\":\"关卡5202节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Dreamjolt Troupe's Sweet Gorilla\",\"zh_cn\":\"惊梦剧团的甜猿泰山\"},\"source_record_ids\":[\"stage_configs:stage-config-30123021\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123021 at level 70 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123021，等级70，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123021,\"wave_count\":2,\"wave_ids\":[\"wave.30123021.1\",\"wave.30123021.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123021"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9524722474129506048"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=9524722474129506048"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123021"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123021 at level 70 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123021，等级70，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123022"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5202 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5202节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":274,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"0256a249cf963f7eabeddc907e5a2eff2d48a33f6b6f6d56c8e2c88d679836cc\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123022\"},{\"evidence_sha256\":\"1b9227ebac9ac381f0829f654e9613b8672607bc3d26ad2514f18c4ce82e8b3f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=189339872378837144\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=189339872378837144\"},{\"evidence_sha256\":\"1178c2e93047434a900a59ae3a98d6cc2df89791aceb1528cbb97c187b01eada\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=189339872378837144\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=189339872378837144\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123022\",\"kind\":\"Encounter\",\"level\":70,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5202,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5202 node 2 encounter\",\"name_zh_cn\":\"关卡5202节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Disciples of Sanctus Medicus: Shape Shifter\",\"zh_cn\":\"「药王秘传」炼形者\"},\"source_record_ids\":[\"stage_configs:stage-config-30123022\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123022 at level 70 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123022，等级70，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123022,\"wave_count\":2,\"wave_ids\":[\"wave.30123022.1\",\"wave.30123022.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123022"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=189339872378837144"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=189339872378837144"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123022"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123022 at level 70 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123022，等级70，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123031"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5203 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5203节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":275,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"1b1f9eab80e31c6e10606604a805d9148804bb05c038373e04a5d6f3c65f1a11\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123031\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123031\"},{\"evidence_sha256\":\"1755a1ef1053709f0dbb0614afcf3be86bd53f6254b4e67da08e77beb5f87da2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13087150147011258837\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=13087150147011258837\"},{\"evidence_sha256\":\"26ac42654b605fdfc5cbc1a8baa1daf528c51831606bea4c838db8bd11cba88f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13087150147011258837\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=13087150147011258837\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123031\",\"kind\":\"Encounter\",\"level\":73,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5203,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5203 node 1 encounter\",\"name_zh_cn\":\"关卡5203节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Automaton Grizzly\",\"zh_cn\":\"自动机兵•灰熊\"},\"source_record_ids\":[\"stage_configs:stage-config-30123031\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123031 at level 73 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123031，等级73，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123031,\"wave_count\":2,\"wave_ids\":[\"wave.30123031.1\",\"wave.30123031.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123031"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13087150147011258837"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13087150147011258837"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123031"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123031 at level 73 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123031，等级73，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123032"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5203 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5203节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":275,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"d262442aa541962a0eaa0a3a57da7d66b55b48edcce963dc22e9d367ce08a0c6\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123032\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123032\"},{\"evidence_sha256\":\"2a8690d98bd7928b49ff2c3ede5917ebe71a10693d0d6ba960e9dcc073030613\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9344842774432863716\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9344842774432863716\"},{\"evidence_sha256\":\"7b42988e7571f40c723b1207dc081516590c4f317fb6d454754f07cfb14dd541\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=9344842774432863716\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9344842774432863716\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123032\",\"kind\":\"Encounter\",\"level\":73,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5203,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5203 node 2 encounter\",\"name_zh_cn\":\"关卡5203节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Dreamjolt Troupe's Beyond Overcooked\",\"zh_cn\":\"惊梦剧团的十七分熟\"},\"source_record_ids\":[\"stage_configs:stage-config-30123032\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123032 at level 73 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123032，等级73，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123032,\"wave_count\":2,\"wave_ids\":[\"wave.30123032.1\",\"wave.30123032.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123032"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9344842774432863716"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=9344842774432863716"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123032"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123032 at level 73 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123032，等级73，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123041"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5204 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5204节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":276,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"b292effddad1bb9724fa2d578f3bc8a8be8d68bd8d2667dba386dc1d9b0356a3\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123041\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123041\"},{\"evidence_sha256\":\"e0b7d8b0f261371b1d159cf666c8dd49e38cea48773cf422ac6991777eca52c9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16830651616508961311\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=16830651616508961311\"},{\"evidence_sha256\":\"c98c981db0df4dead782bdf8095f65b3a95a47a5e28a0724188b15b58dbd27d8\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=16830651616508961311\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=16830651616508961311\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123041\",\"kind\":\"Encounter\",\"level\":75,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5204,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5204 node 1 encounter\",\"name_zh_cn\":\"关卡5204节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Howling Casket\",\"zh_cn\":\"咆哮灵柩\"},\"source_record_ids\":[\"stage_configs:stage-config-30123041\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123041 at level 75 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123041，等级75，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123041,\"wave_count\":2,\"wave_ids\":[\"wave.30123041.1\",\"wave.30123041.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123041"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16830651616508961311"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16830651616508961311"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123041"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123041 at level 75 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123041，等级75，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123042"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5204 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5204节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":276,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"534b32c4e76f22ad4b8e2cfdd1436e27d3a1208c46d1a5399661553ba9f3afd1\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123042\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123042\"},{\"evidence_sha256\":\"49f1e457fda3106817901536e24893c170c6f8d54280c46313d8d99fed00fdce\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3927571639738101840\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=3927571639738101840\"},{\"evidence_sha256\":\"c72df5ded1f8ea0cc537c05cd27290c804b739ab590904101b542ef210eed85b\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=3927571639738101840\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=3927571639738101840\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123042\",\"kind\":\"Encounter\",\"level\":75,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5204,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5204 node 2 encounter\",\"name_zh_cn\":\"关卡5204节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Gepard\",\"zh_cn\":\"杰帕德\"},\"source_record_ids\":[\"stage_configs:stage-config-30123042\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123042 at level 75 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123042，等级75，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123042,\"wave_count\":2,\"wave_ids\":[\"wave.30123042.1\",\"wave.30123042.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123042"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3927571639738101840"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3927571639738101840"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123042"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123042 at level 75 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123042，等级75，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123051"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5205 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5205节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":277,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"733a09ad4c9a83f80de0ef127c34789a15e9d6aa28d350fff8ee8269a6e355d0\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123051\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123051\"},{\"evidence_sha256\":\"6e1cf946f878580df69505c472beaf375677e2bdde330a5812e57f3acd13c5c0\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4122473837421904295\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=4122473837421904295\"},{\"evidence_sha256\":\"e8d813fccb58d318792e48f9383670c105a0c1ecee8d8e16ee92dfa1b680c93b\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4122473837421904295\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=4122473837421904295\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123051\",\"kind\":\"Encounter\",\"level\":78,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5205,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5205 node 1 encounter\",\"name_zh_cn\":\"关卡5205节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Black Tide's Champion\",\"zh_cn\":\"黑潮斗将\"},\"source_record_ids\":[\"stage_configs:stage-config-30123051\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123051 at level 78 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123051，等级78，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123051,\"wave_count\":2,\"wave_ids\":[\"wave.30123051.1\",\"wave.30123051.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123051"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4122473837421904295"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4122473837421904295"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123051"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123051 at level 78 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123051，等级78，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123052"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5205 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5205节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":277,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"e246840cf6d1ab1d185bd2b1af8b0d501ab9a3abc44ad7180413d50520b5a39a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123052\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123052\"},{\"evidence_sha256\":\"7169eaeb7fb84e0e3a1007d96c1f58087baffcf13f1be16e5648f7480a991135\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14805961183082142131\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14805961183082142131\"},{\"evidence_sha256\":\"7a7fb9f720f69fc9ceae741681876dbbf7fde62a70e21d3d861e560e7b0276fb\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14805961183082142131\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=14805961183082142131\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123052\",\"kind\":\"Encounter\",\"level\":78,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5205,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5205 node 2 encounter\",\"name_zh_cn\":\"关卡5205节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Argenti\",\"zh_cn\":\"银枝\"},\"source_record_ids\":[\"stage_configs:stage-config-30123052\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123052 at level 78 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123052，等级78，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123052,\"wave_count\":2,\"wave_ids\":[\"wave.30123052.1\",\"wave.30123052.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123052"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14805961183082142131"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14805961183082142131"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123052"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123052 at level 78 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123052，等级78，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123061"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5206 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5206节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":278,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"6a733ea7edd11b95bb3cda96e7b8cfbefe8f0c5941855f56af7c2ccdbfe52e3c\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123061\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123061\"},{\"evidence_sha256\":\"dd28b433080e97676197aadc122d9078c898d73535ce8b787a8179e9be7934e9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=6366857954791301483\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=6366857954791301483\"},{\"evidence_sha256\":\"7ea714dc980af5bec54daf88a1e47a09e17d438816ba69392ff4e5b48419233c\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=6366857954791301483\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=6366857954791301483\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123061\",\"kind\":\"Encounter\",\"level\":80,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5206,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5206 node 1 encounter\",\"name_zh_cn\":\"关卡5206节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Frigid Prowler\",\"zh_cn\":\"深寒徘徊者\"},\"source_record_ids\":[\"stage_configs:stage-config-30123061\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123061 at level 80 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123061，等级80，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123061,\"wave_count\":2,\"wave_ids\":[\"wave.30123061.1\",\"wave.30123061.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123061"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=6366857954791301483"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=6366857954791301483"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123061"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123061 at level 80 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123061，等级80，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123062"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5206 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5206节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":278,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"fcb996fa70bf63001b7b5db8d3988ee37caf4c179a216d73df285cca4ecbb37f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123062\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123062\"},{\"evidence_sha256\":\"95da2038d56b0fb45e92e3d77714ac8243abf8fe150d08f75a79237868a8fa64\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17363227603743607405\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=17363227603743607405\"},{\"evidence_sha256\":\"89c952d917c00b7195acf9ea3aff80b31e8c893ad194785e8876651690324848\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=17363227603743607405\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=17363227603743607405\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123062\",\"kind\":\"Encounter\",\"level\":80,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5206,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5206 node 2 encounter\",\"name_zh_cn\":\"关卡5206节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Aurumaton Spectral Envoy\",\"zh_cn\":\"金人勾魂使\"},\"source_record_ids\":[\"stage_configs:stage-config-30123062\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123062 at level 80 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123062，等级80，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123062,\"wave_count\":2,\"wave_ids\":[\"wave.30123062.1\",\"wave.30123062.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123062"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17363227603743607405"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17363227603743607405"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123062"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123062 at level 80 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123062，等级80，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123071"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5207 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5207节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":279,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"a563e9f4885b63dd9b963a98775284e849c9791a30e206c362cd36002449ac11\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123071\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123071\"},{\"evidence_sha256\":\"c11cd4ba3875cb9da37e575c893d0f3c10e0ad66f6250093851046742e1fd798\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9524722474129506048\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9524722474129506048\"},{\"evidence_sha256\":\"b495016f22bdf3b10e28bb7c63fcb913abee8fc28d40f0e86da14745aba231c1\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=9524722474129506048\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9524722474129506048\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123071\",\"kind\":\"Encounter\",\"level\":82,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5207,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5207 node 1 encounter\",\"name_zh_cn\":\"关卡5207节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Dreamjolt Troupe's Sweet Gorilla\",\"zh_cn\":\"惊梦剧团的甜猿泰山\"},\"source_record_ids\":[\"stage_configs:stage-config-30123071\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123071 at level 82 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123071，等级82，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123071,\"wave_count\":2,\"wave_ids\":[\"wave.30123071.1\",\"wave.30123071.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123071"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9524722474129506048"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=9524722474129506048"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123071"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123071 at level 82 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123071，等级82，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123072"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5207 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5207节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":279,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"cf99605a98657c82994123030ab03db6416355eaa31d612f3c4479260c18f715\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123072\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123072\"},{\"evidence_sha256\":\"1b9227ebac9ac381f0829f654e9613b8672607bc3d26ad2514f18c4ce82e8b3f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=189339872378837144\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=189339872378837144\"},{\"evidence_sha256\":\"1178c2e93047434a900a59ae3a98d6cc2df89791aceb1528cbb97c187b01eada\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=189339872378837144\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=189339872378837144\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123072\",\"kind\":\"Encounter\",\"level\":82,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5207,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5207 node 2 encounter\",\"name_zh_cn\":\"关卡5207节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Disciples of Sanctus Medicus: Shape Shifter\",\"zh_cn\":\"「药王秘传」炼形者\"},\"source_record_ids\":[\"stage_configs:stage-config-30123072\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123072 at level 82 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123072，等级82，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123072,\"wave_count\":2,\"wave_ids\":[\"wave.30123072.1\",\"wave.30123072.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123072"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=189339872378837144"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=189339872378837144"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123072"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123072 at level 82 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123072，等级82，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123081"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5208 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5208节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":280,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"35bcef7ad3545a948f3609a9fb4ee809200a986d50c2dbe1607e3515ce1e6802\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123081\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123081\"},{\"evidence_sha256\":\"1755a1ef1053709f0dbb0614afcf3be86bd53f6254b4e67da08e77beb5f87da2\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13087150147011258837\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=13087150147011258837\"},{\"evidence_sha256\":\"26ac42654b605fdfc5cbc1a8baa1daf528c51831606bea4c838db8bd11cba88f\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13087150147011258837\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=13087150147011258837\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123081\",\"kind\":\"Encounter\",\"level\":85,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5208,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5208 node 1 encounter\",\"name_zh_cn\":\"关卡5208节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Automaton Grizzly\",\"zh_cn\":\"自动机兵•灰熊\"},\"source_record_ids\":[\"stage_configs:stage-config-30123081\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123081 at level 85 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123081，等级85，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123081,\"wave_count\":2,\"wave_ids\":[\"wave.30123081.1\",\"wave.30123081.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123081"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13087150147011258837"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13087150147011258837"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123081"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123081 at level 85 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123081，等级85，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123082"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5208 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5208节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":280,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"187de3543e1d2883f335a5e6572eb9a092d598c1351464963c152df9f1cda249\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123082\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123082\"},{\"evidence_sha256\":\"2a8690d98bd7928b49ff2c3ede5917ebe71a10693d0d6ba960e9dcc073030613\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9344842774432863716\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9344842774432863716\"},{\"evidence_sha256\":\"7b42988e7571f40c723b1207dc081516590c4f317fb6d454754f07cfb14dd541\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=9344842774432863716\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=9344842774432863716\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123082\",\"kind\":\"Encounter\",\"level\":85,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5208,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5208 node 2 encounter\",\"name_zh_cn\":\"关卡5208节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Dreamjolt Troupe's Beyond Overcooked\",\"zh_cn\":\"惊梦剧团的十七分熟\"},\"source_record_ids\":[\"stage_configs:stage-config-30123082\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123082 at level 85 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123082，等级85，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123082,\"wave_count\":2,\"wave_ids\":[\"wave.30123082.1\",\"wave.30123082.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123082"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=9344842774432863716"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=9344842774432863716"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123082"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123082 at level 85 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123082，等级85，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123091"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5209 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5209节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":281,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"2dec470fc8e9a563ba2f024916bfbfeb3d1462c090b76a79485839f7d29d5dc9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123091\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123091\"},{\"evidence_sha256\":\"e0b7d8b0f261371b1d159cf666c8dd49e38cea48773cf422ac6991777eca52c9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16830651616508961311\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=16830651616508961311\"},{\"evidence_sha256\":\"c98c981db0df4dead782bdf8095f65b3a95a47a5e28a0724188b15b58dbd27d8\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=16830651616508961311\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=16830651616508961311\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123091\",\"kind\":\"Encounter\",\"level\":88,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5209,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5209 node 1 encounter\",\"name_zh_cn\":\"关卡5209节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Howling Casket\",\"zh_cn\":\"咆哮灵柩\"},\"source_record_ids\":[\"stage_configs:stage-config-30123091\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123091 at level 88 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123091，等级88，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123091,\"wave_count\":2,\"wave_ids\":[\"wave.30123091.1\",\"wave.30123091.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123091"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16830651616508961311"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16830651616508961311"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123091"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123091 at level 88 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123091，等级88，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123092"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5209 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5209节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":281,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"346aebbfc253af5bc874362e8a0589cce5179864f39337417193bcf8c8b89c01\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123092\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123092\"},{\"evidence_sha256\":\"49f1e457fda3106817901536e24893c170c6f8d54280c46313d8d99fed00fdce\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3927571639738101840\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=3927571639738101840\"},{\"evidence_sha256\":\"c72df5ded1f8ea0cc537c05cd27290c804b739ab590904101b542ef210eed85b\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=3927571639738101840\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=3927571639738101840\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123092\",\"kind\":\"Encounter\",\"level\":88,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5209,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5209 node 2 encounter\",\"name_zh_cn\":\"关卡5209节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Gepard\",\"zh_cn\":\"杰帕德\"},\"source_record_ids\":[\"stage_configs:stage-config-30123092\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123092 at level 88 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123092，等级88，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123092,\"wave_count\":2,\"wave_ids\":[\"wave.30123092.1\",\"wave.30123092.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123092"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3927571639738101840"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3927571639738101840"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123092"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123092 at level 88 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123092，等级88，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123101"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5210 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5210节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":282,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"f98e2e8929b6613c4a709d79d778e2a660ba13a366caba4cc66864dd61d4dbe5\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123101\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123101\"},{\"evidence_sha256\":\"8daa8f74a11683179aecc1da95118a1e37df8986028262fbb3f8918df0fdf784\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12223446868998010287\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12223446868998010287\"},{\"evidence_sha256\":\"701019eeb1e203cb727be4f6707e4fe75ce838d99b3df2921bbbf29c80b3d8e4\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12223446868998010287\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=12223446868998010287\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123101\",\"kind\":\"Encounter\",\"level\":90,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5210,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5210 node 1 encounter\",\"name_zh_cn\":\"关卡5210节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Wonder Forest's Banacademic Office Staff\",\"zh_cn\":\"奇想林中的蕉研组\"},\"source_record_ids\":[\"stage_configs:stage-config-30123101\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123101 at level 90 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123101，等级90，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123101,\"wave_count\":2,\"wave_ids\":[\"wave.30123101.1\",\"wave.30123101.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123101"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12223446868998010287"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12223446868998010287"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123101"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123101 at level 90 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123101，等级90，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123102"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5210 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5210节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":282,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"96e47bf9ade41d8e8387a886b5daaed763dd2ee45496722f93ce4af5f06b60cb\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123102\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123102\"},{\"evidence_sha256\":\"197586bad0248d803affd3b1637293afe37d31f8e04fcf370146f8567717fa27\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4307424808395091276\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=4307424808395091276\"},{\"evidence_sha256\":\"72b49c5abf9a20dc23df6000bbeed33031b02afc91d30795aca92bb5d7393e89\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4307424808395091276\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=4307424808395091276\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123102\",\"kind\":\"Encounter\",\"level\":90,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5210,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5210 node 2 encounter\",\"name_zh_cn\":\"关卡5210节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Borisin Warhead: Hoolay\",\"zh_cn\":\"步离战首•呼雷\"},\"source_record_ids\":[\"stage_configs:stage-config-30123102\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123102 at level 90 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123102，等级90，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123102,\"wave_count\":2,\"wave_ids\":[\"wave.30123102.1\",\"wave.30123102.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123102"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4307424808395091276"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4307424808395091276"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123102"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123102 at level 90 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123102，等级90，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123111"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5211 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5211节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":266,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"25043dc94956858e8dea7e7d5cf7d97670a4e923ea0a280981e73bf3b6af13c9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123111\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123111\"},{\"evidence_sha256\":\"7b25addd3351a4bc73b01ac2dc53796afbcb27c605ebf5fa10f24158b446a113\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=18056700297458990573\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=18056700297458990573\"},{\"evidence_sha256\":\"c10ee79c60546c7e3108d8fa2795cfc652aa7eab2901129fe6caf6d7bdef0527\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=18056700297458990573\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=18056700297458990573\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123111\",\"kind\":\"Encounter\",\"level\":92,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5211,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5211 node 1 encounter\",\"name_zh_cn\":\"关卡5211节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"@SparxiConOfficial\",\"zh_cn\":\"火花大会@Official\"},\"source_record_ids\":[\"stage_configs:stage-config-30123111\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123111 at level 92 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123111，等级92，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123111,\"wave_count\":2,\"wave_ids\":[\"wave.30123111.1\",\"wave.30123111.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123111"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=18056700297458990573"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=18056700297458990573"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123111"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123111 at level 92 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123111，等级92，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123112"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5211 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5211节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":266,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"be5daaae97c9ef9975081af68367717302da678671b73f75012619a00f82811c\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123112\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123112\"},{\"evidence_sha256\":\"a4712ca51020f9114ac0ed0c13aee6a42fae59cbaf80eacf2cce66445dc04b52\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7306112122138119445\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=7306112122138119445\"},{\"evidence_sha256\":\"fd3fdbe8c974faa6924ee809642253af897836d7b89eacf05e2dd677fb300b4d\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=7306112122138119445\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=7306112122138119445\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123112\",\"kind\":\"Encounter\",\"level\":92,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5211,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5211 node 2 encounter\",\"name_zh_cn\":\"关卡5211节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Svarog\",\"zh_cn\":\"史瓦罗\"},\"source_record_ids\":[\"stage_configs:stage-config-30123112\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123112 at level 92 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123112，等级92，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123112,\"wave_count\":2,\"wave_ids\":[\"wave.30123112.1\",\"wave.30123112.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123112"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7306112122138119445"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=7306112122138119445"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123112"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123112 at level 92 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123112，等级92，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123121"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5212 node 1 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5212节点1遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":293,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"29c16b09891b47eb9c6b96936ee5eff239b0c29c1efea20ec4156abb1d52b6b1\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123121\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123121\"},{\"evidence_sha256\":\"e8d33836efd54a362c0f65f3999d2901ffce9e8e9bf61cb6e52b7bd5e556b8da\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=394586006630307543\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=394586006630307543\"},{\"evidence_sha256\":\"9ed72ca810ec44c0a8dda94d709fc56aeb84d334114bd7196a9a2f5232d280f9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=394586006630307543\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=394586006630307543\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123121\",\"kind\":\"Encounter\",\"level\":95,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5212,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5212 node 1 encounter\",\"name_zh_cn\":\"关卡5212节点1遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Flame Reaver of the Deepest Dark\",\"zh_cn\":\"至黑之剑，盗火行者\"},\"source_record_ids\":[\"stage_configs:stage-config-30123121\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123121 at level 95 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123121，等级95，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":1,\"upstream_stage_config_id\":30123121,\"wave_count\":2,\"wave_ids\":[\"wave.30123121.1\",\"wave.30123121.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123121"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=394586006630307543"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=394586006630307543"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123121"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123121 at level 95 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123121，等级95，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123122"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage 5212 node 2 encounter"
+          },
+          "name_zh_cn": {
+            "String": "关卡5212节点2遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"OrdinaryNode\",\"elite_group\":293,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"dc42addd144e16cdd315293d3669e2000a0a2e14c5b5062a1823b6fd25a8cd63\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123122\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123122\"},{\"evidence_sha256\":\"70ec9dbc25e67ab1de86ee457e5b9b08b736385f4341016f33e8f558277405b9\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11050040960591794587\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=11050040960591794587\"},{\"evidence_sha256\":\"5905c86c75a3f8ef9133a8c4aa3f5c1cc6f432a8b39289216993fb0a17eec59a\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=11050040960591794587\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=11050040960591794587\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123122\",\"kind\":\"Encounter\",\"level\":95,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5212,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Stage 5212 node 2 encounter\",\"name_zh_cn\":\"关卡5212节点2遭遇\",\"node_index\":2,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"Murata Graphia, Founding Artist\",\"zh_cn\":\"始作画者，无量塔绘世\"},\"source_record_ids\":[\"stage_configs:stage-config-30123122\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123122 at level 95 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123122，等级95，包含2个有序波次。\",\"tags\":[\"encounter\",\"ordinary\",\"released\"],\"team_slot\":2,\"upstream_stage_config_id\":30123122,\"wave_count\":2,\"wave_ids\":[\"wave.30123122.1\",\"wave.30123122.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 24
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123122"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11050040960591794587"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=11050040960591794587"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123122"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123122 at level 95 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123122，等级95，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "ordinary"
+              },
+              {
+                "String": "released"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage-config-30123123"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Tierce encounter"
+          },
+          "name_zh_cn": {
+            "String": "Tierce扩展关遭遇"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_event_id\":30146,\"coverage_state\":\"DataReady\",\"domain\":\"TierceExtension\",\"elite_group\":295,\"evidence_quality\":\"ExactStructured\",\"evidence_refs\":[{\"evidence_sha256\":\"16efc78836358dd4c7e942c0de2792c698cfbe3ff413fb6a8e80d3a2f9cb62e0\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123123\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact selected StageConfig, difficulty, level, wave and monster binding.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30123123\"},{\"evidence_sha256\":\"7b25addd3351a4bc73b01ac2dc53796afbcb27c605ebf5fa10f24158b446a113\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=18056700297458990573\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released zh_cn display text for this identity.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=18056700297458990573\"},{\"evidence_sha256\":\"c10ee79c60546c7e3108d8fa2795cfc652aa7eab2901129fe6caf6d7bdef0527\",\"game_version\":\"4.4\",\"id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=18056700297458990573\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released en display text for this identity.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"quality\":\"ExactStructured\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"Hash=18056700297458990573\"}],\"forbid_exit_battle\":true,\"game_version\":\"4.4\",\"hard_level_group\":3,\"id\":\"encounter.30123123\",\"kind\":\"Encounter\",\"level\":95,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"mechanism_quality\":\"ExactRelationship\",\"mode_stage_id\":5213,\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Tierce encounter\",\"name_zh_cn\":\"Tierce扩展关遭遇\",\"node_index\":1,\"ownership\":\"MemoryOfChaos\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"source_display_text\":{\"en\":\"@SparxiConOfficial\",\"zh_cn\":\"火花大会@Official\"},\"source_record_ids\":[\"stage_configs:stage-config-30123123\"],\"stage_ability_config\":[],\"stage_type\":\"Challenge\",\"sub_level_graphs\":[],\"summary_en\":\"Released Challenge encounter 30123123 at level 95 with 2 ordered waves.\",\"summary_zh_cn\":\"已发布Challenge遭遇30123123，等级95，包含2个有序波次。\",\"tags\":[\"encounter\",\"released\",\"tierce\"],\"team_slot\":null,\"upstream_stage_config_id\":30123123,\"wave_count\":2,\"wave_ids\":[\"wave.30123123.1\",\"wave.30123123.2\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 25
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30123123"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=18056700297458990573"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=18056700297458990573"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter.30123123"
+          },
+          "summary_en": {
+            "String": "Released Challenge encounter 30123123 at level 95 with 2 ordered waves."
+          },
+          "summary_zh_cn": {
+            "String": "已发布Challenge遭遇30123123，等级95，包含2个有序波次。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter"
+              },
+              {
+                "String": "released"
+              },
+              {
+                "String": "tierce"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

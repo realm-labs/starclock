@@ -1,0 +1,68 @@
+{
+  "table": {
+    "name": "MocPackIndex",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Memory of Chaos Version 4.4 reference pack"
+          },
+          "name_zh_cn": {
+            "String": "混沌回忆4.4版本资料包"
+          },
+          "ownership": {
+            "String": "MemoryOfChaos"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"blocking_research_gap_count\":0,\"canonical_pack_sha256\":\"23c51c3f56daf63eae898c40d0720d400a64ad85326cdbd178ed9eff02cea8ac\",\"coverage_state\":\"DataReady\",\"evidence_refs\":[],\"game_version\":\"4.4\",\"id\":\"pack-index.memory-of-chaos-v1\",\"kind\":\"PackIndex\",\"lane\":{\"initial\":\"Experimental\",\"runtime_profile\":\"Unreleased\",\"runtime_rows_allowed\":false,\"terminal\":\"Candidate\"},\"manifest_accounted\":477,\"manifest_data_ready\":477,\"manifest_required\":477,\"manifest_sha256\":\"0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce\",\"name_en\":\"Memory of Chaos Version 4.4 reference pack\",\"name_zh_cn\":\"混沌回忆4.4版本资料包\",\"normalized_files\":[{\"file\":\"profile.json\",\"order\":1,\"record_count\":4,\"record_kind\":\"ProfileOrOutcome\",\"sha256\":\"a9bdd50b6bd324f86ae1792b1ad95b73a67d9dab7ac58f2511081ab67d799669\"},{\"file\":\"seasons.json\",\"order\":2,\"record_count\":2,\"record_kind\":\"SeasonOrSchedule\",\"sha256\":\"38eb353a6a65112ba37b50204ffaa8c7fc220993b6c26e8b369c0e620d7a5d55\"},{\"file\":\"entries.json\",\"order\":3,\"record_count\":2,\"record_kind\":\"EntryLocator\",\"sha256\":\"b2185c913511c5a82cec1bec5ddc09cbddea7db8cfbe8b5cf4b07df117eb3cfb\"},{\"file\":\"stages.json\",\"order\":4,\"record_count\":12,\"record_kind\":\"Stage\",\"sha256\":\"f5b164f9a8f37ab8a00d7f1632b549af2c84d3d55718ebafbd1e01aafc1e7d47\"},{\"file\":\"nodes.json\",\"order\":5,\"record_count\":24,\"record_kind\":\"Node\",\"sha256\":\"3c52992f8842e5b7bb2b2f5aa3d1effb088e3ad77a6d0de2a443d7698b551049\"},{\"file\":\"tierce.json\",\"order\":6,\"record_count\":1,\"record_kind\":\"Tierce\",\"sha256\":\"ec65d682f48841f34a304368cda07bedf09bcb9adfea209042a20438293105bc\"},{\"file\":\"participant-policies.json\",\"order\":7,\"record_count\":4,\"record_kind\":\"ParticipantPolicy\",\"sha256\":\"3cb75aa4d918383fcecd2428fb869aba1f6e58b1f4c572fafc51cc0c7bf9f743\"},{\"file\":\"attempt-rules.json\",\"order\":8,\"record_count\":2,\"record_kind\":\"AttemptOrTransitionRule\",\"sha256\":\"18439de9307aeaf17780026ea608df2b4f575229ff6682fe73bdeffcd971df5a\"},{\"file\":\"clock-rules.json\",\"order\":9,\"record_count\":6,\"record_kind\":\"ClockRule\",\"sha256\":\"e40cfcfbb5749ea595cbad5533c473a58f60b48c5d8ef3db5604424179956ee9\"},{\"file\":\"resource-rules.json\",\"order\":10,\"record_count\":4,\"record_kind\":\"ResourceOrProjectionRule\",\"sha256\":\"cbad402f874049a918879b666637580f23b702fac2bcc88a0189c6b09e51c383\"},{\"file\":\"objectives.json\",\"order\":11,\"record_count\":6,\"record_kind\":\"Objective\",\"sha256\":\"c6b3a65c66353bc426c585fd7ee26e1ec01adf2f9b29abce85465357eba60216\"},{\"file\":\"turbulence.json\",\"order\":12,\"record_count\":2,\"record_kind\":\"MemoryTurbulenceOrProgram\",\"sha256\":\"8f97fc8137b5f247bdf14241d68f564260db6e432b14ed0f072b8f7f171387a5\"},{\"file\":\"battle-events.json\",\"order\":13,\"record_count\":1,\"record_kind\":\"BattleEventBinding\",\"sha256\":\"0baea6bfdc619dfc4166201591079a340affd8c4554ff1059d5d1405cc851523\"},{\"file\":\"rule-contributions.json\",\"order\":14,\"record_count\":3,\"record_kind\":\"RuleContribution\",\"sha256\":\"264a0f129cda8bacbabeffd8fc84c33fa1648904bb2bd461ab84a4cdfa447f4a\"},{\"file\":\"pool-audits.json\",\"order\":15,\"record_count\":10,\"record_kind\":\"PoolAudit\",\"sha256\":\"8070951c66498abc13d7654b8ba88fb6703c4579bc3a381eee34e7174843ffc9\"},{\"file\":\"encounters.json\",\"order\":16,\"record_count\":25,\"record_kind\":\"Encounter\",\"sha256\":\"deb060fcd4545a87ff59fc18f890fbc86dd8b85d780908a9ce1ed7382f77c266\"},{\"file\":\"waves.json\",\"order\":17,\"record_count\":50,\"record_kind\":\"EncounterWave\",\"sha256\":\"d5c13d1fbd93cec41f8e30388989d4f92af604839f0597329151865aa893102a\"},{\"file\":\"enemy-slots.json\",\"order\":18,\"record_count\":99,\"record_kind\":\"EnemySlot\",\"sha256\":\"5c50a609516112f6e915b3dd922744ce4db94483962d088f4933d9669af47792\"},{\"file\":\"enemy-variants.json\",\"order\":19,\"record_count\":41,\"record_kind\":\"EnemyVariant\",\"sha256\":\"ce9796d42c71acd48b43796c536b3723993866dfc810be1c9b2398ce525a01a3\"},{\"file\":\"enemy-templates.json\",\"order\":20,\"record_count\":41,\"record_kind\":\"EnemyTemplate\",\"sha256\":\"478e12ae0390d35f9ffd74572ade66a93e622beebc9ff1ebcec356310f64607e\"},{\"file\":\"enemy-abilities.json\",\"order\":21,\"record_count\":221,\"record_kind\":\"EnemyAbility\",\"sha256\":\"4a02b988a0029d4058cc794ce74aac3c471df9a49337bad4a0e7053070cbdc88\"},{\"file\":\"sources.json\",\"order\":22,\"record_count\":594,\"record_kind\":\"EvidenceSource\",\"sha256\":\"abfcbfa31ae6332b008c908f6de0d6f65d0a62afa4942323cc31f820fda19399\"},{\"file\":\"reconciliation-receipts.json\",\"order\":23,\"record_count\":305,\"record_kind\":\"ReconciliationReceipt\",\"sha256\":\"be6963aa62a02e49cd2b7ca0ea3f4ead3919e9e00146b60b11653ce020a943be\"},{\"file\":\"research-gaps.json\",\"order\":24,\"record_count\":29,\"record_kind\":\"ResearchGap\",\"sha256\":\"c5607b3e9abd11f2c4f16ec0649d6904a4fd16164e5b36859c34cc891fa5c249\"},{\"file\":\"coverage.json\",\"order\":25,\"record_count\":14,\"record_kind\":\"CoverageCategory\",\"sha256\":\"7819be2a738b3f666a0e8565873e5d68c1815d97f2345d535051f7404453a34b\"},{\"file\":\"semantic-fixtures.json\",\"order\":26,\"record_count\":18,\"record_kind\":\"SemanticFixture\",\"sha256\":\"b1c199a8e8437fcc7da8bef645f03edd3e6e4ff8d7dea71beb9198cefca34f8e\"}],\"ownership\":\"MemoryOfChaos\",\"reconciliation_count\":305,\"research_gap_count\":29,\"runtime_executable\":false,\"runtime_publishable\":false,\"schema_revision\":\"starclock.memory-of-chaos-row.v1\",\"semantic_fixture_family_count\":18,\"source_count\":594,\"source_record_ids\":[],\"summary_en\":\"Canonical Candidate reference-only pack with complete exact-once coverage and no runtime publication.\",\"summary_zh_cn\":\"具备完整精确计数覆盖、且不发布运行时内容的规范候选资料包。\",\"tags\":[\"candidate\",\"pack-index\",\"reference-only\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": "Null",
+          "stable_key": {
+            "String": "pack-index.memory-of-chaos-v1"
+          },
+          "summary_en": {
+            "String": "Canonical Candidate reference-only pack with complete exact-once coverage and no runtime publication."
+          },
+          "summary_zh_cn": {
+            "String": "具备完整精确计数覆盖、且不发布运行时内容的规范候选资料包。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "pack-index"
+              },
+              {
+                "String": "reference-only"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

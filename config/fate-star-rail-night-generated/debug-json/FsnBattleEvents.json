@@ -1,0 +1,117 @@
+{
+  "table": {
+    "name": "FsnBattleEvents",
+    "rows": [
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleEvent"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityList\":[\"BattleEventAbility_CocoliaP1_00_RL\",\"BattleEventAbility_CocoliaP1_00_RL_Insert\"],\"AssetPackName\":\"0\",\"BattleEventID\":\"20001\",\"BattleEventName\":\"BattleEventName_20001\",\"DescrptionText\":\"\",\"EventSubType\":\"AssistEvent\",\"OverrideProperty\":[{\"PropertyType\":\"BaseAttack\",\"Value\":{\"Value\":\"100\"}},{\"PropertyType\":\"Level\",\"Value\":{\"Value\":\"1\"}},{\"PropertyType\":\"CriticalChance\",\"Value\":{\"Value\":\"1\"}},{\"PropertyType\":\"CriticalDamage\",\"Value\":{\"Value\":\"1\"}}],\"ParamList\":[],\"Team\":\"TeamDark\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleEvent 20001"
+          },
+          "name_zh": {
+            "String": "BattleEvent 20001"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:55\",\"path\":\"ExcelOutput/BattleEventConfig.json\",\"sha256\":\"e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-event.20001.index-55"
+          },
+          "summary_en": {
+            "String": "BattleEvent fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleEvent 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "confidence": {
+            "String": "ResearchRequired"
+          },
+          "disposition": {
+            "String": "ResearchRequired"
+          },
+          "enabled": {
+            "String": "false"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "family": {
+            "String": "BattleEvent"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "mechanic_payload_json": {
+            "String": "{\"AbilityList\":[\"BattleEventAbility_W2_Kafka_00_RL\",\"BattleEventAbility_W2_Kafka_00_RL_Insert\"],\"AssetPackName\":\"0\",\"BattleEventID\":\"20002\",\"BattleEventName\":\"BattleEventName_20002\",\"DescrptionText\":\"\",\"EventSubType\":\"AssistEvent\",\"OverrideProperty\":[{\"PropertyType\":\"BaseAttack\",\"Value\":{\"Value\":\"100\"}},{\"PropertyType\":\"Level\",\"Value\":{\"Value\":\"1\"}},{\"PropertyType\":\"CriticalChance\",\"Value\":{\"Value\":\"1\"}},{\"PropertyType\":\"CriticalDamage\",\"Value\":{\"Value\":\"1\"}}],\"ParamList\":[],\"Team\":\"TeamDark\"}"
+          },
+          "mechanism_quality": {
+            "String": "DirectScalarReference"
+          },
+          "name_en": {
+            "String": "BattleEvent 20002"
+          },
+          "name_zh": {
+            "String": "BattleEvent 20002"
+          },
+          "notes": {
+            "String": "Typed reference meaning must close before release; scalar equality alone is not promoted."
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "source_refs_json": {
+            "String": "[{\"locator\":\"index:56\",\"path\":\"ExcelOutput/BattleEventConfig.json\",\"sha256\":\"e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee\"}]"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.shared.battle-event.20002.index-56"
+          },
+          "summary_en": {
+            "String": "BattleEvent fact selected by the direct Fate reference closure."
+          },
+          "summary_zh": {
+            "String": "由 Fate 直接引用闭包选中的 BattleEvent 事实。"
+          },
+          "text_hashes_json": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

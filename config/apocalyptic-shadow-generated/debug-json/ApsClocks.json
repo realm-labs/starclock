@@ -1,0 +1,178 @@
+{
+  "table": {
+    "name": "ApsClocks",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Per-node Action Value budget"
+          },
+          "name_zh_cn": {
+            "String": "节点行动值预算"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"decrements_on_global_action_delay\":true,\"evidence_quality\":\"ProjectPolicy\",\"id\":\"clock.node-action-value\",\"kind\":\"clock\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Per-node Action Value budget\",\"name_zh_cn\":\"节点行动值预算\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"scope\":\"node-attempt\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Per-node Action Value budget\",\"summary_zh_cn\":\"节点行动值预算\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "clock.node-action-value"
+          },
+          "summary_en": {
+            "String": "Per-node Action Value budget"
+          },
+          "summary_zh_cn": {
+            "String": "节点行动值预算"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Remaining delay slice"
+          },
+          "name_zh_cn": {
+            "String": "剩余延迟切片"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"floor_divisor\":10,\"id\":\"clock.remaining-delay-slice\",\"kind\":\"clock\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Remaining delay slice\",\"name_zh_cn\":\"剩余延迟切片\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Remaining delay slice\",\"summary_zh_cn\":\"剩余延迟切片\",\"timeout_when_less_or_equal_zero\":true}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "clock.remaining-delay-slice"
+          },
+          "summary_en": {
+            "String": "Remaining delay slice"
+          },
+          "summary_zh_cn": {
+            "String": "剩余延迟切片"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Time-limit settlement"
+          },
+          "name_zh_cn": {
+            "String": "时限结算"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"battle_end_reason\":\"TimeLimit\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"clock.timeout-result\",\"kind\":\"clock\",\"local_win_required\":false,\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Time-limit settlement\",\"name_zh_cn\":\"时限结算\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Time-limit settlement\",\"summary_zh_cn\":\"时限结算\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "clock.timeout-result"
+          },
+          "summary_en": {
+            "String": "Time-limit settlement"
+          },
+          "summary_zh_cn": {
+            "String": "时限结算"
+          }
+        }
+      }
+    ]
+  }
+}

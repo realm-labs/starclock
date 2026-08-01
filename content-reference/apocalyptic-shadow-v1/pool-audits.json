@@ -1,0 +1,213 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "pool-audits.json",
+  "record_kind": "pool-audit",
+  "records": [
+    {
+      "id": "pool-audit.blessings",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "pool-audit",
+      "name_en": "blessings exact-zero selector proof",
+      "name_zh_cn": "blessings精确零选择器证明",
+      "summary_en": "The complete active selector closure exposes no member selector.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露任何成员选择器。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "zero-pool.blessings"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.zero-pool.blessings",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+          "locator": "Included content#blessings",
+          "sha256": "7337204a6499bb32b1b603d54acead0d1dbec0798be692deef1306f87785251e",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "audited_selected_row_count": 11,
+      "selector_count": 0,
+      "conclusion": "ExactZero",
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.curios",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "pool-audit",
+      "name_en": "curios exact-zero selector proof",
+      "name_zh_cn": "curios精确零选择器证明",
+      "summary_en": "The complete active selector closure exposes no member selector.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露任何成员选择器。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "zero-pool.curios"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.zero-pool.curios",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+          "locator": "Included content#curios",
+          "sha256": "df33a97bb050ac83662e947724839d8c052df09a08f69c0e1e9c8e38fae000c9",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "audited_selected_row_count": 11,
+      "selector_count": 0,
+      "conclusion": "ExactZero",
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.currencies",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "pool-audit",
+      "name_en": "currencies exact-zero selector proof",
+      "name_zh_cn": "currencies精确零选择器证明",
+      "summary_en": "The complete active selector closure exposes no member selector.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露任何成员选择器。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "zero-pool.currencies"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.zero-pool.currencies",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+          "locator": "Included content#currencies",
+          "sha256": "f3cf2f483bd524896adc1941ba197d3f93793bc9b8cd98821ac67493bc82105e",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "audited_selected_row_count": 11,
+      "selector_count": 0,
+      "conclusion": "ExactZero",
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.occurrences",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "pool-audit",
+      "name_en": "occurrences exact-zero selector proof",
+      "name_zh_cn": "occurrences精确零选择器证明",
+      "summary_en": "The complete active selector closure exposes no member selector.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露任何成员选择器。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "zero-pool.occurrences"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.zero-pool.occurrences",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+          "locator": "Included content#occurrences",
+          "sha256": "df11abc4d20d8f8da6695f7648eab6ed1a68951dc13b16b6669f6c22adfe170d",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "audited_selected_row_count": 11,
+      "selector_count": 0,
+      "conclusion": "ExactZero",
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.services",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "pool-audit",
+      "name_en": "services exact-zero selector proof",
+      "name_zh_cn": "services精确零选择器证明",
+      "summary_en": "The complete active selector closure exposes no member selector.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露任何成员选择器。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "zero-pool.services"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.zero-pool.services",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+          "locator": "Included content#services",
+          "sha256": "066b5bbb3b1423a4cb1c5ccd403487a271c8f5a92fc7fb8389cb51e832855504",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "audited_selected_row_count": 11,
+      "selector_count": 0,
+      "conclusion": "ExactZero",
+      "runtime_executable": false
+    },
+    {
+      "id": "pool-audit.shops",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "pool-audit",
+      "name_en": "shops exact-zero selector proof",
+      "name_zh_cn": "shops精确零选择器证明",
+      "summary_en": "The complete active selector closure exposes no member selector.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露任何成员选择器。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "zero-pool.shops"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.zero-pool.shops",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/18-apocalyptic-shadow-reference-data.md",
+          "locator": "Included content#shops",
+          "sha256": "8b248165881ed8ce81bf0e2a001eb85d68631c67e01e43493325daec01cc3a64",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": ""
+        }
+      ],
+      "audited_selected_row_count": 11,
+      "selector_count": 0,
+      "conclusion": "ExactZero",
+      "runtime_executable": false
+    }
+  ]
+}

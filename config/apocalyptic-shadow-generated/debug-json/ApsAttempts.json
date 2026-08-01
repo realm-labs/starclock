@@ -1,0 +1,292 @@
+{
+  "table": {
+    "name": "ApsAttempts",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Abandoned attempt"
+          },
+          "name_zh_cn": {
+            "String": "放弃尝试"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"commits_no_best_result_replacement\":true,\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"attempt.abandon\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Abandoned attempt\",\"name_zh_cn\":\"放弃尝试\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Abandoned attempt\",\"summary_zh_cn\":\"放弃尝试\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.abandon"
+          },
+          "summary_en": {
+            "String": "Abandoned attempt"
+          },
+          "summary_zh_cn": {
+            "String": "放弃尝试"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Accepted attempt start"
+          },
+          "name_zh_cn": {
+            "String": "接受的尝试开始"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"attempt.accepted-start\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Accepted attempt start\",\"name_zh_cn\":\"接受的尝试开始\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Accepted attempt start\",\"summary_zh_cn\":\"接受的尝试开始\",\"validates_all_selected_teams\":true}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.accepted-start"
+          },
+          "summary_en": {
+            "String": "Accepted attempt start"
+          },
+          "summary_zh_cn": {
+            "String": "接受的尝试开始"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Completed attempt"
+          },
+          "name_zh_cn": {
+            "String": "完成尝试"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"attempt.complete\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Completed attempt\",\"name_zh_cn\":\"完成尝试\",\"ownership\":\"ApocalypticShadow\",\"projects_node_score_and_progress\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Completed attempt\",\"summary_zh_cn\":\"完成尝试\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.complete"
+          },
+          "summary_en": {
+            "String": "Completed attempt"
+          },
+          "summary_zh_cn": {
+            "String": "完成尝试"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Rejected attempt start"
+          },
+          "name_zh_cn": {
+            "String": "拒绝的尝试开始"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"authoritative_state_unchanged\":true,\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"attempt.rejected-start\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Rejected attempt start\",\"name_zh_cn\":\"拒绝的尝试开始\",\"ownership\":\"ApocalypticShadow\",\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Rejected attempt start\",\"summary_zh_cn\":\"拒绝的尝试开始\"}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.rejected-start"
+          },
+          "summary_en": {
+            "String": "Rejected attempt start"
+          },
+          "summary_zh_cn": {
+            "String": "拒绝的尝试开始"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Action Value timeout"
+          },
+          "name_zh_cn": {
+            "String": "行动值耗尽"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"attempt.timeout\",\"kind\":\"participant-policy\",\"manifest_record_ids\":[\"apocalyptic-shadow-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Action Value timeout\",\"name_zh_cn\":\"行动值耗尽\",\"ownership\":\"ApocalypticShadow\",\"retains_partial_boss_progress_for_score\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Apocalyptic Shadow\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"\",\"path_or_page\":\"docs/18-standard-and-challenge-modes.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-08-01\",\"sha256\":\"8316078658f243617490bd1fdb0ec14a052ab630d9bc8312d534a1d5a6a3a79d\",\"source_id\":\"src.apocalyptic-shadow-v1\"}],\"summary_en\":\"Action Value timeout\",\"summary_zh_cn\":\"行动值耗尽\"}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.apocalyptic-shadow-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "attempt.timeout"
+          },
+          "summary_en": {
+            "String": "Action Value timeout"
+          },
+          "summary_zh_cn": {
+            "String": "行动值耗尽"
+          }
+        }
+      }
+    ]
+  }
+}

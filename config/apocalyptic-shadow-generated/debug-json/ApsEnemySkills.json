@@ -1,0 +1,3826 @@
+{
+  "table": {
+    "name": "ApsEnemySkills",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301501"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301501"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301501"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Fire\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301501\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301501\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301501\",\"name_zh_cn\":\"敌方技能300301501\",\"ownership\":\"Shared\",\"parameters\":[\"1.5\",\"1\",\"0.8\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301501,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301501\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0763f923e8d6d80e9eba0537c56b949c76c4020f3e83202c0501fa81f0a66e7e\",\"source_id\":\"src.enemy-skill.300301501\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill02\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301501"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301501"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301502"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301502"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301502"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Fire\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301502\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301502\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301502\",\"name_zh_cn\":\"敌方技能300301502\",\"ownership\":\"Shared\",\"parameters\":[\"2.6\",\"1\",\"0.5\",\"2\",\"3\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301502,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301502\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"df4064bcc977235dd0069938e9077fadcefd3bac03a26c52345cca8a43f5e774\",\"source_id\":\"src.enemy-skill.300301502\"}],\"sp_hit_base\":\"20\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill04\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301502"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301502"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301503"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301503"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301503"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301503\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301503\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301503\",\"name_zh_cn\":\"敌方技能300301503\",\"ownership\":\"Shared\",\"parameters\":[\"0.05\",\"0.12\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301503,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301503\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"531e2eea2b3d272906eb7b62028db997229c67f93387620e8e01bf9094b47e2e\",\"source_id\":\"src.enemy-skill.300301503\"}],\"sp_hit_base\":\"5\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill07\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301503"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301503"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301504"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301504"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301504"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301504\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301504\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301504\",\"name_zh_cn\":\"敌方技能300301504\",\"ownership\":\"Shared\",\"parameters\":[\"3\",\"0.1\",\"3\",\"0.5\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301504,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301504\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a37e1941b5252e2e75f9cfe5358d20d84322d9ef1c4df59cb8d4e0aaf0f7db8c\",\"source_id\":\"src.enemy-skill.300301504\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill09\"}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301504"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301504"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301505"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301505"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301505"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301505\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301505\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301505\",\"name_zh_cn\":\"敌方技能300301505\",\"ownership\":\"Shared\",\"parameters\":[\"8\",\"1\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301505,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301505\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"40071da11b58249773412aef0684f3a72234a51f06d1a2db29c63f5e197f9038\",\"source_id\":\"src.enemy-skill.300301505\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP01\"}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301505"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301505"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000006
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301506"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301506"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301506"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301506\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301506\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301506\",\"name_zh_cn\":\"敌方技能300301506\",\"ownership\":\"Shared\",\"parameters\":[\"0\",\"1\",\"0.15\",\"2\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301506,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301506\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ebc56188ce0fe52bffb59f01560a7e9aa611b8840f5c2f07e72a75b335195351\",\"source_id\":\"src.enemy-skill.300301506\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"PassiveSkillInitiate\"}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301506"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301506"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000007
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301507"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301507"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301507"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301507\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301507\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301507\",\"name_zh_cn\":\"敌方技能300301507\",\"ownership\":\"Shared\",\"parameters\":[\"2\",\"1\",\"0.2\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301507,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301507\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"63ffb176cb23437d45e514c87875de9b4e1106ee0d6476d8a8aaace0e113404f\",\"source_id\":\"src.enemy-skill.300301507\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill08\"}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301507"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301507"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000008
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301508"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301508"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301508"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301508\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301508\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301508\",\"name_zh_cn\":\"敌方技能300301508\",\"ownership\":\"Shared\",\"parameters\":[\"0.5\",\"1\",\"1.5\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301508,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301508\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8fd2031340a5ebbf7d6e49f1f2ab853baf982737f5e203e4af8b0c39d8951a0e\",\"source_id\":\"src.enemy-skill.300301508\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX01\"}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301508"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301508"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000009
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301509"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301509"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301509"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301509\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301509\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301509\",\"name_zh_cn\":\"敌方技能300301509\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301509,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301509\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"af9e27f279cf47d490979bac67a890e1df66772fc49edee9a75f7591e9d05afd\",\"source_id\":\"src.enemy-skill.300301509\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill10\"}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301509"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301509"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000010
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301510"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301510"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301510"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301510\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301510\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301510\",\"name_zh_cn\":\"敌方技能300301510\",\"ownership\":\"Shared\",\"parameters\":[\"15\",\"0.2\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301510,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301510\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0612e27b85f73f9e4faa26af8363fe0d0f2a1a832ee217045036d5f486ca7878\",\"source_id\":\"src.enemy-skill.300301510\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX02\"}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301510"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301510"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000011
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300301511"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300301511"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300301511"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300301511\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300301511\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300301511\",\"name_zh_cn\":\"敌方技能300301511\",\"ownership\":\"Shared\",\"parameters\":[\"30\",\"0.3\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300301511,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300301511\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5106415031245ebb237a72ca2c39efeca2dd37492726487b8dbb30e831fa9cc3\",\"source_id\":\"src.enemy-skill.300301511\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX04\"}"
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300301511"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300301511"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000012
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402101"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402101"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402101"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402101\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402101\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402101\",\"name_zh_cn\":\"敌方技能300402101\",\"ownership\":\"Shared\",\"parameters\":[\"0.1\",\"0.4\",\"0.7\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402101,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402101\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0b2ef69a7cd6fcc5481439f9e43954287904005b5be9019bcb7fb28618e1f7d0\",\"source_id\":\"src.enemy-skill.300402101\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill04\"}"
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402101"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000013
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402102"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402102"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402102"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402102\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402102\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402102\",\"name_zh_cn\":\"敌方技能300402102\",\"ownership\":\"Shared\",\"parameters\":[\"100\",\"0.1\",\"0.75\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402102,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402102\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b68bb789588fa5a5f73dc43cda66ef45690d90f9b400705285c577a74514139a\",\"source_id\":\"src.enemy-skill.300402102\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill02\"}"
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402102"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402102"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000014
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402103"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402103"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402103"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402103\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402103\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402103\",\"name_zh_cn\":\"敌方技能300402103\",\"ownership\":\"Shared\",\"parameters\":[\"1.5\",\"0\",\"1\",\"0.5\",\"2\",\"0.15\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402103,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402103\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4592cc9c2475e317d0939436db62bfad2e95f1898f41eefb411baa17e7b4a0e6\",\"source_id\":\"src.enemy-skill.300402103\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill08\"}"
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402103"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402103"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000015
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402104"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402104"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402104"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402104\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402104\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402104\",\"name_zh_cn\":\"敌方技能300402104\",\"ownership\":\"Shared\",\"parameters\":[\"0\",\"0\",\"0\",\"0\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402104,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402104\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"189bf26efd74792dca24272fec18c2283f3164eb736c1a75d46342efc577a867\",\"source_id\":\"src.enemy-skill.300402104\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill01\"}"
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402104"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402104"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000016
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402105"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402105"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402105"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402105\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402105\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402105\",\"name_zh_cn\":\"敌方技能300402105\",\"ownership\":\"Shared\",\"parameters\":[\"0.5\",\"1\",\"1.5\",\"1\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402105,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402105\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d64b577818f3d82eda0e1d8cf56c206e0e1902c5ce665f6197e8aed56d14f16b\",\"source_id\":\"src.enemy-skill.300402105\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX01\"}"
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402105"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402105"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000017
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402106"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402106"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402106"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402106\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402106\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402106\",\"name_zh_cn\":\"敌方技能300402106\",\"ownership\":\"Shared\",\"parameters\":[\"15\",\"0.2\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402106,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402106\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"893bf815cd52bd94d97e1434a8ff39692972d954d0da61a9022d75ea9ec60a63\",\"source_id\":\"src.enemy-skill.300402106\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX02\"}"
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402106"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402106"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000018
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402107"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402107"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402107"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402107\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402107\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402107\",\"name_zh_cn\":\"敌方技能300402107\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402107,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402107\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2bb8ca39f0486bf82031c140a1e17bafb3ae97f072f18cbb459201b5c54ed65e\",\"source_id\":\"src.enemy-skill.300402107\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX03\"}"
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402107"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402107"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000019
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402108"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402108"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402108"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402108\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402108\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402108\",\"name_zh_cn\":\"敌方技能300402108\",\"ownership\":\"Shared\",\"parameters\":[\"45\",\"0.3\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402108,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402108\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5a635f3e37c0e416e82df83d0fe309d39f878cb2dd85e4d1b5c1743380ad1a3c\",\"source_id\":\"src.enemy-skill.300402108\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX04\"}"
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402108"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402108"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000020
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402109"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402109"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402109"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402109\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402109\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402109\",\"name_zh_cn\":\"敌方技能300402109\",\"ownership\":\"Shared\",\"parameters\":[\"40\",\"20\",\"4\",\"0.1\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402109,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402109\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d902bbff9a559c289c61610e086d45f9cc61f820cccfb1c7832d23905f3488f6\",\"source_id\":\"src.enemy-skill.300402109\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX05\"}"
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402109"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402109"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000021
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.300402110"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 300402110"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能300402110"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.300402110\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.300402110\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 300402110\",\"name_zh_cn\":\"敌方技能300402110\",\"ownership\":\"Shared\",\"parameters\":[\"56\",\"56\",\"56\",\"56\",\"6\",\"0\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":300402110,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=300402110\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c314d1361a58d6bdcb3d988d3400a8c3a826167adc1eaf45a0f8765ba2be58a8\",\"source_id\":\"src.enemy-skill.300402110\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP01\"}"
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.300402110"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.300402110"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000022
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401301"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401301"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401301"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401301\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401301\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401301\",\"name_zh_cn\":\"敌方技能302401301\",\"ownership\":\"Shared\",\"parameters\":[\"3.6\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401301,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401301\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"da6a92e8bb977041312c16962f7b04e9966be81d0dde4fb6c76b91009f2b9e07\",\"source_id\":\"src.enemy-skill.302401301\"}],\"sp_hit_base\":\"15\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill01\"}"
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401301"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401301"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000023
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401302"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401302"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401302"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401302\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401302\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401302\",\"name_zh_cn\":\"敌方技能302401302\",\"ownership\":\"Shared\",\"parameters\":[\"3.5\",\"2.5\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401302,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401302\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"595f71971635fbfbc2d6730bb91b82181d93114eb9cbf4a9b16e311d2f4a1c8f\",\"source_id\":\"src.enemy-skill.302401302\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill02\"}"
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401302"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401302"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000024
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401303"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401303"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401303"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401303\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401303\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401303\",\"name_zh_cn\":\"敌方技能302401303\",\"ownership\":\"Shared\",\"parameters\":[\"1\",\"0.5\",\"0.5\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401303,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401303\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"565626f357f13aa897899e3b1fbd2c47232ca4dd7fa594092f4555f8dbf90d85\",\"source_id\":\"src.enemy-skill.302401303\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill03\"}"
+          },
+          "row_order": {
+            "Integer": 24
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401303"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401303"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000025
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401304"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401304"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401304"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401304\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401304\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401304\",\"name_zh_cn\":\"敌方技能302401304\",\"ownership\":\"Shared\",\"parameters\":[\"3\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401304,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401304\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"08a22b4f0b11c6af731dd77eec67cee22be80c3c9281380ff26dbb5d6c355380\",\"source_id\":\"src.enemy-skill.302401304\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill04\"}"
+          },
+          "row_order": {
+            "Integer": 25
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401304"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401304"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000026
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401305"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401305"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401305"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1.25\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401305\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401305\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401305\",\"name_zh_cn\":\"敌方技能302401305\",\"ownership\":\"Shared\",\"parameters\":[\"4.5\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401305,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401305\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"785c3e99e55a2d9a8844aed1731b592c16c898e8db6dc49b7fdd5475b92759bd\",\"source_id\":\"src.enemy-skill.302401305\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill05\"}"
+          },
+          "row_order": {
+            "Integer": 26
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401305"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401305"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000027
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401306"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401306"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401306"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401306\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401306\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401306\",\"name_zh_cn\":\"敌方技能302401306\",\"ownership\":\"Shared\",\"parameters\":[\"3\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401306,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401306\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ac9976593947b89ca6f4c77303b0a8a0792929d1b1ed660a694ec366201f03b2\",\"source_id\":\"src.enemy-skill.302401306\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill06\"}"
+          },
+          "row_order": {
+            "Integer": 27
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401306"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401306"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000028
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401307"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401307"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401307"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401307\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401307\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401307\",\"name_zh_cn\":\"敌方技能302401307\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401307,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401307\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ee7772e96b03e30e5cc763477f9311c702f96d661ea01b54d6795fe9fb66b130\",\"source_id\":\"src.enemy-skill.302401307\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill07\"}"
+          },
+          "row_order": {
+            "Integer": 28
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401307"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401307"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000029
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401308"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401308"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401308"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401308\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401308\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401308\",\"name_zh_cn\":\"敌方技能302401308\",\"ownership\":\"Shared\",\"parameters\":[\"1.5\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401308,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401308\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"22df9bfd495a3b08bff5e7e7a2086e7661039d666898e40bfa3151a4d0a14407\",\"source_id\":\"src.enemy-skill.302401308\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill08\"}"
+          },
+          "row_order": {
+            "Integer": 29
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401308"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401308"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000030
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401310"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401310"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401310"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401310\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401310\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401310\",\"name_zh_cn\":\"敌方技能302401310\",\"ownership\":\"Shared\",\"parameters\":[\"0.12\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401310,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401310\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"927b30b8a85478a946b9619b34fd78b43c89e0cecb66c98f3c48dc248f851fc9\",\"source_id\":\"src.enemy-skill.302401310\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP01\"}"
+          },
+          "row_order": {
+            "Integer": 30
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401310"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401310"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000031
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401311"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401311"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401311"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1.5\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401311\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401311\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401311\",\"name_zh_cn\":\"敌方技能302401311\",\"ownership\":\"Shared\",\"parameters\":[\"0.25\",\"0.5\",\"0.7\",\"0.75\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401311,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401311\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0a274d0d2ffa9c93cc4158aef42de0c8aac4665dfe9a34f0e6ec37d81a65adc7\",\"source_id\":\"src.enemy-skill.302401311\"}],\"sp_hit_base\":\"15\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill11\"}"
+          },
+          "row_order": {
+            "Integer": 31
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401311"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401311"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000032
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401312"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401312"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401312"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1.75\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401312\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401312\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401312\",\"name_zh_cn\":\"敌方技能302401312\",\"ownership\":\"Shared\",\"parameters\":[\"0.5\",\"0.7\",\"0.75\",\"1\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401312,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401312\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"25963a89551b3a155603d19250fa504670d463082bf15b5f1afae58a0c911543\",\"source_id\":\"src.enemy-skill.302401312\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill12\"}"
+          },
+          "row_order": {
+            "Integer": 32
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401312"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401312"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000033
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401313"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401313"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401313"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1.5\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401313\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401313\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401313\",\"name_zh_cn\":\"敌方技能302401313\",\"ownership\":\"Shared\",\"parameters\":[\"0.75\",\"1\",\"1.25\",\"1.25\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401313,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401313\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e3830f51d7b9315c46fe4afd8218c5f35f580352812ee4b2943a996cc1b7aac4\",\"source_id\":\"src.enemy-skill.302401313\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill13\"}"
+          },
+          "row_order": {
+            "Integer": 33
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401313"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401313"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000034
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401314"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401314"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401314"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1.6\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401314\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401314\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401314\",\"name_zh_cn\":\"敌方技能302401314\",\"ownership\":\"Shared\",\"parameters\":[\"10\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401314,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401314\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f782cf9d7f31884e9acf2aed9b286d81e34bba3f8ec9e407c43cb67ccb7e6363\",\"source_id\":\"src.enemy-skill.302401314\"}],\"sp_hit_base\":\"40\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill14\"}"
+          },
+          "row_order": {
+            "Integer": 34
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401314"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401314"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000035
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401315"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401315"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401315"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1.75\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401315\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401315\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401315\",\"name_zh_cn\":\"敌方技能302401315\",\"ownership\":\"Shared\",\"parameters\":[\"1\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401315,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401315\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"20a70a43fb40a288236143a8adc706adf5600afcd2853a8b9422d8ae677e458b\",\"source_id\":\"src.enemy-skill.302401315\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill15\"}"
+          },
+          "row_order": {
+            "Integer": 35
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401315"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401315"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000036
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401316"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401316"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401316"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1.5\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401316\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401316\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[\"Monster_APShow_OneTurn\"],\"name_en\":\"Enemy skill 302401316\",\"name_zh_cn\":\"敌方技能302401316\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401316,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401316\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"76bf5084d921f3b3ed44787d5d1bcec35cfb9c1fec12b42deb8228fc2901cfd1\",\"source_id\":\"src.enemy-skill.302401316\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill09\"}"
+          },
+          "row_order": {
+            "Integer": 36
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401316"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401316"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000037
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401317"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401317"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401317"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401317\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401317\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401317\",\"name_zh_cn\":\"敌方技能302401317\",\"ownership\":\"Shared\",\"parameters\":[\"0.08\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401317,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401317\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0ef51925c0f7193d856953eb62ed90bc35728165bf249986d679361bda427f3a\",\"source_id\":\"src.enemy-skill.302401317\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill16\"}"
+          },
+          "row_order": {
+            "Integer": 37
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401317"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401317"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000038
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401318"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401318"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401318"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401318\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401318\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401318\",\"name_zh_cn\":\"敌方技能302401318\",\"ownership\":\"Shared\",\"parameters\":[\"0.05\",\"0.1\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401318,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401318\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"287ac2f9052deebe80b7a51f766174efa09023424b2b0d34288f9a6541d2538b\",\"source_id\":\"src.enemy-skill.302401318\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill17\"}"
+          },
+          "row_order": {
+            "Integer": 38
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401318"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401318"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000039
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401319"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401319"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401319"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Physical\",\"delay_ratio\":\"1.25\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401319\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401319\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401319\",\"name_zh_cn\":\"敌方技能302401319\",\"ownership\":\"Shared\",\"parameters\":[\"3.2\",\"1\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401319,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401319\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4626128b604e212ef52b2bb9b0c4380c97a7d9d15c7dcfb397073c513d3134e5\",\"source_id\":\"src.enemy-skill.302401319\"}],\"sp_hit_base\":\"15\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill10\"}"
+          },
+          "row_order": {
+            "Integer": 39
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401319"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401319"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000040
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401320"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401320"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401320"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401320\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401320\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401320\",\"name_zh_cn\":\"敌方技能302401320\",\"ownership\":\"Shared\",\"parameters\":[\"0.2\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401320,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401320\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"66820bfc9b8907a666cdfc478df3828476b8258d0c3e3612cba057b16a9386e1\",\"source_id\":\"src.enemy-skill.302401320\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP02\"}"
+          },
+          "row_order": {
+            "Integer": 40
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401320"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401320"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000041
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401321"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401321"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401321"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401321\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401321\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401321\",\"name_zh_cn\":\"敌方技能302401321\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401321,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401321\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bb9f2b0013520979d4465a5a30ee4c735e92ba55a31b7e929e7338b8a3167c98\",\"source_id\":\"src.enemy-skill.302401321\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP03\"}"
+          },
+          "row_order": {
+            "Integer": 41
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401321"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401321"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000042
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401322"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401322"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401322"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401322\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401322\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401322\",\"name_zh_cn\":\"敌方技能302401322\",\"ownership\":\"Shared\",\"parameters\":[\"0.5\",\"1\",\"1.5\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401322,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401322\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3e630722c81f60b0c5644a38b2aa7d5cad7068dfc14a14232a9073967464958b\",\"source_id\":\"src.enemy-skill.302401322\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX01\"}"
+          },
+          "row_order": {
+            "Integer": 42
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401322"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401322"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000043
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401323"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401323"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401323"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[70000303],\"id\":\"enemy-skill.302401323\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401323\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401323\",\"name_zh_cn\":\"敌方技能302401323\",\"ownership\":\"Shared\",\"parameters\":[\"0.05\",\"0.1\",\"0.1\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401323,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401323\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0539043febb15d3e8504acbee2cb0aba97e53f8e3ea31f18a5c4832cb6db8093\",\"source_id\":\"src.enemy-skill.302401323\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX02\"}"
+          },
+          "row_order": {
+            "Integer": 43
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401323"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401323"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000044
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401324"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401324"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401324"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401324\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401324\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401324\",\"name_zh_cn\":\"敌方技能302401324\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401324,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401324\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6438f825fbe032eb9f80936579a406f6465afeef4aae118824b055995ad046c3\",\"source_id\":\"src.enemy-skill.302401324\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX03\"}"
+          },
+          "row_order": {
+            "Integer": 44
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401324"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401324"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000045
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401325"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401325"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401325"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401325\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401325\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401325\",\"name_zh_cn\":\"敌方技能302401325\",\"ownership\":\"Shared\",\"parameters\":[\"0.05\",\"0.03\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401325,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401325\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"55fa5d448ff5b615ae2ac35cae4564fd94e76d94f39555599e36978d6c6eb099\",\"source_id\":\"src.enemy-skill.302401325\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX04\"}"
+          },
+          "row_order": {
+            "Integer": 45
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401325"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401325"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000046
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.302401326"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 302401326"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能302401326"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.302401326\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.302401326\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 302401326\",\"name_zh_cn\":\"敌方技能302401326\",\"ownership\":\"Shared\",\"parameters\":[\"40\",\"20\",\"4\",\"0.1\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":302401326,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=302401326\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"47c6de12e2efb57c48280182499778c97148dade07bcb5ce905d368aac221764\",\"source_id\":\"src.enemy-skill.302401326\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX05\"}"
+          },
+          "row_order": {
+            "Integer": 46
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.302401326"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.302401326"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000047
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401301"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401301"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401301"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401301\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401301\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401301\",\"name_zh_cn\":\"敌方技能401401301\",\"ownership\":\"Shared\",\"parameters\":[\"2.4\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401301,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401301\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4d2478d950e57fb1e8ded0f99e419a6a238a115946d499955f61d0c48f025f2e\",\"source_id\":\"src.enemy-skill.401401301\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill01\"}"
+          },
+          "row_order": {
+            "Integer": 47
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401301"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401301"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000048
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401302"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401302"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401302"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401302\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401302\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401302\",\"name_zh_cn\":\"敌方技能401401302\",\"ownership\":\"Shared\",\"parameters\":[\"2.2\",\"1.8\",\"0.1\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401302,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401302\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5fd37fbafdba9b6385374d27a8f9f3d685d3444de7c85858f2c6818d20090ff1\",\"source_id\":\"src.enemy-skill.401401302\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill11\"}"
+          },
+          "row_order": {
+            "Integer": 48
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401302"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401302"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000049
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401303"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401303"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401303"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401303\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401303\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401303\",\"name_zh_cn\":\"敌方技能401401303\",\"ownership\":\"Shared\",\"parameters\":[\"3.6\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401303,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401303\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0cda0da0ce314256d1903e5a445c2611ef4a97cdafdccacc31f31abf8d8da6d0\",\"source_id\":\"src.enemy-skill.401401303\"}],\"sp_hit_base\":\"15\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill02\"}"
+          },
+          "row_order": {
+            "Integer": 49
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401303"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401303"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000050
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401304"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401304"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401304"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401304\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401304\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401304\",\"name_zh_cn\":\"敌方技能401401304\",\"ownership\":\"Shared\",\"parameters\":[\"4\",\"0.15\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401304,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401304\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5aeadf182278107d9d284fdc230edaddc293d127ca77541614eb315b11b08a5a\",\"source_id\":\"src.enemy-skill.401401304\"}],\"sp_hit_base\":\"15\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill12\"}"
+          },
+          "row_order": {
+            "Integer": 50
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401304"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401304"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000051
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401305"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401305"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401305"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401305\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401305\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401305\",\"name_zh_cn\":\"敌方技能401401305\",\"ownership\":\"Shared\",\"parameters\":[\"2.8\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401305,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401305\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"98252282e6550a0e2756b4ec1bc8073370a564b32609a9d2f5a4d0e9747e55ca\",\"source_id\":\"src.enemy-skill.401401305\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill03\"}"
+          },
+          "row_order": {
+            "Integer": 51
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401305"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401305"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000052
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401306"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401306"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401306"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401306\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401306\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401306\",\"name_zh_cn\":\"敌方技能401401306\",\"ownership\":\"Shared\",\"parameters\":[\"3.2\",\"0.1\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401306,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401306\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"caa21e0489c5f6b0f4c0f4e04c89c04028a56f45c2d0756f6590f888b830a62a\",\"source_id\":\"src.enemy-skill.401401306\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill13\"}"
+          },
+          "row_order": {
+            "Integer": 52
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401306"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401306"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000053
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401307"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401307"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401307"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1.5\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401307\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401307\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401307\",\"name_zh_cn\":\"敌方技能401401307\",\"ownership\":\"Shared\",\"parameters\":[\"1.2\",\"5\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401307,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401307\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"584d5c1ffd81d92949a2ea88b9bed1e6c0fc6a9bd9b94ff2ed0c2007f92aedc0\",\"source_id\":\"src.enemy-skill.401401307\"}],\"sp_hit_base\":\"5\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill04\"}"
+          },
+          "row_order": {
+            "Integer": 53
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401307"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401307"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000054
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401308"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401308"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401308"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401308\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401308\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401308\",\"name_zh_cn\":\"敌方技能401401308\",\"ownership\":\"Shared\",\"parameters\":[\"1.2\",\"10\",\"0.1\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401308,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401308\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"35a2b0da9a88e8e6169dc770520280108e237dc735541464c6b3edfaf902f245\",\"source_id\":\"src.enemy-skill.401401308\"}],\"sp_hit_base\":\"5\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill14\"}"
+          },
+          "row_order": {
+            "Integer": 54
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401308"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401308"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000055
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401309"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401309"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401309"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1.25\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[240140133],\"id\":\"enemy-skill.401401309\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401309\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401309\",\"name_zh_cn\":\"敌方技能401401309\",\"ownership\":\"Shared\",\"parameters\":[\"0.8\",\"25\",\"0.5\",\"0.5\"],\"phases\":[1,2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401309,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401309\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9445e2b9221c407fbaf6bf890246816fe99171f8e6a965c686d236a5dae858d7\",\"source_id\":\"src.enemy-skill.401401309\"}],\"sp_hit_base\":\"5\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill05\"}"
+          },
+          "row_order": {
+            "Integer": 55
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401309"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401309"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000056
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401310"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401310"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401310"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":\"Imaginary\",\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[401301001,240140131],\"id\":\"enemy-skill.401401310\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401310\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401310\",\"name_zh_cn\":\"敌方技能401401310\",\"ownership\":\"Shared\",\"parameters\":[\"22\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401310,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401310\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"24506b23cb2a356caed3f554e0c6fda278941e0d68489b669477ead3fb784e09\",\"source_id\":\"src.enemy-skill.401401310\"}],\"sp_hit_base\":\"15\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill06\"}"
+          },
+          "row_order": {
+            "Integer": 56
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401310"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401310"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000057
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401311"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401311"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401311"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[240140133,240140131],\"id\":\"enemy-skill.401401311\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401311\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401311\",\"name_zh_cn\":\"敌方技能401401311\",\"ownership\":\"Shared\",\"parameters\":[\"12\",\"0.1\",\"0.03\",\"1\",\"0.25\",\"0.0029999998\",\"240\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401311,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401311\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3c89ad9132847a27eb7cff6fcda7e199158a15b9f75c60452a71cbb984642c5a\",\"source_id\":\"src.enemy-skill.401401311\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP01\"}"
+          },
+          "row_order": {
+            "Integer": 57
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401311"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401311"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000058
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401312"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401312"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401312"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[240140133,240140134,240140131],\"id\":\"enemy-skill.401401312\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401312\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401312\",\"name_zh_cn\":\"敌方技能401401312\",\"ownership\":\"Shared\",\"parameters\":[\"49\",\"1\",\"1\",\"0.5\",\"960\"],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401312,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401312\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a4ec1a8a8b2331f3e663a149225addfdea6e216996a110b0aee10d1b02f8c248\",\"source_id\":\"src.enemy-skill.401401312\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP02\"}"
+          },
+          "row_order": {
+            "Integer": 58
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401312"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401312"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000059
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401313"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401313"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401313"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[240140131],\"id\":\"enemy-skill.401401313\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401313\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401313\",\"name_zh_cn\":\"敌方技能401401313\",\"ownership\":\"Shared\",\"parameters\":[\"0.02\"],\"phases\":[1],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401313,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401313\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"659a6f700726b02b3c59c529ae2b5efc1b4749df760b3f63e9014d59075ddc2d\",\"source_id\":\"src.enemy-skill.401401313\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP03\"}"
+          },
+          "row_order": {
+            "Integer": 59
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401313"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401313"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000060
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401314"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401314"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401314"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[240140131],\"id\":\"enemy-skill.401401314\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401314\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401314\",\"name_zh_cn\":\"敌方技能401401314\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401314,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401314\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"445b7dcf4da5f4d9f8a7d6aafe12b043f884b0b1740b896be0c491962552bbdf\",\"source_id\":\"src.enemy-skill.401401314\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP04\"}"
+          },
+          "row_order": {
+            "Integer": 60
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401314"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401314"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000061
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401315"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401315"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401315"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[240140134,240140132],\"id\":\"enemy-skill.401401315\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401315\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401315\",\"name_zh_cn\":\"敌方技能401401315\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[2],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401315,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401315\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b931dbe8bfefc1abf358c6abe75103f6d116ce17e2055cfe416815b4c90514fa\",\"source_id\":\"src.enemy-skill.401401315\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillP05\"}"
+          },
+          "row_order": {
+            "Integer": 61
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401315"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401315"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000062
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401316"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401316"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401316"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401316\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401316\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401316\",\"name_zh_cn\":\"敌方技能401401316\",\"ownership\":\"Shared\",\"parameters\":[\"0.5\",\"1\",\"1.5\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401316,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401316\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"de422cdf067f02ca966db244a586ab37d05a6adf09a5f6bfc4cbdbde2d15589e\",\"source_id\":\"src.enemy-skill.401401316\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX01\"}"
+          },
+          "row_order": {
+            "Integer": 62
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401316"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401316"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000063
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401317"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401317"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401317"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401317\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401317\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401317\",\"name_zh_cn\":\"敌方技能401401317\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401317,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401317\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"12044fcd8f9dd76a7009a7e7f699286f096333570343608362c0d820bfe7d120\",\"source_id\":\"src.enemy-skill.401401317\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX02\"}"
+          },
+          "row_order": {
+            "Integer": 63
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401317"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401317"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000064
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401318"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401318"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401318"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401318\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401318\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401318\",\"name_zh_cn\":\"敌方技能401401318\",\"ownership\":\"Shared\",\"parameters\":[\"99\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401318,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401318\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"224b88b5c1b61f25315afa63a26b88edf62280a0cc263314f938cdbd18b475f8\",\"source_id\":\"src.enemy-skill.401401318\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX03\"}"
+          },
+          "row_order": {
+            "Integer": 64
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401318"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401318"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000065
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401319"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401319"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401319"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401319\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401319\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401319\",\"name_zh_cn\":\"敌方技能401401319\",\"ownership\":\"Shared\",\"parameters\":[\"0.1\",\"0.05\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401319,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401319\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"24b3f7bc2984fb2894292e647e136e053c77d539cd26c59b0137782d439dfb2f\",\"source_id\":\"src.enemy-skill.401401319\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX04\"}"
+          },
+          "row_order": {
+            "Integer": 65
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401319"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401319"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000066
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401320"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401320"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401320"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401320\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401320\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401320\",\"name_zh_cn\":\"敌方技能401401320\",\"ownership\":\"Shared\",\"parameters\":[\"40\",\"20\",\"4\",\"0.1\"],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401320,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401320\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"945076035fef74b8ad4857893fa2d9de5ee97225522e1d1ee789a0b0e7dc723f\",\"source_id\":\"src.enemy-skill.401401320\"}],\"sp_hit_base\":\"0\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"SkillEX05\"}"
+          },
+          "row_order": {
+            "Integer": 66
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401320"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401320"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6000067
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy-skill.401401321"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enemy skill 401401321"
+          },
+          "name_zh_cn": {
+            "String": "敌方技能401401321"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ai_cd\":1,\"ai_icd\":1,\"attack_type\":\"Normal\",\"coverage_state\":\"DataReady\",\"damage_type\":null,\"delay_ratio\":\"1\",\"evidence_quality\":\"ExactStructured\",\"extra_effect_ids\":[],\"id\":\"enemy-skill.401401321\",\"kind\":\"enemy-skill\",\"manifest_record_ids\":[\"enemy-skill.401401321\"],\"mechanism_quality\":\"ExactRelationship\",\"modifier_names\":[],\"name_en\":\"Enemy skill 401401321\",\"name_zh_cn\":\"敌方技能401401321\",\"ownership\":\"Shared\",\"parameters\":[],\"phases\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"skill_id\":401401321,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"SkillID=401401321\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterSkillConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0cd8d0393e3a46249a3f575b00ac136d6a92f3ae2bd821da2bb14740a8d5032b\",\"source_id\":\"src.enemy-skill.401401321\"}],\"sp_hit_base\":\"10\",\"summary_en\":\"An exact skill binding reachable from an active boss variant.\",\"summary_zh_cn\":\"可由当前首领变体到达的精确技能绑定。\",\"trigger_key\":\"Skill00\"}"
+          },
+          "row_order": {
+            "Integer": 67
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.enemy-skill.401401321"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy-skill.401401321"
+          },
+          "summary_en": {
+            "String": "An exact skill binding reachable from an active boss variant."
+          },
+          "summary_zh_cn": {
+            "String": "可由当前首领变体到达的精确技能绑定。"
+          }
+        }
+      }
+    ]
+  }
+}

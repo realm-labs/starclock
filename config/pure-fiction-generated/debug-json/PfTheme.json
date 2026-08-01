@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfTheme",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.theme.4"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "Exact"
+          },
+          "name_en": {
+            "String": "Falsehood to Fact theme"
+          },
+          "name_zh_cn": {
+            "String": "借虚成真主题"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ExactStructured\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.theme.4\",\"kind\":\"theme\",\"manifest_record_ids\":[\"pf.theme.4\"],\"mechanism_quality\":\"Exact\",\"name_en\":\"Falsehood to Fact theme\",\"name_zh_cn\":\"借虚成真主题\",\"ownership\":\"PureFiction\",\"presentation_fields_excluded\":true,\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.theme.4\"],\"summary_en\":\"The active group selects released theme identity 4.\",\"summary_zh_cn\":\"当前组选择已发布主题标识4。\",\"theme_id\":4}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.theme.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.theme.4"
+          },
+          "summary_en": {
+            "String": "The active group selects released theme identity 4."
+          },
+          "summary_zh_cn": {
+            "String": "当前组选择已发布主题标识4。"
+          }
+        }
+      }
+    ]
+  }
+}

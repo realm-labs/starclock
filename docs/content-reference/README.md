@@ -191,6 +191,48 @@ the isolated Sora review bundle digest is
 Exact counts, evidence and the remaining runtime boundary are recorded in the
 [Goal 13 ledger](../goals/13-anomaly-arbitration-reference-data-status.md).
 
+## Pure Fiction Candidate reference
+
+Goal 15 freezes `content-reference/pure-fiction-v1/`: 796/796 DataReady
+obligations, 6,014 normalized rows, 606 shared receipts, 25 rules and 18
+fixtures. Its three workbooks and 37-table Sora bundle remain review-only.
+Exact release evidence is recorded in the
+[Goal 15 ledger](../goals/15-pure-fiction-reference-data-status.md).
+
+## Memory of Chaos Candidate reference
+
+Goal 17 freezes `content-reference/memory-of-chaos-v1/`: 477/477 DataReady
+obligations, 1,521 normalized rows, 305 shared reconciliation receipts, 29
+nonblocking policy boundaries and 18 semantic families. Its three workbooks
+and 27-table Sora bundle remain review-only. Exact release evidence is recorded
+in the [Goal 17 ledger](../goals/17-memory-of-chaos-reference-data-status.md).
+
+## Apocalyptic Shadow Candidate reference
+
+Goal 18 freezes `content-reference/apocalyptic-shadow-v1/`: 129/129
+obligations, 1,246 DataReady normalized rows, 81 shared receipts and 42
+fixtures. Its three workbooks and 35-table Sora bundle remain review-only.
+Exact release evidence is recorded in the
+[Goal 18 ledger](../goals/18-apocalyptic-shadow-reference-data-status.md).
+
+## Fate/Star Rail Night Candidate reference
+
+Goal 19 freezes a separate Version 4.4 Fate/Star Rail Night reference package
+under `content-reference/fate-star-rail-night-v1/`. Its 1,904 obligations are
+fully accounted: 1,491 are eligible DataReady, 413 are EvidenceOnly and
+thirteen exact identities are conservatively policy-bound with released-source
+replacement conditions. The normalized pack contains 2,018 records, 1,914
+source receipts, six exact-zero selector proofs, 58 semantic fixtures and zero
+runtime-executable profiles. Four isolated authoring workbooks and the
+48-table Candidate Sora bundle remain review artifacts only.
+
+The complete reference tree digest is
+`edfd1fd99eac92b89e78fffbafe2fd9e4f1fcefc7481bafbea583b80c797e68f`;
+the isolated Sora review bundle digest is
+`f2897da1190ebfe5d6634982382b1bcd5eadcda50b2a050ef1be247b78343336`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 19 ledger](../goals/19-fate-star-rail-night-reference-data-status.md).
+
 ## Merged Candidate integration
 
 The generated
@@ -200,3 +242,12 @@ binds the final Goal 08-13 completion commits after merge. It verifies all
 factual evidence conflicts and zero runtime-enabled Candidate modes. Historical
 release evidence remains unchanged; the integration audit records current-tree
 compatibility separately.
+
+The additional
+[`high-priority merged audit`](../../evidence/high-priority-reference-integration-v1/merged-mode-audit.json)
+binds Goals 15 and 17-19 after merge. It verifies 3,306 obligations and all six
+mode pairs, preserves literal provenance while adding canonical upstream-key
+comparison, records zero factual conflicts and keeps all four runtime profiles
+disabled. Three unqualified cross-mode policy IDs and eight intentional Pure
+Fiction materialized-view aliases remain explicit pre-runtime coordination
+items rather than silently merged identities.

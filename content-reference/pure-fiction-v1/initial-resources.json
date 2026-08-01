@@ -1,0 +1,38 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "initial-resources.json",
+  "record_kind": "initial-resource",
+  "records": [
+    {
+      "id": "pf.contract.initial_resources",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "initial-resource",
+      "name_en": "Battle-entry resources",
+      "name_zh_cn": "战斗入场资源",
+      "summary_en": "Use ordinary challenge battle-entry HP, Energy and Skill Point initialization unless a selected StageConfig program overrides it.",
+      "summary_zh_cn": "除选定StageConfig程序覆盖外，使用普通挑战的生命、能量与战技点入场初始化。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.initial_resources"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.initial_resources"
+      ],
+      "runtime_executable": false,
+      "hp": "full",
+      "energy": "authored-combatant-entry",
+      "skill_points": "challenge-default",
+      "technique_effects": "resolved-before-battle",
+      "retry_restoration": "new-battle-defaults",
+      "replacement_condition": "replace each field with a pinned released selector when exposed"
+    }
+  ]
+}

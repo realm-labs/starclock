@@ -1,0 +1,1189 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-shared-normalized.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P2-B4",
+  "purpose": "enemy variants, templates, skills, statuses and configuration locators",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "counts": {
+    "manifest_obligations": 18,
+    "records": 18,
+    "families": {
+      "EnemySkill": 8,
+      "EnemyTemplate": 5,
+      "EnemyVariant": 5
+    },
+    "disposition": {
+      "DataReady": 18
+    }
+  },
+  "records": [
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.800101001.index-2847",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 800101001",
+      "name_en": "EnemySkill 800101001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:2847",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DamageType": "Fire",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [
+          {
+            "Value": "2.5"
+          }
+        ],
+        "PhaseList": [
+          "1"
+        ],
+        "SPHitBase": {
+          "Value": "10"
+        },
+        "SkillID": "800101001",
+        "SkillTriggerKey": "Skill01"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.800204001.index-2858",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 800204001",
+      "name_en": "EnemySkill 800204001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:2858",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [],
+        "PhaseList": [
+          "1"
+        ],
+        "SkillID": "800204001",
+        "SkillTriggerKey": "Skill01"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.800204002.index-2859",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 800204002",
+      "name_en": "EnemySkill 800204002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:2859",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [],
+        "PhaseList": [
+          "1"
+        ],
+        "SkillID": "800204002",
+        "SkillTriggerKey": "Skill02"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.800204003.index-2860",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 800204003",
+      "name_en": "EnemySkill 800204003",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:2860",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [],
+        "PhaseList": [
+          "1"
+        ],
+        "SkillID": "800204003",
+        "SkillTriggerKey": "Skill03"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.801201001.index-3048",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 801201001",
+      "name_en": "EnemySkill 801201001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:3048",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DamageType": "Imaginary",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [
+          {
+            "Value": "2.5"
+          }
+        ],
+        "PhaseList": [
+          "1"
+        ],
+        "SPHitBase": {
+          "Value": "10"
+        },
+        "SkillID": "801201001",
+        "SkillTriggerKey": "Skill01"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.801201002.index-3049",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 801201002",
+      "name_en": "EnemySkill 801201002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:3049",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DamageType": "Imaginary",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [
+          {
+            "Value": "1.5"
+          }
+        ],
+        "PhaseList": [
+          "1"
+        ],
+        "SPHitBase": {
+          "Value": "5"
+        },
+        "SkillID": "801201002",
+        "SkillTriggerKey": "Skill02"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.801202001.index-3051",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 801202001",
+      "name_en": "EnemySkill 801202001",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:3051",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DamageType": "Quantum",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [
+          {
+            "Value": "1"
+          },
+          {
+            "Value": "0.1"
+          }
+        ],
+        "PhaseList": [
+          "1"
+        ],
+        "SkillID": "801202001",
+        "SkillTriggerKey": "Skill01"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-skill.801202002.index-3052",
+      "family": "EnemySkill",
+      "name_zh": "EnemySkill 801202002",
+      "name_en": "EnemySkill 801202002",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemySkill 事实。",
+      "summary_en": "EnemySkill fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterSkillConfig.json",
+          "locator": "index:3052",
+          "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyTemplateSkillReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AI_CD": "1",
+        "AI_ICD": "1",
+        "AttackType": "Normal",
+        "DamageType": "Quantum",
+        "DelayRatio": {
+          "Value": "1"
+        },
+        "ExtraEffectIDList": [],
+        "ModifierList": [],
+        "ParamList": [
+          {
+            "Value": "5"
+          }
+        ],
+        "PhaseList": [
+          "1"
+        ],
+        "SPHitBase": {
+          "Value": "15"
+        },
+        "SkillID": "801202002",
+        "SkillTriggerKey": "Skill02"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-template.8001010.index-495",
+      "family": "EnemyTemplate",
+      "name_zh": "EnemyTemplate 8001010",
+      "name_en": "EnemyTemplate 8001010",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyTemplate 事实。",
+      "summary_en": "EnemyTemplate fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "index:495",
+          "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyVariantTemplateReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AISkillSequence": [
+          {
+            "MNAHFIGOHML": "800101001"
+          }
+        ],
+        "AtlasSortID": "2",
+        "AttackBase": {
+          "Value": "18"
+        },
+        "CriticalDamageBase": {
+          "Value": "0.2"
+        },
+        "DefenceBase": {
+          "Value": "210"
+        },
+        "HPBase": {
+          "Value": "55.8"
+        },
+        "InitialDelayRatio": {
+          "Value": "1"
+        },
+        "JsonConfig": "Config/ConfigCharacter/Monster/Monster_XP_Minion01_00_Config.json",
+        "MinimumFatigueRatio": {
+          "Value": "0.2"
+        },
+        "MonsterCampID": "3",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8001010",
+        "NPCMonsterList": [
+          "8001010"
+        ],
+        "NatureID": "1",
+        "Rank": "Minion",
+        "SpeedBase": {
+          "Value": "83"
+        },
+        "StanceBase": {
+          "Value": "30"
+        },
+        "StanceCount": "1",
+        "StanceType": "Physical",
+        "TemplateGroupID": "8001010"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-template.8002040.index-502",
+      "family": "EnemyTemplate",
+      "name_zh": "EnemyTemplate 8002040",
+      "name_en": "EnemyTemplate 8002040",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyTemplate 事实。",
+      "summary_en": "EnemyTemplate fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "index:502",
+          "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyVariantTemplateReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AISkillSequence": [
+          {
+            "MNAHFIGOHML": "800204001"
+          },
+          {
+            "MNAHFIGOHML": "800204002"
+          },
+          {
+            "MNAHFIGOHML": "800204003"
+          }
+        ],
+        "AtlasSortID": "1",
+        "AttackBase": {
+          "Value": "18"
+        },
+        "CriticalDamageBase": {
+          "Value": "0.2"
+        },
+        "DefenceBase": {
+          "Value": "315"
+        },
+        "HPBase": {
+          "Value": "334.8"
+        },
+        "InitialDelayRatio": {
+          "Value": "0.5"
+        },
+        "JsonConfig": "Config/ConfigCharacter/Monster/Monster_XP_Minion04_00_Config.json",
+        "MinimumFatigueRatio": {
+          "Value": "0.2"
+        },
+        "MonsterCampID": "7",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8002040",
+        "NPCMonsterList": [
+          "8002040"
+        ],
+        "NatureID": "1",
+        "Rank": "MinionLv2",
+        "SpeedBase": {
+          "Value": "83"
+        },
+        "StanceBase": {
+          "Value": "90"
+        },
+        "StanceCount": "1",
+        "StanceType": "Physical",
+        "TemplateGroupID": "8002040"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-template.8003020.index-533",
+      "family": "EnemyTemplate",
+      "name_zh": "EnemyTemplate 8003020",
+      "name_en": "EnemyTemplate 8003020",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyTemplate 事实。",
+      "summary_en": "EnemyTemplate fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "index:533",
+          "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyVariantTemplateReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AISkillSequence": [],
+        "AtlasSortID": "12",
+        "AttackBase": {
+          "Value": "18"
+        },
+        "CriticalDamageBase": {
+          "Value": "0.2"
+        },
+        "DefenceBase": {
+          "Value": "210"
+        },
+        "HPBase": {
+          "Value": "930"
+        },
+        "InitialDelayRatio": {
+          "Value": "1"
+        },
+        "JsonConfig": "Config/ConfigCharacter/Monster/Monster_XP_Elite01_00_Config.json",
+        "MinimumFatigueRatio": {
+          "Value": "0.2"
+        },
+        "MonsterCampID": "3",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8003020",
+        "NPCMonsterList": [
+          "8003020",
+          "8003021"
+        ],
+        "NatureID": "1",
+        "Rank": "Elite",
+        "SpeedBase": {
+          "Value": "120"
+        },
+        "StanceBase": {
+          "Value": "300"
+        },
+        "StanceCount": "1",
+        "StanceType": "Physical",
+        "StatusResistanceBase": {
+          "Value": "0.2"
+        },
+        "TemplateGroupID": "8003020"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-template.8012010.index-547",
+      "family": "EnemyTemplate",
+      "name_zh": "EnemyTemplate 8012010",
+      "name_en": "EnemyTemplate 8012010",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyTemplate 事实。",
+      "summary_en": "EnemyTemplate fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "index:547",
+          "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyVariantTemplateReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AISkillSequence": [
+          {
+            "MNAHFIGOHML": "801201001"
+          },
+          {
+            "MNAHFIGOHML": "801201002"
+          }
+        ],
+        "AtlasSortID": "3",
+        "AttackBase": {
+          "Value": "18"
+        },
+        "CriticalDamageBase": {
+          "Value": "0.2"
+        },
+        "DefenceBase": {
+          "Value": "210"
+        },
+        "HPBase": {
+          "Value": "139.5"
+        },
+        "InitialDelayRatio": {
+          "Value": "1"
+        },
+        "JsonConfig": "Config/ConfigCharacter/Monster/Monster_AML_Minion02_00_Config.json",
+        "MinimumFatigueRatio": {
+          "Value": "0.2"
+        },
+        "MonsterCampID": "6",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8012010",
+        "NPCMonsterList": [
+          "8012010"
+        ],
+        "NatureID": "1",
+        "Rank": "MinionLv2",
+        "SpeedBase": {
+          "Value": "100"
+        },
+        "StanceBase": {
+          "Value": "60"
+        },
+        "StanceCount": "1",
+        "StanceType": "Physical",
+        "StatusResistanceBase": {
+          "Value": "0.1"
+        },
+        "TemplateGroupID": "8012010"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-template.8012020.index-548",
+      "family": "EnemyTemplate",
+      "name_zh": "EnemyTemplate 8012020",
+      "name_en": "EnemyTemplate 8012020",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyTemplate 事实。",
+      "summary_en": "EnemyTemplate fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "index:548",
+          "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "EnemyVariantTemplateReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AISkillSequence": [
+          {
+            "MNAHFIGOHML": "801202001"
+          },
+          {
+            "MNAHFIGOHML": "801202002"
+          }
+        ],
+        "AtlasSortID": "4",
+        "AttackBase": {
+          "Value": "18"
+        },
+        "CriticalDamageBase": {
+          "Value": "0.2"
+        },
+        "DefenceBase": {
+          "Value": "210"
+        },
+        "HPBase": {
+          "Value": "167.4"
+        },
+        "InitialDelayRatio": {
+          "Value": "1"
+        },
+        "JsonConfig": "Config/ConfigCharacter/Monster/Monster_AML_Minion03_00_Config.json",
+        "MinimumFatigueRatio": {
+          "Value": "0.2"
+        },
+        "MonsterCampID": "6",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8012020",
+        "NPCMonsterList": [
+          "8012020"
+        ],
+        "NatureID": "1",
+        "Rank": "MinionLv2",
+        "SpeedBase": {
+          "Value": "120"
+        },
+        "StanceBase": {
+          "Value": "60"
+        },
+        "StanceCount": "1",
+        "StanceType": "Physical",
+        "StatusResistanceBase": {
+          "Value": "0.1"
+        },
+        "TemplateGroupID": "8012020"
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-variant.8001010.index-1941",
+      "family": "EnemyVariant",
+      "name_zh": "EnemyVariant 8001010",
+      "name_en": "EnemyVariant 8001010",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyVariant 事实。",
+      "summary_en": "EnemyVariant fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterConfig.json",
+          "locator": "index:1941",
+          "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "FateStageMonsterReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AbilityNameList": [],
+        "AttackModifyRatio": {
+          "Value": "1"
+        },
+        "CustomValueTags": [
+          "LockTarget"
+        ],
+        "CustomValues": [],
+        "DamageTypeResistance": [
+          {
+            "DamageType": "Fire",
+            "Value": {
+              "Value": "0.4"
+            }
+          },
+          {
+            "DamageType": "Thunder",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Wind",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Quantum",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Imaginary",
+            "Value": {
+              "Value": "0.2"
+            }
+          }
+        ],
+        "DebuffResist": [
+          {
+            "Key": "STAT_DOT_Burn",
+            "Value": {
+              "Value": "1"
+            }
+          }
+        ],
+        "DefenceModifyRatio": {
+          "Value": "1"
+        },
+        "DynamicValues": [],
+        "EliteGroup": "1",
+        "HPModifyRatio": {
+          "Value": "1"
+        },
+        "HardLevelGroup": "1",
+        "MonsterID": "8001010",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8001010",
+        "OverrideAISkillSequence": [],
+        "OverrideSkillParams": [],
+        "SkillList": [
+          "800101001"
+        ],
+        "SpeedModifyRatio": {
+          "Value": "1"
+        },
+        "StanceModifyRatio": {
+          "Value": "1"
+        },
+        "StanceWeakList": [
+          "Physical",
+          "Ice"
+        ],
+        "SummonIDList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-variant.8002040.index-2027",
+      "family": "EnemyVariant",
+      "name_zh": "EnemyVariant 8002040",
+      "name_en": "EnemyVariant 8002040",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyVariant 事实。",
+      "summary_en": "EnemyVariant fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterConfig.json",
+          "locator": "index:2027",
+          "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "FateStageMonsterReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AbilityNameList": [],
+        "AttackModifyRatio": {
+          "Value": "1"
+        },
+        "CustomValueTags": [
+          "Monster_Minion04"
+        ],
+        "CustomValues": [],
+        "DamageTypeResistance": [
+          {
+            "DamageType": "Fire",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Ice",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Thunder",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Wind",
+            "Value": {
+              "Value": "0.2"
+            }
+          }
+        ],
+        "DebuffResist": [],
+        "DefenceModifyRatio": {
+          "Value": "1"
+        },
+        "DynamicValues": [],
+        "EliteGroup": "1",
+        "HPModifyRatio": {
+          "Value": "1"
+        },
+        "HardLevelGroup": "1",
+        "MonsterID": "8002040",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8002040",
+        "OverrideAISkillSequence": [],
+        "OverrideSkillParams": [],
+        "SkillList": [
+          "800204001",
+          "800204002",
+          "800204003"
+        ],
+        "SpeedModifyRatio": {
+          "Value": "1"
+        },
+        "StanceModifyRatio": {
+          "Value": "1"
+        },
+        "StanceWeakList": [
+          "Physical",
+          "Quantum",
+          "Imaginary"
+        ],
+        "SummonIDList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-variant.8003020.index-2178",
+      "family": "EnemyVariant",
+      "name_zh": "EnemyVariant 8003020",
+      "name_en": "EnemyVariant 8003020",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyVariant 事实。",
+      "summary_en": "EnemyVariant fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterConfig.json",
+          "locator": "index:2178",
+          "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "FateStageMonsterReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AbilityNameList": [],
+        "AttackModifyRatio": {
+          "Value": "1"
+        },
+        "CustomValueTags": [],
+        "CustomValues": [],
+        "DamageTypeResistance": [
+          {
+            "DamageType": "Fire",
+            "Value": {
+              "Value": "0.4"
+            }
+          },
+          {
+            "DamageType": "Thunder",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Wind",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Imaginary",
+            "Value": {
+              "Value": "0.2"
+            }
+          }
+        ],
+        "DebuffResist": [
+          {
+            "Key": "STAT_DOT_Burn",
+            "Value": {
+              "Value": "1"
+            }
+          }
+        ],
+        "DefenceModifyRatio": {
+          "Value": "1"
+        },
+        "DynamicValues": [],
+        "EliteGroup": "1",
+        "HPModifyRatio": {
+          "Value": "1"
+        },
+        "HardLevelGroup": "1",
+        "MonsterID": "8003020",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8003020",
+        "OverrideAISkillSequence": [],
+        "OverrideSkillParams": [],
+        "SkillList": [
+          "800302001",
+          "800302002",
+          "800302003",
+          "800302004"
+        ],
+        "SpeedModifyRatio": {
+          "Value": "1"
+        },
+        "StanceModifyRatio": {
+          "Value": "1"
+        },
+        "StanceWeakList": [
+          "Physical",
+          "Ice",
+          "Quantum"
+        ],
+        "SummonIDList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-variant.8012010.index-2304",
+      "family": "EnemyVariant",
+      "name_zh": "EnemyVariant 8012010",
+      "name_en": "EnemyVariant 8012010",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyVariant 事实。",
+      "summary_en": "EnemyVariant fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterConfig.json",
+          "locator": "index:2304",
+          "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "FateStageMonsterReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AbilityNameList": [],
+        "AttackModifyRatio": {
+          "Value": "1"
+        },
+        "CustomValueTags": [
+          "LockTarget02"
+        ],
+        "CustomValues": [],
+        "DamageTypeResistance": [
+          {
+            "DamageType": "Fire",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Ice",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Wind",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Quantum",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Imaginary",
+            "Value": {
+              "Value": "0.2"
+            }
+          }
+        ],
+        "DebuffResist": [],
+        "DefenceModifyRatio": {
+          "Value": "1"
+        },
+        "DynamicValues": [],
+        "EliteGroup": "1",
+        "HPModifyRatio": {
+          "Value": "1"
+        },
+        "HardLevelGroup": "1",
+        "MonsterID": "8012010",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8012010",
+        "OverrideAISkillSequence": [],
+        "OverrideSkillParams": [],
+        "SkillList": [
+          "801201001",
+          "801201002",
+          "801201003"
+        ],
+        "SpeedModifyRatio": {
+          "Value": "1"
+        },
+        "StanceModifyRatio": {
+          "Value": "1"
+        },
+        "StanceWeakList": [
+          "Physical",
+          "Thunder"
+        ],
+        "SummonIDList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    },
+    {
+      "stable_id": "fate-star-rail-night.shared.enemy-variant.8012020.index-2337",
+      "family": "EnemyVariant",
+      "name_zh": "EnemyVariant 8012020",
+      "name_en": "EnemyVariant 8012020",
+      "summary_zh": "由 Fate 直接引用闭包选中的 EnemyVariant 事实。",
+      "summary_en": "EnemyVariant fact selected by the direct Fate reference closure.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "ExcelOutput/MonsterConfig.json",
+          "locator": "index:2337",
+          "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "FateStageMonsterReference",
+      "confidence": "High",
+      "mechanic_payload": {
+        "AbilityNameList": [],
+        "AttackModifyRatio": {
+          "Value": "1"
+        },
+        "CustomValueTags": [
+          "LockTarget01"
+        ],
+        "CustomValues": [],
+        "DamageTypeResistance": [
+          {
+            "DamageType": "Physical",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Fire",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Ice",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Thunder",
+            "Value": {
+              "Value": "0.2"
+            }
+          },
+          {
+            "DamageType": "Quantum",
+            "Value": {
+              "Value": "0.2"
+            }
+          }
+        ],
+        "DebuffResist": [],
+        "DefenceModifyRatio": {
+          "Value": "1"
+        },
+        "DynamicValues": [],
+        "EliteGroup": "1",
+        "HPModifyRatio": {
+          "Value": "1"
+        },
+        "HardLevelGroup": "1",
+        "MonsterID": "8012020",
+        "MonsterStrategy": [],
+        "MonsterTemplateID": "8012020",
+        "OverrideAISkillSequence": [],
+        "OverrideSkillParams": [],
+        "SkillList": [
+          "801202001",
+          "801202002"
+        ],
+        "SpeedModifyRatio": {
+          "Value": "1"
+        },
+        "StanceModifyRatio": {
+          "Value": "1"
+        },
+        "StanceWeakList": [
+          "Wind",
+          "Imaginary"
+        ],
+        "SummonIDList": []
+      },
+      "notes": "Canonical source-shaped payload; runtime lowering is excluded."
+    }
+  ],
+  "canonical_records_sha256": "07e489d2775bde369d17fc7296d19b1b844e341c1f4bc17d52fb949810b12d5b"
+}

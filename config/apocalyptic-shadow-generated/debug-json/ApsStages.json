@@ -1,0 +1,298 @@
+{
+  "table": {
+    "name": "ApsStages",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage.30191"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Vanguard Knight Difficulty 1"
+          },
+          "name_zh_cn": {
+            "String": "兵锋骑士·难度1"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"floor\":1,\"id\":\"stage.30191\",\"kind\":\"stage\",\"manifest_record_ids\":[\"stage.30191\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Vanguard Knight Difficulty 1\",\"name_zh_cn\":\"兵锋骑士·难度1\",\"node_count\":2,\"ownership\":\"ApocalypticShadow\",\"predecessor_stage_id\":null,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=30191\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossMazeConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2f0ab598d17ec59b4062a0480c786e3739d42a23d1d84b45089d9d0b3a67fe81\",\"source_id\":\"src.stage.30191\"}],\"stage_id\":30191,\"summary_en\":\"An ordinary two-node difficulty selected by active group 3019.\",\"summary_zh_cn\":\"当前组3019选择的双节点普通难度。\",\"target_ids\":[3001,3002,3003],\"tierce\":false}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.stage.30191"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.30191"
+          },
+          "summary_en": {
+            "String": "An ordinary two-node difficulty selected by active group 3019."
+          },
+          "summary_zh_cn": {
+            "String": "当前组3019选择的双节点普通难度。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage.30192"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Vanguard Knight Difficulty 2"
+          },
+          "name_zh_cn": {
+            "String": "兵锋骑士·难度2"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"floor\":2,\"id\":\"stage.30192\",\"kind\":\"stage\",\"manifest_record_ids\":[\"stage.30192\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Vanguard Knight Difficulty 2\",\"name_zh_cn\":\"兵锋骑士·难度2\",\"node_count\":2,\"ownership\":\"ApocalypticShadow\",\"predecessor_stage_id\":30191,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=30192\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossMazeConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"71be81a0cf9fc89f2795fcf700f13997ec7ecade95a4134224240c3d0dd7859a\",\"source_id\":\"src.stage.30192\"}],\"stage_id\":30192,\"summary_en\":\"An ordinary two-node difficulty selected by active group 3019.\",\"summary_zh_cn\":\"当前组3019选择的双节点普通难度。\",\"target_ids\":[3001,3002,3003],\"tierce\":false}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.stage.30192"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.30192"
+          },
+          "summary_en": {
+            "String": "An ordinary two-node difficulty selected by active group 3019."
+          },
+          "summary_zh_cn": {
+            "String": "当前组3019选择的双节点普通难度。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage.30193"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Vanguard Knight Difficulty 3"
+          },
+          "name_zh_cn": {
+            "String": "兵锋骑士·难度3"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"floor\":3,\"id\":\"stage.30193\",\"kind\":\"stage\",\"manifest_record_ids\":[\"stage.30193\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Vanguard Knight Difficulty 3\",\"name_zh_cn\":\"兵锋骑士·难度3\",\"node_count\":2,\"ownership\":\"ApocalypticShadow\",\"predecessor_stage_id\":30192,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=30193\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossMazeConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0a675dad25d53660aa4877ed0420e6b44372bf9fc96654e5ae76e6bfaf97b8da\",\"source_id\":\"src.stage.30193\"}],\"stage_id\":30193,\"summary_en\":\"An ordinary two-node difficulty selected by active group 3019.\",\"summary_zh_cn\":\"当前组3019选择的双节点普通难度。\",\"target_ids\":[3001,3002,3003],\"tierce\":false}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.stage.30193"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.30193"
+          },
+          "summary_en": {
+            "String": "An ordinary two-node difficulty selected by active group 3019."
+          },
+          "summary_zh_cn": {
+            "String": "当前组3019选择的双节点普通难度。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage.30194"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Vanguard Knight Difficulty 4"
+          },
+          "name_zh_cn": {
+            "String": "兵锋骑士·难度4"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"floor\":4,\"id\":\"stage.30194\",\"kind\":\"stage\",\"manifest_record_ids\":[\"stage.30194\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Vanguard Knight Difficulty 4\",\"name_zh_cn\":\"兵锋骑士·难度4\",\"node_count\":2,\"ownership\":\"ApocalypticShadow\",\"predecessor_stage_id\":30193,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=30194\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossMazeConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"306d216a3e13ca00879862383e20330774a1e3cc76aea1108d345f5427ddb618\",\"source_id\":\"src.stage.30194\"}],\"stage_id\":30194,\"summary_en\":\"An ordinary two-node difficulty selected by active group 3019.\",\"summary_zh_cn\":\"当前组3019选择的双节点普通难度。\",\"target_ids\":[3001,3002,3003],\"tierce\":false}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.stage.30194"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.30194"
+          },
+          "summary_en": {
+            "String": "An ordinary two-node difficulty selected by active group 3019."
+          },
+          "summary_zh_cn": {
+            "String": "当前组3019选择的双节点普通难度。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "group.3019"
+              },
+              {
+                "String": "stage.30195"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Vanguard Knight Tierce"
+          },
+          "name_zh_cn": {
+            "String": "兵锋骑士·第三战区"
+          },
+          "ownership": {
+            "String": "ApocalypticShadow"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"stage.30195\",\"kind\":\"stage\",\"manifest_record_ids\":[\"group.3019\",\"stage.30195\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Vanguard Knight Tierce\",\"name_zh_cn\":\"兵锋骑士·第三战区\",\"node_count\":1,\"ownership\":\"ApocalypticShadow\",\"predecessor_stage_id\":30194,\"runtime_executable\":false,\"schema_revision\":\"starclock.apocalyptic-shadow-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"GroupID=3019\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2070b86dc168c94d61c2991c92d7d4e8e0910c4056abbc85d52364fb15cb3869\",\"source_id\":\"src.group.3019\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"selected-ID=30195\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossMazeTierce.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"899e7e391e85b6390a166ce653ff9b5d87ad320d9490058e834114fb52b6a583\",\"source_id\":\"src.stage.30195\"}],\"stage_id\":30195,\"summary_en\":\"The Tierce record explicitly selected by group 3019.\",\"summary_zh_cn\":\"组3019显式选择的第三战区记录。\",\"target_ids\":[5001,5002,5003],\"tierce\":true}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "src.group.3019"
+              },
+              {
+                "String": "src.stage.30195"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage.30195"
+          },
+          "summary_en": {
+            "String": "The Tierce record explicitly selected by group 3019."
+          },
+          "summary_zh_cn": {
+            "String": "组3019显式选择的第三战区记录。"
+          }
+        }
+      }
+    ]
+  }
+}

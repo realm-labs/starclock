@@ -1,0 +1,61 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-ownership-audit.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "batch": "G18-P4-B1",
+  "active_selector": {
+    "schedule_id": 203019,
+    "group_id": 3019,
+    "ordinary_stage_ids": [
+      30191,
+      30192,
+      30193,
+      30194
+    ],
+    "tierce_id": 30195,
+    "excluded_later_group_id": 3020
+  },
+  "manifest": {
+    "records": 129,
+    "categories": {
+      "family": 1,
+      "periods": 1,
+      "groups": 2,
+      "stages": 5,
+      "nodes": 9,
+      "targets": 6,
+      "buffs": 11,
+      "enemy_variants": 10,
+      "enemy_templates": 4,
+      "enemy_skills": 67,
+      "mechanic_programs": 7,
+      "exact_zero_pools": 6
+    },
+    "ownership": {
+      "ApocalypticShadow": 48,
+      "Shared": 81
+    }
+  },
+  "normalized_pack": {
+    "files": 35,
+    "rows": 1246,
+    "sha256": "62ca28e4770c8b3524ee2355755ca9179ea9af3a6384f7e32b5611d4056aa35e"
+  },
+  "row_contract": {
+    "data_ready_rows": 1246,
+    "non_data_ready_rows": 0,
+    "runtime_executable_rows": 0
+  },
+  "exact_zero_pool_count": 6,
+  "reconciliation": {
+    "shared_record_count": 81,
+    "conflict_count": 0,
+    "peer_artifact_mutation_count": 0
+  },
+  "fixtures": {
+    "family_count": 16,
+    "fixture_count": 42,
+    "failed_fixture_count": 0,
+    "blocking_gap_count": 0
+  },
+  "result": "Passed"
+}

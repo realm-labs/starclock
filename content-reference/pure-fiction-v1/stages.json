@@ -1,0 +1,145 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "stages.json",
+  "record_kind": "stage",
+  "records": [
+    {
+      "id": "pf.stage.20241",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "stage",
+      "name_en": "Falsehood to Fact Stage 1",
+      "name_zh_cn": "借虚成真·难度1",
+      "summary_en": "One released two-node score stage in the active season.",
+      "summary_zh_cn": "当前周期内一个已发布的双节点计分关卡。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.stage.20241"
+      ],
+      "source_record_ids": [
+        "source.pf.stage.20241"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20241,
+      "floor": 1,
+      "predecessor_stage_id": null,
+      "node_count": 2,
+      "objective_ids": [
+        2001,
+        2002,
+        2003
+      ],
+      "turn_limit": 5,
+      "clear_score": 30000
+    },
+    {
+      "id": "pf.stage.20242",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "stage",
+      "name_en": "Falsehood to Fact Stage 2",
+      "name_zh_cn": "借虚成真·难度2",
+      "summary_en": "One released two-node score stage in the active season.",
+      "summary_zh_cn": "当前周期内一个已发布的双节点计分关卡。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.stage.20242"
+      ],
+      "source_record_ids": [
+        "source.pf.stage.20242"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20242,
+      "floor": 2,
+      "predecessor_stage_id": 20241,
+      "node_count": 2,
+      "objective_ids": [
+        2001,
+        2002,
+        2003
+      ],
+      "turn_limit": 5,
+      "clear_score": 30000
+    },
+    {
+      "id": "pf.stage.20243",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "stage",
+      "name_en": "Falsehood to Fact Stage 3",
+      "name_zh_cn": "借虚成真·难度3",
+      "summary_en": "One released two-node score stage in the active season.",
+      "summary_zh_cn": "当前周期内一个已发布的双节点计分关卡。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.stage.20243"
+      ],
+      "source_record_ids": [
+        "source.pf.stage.20243"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20243,
+      "floor": 3,
+      "predecessor_stage_id": 20242,
+      "node_count": 2,
+      "objective_ids": [
+        2001,
+        2002,
+        2003
+      ],
+      "turn_limit": 4,
+      "clear_score": 30000
+    },
+    {
+      "id": "pf.stage.20244",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "stage",
+      "name_en": "Falsehood to Fact Stage 4",
+      "name_zh_cn": "借虚成真·难度4",
+      "summary_en": "One released two-node score stage in the active season.",
+      "summary_zh_cn": "当前周期内一个已发布的双节点计分关卡。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.stage.20244"
+      ],
+      "source_record_ids": [
+        "source.pf.stage.20244"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20244,
+      "floor": 4,
+      "predecessor_stage_id": 20243,
+      "node_count": 2,
+      "objective_ids": [
+        2001,
+        2002,
+        2003
+      ],
+      "turn_limit": 4,
+      "clear_score": 30000
+    }
+  ]
+}

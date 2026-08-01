@@ -1,0 +1,334 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-authoring-contract.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "snapshot": "4.4",
+  "manifest": {
+    "schema_revision": "starclock.memory-of-chaos-content-manifest.v1",
+    "required_obligations": 477,
+    "sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce"
+  },
+  "lane": {
+    "initial": "Experimental",
+    "terminal": "Candidate",
+    "runtime_profile": "Unreleased",
+    "runtime_rows_allowed": false
+  },
+  "normalized_pack": {
+    "root": "content-reference/memory-of-chaos-v1",
+    "files": [
+      "profile.json",
+      "seasons.json",
+      "entries.json",
+      "stages.json",
+      "nodes.json",
+      "tierce.json",
+      "participant-policies.json",
+      "attempt-rules.json",
+      "clock-rules.json",
+      "resource-rules.json",
+      "objectives.json",
+      "turbulence.json",
+      "battle-events.json",
+      "rule-contributions.json",
+      "pool-audits.json",
+      "encounters.json",
+      "waves.json",
+      "enemy-slots.json",
+      "enemy-variants.json",
+      "enemy-templates.json",
+      "enemy-abilities.json",
+      "sources.json",
+      "reconciliation-receipts.json",
+      "research-gaps.json",
+      "coverage.json",
+      "semantic-fixtures.json",
+      "pack-index.json"
+    ],
+    "canonical_encoding": "UTF-8; LF; JSON.stringify with two-space indentation and trailing LF",
+    "canonical_decimals": "strings only",
+    "stable_id_order": "lexicographic UTF-8 code-unit order",
+    "semantic_sequences": "preserve explicit stage/node/wave/slot/effect order",
+    "set_sequences": "sort by stable Starclock ID",
+    "source_ids_are_runtime_ids": false
+  },
+  "common_record": {
+    "required_fields": [
+      "id",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "game_version",
+      "ownership",
+      "coverage_state",
+      "source_record_ids"
+    ],
+    "coverage_state": "DataReady",
+    "ownership_values": [
+      "MemoryOfChaos",
+      "Shared",
+      "EvidenceOnly"
+    ]
+  },
+  "evidence": {
+    "required_fields": [
+      "id",
+      "repository_or_url",
+      "revision_or_access_date",
+      "game_version",
+      "path_or_page",
+      "row_locator",
+      "evidence_sha256",
+      "quality",
+      "mechanism_quality",
+      "note"
+    ],
+    "quality_values": [
+      "ExactStructured",
+      "ExactPublicText",
+      "Observed",
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "approximation_required_fields": [
+      "known_facts",
+      "selected_behavior",
+      "rejected_alternatives",
+      "rationale",
+      "affected_fixture_ids",
+      "confidence",
+      "replacement_condition"
+    ],
+    "source_prose_committed": false
+  },
+  "reconciliation": {
+    "key": [
+      "source_path",
+      "stable_row_locator",
+      "evidence_sha256"
+    ],
+    "fields": [
+      "id",
+      "peer_goal",
+      "peer_revision",
+      "source_path",
+      "stable_row_locator",
+      "evidence_sha256",
+      "ownership_local",
+      "ownership_peer",
+      "semantic_result",
+      "note"
+    ],
+    "allowed_results": [
+      "Match",
+      "CompatibleProjection",
+      "Conflict"
+    ],
+    "conflict_policy": "record-and-stop-merge-coordination-no-peer-overwrite"
+  },
+  "semantic_fixtures": {
+    "families": [
+      "active-season-selection",
+      "ordinary-stage-order",
+      "tierce-selected-extension",
+      "participant-uniqueness",
+      "loadout-lock-retry",
+      "cycle-first-av-window",
+      "cycle-node-wave-carry",
+      "objective-star-aggregation",
+      "turbulence-hit-accumulation",
+      "turbulence-cap-cycle-start",
+      "turbulence-target-true-damage",
+      "initial-resources",
+      "battle-entry-operations",
+      "encounter-wave-order",
+      "enemy-transitive-closure",
+      "empty-pool-selector-closure",
+      "future-season-exclusion",
+      "shared-row-reconciliation"
+    ],
+    "count": 18,
+    "may_shrink": false,
+    "required_fields": [
+      "id",
+      "family",
+      "mechanism_quality_floor",
+      "canonical_seed",
+      "initial_state",
+      "commands",
+      "expected_facts",
+      "source_record_ids"
+    ],
+    "execution_scope": "reference-review-only-no-runtime-parity-claim"
+  },
+  "excel_sora": {
+    "format": "xlsx",
+    "adapter": "python-openpyxl",
+    "adapter_version": "3.1.5",
+    "schema_authority": "sora-cli-0.3.0",
+    "project": "config/memory-of-chaos/project.toml",
+    "generated_root": "config/memory-of-chaos-generated",
+    "workbooks": [
+      {
+        "name": "MemoryOfChaos.xlsx",
+        "tables": [
+          "MoCProfile",
+          "MoCSeason",
+          "MoCEntry",
+          "MoCStage",
+          "MoCNode",
+          "MoCTierce",
+          "MoCParticipantPolicy",
+          "MoCAttemptRule",
+          "MoCClockRule",
+          "MoCResourceRule"
+        ]
+      },
+      {
+        "name": "MemoryOfChaosBindings.xlsx",
+        "tables": [
+          "MoCObjective",
+          "MoCTurbulence",
+          "MoCBattleEvent",
+          "MoCRuleBinding",
+          "MoCPoolAudit",
+          "MoCEncounter",
+          "MoCWave",
+          "MoCEnemySlot",
+          "MoCEnemyVariant",
+          "MoCEnemyAbility"
+        ]
+      },
+      {
+        "name": "MemoryOfChaosReview.xlsx",
+        "tables": [
+          "MoCSource",
+          "MoCReconciliation",
+          "MoCResearchGap",
+          "MoCCoverage",
+          "MoCSemanticFixture",
+          "MoCFixtureFact",
+          "MoCPackFile"
+        ]
+      }
+    ],
+    "workbook_generation": "complete-clean-target-no-overwrite",
+    "forbidden_outputs": [
+      "config/generated/",
+      "config/universe-generated/",
+      "config/gold-and-gears-generated/",
+      "config/pure-fiction-generated/",
+      "config/apocalyptic-shadow-generated/"
+    ]
+  },
+  "normalized_family_bindings": {
+    "profile.json": {
+      "order": 1,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "seasons.json": {
+      "order": 2,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "entries.json": {
+      "order": 3,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "stages.json": {
+      "order": 4,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "nodes.json": {
+      "order": 5,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "tierce.json": {
+      "order": 6,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "participant-policies.json": {
+      "order": 7,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "attempt-rules.json": {
+      "order": 8,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "clock-rules.json": {
+      "order": 9,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "resource-rules.json": {
+      "order": 10,
+      "workbook": "MemoryOfChaos.xlsx"
+    },
+    "objectives.json": {
+      "order": 11,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "turbulence.json": {
+      "order": 12,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "battle-events.json": {
+      "order": 13,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "rule-contributions.json": {
+      "order": 14,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "pool-audits.json": {
+      "order": 15,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "encounters.json": {
+      "order": 16,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "waves.json": {
+      "order": 17,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "enemy-slots.json": {
+      "order": 18,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "enemy-variants.json": {
+      "order": 19,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "enemy-templates.json": {
+      "order": 20,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "enemy-abilities.json": {
+      "order": 21,
+      "workbook": "MemoryOfChaosBindings.xlsx"
+    },
+    "sources.json": {
+      "order": 22,
+      "workbook": "MemoryOfChaosReview.xlsx"
+    },
+    "reconciliation-receipts.json": {
+      "order": 23,
+      "workbook": "MemoryOfChaosReview.xlsx"
+    },
+    "research-gaps.json": {
+      "order": 24,
+      "workbook": "MemoryOfChaosReview.xlsx"
+    },
+    "coverage.json": {
+      "order": 25,
+      "workbook": "MemoryOfChaosReview.xlsx"
+    },
+    "semantic-fixtures.json": {
+      "order": 26,
+      "workbook": "MemoryOfChaosReview.xlsx"
+    },
+    "pack-index.json": {
+      "order": 27,
+      "workbook": "MemoryOfChaosReview.xlsx"
+    }
+  }
+}
