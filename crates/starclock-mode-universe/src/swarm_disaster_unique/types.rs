@@ -220,6 +220,9 @@ pub(super) struct FinishDefinition {
     pub(super) id: FinishId,
     pub(super) key: Box<str>,
     pub(super) enabled: bool,
+    pub(super) finish_type: Box<str>,
+    pub(super) comparison: Box<str>,
+    pub(super) parameters: Box<str>,
     pub(super) target: Box<str>,
     pub(super) unlock_keys: Box<[Box<str>]>,
 }
@@ -239,6 +242,7 @@ pub(super) struct ChapterDefinition {
     pub(super) dimension: Option<CommuningDimensionId>,
     pub(super) layer: u8,
     pub(super) threshold: Option<Box<str>>,
+    pub(super) mechanical_unlock: Box<str>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -505,6 +505,9 @@ fn lower_finish(
         id: FinishId(positive(row.id, &row.stable_key)?),
         key: stable(&row.stable_key)?,
         enabled: row.enabled_for_swarm_compilation,
+        finish_type: nonempty(&row.finish_type, &row.stable_key)?,
+        comparison: nonempty(&row.comparison, &row.stable_key)?,
+        parameters: json(&row.parameters_json, &row.stable_key)?,
         target: scalar(&row.target_progress, &row.stable_key)?,
         unlock_keys: optional_text_list(row.unlock_ids.as_deref(), &row.stable_key)?,
     })
@@ -543,6 +546,7 @@ fn lower_chapter(
             .as_deref()
             .map(|value| scalar(value, &row.stable_key))
             .transpose()?,
+        mechanical_unlock: json(&row.mechanical_unlock_json, &row.stable_key)?,
     })
 }
 

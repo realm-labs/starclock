@@ -139,6 +139,61 @@ pub(crate) struct SwarmTrailEffectRuntimeInput {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathstriderRuntimeInput {
+    pub(crate) objectives: Box<[SwarmPathstriderObjectiveRuntimeInput]>,
+    pub(crate) cabinet_objectives: Box<[SwarmCabinetObjectiveRuntimeInput]>,
+    pub(crate) finishes: Box<[SwarmPathstriderFinishRuntimeInput]>,
+    pub(crate) unlocks: Box<[SwarmPathstriderUnlockRuntimeInput]>,
+    pub(crate) chapters: Box<[SwarmChapterRuntimeInput]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathstriderObjectiveRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) cabinet_id: u32,
+    pub(crate) finish_key: Box<str>,
+    pub(crate) progress_policy: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmCabinetObjectiveRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) objective_id: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathstriderFinishRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) enabled: bool,
+    pub(crate) finish_type: Box<str>,
+    pub(crate) comparison: Box<str>,
+    pub(crate) parameters: Box<str>,
+    pub(crate) target: Box<str>,
+    pub(crate) unlock_keys: Box<[Box<str>]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmPathstriderUnlockRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) finish_id: u32,
+    pub(crate) consequence: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SwarmChapterRuntimeInput {
+    pub(crate) id: u32,
+    pub(crate) key: Box<str>,
+    pub(crate) dimension_id: Option<u32>,
+    pub(crate) layer: u8,
+    pub(crate) threshold: Option<Box<str>>,
+    pub(crate) mechanical_unlock: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct SwarmCommuningChoiceRuntimeInput {
     pub(crate) id: u32,
     pub(crate) key: Box<str>,
@@ -411,6 +466,72 @@ impl SwarmDisasterUniqueCatalog {
                     domain: row.domain.clone(),
                     operations: row.operations.clone(),
                     battle_projection: row.battle_projection.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        }
+    }
+
+    pub(crate) fn pathstrider_runtime_input(&self) -> SwarmPathstriderRuntimeInput {
+        SwarmPathstriderRuntimeInput {
+            objectives: self
+                .objectives
+                .iter()
+                .map(|row| SwarmPathstriderObjectiveRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    cabinet_id: row.cabinet.0,
+                    finish_key: row.finish_key.clone(),
+                    progress_policy: row.progress_policy.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            cabinet_objectives: self
+                .cabinets
+                .iter()
+                .map(|row| SwarmCabinetObjectiveRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    objective_id: row.objective_id.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            finishes: self
+                .finish_conditions
+                .iter()
+                .map(|row| SwarmPathstriderFinishRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    enabled: row.enabled,
+                    finish_type: row.finish_type.clone(),
+                    comparison: row.comparison.clone(),
+                    parameters: row.parameters.clone(),
+                    target: row.target.clone(),
+                    unlock_keys: row.unlock_keys.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            unlocks: self
+                .unlocks
+                .iter()
+                .map(|row| SwarmPathstriderUnlockRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    finish_id: row.finish.0,
+                    consequence: row.consequence.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            chapters: self
+                .chapters
+                .iter()
+                .map(|row| SwarmChapterRuntimeInput {
+                    id: row.id.0,
+                    key: row.key.clone(),
+                    dimension_id: row.dimension.map(|id| id.0),
+                    layer: row.layer,
+                    threshold: row.threshold.clone(),
+                    mechanical_unlock: row.mechanical_unlock.clone(),
                 })
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),

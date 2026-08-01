@@ -1,0 +1,130 @@
+{
+  "schema_revision": "starclock.swarm-disaster-pathstrider-progress.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P4-B2",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "pathstrider_objectives": 31,
+    "finish_conditions": 102,
+    "unlock_rows": 110,
+    "mechanical_chapters": 13,
+    "assigned_source_obligations": 225
+  },
+  "objective_contract": {
+    "source": "ExternalQuestCompletion",
+    "comparison": "Completed",
+    "update_boundary": "AfterAcceptedActivityOperation",
+    "exact_condition_to_cabinet_bindings": 31,
+    "unknown_condition": "TypedReject",
+    "repeated_completion": "TypedReject"
+  },
+  "finish_contract": {
+    "enabled_conditions": 15,
+    "disabled_conditions": 87,
+    "enabled_unlocks": 15,
+    "disabled_unlocks": 95,
+    "progress_policy": "CallerReportsCanonicalNondecreasingProgressAfterAcceptedOperation",
+    "revocable": false,
+    "stale_program": "AtomicReject",
+    "rng_draws": 0,
+    "enabled_families": {
+      "RogueDLCFinishCnt": 5,
+      "FinishMission": 1,
+      "FinishQuest": 3,
+      "RogueFinishUnlock": 1,
+      "RogueDLCFinishMainStory": 4,
+      "RogueDLCFinishMainStoryCnt": 1
+    }
+  },
+  "chapter_contract": {
+    "availability_rows": 13,
+    "plane_layers": 3,
+    "dimension_threshold_rows": 12,
+    "unconditional_final_plane_rows": 1,
+    "availability_only_rows": 10,
+    "unresolved_bonus_rows": 3,
+    "unresolved_bonus_disposition": "FailClosedPayloadChapterAvailabilityOnly",
+    "state_owner": "Activity",
+    "state_carry": "CarryExact",
+    "stale_program": "AtomicReject"
+  },
+  "compatibility": {
+    "default_entry_state_hash": "a1bcf8bea2889ae5d33062a27eebc64594adcf908039f004a0e22c05cf41de8c",
+    "seeded_all_chapters_hash": "0de89fb9d17395c45b004010aae96a98a9cfea12a981d79a4f421d8b83738eeb",
+    "replay_release_state": "PreReleaseGoal20",
+    "new_replay_revision_required_now": false
+  },
+  "policy_boundaries": [
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-objectives",
+      "state": "VersionedExecutablePolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-pathstrider-progress-v1",
+      "affected_record_count": 33,
+      "remaining_owner": null
+    },
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-unlocks",
+      "state": "InheritedPolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-pathstrider-progress-v1",
+      "affected_record_count": 114,
+      "remaining_owner": "G20-P4-B3"
+    }
+  ],
+  "deferred_semantics": [
+    {
+      "semantic_fixture_id": "swarm-disaster.fixture.pathstrider-progress",
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "source_record_count": 3,
+      "execution_batch": "G20-P5-B1",
+      "state": "Pending",
+      "mechanic_rule_id": "swarm-disaster.mechanic-rule.pathstrider-progress",
+      "mechanic_rule_batch": "G20-P5-M06",
+      "mechanic_rule_state": "Pending"
+    }
+  ],
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "embedded_sora_json_lowered_once_at_factory_load": true,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 8,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 892,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/pathstrider_progress.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "pathstrider_unit_passed": 6,
+    "entry_lifecycle_unit_passed": 59,
+    "swarm_unit_passed": 70,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "132.3",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "235.2",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "167.3"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry::pathstrider_progress_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase4-b2.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

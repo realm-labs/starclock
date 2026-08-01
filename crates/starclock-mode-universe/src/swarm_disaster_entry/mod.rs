@@ -9,6 +9,7 @@ mod face_operation;
 mod factory;
 mod instance;
 mod map_overlay;
+mod pathstrider_progress;
 mod plane_transition;
 mod simultaneous;
 mod state;
@@ -45,6 +46,8 @@ pub const SWARM_DISASTER_COMMUNING_REVISION: &str = "swarm-disaster-communing-ru
 pub const SWARM_DISASTER_SIMULTANEOUS_REVISION: &str = "swarm-disaster-simultaneous-resolution-v1";
 /// Versioned Communing Trail prerequisite and effect projection policy.
 pub const SWARM_DISASTER_TRAIL_REVISION: &str = "swarm-disaster-communing-trail-v1";
+/// Versioned Pathstrider progress, unlock and chapter availability policy.
+pub const SWARM_DISASTER_PATHSTRIDER_REVISION: &str = "swarm-disaster-pathstrider-progress-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -145,6 +148,7 @@ pub struct SwarmDisasterRuntimeFactory {
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
+    pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -167,6 +171,7 @@ pub struct SwarmDisasterRuntimeInstance {
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
+    pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
 }
 
 #[cfg(test)]
@@ -181,6 +186,8 @@ mod dice_control_tests;
 mod face_effect_tests;
 #[cfg(test)]
 mod map_overlay_tests;
+#[cfg(test)]
+mod pathstrider_progress_tests;
 #[cfg(test)]
 mod plane_transition_tests;
 #[cfg(test)]
