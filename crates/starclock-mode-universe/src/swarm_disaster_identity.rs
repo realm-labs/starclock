@@ -3,10 +3,11 @@
 use crate::{
     digest::Encoder,
     error::UniverseCatalogLoadError,
-    swarm_disaster_catalog::{SwarmDisasterBundleSummary, load_validated_swarm_disaster_bundle},
+    swarm_disaster_catalog::SwarmDisasterBundleSummary,
     swarm_disaster_handler_bundle::{
         SWARM_DISASTER_HANDLER_BUNDLE_REVISION, swarm_disaster_activity_handler_registry,
     },
+    swarm_disaster_structural::SwarmDisasterStructuralCatalog,
 };
 
 pub(crate) const SWARM_DISASTER_CATALOG_REVISION: &str = "swarm-disaster-v4.4-runtime-v1";
@@ -34,8 +35,8 @@ pub(crate) struct SwarmDisasterCatalogIdentity {
 
 impl SwarmDisasterCatalogIdentity {
     pub(crate) fn load(bytes: &[u8]) -> Result<Self, UniverseCatalogLoadError> {
-        let (summary, _) = load_validated_swarm_disaster_bundle(bytes)?;
-        Ok(Self::from_validated_bundle(summary))
+        let structural = SwarmDisasterStructuralCatalog::load(bytes)?;
+        Ok(Self::from_validated_bundle(structural.bundle_summary()))
     }
 
     fn from_validated_bundle(bundle: SwarmDisasterBundleSummary) -> Self {

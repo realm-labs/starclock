@@ -76,6 +76,7 @@ pub mod swarm_disaster_catalog;
 pub mod swarm_disaster_components;
 mod swarm_disaster_handler_bundle;
 mod swarm_disaster_identity;
+mod swarm_disaster_structural;
 pub mod topology;
 mod topology_identity;
 mod topology_reward;

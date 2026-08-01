@@ -42,7 +42,7 @@ impl SwarmDisasterBundleSummary {
         self.bundle_digest
     }
 
-    const fn table_count(self) -> usize {
+    pub(crate) const fn table_count(self) -> usize {
         self.table_count
     }
 
