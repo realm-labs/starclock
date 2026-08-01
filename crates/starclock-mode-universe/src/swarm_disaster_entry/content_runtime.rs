@@ -345,7 +345,8 @@ impl SwarmDisasterRuntimeInstance {
         category: &str,
         owned: &[u32],
     ) -> Result<Box<[u32]>, UniverseCatalogLoadError> {
-        self.content_runtime
+        self.curio_rules
+            .content(&self.content_runtime)
             .curio_candidates(category_filter(category)?, owned)
             .map(Vec::into_boxed_slice)
     }
@@ -358,7 +359,8 @@ impl SwarmDisasterRuntimeInstance {
         rng: &mut ActivityRngStreams,
     ) -> Result<Box<[u32]>, UniverseCatalogLoadError> {
         let candidates = self
-            .content_runtime
+            .curio_rules
+            .content(&self.content_runtime)
             .curio_candidates(category_filter(category)?, owned)?;
         select(
             &candidates,
@@ -447,9 +449,8 @@ impl SwarmDisasterRuntimeInstance {
                             PendingContentKind::CurioNegative => Some(CurioCategory::Negative),
                             PendingContentKind::Blessing => unreachable!("handled above"),
                         };
-                        let candidates = self
-                            .content_runtime
-                            .curio_candidates(category, &owned_curios)?;
+                        let content = self.curio_rules.content(&self.content_runtime);
+                        let candidates = content.curio_candidates(category, &owned_curios)?;
                         let selected = select(
                             &candidates,
                             request.count,
@@ -461,7 +462,7 @@ impl SwarmDisasterRuntimeInstance {
                             return Err(reference("exhausted deferred Curio pool"));
                         }
                         for id in selected {
-                            operations.extend(acquisition(self.content_runtime.curio(id)?));
+                            operations.extend(acquisition(content.curio(id)?));
                             owned_curios.push(id);
                         }
                     }
@@ -475,7 +476,8 @@ impl SwarmDisasterRuntimeInstance {
     }
 
     pub fn curio_stable_key(&self, id: u32) -> Result<&str, UniverseCatalogLoadError> {
-        self.content_runtime
+        self.curio_rules
+            .content(&self.content_runtime)
             .curio(id)
             .map(|curio| curio.key.as_ref())
     }
@@ -484,7 +486,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         id: u32,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let curio = self.content_runtime.curio(id)?;
+        let curio = self.curio_rules.content(&self.content_runtime).curio(id)?;
         program(0x5346_0000 + curio.source_id, acquisition(curio))
     }
 
@@ -493,7 +495,7 @@ impl SwarmDisasterRuntimeInstance {
         id: u32,
         expected_remaining: u8,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let curio = self.content_runtime.curio(id)?;
+        let curio = self.curio_rules.content(&self.content_runtime).curio(id)?;
         let maximum = curio
             .maximum_charges
             .ok_or_else(|| reference("Swarm Curio has no numeric charges"))?;
@@ -516,7 +518,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         id: u32,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let curio = self.content_runtime.curio(id)?;
+        let curio = self.curio_rules.content(&self.content_runtime).curio(id)?;
         if curio.decrement_event.as_ref() != "SourceConditionWithoutNumericCharges"
             || curio.terminal_state != CurioState::Destroyed
         {
@@ -532,7 +534,7 @@ impl SwarmDisasterRuntimeInstance {
         id: u32,
         expected_progress: u8,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let curio = self.content_runtime.curio(id)?;
+        let curio = self.curio_rules.content(&self.content_runtime).curio(id)?;
         let required = curio
             .repair_after_battles
             .ok_or_else(|| reference("Swarm Curio cannot be repaired"))?;
@@ -564,8 +566,9 @@ impl SwarmDisasterRuntimeInstance {
         if removed == acquired {
             return Err(reference("Swarm Curio replacement cycle"));
         }
-        let removed_curio = self.content_runtime.curio(removed)?;
-        let acquired_curio = self.content_runtime.curio(acquired)?;
+        let content = self.curio_rules.content(&self.content_runtime);
+        let removed_curio = content.curio(removed)?;
+        let acquired_curio = content.curio(acquired)?;
         let mut operations = teardown(removed);
         operations.extend(acquisition(acquired_curio));
         program(
@@ -580,7 +583,7 @@ impl SwarmDisasterRuntimeInstance {
         &self,
         id: u32,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let curio = self.content_runtime.curio(id)?;
+        let curio = self.curio_rules.content(&self.content_runtime).curio(id)?;
         program(0x534B_0000 + curio.source_id, teardown(id))
     }
 }

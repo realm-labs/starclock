@@ -9,9 +9,10 @@ use crate::{
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     audience_rule_runtime, communing, communing_rule_runtime, content_runtime, countdown,
-    dice_control, disarray_rule_runtime, face_effect, map_overlay, occurrence_runtime,
-    path_rule_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
-    progression_rule_runtime, service_adventure_runtime, state, topology_rule_runtime, trail,
+    curio_rule_runtime, dice_control, disarray_rule_runtime, face_effect, map_overlay,
+    occurrence_runtime, path_rule_runtime, path_runtime, pathstrider_progress, plane_transition,
+    profile_rule_runtime, progression_rule_runtime, service_adventure_runtime, state,
+    topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -109,6 +110,9 @@ impl SwarmDisasterRuntimeFactory {
         let content_runtime = Arc::new(content_runtime::ContentRuntimeCatalog::compile(
             content.inventory_runtime_input(),
         )?);
+        let curio_rules = Arc::new(curio_rule_runtime::CurioRuleRuntimeCatalog::compile(
+            mechanic_rule(&content, "curio-lifecycle")?,
+        )?);
         let occurrences = Arc::new(occurrence_runtime::OccurrenceRuntimeCatalog::compile(
             &content.interaction_runtime_input(),
         )?);
@@ -135,6 +139,7 @@ impl SwarmDisasterRuntimeFactory {
             communing,
             communing_rules,
             content_runtime,
+            curio_rules,
             trail,
             path_runtime,
             path_rules,
@@ -237,6 +242,7 @@ impl SwarmDisasterRuntimeFactory {
             communing: Arc::clone(&self.communing),
             communing_rules: Arc::clone(&self.communing_rules),
             content_runtime: Arc::clone(&self.content_runtime),
+            curio_rules: Arc::clone(&self.curio_rules),
             trail,
             path_runtime,
             path_rules: Arc::clone(&self.path_rules),

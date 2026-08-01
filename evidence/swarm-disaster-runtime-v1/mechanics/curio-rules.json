@@ -1,0 +1,87 @@
+{
+  "schema_revision": "starclock.swarm-disaster-curio-rule-execution.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P5-M08",
+  "observed_on": "2026-08-02",
+  "result": "Pass",
+  "partition": {
+    "executor": "SwarmCurioRuleExecutor",
+    "expected_rules": 1,
+    "executed_rules": 1,
+    "exact_structured_rules": 0,
+    "project_policy_rules": 1,
+    "families": ["curio-lifecycle"]
+  },
+  "runtime_binding": {
+    "revision": "swarm-disaster-curio-rule-runtime-v1",
+    "domain": "CrossBattle",
+    "source_disposition": "ReferenceOnly",
+    "runtime_disposition": "ProductionActivityPrograms",
+    "rule_id": "swarm-disaster.mechanic-rule.curio-lifecycle",
+    "ordered_operation_count": 3,
+    "unresolved_behavior": "FailClosed",
+    "content_runtime": "ExistingContentRuntimeCatalog",
+    "state_owner": "ExistingActivityTransactionState"
+  },
+  "production_execution": {
+    "mode_copy_definitions": 66,
+    "normal": 53,
+    "negative": 7,
+    "error_code": 6,
+    "charged": 6,
+    "source_condition_destroyed": 3,
+    "repairing_to_fixed": 6,
+    "replace_all": 1,
+    "inventory_maximum_entries": 66,
+    "inventory_maximum_stack": 1,
+    "candidate_order": "ModeCopyIdAscending",
+    "absent_offer_binding": "FailClosed",
+    "no_legal_replacement": "NoOp",
+    "rng_draws_for_lifecycle_mutations": 0,
+    "stale_program": "AtomicReject"
+  },
+  "compatibility": {
+    "runtime_digest": "0bd76583f7474450226d1c979d70b51261253f3fb564a0e7bb705b92833100ac",
+    "content_runtime_digest": "5840363010af31710d2db6438eafb8dac613beef9c42e9d29ba36d82f8d5f6eb",
+    "replay_release_state": "PreReleaseGoal20"
+  },
+  "deferred_fixtures": {
+    "fixture_ids": ["swarm-disaster.fixture.curio-lifecycle"],
+    "ordered_operation_count": 3,
+    "expected_fact_count": 4,
+    "source_record_count": 3,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "production_binding_state": "PreTerminalProductionParity"
+  },
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 1,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 921,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/curio_rule_runtime.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "curio_rule_unit_passed": 3,
+    "entry_lifecycle_unit_passed": 102,
+    "swarm_unit_passed": 113,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "source_policy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "3.1",
+    "quick_gate_cache": "Hit",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "235.4",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "168.7"
+  }
+}

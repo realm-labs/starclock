@@ -5,6 +5,7 @@ mod communing;
 mod communing_rule_runtime;
 mod content_runtime;
 mod countdown;
+mod curio_rule_runtime;
 mod dice_control;
 mod disarray_rule_runtime;
 mod entry;
@@ -89,6 +90,7 @@ pub struct SwarmDisasterRuntimeFactory {
     communing: Arc<communing::CommuningRuntimeCatalog>,
     communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
+    curio_rules: Arc<curio_rule_runtime::CurioRuleRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
     path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
     path_rules: Arc<path_rule_runtime::PathRuleRuntimeCatalog>,
@@ -123,6 +125,7 @@ pub struct SwarmDisasterRuntimeInstance {
     communing: Arc<communing::CommuningRuntimeCatalog>,
     communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
+    curio_rules: Arc<curio_rule_runtime::CurioRuleRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
     path_runtime: path_runtime::CompiledPathRuntime,
     path_rules: Arc<path_rule_runtime::PathRuleRuntimeCatalog>,
