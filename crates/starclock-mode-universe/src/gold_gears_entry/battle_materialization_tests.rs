@@ -14,8 +14,9 @@ use crate::battle_materialization::{UniverseBattleRoster, player_participants};
 
 use super::{
     GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION,
-    GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION, GoldAndGearsBattleAssemblyContext,
-    GoldAndGearsEncounterSelection, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
+    GoldAndGearsBattleAssemblyContext, GoldAndGearsEncounterSelection, GoldAndGearsEntryError,
+    GoldAndGearsRuntimeInstance,
+    battle_enemy_catalog::GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION,
 };
 
 #[test]

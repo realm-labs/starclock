@@ -6,11 +6,17 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_CURIO_OFFER_POLICY_ACCURACY, GOLD_AND_GEARS_CURIO_OFFER_POLICY_REVISION,
-    GOLD_AND_GEARS_CURIO_RUNTIME_REVISION, GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION,
-    GoldAndGearsCurioCategory, GoldAndGearsCurioId, GoldAndGearsCurioOfferContext,
-    GoldAndGearsCurioOfferSource, GoldAndGearsCurioRuleKind, GoldAndGearsCurioRuleOwnership,
-    GoldAndGearsCurioState, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    content_link_runtime::GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION,
+    curio_runtime::{
+        GOLD_AND_GEARS_CURIO_OFFER_POLICY_ACCURACY,
+        GOLD_AND_GEARS_CURIO_OFFER_POLICY_REVISION, GOLD_AND_GEARS_CURIO_RUNTIME_REVISION,
+    },
+    curio_types::{
+        GoldAndGearsCurioCategory, GoldAndGearsCurioDefinition, GoldAndGearsCurioId,
+        GoldAndGearsCurioOfferContext, GoldAndGearsCurioOfferSource,
+        GoldAndGearsCurioRuleKind, GoldAndGearsCurioRuleOwnership, GoldAndGearsCurioState,
+    },
     state_layout::{
         BLESSING_INVENTORY, CONTENT_CURIO_CHARGE_BASE, CONTENT_CURIO_STATE_BASE,
         CONTENT_LIFECYCLE_SLOT, CURIO_INVENTORY,
@@ -702,7 +708,7 @@ fn by_source(instance: &GoldAndGearsRuntimeInstance, source: u32) -> GoldAndGear
 fn definition(
     instance: &GoldAndGearsRuntimeInstance,
     id: GoldAndGearsCurioId,
-) -> &super::GoldAndGearsCurioDefinition {
+) -> &GoldAndGearsCurioDefinition {
     instance
         .curio_definitions()
         .iter()

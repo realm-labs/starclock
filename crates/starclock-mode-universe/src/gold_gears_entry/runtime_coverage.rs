@@ -67,6 +67,9 @@ pub struct GoldAndGearsRuntimeCoverageSummary {
     digest: [u8; 32],
 }
 
+/// Stable public name for the exact runtime coverage snapshot.
+pub type GoldAndGearsCoverage = GoldAndGearsRuntimeCoverageSummary;
+
 impl GoldAndGearsRuntimeCoverageSummary {
     #[must_use]
     pub const fn source_categories(self) -> u16 {

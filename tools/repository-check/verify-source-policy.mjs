@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -35,7 +36,13 @@ for (const entry of rules.allowed_public_reexports) {
   const relative = validateRelativePath(entry.path, "public re-export allowlist");
   assert(!reexportAllowlist.has(relative), `${relative}: duplicate public re-export allowlist entry`);
   assert(nonEmpty(entry.reason), `${relative}: public re-export allowlist entry requires a review reason`);
-  reexportAllowlist.set(relative, entry.reason);
+  assert(Number.isInteger(entry.declarations) && entry.declarations > 0,
+    `${relative}: public re-export allowlist entry requires a positive declaration count`);
+  assert(Number.isInteger(entry.symbols) && entry.symbols > 0,
+    `${relative}: public re-export allowlist entry requires a positive symbol count`);
+  assert(/^[0-9a-f]{64}$/.test(entry.sha256),
+    `${relative}: public re-export allowlist entry requires a SHA-256 digest`);
+  reexportAllowlist.set(relative, entry);
 }
 
 const selectedRustFiles = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "--", "*.rs"], { cwd: root, encoding: "utf8" })
@@ -77,6 +84,15 @@ for (const relative of rustFiles) {
     publicReexportCount += publicUses.length;
     reexportFiles.add(relative);
     assert(reexportAllowlist.has(relative), `${relative}: public re-exports require an explicit reviewed allowlist entry`);
+    const contract = reexportAllowlist.get(relative);
+    assert(publicUses.length === contract.declarations,
+      `${relative}: public re-export declaration count drifted from ${contract.declarations} to ${publicUses.length}`);
+    const symbols = publicReexportSymbolCount(publicUses);
+    assert(symbols === contract.symbols,
+      `${relative}: public re-export symbol count drifted from ${contract.symbols} to ${symbols}`);
+    const digest = publicReexportDigest(publicUses);
+    assert(digest === contract.sha256,
+      `${relative}: public re-export surface digest drifted from ${contract.sha256} to ${digest}`);
   }
   for (const declaration of publicUses) {
     assert(!/::\s*\*|\{\s*\*|,\s*\*|\*\s*\}/.test(declaration), `${relative}: wildcard public re-exports are forbidden`);
@@ -114,6 +130,22 @@ function physicalLineCount(value) {
   return /(?:\r\n|\n|\r)$/.test(value) ? count - 1 : count;
 }
 function stripLineComments(value) { return value.replace(/\/\/.*$/gm, ""); }
+function publicReexportDigest(declarations) {
+  const canonical = declarations
+    .map((declaration) => declaration.replace(/\s+/g, " ").trim())
+    .sort((left, right) => left.localeCompare(right))
+    .join("\n");
+  return createHash("sha256").update(canonical).digest("hex");
+}
+function publicReexportSymbolCount(declarations) {
+  return declarations.reduce((count, declaration) => {
+    const open = declaration.indexOf("{");
+    const close = declaration.lastIndexOf("}");
+    if (open < 0 || close < open) return count + 1;
+    return count + declaration.slice(open + 1, close).split(",")
+      .filter((symbol) => symbol.trim().length > 0).length;
+  }, 0);
+}
 function normalize(value) { return value.replaceAll("\\", "/"); }
 function nonEmpty(value) { return typeof value === "string" && value.trim().length > 0; }
 function escapeRegex(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }

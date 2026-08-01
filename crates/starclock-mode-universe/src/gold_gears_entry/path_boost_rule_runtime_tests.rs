@@ -22,10 +22,12 @@ use starclock_combat::{
 use crate::digest::Encoder;
 
 use super::{
-    CONUNDRUM_AREA_KEY, GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION,
-    GoldAndGearsPathBoostCombatSet, GoldAndGearsPathBoostRuleKind,
-    GoldAndGearsPathBoostRuleOwnership, GoldAndGearsPathBoostStat, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    path_boost_rule_runtime::{
+        GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION, GoldAndGearsPathBoostCombatSet,
+        GoldAndGearsPathBoostRuleKind, GoldAndGearsPathBoostRuleOwnership,
+    },
+    progression_runtime::GoldAndGearsPathBoostStat,
     state_layout::{PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, PROGRESSION_SLOT},
     tests::{compiled_fixture, entry},
 };

@@ -6,13 +6,20 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_ADVENTURE_POLICY_ACCURACY, GOLD_AND_GEARS_ADVENTURE_POLICY_REVISION,
-    GOLD_AND_GEARS_ADVENTURE_RUNTIME_REVISION, GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY,
-    GOLD_AND_GEARS_OCCURRENCE_POLICY_REVISION, GOLD_AND_GEARS_OCCURRENCE_RUNTIME_REVISION,
-    GOLD_AND_GEARS_SERVICE_RUNTIME_REVISION, GoldAndGearsAdventureExternalOutcome,
-    GoldAndGearsAdventureType, GoldAndGearsEntryError, GoldAndGearsOccurrenceOperation,
-    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance, GoldAndGearsServiceKind,
-    GoldAndGearsServiceOfferSelector,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    occurrence_runtime::{
+        GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY, GOLD_AND_GEARS_OCCURRENCE_POLICY_REVISION,
+        GOLD_AND_GEARS_OCCURRENCE_RUNTIME_REVISION,
+    },
+    occurrence_types::GoldAndGearsOccurrenceOperation,
+    service_adventure_runtime::{
+        GOLD_AND_GEARS_ADVENTURE_POLICY_ACCURACY, GOLD_AND_GEARS_ADVENTURE_POLICY_REVISION,
+        GOLD_AND_GEARS_ADVENTURE_RUNTIME_REVISION, GOLD_AND_GEARS_SERVICE_RUNTIME_REVISION,
+    },
+    service_adventure_types::{
+        GoldAndGearsAdventureExternalOutcome, GoldAndGearsAdventureType,
+        GoldAndGearsServiceKind, GoldAndGearsServiceOfferSelector,
+    },
     state_layout::{RESOURCE_COSMIC_FRAGMENTS_KEY, RUN_RESOURCES_SLOT},
     tests::compiled_fixture,
 };

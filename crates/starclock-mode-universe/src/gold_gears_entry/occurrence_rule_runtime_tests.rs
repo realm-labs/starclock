@@ -6,10 +6,13 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION, GoldAndGearsEntryError,
-    GoldAndGearsOccurrenceEffectPhase, GoldAndGearsOccurrenceRuleAccuracy,
-    GoldAndGearsOccurrenceRuleKind, GoldAndGearsOccurrenceRuleOwnership,
-    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance, state_layout::DEFERRED_EFFECTS_SLOT,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    occurrence_execution::GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION,
+    occurrence_types::{
+        GoldAndGearsOccurrenceEffectPhase, GoldAndGearsOccurrenceRuleAccuracy,
+        GoldAndGearsOccurrenceRuleKind, GoldAndGearsOccurrenceRuleOwnership,
+    },
+    state_layout::DEFERRED_EFFECTS_SLOT,
     tests::compiled_fixture,
 };
 

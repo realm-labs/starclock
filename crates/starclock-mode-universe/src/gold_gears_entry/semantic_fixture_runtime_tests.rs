@@ -1,8 +1,11 @@
 use std::collections::BTreeSet;
 
 use super::{
-    GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION, GoldAndGearsRuntimeFactory,
-    GoldAndGearsSemanticFixtureExecutionKind,
+    GoldAndGearsRuntimeFactory,
+    semantic_fixture_runtime::{
+        GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION,
+        GoldAndGearsSemanticFixtureExecutionKind,
+    },
 };
 
 #[test]

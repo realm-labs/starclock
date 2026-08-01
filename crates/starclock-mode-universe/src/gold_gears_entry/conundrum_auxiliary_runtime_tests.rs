@@ -6,9 +6,12 @@ use starclock_activity::{
 };
 
 use super::{
-    CONUNDRUM_AREA_KEY, GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION,
-    GoldAndGearsAuxiliaryBattleContribution, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
+    CONUNDRUM_AREA_KEY, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
     GoldAndGearsRuntimeInstance,
+    conundrum_auxiliary_runtime::{
+        GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION,
+        GoldAndGearsAuxiliaryBattleContribution, GoldAndGearsAuxiliaryPlaneEntryExecution,
+    },
     state_layout::{
         DEFERRED_CONUNDRUM_PLANE_APPLIED_BASE, DEFERRED_CONUNDRUM_RULE_APPLIED_BASE,
         DEFERRED_CONUNDRUM_RULE_VALUE_BASE, DEFERRED_EFFECTS_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY,
@@ -258,7 +261,7 @@ fn execute_plane(
     plane: u8,
     owned: &[(super::GoldAndGearsCurioId, u32)],
     rng: &mut ActivityRngStreams,
-) -> Result<super::GoldAndGearsAuxiliaryPlaneEntryExecution, GoldAndGearsEntryError> {
+) -> Result<GoldAndGearsAuxiliaryPlaneEntryExecution, GoldAndGearsEntryError> {
     rng.transact(|working| {
         let execution =
             instance.compile_auxiliary_conundrum_plane_entry(state, plane, owned, working)?;

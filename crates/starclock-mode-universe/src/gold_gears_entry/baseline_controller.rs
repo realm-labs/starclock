@@ -19,6 +19,14 @@ use crate::{battle_materialization::UniverseBattleRoster, digest::Encoder};
 pub const GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION: &str =
     "gold-and-gears-baseline-controller-v1";
 
+/// Caller-owned controller identity included in the composed configuration root.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsControllerIdentity<'a> {
+    pub id: &'a str,
+    pub revision: &'a str,
+    pub digest: [u8; 32],
+}
+
 const ROUTE_OPTION_BASE: u64 = 0x4747_0100_0000_0000;
 const BOSS_OPTION_BASE: u64 = 0x4747_0200_0000_0000;
 const COMMAND_FAMILIES: [GoldAndGearsCommandFamily; 10] = [

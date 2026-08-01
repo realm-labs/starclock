@@ -8,8 +8,10 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION, GoldAndGearsKnowledgeResolution,
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    knowledge_resolution::{
+        GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION, GoldAndGearsKnowledgeResolution,
+    },
     state_layout::{
         BOARD_NODE_STATE_SLOT, DEFERRED_EFFECTS_SLOT, DEFERRED_KNOWLEDGE_TIER_BASE,
         DICE_RESOLUTION_FACE_KEY, DICE_RESOLUTION_SLOT, KNOWLEDGE_SLOT, PLANE_ACTION_POINTS_KEY,

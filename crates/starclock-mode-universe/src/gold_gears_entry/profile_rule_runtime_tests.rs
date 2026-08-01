@@ -6,9 +6,11 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION, GoldAndGearsCurioCategory,
-    GoldAndGearsEntryError, GoldAndGearsProfileRuleExecution, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    curio_types::GoldAndGearsCurioCategory,
+    profile_rule_runtime::{
+        GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION, GoldAndGearsProfileRuleExecution,
+    },
     state_layout::{
         BLESSING_INVENTORY, CURIO_INVENTORY, RESOURCE_COSMIC_FRAGMENTS_KEY,
         RESOURCE_DICE_CHEATS_KEY, RUN_RESOURCES_SLOT,

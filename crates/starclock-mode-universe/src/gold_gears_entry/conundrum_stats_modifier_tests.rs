@@ -12,11 +12,16 @@ use starclock_combat::{
 };
 
 use super::{
-    CONUNDRUM_AREA_KEY, GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
-    GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION, GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION,
-    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance, GoldAndGearsStatsConundrumActivation,
-    GoldAndGearsStatsConundrumModifierBinding, GoldAndGearsStatsConundrumModifierRole,
-    GoldAndGearsStatsConundrumModifierSet, tests::entry,
+    CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    conundrum_policy::{
+        GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY, GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION,
+    },
+    conundrum_stats_modifier::{
+        GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION, GoldAndGearsStatsConundrumActivation,
+        GoldAndGearsStatsConundrumModifierBinding, GoldAndGearsStatsConundrumModifierRole,
+        GoldAndGearsStatsConundrumModifierSet,
+    },
+    tests::entry,
 };
 
 const PATH: &str = "universe.path.preservation";

@@ -86,27 +86,45 @@
     "allowed_public_reexports": [
       {
         "path": "crates/starclock-combat/src/lib.rs",
-        "reason": "Deliberate small external facade over private ID and numeric representation modules."
+        "reason": "Deliberate small external facade over private ID and numeric representation modules.",
+        "declarations": 20,
+        "symbols": 178,
+        "sha256": "344dfcda57042290766c56c32ace00499816f3012b67cbafad9de0e144f23b59"
       },
       {
         "path": "crates/starclock-activity/src/lib.rs",
-        "reason": "Deliberate small Activity facade over private aggregate, scope, lock, projection and canonical-codec modules."
+        "reason": "Deliberate small Activity facade over private aggregate, scope, lock, projection and canonical-codec modules.",
+        "declarations": 24,
+        "symbols": 233,
+        "sha256": "fcfe422504910a1c4f107f5726d51504856d33fd8bf7bd5acb587b46a71b6232"
       },
       {
         "path": "crates/starclock-mode-standard/src/lib.rs",
-        "reason": "Deliberate small Standard profile facade over its private one-battle profile/scenario construction module."
+        "reason": "Deliberate small Standard profile facade over its private one-battle profile/scenario construction module.",
+        "declarations": 1,
+        "symbols": 11,
+        "sha256": "8d0a390a8bb26bdf2eb310ef4247df7ee751c42797270f0d4d9c65dee2265bf7"
       },
       {
         "path": "crates/starclock-data/src/lib.rs",
-        "reason": "Deliberate generated-row-free data facade exposing the retained character definition returned by public catalog lookup."
+        "reason": "Deliberate generated-row-free data facade exposing the retained character definition returned by public catalog lookup.",
+        "declarations": 2,
+        "symbols": 3,
+        "sha256": "ffbc4a7252f9899e7fcb6f257cab737e021a859abbfb8f6c0dcd035d442e2543"
       },
       {
         "path": "crates/starclock-agent-api/src/session.rs",
-        "reason": "Deliberate protocol-neutral session facade exposing the private registry's bounded owner, quota, clock and identity contracts to adapters."
+        "reason": "Deliberate protocol-neutral session facade exposing the private registry's bounded owner, quota, clock and identity contracts to adapters.",
+        "declarations": 1,
+        "symbols": 10,
+        "sha256": "6efc86c686add1df4136a2b957ae478042b1944d7af23f1461a4af0a7fc13c6a"
       },
       {
         "path": "crates/starclock-mode-universe/src/gold_gears_entry/mod.rs",
-        "reason": "Deliberate Gold and Gears entry facade keeping public factory, entry, instance and typed construction error paths stable while private validation and state compilation remain responsibility-split."
+        "reason": "Deliberate Gold and Gears entry facade keeping public factory, entry, instance, typed construction errors, compatibility revisions and adapter-facing replay/controller paths stable while private validation and state compilation remain responsibility-split.",
+        "declarations": 24,
+        "symbols": 51,
+        "sha256": "43a3b58c033e089a5de0126269881e0d6d144eb05a099567fdcfc73fa3c95878"
       }
     ],
     "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "rand::", "sha2::", "ChaCha8Rng", "sora::"]

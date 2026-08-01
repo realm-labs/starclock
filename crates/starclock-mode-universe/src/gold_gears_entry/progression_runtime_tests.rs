@@ -5,11 +5,15 @@ use starclock_activity::{
 };
 
 use super::{
-    CONUNDRUM_AREA_KEY, GOLD_AND_GEARS_EXTRAPOLATION_POLICY_ACCURACY,
-    GOLD_AND_GEARS_EXTRAPOLATION_POLICY_REVISION, GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION,
-    GoldAndGearsEntryError, GoldAndGearsExtrapolationContext, GoldAndGearsExtrapolationPolarity,
-    GoldAndGearsPathBoostStat, GoldAndGearsResonanceKind, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance, GoldAndGearsTrailblazeOffer,
+    CONUNDRUM_AREA_KEY, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
+    GoldAndGearsRuntimeInstance,
+    progression_runtime::{
+        GOLD_AND_GEARS_EXTRAPOLATION_POLICY_ACCURACY,
+        GOLD_AND_GEARS_EXTRAPOLATION_POLICY_REVISION,
+        GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION, GoldAndGearsExtrapolationContext,
+        GoldAndGearsExtrapolationPolarity, GoldAndGearsPathBoostStat,
+        GoldAndGearsResonanceKind, GoldAndGearsTrailblazeOffer,
+    },
     state_layout::{PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, PROGRESSION_SLOT},
     tests::entry,
 };

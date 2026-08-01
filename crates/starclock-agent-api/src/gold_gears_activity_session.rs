@@ -8,8 +8,8 @@ use starclock_activity::{ActivityInstanceId, ActivityPlayerView, ActivityStateHa
 use starclock_mode_universe::{
     gold_gears_entry::{
         GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsCommandFamily,
-        GoldAndGearsOfferedCommand, GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunError,
-        GoldAndGearsSeededRunRequest,
+        GoldAndGearsControllerIdentity, GoldAndGearsOfferedCommand, GoldAndGearsRuntimeFactory,
+        GoldAndGearsSeededRunError, GoldAndGearsSeededRunRequest,
         baseline_fixture::{
             GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY, GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION,
             GoldAndGearsBaselineFixture,
@@ -83,11 +83,11 @@ impl GoldAndGearsActivityAgentSessionFactory {
             .compile_synthetic_baseline_fixture(&identity)
             .map_err(|_| configuration_error())?;
         let components = fixture
-            .components_for_controller(
-                "agent-activity-controller",
-                ACTIVITY_AGENT_CONTROLLER_REVISION,
-                controller_digest(),
-            )
+            .components_for_controller(GoldAndGearsControllerIdentity {
+                id: "agent-activity-controller",
+                revision: ACTIVITY_AGENT_CONTROLLER_REVISION,
+                digest: controller_digest(),
+            })
             .map_err(|_| configuration_error())?;
         Ok(Self {
             fixture: Arc::new(fixture),

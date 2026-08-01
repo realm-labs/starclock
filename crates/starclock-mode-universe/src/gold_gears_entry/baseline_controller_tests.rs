@@ -6,9 +6,9 @@ use starclock_activity::{
 use crate::baseline_controller::ActivityScoreComponents;
 
 use super::{
-    GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION, GoldAndGearsBaselineController,
-    GoldAndGearsBaselineError, GoldAndGearsCommandFamily, GoldAndGearsOfferedAction,
-    GoldAndGearsOfferedCommand, GoldAndGearsSeededRunRequest,
+    GoldAndGearsBaselineController, GoldAndGearsBaselineError, GoldAndGearsCommandFamily,
+    GoldAndGearsOfferedAction, GoldAndGearsOfferedCommand, GoldAndGearsSeededRunRequest,
+    baseline_controller::GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
 

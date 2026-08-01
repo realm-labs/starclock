@@ -7,10 +7,13 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION, GoldAndGearsAdventureExternalOutcome,
     GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
-    GoldAndGearsServiceAdventureRuleAccuracy, GoldAndGearsServiceAdventureRuleKind,
-    GoldAndGearsServiceKind, GoldAndGearsServiceOfferSelector,
+    service_adventure_rule_runtime::GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION,
+    service_adventure_types::{
+        GoldAndGearsAdventureExternalOutcome, GoldAndGearsServiceAdventureRuleAccuracy,
+        GoldAndGearsServiceAdventureRuleKind, GoldAndGearsServiceKind,
+        GoldAndGearsServiceOfferSelector,
+    },
     state_layout::{DEFERRED_EFFECTS_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY, RUN_RESOURCES_SLOT},
     tests::compiled_fixture,
 };

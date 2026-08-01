@@ -10,10 +10,13 @@ use starclock_combat::rule::model::SourceClass;
 use crate::digest::Encoder;
 
 use super::{
-    CONUNDRUM_AREA_KEY, GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION,
-    GoldAndGearsExtrapolationContext, GoldAndGearsResonanceCombatAttachment,
-    GoldAndGearsResonanceRuleAccuracy, GoldAndGearsResonanceRuleKind,
-    GoldAndGearsResonanceRuleOwnership, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    progression_runtime::GoldAndGearsExtrapolationContext,
+    resonance_rule_runtime::{
+        GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION, GoldAndGearsResonanceCombatAttachment,
+        GoldAndGearsResonanceRuleAccuracy, GoldAndGearsResonanceRuleBinding,
+        GoldAndGearsResonanceRuleKind, GoldAndGearsResonanceRuleOwnership,
+    },
     tests::entry,
 };
 
@@ -301,7 +304,7 @@ fn assert_only_encounter_draws(
 }
 
 fn count_kind(
-    bindings: &[super::GoldAndGearsResonanceRuleBinding],
+    bindings: &[GoldAndGearsResonanceRuleBinding],
     kind: GoldAndGearsResonanceRuleKind,
 ) -> usize {
     bindings

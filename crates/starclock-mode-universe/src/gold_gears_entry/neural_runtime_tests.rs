@@ -9,9 +9,11 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsEntryError,
-    GoldAndGearsNeuralBattleEntryContext, GoldAndGearsNeuralBattleStat,
-    GoldAndGearsNeuralRuleAccuracy, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    neural_runtime::{
+        GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsNeuralBattleEntryContext,
+        GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralRuleAccuracy,
+    },
     state_layout::{
         PLANE_ACTION_POINTS_KEY, PLANE_STATE_SLOT, PROGRESSION_NEURAL_REBOOT_BATTLES_KEY,
         PROGRESSION_SLOT, RESOURCE_DICE_REROLLS_KEY, RUN_RESOURCES_SLOT,

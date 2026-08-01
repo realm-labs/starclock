@@ -24,8 +24,9 @@ use crate::{
 };
 
 use super::{
-    GoldAndGearsBaselineController, GoldAndGearsEntry, GoldAndGearsEntryError,
-    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntry, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
+    GoldAndGearsRuntimeInstance,
+    baseline_controller::{GoldAndGearsBaselineController, GoldAndGearsControllerIdentity},
 };
 
 pub const GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION: &str =
@@ -73,9 +74,7 @@ impl GoldAndGearsBaselineFixture {
     /// every catalog, registry, profile and encounter identity.
     pub fn components_for_controller(
         &self,
-        id: &str,
-        revision: &str,
-        digest: [u8; 32],
+        controller: GoldAndGearsControllerIdentity<'_>,
     ) -> Result<ConfigurationComponentSet, GoldAndGearsBaselineFixtureError> {
         let mut components = self
             .components
@@ -87,9 +86,9 @@ impl GoldAndGearsBaselineFixture {
         components.push(
             ConfigurationComponentIdentity::new(
                 ConfigurationComponentKind::Controller,
-                id,
-                revision,
-                ComponentDigest::new(digest),
+                controller.id,
+                controller.revision,
+                ComponentDigest::new(controller.digest),
             )
             .map_err(|_| GoldAndGearsBaselineFixtureError::Component)?,
         );

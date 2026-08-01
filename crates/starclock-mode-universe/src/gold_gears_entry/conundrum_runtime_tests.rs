@@ -1,11 +1,15 @@
 use starclock_activity::{ActivitySlotId, ActivityValue};
 
 use super::{
-    CONUNDRUM_AREA_KEY, GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
-    GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION,
-    GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION, GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION,
-    GoldAndGearsConundrumEffect, GoldAndGearsEnemyStatTier, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    conundrum_policy::{
+        GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
+        GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION,
+        GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION, GoldAndGearsEnemyStatTier,
+    },
+    conundrum_runtime::{
+        GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION, GoldAndGearsConundrumEffect,
+    },
     state_layout::{
         CONUNDRUM_BERSERK_KEY, CONUNDRUM_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY,
         RESOURCE_DICE_REROLLS_KEY, RUN_RESOURCES_SLOT,

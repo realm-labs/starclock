@@ -11,8 +11,35 @@ assert(policy.schema_revision === "starclock.goal14-runtime-contract.v1",
 assert(policy.goal_id === "gold-and-gears-runtime-v1"
   && policy.batch === "G14-P0-B3", "Goal 14 runtime contract identity drift");
 
-assert(policy.catalog_boundary.public_domain_types.length === 6,
-  "public Gold and Gears domain surface drift");
+const publicDomainTypes = [
+  "GoldAndGearsRuntimeFactory",
+  "GoldAndGearsRuntimeInstance",
+  "GoldAndGearsEntry",
+  "GoldAndGearsCatalogIdentity",
+  "GoldAndGearsCoverage",
+  "GoldAndGearsControllerIdentity",
+];
+assert(equal(policy.catalog_boundary.public_domain_types, publicDomainTypes),
+  "public Gold and Gears domain contract drift");
+const facade = fs.readFileSync(path.join(root,
+  "crates/starclock-mode-universe/src/gold_gears_entry/mod.rs"), "utf8");
+const publicUses = facade.match(/^\s*pub\s+use\b[\s\S]*?;/gm)?.join("\n") ?? "";
+for (const name of publicDomainTypes.filter((value) => value !== "GoldAndGearsCatalogIdentity")) {
+  assert(new RegExp(`\\b${name}\\b`).test(publicUses),
+    `${name} is missing from the Gold and Gears public facade`);
+}
+const identityModule = fs.readFileSync(path.join(root,
+  "crates/starclock-mode-universe/src/gold_gears_identity.rs"), "utf8");
+assert(/\bpub\s+struct\s+GoldAndGearsCatalogIdentity\b/.test(identityModule),
+  "GoldAndGearsCatalogIdentity is missing from its public module");
+const coverageModule = fs.readFileSync(path.join(root,
+  "crates/starclock-mode-universe/src/gold_gears_entry/runtime_coverage.rs"), "utf8");
+assert(/\bpub\s+type\s+GoldAndGearsCoverage\b/.test(coverageModule),
+  "GoldAndGearsCoverage is missing from the runtime coverage boundary");
+const controllerModule = fs.readFileSync(path.join(root,
+  "crates/starclock-mode-universe/src/gold_gears_entry/baseline_controller.rs"), "utf8");
+assert(/\bpub\s+struct\s+GoldAndGearsControllerIdentity\b/.test(controllerModule),
+  "GoldAndGearsControllerIdentity is missing from the controller boundary");
 assert(policy.catalog_boundary.private_inputs.includes(
   "config/gold-and-gears-generated/config.sora",
 ), "private Candidate bundle boundary is missing");

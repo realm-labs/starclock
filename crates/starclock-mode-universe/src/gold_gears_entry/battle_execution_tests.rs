@@ -13,10 +13,12 @@ use crate::{
 
 use super::{
     GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsBattleAssemblyContext,
-    GoldAndGearsExtrapolationContext, GoldAndGearsServiceKind, GoldAndGearsCurioState,
     battle_materialization_tests::{
         activity_identity, activity_rng, commit, roster, selected_combat,
     },
+    curio_types::GoldAndGearsCurioState,
+    progression_runtime::GoldAndGearsExtrapolationContext,
+    service_adventure_types::GoldAndGearsServiceKind,
 };
 
 #[test]
