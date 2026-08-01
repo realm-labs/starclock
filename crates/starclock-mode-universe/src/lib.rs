@@ -74,6 +74,7 @@ pub mod service_effect_runtime;
 pub mod service_interaction;
 pub mod swarm_disaster_catalog;
 pub mod swarm_disaster_components;
+mod swarm_disaster_content;
 mod swarm_disaster_handler_bundle;
 mod swarm_disaster_identity;
 mod swarm_disaster_structural;

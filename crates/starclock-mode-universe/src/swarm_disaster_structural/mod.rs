@@ -95,6 +95,47 @@ impl SwarmDisasterStructuralCatalog {
     pub(crate) const fn bundle_summary(&self) -> SwarmDisasterBundleSummary {
         self.bundle
     }
+
+    pub(super) fn contains_chessboard_id(&self, id: u32) -> bool {
+        self.chessboards.iter().any(|row| row.id.0 == id)
+    }
+
+    pub(super) fn contains_domain_id(&self, id: u32) -> bool {
+        self.domains.iter().any(|row| row.id.0 == id)
+    }
+
+    pub(super) fn contains_area_id(&self, id: u32) -> bool {
+        self.areas.iter().any(|row| row.id.0 == id)
+    }
+
+    pub(super) fn contains_area_key(&self, key: &str) -> bool {
+        self.areas.iter().any(|row| row.stable_key.as_ref() == key)
+    }
+
+    pub(super) fn contains_room_key(&self, key: &str) -> bool {
+        self.rooms.iter().any(|row| row.stable_key.as_ref() == key)
+    }
+
+    pub(super) fn contains_boss_choice_key(&self, key: &str) -> bool {
+        self.boss_choices
+            .iter()
+            .any(|row| row.stable_key.as_ref() == key)
+    }
+
+    pub(super) fn contains_beacon_key(&self, key: &str) -> bool {
+        self.beacons
+            .iter()
+            .any(|row| row.stable_key.as_ref() == key)
+    }
+
+    pub(super) fn contains_difficulty_key(&self, key: &str) -> bool {
+        let Some(value) = key.strip_prefix("Difficulty_") else {
+            return false;
+        };
+        value
+            .parse::<u8>()
+            .is_ok_and(|difficulty| self.areas.iter().any(|row| row.difficulty == difficulty))
+    }
 }
 
 #[cfg(test)]

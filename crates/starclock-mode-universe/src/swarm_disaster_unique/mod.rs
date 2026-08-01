@@ -90,6 +90,20 @@ impl SwarmDisasterUniqueCatalog {
         self.bundle
     }
 
+    pub(super) fn contains_audience_die_id(&self, id: u32) -> bool {
+        self.audience_dice.iter().any(|row| row.id.0 == id)
+    }
+
+    pub(super) fn contains_shared_path(&self, key: &str) -> bool {
+        self.paths.iter().any(|row| row.shared_path.as_ref() == key)
+    }
+
+    pub(super) fn contains_shared_resonance(&self, key: &str) -> bool {
+        self.resonances
+            .iter()
+            .any(|row| row.shared_resonance.as_ref() == key)
+    }
+
     fn row_count(&self) -> usize {
         self.countdown.len()
             + self.boss_decay_levels.len()

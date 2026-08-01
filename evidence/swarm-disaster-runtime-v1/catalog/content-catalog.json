@@ -1,0 +1,78 @@
+{
+  "schema_revision": "starclock.swarm-disaster-content-catalog.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P1-B5",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "lowered_tables": {
+    "SwarmDisasterMapEvent": 349,
+    "SwarmDisasterBlockCreateRule": 1212,
+    "SwarmDisasterTopologyConsequence": 13,
+    "SwarmDisasterBlessing": 144,
+    "SwarmDisasterBlessingLevel": 288,
+    "SwarmDisasterPoolMembership": 184,
+    "SwarmDisasterCurio": 66,
+    "SwarmDisasterCurioState": 66,
+    "SwarmDisasterCurioRule": 66,
+    "SwarmDisasterOccurrence": 75,
+    "SwarmDisasterOccurrenceVariant": 57,
+    "SwarmDisasterOccurrenceChoice": 308,
+    "SwarmDisasterService": 15,
+    "SwarmDisasterAdventureOutcome": 6,
+    "SwarmDisasterCurrency": 1,
+    "SwarmDisasterServiceRule": 19,
+    "SwarmDisasterEncounterGroup": 179,
+    "SwarmDisasterEncounterWave": 347,
+    "SwarmDisasterEnemySlot": 1070,
+    "SwarmDisasterBossPool": 15,
+    "SwarmDisasterMechanicRule": 23,
+    "SwarmDisasterSourceRecord": 8139,
+    "SwarmDisasterCoverage": 6963,
+    "SwarmDisasterResearchGap": 31,
+    "SwarmDisasterResearchGapAffected": 5560,
+    "SwarmDisasterReviewFixture": 23,
+    "SwarmDisasterReconcileReceipt": 609,
+    "SwarmDisasterManifest": 1,
+    "SwarmDisasterPackIndex": 63
+  },
+  "lowered_table_count": 29,
+  "lowered_row_count": 25892,
+  "bundle_catalog_closure": {
+    "structural": "12/6716",
+    "unique": "24/772",
+    "content": "29/25892",
+    "total": "65/33380"
+  },
+  "validation": {
+    "topology_event_rule_consequence_closure": "349/1212/13",
+    "blessing_level_pool_closure": "144/288/184",
+    "curio_state_rule_closure": "66/66/66",
+    "occurrence_variant_choice_closure": "75/57/308",
+    "service_adventure_currency_rule_closure": "15/6/1/19",
+    "encounter_group_wave_slot_boss_pool_closure": "179/347/1070/15",
+    "rule_source_coverage_gap_affected_fixture_receipt_manifest_pack_closure": "23/8139/6963/31/5560/23/609/1/63",
+    "generated_public_types": 0,
+    "public_reexports_added": 0
+  },
+  "policy": {
+    "manifest_runtime_loading": "ForbiddenReferenceOnly",
+    "mechanic_rule_disposition": "ReferenceOnly",
+    "embedded_programs": "private-validated-json-text-pending-typed-execution-lowering",
+    "inherited_policy_boundaries_terminalized": 0,
+    "execution_claimed": false
+  },
+  "tests": {
+    "content_unit_passed": 2,
+    "swarm_unit_passed": 11,
+    "identity_integration_passed": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_content --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal20/verify-phase1-b5.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

@@ -4,6 +4,7 @@ use crate::{
     digest::Encoder,
     error::UniverseCatalogLoadError,
     swarm_disaster_catalog::SwarmDisasterBundleSummary,
+    swarm_disaster_content::SwarmDisasterContentCatalog,
     swarm_disaster_handler_bundle::{
         SWARM_DISASTER_HANDLER_BUNDLE_REVISION, swarm_disaster_activity_handler_registry,
     },
@@ -38,7 +39,9 @@ impl SwarmDisasterCatalogIdentity {
     pub(crate) fn load(bytes: &[u8]) -> Result<Self, UniverseCatalogLoadError> {
         let structural = SwarmDisasterStructuralCatalog::load(bytes)?;
         let unique = SwarmDisasterUniqueCatalog::load(bytes)?;
+        let content = SwarmDisasterContentCatalog::load(bytes, &structural, &unique)?;
         debug_assert_eq!(structural.bundle_summary(), unique.bundle_summary());
+        debug_assert_eq!(structural.bundle_summary(), content.bundle_summary());
         Ok(Self::from_validated_bundle(structural.bundle_summary()))
     }
 
