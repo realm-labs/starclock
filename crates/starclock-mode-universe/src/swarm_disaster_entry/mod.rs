@@ -9,9 +9,11 @@ mod face_operation;
 mod factory;
 mod instance;
 mod map_overlay;
+mod occurrence_runtime;
 mod path_runtime;
 mod pathstrider_progress;
 mod plane_transition;
+mod service_adventure_runtime;
 mod simultaneous;
 mod state;
 mod topology;
@@ -143,6 +145,8 @@ pub struct SwarmDisasterRuntimeFactory {
     audience: Arc<audience::AudienceRuntimeCatalog>,
     dice_controls: Arc<dice_control::DiceControlRuntimeCatalog>,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
+    occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
+    service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: Arc<trail::TrailRuntimeCatalog>,
@@ -168,6 +172,8 @@ pub struct SwarmDisasterRuntimeInstance {
     audience: audience::CompiledAudienceRuntime,
     dice_controls: dice_control::CompiledDiceControls,
     face_effects: Arc<face_effect::DiceFaceRuntimeCatalog>,
+    occurrences: Arc<occurrence_runtime::OccurrenceRuntimeCatalog>,
+    service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
     trail: trail::CompiledTrailRuntime,
@@ -176,24 +182,4 @@ pub struct SwarmDisasterRuntimeInstance {
 }
 
 #[cfg(test)]
-mod audience_tests;
-#[cfg(test)]
-mod communing_tests;
-#[cfg(test)]
-mod countdown_tests;
-#[cfg(test)]
-mod dice_control_tests;
-#[cfg(test)]
-mod face_effect_tests;
-#[cfg(test)]
-mod map_overlay_tests;
-#[cfg(test)]
-mod pathstrider_progress_tests;
-#[cfg(test)]
-mod plane_transition_tests;
-#[cfg(test)]
-mod simultaneous_tests;
-#[cfg(test)]
-mod tests;
-#[cfg(test)]
-mod trail_tests;
+include!("test_modules.rs");

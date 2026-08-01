@@ -8,8 +8,9 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    communing, content_runtime, countdown, dice_control, face_effect, map_overlay, path_runtime,
-    pathstrider_progress, plane_transition, state, topology, trail,
+    communing, content_runtime, countdown, dice_control, face_effect, map_overlay,
+    occurrence_runtime, path_runtime, pathstrider_progress, plane_transition,
+    service_adventure_runtime, state, topology, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -63,6 +64,15 @@ impl SwarmDisasterRuntimeFactory {
         let content_runtime = Arc::new(content_runtime::ContentRuntimeCatalog::compile(
             content.inventory_runtime_input(),
         )?);
+        let occurrences = Arc::new(occurrence_runtime::OccurrenceRuntimeCatalog::compile(
+            &content.interaction_runtime_input(),
+        )?);
+        let service_adventure = Arc::new(
+            service_adventure_runtime::ServiceAdventureRuntimeCatalog::compile(
+                &content.interaction_runtime_input(),
+                content_runtime.standard(),
+            )?,
+        );
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -73,6 +83,8 @@ impl SwarmDisasterRuntimeFactory {
             audience,
             dice_controls,
             face_effects,
+            occurrences,
+            service_adventure,
             communing,
             content_runtime,
             trail,
@@ -158,6 +170,8 @@ impl SwarmDisasterRuntimeFactory {
             audience,
             dice_controls,
             face_effects: Arc::clone(&self.face_effects),
+            occurrences: Arc::clone(&self.occurrences),
+            service_adventure: Arc::clone(&self.service_adventure),
             communing: Arc::clone(&self.communing),
             content_runtime: Arc::clone(&self.content_runtime),
             trail,

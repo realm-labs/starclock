@@ -42,6 +42,7 @@ const DEFERRED_SETTLEMENT_PROGRAM: u32 = 0x534C_0001;
 
 #[derive(Clone, Debug)]
 pub(super) struct ContentRuntimeCatalog {
+    standard: Arc<UniverseCatalog>,
     blessings: Arc<BlessingRuntimeCatalog>,
     reachable_blessings: Box<[ReachableBlessing]>,
     curios: Box<[RuntimeCurio]>,
@@ -77,7 +78,7 @@ struct RuntimeCurio {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-enum CurioCategory {
+pub(super) enum CurioCategory {
     Normal,
     Negative,
     ErrorCode,
@@ -121,6 +122,7 @@ impl ContentRuntimeCatalog {
         let curios = compile_curios(&input)?;
         let digest = catalog_digest(&blessings, &reachable_blessings, &curios, &input);
         Ok(Self {
+            standard,
             blessings,
             reachable_blessings,
             curios,
@@ -130,6 +132,10 @@ impl ContentRuntimeCatalog {
 
     pub(super) const fn digest(&self) -> [u8; 32] {
         self.digest
+    }
+
+    pub(super) fn standard(&self) -> &UniverseCatalog {
+        &self.standard
     }
 
     #[cfg(test)]
@@ -149,7 +155,7 @@ impl ContentRuntimeCatalog {
             .ok_or_else(|| reference("unknown Swarm Curio mode-copy ID"))
     }
 
-    fn blessing_candidates(
+    pub(super) fn blessing_candidates(
         &self,
         minimum_rarity: u8,
         maximum_rarity: u8,
@@ -168,7 +174,7 @@ impl ContentRuntimeCatalog {
             .collect())
     }
 
-    fn curio_candidates(
+    pub(super) fn curio_candidates(
         &self,
         category: Option<CurioCategory>,
         owned: &[u32],
@@ -184,6 +190,30 @@ impl ContentRuntimeCatalog {
             .filter(|row| owned.binary_search(&row.id).is_err())
             .map(|row| row.id)
             .collect())
+    }
+
+    pub(super) fn blessing_acquisition_operations(
+        &self,
+        id: BlessingId,
+    ) -> Result<Vec<ActivityOperation>, UniverseCatalogLoadError> {
+        if self.reachable_blessings.iter().all(|row| row.id != id) {
+            return Err(reference("Blessing is not reachable in Swarm Disaster"));
+        }
+        Ok(vec![
+            require_inventory(blessing_inventory(), u64::from(id.get()), 0),
+            ActivityOperation::AddInventory {
+                inventory: blessing_inventory(),
+                content: u64::from(id.get()),
+                count: integer(1),
+            },
+        ])
+    }
+
+    pub(super) fn curio_acquisition_operations(
+        &self,
+        id: u32,
+    ) -> Result<Vec<ActivityOperation>, UniverseCatalogLoadError> {
+        self.curio(id).map(acquisition)
     }
 }
 
@@ -905,7 +935,7 @@ fn optional_u8(value: &str) -> Result<Option<u8>, UniverseCatalogLoadError> {
     }
 }
 
-fn select<T: Copy>(
+pub(super) fn select<T: Copy>(
     candidates: &[T],
     maximum: u16,
     label: ActivityRngLabel,
