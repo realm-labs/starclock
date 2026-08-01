@@ -9,7 +9,7 @@ use crate::{
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     communing, content_runtime, countdown, dice_control, face_effect, map_overlay,
-    occurrence_runtime, path_runtime, pathstrider_progress, plane_transition,
+    occurrence_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
     service_adventure_runtime, state, topology, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
@@ -61,6 +61,12 @@ impl SwarmDisasterRuntimeFactory {
             unique.path_runtime_input(),
             &pathstrider,
         )?);
+        let profile_rule = Arc::new(profile_rule_runtime::ProfileRuleRuntimeCatalog::compile(
+            content
+                .mechanic_rule_runtime_input("profile-entry")
+                .ok_or_else(|| error("Profile-entry mechanic rule is missing"))?,
+            &path_runtime,
+        )?);
         let content_runtime = Arc::new(content_runtime::ContentRuntimeCatalog::compile(
             content.inventory_runtime_input(),
         )?);
@@ -90,6 +96,7 @@ impl SwarmDisasterRuntimeFactory {
             trail,
             path_runtime,
             pathstrider,
+            profile_rule,
         })
     }
 
@@ -177,6 +184,7 @@ impl SwarmDisasterRuntimeFactory {
             trail,
             path_runtime,
             pathstrider: Arc::clone(&self.pathstrider),
+            profile_rule: Arc::clone(&self.profile_rule),
         })
     }
 }

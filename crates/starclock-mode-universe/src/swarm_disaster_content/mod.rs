@@ -4,6 +4,7 @@ pub(crate) mod interaction_access;
 pub(crate) mod inventory_access;
 mod lower;
 pub(super) mod map_access;
+pub(crate) mod mechanic_access;
 mod types;
 mod validate;
 

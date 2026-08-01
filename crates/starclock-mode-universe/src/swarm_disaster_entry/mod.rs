@@ -13,6 +13,7 @@ mod occurrence_runtime;
 mod path_runtime;
 mod pathstrider_progress;
 mod plane_transition;
+mod profile_rule_runtime;
 mod service_adventure_runtime;
 mod simultaneous;
 mod state;
@@ -152,6 +153,7 @@ pub struct SwarmDisasterRuntimeFactory {
     trail: Arc<trail::TrailRuntimeCatalog>,
     path_runtime: Arc<path_runtime::PathRuntimeCatalog>,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
+    profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -179,6 +181,7 @@ pub struct SwarmDisasterRuntimeInstance {
     trail: trail::CompiledTrailRuntime,
     path_runtime: path_runtime::CompiledPathRuntime,
     pathstrider: Arc<pathstrider_progress::PathstriderRuntimeCatalog>,
+    profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
 }
 
 #[cfg(test)]

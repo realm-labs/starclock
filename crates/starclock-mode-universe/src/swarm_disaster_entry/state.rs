@@ -10,7 +10,7 @@ use crate::{
     swarm_disaster_unique::entry_access::SwarmDisasterEntrySelection,
 };
 
-const ENTRY: u32 = 0x5344_0001;
+pub(super) const ENTRY: u32 = 0x5344_0001;
 pub(super) const AUDIENCE_DIE: u32 = 0x5344_0002;
 pub(super) const COMMUNING: u32 = 0x5344_0003;
 pub(super) const PROGRESSION: u32 = 0x5344_0004;

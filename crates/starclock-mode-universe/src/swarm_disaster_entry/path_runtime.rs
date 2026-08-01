@@ -278,6 +278,10 @@ impl PathRuntimeCatalog {
             self.paths.iter().map(|path| path.interplays.len()).sum(),
         )
     }
+
+    pub(super) fn profile_bonus_keys(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.bonuses.iter().map(|bonus| bonus.key.as_ref())
+    }
 }
 
 impl CompiledPathRuntime {

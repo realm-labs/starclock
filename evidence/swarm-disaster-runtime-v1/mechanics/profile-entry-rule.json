@@ -1,0 +1,117 @@
+{
+  "schema_revision": "starclock.swarm-disaster-profile-entry-rule-execution.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P5-M01",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "partition": {
+    "family": "profile-entry",
+    "executor": "SwarmProfileRuleExecutor",
+    "expected_rules": 1,
+    "executed_rules": 1,
+    "exact_structured_rules": 0,
+    "project_policy_rules": 1,
+    "rule_id": "swarm-disaster.mechanic-rule.profile-entry",
+    "fixture_id": "swarm-disaster.fixture.profile-entry"
+  },
+  "runtime_binding": {
+    "revision": "swarm-disaster-profile-entry-rule-runtime-v1",
+    "trigger": "RunEntryRequested",
+    "domain": "Activity",
+    "source_disposition": "ReferenceOnly",
+    "runtime_disposition": "ProductionActivityProgram",
+    "source_state_slots": ["profile", "difficulty", "entry-bonus"],
+    "source_ordered_operations": [
+      "ReviewEntryEligibility",
+      "ReviewFiveFormalDifficulties",
+      "ReviewBonus101106Ownership"
+    ],
+    "unresolved_behavior": "FailClosed",
+    "activity_state_machine": "ExistingGenericActivityTransactionState",
+    "exactly_once_marker": "ExistingDeferredActivitySlot"
+  },
+  "production_execution": {
+    "formal_difficulties_executed": [1, 2, 3, 4, 5],
+    "profile_identity": "swarm-disaster.profile.v1",
+    "trailblaze_bonus_ids_reviewed": [101, 102, 103, 104, 105, 106],
+    "accepted_bonus_ids": [101, 102, 103, 105, 106],
+    "unaffordable_bonus_id": 104,
+    "unaffordable_behavior": "RejectBeforeMutation",
+    "random_reward_requests": "DeferredToExistingContentRuntime",
+    "profile_rule_rng_draws": 0,
+    "deferred_reward_rng_label": "Reward",
+    "compiled_at_graph_entry_only": true,
+    "reapplication": "AtomicReject",
+    "duplicate_compilation": "TypedReject",
+    "fixture_source_record_count": 12
+  },
+  "compatibility": {
+    "runtime_digest": "3576fde8e5ae0c6ac5382548c8d2e68f1b27f7bfe3707e1d63578c357f4735ec",
+    "seed": 0,
+    "difficulty_state_hashes": [
+      "e66af553b6d0bf4343c587c87b7cf5e63c73b5deb320ff295e7518899ea8e43d",
+      "e6a770162ce777a389f3de4bd3210f212c39eb30e19f671ceeb7298a1a9547b7",
+      "916294881d4bbe44f60578fa7fab9e3a25a9c13442804fb441309afdb9771931",
+      "72ab8a7d6f77853aa8dc07d1d2added9319a6e07d3ff786a27d0fe0aacc4d845",
+      "42c6d8dcc65e306e85e8c14dd9e8cb7d3ef8a3d75ae5f5b7241041c2cc417b92"
+    ],
+    "accepted_bonus_state_hashes": {
+      "101": "f3f24eb7809c6d78c2c48526b8e65fff735c6936f981a4def147f535e836533c",
+      "102": "e5bbb12d901fc9d3962bfead9b23ab084108c82283553274b59433fc389e856e",
+      "103": "4cfaece29da022778b6df8e7c9cfad125abc041a40d3a1b5e3b7c0f443f7cbf6",
+      "105": "f4791aa2c1bbbfc81ee7218847a4e293b3c09e1ab066a0bda3dcb89f906e9ff2",
+      "106": "858afcd25d5c03e7100d6e149c9bafd04ebe72917fc3b7d8ea4b05db89d29530"
+    },
+    "replay_release_state": "PreReleaseGoal20"
+  },
+  "deferred_fixture": {
+    "fixture_id": "swarm-disaster.fixture.profile-entry",
+    "ordered_operation_count": 3,
+    "expected_fact_count": 4,
+    "source_record_count": 12,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "production_binding_state": "PreTerminalProductionParity"
+  },
+  "validation": {
+    "runtime_json_file_reads": 0,
+    "embedded_sora_json_lowered_once_at_factory_load": true,
+    "second_activity_state_machine_added": false,
+    "new_public_mode_types": 0,
+    "public_runtime_methods_added": 2,
+    "public_reexports_added": 0,
+    "source_policy_handwritten_files": 906,
+    "source_policy_public_reexports": 72,
+    "private_serde_json_owner_registered": "crates/starclock-mode-universe/src/swarm_disaster_entry/profile_rule_runtime.rs",
+    "protected_goal09_roots_changed": false
+  },
+  "tests": {
+    "profile_rule_unit_passed": 3,
+    "entry_lifecycle_unit_passed": 81,
+    "swarm_unit_passed": 92,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "Pass",
+    "quick_gate_seconds": "3.0",
+    "quick_gate_cache": "Hit",
+    "quick_deferred_inputs": 2,
+    "full_gate_passed": true,
+    "full_gate_seconds": "212.1",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "149.0"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry::profile_rule_runtime::tests --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase5-m01.mjs",
+    "node tools/repository-check/run.mjs",
+    "PATH=<temporary-python-3.14.6-venv>/bin:$PATH STARCLOCK_PYTHON=<temporary-python-3.14.6-venv>/bin/python node tools/repository-check/run.mjs --full"
+  ]
+}
