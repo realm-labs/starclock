@@ -3,6 +3,7 @@
 pub(super) mod entry_access;
 mod lower;
 pub(super) mod map_access;
+pub(super) mod transition_access;
 mod types;
 
 use crate::{

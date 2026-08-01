@@ -257,6 +257,33 @@ impl CountdownRuntimeCatalog {
         Ok(selected.into_boxed_slice())
     }
 
+    pub(super) fn completion_requirements(
+        &self,
+        state: &ActivityTransactionState,
+        plane_layer: u8,
+    ) -> Result<Vec<ActivityCondition>, UniverseCatalogLoadError> {
+        let required = match plane_layer {
+            1 => &[BossDecayThreshold::PlaneOne][..],
+            2 => &[BossDecayThreshold::PlaneTwo][..],
+            3 => &[BossDecayThreshold::PlaneOne, BossDecayThreshold::PlaneTwo][..],
+            _ => return Err(invalid("invalid Swarm plane layer")),
+        };
+        let selected = self.selected_boss_decay(state)?;
+        required
+            .iter()
+            .map(|threshold| {
+                let row = selected
+                    .iter()
+                    .find(|row| row.threshold == *threshold)
+                    .ok_or_else(|| invalid("required Swarm boss-decay threshold is missing"))?;
+                Ok(ActivityCondition::Equal(
+                    counter(DISARRAY, boss_decay_key(row.id)?),
+                    literal(1),
+                ))
+            })
+            .collect()
+    }
+
     pub(super) fn countdown(
         &self,
         state: &ActivityTransactionState,

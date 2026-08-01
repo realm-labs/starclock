@@ -6,15 +6,15 @@
 |---|---|
 | Goal ID | `swarm-disaster-runtime-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Entry, topology, Countdown and Disarray |
+| Active phase | Phase 3 — Audience Dice and Communing Device |
 | Active batch | None |
-| Next unblocked batch | `G20-P2-B5` |
+| Next unblocked batch | `G20-P3-B1` |
 | Snapshot | Version 4.4 / Goal 09 reference release dated 2026-07-29 |
 | Profile | `swarm-disaster.profile.v1` |
 | Candidate bundle | `385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362` |
 | Normalized pack | `82f3ffc444a1cdcd8bcba5a946bee3a3c8d58527b93a1c9d77f285697401b2d8` |
 | Runtime denominator | 6,963 source obligations / 23 rules / 23 fixture families |
-| Inherited policy boundaries | 28 inherited / 3 terminal / 28 pending |
+| Inherited policy boundaries | 27 inherited / 4 terminal / 27 pending |
 | Content lane | Candidate reference input; target `Released` runtime component |
 | Branch | `codex/goal20-swarm-disaster-runtime` in the current worktree by user direction |
 | Blocking condition | None |
@@ -25,7 +25,7 @@
 |---|---|---|
 | Phase 0 — Contract, audit and execution plan | `Complete` | P0-B1–B4 freeze prerequisites/runtime baseline, exact 6,963/23/23/31 assignments, minimal APIs/state/identity, a 16-run matrix covering 5 difficulties/8 Paths and dice/42 faces/8 Countdown-Disarray cases, 31 policy owners, seven workloads, CI and 13 release gates. |
 | Phase 1 — Bundle and catalogs | `Complete` | All 65 tables/33,380 rows lower privately with exact 12/6,716 structural, 24/772 unique-system and 29/25,892 content/rule/coverage closure; component identities remain isolated. |
-| Phase 2 — Entry, topology, Countdown and Disarray | `Pending` | — |
+| Phase 2 — Entry, topology, Countdown and Disarray | `Complete` | Five batches compile all 40 formal entry combinations into one 16-slot Activity profile and a 48-node/61-edge bounded three-plane graph; execute 2,438 map-overlay, 61 Countdown/Disarray and two boss-choice obligations; preserve Countdown/Disarray across section resets; terminate through the graph's single completion node; and freeze atomic rejection, Graph-stream isolation and state hash `e2275ed8…14a30f`. |
 | Phase 3 — Audience Dice and Communing Device | `Pending` | — |
 | Phase 4 — Progression, content and battle contributions | `Pending` | — |
 | Phase 5 — Mechanic partitions | `Pending` | — |
@@ -53,7 +53,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G20-P2-B2` | `Complete` | This batch commit | All 40 formal entry combinations compile the authored `2011`/`2012`/`2013` plane order into deterministic root boards `20111`/`20121`/`20131`. The compiler retains the 47 nodes lying on a legal start-to-terminal route, excludes two unreachable authored nodes, adds two plane transitions and one completion edge, and produces a 48-node/61-edge immutable generic Activity graph with once-only node/edge budgets and digest `e371d5f7…f1c80`. Three bounded logical scope classes bind 47 route nodes plus the terminal; no RNG, floats or runtime JSON are used. The `topology_policy` boundary is terminal as an explicitly labeled `VersionedExecutablePolicy`/`ProjectPolicy`; its semantic fixture remains pending for `G20-P5-B1`. Five entry/topology tests, 16 aggregate Swarm tests and five integration tests pass. Clippy and `node tools/goal20/verify-phase2-b2.mjs` pass. The first quick gate passed all seven selected harnesses in 148.3s before exhausting its 180-second budget during downstream `cargo check`; after the complete build, quick passed in 69.9s with two deferred inputs. An isolated Python 3.14.6 environment with pinned `openpyxl==3.1.5` passed the full gate in 242.9s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses. |
 | `G20-P2-B3` | `Complete` | This batch commit | The factory lowers all 101 boards, 349 topology events, 1,212 block-creation rules, 12 domains, four beacons and 861 room bindings into private typed runtime inputs, executing the exact 2,438 assigned source obligations. Three formal-plane creation programs apply 33/84/24 ordered generic operations across 47 route nodes, select counts and beacons only from the labeled Graph stream, bind terminal domains `4/4/8`, preserve the immutable graph digest and define capacity exhaustion as an explicit no-legal-target no-op. Replacement, domain copy and blanking execute through generic Activity programs; copy and blanking preserve the target beacon, while blanking filters legal routes without mutating graph structure. Event descriptors execute before creation, and empty candidate sets consume zero draws. The domain and topology-consequence boundaries become explicitly labeled `VersionedExecutablePolicy`/`ProjectPolicy`; beacons remain `InheritedPolicy` for `G20-P4-B5`, and all four semantic rule fixtures remain pending for `G20-P5-M02`/`G20-P5-B1`. Eight entry/overlay unit tests, 19 aggregate Swarm tests and five public integration tests pass; Clippy, dependency policy and the 72-re-export source policy pass. The final quick attempt built seven selected harnesses in 50.4s and passed them in 136.0s before its 180-second total budget expired during downstream `cargo check`; an isolated Python 3.14.6 environment with pinned `openpyxl==3.1.5` passed the full gate in 312.9s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses in 214.1s. |
 | `G20-P2-B4` | `Complete` | This batch commit | The private runtime catalog validates all 19 mode-constant bindings and all 42 Boss Decay rows, admits the 15 rows backed by released Swarm text and keeps 27 unproven shared-DLC rows fail-closed. Generic Activity programs carry Countdown `20` at Activity scope, apply movement `-1` before stable operation-ID-ordered adjustments, atomically reject stale or out-of-bounds programs, enter Planar Disarray only on an accepted move whose pre-move Countdown is zero, and retain an uncapped level while capping cumulative integer-percent contributions at level 20. Boundary vectors are level 1 `5/4/0`, level 5 `25/20/0`, level 6 `35/24/5`, level 20 `275/80/125`, and level 21 retains level-20 modifiers. Boss-decay selections use stable Starclock keys, canonical stable-ID order and at most one contribution per plane threshold; retained private contribution descriptors remain pending BattleSpec application in `G20-P6-B3`. The exact 61 P2-B4 source obligations execute; three rules and three semantic fixtures remain truthfully pending for `G20-P5-M03`/`G20-P5-B1`, and all three affected policies remain `InheritedPolicy` because `G20-P6-B3` is their remaining owner. Twelve entry/lifecycle tests, 23 aggregate Swarm tests and five generated-type-free integration tests pass; Clippy, dependency policy and the 72-re-export source policy pass. The cold quick attempt exhausted 180.1s after building seven harnesses in 99.3s; the isolated-Python full gate passed in 260.4s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses in 186.0s, then warm-cache quick passed in 77.6s with two deferred inputs. |
-| `G20-P2-B5` | `Pending` | — | Plane/boss/final transitions and rollback. |
+| `G20-P2-B5` | `Complete` | This batch commit | Two released displayed Boss choices lower into a private numeric-source-ordered runtime catalog retaining exact levels, enemy variants and intrinsic weaknesses. Caller-explicit selection and all three post-boss transitions compile only generic Activity conditions/operations, consume zero RNG and require the current plane end, a known same-layer selection and the typed released Boss Decay threshold (`PlaneOne`, `PlaneTwo`, then both). Plane 1/2 traversals reset all four Section-owned overlay slots while carrying Activity-owned Countdown/Disarray exactly; Plane 3 traverses to the graph's only terminal and records `Completed`. Stale boss programs, wrong layers, missing decay and bad causes leave canonical state/RNG bytes unchanged; transactional map rejection restores every RNG snapshot, accepted creation advances only `Graph`, and seed `0x20020005` freezes state hash `e2275ed8…14a30f`. The exact two P2-B5 source obligations execute. The Boss-choice boundary becomes explicitly labeled `VersionedExecutablePolicy`/`ProjectPolicy`; encounter selection remains `InheritedPolicy` for `G20-P6-B1`/`G20-P6-B3`, and the 3-operation/4-fact semantic fixture remains pending for `G20-P5-B1`. Seventeen entry/topology/lifecycle tests, 28 aggregate Swarm tests and five public integration tests pass; Clippy, dependency policy and the 72-re-export source policy pass. The cold quick attempt exhausted 180.0s after a 99.5s seven-harness build; the isolated-Python Phase 2 full gate passed in 266.1s with 33 generated checks, four source-cache-only skips and 34 workspace harnesses in 190.0s, then warm-cache quick passed in 88.9s with two deferred inputs. |
 | `G20-P3-B1` | `Pending` | — | Audience Die definitions/passives. |
 | `G20-P3-B2` | `Pending` | — | Roll/reroll/cheat/abandon lifecycle. |
 | `G20-P3-B3` | `Pending` | — | All 42 face effects and targets. |
@@ -105,10 +105,13 @@ commands, counts, digests and executable evidence in the completing commit.
 
 `G20-P0-B2` froze the exact 31-row assignment register from Goal 09. Runtime
 resolution evidence does not rewrite that historical assignment artifact.
-`G20-P2-B2` resolves `topology_policy`, and `G20-P2-B3` resolves `domains` plus
-`topology_consequences`, as explicitly labeled `VersionedExecutablePolicy`
-boundaries. The `beacons` boundary remains `InheritedPolicy` until its second
-owner `G20-P4-B5`; the other 27 unresolved rows also remain inherited.
+`G20-P2-B2` resolves `topology_policy`, `G20-P2-B3` resolves `domains` plus
+`topology_consequences`, and `G20-P2-B5` resolves `boss_choices`, as explicitly
+labeled `VersionedExecutablePolicy` boundaries. Boss choice records the caller's
+displayed candidate and requires a separately typed released Boss Decay
+threshold, without claiming the unresolved encounter join. The `beacons`
+boundary remains `InheritedPolicy` until its second owner `G20-P4-B5`; the other
+26 unresolved rows also remain inherited.
 `G20-P2-B4` implements the Activity-side Countdown, Disarray and boss-decay
 selection boundaries, but their three policy rows accurately remain inherited
 until the final-boss BattleSpec and settlement owner `G20-P6-B3` executes.

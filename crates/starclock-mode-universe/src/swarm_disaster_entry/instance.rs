@@ -211,6 +211,50 @@ impl SwarmDisasterRuntimeInstance {
         self.countdown.compile_boss_decay_selection(state, keys)
     }
 
+    /// Returns the two released displayed boss choices in stable source order.
+    #[must_use]
+    pub fn boss_choices(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.transitions.choices()
+    }
+
+    /// Returns the explicitly selected boss for `plane_layer`, when present.
+    #[must_use]
+    pub fn selected_boss(&self, state: &ActivityTransactionState, plane_layer: u8) -> Option<&str> {
+        self.transitions.selected_boss(state, plane_layer)
+    }
+
+    /// Compiles caller-explicit displayed-boss selection for one plane.
+    ///
+    /// Selection consumes no RNG. Unknown bosses and layers outside `1..=3`
+    /// return typed catalog errors before an Activity program is produced.
+    pub fn compile_boss_selection(
+        &self,
+        plane_layer: u8,
+        boss: &str,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.transitions.compile_selection(plane_layer, boss)
+    }
+
+    /// Compiles atomic post-boss traversal or final Activity completion.
+    ///
+    /// The caller's state must be at the selected plane's end and contain an
+    /// explicit boss choice plus the required released Boss Decay threshold.
+    /// Countdown and Disarray carry exactly across section transitions while
+    /// section-owned overlays reset through the generic Activity lifecycle.
+    pub fn compile_plane_completion(
+        &self,
+        state: &ActivityTransactionState,
+        plane_layer: u8,
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.transitions.compile_completion(
+            &self.countdown,
+            state,
+            &self.graph,
+            &self.planes,
+            plane_layer,
+        )
+    }
+
     /// Returns the current authoritative Countdown.
     pub fn countdown(
         &self,

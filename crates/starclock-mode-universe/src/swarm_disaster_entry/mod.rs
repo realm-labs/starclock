@@ -4,6 +4,7 @@ mod countdown;
 mod factory;
 mod instance;
 mod map_overlay;
+mod plane_transition;
 mod state;
 mod topology;
 mod validate;
@@ -22,6 +23,9 @@ use crate::{
 pub const SWARM_DISASTER_ENTRY_REVISION: &str = "swarm-disaster-entry-profile-v1";
 /// Versioned deterministic root-board and forward-route construction policy.
 pub const SWARM_DISASTER_TOPOLOGY_REVISION: &str = "swarm-disaster-topology-policy-v1";
+/// Versioned explicit-boss and post-boss plane-completion policy.
+pub const SWARM_DISASTER_PLANE_COMPLETION_REVISION: &str =
+    "swarm-disaster-plane-completion-policy-v1";
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -84,6 +88,7 @@ pub struct SwarmDisasterRuntimeFactory {
     content: Arc<SwarmDisasterContentCatalog>,
     map: Arc<map_overlay::MapRuntimeCatalog>,
     countdown: Arc<countdown::CountdownRuntimeCatalog>,
+    transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -100,11 +105,14 @@ pub struct SwarmDisasterRuntimeInstance {
     planes: Box<[topology::CompiledPlane]>,
     map: Arc<map_overlay::MapRuntimeCatalog>,
     countdown: Arc<countdown::CountdownRuntimeCatalog>,
+    transitions: Arc<plane_transition::PlaneTransitionRuntimeCatalog>,
 }
 
 #[cfg(test)]
 mod countdown_tests;
 #[cfg(test)]
 mod map_overlay_tests;
+#[cfg(test)]
+mod plane_transition_tests;
 #[cfg(test)]
 mod tests;

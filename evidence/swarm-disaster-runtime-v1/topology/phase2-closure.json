@@ -1,0 +1,119 @@
+{
+  "schema_revision": "starclock.swarm-disaster-phase2-closure.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P2-B5",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "boss_choice_rows": 2,
+    "assigned_source_obligations": 2
+  },
+  "boss_choices": [
+    {
+      "stable_key": "swarm-disaster.boss-choice.8003051",
+      "source_id": 8003051,
+      "display_level": 56,
+      "enemy_variant_id": 8003051,
+      "weakness_elements": ["Fire", "Ice", "Imaginary"]
+    },
+    {
+      "stable_key": "swarm-disaster.boss-choice.8024010",
+      "source_id": 8024010,
+      "display_level": 60,
+      "enemy_variant_id": 8024010,
+      "weakness_elements": ["Imaginary", "Quantum"]
+    }
+  ],
+  "plane_lifecycle": {
+    "plane_count": 3,
+    "boss_selection": "CallerExplicitDisplayedCandidate",
+    "selection_order": "numeric-source-id",
+    "boss_selection_rng_draws": 0,
+    "completion_rng_draws": 0,
+    "required_current_node": "SelectedPlaneEnd",
+    "required_boss_decay_by_plane": ["PlaneOne", "PlaneTwo", "PlaneOneAndPlaneTwo"],
+    "cross_plane_operation": "GenericActivityTraverse",
+    "section_slots_reset": 4,
+    "countdown_scope": "Activity",
+    "countdown_carry": "CarryExact",
+    "disarray_scope": "Activity",
+    "disarray_carry": "CarryExact",
+    "terminal_count": 1,
+    "final_outcome": "Completed"
+  },
+  "determinism": {
+    "fixture_seed": 537001989,
+    "fixture_identity_id": 20,
+    "fixture_countdown_after_plane_one": 17,
+    "phase2_closure_state_hash": "e2275ed8d02b8536077105aaa909be468fcef928aac373cc335613cc3d14a30f",
+    "accepted_map_rng_labels": ["Graph"],
+    "selection_and_transition_rng_draws": 0,
+    "rejected_program_state_bytes_unchanged": true,
+    "rejected_program_rng_snapshots_unchanged": true,
+    "stale_boss_program_rejected_atomically": true,
+    "wrong_layer_rejected_before_program": true,
+    "missing_decay_rejected_before_program": true
+  },
+  "policy_boundaries": [
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-boss-choices",
+      "state": "VersionedExecutablePolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-plane-completion-policy-v1",
+      "affected_record_count": 4,
+      "remaining_owner": null
+    },
+    {
+      "boundary_id": "swarm-disaster.research-gap.source-goal09-project-policy-encounter-selection",
+      "state": "InheritedPolicy",
+      "accuracy": "ProjectPolicy",
+      "implemented_revision": "swarm-disaster-explicit-boss-selection-v1",
+      "affected_record_count": 200,
+      "remaining_owners": ["G20-P6-B1", "G20-P6-B3"]
+    }
+  ],
+  "deferred_semantics": {
+    "semantic_fixture_id": "swarm-disaster.fixture.boss-choice-consequence",
+    "ordered_operation_count": 3,
+    "expected_fact_count": 4,
+    "execution_batch": "G20-P5-B1",
+    "state": "Pending",
+    "encounter_selection_state": "PendingG20P6B1AndG20P6B3"
+  },
+  "validation": {
+    "second_activity_state_machine_added": false,
+    "external_runtime_json_reads": 0,
+    "authoritative_float_fields": 0,
+    "new_public_mode_types": 0,
+    "public_reexports_added": 0,
+    "source_policy_public_reexports": 72
+  },
+  "tests": {
+    "entry_topology_lifecycle_unit_passed": 17,
+    "swarm_unit_passed": 28,
+    "identity_integration_passed": 5,
+    "clippy_passed": true,
+    "quick_gate_result": "PassAfterFullGateCache",
+    "quick_gate_seconds": "88.9",
+    "quick_deferred_inputs": 2,
+    "initial_quick_timeout_seconds": "180.0",
+    "initial_quick_harness_build_seconds": "99.5",
+    "full_gate_passed": true,
+    "full_gate_seconds": "266.1",
+    "full_generated_checks": 33,
+    "full_source_cache_skips": 4,
+    "full_workspace_harnesses": 34,
+    "full_workspace_tests_seconds": "190.0"
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_entry --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/goal20/verify-phase2-b5.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

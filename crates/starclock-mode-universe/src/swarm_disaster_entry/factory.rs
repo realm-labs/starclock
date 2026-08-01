@@ -8,7 +8,7 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, countdown,
-    map_overlay, state, topology,
+    map_overlay, plane_transition, state, topology,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -34,12 +34,16 @@ impl SwarmDisasterRuntimeFactory {
                 .countdown_runtime_input()
                 .ok_or_else(|| error("Swarm Countdown runtime input is missing"))?,
         )?);
+        let transitions = Arc::new(plane_transition::PlaneTransitionRuntimeCatalog::compile(
+            structural.boss_choice_runtime_input(),
+        )?);
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
             content: Arc::new(content),
             map,
             countdown,
+            transitions,
         })
     }
 
@@ -102,6 +106,7 @@ impl SwarmDisasterRuntimeFactory {
             planes: topology.planes,
             map: Arc::clone(&self.map),
             countdown: Arc::clone(&self.countdown),
+            transitions: Arc::clone(&self.transitions),
         })
     }
 }

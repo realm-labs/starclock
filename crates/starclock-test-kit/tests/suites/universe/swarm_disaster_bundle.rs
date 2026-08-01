@@ -1,7 +1,7 @@
 use starclock_activity::{
-    ActivityTransactionState, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
-    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
-    ParticipantUniquenessScope,
+    ActivityCause, ActivityTransactionOutcome, ActivityTransactionState, BuildDigest,
+    LoadoutLockScope, OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
+    ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
@@ -193,6 +193,56 @@ fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
     decay
         .validate_against(instance.state_definition(), instance.graph_definition())
         .unwrap();
+
+    assert_eq!(
+        instance.boss_choices().collect::<Vec<_>>(),
+        [
+            "swarm-disaster.boss-choice.8003051",
+            "swarm-disaster.boss-choice.8024010",
+        ]
+    );
+    let mut transition_state = ActivityTransactionState::new(
+        instance.state_definition().clone(),
+        instance.plane_ends().next().unwrap(),
+    );
+    let decay = instance
+        .compile_boss_decay_selection(&transition_state, &["swarm-disaster.boss-decay.1"])
+        .unwrap();
+    apply(&instance, &mut transition_state, &decay);
+    let selection = instance
+        .compile_boss_selection(1, "swarm-disaster.boss-choice.8003051")
+        .unwrap();
+    apply(&instance, &mut transition_state, &selection);
+    assert_eq!(
+        instance.selected_boss(&transition_state, 1),
+        Some("swarm-disaster.boss-choice.8003051")
+    );
+    let completion = instance
+        .compile_plane_completion(&transition_state, 1)
+        .unwrap();
+    apply(&instance, &mut transition_state, &completion);
+    assert_eq!(
+        transition_state.current_node(),
+        instance.plane_starts().nth(1).unwrap()
+    );
+    assert_eq!(instance.countdown(&transition_state).unwrap(), 20);
+}
+
+fn apply(
+    instance: &starclock_mode_universe::swarm_disaster_entry::SwarmDisasterRuntimeInstance,
+    state: &mut ActivityTransactionState,
+    program: &starclock_activity::ActivityProgramDefinition,
+) {
+    let cause = ActivityCause::new(
+        state.command_sequence() + 1,
+        program.id(),
+        state.current_node(),
+    )
+    .unwrap();
+    assert!(matches!(
+        state.apply_program(program, cause, instance.graph_definition()),
+        ActivityTransactionOutcome::Committed(_)
+    ));
 }
 
 fn swarm_components(controller: u8) -> starclock_replay::component::ConfigurationComponentSet {
