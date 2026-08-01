@@ -9,6 +9,8 @@
 mod generated;
 #[path = "../../../config/gold-and-gears-generated/rust/mod.rs"]
 mod gold_gears_generated;
+#[path = "../../../config/swarm-disaster-generated/rust/mod.rs"]
+mod swarm_disaster_generated;
 
 pub mod ability_runtime;
 pub mod abundance_runtime;
@@ -70,6 +72,7 @@ pub mod run_runtime;
 pub mod runtime;
 pub mod service_effect_runtime;
 pub mod service_interaction;
+pub mod swarm_disaster_catalog;
 pub mod topology;
 mod topology_identity;
 mod topology_reward;

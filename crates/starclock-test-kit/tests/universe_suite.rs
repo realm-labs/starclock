@@ -86,6 +86,8 @@ mod service_effect_runtime;
 mod service_interaction_runtime;
 #[path = "suites/universe/service_reviver_runtime.rs"]
 mod service_reviver_runtime;
+#[path = "suites/universe/swarm_disaster_bundle.rs"]
+mod swarm_disaster_bundle;
 #[path = "suites/universe/topology_map_s23.rs"]
 mod topology_map_s23;
 #[path = "suites/universe/topology_map_s24.rs"]
