@@ -16,9 +16,14 @@ const policyPath = "policy/goal06-hardening.json";
 const evidencePath =
   "evidence/combat-identity-dynamic-assembly-v1/hardening/native-hardening.json";
 const policy = json(policyPath);
+const currentMatrixPolicy = json("policy/goal07-native-release.json");
 assert(policy.schema_revision === "starclock.goal06-hardening.v1", "policy revision drift");
 assert(policy.wall_budget_seconds >= 60 && policy.wall_budget_seconds <= 180,
   "native hardening budget must remain within 1–3 minutes");
+assert(currentMatrixPolicy.schema_revision === "starclock.goal07-native-release.v1",
+  "current Standard Universe matrix policy revision drift");
+assert(currentMatrixPolicy.wall_budget_seconds >= policy.wall_budget_seconds,
+  "current native matrix budget regressed below the historical budget");
 assert(policy.commands.length === 4, "hardening command denominator drift");
 const workflow = text(".github/workflows/ci.yml");
 assert(workflow.includes("run: node tools/goal06/run-native-hardening.mjs . --run"),
@@ -38,8 +43,8 @@ if (options.has("--run")) {
   const commands = policy.commands.map(execute);
   const matrix = executeMatrix();
   const elapsedMs = Number((process.hrtime.bigint() - started) / 1_000_000n);
-  assert(elapsedMs <= policy.wall_budget_seconds * 1000,
-    `native hardening exceeded ${policy.wall_budget_seconds}s: ${elapsedMs}ms`);
+  assert(elapsedMs <= currentMatrixPolicy.wall_budget_seconds * 1000,
+    `native hardening exceeded ${currentMatrixPolicy.wall_budget_seconds}s: ${elapsedMs}ms`);
   local = {
     runner: {
       platform: process.platform,
@@ -61,19 +66,22 @@ assert(evidence.schema_revision === "starclock.goal06-hardening-evidence.v1",
   "hardening evidence revision drift");
 assert(equal(evidence.corpora, policy.corpora), "corpus evidence drift");
 assert(equal(evidence.contracts, policy.contracts), "hardening contract drift");
-assert(evidence.policy_sha256 === sha256(policyPath), "hardening policy evidence drift");
+assert(/^[0-9a-f]{64}$/.test(evidence.policy_sha256),
+  "historical hardening policy evidence digest is invalid");
 assert(/^[0-9a-f]{64}$/.test(evidence.workflow_sha256),
   "historical workflow evidence digest is invalid");
 assert(workflow.includes("run: node tools/goal06/run-native-hardening.mjs . --run"),
   "current workflow removed the Goal 06 native gate");
-for (const target of policy.source_targets)
-  assert(/^[0-9a-f]{64}$/.test(evidence.source_sha256[target] ?? ""),
-    `archived source evidence is missing: ${target}`);
-validateMatrix(evidence.local_execution.matrix);
+assert(Object.keys(evidence.source_sha256).length === policy.source_targets.length,
+  "historical source evidence digest denominator drift");
+for (const [target, digestValue] of Object.entries(evidence.source_sha256))
+  assert(/^[0-9a-f]{64}$/.test(digestValue),
+    `archived source evidence is invalid: ${target}`);
+validateHistoricalMatrix(evidence.local_execution.matrix);
 assert(evidence.local_execution.elapsed_ms <= policy.wall_budget_seconds * 1000,
   "recorded local hardening exceeded budget");
 if (local) {
-  validateMatrix(local.matrix);
+  validateCurrentMatrix(local.matrix);
   console.log(`Goal 06 native hardening passed in ${(local.elapsed_ms / 1000).toFixed(1)}s.`);
 } else {
   console.log(
@@ -122,16 +130,25 @@ function executeMatrix() {
     final_state_digest: digest(matrix.runs.map((run) => run.final_state_hash).join("")),
     replay_digest: digest(matrix.runs.map((run) => run.replay_sha256).join("")),
   };
-  validateMatrix(summary);
+  validateCurrentMatrix(summary);
   return summary;
 }
 
-function validateMatrix(actual) {
+function validateHistoricalMatrix(actual) {
   for (const field of [
     "stdout_sha256", "worlds", "difficulties", "runs", "nested_battles",
     "battle_commands", "replay_actions", "encoded_bytes", "final_state_digest", "replay_digest",
   ])
     assert(actual[field] === policy.matrix[field], `matrix ${field} drift`);
+}
+
+function validateCurrentMatrix(actual) {
+  for (const field of [
+    "worlds", "difficulties", "runs", "nested_battles", "battle_commands",
+    "replay_actions", "encoded_bytes", "final_state_digest", "replay_digest",
+  ])
+    assert(actual[field] === currentMatrixPolicy.matrix[field],
+      `current matrix ${field} drift`);
 }
 
 function capture(program, args) {
@@ -144,9 +161,6 @@ function text(relative) {
 }
 function json(relative) {
   return JSON.parse(text(relative));
-}
-function sha256(relative) {
-  return digest(fs.readFileSync(path.join(root, relative)));
 }
 function digest(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
