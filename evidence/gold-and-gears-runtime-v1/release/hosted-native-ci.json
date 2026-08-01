@@ -1,0 +1,131 @@
+{
+  "schema_revision": "starclock.goal14-hosted-native-ci.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "result": "pass",
+  "completion_commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+  "run": {
+    "id": "30686590485",
+    "attempt": "1",
+    "workflow": "CI",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/realm-labs/starclock/actions/runs/30686590485"
+  },
+  "profiles": [
+    {
+      "profile": "linux-arm64-compile",
+      "execution_mode": "compile-only",
+      "tests_executed": false,
+      "evidence_origin": "hosted-ci",
+      "commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+      "workflow_run_id": "30686590485",
+      "workflow_run_attempt": "1",
+      "runner": {
+        "label": "ubuntu-24.04",
+        "os": "Linux",
+        "architecture": "X64",
+        "image_os": "ubuntu24",
+        "image_version": "20260720.247.2"
+      },
+      "rust_host": "x86_64-unknown-linux-gnu",
+      "target": "aarch64-unknown-linux-gnu",
+      "artifact_sha256": "252ab67555c73ff0617a7353415a6408ae3e5b694467377d68dacc2657121613"
+    },
+    {
+      "profile": "linux-x64-native",
+      "execution_mode": "native",
+      "tests_executed": true,
+      "evidence_origin": "hosted-ci",
+      "commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+      "workflow_run_id": "30686590485",
+      "workflow_run_attempt": "1",
+      "runner": {
+        "label": "ubuntu-24.04",
+        "os": "Linux",
+        "architecture": "X64",
+        "image_os": "ubuntu24",
+        "image_version": "20260720.247.2"
+      },
+      "rust_host": "x86_64-unknown-linux-gnu",
+      "target": "x86_64-unknown-linux-gnu",
+      "artifact_sha256": "573cbbe77fa10ea7e8bb018ce4e438e1da0abb0a88c04bc8b184318eacd4858d"
+    },
+    {
+      "profile": "macos-arm64-native",
+      "execution_mode": "native",
+      "tests_executed": true,
+      "evidence_origin": "hosted-ci",
+      "commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+      "workflow_run_id": "30686590485",
+      "workflow_run_attempt": "1",
+      "runner": {
+        "label": "macos-15",
+        "os": "macOS",
+        "architecture": "ARM64",
+        "image_os": "macos15",
+        "image_version": "20260727.0256.1"
+      },
+      "rust_host": "aarch64-apple-darwin",
+      "target": "aarch64-apple-darwin",
+      "artifact_sha256": "1147e418d77163e57e5d40fb56e109d5415ff0724b0a5c7b78b73db8ba704117"
+    },
+    {
+      "profile": "macos-x64-compile",
+      "execution_mode": "compile-only",
+      "tests_executed": false,
+      "evidence_origin": "hosted-ci",
+      "commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+      "workflow_run_id": "30686590485",
+      "workflow_run_attempt": "1",
+      "runner": {
+        "label": "macos-15",
+        "os": "macOS",
+        "architecture": "ARM64",
+        "image_os": "macos15",
+        "image_version": "20260727.0256.1"
+      },
+      "rust_host": "aarch64-apple-darwin",
+      "target": "x86_64-apple-darwin",
+      "artifact_sha256": "ffbc233be5f3b1b920fcc56aa9d7bc2ce03a7feaf23faf58d2db122e44ff1913"
+    },
+    {
+      "profile": "windows-arm64-compile",
+      "execution_mode": "compile-only",
+      "tests_executed": false,
+      "evidence_origin": "hosted-ci",
+      "commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+      "workflow_run_id": "30686590485",
+      "workflow_run_attempt": "1",
+      "runner": {
+        "label": "windows-2025",
+        "os": "Windows",
+        "architecture": "X64",
+        "image_os": "win25-vs2026",
+        "image_version": "20260714.173.1"
+      },
+      "rust_host": "x86_64-pc-windows-msvc",
+      "target": "aarch64-pc-windows-msvc",
+      "artifact_sha256": "a226c357285ad547dd5abf186f35884d7732bae7f1a165031159d1562a30bf5b"
+    },
+    {
+      "profile": "windows-x64-native",
+      "execution_mode": "native",
+      "tests_executed": true,
+      "evidence_origin": "hosted-ci",
+      "commit": "4fdd4036dfd23ab006f9e64cc36416a42124bc7e",
+      "workflow_run_id": "30686590485",
+      "workflow_run_attempt": "1",
+      "runner": {
+        "label": "windows-2025",
+        "os": "Windows",
+        "architecture": "X64",
+        "image_os": "win25-vs2026",
+        "image_version": "20260714.173.1"
+      },
+      "rust_host": "x86_64-pc-windows-msvc",
+      "target": "x86_64-pc-windows-msvc",
+      "artifact_sha256": "7113d2c515f2311bd54198460405def251bc3da968509b2bcaf75914b64b6de9"
+    }
+  ]
+}
