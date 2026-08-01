@@ -1,6 +1,6 @@
 use starclock_activity::{ActivityInstanceId, ActivityTerminalOutcome};
 use starclock_replay::{
-    codec::CanonicalSink,
+    codec::{CanonicalEncode, CanonicalSink, Encoder},
     component::ConfigurationComponentSet,
     digest::Sha256Sink,
     format_v2::{ReplayHeaderV2, decode_replay_v2, encode_replay_v2},
@@ -69,6 +69,24 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(
         hex(replay_digest.finalize().bytes()),
         "cfd954d84345f310287d6f0fee7d58921469e6729e997c6c95b851346a04dce8"
+    );
+    let replay = decode_replay_v2(&bytes).unwrap();
+    assert_eq!(replay.records().len(), 356);
+    assert_eq!(
+        record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
+        "779cac2ecb7e3ccc620a31de696a31286a17815d06075bc278ba3f8e9dfec27e"
+    );
+    assert_eq!(
+        record_digest(&bytes, &[RecordKind::AcceptedBattleCommand]),
+        "749e2a3ed8f01af7d423fca83c4c7dca5a0091c632c88cac9a0e80da471ce1e3"
+    );
+    assert_eq!(
+        record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
+        "34bee6807cc9301c142555def9a4f15944f363084a8cb1c33f6b2ba3a02a5cfe"
+    );
+    assert_eq!(
+        record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
+        "e52b79218edf637457107972cdd8b6c99559a93d6a341aa9a1504cf7437cb554"
     );
 
     assert_divergence(
@@ -253,6 +271,19 @@ fn encode_payloads(header: ReplayHeaderV2, payloads: &[(RecordKind, Vec<u8>)]) -
         .map(|(index, (kind, payload))| RecordRef::new(*kind, index as u64, payload).unwrap())
         .collect::<Vec<_>>();
     encode_replay_v2(&header, &records, Vec::new()).unwrap()
+}
+
+fn record_digest(bytes: &[u8], kinds: &[RecordKind]) -> String {
+    let replay = decode_replay_v2(bytes).unwrap();
+    let mut encoder = Encoder::new(Sha256Sink::new());
+    for record in replay
+        .records()
+        .iter()
+        .filter(|record| kinds.contains(&record.kind()))
+    {
+        record.encode(&mut encoder).unwrap();
+    }
+    hex(encoder.into_inner().finalize().bytes())
 }
 
 fn hex(bytes: [u8; 32]) -> String {

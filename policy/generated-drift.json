@@ -90,6 +90,10 @@
       "command": ["node", "tools/goal07/verify-release-contract.mjs", ".", "--release"]
     },
     {
+      "name": "Goal 14 determinism hardening contract",
+      "command": ["node", "tools/goal14/verify-determinism-hardening.mjs", "."]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

@@ -10,6 +10,7 @@ mod dice_face_tests;
 mod dice_loadout_tests;
 mod dice_resolution_tests;
 mod encounter_runtime_tests;
+mod hardening_tests;
 mod knowledge_resolution_tests;
 mod knowledge_tests;
 mod map_overlay_tests;

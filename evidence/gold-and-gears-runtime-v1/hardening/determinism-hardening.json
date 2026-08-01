@@ -1,0 +1,133 @@
+{
+  "schema_revision": "starclock.goal14-determinism-hardening-evidence.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P8-B1",
+  "result": "cross-platform-native-contract-and-local-windows-vectors-frozen",
+  "native_gate": "node tools/goal14/run-native-ci.mjs --hardening",
+  "goldens": {
+    "records": 356,
+    "activity_actions": 62,
+    "battle_commands": 99,
+    "nested_battles": 17,
+    "replay_bytes": 111347,
+    "replay_sha256": "cfd954d84345f310287d6f0fee7d58921469e6729e997c6c95b851346a04dce8",
+    "activity_command_sha256": "779cac2ecb7e3ccc620a31de696a31286a17815d06075bc278ba3f8e9dfec27e",
+    "battle_command_sha256": "749e2a3ed8f01af7d423fca83c4c7dca5a0091c632c88cac9a0e80da471ce1e3",
+    "battle_event_state_sha256": "34bee6807cc9301c142555def9a4f15944f363084a8cb1c33f6b2ba3a02a5cfe",
+    "activity_state_sha256": "e52b79218edf637457107972cdd8b6c99559a93d6a341aa9a1504cf7437cb554",
+    "rng_domain_sha256": "6d5db9ffa9bc5370250fc252109ee8b51e5e69dc1db11638a0019009a94d71f5"
+  },
+  "corpora": {
+    "rng_domains": 7,
+    "draws_per_perturbation": 257,
+    "seed_property_cases": 64,
+    "corrupted_candidate_cases": 3,
+    "deterministic_fault_cases": 1,
+    "invalid_actions": 4096,
+    "malformed_replay_cases": 256,
+    "maximum_arbitrary_replay_bytes": 4096,
+    "inherited_cases_per_property": 256
+  },
+  "suites": [
+    {
+      "id": "gold-replay-command-event-state-goldens",
+      "targets": [
+        {
+          "path": "crates/starclock-mode-universe/src/gold_gears_entry/replay_tests.rs",
+          "sha256": "492351280a8fe7adcf99d5716f3ebe13394f5bf11b68360d021e838648d4315b"
+        }
+      ]
+    },
+    {
+      "id": "gold-rng-property-and-fault-hardening",
+      "targets": [
+        {
+          "path": "crates/starclock-mode-universe/src/gold_gears_entry/hardening_tests.rs",
+          "sha256": "09a6aab73767c21c1e8142faaa39ec2ff7863903a3e1daaebd8fe2d58f54d4cf"
+        }
+      ]
+    },
+    {
+      "id": "gold-agent-rejection-and-malformed-replay-corpora",
+      "targets": [
+        {
+          "path": "crates/starclock-test-kit/tests/suites/exhaustive/agent_api/gold_gears_hardening.rs",
+          "sha256": "878ac39cc328088359ea06ffed9f593ee38a699ffbd840728f49fd3bda79f02b"
+        }
+      ]
+    },
+    {
+      "id": "inherited-replay-codec-properties",
+      "targets": [
+        {
+          "path": "crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs",
+          "sha256": "57b7855cdb03feb8648ee05ba6cf94447bd639c0cfa86c8e9fb4ddbedf457f88"
+        },
+        {
+          "path": "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs",
+          "sha256": "b4d947facb93ccdcc8839303ab20c5425991136958cb35515eb0bc0d32373289"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "windows-x64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "gold-replay-command-event-state-goldens",
+        "gold-rng-property-and-fault-hardening",
+        "gold-agent-rejection-and-malformed-replay-corpora",
+        "inherited-replay-codec-properties"
+      ]
+    },
+    {
+      "id": "linux-x64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "gold-replay-command-event-state-goldens",
+        "gold-rng-property-and-fault-hardening",
+        "gold-agent-rejection-and-malformed-replay-corpora",
+        "inherited-replay-codec-properties"
+      ]
+    },
+    {
+      "id": "macos-arm64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "gold-replay-command-event-state-goldens",
+        "gold-rng-property-and-fault-hardening",
+        "gold-agent-rejection-and-malformed-replay-corpora",
+        "inherited-replay-codec-properties"
+      ]
+    },
+    {
+      "id": "windows-arm64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    },
+    {
+      "id": "linux-arm64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    },
+    {
+      "id": "macos-x64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    }
+  ],
+  "evidence_boundary": {
+    "committed_report_is_contract_not_hosted_run_proof": true,
+    "hosted_native_execution_is_retained_as_ci_artifact": true,
+    "local_execution_profile": "windows-x64-native",
+    "linux_and_macos_claim_requires_successful_hosted_run": true,
+    "compile_only_runtime_claims": 0,
+    "new_registry_packages": 0
+  },
+  "contract_sha256": {
+    "policy": "05eb3dd4b8e63f7cd225a507bd2911f2143d5116d7d6f658721598284c937b99",
+    "workflow": "59dd7ceaf8a9fe59be6ce91f7aa50e65964cf42be69cf8526276f540c026b114",
+    "native_runner": "7f36f596cdf045e2a11e1abf7515026693e234965af42b03720abfda9043caf6"
+  }
+}

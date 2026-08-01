@@ -58,6 +58,8 @@ jobs:
         run: node tools/goal06/run-native-hardening.mjs . --run
       - name: Execute Goal 07 complete-content release vectors natively
         run: node tools/goal07/run-native-release.mjs . --run
+      - name: Execute Goal 14 Gold and Gears determinism hardening natively
+        run: node tools/goal14/run-native-ci.mjs --hardening
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence
