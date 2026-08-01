@@ -8,6 +8,7 @@ use crate::{
         SWARM_DISASTER_HANDLER_BUNDLE_REVISION, swarm_disaster_activity_handler_registry,
     },
     swarm_disaster_structural::SwarmDisasterStructuralCatalog,
+    swarm_disaster_unique::SwarmDisasterUniqueCatalog,
 };
 
 pub(crate) const SWARM_DISASTER_CATALOG_REVISION: &str = "swarm-disaster-v4.4-runtime-v1";
@@ -36,6 +37,8 @@ pub(crate) struct SwarmDisasterCatalogIdentity {
 impl SwarmDisasterCatalogIdentity {
     pub(crate) fn load(bytes: &[u8]) -> Result<Self, UniverseCatalogLoadError> {
         let structural = SwarmDisasterStructuralCatalog::load(bytes)?;
+        let unique = SwarmDisasterUniqueCatalog::load(bytes)?;
+        debug_assert_eq!(structural.bundle_summary(), unique.bundle_summary());
         Ok(Self::from_validated_bundle(structural.bundle_summary()))
     }
 

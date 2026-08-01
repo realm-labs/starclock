@@ -1,0 +1,67 @@
+{
+  "schema_revision": "starclock.swarm-disaster-unique-catalog.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P1-B4",
+  "observed_on": "2026-08-01",
+  "result": "Pass",
+  "lowered_tables": {
+    "SwarmDisasterCountdownDisarray": 1,
+    "SwarmDisasterBossDecayLevel": 42,
+    "SwarmDisasterAudiencePath": 8,
+    "SwarmDisasterAudienceDie": 8,
+    "SwarmDisasterDiceRarity": 3,
+    "SwarmDisasterDiceFace": 42,
+    "SwarmDisasterDiceTargetRule": 42,
+    "SwarmDisasterDiceRollControl": 4,
+    "SwarmDisasterCommuningChoice": 21,
+    "SwarmDisasterCommuningDimension": 7,
+    "SwarmDisasterPointAdjustment": 55,
+    "SwarmDisasterCommuningTrailNode": 63,
+    "SwarmDisasterTrailPrerequisite": 56,
+    "SwarmDisasterTrailEffect": 63,
+    "SwarmDisasterPathstriderCabinet": 31,
+    "SwarmDisasterPathObjective": 31,
+    "SwarmDisasterPathstriderFinish": 102,
+    "SwarmDisasterPathstriderUnlock": 110,
+    "SwarmDisasterMechanicalChapter": 13,
+    "SwarmDisasterTrailblazeBonus": 6,
+    "SwarmDisasterPath": 8,
+    "SwarmDisasterPathBoost": 8,
+    "SwarmDisasterResonance": 32,
+    "SwarmDisasterResonanceInterplay": 16
+  },
+  "lowered_table_count": 24,
+  "lowered_row_count": 772,
+  "validation": {
+    "countdown_policies": 1,
+    "boss_decay_rows": 42,
+    "audience_path_die_pairs": 8,
+    "dice_rarity_face_target_control_closure": "3/42/42/4",
+    "communing_choice_dimension_adjustment_closure": "21/7/55",
+    "trail_node_prerequisite_effect_closure": "63/56/63",
+    "pathstrider_cabinet_objective_finish_unlock_chapter_closure": "31/31/102/110/13",
+    "bonus_path_boost_resonance_interplay_closure": "6/8/8/32/16",
+    "canonical_scalar_parsers": 2,
+    "generated_public_types": 0
+  },
+  "policy": {
+    "canonical_decimal_transport": "validated-string-no-float-v1",
+    "embedded_programs": "private-validated-json-text-pending-typed-execution-lowering",
+    "inherited_policy_boundaries_terminalized": 0,
+    "execution_claimed": false
+  },
+  "tests": {
+    "unique_unit_passed": 2,
+    "swarm_unit_passed": 9,
+    "identity_integration_passed": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib swarm_disaster_unique --all-features",
+    "cargo test -p starclock-mode-universe --lib swarm_disaster --all-features",
+    "cargo test -p starclock-test-kit --test universe_suite swarm_disaster_bundle --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal20/verify-phase1-b4.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}
