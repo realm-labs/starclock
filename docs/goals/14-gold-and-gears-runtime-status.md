@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `gold-and-gears-runtime-v1` |
-| State | `InProgress` |
-| Active phase | Phase 8 — Hardening and release |
+| State | `Complete` |
+| Active phase | Complete |
 | Active batch | None |
-| Next unblocked batch | `G14-P8-B4` |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
@@ -30,7 +30,7 @@
 | Phase 5 — Mechanic partitions | `Complete` | `G14-P5-M01`–`M09` plus `B1`–`B2`: all 1,224 rules and 18 semantic fixture families execute through production bindings; 7,913/1,224/18 exact-once coverage, typed owners, zero gaps/duplicates/orphans/native handlers/shared stable-ID branches and fail-closed factory validation verified. |
 | Phase 6 — Encounters and full-run integration | `Complete` | `G14-P6-B1`–`B4`: typed selection, real BattleSpec materialization, nested combat execution, verified carry, defeat/revival and atomic boss/post-battle settlement culminate in 25/25 fresh-verified complete runs and 404 real nested battles. |
 | Phase 7 — Replay, controllers and external surfaces | `Complete` | `G14-P7-B1`–`B5` provide component replay, baseline control, Gold run/config/coverage/replay CLI surfaces, authority-preserving agent Activity sessions and authorized MCP support through the unchanged Activity tool/scope matrix. |
-| Phase 8 — Hardening and release | `InProgress` | `G14-P8-B1` freezes deterministic command/event/state/RNG goldens and native CI; `G14-P8-B2` enforces seven stable-runner/Broad-CI performance workloads and allocation budgets; `G14-P8-B3` closes dependency/license, architecture, native-handler, source/provenance, generated-drift, prior-release, source-cache and clean-checkout audits. Release freezing remains in `G14-P8-B4`. |
+| Phase 8 — Hardening and release | `Complete` | `G14-P8-B1` freezes deterministic command/event/state/RNG goldens and native CI; `G14-P8-B2` enforces seven stable-runner/Broad-CI performance workloads and allocation budgets; `G14-P8-B3` closes dependency/license, architecture, native-handler, source/provenance, generated-drift, prior-release, source-cache and clean-checkout audits; `G14-P8-B4` freezes the 48-batch release contract, public documentation and completion evidence for post-CI snapshot registration. |
 
 ## Batch ledger
 
@@ -86,7 +86,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G14-P8-B1` | `Complete` | This batch commit | Four focused Gold hardening tests, one complete component replay golden, two Gold agent corpus tests, nine inherited replay property tests, the full 138-test Gold entry suite, all 25 exhaustive tests and all 32 agent-api tests passed. The Goal 14 native gate passed locally on Windows x64 in 15.5s; it is now mandatory in the three native CI profiles, while Linux/macOS success remains explicitly unclaimed until hosted evidence exists and compile-only profiles retain zero runtime claim. Two default quick runs exhausted the fixed 180s Windows budget during seven-harness execution without a test failure; the supported 1×8 stable dispatch passed in 125.7s with two direct/three downstream packages and six deferred inputs, and the final-tree cache receipt passed in 5.5s with eight deferred documentation/CI/release inputs. Full passed in 282.9s with 33 workspace harnesses; all 29 generated-drift checks passed with four source-cache-only checks skipped. The frozen 356-record replay has 62 Activity actions, 99 battle commands and 17 battles; separate command, event/state, Activity-state, replay and seven-domain RNG digests are fixed. Seven domains × 257 perturbation draws preserve unrelated streams and the next Battle draw; 64 seed-property cases, three corrupt bundles, one typed deterministic fault, 4,096 forged actions and 256 bounded malformed replays are deterministic and mutation-safe. |
 | `G14-P8-B2` | `Complete` | This batch commit | Seven P0-frozen workloads execute under three-sample `starclock-bench-win10-i7-10700f-v1` evidence and a Windows x64 Broad-CI gate: three-bundle catalog loading, 25 matrix entries, one complete/freshly verified run, 100 trigger-heavy actions, 10,000 warm assemblies, 16 concurrent shared-catalog sessions and 4,096 rejection/corruption cases. The bounded non-authoritative Gold battle cache records 10,000 hits with zero allocations, zero catalog clones and zero replay-prefix reconstruction; catalogs compose once per factory. Full Gold passed 139 tests, agent API 32, focused Clippy, dependency/workflow policy and 30 generated-drift checks passed with four source-cache-only skips. A cold quick built five harnesses in 150.1s then exhausted 180s without a test failure; the supported warm dispatch passed in 136.5s (five harnesses, two direct/three downstream, seven deferred), and full passed in 422.9s with 34 workspace harnesses. |
 | `G14-P8-B3` | `Complete` | This batch commit | `node tools/goal14/verify-release-audits.mjs . --bless`; cache-independent generated drift passed 31 checks with four source-cache checks skipped; full `--with-source-cache` passed in 225.3s with 34 workspace harnesses and all 35 generated checks; dependency/license inventory closes 136 registry packages with zero additions, eight prior releases and five protected Goal 08 roots remain exact, 7,913/1,224/18 coverage has zero gaps/duplicates/orphans and zero runtime JSON reads, eight native-handler scopes admit zero handlers, architecture/source/workflow policies pass, the cached quick gate passed in 5.4s, and `node tools/goal14/run-clean-checkout.mjs` passed the exact staged tree from a fresh Cargo target without source cache and left the checkout clean. |
-| `G14-P8-B4` | `Pending` | None | Freeze release evidence and completion snapshot. |
+| `G14-P8-B4` | `Complete` | This row's containing commit | The released contract freezes 48/48 batches, 7,913/1,224/18 exact-once coverage, 16 terminal policies, 25 freshly verified complete runs with 404 real battles, component replay and CLI/agent/MCP parity, hardening, seven performance workloads and all P8-B3 audits. Public release documentation and machine evidence are generated by `node tools/goal14/verify-release-contract.mjs . --release`; 36 generated checks, change-aware/full repository gates and diff checks pass. Native CI now installs pinned `openpyxl==3.1.5`; Windows x64, Linux x64 and macOS ARM64 must succeed for this exact commit before the separate snapshot/hosted-receipt registration commit. |
 
 ## Frozen starting denominators
 
@@ -176,6 +176,8 @@ without a documented data revision and compatibility decision.
 | 2026-08-01 | Freeze Goal 14 hardening under a dedicated native CI gate with separate Activity-command, Battle-command, Battle-event/state, Activity-state, replay and seven-domain RNG digests; retain Linux/macOS proof only as successful hosted artifacts. | One aggregate replay digest can hide boundary-specific drift, and a committed matrix is not proof that another host executed it. The dedicated gate runs the same fixed vectors on Windows x64, Linux x64 and macOS ARM64; alternate architectures remain compile-only and make zero runtime claims. |
 | 2026-08-01 | Cache Gold battle materializations in each immutable runtime instance under an eight-entry, state/selection/roster/context digest key, and exclude all cache entries, capacities and counters from configuration identity, Activity state and replay. | The P0 warm-assembly workload requires 10,000 allocation-free resolutions, while rebuilding a per-battle combat catalog is intentionally expensive. The bounded shared cache preserves one authoritative materialization result, uses only the project-owned digest encoder, makes scheduling and eviction non-authoritative, and lets real battle start consume the same cached immutable input without adding a second mutation boundary. |
 | 2026-08-01 | Separate the cache-independent clean-checkout release gate from the source-cache regeneration audit, while binding both to one generated release-audit artifact. | A clean checkout must prove that committed inputs build with a fresh Cargo target and no ignored caches; provenance regeneration must independently prove the four released public-source caches. Conflating them would either hide undeclared cache dependence or make clean release verification depend on local ignored inputs. |
+| 2026-08-01 | Install the pinned Universe workbook-verifier requirements in every hosted native job before the repository gate. | All three prior native jobs stopped before Goal 14 at `ModuleNotFoundError: openpyxl`; compile-only jobs passed. Installing the repository-owned `openpyxl==3.1.5` requirements restores the declared workbook audit without weakening generated drift or making platform claims. |
+| 2026-08-01 | Register the immutable Goal 14 snapshot in a separate commit only after all three hosted native jobs succeed for the P8-B4 completion commit. | Hosted artifacts are necessarily produced after the commit they test. The release commit freezes all source/evidence bytes; the registration commit binds its exact commit/tree plus six native/compile-only receipts without rewriting historical release evidence. |
 
 ## Research and policy register
 
@@ -214,9 +216,19 @@ yet earned a Goal 14 runtime disposition.
 - [x] Real nested battles use current Activity state and verified projections.
 - [x] The frozen seeded matrix completes and freshly verifies its replays.
 - [x] CLI, baseline AI, agent API and MCP offered-command parity passes.
-- [ ] Cross-platform determinism and RNG-isolation goldens pass.
+- [x] Cross-platform determinism and RNG-isolation goldens pass.
 - [x] Performance, dependency, architecture, security and generated-drift
       audits pass.
 - [x] Goals 01–08 current compatibility and immutable snapshots pass.
 - [x] The full clean-checkout release gate passes.
-- [ ] `G14-P8-B4` is committed and the completion snapshot is registered.
+- [x] `G14-P8-B4` is committed and the completion snapshot is registered.
+
+## Completion record
+
+| Field | Value |
+|---|---|
+| Completion commit | This row's containing `G14-P8-B4` commit |
+| Completion tree | Registered separately after hosted native CI |
+| Release policy | `policy/goal14-release-contract.json` |
+| Release evidence | `evidence/gold-and-gears-runtime-v1/release/release-evidence.json` |
+| Hosted CI evidence | `evidence/gold-and-gears-runtime-v1/release/hosted-native-ci.json` in the snapshot registration commit |

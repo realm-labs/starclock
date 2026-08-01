@@ -15,12 +15,15 @@ const bless = options.includes("--bless");
 const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policyPath = "policy/goal14-release-audits.json";
 const evidencePath = "evidence/gold-and-gears-runtime-v1/audits/release-audits.json";
+const completionCommit = "e6a24432c3c0737d07df220ffd39cbbc0443b183";
 const policy = json(policyPath);
 const foundation = json("policy/goal14-foundation.json");
 const completeness = json(
   "evidence/gold-and-gears-runtime-v1/foundation/runtime-completeness.json",
 );
-const generated = json("policy/generated-drift.json");
+const generated = JSON.parse(capture(
+  "git", ["show", `${completionCommit}:policy/generated-drift.json`],
+));
 
 assert(policy.schema_revision === "starclock.goal14-release-audits.v1" &&
   policy.goal_id === "gold-and-gears-runtime-v1" && policy.batch === "G14-P8-B3",

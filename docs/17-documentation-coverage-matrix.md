@@ -46,7 +46,7 @@ outside this release.
 | Enemies and bosses | Behavior/AI/phase model plus prepared source evidence | Goal 01 imports the exact 17-variant Standard subset and 63 source-bound abilities | 17/17 frozen variants verified; broader catalogs remain future scope. |
 | Standard Simulated Universe | Complete Version 4.4 mechanics on current-Activity per-battle assembly | 2,201 DataReady records, 786 executable rules, 78 production fixtures, 86 mechanism-correct enemies and 33 replay-v3 seeded complete runs | Goal 07 released with 104/104 content partitions, 49 approved numeric approximations and zero mechanic approximations. |
 | Swarm Disaster | System boundary documented | Not imported | Full active content, dice/map/progression mechanics and seeded golden run. |
-| Gold and Gears | System boundary documented | Not imported | Full active content, custom dice/Cognition/Secrets/Conundrum and seeded golden run. |
+| Gold and Gears | Complete Version 4.4 Activity runtime over real nested battles | 7,913 obligations, 1,224 rules, 18 fixtures, 52 private Sora tables and a 25-run seeded matrix | Goal 14 released with replay, baseline, CLI, agent/MCP parity and explicit versioned non-parity policies. |
 | Unknowable Domain | System boundary documented | Not imported | Full Scepter/Component/alignment/stage data and seeded golden run. |
 | Divergent Universe 4.4 | Snapshot boundary documented | Not imported | Frozen current-only manifest, full mechanical data and seeded golden run. |
 | Standard battle | Default profile implemented | Six frozen encounters and scenarios imported and seeded to `Won` | Goal 01 Standard gate complete. |

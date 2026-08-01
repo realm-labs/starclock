@@ -138,6 +138,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 112. [Goal 07 Nihility partition S03](goal-07-nihility-s03.md) — Break damage, Effect RES, DoT vulnerability/duration and dynamic DoT-stack vulnerability.
 113. [Goal 07 Nihility partition S04](goal-07-nihility-s04.md) — team healing/Energy from DoTs, Resonance statuses, Confusion, Devoid and all Nihility Formations.
 114. [Goal 07 release contract](goal-07-release-contract.md) — frozen 121-batch ledger, terminal mechanics denominators, audit/native/performance evidence and immutable completion boundary.
+115. [Goal 14 release contract](goal-14-release-contract.md) — complete Gold and Gears runtime coverage, replay/surface parity, hardening, performance, native CI and immutable completion boundary.
 
 ## Execution goals
 

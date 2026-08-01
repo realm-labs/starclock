@@ -122,6 +122,10 @@
       "command": ["node", "tools/goal14/verify-release-audits.mjs", "."]
     },
     {
+      "name": "Goal 14 released completion contract",
+      "command": ["node", "tools/goal14/verify-release-contract.mjs", ".", "--release"]
+    },
+    {
       "name": "representative domain-catalog golden",
       "command": ["node", "tools/config-catalog/verify.mjs"]
     },

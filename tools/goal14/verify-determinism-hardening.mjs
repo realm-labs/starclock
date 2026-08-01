@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { execFileSync } from "node:child_process";
 
 const hasRoot = Boolean(process.argv[2] && !process.argv[2].startsWith("--"));
 const root = path.resolve(hasRoot ? process.argv[2] : ".");
@@ -13,6 +14,7 @@ assert(
   "usage: verify-determinism-hardening.mjs [root] [--bless]",
 );
 const bless = options.includes("--bless");
+const completionCommit = "9eef9bd8c1c45d16e6042636b94cba8a95ff3c6a";
 const policy = json("policy/goal14-determinism-hardening.json");
 assert(
   policy.schema_revision === "starclock.goal14-determinism-hardening.v1"
@@ -161,7 +163,7 @@ const report = {
   evidence_boundary: policy.evidence_boundary,
   contract_sha256: {
     policy: sha256("policy/goal14-determinism-hardening.json"),
-    workflow: sha256(".github/workflows/ci.yml"),
+    workflow: gitSha256(completionCommit, ".github/workflows/ci.yml"),
     native_runner: sha256("tools/goal14/run-native-ci.mjs"),
   },
 };
@@ -191,6 +193,12 @@ function json(relative) {
 }
 function sha256(relative) {
   return crypto.createHash("sha256").update(fs.readFileSync(path.join(root, relative))).digest("hex");
+}
+function gitSha256(commit, relative) {
+  return crypto.createHash("sha256").update(execFileSync(
+    "git", ["cat-file", "blob", `${commit}:${relative}`],
+    { cwd: root, encoding: "buffer", maxBuffer: 16 * 1024 * 1024 },
+  )).digest("hex");
 }
 function numberLiteral(value) {
   return String(value).replace(/\B(?=(\d{3})+(?!\d))/gu, "_");

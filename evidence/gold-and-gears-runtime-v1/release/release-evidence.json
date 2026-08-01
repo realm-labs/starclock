@@ -1,0 +1,143 @@
+{
+  "schema_revision": "starclock.goal14-release-evidence.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "released_on": "2026-08-01",
+  "result": "complete",
+  "completion_commit": "this file's containing G14-P8-B4 commit",
+  "completion": {
+    "phases": 9,
+    "fixed_batches": 39,
+    "mechanic_partitions": 9,
+    "total_batches": 48,
+    "release_batch": "G14-P8-B4"
+  },
+  "coverage": {
+    "source_obligations": 7913,
+    "mechanic_rules": 1224,
+    "semantic_fixture_families": 18,
+    "policy_boundaries": 16,
+    "sora_tables": 52,
+    "workbook_rows": 29140,
+    "exact_once_gaps": 0,
+    "exact_once_duplicates": 0,
+    "orphan_rules": 0,
+    "native_handlers": 0,
+    "runtime_json_file_reads": 0
+  },
+  "production_matrix": {
+    "complete_runs": 25,
+    "fresh_factory_verified_runs": 25,
+    "nested_battles": 404,
+    "difficulties": 5,
+    "paths": 9,
+    "custom_dice": 12,
+    "policy_probes": 16
+  },
+  "representative_replay": {
+    "seed": 14901,
+    "terminal": "Completed",
+    "activity_actions": 62,
+    "real_nested_battles": 17,
+    "accepted_battle_commands": 99,
+    "replay_bytes": 111347,
+    "replay_sha256": "cfd954d84345f310287d6f0fee7d58921469e6729e997c6c95b851346a04dce8",
+    "component_root": "4dfaf6e6aea980f2a24d96800c9a4924d0f4ea88e8a0153413521abb259f1f32",
+    "action_families": [
+      "PlaneCreation",
+      "BossSelection",
+      "Traverse",
+      "Battle"
+    ],
+    "graph_mutation_recompiled": true,
+    "nested_commands_reexecuted": true,
+    "complete_event_payloads_compared": true,
+    "battle_and_activity_state_hashes_compared": true
+  },
+  "surfaces": {
+    "baseline_controller_revision": "gold-and-gears-baseline-controller-v1",
+    "cli_revision": "starclock-cli-gold-and-gears-v1",
+    "agent_revision": "agent-activity-v1",
+    "mcp_revision": "2025-11-25",
+    "external_actions": 42,
+    "final_state_hash": "aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455",
+    "replay_sha256": "0677779aca24ac20f0a5bbd043112c82a63751d6b4306cff10df5c7e1535a16a"
+  },
+  "hardening": {
+    "rng_domains": 7,
+    "invalid_actions": 4096,
+    "malformed_replays": 256,
+    "activity_command_sha256": "779cac2ecb7e3ccc620a31de696a31286a17815d06075bc278ba3f8e9dfec27e",
+    "battle_command_sha256": "749e2a3ed8f01af7d423fca83c4c7dca5a0091c632c88cac9a0e80da471ce1e3",
+    "battle_event_state_sha256": "34bee6807cc9301c142555def9a4f15944f363084a8cb1c33f6b2ba3a02a5cfe",
+    "activity_state_sha256": "e52b79218edf637457107972cdd8b6c99559a93d6a341aa9a1504cf7437cb554",
+    "rng_domain_sha256": "6d5db9ffa9bc5370250fc252109ee8b51e5e69dc1db11638a0019009a94d71f5"
+  },
+  "performance": {
+    "workloads": 7,
+    "stable_runner_samples": 3,
+    "warm_assembly_hits": 10000,
+    "concurrent_sessions": 16
+  },
+  "audits": {
+    "reviewed_registry_packages": 136,
+    "protected_reference_roots": 5,
+    "generated_drift_checks": 36,
+    "source_cache_checks": 4,
+    "clean_checkout_command": "node tools/goal14/run-clean-checkout.mjs"
+  },
+  "native": {
+    "required_native_profiles": [
+      "windows-x64-native",
+      "linux-x64-native",
+      "macos-arm64-native"
+    ],
+    "compile_only_profiles": [
+      "windows-arm64-compile",
+      "linux-arm64-compile",
+      "macos-x64-compile"
+    ],
+    "compile_only_runtime_claims": 0,
+    "hosted_evidence_path": "evidence/gold-and-gears-runtime-v1/release/hosted-native-ci.json",
+    "registration": "separate snapshot commit after successful hosted CI"
+  },
+  "policy_files_sha256": {
+    "policy/goal14-foundation.json": "9440ae41f910d892c9be93043bff55e563d44ebefd5e89a42f1ec4e723e69cd9",
+    "policy/goal14-runtime-dispositions.json": "47de2cbe474599c0e17259942dd53eff93c9a329b7f7620d57b6c3e8361184b8",
+    "policy/goal14-runtime-contract.json": "41410c6d86e0b0648242b01c49f98534cbf70efecb8581464f72624165732e65",
+    "policy/goal14-coverage-and-release.json": "88f7ea183493114b671abc7d591ff749fe85547462ec121e277c48a473e7fdb1",
+    "policy/goal14-determinism-hardening.json": "05eb3dd4b8e63f7cd225a507bd2911f2143d5116d7d6f658721598284c937b99",
+    "policy/goal14-performance.json": "361a04497f0ab76436258f9bce841ac6d64d1a6f0c3ff2f45ff311d059616968",
+    "policy/goal14-release-audits.json": "d189fbee74c39e541296ed3816bbec84901c02f7504958f452d440f35685240a"
+  },
+  "evidence_files_sha256": {
+    "evidence/gold-and-gears-runtime-v1/foundation/runtime-completeness.json": "26b0fe70a3649567e697b674f51934a5d5d2c8605d188b2c36e02e79574602e4",
+    "evidence/gold-and-gears-runtime-v1/topology/seeded-run-matrix.json": "867fdf906b4dd967e5d5f2b8d20486ac55b2b6881323a17770a3e29c106f2459",
+    "evidence/gold-and-gears-runtime-v1/interfaces/component-replay.json": "5b9552ee1ff67ee4323ae738635a1fdf553c47e0a7535f9de35d3d53ccbe1862",
+    "evidence/gold-and-gears-runtime-v1/interfaces/baseline-controller.json": "af9238bdd53d0f7e9c740a2a34d316a78090c51f71cba108a7d596ae6944e1be",
+    "evidence/gold-and-gears-runtime-v1/interfaces/universe-cli.json": "51d349faa818e92c1bbccbbc825038739fff50478e2692d2d5c448874deaae7f",
+    "evidence/gold-and-gears-runtime-v1/interfaces/activity-agent-api.json": "ac6af1fc9a0ca44e8812dfe4aec56f9a4cb812e7e8efd64482abd551b1e166ac",
+    "evidence/gold-and-gears-runtime-v1/interfaces/activity-mcp.json": "7f05705b6ea0921c3692480310d91a65925bcc49da3bf962c317b61112172ec9",
+    "evidence/gold-and-gears-runtime-v1/hardening/determinism-hardening.json": "b7c65f880448d52294a85d433c87b439f009001f2c6114cb95b1810e0bf8d357",
+    "evidence/gold-and-gears-runtime-v1/performance/stable-runner.json": "7776285734d58391031d762b8c32851c2db01587f6d6072a0af0b7d56bdc53db",
+    "evidence/gold-and-gears-runtime-v1/audits/release-audits.json": "22c9f1ef6e6cec57a408f3caa8e20734e83750812f357494c33edde8ff5cf5f4",
+    "evidence/gold-and-gears-runtime-v1/audits/phase8-b3.json": "8d1393b857342b95755b984350b5e16afbdfa3ce46ad37a2c1453636e32d3bba"
+  },
+  "documentation_files_sha256": {
+    "docs/goals/14-gold-and-gears-runtime.md": "5e846390e4671d1135cb7acd5b26aa6bad61d5c759a8e7052c8cf98bb213ff74",
+    "docs/goals/14-gold-and-gears-runtime-status.md": "7face2b831a071ad65bcf627c8e5804c4d0327434bc1f9bac490578491e30248",
+    "docs/goals/14-gold-and-gears-runtime-prompt.md": "e4426c97b8720507df2d27a7b202fbdca54f10515586c43f531dc517f7bf96a9",
+    "docs/goal-14-coverage-and-release.md": "79bde36917090d75409fd39dc4ae9ffcea3184f5ab6e93153c834bce4c44d906",
+    "docs/goal-14-release-contract.md": "9e6c6a3dbceb098a27f2f6805175316a80621875807ceee16679ee7d8a7345c7"
+  },
+  "prior_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1",
+    "standard-universe-runtime-v1",
+    "standard-universe-end-to-end-v1",
+    "combat-identity-dynamic-assembly-v1",
+    "standard-universe-mechanics-complete-v1",
+    "gold-and-gears-reference-v1"
+  ],
+  "clean_worktree_command": "node tools/goal14/verify-release-contract.mjs . --release --require-clean"
+}
