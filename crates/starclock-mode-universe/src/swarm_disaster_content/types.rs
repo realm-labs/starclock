@@ -269,6 +269,24 @@ pub(super) struct MechanicRuleDefinition {
     pub(super) disposition: Box<str>,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ReviewFixtureQuality {
+    ExactStructured,
+    ProjectPolicy,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(super) struct ReviewFixtureDefinition {
+    pub(super) key: Box<str>,
+    pub(super) family: Box<str>,
+    pub(super) source_record_keys: Box<[Box<str>]>,
+    pub(super) preconditions: Box<str>,
+    pub(super) input: Box<str>,
+    pub(super) ordered_operations: Box<str>,
+    pub(super) expected_facts: Box<str>,
+    pub(super) quality: ReviewFixtureQuality,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(super) struct AuditCatalogSummary {
     pub(super) source_records: usize,

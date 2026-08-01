@@ -5,7 +5,8 @@ pub(crate) mod inventory_access;
 mod lower;
 pub(super) mod map_access;
 pub(crate) mod mechanic_access;
-mod types;
+pub(crate) mod semantic_access;
+pub(crate) mod types;
 mod validate;
 
 use crate::{
@@ -70,6 +71,7 @@ pub(crate) struct SwarmDisasterContentCatalog {
     enemy_slots: Box<[EnemySlotDefinition]>,
     boss_pools: Box<[BossPoolDefinition]>,
     mechanic_rules: Box<[MechanicRuleDefinition]>,
+    review_fixtures: Box<[ReviewFixtureDefinition]>,
     audit: AuditCatalogSummary,
 }
 

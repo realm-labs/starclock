@@ -106,6 +106,7 @@ fn validate_keys(catalog: &SwarmDisasterContentCatalog) -> Result<(), SwarmDisas
     unique_table!(enemy_slots);
     unique_table!(boss_pools);
     unique_table!(mechanic_rules);
+    unique_table!(review_fixtures);
     Ok(())
 }
 

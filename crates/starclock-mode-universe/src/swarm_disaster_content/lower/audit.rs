@@ -2,7 +2,10 @@ use std::collections::BTreeSet;
 
 use crate::swarm_disaster_generated::{
     SoraConfig, swarm_disaster_coverage::SwarmDisasterCoverage,
+    swarm_disaster_coverage_state::SwarmDisasterCoverageState,
+    swarm_disaster_evidence_grade::SwarmDisasterEvidenceGrade,
     swarm_disaster_mechanic_rule::SwarmDisasterMechanicRule,
+    swarm_disaster_ownership::SwarmDisasterOwnership,
     swarm_disaster_pack_index::SwarmDisasterPackIndex,
     swarm_disaster_reconcile_receipt::SwarmDisasterReconcileReceipt,
     swarm_disaster_research_gap::SwarmDisasterResearchGap,
@@ -16,9 +19,13 @@ use crate::swarm_disaster_content::{
     SwarmDisasterContentError, SwarmDisasterContentErrorKind, types::*,
 };
 
-pub(super) fn lower(
-    source: &SoraConfig,
-) -> Result<(Box<[MechanicRuleDefinition]>, AuditCatalogSummary), SwarmDisasterContentError> {
+type LoweredAudit = (
+    Box<[MechanicRuleDefinition]>,
+    Box<[ReviewFixtureDefinition]>,
+    AuditCatalogSummary,
+);
+
+pub(super) fn lower(source: &SoraConfig) -> Result<LoweredAudit, SwarmDisasterContentError> {
     let mechanic_rules = source
         .swarm_disaster_mechanic_rule()
         .ordered_rows()
@@ -29,6 +36,12 @@ pub(super) fn lower(
     validate_coverage(source, &source_keys)?;
     validate_gaps(source)?;
     validate_fixtures(source)?;
+    let review_fixtures = source
+        .swarm_disaster_review_fixture()
+        .ordered_rows()
+        .map(review_fixture)
+        .collect::<Result<Vec<_>, _>>()?
+        .into_boxed_slice();
     validate_receipts(source)?;
     let manifest = source
         .swarm_disaster_manifest()
@@ -56,6 +69,7 @@ pub(super) fn lower(
     validate_pack_index(source)?;
     Ok((
         mechanic_rules,
+        review_fixtures,
         AuditCatalogSummary {
             source_records: source.swarm_disaster_source_record().len(),
             coverage_rows: source.swarm_disaster_coverage().len(),
@@ -73,6 +87,32 @@ pub(super) fn lower(
                 .map_err(|_| super::error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
         },
     ))
+}
+
+fn review_fixture(
+    row: &SwarmDisasterReviewFixture,
+) -> Result<ReviewFixtureDefinition, SwarmDisasterContentError> {
+    let quality = match row.fixture_evidence_quality {
+        SwarmDisasterEvidenceGrade::ExactStructured => ReviewFixtureQuality::ExactStructured,
+        SwarmDisasterEvidenceGrade::ProjectPolicy => ReviewFixtureQuality::ProjectPolicy,
+        _ => return fail(SwarmDisasterContentErrorKind::Metadata, &row.stable_key),
+    };
+    if row.ownership != SwarmDisasterOwnership::SwarmDisaster
+        || row.coverage_state != SwarmDisasterCoverageState::DataReady
+        || row.evidence_quality != row.fixture_evidence_quality
+    {
+        return fail(SwarmDisasterContentErrorKind::Metadata, &row.stable_key);
+    }
+    Ok(ReviewFixtureDefinition {
+        key: stable(&row.stable_key, &row.stable_key)?,
+        family: stable(&row.family_id, &row.stable_key)?,
+        source_record_keys: text_list(&row.source_record_ids, &row.stable_key)?,
+        preconditions: json(&row.preconditions_json, &row.stable_key)?,
+        input: json(&row.input_json, &row.stable_key)?,
+        ordered_operations: json(&row.ordered_operations_json, &row.stable_key)?,
+        expected_facts: json(&row.expected_facts_json, &row.stable_key)?,
+        quality,
+    })
 }
 
 fn mechanic_rule(

@@ -38,7 +38,7 @@ pub(super) fn lower(
         service_rules,
     } = inventory::lower(source)?;
     let (encounter_groups, encounter_waves, enemy_slots, boss_pools) = encounter::lower(source)?;
-    let (mechanic_rules, audit) = audit::lower(source)?;
+    let (mechanic_rules, review_fixtures, audit) = audit::lower(source)?;
     let catalog = SwarmDisasterContentCatalog {
         bundle,
         map_events,
@@ -62,6 +62,7 @@ pub(super) fn lower(
         enemy_slots,
         boss_pools,
         mechanic_rules,
+        review_fixtures,
         audit,
     };
     validate::catalog(&catalog, structural, unique)?;

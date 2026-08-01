@@ -24,6 +24,7 @@ mod pathstrider_progress;
 mod plane_transition;
 mod profile_rule_runtime;
 mod progression_rule_runtime;
+mod semantic_fixture_runtime;
 mod service_adventure_runtime;
 mod service_rule_runtime;
 mod simultaneous;
@@ -95,6 +96,7 @@ pub struct SwarmDisasterRuntimeFactory {
     occurrence_rules: Arc<occurrence_rule_runtime::OccurrenceRuleRuntimeCatalog>,
     service_adventure: Arc<service_adventure_runtime::ServiceAdventureRuntimeCatalog>,
     service_rules: Arc<service_rule_runtime::ServiceRuleRuntimeCatalog>,
+    semantic_fixtures: Arc<semantic_fixture_runtime::SemanticFixtureRuntimeCatalog>,
     communing: Arc<communing::CommuningRuntimeCatalog>,
     communing_rules: Arc<communing_rule_runtime::CommuningRuleRuntimeCatalog>,
     content_runtime: Arc<content_runtime::ContentRuntimeCatalog>,
