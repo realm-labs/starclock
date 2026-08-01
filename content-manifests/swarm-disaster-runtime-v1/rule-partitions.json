@@ -1,0 +1,288 @@
+{
+  "schema_revision": "starclock.swarm-disaster-rule-partitions.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P0-B2",
+  "generated_on": "2026-08-01",
+  "policy_sha256": "1b8508a7f7ccacbcab1f676d42f58cb63dfa978c9f62e8097bbef35e9532fabf",
+  "mechanic_rules_sha256": "2041a8ab91ffe99b75d2ea40ba67b6d59261ceb2e202c67ec842b78aebe456d6",
+  "summary": {
+    "partitions": 12,
+    "rules": 23,
+    "native_handlers_admitted": 0
+  },
+  "partitions": [
+    {
+      "id": "G20-P5-M01",
+      "ordinal": 0,
+      "family_ids": [
+        "profile-entry"
+      ],
+      "expected_rules": 1,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.profile-entry"
+      ],
+      "executor": "SwarmProfileRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 1,
+      "fixture_ids": [
+        "swarm-disaster.fixture.profile-entry"
+      ],
+      "dependencies": [
+        "G20-P4-B5"
+      ]
+    },
+    {
+      "id": "G20-P5-M02",
+      "ordinal": 1,
+      "family_ids": [
+        "topology-generation",
+        "topology-event-order",
+        "domain-replacement",
+        "beacon-copy-and-blanking"
+      ],
+      "expected_rules": 4,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.beacon-copy-and-blanking",
+        "swarm-disaster.mechanic-rule.domain-replacement",
+        "swarm-disaster.mechanic-rule.topology-event-order",
+        "swarm-disaster.mechanic-rule.topology-generation"
+      ],
+      "executor": "SwarmTopologyRuleExecutor",
+      "exact_structured_count": 1,
+      "project_policy_count": 3,
+      "fixture_ids": [
+        "swarm-disaster.fixture.beacon-copy-and-blanking",
+        "swarm-disaster.fixture.domain-replacement",
+        "swarm-disaster.fixture.topology-event-order",
+        "swarm-disaster.fixture.topology-generation"
+      ],
+      "dependencies": [
+        "G20-P5-M01"
+      ]
+    },
+    {
+      "id": "G20-P5-M03",
+      "ordinal": 2,
+      "family_ids": [
+        "countdown-lifecycle",
+        "planar-disarray-transition",
+        "boss-decay-stack"
+      ],
+      "expected_rules": 3,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.boss-decay-stack",
+        "swarm-disaster.mechanic-rule.countdown-lifecycle",
+        "swarm-disaster.mechanic-rule.planar-disarray-transition"
+      ],
+      "executor": "SwarmDisarrayRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 3,
+      "fixture_ids": [
+        "swarm-disaster.fixture.boss-decay-stack",
+        "swarm-disaster.fixture.countdown-lifecycle",
+        "swarm-disaster.fixture.planar-disarray-transition"
+      ],
+      "dependencies": [
+        "G20-P5-M02"
+      ]
+    },
+    {
+      "id": "G20-P5-M04",
+      "ordinal": 3,
+      "family_ids": [
+        "audience-die-passive",
+        "dice-face-targeting",
+        "dice-roll-reroll-cheat"
+      ],
+      "expected_rules": 3,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.audience-die-passive",
+        "swarm-disaster.mechanic-rule.dice-face-targeting",
+        "swarm-disaster.mechanic-rule.dice-roll-reroll-cheat"
+      ],
+      "executor": "SwarmAudienceDieRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 3,
+      "fixture_ids": [
+        "swarm-disaster.fixture.audience-die-passive",
+        "swarm-disaster.fixture.dice-face-targeting",
+        "swarm-disaster.fixture.dice-roll-reroll-cheat"
+      ],
+      "dependencies": [
+        "G20-P5-M03"
+      ]
+    },
+    {
+      "id": "G20-P5-M05",
+      "ordinal": 4,
+      "family_ids": [
+        "communing-choice",
+        "communing-dimension-points"
+      ],
+      "expected_rules": 2,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.communing-choice",
+        "swarm-disaster.mechanic-rule.communing-dimension-points"
+      ],
+      "executor": "SwarmCommuningDeviceRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 2,
+      "fixture_ids": [
+        "swarm-disaster.fixture.communing-choice",
+        "swarm-disaster.fixture.communing-dimension-points"
+      ],
+      "dependencies": [
+        "G20-P5-M04"
+      ]
+    },
+    {
+      "id": "G20-P5-M06",
+      "ordinal": 5,
+      "family_ids": [
+        "communing-trail-effect",
+        "pathstrider-progress"
+      ],
+      "expected_rules": 2,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.communing-trail-effect",
+        "swarm-disaster.mechanic-rule.pathstrider-progress"
+      ],
+      "executor": "SwarmProgressionRuleExecutor",
+      "exact_structured_count": 1,
+      "project_policy_count": 1,
+      "fixture_ids": [
+        "swarm-disaster.fixture.communing-trail-effect",
+        "swarm-disaster.fixture.pathstrider-progress"
+      ],
+      "dependencies": [
+        "G20-P5-M05"
+      ]
+    },
+    {
+      "id": "G20-P5-M07",
+      "ordinal": 6,
+      "family_ids": [
+        "path-and-propagation-unlock",
+        "resonance-interplay"
+      ],
+      "expected_rules": 2,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.path-and-propagation-unlock",
+        "swarm-disaster.mechanic-rule.resonance-interplay"
+      ],
+      "executor": "SwarmPathRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 2,
+      "fixture_ids": [
+        "swarm-disaster.fixture.path-and-propagation-unlock",
+        "swarm-disaster.fixture.resonance-interplay"
+      ],
+      "dependencies": [
+        "G20-P5-M06"
+      ]
+    },
+    {
+      "id": "G20-P5-M08",
+      "ordinal": 7,
+      "family_ids": [
+        "curio-lifecycle"
+      ],
+      "expected_rules": 1,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.curio-lifecycle"
+      ],
+      "executor": "SwarmCurioRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 1,
+      "fixture_ids": [
+        "swarm-disaster.fixture.curio-lifecycle"
+      ],
+      "dependencies": [
+        "G20-P5-M07"
+      ]
+    },
+    {
+      "id": "G20-P5-M09",
+      "ordinal": 8,
+      "family_ids": [
+        "occurrence-choice"
+      ],
+      "expected_rules": 1,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.occurrence-choice"
+      ],
+      "executor": "SwarmOccurrenceRuleExecutor",
+      "exact_structured_count": 1,
+      "project_policy_count": 0,
+      "fixture_ids": [
+        "swarm-disaster.fixture.occurrence-choice"
+      ],
+      "dependencies": [
+        "G20-P5-M08"
+      ]
+    },
+    {
+      "id": "G20-P5-M10",
+      "ordinal": 9,
+      "family_ids": [
+        "service-and-adventure"
+      ],
+      "expected_rules": 1,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.service-and-adventure"
+      ],
+      "executor": "SwarmServiceRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 1,
+      "fixture_ids": [
+        "swarm-disaster.fixture.service-and-adventure"
+      ],
+      "dependencies": [
+        "G20-P5-M09"
+      ]
+    },
+    {
+      "id": "G20-P5-M11",
+      "ordinal": 10,
+      "family_ids": [
+        "boss-choice-consequence",
+        "final-boss-consequence"
+      ],
+      "expected_rules": 2,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.boss-choice-consequence",
+        "swarm-disaster.mechanic-rule.final-boss-consequence"
+      ],
+      "executor": "SwarmBossRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 2,
+      "fixture_ids": [
+        "swarm-disaster.fixture.boss-choice-consequence",
+        "swarm-disaster.fixture.final-boss-consequence"
+      ],
+      "dependencies": [
+        "G20-P5-M10"
+      ]
+    },
+    {
+      "id": "G20-P5-M12",
+      "ordinal": 11,
+      "family_ids": [
+        "encounter-selection"
+      ],
+      "expected_rules": 1,
+      "rule_ids": [
+        "swarm-disaster.mechanic-rule.encounter-selection"
+      ],
+      "executor": "SwarmEncounterRuleExecutor",
+      "exact_structured_count": 0,
+      "project_policy_count": 1,
+      "fixture_ids": [
+        "swarm-disaster.fixture.encounter-selection"
+      ],
+      "dependencies": [
+        "G20-P5-M11"
+      ]
+    }
+  ]
+}

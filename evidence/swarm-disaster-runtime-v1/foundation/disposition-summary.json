@@ -1,0 +1,129 @@
+{
+  "schema_revision": "starclock.swarm-disaster-disposition-summary.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P0-B2",
+  "generated_on": "2026-08-01",
+  "result": "Pass",
+  "source_obligations": 6963,
+  "source_ownership": {
+    "Shared": 658,
+    "SwarmDisaster": 6305
+  },
+  "source_target_dispositions": {
+    "ExternalOutcome": 6,
+    "Integrated": 6282,
+    "Metadata": 23,
+    "SharedIntegrated": 652
+  },
+  "mechanic_rules": 23,
+  "rule_target_accuracy": {
+    "ExactStructured": 3,
+    "VersionedProjectPolicy": 20
+  },
+  "semantic_fixture_families": 23,
+  "policy_boundaries": 31,
+  "inherited_policy_boundaries": 31,
+  "rule_partitions": [
+    {
+      "id": "G20-P5-M01",
+      "families": [
+        "profile-entry"
+      ],
+      "count": 1
+    },
+    {
+      "id": "G20-P5-M02",
+      "families": [
+        "topology-generation",
+        "topology-event-order",
+        "domain-replacement",
+        "beacon-copy-and-blanking"
+      ],
+      "count": 4
+    },
+    {
+      "id": "G20-P5-M03",
+      "families": [
+        "countdown-lifecycle",
+        "planar-disarray-transition",
+        "boss-decay-stack"
+      ],
+      "count": 3
+    },
+    {
+      "id": "G20-P5-M04",
+      "families": [
+        "audience-die-passive",
+        "dice-face-targeting",
+        "dice-roll-reroll-cheat"
+      ],
+      "count": 3
+    },
+    {
+      "id": "G20-P5-M05",
+      "families": [
+        "communing-choice",
+        "communing-dimension-points"
+      ],
+      "count": 2
+    },
+    {
+      "id": "G20-P5-M06",
+      "families": [
+        "communing-trail-effect",
+        "pathstrider-progress"
+      ],
+      "count": 2
+    },
+    {
+      "id": "G20-P5-M07",
+      "families": [
+        "path-and-propagation-unlock",
+        "resonance-interplay"
+      ],
+      "count": 2
+    },
+    {
+      "id": "G20-P5-M08",
+      "families": [
+        "curio-lifecycle"
+      ],
+      "count": 1
+    },
+    {
+      "id": "G20-P5-M09",
+      "families": [
+        "occurrence-choice"
+      ],
+      "count": 1
+    },
+    {
+      "id": "G20-P5-M10",
+      "families": [
+        "service-and-adventure"
+      ],
+      "count": 1
+    },
+    {
+      "id": "G20-P5-M11",
+      "families": [
+        "boss-choice-consequence",
+        "final-boss-consequence"
+      ],
+      "count": 2
+    },
+    {
+      "id": "G20-P5-M12",
+      "families": [
+        "encounter-selection"
+      ],
+      "count": 1
+    }
+  ],
+  "exact_once_gaps": 0,
+  "exact_once_duplicates": 0,
+  "native_handlers_admitted": 0,
+  "runtime_dispositions_sha256": "c3e7e82a4eecd05ffacec315e3b2e14bf6c42f994e06e745b119636074dfdc00",
+  "rule_partitions_sha256": "20e5e240e1672ecf89dd970926309c12281113b09e7ec39c9721f48d1e154b10",
+  "policy_sha256": "1b8508a7f7ccacbcab1f676d42f58cb63dfa978c9f62e8097bbef35e9532fabf"
+}

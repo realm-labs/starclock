@@ -126,8 +126,11 @@ const batches = status.match(/^\| `G20-(?:P\d+-B\d+|P5-M\d+)` \|/gmu) ?? [];
 assert(batches.length === execution.planned_batches, "Goal 20 batch count drift");
 assert(status.includes("| State | `InProgress` |"), "Goal 20 is not active");
 assert(status.includes("| `G20-P0-B1` | `Complete` |"), "G20-P0-B1 is incomplete");
-assert(status.includes("| Next unblocked batch | `G20-P0-B2` |"),
-  "Goal 20 next batch is not G20-P0-B2");
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
+assert(nextBatch === "None"
+  || (/^`G20-(?:P\d+-B\d+|P5-M\d+)`$/u.test(nextBatch ?? "")
+    && nextBatch !== "`G20-P0-B1`"),
+"Goal 20 next batch regressed to G20-P0-B1");
 assert(Object.values(policy.contracts).every((value) => value === true),
   "Goal 20 foundation contains an unaccepted contract");
 
