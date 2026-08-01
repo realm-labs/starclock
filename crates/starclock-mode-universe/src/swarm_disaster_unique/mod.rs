@@ -2,6 +2,7 @@
 
 pub(super) mod entry_access;
 mod lower;
+pub(super) mod runtime_access;
 mod types;
 mod validate;
 

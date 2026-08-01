@@ -1,6 +1,7 @@
 use starclock_activity::{
-    BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
+    ActivityTransactionState, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
+    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ParticipantUniquenessScope,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
@@ -176,6 +177,20 @@ fn public_factory_compiles_a_locked_entry_and_bounded_topology_without_rng() {
         )
         .unwrap();
     replacement
+        .validate_against(instance.state_definition(), instance.graph_definition())
+        .unwrap();
+    let state = ActivityTransactionState::new(
+        instance.state_definition().clone(),
+        instance.graph_definition().entry(),
+    );
+    let movement = instance.compile_countdown_move(&state, &[]).unwrap();
+    movement
+        .validate_against(instance.state_definition(), instance.graph_definition())
+        .unwrap();
+    let decay = instance
+        .compile_boss_decay_selection(&state, &["swarm-disaster.boss-decay.1"])
+        .unwrap();
+    decay
         .validate_against(instance.state_definition(), instance.graph_definition())
         .unwrap();
 }

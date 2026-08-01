@@ -174,6 +174,78 @@ impl SwarmDisasterRuntimeInstance {
             .into_boxed_slice()
     }
 
+    /// Compiles one accepted move followed by stable-ID-ordered adjustments.
+    ///
+    /// Movement always consumes the catalog delta first. A pre-move Countdown
+    /// of zero enters Planar Disarray; an active level advances and modifiers
+    /// retain the level-20 cap. The program rejects stale state atomically.
+    pub fn compile_countdown_move(
+        &self,
+        state: &ActivityTransactionState,
+        adjustments: &[(u32, i64)],
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.countdown.compile_move(state, adjustments)
+    }
+
+    /// Compiles non-movement Countdown changes in stable operation-ID order.
+    ///
+    /// Duplicate IDs, zero deltas and values outside the declared slot bounds
+    /// are rejected before an Activity program is returned.
+    pub fn compile_countdown_adjustments(
+        &self,
+        state: &ActivityTransactionState,
+        adjustments: &[(u32, i64)],
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.countdown.compile_adjustments(state, adjustments)
+    }
+
+    /// Compiles one not-yet-selected, released Swarm boss-decay contribution.
+    ///
+    /// Contributions are addressed by stable Starclock key. Unproven shared
+    /// DLC rows and a second contribution for the same plane fail closed.
+    pub fn compile_boss_decay_selection(
+        &self,
+        state: &ActivityTransactionState,
+        keys: &[&str],
+    ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
+        self.countdown.compile_boss_decay_selection(state, keys)
+    }
+
+    /// Returns the current authoritative Countdown.
+    pub fn countdown(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<i64, UniverseCatalogLoadError> {
+        self.countdown.countdown(state)
+    }
+
+    /// Returns the current uncapped Planar Disarray level.
+    pub fn disarray_level(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<i64, UniverseCatalogLoadError> {
+        self.countdown.disarray_level(state)
+    }
+
+    /// Returns cumulative enemy damage, mitigation and Speed percentages.
+    ///
+    /// The tuple is `(damage dealt, damage received reduction, speed)` and is
+    /// capped at the level-20 contribution schedule.
+    pub fn disarray_modifiers(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<(i64, i64, i64), UniverseCatalogLoadError> {
+        self.countdown.disarray_modifiers(state)
+    }
+
+    /// Whether the current Countdown is at or below the catalog warning value.
+    pub fn countdown_warning_active(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<bool, UniverseCatalogLoadError> {
+        self.countdown.warning_active(state)
+    }
+
     fn require_graph_node(&self, node: NodeId) -> Result<(), UniverseCatalogLoadError> {
         self.graph
             .node(node)

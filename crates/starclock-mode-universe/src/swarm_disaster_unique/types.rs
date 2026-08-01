@@ -38,6 +38,7 @@ pub(super) struct CountdownDefinition {
     pub(super) warning: Box<str>,
     pub(super) movement_delta: Box<str>,
     pub(super) tiers: Box<str>,
+    pub(super) source_constants: Box<str>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -47,6 +48,7 @@ pub(super) struct BossDecayDefinition {
     pub(super) threshold: Box<str>,
     pub(super) tier: Box<str>,
     pub(super) effect_program: Box<str>,
+    pub(super) enabled: bool,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

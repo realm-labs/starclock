@@ -215,6 +215,7 @@ fn lower_countdown(
         warning: scalar(&row.warning_threshold, &row.stable_key)?,
         movement_delta: scalar(&row.movement_delta, &row.stable_key)?,
         tiers: json(&row.disarray_tiers_json, &row.stable_key)?,
+        source_constants: json(&row.source_constant_bindings_json, &row.stable_key)?,
     })
 }
 
@@ -237,6 +238,7 @@ fn lower_boss_decay(
         threshold: nonempty(&row.threshold, &row.stable_key)?,
         tier: nonempty(&row.tier, &row.stable_key)?,
         effect_program: json(&row.effect_parameters_json, &row.stable_key)?,
+        enabled: row.swarm_applicability == "EnabledByReleasedSwarmText",
     })
 }
 
