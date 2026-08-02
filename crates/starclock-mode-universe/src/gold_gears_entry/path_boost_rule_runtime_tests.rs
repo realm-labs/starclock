@@ -24,8 +24,8 @@ use crate::digest::Encoder;
 use super::{
     CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     path_boost_rule_runtime::{
-        GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION, GoldAndGearsPathBoostCombatSet,
-        GoldAndGearsPathBoostRuleKind, GoldAndGearsPathBoostRuleOwnership,
+        GoldAndGearsPathBoostCombatSet, GoldAndGearsPathBoostRuleKind,
+        GoldAndGearsPathBoostRuleOwnership,
     },
     progression_runtime::GoldAndGearsPathBoostStat,
     state_layout::{PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, PROGRESSION_SLOT},
@@ -81,14 +81,6 @@ fn path_boost_partition_binds_exactly_495_terminal_rules() {
                     "CombatRuleIr"
                 }
     }));
-    assert_eq!(
-        GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION,
-        "gold-and-gears-path-boost-execution-v1"
-    );
-    assert_eq!(
-        hex(factory.path_boost_execution_digest()),
-        "7d51e9f2f62e5a264d1c63480f78aa97e71b4ce6073f2a4e12ad5c16843761ee"
-    );
 }
 
 #[test]

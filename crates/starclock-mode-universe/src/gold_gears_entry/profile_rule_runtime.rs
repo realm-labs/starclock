@@ -18,9 +18,6 @@ use super::{
     },
 };
 
-pub const GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION: &str =
-    "gold-and-gears-profile-entry-rule-runtime-v1";
-
 struct CanonicalBlessingInventory {
     counts: Vec<(BlessingId, u32)>,
     ids: Vec<BlessingId>,

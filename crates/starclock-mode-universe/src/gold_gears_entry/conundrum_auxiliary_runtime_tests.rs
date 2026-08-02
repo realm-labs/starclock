@@ -9,7 +9,6 @@ use super::{
     CONUNDRUM_AREA_KEY, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
     GoldAndGearsRuntimeInstance,
     conundrum_auxiliary_runtime::{
-        GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION,
         GoldAndGearsAuxiliaryBattleContribution, GoldAndGearsAuxiliaryPlaneEntryExecution,
     },
     state_layout::{
@@ -25,10 +24,6 @@ const PATH: &str = "universe.path.preservation";
 #[test]
 fn auxiliary_partition_binds_exactly_six_cumulative_exact_public_rules() {
     let factory = super::tests::shared_factory();
-    assert_eq!(
-        GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION,
-        "gold-and-gears-auxiliary-conundrum-rule-runtime-v1"
-    );
     assert!(
         compile(factory, 0)
             .compile_auxiliary_conundrum_rules(&new_state(&compile(factory, 0)))

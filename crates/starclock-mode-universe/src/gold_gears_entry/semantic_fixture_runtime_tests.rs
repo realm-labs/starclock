@@ -2,10 +2,7 @@ use std::collections::BTreeSet;
 
 use super::{
     GoldAndGearsRuntimeFactory,
-    semantic_fixture_runtime::{
-        GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION,
-        GoldAndGearsSemanticFixtureExecutionKind,
-    },
+    semantic_fixture_runtime::GoldAndGearsSemanticFixtureExecutionKind,
 };
 
 #[test]
@@ -20,14 +17,6 @@ fn all_18_semantic_fixture_families_bind_exactly_once() {
         binding.fixture_id() == format!("gold-gears.fixture.{}", binding.family_id())
             && !binding.production_regression().is_empty()
     }));
-    assert_eq!(
-        GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION,
-        "gold-and-gears-semantic-fixture-execution-v1"
-    );
-    assert_eq!(
-        hex(factory.semantic_fixture_execution_digest()),
-        "2b69ec29dde6fde1dc6cac9ea10baea5d34c28f39d3d03a41f74d5f340b52832"
-    );
 }
 
 #[test]
@@ -115,8 +104,4 @@ fn all_fixture_regressions_are_unique_and_production_runtime_backed() {
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
     super::tests::shared_factory()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

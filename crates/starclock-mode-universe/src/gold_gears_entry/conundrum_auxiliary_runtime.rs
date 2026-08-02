@@ -18,9 +18,6 @@ use super::{
 };
 
 /// Revision of the six-rule Auxiliary Conundrum execution boundary.
-pub const GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION: &str =
-    "gold-and-gears-auxiliary-conundrum-rule-runtime-v1";
-
 const START_PROGRAM_BASE: u32 = 0x4f10_0000;
 const PLANE_PROGRAM_BASE: u32 = 0x4f20_0000;
 

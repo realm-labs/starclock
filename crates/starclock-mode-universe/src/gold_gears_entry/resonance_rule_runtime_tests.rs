@@ -13,9 +13,9 @@ use super::{
     CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     progression_runtime::GoldAndGearsExtrapolationContext,
     resonance_rule_runtime::{
-        GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION, GoldAndGearsResonanceCombatAttachment,
-        GoldAndGearsResonanceRuleAccuracy, GoldAndGearsResonanceRuleBinding,
-        GoldAndGearsResonanceRuleKind, GoldAndGearsResonanceRuleOwnership,
+        GoldAndGearsResonanceCombatAttachment, GoldAndGearsResonanceRuleAccuracy,
+        GoldAndGearsResonanceRuleBinding, GoldAndGearsResonanceRuleKind,
+        GoldAndGearsResonanceRuleOwnership,
     },
     tests::entry,
 };
@@ -75,14 +75,6 @@ fn resonance_partition_binds_exactly_90_terminal_rules() {
                 "CombatRuleIr"
             }
     }));
-    assert_eq!(
-        GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION,
-        "gold-and-gears-resonance-execution-v1"
-    );
-    assert_eq!(
-        hex(factory.resonance_execution_digest()),
-        "ae2a70113b5ae209282b9aa77a379f76f9b71216e6e15fe7e72acaf0a38317eb"
-    );
 }
 
 #[test]

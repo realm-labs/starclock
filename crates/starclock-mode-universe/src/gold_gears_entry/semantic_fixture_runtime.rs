@@ -7,9 +7,6 @@ use super::{
     api::{GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance},
 };
 
-pub const GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION: &str =
-    "gold-and-gears-semantic-fixture-execution-v1";
-
 const ENCOUNTER_FIXTURE_GROUP: &str = "gold-gears.encounter-group.223003";
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -313,8 +310,7 @@ fn execution_digest(
     bindings: &[GoldAndGearsSemanticFixtureBinding],
     encounter_shape: (usize, usize),
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-gold-gears-semantic-fixture-execution-v1");
-    encoder.text(GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock-gold-gears-semantic-fixture-execution");
     encoder.u32(bindings.len() as u32);
     for binding in bindings {
         encoder.text(&binding.fixture_id);

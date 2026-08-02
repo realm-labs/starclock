@@ -12,9 +12,6 @@ use super::{
     },
 };
 
-pub const GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION: &str =
-    "gold-and-gears-service-adventure-execution-v1";
-
 pub(super) fn compile_rule_runtime(
     services: &[GoldAndGearsServiceDefinition],
     adventures: &[GoldAndGearsAdventureDefinition],
@@ -105,8 +102,7 @@ fn binding(
 }
 
 fn execution_digest(bindings: &[GoldAndGearsServiceAdventureRuleBinding]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-gold-gears-service-adventure-execution-v1");
-    encoder.text(GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock-gold-gears-service-adventure-execution");
     encoder.u32(bindings.len() as u32);
     for binding in bindings {
         encoder.text(&binding.rule_id);

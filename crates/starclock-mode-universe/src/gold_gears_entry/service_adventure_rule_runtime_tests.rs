@@ -8,7 +8,6 @@ use starclock_activity::{
 
 use super::{
     GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
-    service_adventure_rule_runtime::GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION,
     service_adventure_types::{
         GoldAndGearsAdventureExternalOutcome, GoldAndGearsServiceAdventureRuleAccuracy,
         GoldAndGearsServiceAdventureRuleKind, GoldAndGearsServiceKind,
@@ -80,14 +79,6 @@ fn service_adventure_partition_binds_exactly_38_shared_rules() {
         bindings
             .iter()
             .all(|binding| binding.executor() == "ReleasedSharedExecutor")
-    );
-    assert_eq!(
-        GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION,
-        "gold-and-gears-service-adventure-execution-v1"
-    );
-    assert_eq!(
-        digest_hex(factory.service_adventure_execution_digest()),
-        "5134055e448b30948f4e0521d4b030bc3e0cd089f5d381284d7befc31eb0e83d"
     );
 }
 

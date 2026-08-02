@@ -20,9 +20,6 @@ use super::{
     state_layout::DEFERRED_EFFECTS_SLOT,
 };
 
-pub const GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION: &str =
-    "gold-and-gears-occurrence-execution-v1";
-
 const OCCURRENCE_PROGRAM_BASE: u32 = 0x4B00_0000;
 const OCCURRENCE_APPLIED_BASE: u64 = 0x4747_4500_0000_0000;
 const OCCURRENCE_COST_BASE: u64 = 0x4747_4600_0000_0000;
@@ -283,8 +280,7 @@ fn execution_digest(
     bindings: &[GoldAndGearsOccurrenceRuleBinding],
     choices: &[GoldAndGearsOccurrenceChoice],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-gold-gears-occurrence-execution-v1");
-    encoder.text(GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock-gold-gears-occurrence-execution");
     encoder.u32(bindings.len() as u32);
     for binding in bindings {
         encoder.text(&binding.rule_id);

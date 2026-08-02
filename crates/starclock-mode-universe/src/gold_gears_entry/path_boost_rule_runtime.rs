@@ -21,9 +21,6 @@ use super::{
     api::{GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance},
 };
 
-pub const GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION: &str =
-    "gold-and-gears-path-boost-execution-v1";
-
 const MODIFIER_BASE: u32 = 0x7f20_0000;
 const GROUP_BASE: u32 = 0x7f21_0000;
 const SOURCE_BASE: u32 = 0x7f22_0000;
@@ -484,8 +481,7 @@ fn count_kind(
 }
 
 fn execution_digest(bindings: &[GoldAndGearsPathBoostRuleBinding]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-gold-gears-path-boost-execution-v1");
-    encoder.text(GOLD_AND_GEARS_PATH_BOOST_EXECUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock-gold-gears-path-boost-execution");
     encoder.u32(bindings.len() as u32);
     for binding in bindings {
         encoder.text(&binding.rule_id);

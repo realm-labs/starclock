@@ -20,9 +20,6 @@ use super::{
     progression_runtime::ProgressionRuntimeCatalog,
 };
 
-pub const GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION: &str =
-    "gold-and-gears-resonance-execution-v1";
-
 const SOURCE_BASE: u32 = 0x7f30_0000;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -496,8 +493,7 @@ fn exact_scaled(value: &ExactParameter) -> Option<i64> {
 }
 
 fn execution_digest(bindings: &[GoldAndGearsResonanceRuleBinding]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-gold-gears-resonance-execution-v1");
-    encoder.text(GOLD_AND_GEARS_RESONANCE_EXECUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock-gold-gears-resonance-execution");
     encoder.u32(bindings.len() as u32);
     for binding in bindings {
         encoder.text(&binding.rule_id);

@@ -8,9 +8,7 @@ use starclock_activity::{
 use super::{
     GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     curio_types::GoldAndGearsCurioCategory,
-    profile_rule_runtime::{
-        GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION, GoldAndGearsProfileRuleExecution,
-    },
+    profile_rule_runtime::GoldAndGearsProfileRuleExecution,
     state_layout::{
         BLESSING_INVENTORY, CURIO_INVENTORY, RESOURCE_COSMIC_FRAGMENTS_KEY,
         RESOURCE_DICE_CHEATS_KEY, RUN_RESOURCES_SLOT,
@@ -21,10 +19,6 @@ use super::{
 #[test]
 fn profile_partition_binds_exactly_five_exact_public_activity_rules() {
     let factory = factory();
-    assert_eq!(
-        GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION,
-        "gold-and-gears-profile-entry-rule-runtime-v1"
-    );
     let expected = [
         (
             "gold-gears.trailblaze-bonus.201",

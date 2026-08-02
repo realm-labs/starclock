@@ -115,6 +115,8 @@ Removed from current runtime surfaces:
   battle-snapshot revisions and their byte-for-byte digest snapshots;
 - Swarm Disaster baseline entry/controller and performance-matrix hash-domain
   versions, plus fixed baseline controller digest snapshots;
+- seven Gold and Gears mechanic execution/profile revisions and their direct
+  fixed digest snapshots;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

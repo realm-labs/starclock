@@ -7,7 +7,6 @@ use starclock_activity::{
 
 use super::{
     GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
-    occurrence_execution::GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION,
     occurrence_types::{
         GoldAndGearsOccurrenceEffectPhase, GoldAndGearsOccurrenceRuleAccuracy,
         GoldAndGearsOccurrenceRuleKind, GoldAndGearsOccurrenceRuleOwnership,
@@ -82,14 +81,6 @@ fn occurrence_partition_binds_exactly_384_terminal_rules() {
                 "ActivityProgram"
             }
     }));
-    assert_eq!(
-        GOLD_AND_GEARS_OCCURRENCE_EXECUTION_REVISION,
-        "gold-and-gears-occurrence-execution-v1"
-    );
-    assert_eq!(
-        digest_hex(factory.occurrence_execution_digest()),
-        "eafc03c0952a6665ddee9523a2ef28c6fc9f0ce794fa4e5f16bdc71be7eac984"
-    );
 }
 
 #[test]
