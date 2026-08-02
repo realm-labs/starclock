@@ -49,7 +49,6 @@ pub(super) struct SwarmBattleStart {
 }
 
 impl SwarmBattleStart {
-    #[cfg(test)]
     pub(super) const fn handoff(&self) -> &ActivityBattleHandoff {
         &self.handoff
     }

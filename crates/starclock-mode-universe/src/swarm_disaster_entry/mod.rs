@@ -31,9 +31,13 @@ mod pathstrider_progress;
 mod plane_transition;
 mod profile_rule_runtime;
 mod progression_rule_runtime;
+pub mod replay;
+mod replay_action;
+mod replay_battle;
 mod runtime_coverage;
-#[cfg(test)]
 mod seeded_run;
+mod seeded_run_digest;
+mod seeded_run_route;
 mod semantic_fixture_runtime;
 mod service_adventure_runtime;
 mod service_rule_runtime;

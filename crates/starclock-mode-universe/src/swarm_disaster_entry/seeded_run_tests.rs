@@ -152,6 +152,13 @@ fn runtime(
     compiled(factory, entry)
 }
 
+pub(super) fn representative_runtime() -> (
+    super::SwarmDisasterRuntimeInstance,
+    crate::battle_materialization::UniverseBattleRoster,
+) {
+    runtime(&MATRIX[0])
+}
+
 fn compiled(
     factory: SwarmDisasterRuntimeFactory,
     entry: SwarmDisasterEntry,
