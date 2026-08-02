@@ -15,10 +15,14 @@ use crate::{
 
 use super::{
     SwarmDisasterRuntimeInstance,
+    baseline_controller::{
+        SwarmBaselineController, SwarmBaselineDecision, SwarmBaselineError, SwarmOfferedAction,
+        SwarmOfferedCommand, next_decision_id, route_offers, select_offered,
+    },
     encounter_runtime::{EncounterRole, EncounterSelection},
     replay_action::SwarmSeededRunAction,
     seeded_run_digest::transcript_digest,
-    seeded_run_route::{explicit_face_target, longest_legal_route, movement_program, route_edge},
+    seeded_run_route::{explicit_face_target, longest_legal_route, movement_program},
 };
 
 pub(super) const SWARM_DISASTER_SEEDED_RUN_REVISION: &str = "swarm-disaster-seeded-run-v1";
@@ -101,6 +105,7 @@ pub(super) struct SwarmRecordedExecution {
 
 pub(super) enum SwarmSeededRunError {
     Catalog(crate::error::UniverseCatalogLoadError),
+    Controller(SwarmBaselineError),
     ProgramRejected,
     MissingRoute(NodeId),
     MissingBossChoice(NodeId),
@@ -117,6 +122,7 @@ impl core::fmt::Debug for SwarmSeededRunError {
     fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             Self::Catalog(error) => formatter.debug_tuple("Catalog").field(error).finish(),
+            Self::Controller(error) => formatter.debug_tuple("Controller").field(error).finish(),
             Self::ProgramRejected => formatter.write_str("ProgramRejected"),
             Self::MissingRoute(node) => formatter.debug_tuple("MissingRoute").field(node).finish(),
             Self::MissingBossChoice(node) => formatter
@@ -162,6 +168,15 @@ impl SwarmDisasterRuntimeInstance {
         request: SwarmSeededRunRequest,
         roster: &UniverseBattleRoster,
     ) -> Result<SwarmRecordedExecution, SwarmSeededRunError> {
+        self.execute_seeded_run_recorded_with_decisions(request, roster, None)
+    }
+
+    pub(super) fn execute_seeded_run_recorded_with_decisions(
+        &self,
+        request: SwarmSeededRunRequest,
+        roster: &UniverseBattleRoster,
+        mut decisions: Option<&mut Vec<SwarmBaselineDecision>>,
+    ) -> Result<SwarmRecordedExecution, SwarmSeededRunError> {
         let mut state = ActivityTransactionState::new(
             self.state_definition().clone(),
             self.graph_definition().entry(),
@@ -180,6 +195,7 @@ impl SwarmDisasterRuntimeInstance {
         ));
         let mut steps = Vec::new();
         let mut replay = Vec::new();
+        let controller = SwarmBaselineController::default();
         if self.countdown(&state)? != 20 {
             return Err(SwarmSeededRunError::BoundaryNotObserved(
                 SwarmSeededBoundary::InitialCountdown,
@@ -262,6 +278,7 @@ impl SwarmDisasterRuntimeInstance {
                 if is_boss(role) {
                     prepare_boss(
                         self,
+                        controller,
                         &mut state,
                         request,
                         &mut steps,
@@ -269,6 +286,7 @@ impl SwarmDisasterRuntimeInstance {
                         &mut rng,
                         role,
                         plane,
+                        &mut decisions,
                     )?;
                 }
                 let before_transition = (self.countdown(&state)?, self.disarray_level(&state)?);
@@ -356,8 +374,18 @@ impl SwarmDisasterRuntimeInstance {
             if node == plane_ends[plane] {
                 return Err(SwarmSeededRunError::Incomplete);
             }
-            let target = longest_legal_route(self, &state, node, plane_ends[plane])?;
-            let edge = route_edge(self, node, target)?;
+            let preferred = longest_legal_route(self, &state, node, plane_ends[plane])?;
+            let offers = route_offers(self, &state, node, preferred)?;
+            let selected = select_offered(
+                controller,
+                next_decision_id(&state)?,
+                &offers,
+                &mut decisions,
+            )?;
+            let (edge, target) = match selected.action() {
+                SwarmOfferedAction::Traverse { edge, target } => (*edge, *target),
+                _ => return Err(SwarmSeededRunError::ProgramRejected),
+            };
             let before = (self.countdown(&state)?, self.disarray_level(&state)?);
             let program = if self.dice_roll_available(&state)? {
                 let roll = self.compile_dice_roll(&state, &mut rng)?;
@@ -527,6 +555,7 @@ fn create_plane(
 #[allow(clippy::too_many_arguments)]
 fn prepare_boss(
     instance: &SwarmDisasterRuntimeInstance,
+    controller: SwarmBaselineController,
     state: &mut ActivityTransactionState,
     request: SwarmSeededRunRequest,
     steps: &mut Vec<SwarmSeededRunStep>,
@@ -534,6 +563,7 @@ fn prepare_boss(
     encounter_rng: &mut ActivityRngStreams,
     role: EncounterRole,
     plane: usize,
+    decisions: &mut Option<&mut Vec<SwarmBaselineDecision>>,
 ) -> Result<(), SwarmSeededRunError> {
     let layer = u8::try_from(plane + 1).map_err(|_| SwarmSeededRunError::StepBudgetExceeded)?;
     if layer == 1 {
@@ -581,15 +611,30 @@ fn prepare_boss(
     if preview.role != role {
         return Err(SwarmSeededRunError::Incomplete);
     }
-    let boss = preview
+    let mut choices = preview
         .waves
         .iter()
         .flat_map(|wave| wave.slots.iter())
         .flat_map(|slot| slot.boss_choices.iter())
         .map(AsRef::as_ref)
-        .next()
-        .or_else(|| instance.boss_choices().next())
+        .collect::<Vec<_>>();
+    if choices.is_empty() {
+        choices.extend(instance.boss_choices());
+    }
+    let preferred = choices
+        .first()
+        .copied()
         .ok_or(SwarmSeededRunError::MissingBossChoice(state.current_node()))?;
+    let offers = choices
+        .iter()
+        .enumerate()
+        .map(|(ordinal, boss)| SwarmOfferedCommand::boss(layer, ordinal, boss, *boss == preferred))
+        .collect::<Vec<_>>();
+    let selected = select_offered(controller, next_decision_id(state)?, &offers, decisions)?;
+    let boss = match selected.action() {
+        SwarmOfferedAction::SelectBoss { plane, boss } if *plane == layer => boss.as_ref(),
+        _ => return Err(SwarmSeededRunError::ProgramRejected),
+    };
     let program = instance.compile_boss_selection(layer, boss)?;
     let source = state.current_node();
     apply_and_record(

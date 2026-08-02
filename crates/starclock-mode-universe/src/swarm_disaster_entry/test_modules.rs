@@ -1,4 +1,5 @@
 mod audience_tests;
+mod baseline_controller_tests;
 mod battle_execution_tests;
 mod battle_materialization_tests;
 mod communing_tests;

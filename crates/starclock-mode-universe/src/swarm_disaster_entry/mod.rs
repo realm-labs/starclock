@@ -1,6 +1,7 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 mod audience;
 mod audience_rule_runtime;
+mod baseline_controller;
 mod battle_enemy_catalog;
 mod battle_execution;
 mod battle_materialization;
@@ -75,6 +76,29 @@ pub const SWARM_DISASTER_SIMULTANEOUS_REVISION: &str = "swarm-disaster-simultane
 pub const SWARM_DISASTER_TRAIL_REVISION: &str = "swarm-disaster-communing-trail-v1";
 /// Versioned Pathstrider progress, unlock and chapter availability policy.
 pub const SWARM_DISASTER_PATHSTRIDER_REVISION: &str = "swarm-disaster-pathstrider-progress-v1";
+
+/// Caller-owned controller identity included in the composed configuration root.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SwarmDisasterControllerIdentity<'a> {
+    /// Stable controller component ID.
+    pub id: &'a str,
+    /// Versioned controller behavior revision.
+    pub revision: &'a str,
+    /// Canonical controller-policy digest.
+    pub digest: [u8; 32],
+}
+
+impl SwarmDisasterControllerIdentity<'static> {
+    /// Returns the stateless baseline controller component identity.
+    #[must_use]
+    pub fn baseline() -> Self {
+        Self {
+            id: "swarm-disaster-baseline-controller",
+            revision: baseline_controller::SWARM_DISASTER_BASELINE_CONTROLLER_REVISION,
+            digest: baseline_controller::SwarmBaselineController::identity_digest(),
+        }
+    }
+}
 
 /// Caller-owned selections and account progression for one run.
 #[derive(Clone, Debug, Eq, PartialEq)]

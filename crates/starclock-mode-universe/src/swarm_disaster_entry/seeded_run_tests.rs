@@ -159,6 +159,10 @@ pub(super) fn representative_runtime() -> (
     runtime(&MATRIX[0])
 }
 
+pub(super) fn representative_request() -> SwarmSeededRunRequest {
+    request(&MATRIX[0])
+}
+
 fn compiled(
     factory: SwarmDisasterRuntimeFactory,
     entry: SwarmDisasterEntry,
