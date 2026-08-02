@@ -8,8 +8,8 @@ use crate::{
 };
 
 use super::{
-    DIFFICULTY_BINDING_COUNT, MEMBER_COUNT, UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
-    UNIVERSE_ENEMY_RUNTIME_STAT_POLICY, UniverseBattleRoster, UniverseEnemyMaterialization,
+    DIFFICULTY_BINDING_COUNT, MEMBER_COUNT, UNIVERSE_ENEMY_RUNTIME_STAT_POLICY,
+    UniverseBattleRoster, UniverseEnemyMaterialization,
 };
 
 pub(super) fn catalog_composition_digest(
@@ -17,8 +17,7 @@ pub(super) fn catalog_composition_digest(
     content_digest: [u8; 32],
     enemies: &[UniverseEnemyMaterialization],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-catalog-composition.v1");
-    encoder.text(UNIVERSE_BATTLE_MATERIALIZATION_REVISION);
+    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-catalog-composition");
     encoder.digest(universe.identity().universe_bundle_digest().bytes());
     encoder.digest(content_digest);
     encoder.u32(enemies.len() as u32);
@@ -50,8 +49,7 @@ pub(super) fn root_digest(
     enemies: &[UniverseEnemyMaterialization],
     technique: Option<&CompiledUniverseBattleTechnique>,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-materialization.root.v1");
-    encoder.text(UNIVERSE_BATTLE_MATERIALIZATION_REVISION);
+    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-materialization.root");
     encoder.digest(universe.identity().universe_bundle_digest().bytes());
     encoder.digest(roster.participant_lock().bytes());
     encoder.digest(contributions.digest());

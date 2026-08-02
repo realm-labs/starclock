@@ -14,9 +14,6 @@ use crate::{
     run_runtime::AbilityTreeContributionSet,
 };
 
-pub const STANDARD_UNIVERSE_BATTLE_SNAPSHOT_REVISION: &str =
-    "standard-universe-battle-contribution-snapshot-v2";
-
 /// One self-contained, immutable read of battle-relevant Activity state.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StandardUniverseBattleSnapshot {
@@ -171,8 +168,7 @@ fn snapshot_digest(
     contributions: &UniverseBattleContributionSet,
     carry_digest: [u8; 32],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-contribution-snapshot.v1");
-    encoder.text(STANDARD_UNIVERSE_BATTLE_SNAPSHOT_REVISION);
+    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-contribution-snapshot");
     encoder.digest(source_state_hash.bytes());
     encoder.digest(participant_lock.bytes());
     encoder.u8(context.scope() as u8);

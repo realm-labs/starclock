@@ -100,6 +100,8 @@ Removed from current runtime surfaces:
   composition now requires the current combat and build catalogs to agree;
 - the remaining Standard Universe path, blessing, ability, curio, occurrence,
   service, encounter and run revision constants and duplicate digest inputs;
+- Standard Universe battle assembly, contribution, materialization, snapshot
+  and event-commitment revisions and their byte-for-byte digest snapshots;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

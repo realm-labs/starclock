@@ -6,10 +6,7 @@ use starclock_mode_universe::{
         AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
         AbilityTarget,
     },
-    battle_contribution::{
-        UNIVERSE_BATTLE_CONTRIBUTION_REVISION, UniverseBattleContributionCompiler,
-        UniverseBattleRuleRole,
-    },
+    battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleRuleRole},
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
     curio_runtime::CurioRuntimeCatalog,
@@ -108,20 +105,9 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
         .unwrap();
 
     let compiler = UniverseBattleContributionCompiler::compile(Arc::clone(&catalog)).unwrap();
-    assert_eq!(
-        compiler.digest(),
-        [
-            53, 245, 178, 225, 146, 199, 3, 98, 111, 214, 235, 251, 88, 30, 220, 173, 185, 172, 77,
-            205, 211, 236, 49, 85, 90, 55, 10, 206, 151, 180, 198, 148,
-        ]
-    );
     let contributions = compiler
         .compile_snapshot(&path, &blessings, &curios, &abilities, &projection)
         .unwrap();
-    assert_eq!(
-        UNIVERSE_BATTLE_CONTRIBUTION_REVISION,
-        "standard-universe-battle-contribution-v2"
-    );
     assert_eq!(contributions.selected_path(), selected_path);
     assert_eq!(contributions.selected_path_blessings(), 14);
     let battle_abilities = abilities
@@ -205,12 +191,5 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
             .boundary_values()
             .iter()
             .any(|value| value.target() == AbilityTarget::PathResonanceDamageRatio)
-    );
-    assert_eq!(
-        contributions.digest(),
-        [
-            0, 19, 60, 131, 129, 116, 91, 90, 44, 177, 118, 115, 25, 208, 113, 43, 158, 68, 162,
-            183, 253, 210, 156, 68, 154, 198, 164, 47, 2, 70, 37, 91,
-        ]
     );
 }

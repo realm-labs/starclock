@@ -26,8 +26,6 @@ use crate::{
     },
 };
 
-pub const UNIVERSE_BATTLE_EVENT_COMMITMENT_REVISION: &str =
-    "deterministic-battle-input-event-shape-v1";
 pub const DEFAULT_NESTED_BATTLE_COMMAND_BUDGET: u32 = 10_000;
 
 /// Controller responsible for one accepted nested-battle command.
@@ -815,7 +813,7 @@ pub(crate) struct EventCommitment(Encoder);
 
 impl EventCommitment {
     pub(crate) fn new(catalog: &CombatCatalog, handoff: &ActivityBattleHandoff) -> Self {
-        let mut encoder = Encoder::new(UNIVERSE_BATTLE_EVENT_COMMITMENT_REVISION.as_bytes());
+        let mut encoder = Encoder::new(b"starclock-universe-battle-event-commitment");
         encoder.digest(catalog.digest().bytes());
         encoder.digest(handoff.identity().seed().bytes());
         encoder.digest(handoff.identity().assembly_digest().bytes());

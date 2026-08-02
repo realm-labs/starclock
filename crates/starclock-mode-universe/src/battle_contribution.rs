@@ -27,8 +27,6 @@ use crate::{
     run_runtime::AbilityTreeContributionSet,
 };
 
-pub const UNIVERSE_BATTLE_CONTRIBUTION_REVISION: &str = "standard-universe-battle-contribution-v2";
-
 const RULE_ID_BASE: u32 = 0x7000_0000;
 const BUNDLE_ID_BASE: u32 = 0x7100_0000;
 const RULE_SOURCE_ID_BASE: u32 = 0x7200_0000;
@@ -675,8 +673,7 @@ fn validate_denominators(
 }
 
 fn compiler_digest(rules: &[MechanicRuleDefinition]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-contribution.compiler.v1");
-    encoder.text(UNIVERSE_BATTLE_CONTRIBUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-contribution.compiler");
     encoder.u32(u32::try_from(rules.len()).expect("frozen rule count fits u32"));
     for rule in rules {
         encoder.digest(mechanic_rule_digest(rule));
@@ -728,8 +725,7 @@ fn contribution_digest(
     modifiers: &[UniverseBattleModifierBinding],
     boundary_values: &[UniverseBattleBoundaryValue],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-contribution.set.v1");
-    encoder.text(UNIVERSE_BATTLE_CONTRIBUTION_REVISION);
+    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-contribution.set");
     encoder.u32(selected_path.get());
     encoder.digest(path.digest());
     encoder.digest(blessings.digest());

@@ -53,10 +53,7 @@ pub(crate) use occurrence::{
 };
 pub(crate) use player::player_participants;
 
-pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
-    "standard-universe-battle-materialization-v2";
-pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str =
-    "goal07-reviewed-enemy-stats-with-proxy-fallback-v2";
+pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str = "reviewed-enemy-stats-with-proxy-fallback";
 
 const MEMBER_ENCOUNTER_ID_BASE: u32 = 0x7500_0000;
 const DIFFICULTY_ENCOUNTER_ID_BASE: u32 = 0x7510_0000;

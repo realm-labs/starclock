@@ -14,7 +14,6 @@ use starclock_activity::ParticipantLockDigest;
 
 use crate::{battle_materialization::UniverseBattleMaterialization, digest::Encoder};
 
-pub const BATTLE_ASSEMBLY_KEY_REVISION: &str = "standard-universe-battle-assembly-key-v1";
 pub const DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY: usize = 8;
 
 /// Exact immutable inputs consumed by one assembly operation.
@@ -43,8 +42,7 @@ impl BattleAssemblyKey {
         carry: [u8; 32],
         technique: Option<[u8; 32]>,
     ) -> Self {
-        let mut encoder = Encoder::new(b"starclock.standard-universe.battle-assembly-key.v1");
-        encoder.text(BATTLE_ASSEMBLY_KEY_REVISION);
+        let mut encoder = Encoder::new(b"starclock.standard-universe.battle-assembly-key");
         encoder.digest(catalog_composition);
         encoder.digest(participant_lock.bytes());
         encoder.digest(encounter);

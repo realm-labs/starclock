@@ -475,21 +475,6 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .count(),
         20
     );
-    assert_eq!(
-        materialized.digest(),
-        [
-            37, 199, 209, 171, 119, 104, 31, 13, 38, 80, 221, 146, 182, 43, 191, 182, 254, 70, 55,
-            102, 66, 91, 170, 241, 61, 37, 195, 55, 112, 33, 229, 31,
-        ]
-    );
-    assert_eq!(
-        coverage.digest(),
-        [
-            68, 4, 34, 41, 165, 225, 28, 223, 55, 102, 61, 228, 157, 102, 161, 152, 228, 182, 91,
-            42, 45, 243, 252, 194, 2, 76, 226, 177, 107, 135, 146, 28,
-        ]
-    );
-
     assert!(materialized.overlay().bindings().iter().all(|binding| {
         let spec = binding.preparation().variants()[0].battle_spec();
         spec.participants()
