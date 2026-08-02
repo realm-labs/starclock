@@ -80,7 +80,7 @@ pub(crate) fn compile(
                 .strip_prefix(LEVEL_PREFIX)
                 .and_then(|value| value.parse::<u32>().ok())
         });
-        let legacy_level = outcome
+        let numeric_level = outcome
             .numeric_literals()
             .first()
             .copied()
@@ -90,7 +90,7 @@ pub(crate) fn compile(
             .map_err(|_| OccurrenceBattleCompileError::InvalidLevel)?
             .and_then(|value| u32::try_from(value).ok());
         let level = authored_level
-            .or(legacy_level)
+            .or(numeric_level)
             .filter(|value| (1..=80).contains(value))
             .ok_or(OccurrenceBattleCompileError::InvalidLevel)?;
         let member_id = EncounterMemberId::new(

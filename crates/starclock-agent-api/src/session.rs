@@ -16,8 +16,12 @@ use starclock_combat::{
 use starclock_data::standard::{CONFIG_DIGEST, SCENARIOS, StandardCatalog};
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
-    digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
-    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
+    },
+    digest::{ComponentDigest, EntrySpecDigest},
+    entry::ReplayEntry,
+    format::{ReplayEnvironment, ReplayHeader, decode_replay},
 };
 
 use crate::{
@@ -45,9 +49,8 @@ pub const MAX_ACCEPTED_COMMANDS_PER_SETTLEMENT: usize = 4_096;
 pub const MAX_IDEMPOTENCY_ENTRIES: usize = 1_024;
 pub const MAX_CACHED_RESPONSE_BYTES: usize = 512 * 1_024;
 pub const MAX_RETAINED_EVENT_SUMMARIES: usize = 8_192;
-pub const AGENT_REPLAY_CONTROLLER_REVISION: &str = "agent-standard-session-v1";
 const AGENT_REPLAY_CONTROLLER_DESCRIPTOR: &[u8] =
-    b"agent-standard-session-v1\0agent-api-v1\0external-player\0authored-enemy\0system-automatic";
+    b"agent-standard-session\0agent-api\0external-player\0authored-enemy\0system-automatic";
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -238,7 +241,7 @@ impl AgentSessionFactory {
         if decoded.header() != &expected {
             return Err(replay_diverged_error());
         }
-        let report = verify_battle_replay(bytes, instantiated.into_battle())
+        let report = verify_battle_replay(bytes, instantiated.into_battle(), expected.components())
             .map_err(|_| replay_diverged_error())?;
         Ok(AgentReplayVerification {
             command_count: AgentUInt::from_u64(u64::from(report.command_count())),
@@ -293,6 +296,14 @@ impl AgentSessionFactory {
         session.settle_to_player(MAX_ACCEPTED_COMMANDS_PER_SETTLEMENT)?;
         Ok(session)
     }
+}
+
+#[cfg(test)]
+pub(crate) fn production_factory_for_tests() -> AgentSessionFactory {
+    static FACTORY: std::sync::OnceLock<AgentSessionFactory> = std::sync::OnceLock::new();
+    FACTORY
+        .get_or_init(|| AgentSessionFactory::load_production().expect("production factory loads"))
+        .clone()
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -923,14 +934,25 @@ fn build_replay_header(
     assembly_digest: AssemblyDigest,
     record_count: u32,
 ) -> Result<ReplayHeader, AgentError> {
-    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(CONFIG_DIGEST))
-        .map_err(|_| replay_header_error())?;
-    let controller = ControllerIdentity::new(ControllerDigest::new(
-        Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into(),
-    ));
+    let environment = ReplayEnvironment::new("4.4").map_err(|_| replay_header_error())?;
+    let components = ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::CombatCatalog,
+            "combat-catalog",
+            ComponentDigest::new(CONFIG_DIGEST),
+        )
+        .map_err(|_| replay_header_error())?,
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            "agent-session-controller",
+            ComponentDigest::new(Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into()),
+        )
+        .map_err(|_| replay_header_error())?,
+    ])
+    .map_err(|_| replay_header_error())?;
     ReplayHeader::new(
-        identity,
-        controller,
+        environment,
+        components,
         master_seed,
         ReplayEntry::Battle {
             definition_id: encounter.get(),

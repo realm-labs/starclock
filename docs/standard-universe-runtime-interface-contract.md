@@ -1,235 +1,87 @@
-# Standard Universe Runtime Interface Contract
+# Standard Universe runtime interface
 
-## Status and compatibility target
-
-This document freezes the Goal 04 v1 implementation contract before runtime
-code is introduced. Exact names and revision strings are normative. Internal
-representation, module layout and constructors used only by validated lowering
-remain private.
-
-The existing one-battle Activity and battle replay fixtures remain supported as
-legacy compatibility profiles. Goal 04 adds a graph-capable Activity API v2; it
-does not reinterpret old bytes or silently relabel old hashes.
+This document describes the interface implemented by the current tree. It is
+not a compatibility or migration contract for old binaries, replays, hashes or
+API payloads.
 
 ## Ownership
 
-| Owner | Public responsibility | Must remain private |
-|---|---|---|
-| `starclock-activity` | Generic definitions, state, commands, decisions, events, faults, battle handoff and read-only views | journal, mutable stores, codec writer, RNG implementation and scratch buffers |
-| `starclock-mode-universe` | Immutable Universe catalog, bundle validation/lowering, Standard entry and compilation | Sora rows, workbook fields, JSON staging types and content-ID dispatch |
-| `starclock-data` | Existing combat/build catalog and exact bundle loading | generated rows and numeric backend |
-| `starclock-replay` | Versioned Activity payloads, full-run trace and verification | decoder scratch and dependency-specific encodings |
-| `starclock-ai` | Deterministic selection from offered Activity commands | mutable Activity access and hidden RNG |
-| adapters | Select commands, host nested battles and render observations | raw state/resource mutation |
-
-`starclock-combat` has no dependency on `starclock-mode-universe`. A mode crate
-may depend on Activity, combat, build, data and rules, but cannot own another
-mutable run aggregate or another authoritative RNG/replay implementation.
-
-## Public Activity boundary
-
-The v2 public shape is:
-
-```rust
-pub struct ActivityCommand {
-    expected_state_hash: ActivityStateHash,
-    decision: ActivityDecisionId,
-    kind: ActivityCommandKind,
-}
-
-pub enum ActivityCommandKind {
-    ChooseOption { option: ActivityOptionId },
-    StartBattle { handoff: BattleHandoffId },
-    SubmitBattleResult { result: Box<BattleResult> },
-    SubmitExternalOutcome { outcome: ExternalOutcomeId },
-    Abandon,
-}
-
-pub struct ActivityResolution {
-    events: Box<[ActivityEvent]>,
-    boundary: ActivityBoundary,
-    state_hash: ActivityStateHash,
-}
-
-pub enum ActivityBoundary {
-    Decision(ActivityDecisionPoint),
-    Battle(BattleHandoff),
-    Terminal(ActivityTerminal),
-}
-
-impl Activity {
-    pub fn apply(
-        &mut self,
-        command: ActivityCommand,
-    ) -> Result<ActivityResolution, ActivityCommandError>;
-}
-```
-
-Fields use narrow getters. They are shown to freeze semantics, not to require
-public struct fields. `Activity::decision()` and a newly created Activity return
-the same owned/read-only decision shape used by `ActivityResolution`.
-`Activity::apply` remains the sole authoritative run mutation boundary.
-
-Exactly one boundary exists after an accepted command:
-
-- `Decision` contains canonically ordered legal options and enough identity to
-  build one exact command;
-- `Battle` contains an immutable `BattleSpec`, isolated seed, result projection
-  and identity; only a matching result may return to Activity;
-- `Terminal` contains completed, failed, abandoned or faulted settlement.
-
-Automatic programs settle inside one transaction until a boundary. Adapters do
-not drive hidden intermediate operations.
-
-### Commands, decisions and options
-
-`ChooseOption` covers routes, encounter engagement, rewards, roster changes,
-shops, enhancement, repair, replacement, services, occurrences, checkpoints
-and retries. The option owns typed observation metadata; the command owns only
-its stable identity. `StartBattle`, `SubmitBattleResult`,
-`SubmitExternalOutcome` and `Abandon` work only when exactly offered.
-
-Callers cannot submit currency deltas, arbitrary inventory values, RNG results,
-enemy IDs, rule programs or graph destinations.
-
-`ActivityDecisionPoint` contains its ID, current state hash, kind and a bounded
-canonical collection of `ActivityOption`. `ActivityDecisionKind` is an AI and
-presentation classification, not a second processor: `Choice`, `Route`,
-`Encounter`, `Preparation`, `Reward`, `Shop`, `Service`, `Roster`,
-`ExternalOutcome`, `BattleReady`, `Checkpoint`, and `Abandon`.
-
-Options sort by `(priority, stable_option_id)`. Candidate discovery never uses
-map iteration order. An opaque adapter token must reproduce the exact
-decision/state/option identity.
-
-## Events, errors and faults
-
-Public `ActivityEvent` families are:
-
-| Family | Examples |
+| Owner | Responsibility |
 |---|---|
-| `Lifecycle` | activity/section/node/attempt entered or exited |
-| `Decision` | options offered and option selected |
-| `State` | scoped slot/resource/metric changed or reset |
-| `Inventory` | modifier acquired, enhanced, charged, repaired, replaced or removed |
-| `Graph` | edge traversed, interaction consumed, checkpoint captured/restored |
-| `Battle` | handoff requested, result accepted and declared carry applied |
-| `Rng` | purpose stream draw audit with revision/counter, never hidden state bytes |
-| `Terminal` | completed, failed, abandoned or faulted |
+| `starclock-activity` | Generic graph definitions, authoritative Activity state, commands, decisions, events, battle handoff and read-only views |
+| `starclock-mode-universe` | Immutable Universe catalogs, validated bundle lowering, mode profiles, battle assembly and mode-owned handlers |
+| `starclock-data` | Core combat/build bundle loading and conversion into Starclock-owned definitions |
+| `starclock-replay` | The single canonical replay header, records, encoding and verification |
+| `starclock-ai` | Deterministic selection from exactly offered commands |
+| adapters | Session ownership, opaque action binding, transport and presentation |
 
-Every event carries an `ActivityCause` with command sequence, definition,
-node/attempt and optional source/option/battle identities. Events are ordered
-facts produced by the committed transaction, not mutation callbacks.
+`starclock-combat` does not depend on Universe mode code. Mode crates compile
+content into shared Activity and combat operations; they do not own alternate
+state machines, RNG implementations, replay formats or hash algorithms.
 
-Rejected input returns stable error kinds: `StaleStateHash`,
-`DecisionNotOffered`, `CommandNotOffered`, `UnknownOption`, `UnknownOutcome`,
-`HandoffMismatch`, `BattleResultMismatch`, `LimitExceeded`,
-`ConfigurationMismatch`, or `InvalidCommandPayload`.
+## Activity boundary
 
-Rejection preserves canonical state, RNG counters, command sequence and pending
-boundary. Internal evaluation/overflow/invariant failures are not command
-errors: the transaction either rolls back and commits an explicit
-`ActivityTerminal::Faulted(ActivityFault)` or, before mutation, returns a
-construction error. No undocumented partial state is allowed.
+An Activity exposes exactly one authoritative boundary after construction and
+after every accepted command:
 
-## Mode and catalog boundary
+- a decision with canonically ordered exact offers;
+- an immutable battle handoff;
+- or a terminal outcome.
 
-The public flow is concrete rather than a plugin-owned state machine:
+Commands carry the expected state hash and the identity of an exact current
+offer. Callers cannot submit arbitrary currency changes, inventory values, RNG
+results, enemy identities, graph destinations or rule programs. Rejected input
+does not change state, RNG counters, command sequence or the offered boundary.
 
-```rust
-let catalogs = UniverseCatalog::load(universe_bundle, combat_catalog.clone())?;
-let profile = StandardUniverseProfile::new(catalogs.clone());
-let compiled = profile.compile(StandardUniverseEntry::new(
-    world, difficulty, participants, ability_tree,
-))?;
-let mut activity = compiled.start(instance_id, master_seed)?;
-```
+Automatic programs settle inside one transaction until the next external
+boundary. Adapters never drive hidden intermediate operations.
 
-The public domain types are `UniverseCatalog`, `UniverseCatalogIdentity`,
-borrowed `WorldDefinition`, `DifficultyDefinition`, and `PathDefinition` views,
-`StandardUniverseEntry`, `StandardUniverseProfile`, and `CompiledActivity`.
-Catalogs and compiled definitions are immutable and normally shared through
-`Arc`.
+## Events and failures
 
-Loading accepts authoritative `.sora` bytes. Only private generated readers
-interpret them. The loader rejects wrong schema, version, revision, digest,
-references and incompatible combat/build identities. There is no runtime JSON,
-TSV or `.xlsx` loader.
+Committed mutations produce ordered typed events for lifecycle, decisions,
+state, inventory, graph traversal, battle handoff/results, RNG audit and
+terminal settlement. Every event has an `ActivityCause` identifying the
+command and relevant definition, node, attempt, source, option or battle.
 
-The composed configuration digest hashes domain tag
-`starclock-activity-config-v1`, ordered component labels, each component
-revision and each 32-byte digest. Standard Universe order is `combat`, `build`,
-`universe`, `activity-profile`. Missing components encode an explicit absence
-byte; arbitrary concatenation is forbidden.
+Invalid external input returns a typed rejection. Evaluation, overflow or
+invariant failures either roll back before mutation or commit the documented
+deterministic fault state. Undocumented partial state is forbidden.
 
-## Revision freeze
+## Catalog and configuration identity
 
-| Identity | Legacy/current | Goal 04 graph Activity | Migration rule |
-|---|---|---|---|
-| numeric policy | `fixed-i64-6dp-v1` | unchanged | arithmetic/rounding change requires a revision |
-| combat RNG | `chacha8-rand-0.10.2-intmap-v1` | unchanged | distribution helpers remain forbidden |
-| replay envelope | `SCRP`, format `1` | format `1` | framing remains readable |
-| replay payload schema | `1` | `2` | v2 adds full-run Activity records; v1 remains readable |
-| Activity command payload | `1` | `2` | decoder dispatches by payload version |
-| nested battle payload | `1` | `1` | result identity contract is retained |
-| controller diagnostic payload | `1` | `1` | diagnostics remain non-authoritative |
-| battle/legacy state hash | `sha256-v3` | nested battle remains v3 | old fixtures retain exact bytes |
-| Activity state codec | `starclock-activity-state-v1` | `starclock-activity-state-v2` | v2 uses shared little-endian canonical encoding |
-| Activity replay state hash | `sha256-v3` | `sha256-v4` | v4 never relabels v1 Activity bytes |
-| Activity seed derivation | legacy battle-seed v1 | `starclock-activity-rng-v2` | purpose streams are independent |
-| Activity API | one-battle v1 | `starclock-activity-api-v2` | pre-0.1 compile-time migration is intentional |
-| Universe catalog | staging only | `standard-universe-v4.4-runtime-v1` | exact Goal 03 bundle is required |
-| Standard Universe profile | absent | `standard-universe-main-world-v1` | other families use separate profiles/data |
+Production loading accepts validated `.sora` bundles. Generated readers and
+workbook vocabulary remain private to the data/mode lowering boundary. Runtime
+code does not load JSON, TSV or Excel.
 
-### Activity state v2 canonical order
+The runtime binds the exact current inputs as a sorted
+`ConfigurationComponentSet`. Each component has a stable kind, key and
+cryptographic digest. The component root is derived from that set; textual
+revision selectors are not part of the public runtime interface.
 
-Activity state v2 streams sections in fixed order through the shared
-little-endian encoder:
+## Replay
 
-1. magic `SCAS`, codec version `2`, API/rules/numeric/RNG/hash revisions;
-2. composed configuration and immutable definition identities;
-3. instance, phase, command sequence and current boundary identity;
-4. section/node/attempt identities, visits and consumed edges;
-5. scoped slots, inventories, counters, modifiers, clocks, metrics/objectives;
-6. participant/loadout locks and carry snapshots;
-7. labeled RNG states/counters sorted by stream ID;
-8. pending ordered options or immutable battle handoff identity;
-9. checkpoints and completed nested result digests;
-10. terminal/fault settlement when present.
+There is one replay format in `starclock-replay::format`. Its header contains:
 
-Counts are bounded `u32`, numeric IDs are fixed-width, fixed scalar values use
-raw signed `i64`, and optionals use one presence byte. Semantic collections
-preserve authored order; other collections sort by stable key. No `usize`,
-Serde, Rust `Hash`, capacity, pointers, cache, presentation or wall clock enters
-the stream.
+- the current game environment;
+- the exact configuration component set;
+- the entry specification and seed;
+- and the bounded record count.
 
-### Activity RNG v2
+Activity replays contain accepted Activity commands, expected states,
+nested-battle identities/results and optional controller diagnostics. Battle
+replays contain accepted battle commands and expected states. Verification
+reconstructs execution from the current tree and requires an exact component
+set. Unsupported old bytes are rejected; the repository has no legacy decoder,
+migration selector or alternate current format.
 
-The master seed derives independent `graph`, `encounter`, `reward`, `shop`,
-`occurrence`, `spawn`, `external-outcome-test` and per-`battle` streams. The
-derivation hashes its domain tag/revision, master seed, composed config digest,
-profile/definition/instance, applicable scope/battle sequence and bounded ASCII
-purpose label. Fixed integers use Activity v2 canonical little-endian encoding;
-the first 32 digest bytes seed ChaCha8 directly.
+## Adapter contract
 
-Candidate ordering, range/rejection mapping, weighted selection and
-no-candidate draw consumption are project-owned. A missing candidate consumes
-no draw. A substream never clones a live stream. Draws in one purpose cannot
-shift another purpose or combat stream.
+CLI, Agent API and MCP expose only current mode/profile identities and opaque
+offered actions. They do not expose schema selectors, runtime revisions,
+executor revisions or compatibility fields. All authoritative numeric values
+remain exact domain values or canonical decimal strings at transport
+boundaries.
 
-## Compatibility and acceptance
-
-- Legacy replay/state paths become read-only compatibility behavior; new graph
-  Activities never emit v1 Activity bytes.
-- Unsupported revision combinations reject before state construction. Migration
-  re-executes commands against an explicitly chosen new configuration; byte
-  relabeling is forbidden.
-- Cross-revision byte relabeling is forbidden under every migration path.
-- Public debug JSON has its own schema revision and is never authoritative.
-- Mode compilation produces generic Activity definitions/programs and normal
-  battle contributions only.
-- No public signature names a generated Sora module, row, workbook column,
-  `fixnum`, RNG backend or unbounded map.
-- Invalid command/result tests preserve bytes and every RNG counter.
-- v1 goldens remain exact while v2 gets independent codec/RNG goldens.
-- CLI, AI, agent and MCP consume the same ordered decisions/options.
+Large seeded matrices and full gameplay/replay checks remain available as
+explicit exhaustive tests. Ordinary development uses focused package tests and
+does not run complete gameplay simulations by default.

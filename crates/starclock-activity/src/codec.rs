@@ -148,15 +148,14 @@ impl CanonicalWriter {
     }
 }
 
-/// Goal 04 definition/state primitives. Kept separate from the legacy writer
-/// so old one-battle bytes cannot be silently relabeled as Activity v2 bytes.
-pub(crate) struct ActivityV2Writer(Sha256);
+/// Canonical little-endian writer for Activity graph identity.
+pub(crate) struct ActivityGraphDigestWriter(Sha256);
 
-impl ActivityV2Writer {
-    pub(crate) fn new(magic: [u8; 4], version: u32, domain: &[u8]) -> Self {
+impl ActivityGraphDigestWriter {
+    pub(crate) fn new(magic: [u8; 4], layout_tag: u32, domain: &[u8]) -> Self {
         let mut hash = Sha256::new();
         hash.update(magic);
-        hash.update(version.to_le_bytes());
+        hash.update(layout_tag.to_le_bytes());
         hash.update((domain.len() as u32).to_le_bytes());
         hash.update(domain);
         Self(hash)

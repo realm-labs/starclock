@@ -21,7 +21,7 @@ use starclock_replay::{
     },
     digest::{ComponentDigest, DefinitionDigest, EntrySpecDigest, StateDigest},
     entry::ReplayEntry,
-    envelope::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
+    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, decode_nested_battle_command_payload,
         decode_nested_battle_state_payload, encode_nested_battle_command_payload,
@@ -40,11 +40,11 @@ use crate::{
     nested_battle_executor::{
         EventCommitment, NestedBattleExecutionReport, create_nested_battle, project_result,
     },
-    runtime::StandardUniverseActivity,
-    universe_replay::{
+    replay_trace::{
         StandardUniverseReplayAction, StandardUniverseReplayError as TraceReplayError,
         StandardUniverseTraceEntry, decode_action, encode_action,
     },
+    runtime::StandardUniverseActivity,
 };
 
 /// Builds the exact ordered component manifest consumed by a materialized

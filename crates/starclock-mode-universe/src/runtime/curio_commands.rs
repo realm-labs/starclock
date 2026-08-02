@@ -1143,7 +1143,6 @@ mod tests {
                 seed,
                 StandardUniverseControllerIdentity {
                     id: "goal07-test",
-                    revision: "v1",
                     digest: [0x70; 32],
                 },
             )

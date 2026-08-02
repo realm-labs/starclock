@@ -619,7 +619,7 @@ mod tests {
         let ids = Arc::new(Ids(AtomicUsize::new(1)));
         (
             ActivityAgentSessionRegistry::with_limits(
-                ActivityAgentSessionFactory::load_production().unwrap(),
+                crate::activity_session::production_factory_for_tests(),
                 None,
                 None,
                 Arc::new(Clock(AtomicU64::new(0))),
@@ -633,9 +633,9 @@ mod tests {
         let ids = Arc::new(Ids(AtomicUsize::new(1)));
         (
             ActivityAgentSessionRegistry::with_limits(
-                ActivityAgentSessionFactory::load_production().unwrap(),
-                Some(GoldAndGearsActivityAgentSessionFactory::load_production().unwrap()),
-                Some(SwarmDisasterActivityAgentSessionFactory::load_production().unwrap()),
+                crate::activity_session::production_factory_for_tests(),
+                Some(crate::gold_gears_activity_session::production_factory_for_tests()),
+                Some(crate::swarm_disaster_activity_session::production_factory_for_tests()),
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -735,7 +735,7 @@ mod tests {
                 .unwrap()
                 .profile_id
                 .as_ref(),
-            "gold-gears.profile.v1"
+            "gold-and-gears-real-battle-replay"
         );
         assert_eq!(
             registry
@@ -743,7 +743,7 @@ mod tests {
                 .unwrap()
                 .profile_id
                 .as_ref(),
-            "swarm-disaster.profile.v1"
+            "swarm-disaster-real-battle-replay"
         );
     }
 

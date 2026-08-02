@@ -41,8 +41,6 @@ const MAX_EXTERNAL_ACTIONS: usize = 1_000;
 
 #[derive(Serialize)]
 struct Report {
-    schema_revision: &'static str,
-    workload_revision: &'static str,
     allocation_measurement_authoritative: bool,
     rows: Vec<Row>,
 }
@@ -94,8 +92,6 @@ fn main() {
     println!(
         "{}",
         serde_json::to_string(&Report {
-            schema_revision: "starclock.goal06-performance-report.v1",
-            workload_revision: "goal06-dynamic-assembly-v1",
             allocation_measurement_authoritative: false,
             rows: vec![combat_input, cold, warm, eviction, concurrent],
         })
@@ -339,7 +335,6 @@ fn pending_snapshot(
             seed,
             StandardUniverseControllerIdentity {
                 id: "goal06-performance",
-                revision: StandardUniverseBaselineRunner::REVISION,
                 digest: [0x66; 32],
             },
         )

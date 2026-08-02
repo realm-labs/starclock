@@ -276,7 +276,12 @@ Each draw should emit or optionally trace:
 - candidate ordering/weights;
 - raw sample and selected result.
 
-Seed plus command stream plus data revision must reproduce the same event stream. Pin `rand = "=0.10.2"` with its `chacha` feature and identify `ChaCha8Rng` plus the project's integer mapping as `chacha8-rand-0.10.2-intmap-v1`. Disable default/thread RNG features for authoritative crates. Never use generic distribution helpers: rejection sampling, range mapping, weighted choice, no-candidate draw consumption, and stable candidate order are project-owned replay behavior. Changing any of them is a replay-format change.
+Seed plus command stream plus exact configuration components must reproduce the
+same event stream. Pin `rand = "=0.10.2"` with its `chacha` feature and use the
+project-owned `ChaCha8Rng` integer mapping. Disable default/thread RNG features
+for authoritative crates. Never use generic distribution helpers: rejection
+sampling, range mapping, weighted choice, no-candidate draw consumption, and
+stable candidate order are project-owned replay behavior.
 
 ## Numeric representation
 
@@ -290,20 +295,17 @@ The complete representation, rounding, RNG, collection-order, fault, and state-h
 
 ## Serialization and replays
 
-Production configuration is the Sora binary bundle. Debug JSON is for review and tests, not the shipping load path. Version all external schemas and identify the exact exported bundle:
+Production configuration is the Sora binary bundle. Debug JSON is for review
+and tests, not the shipping load path. A replay identifies the exact current
+environment and configuration components:
 
 ```rust
 pub struct ReplayHeader {
-    pub schema_version: u32,
-    pub rules_revision: String,
-    pub data_revision: String,
-    pub configuration_root_sha256: [u8; 32],
-    pub consumed_component_digests: Vec<ComponentDigest>,
-    pub artifact_bundle_sha256: [u8; 32],
-    pub numeric_policy_revision: String,
-    pub rng_algorithm_revision: String,
-    pub state_hash_revision: String,
+    pub environment: ReplayEnvironment,
+    pub components: ConfigurationComponentSet,
+    pub entry: ReplayEntry,
     pub seed: u64,
+    pub record_count: u32,
 }
 ```
 
@@ -311,10 +313,9 @@ A replay stores initial battle or activity identity and accepted commands.
 Activity replays contain nested task/battle identities and results under the
 same consumed component/profile digest set. Events and per-command hashes may
 be stored for audit and divergence detection but must be reproducible. Replay
-loading resolves every consumed component exactly; the physical
-`config.sora` digest remains provenance metadata and the compatibility key for
-legacy v1 replays. Missing components require an explicit archive or migration
-lookup. The canonical byte layout and planned command-line surface are
+loading resolves every consumed component exactly. Unsupported bytes or
+missing components are rejected; there is no archive lookup, migration path or
+alternate decoder. The canonical byte layout and command-line surface are
 specified in [Replay, CLI, and engine integration](16-replay-cli-and-engine-integration.md).
 
 ## Bevy integration later

@@ -25,8 +25,12 @@ use starclock_combat::{
 };
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
-    digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
-    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
+    },
+    digest::{ComponentDigest, EntrySpecDigest},
+    entry::ReplayEntry,
+    format::{ReplayEnvironment, ReplayHeader, decode_replay},
     record::RecordKind,
 };
 
@@ -145,12 +149,8 @@ fn battle() -> Battle {
 
 fn header() -> ReplayHeader {
     ReplayHeader::new(
-        ReplayIdentity::new(
-            "battle-property-v1",
-            ConfigBundleDigest::new(CATALOG_DIGEST),
-        )
-        .unwrap(),
-        ControllerIdentity::new(ControllerDigest::new([0xd4; 32])),
+        ReplayEnvironment::new("battle-property").unwrap(),
+        components(),
         7,
         ReplayEntry::Battle {
             definition_id: 1,
@@ -158,6 +158,24 @@ fn header() -> ReplayHeader {
         },
         battle_record_count(COMMANDS).unwrap(),
     )
+    .unwrap()
+}
+
+fn components() -> ConfigurationComponentSet {
+    ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::CombatCatalog,
+            "combat-catalog",
+            ComponentDigest::new(CATALOG_DIGEST),
+        )
+        .unwrap(),
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            "property-controller",
+            ComponentDigest::new([0xd4; 32]),
+        )
+        .unwrap(),
+    ])
     .unwrap()
 }
 
@@ -214,7 +232,7 @@ proptest! {
         mask in 1_u8..=u8::MAX,
     ) {
         let original = replay().to_vec();
-        let original_report = verify_battle_replay(&original, battle()).unwrap();
+        let original_report = verify_battle_replay(&original, battle(), &components()).unwrap();
         prop_assert_eq!(original_report.command_count(), COMMANDS as u32);
         let decoded = decode_replay(&original).unwrap();
         let mut corrupted = original.clone();
@@ -257,6 +275,6 @@ proptest! {
             }
             _ => unreachable!(),
         }
-        prop_assert!(verify_battle_replay(&corrupted, battle()).is_err());
+        prop_assert!(verify_battle_replay(&corrupted, battle(), &components()).is_err());
     }
 }

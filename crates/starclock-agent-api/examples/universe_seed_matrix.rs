@@ -11,9 +11,6 @@ use starclock_agent_api::{
     error::AgentErrorCode,
     schema::{AgentUInt, IdempotencyKey, SessionId},
 };
-use starclock_mode_universe::nested_battle_executor::UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION;
-
-const MATRIX_REVISION: &str = "standard-universe-seed-matrix-v1";
 const FIRST_SEED: u64 = 100_000;
 const WORKERS: usize = 8;
 const MAX_EXTERNAL_ACTIONS: u64 = 1_000;
@@ -30,9 +27,7 @@ struct Entry {
 
 #[derive(Serialize)]
 struct MatrixEvidence {
-    schema_revision: &'static str,
     result: &'static str,
-    executor_revision: &'static str,
     coverage: Coverage,
     runs: Vec<RunEvidence>,
     failures: Vec<FailureEvidence>,
@@ -119,9 +114,7 @@ fn main() {
     assert_eq!(distinct_paths, 9);
 
     let evidence = MatrixEvidence {
-        schema_revision: MATRIX_REVISION,
         result: "all-constructible-difficulties-complete-with-nine-path-options-covered",
-        executor_revision: UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION,
         coverage: Coverage {
             worlds: manifest.worlds.len(),
             difficulties: entries.len(),

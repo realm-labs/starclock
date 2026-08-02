@@ -7,7 +7,7 @@ pub const MAX_RECORD_PAYLOAD_BYTES: u32 = 16 * 1024 * 1024;
 /// Maximum number of records declared by one replay.
 pub const MAX_REPLAY_RECORDS: u32 = 1_000_000;
 
-/// Closed record families reserved by replay format version 1.
+/// Closed record families in the replay format.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
 pub enum RecordKind {
@@ -44,7 +44,7 @@ impl TryFrom<u8> for RecordKind {
     }
 }
 
-/// Version-1 policy: every unknown record kind is a hard failure.
+/// Every unknown record kind is a hard failure.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
 pub enum UnknownRecordPolicy {
@@ -106,10 +106,8 @@ impl CanonicalEncode for RecordRef<'_> {
 pub enum ReplayFormatError {
     /// File magic is not `SCRP`.
     InvalidMagic,
-    /// The replay envelope tag is unexpected.
-    UnexpectedEnvelopeTag(u32),
-    /// The replay schema tag is unexpected.
-    UnexpectedSchemaTag(u32),
+    /// The replay header tag is unexpected.
+    UnexpectedHeaderTag(u32),
     /// The envelope rejects every unknown record kind.
     UnknownRecordKind(u8),
     /// The replay entry kind is unsupported.

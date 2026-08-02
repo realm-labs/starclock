@@ -86,8 +86,6 @@ pub const SWARM_DISASTER_PATHSTRIDER_REVISION: &str = "swarm-disaster-pathstride
 pub struct SwarmDisasterControllerIdentity<'a> {
     /// Stable controller component ID.
     pub id: &'a str,
-    /// Versioned controller behavior revision.
-    pub revision: &'a str,
     /// Canonical controller-policy digest.
     pub digest: [u8; 32],
 }
@@ -98,7 +96,6 @@ impl SwarmDisasterControllerIdentity<'static> {
     pub fn baseline() -> Self {
         Self {
             id: "swarm-disaster-baseline-controller",
-            revision: baseline_controller::SWARM_DISASTER_BASELINE_CONTROLLER_REVISION,
             digest: baseline_controller::SwarmBaselineController::identity_digest(),
         }
     }

@@ -27,13 +27,18 @@ use starclock_replay::{
         verify_battle_replay,
     },
     codec::CanonicalSink,
-    digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest, Sha256Sink},
-    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
+    },
+    digest::{ComponentDigest, EntrySpecDigest, Sha256Sink},
+    entry::ReplayEntry,
+    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay},
 };
 
-const CONTROLLER_DESCRIPTOR: &[u8] = b"baseline-battle-controller-v1\0synthetic-standard\0ability:1:basic:0:0:0:0:0:false\0target:2:0";
+const CONTROLLER_DESCRIPTOR: &[u8] =
+    b"baseline-battle-controller\0synthetic-standard\0ability:1:basic:0:0:0:0:0:false\0target:2:0";
 const STANDARD_CONTROLLER_DESCRIPTOR: &[u8] =
-    b"baseline-battle-controller-v1\0standard-v1\0first-canonical-supported-command";
+    b"baseline-battle-controller\0standard\0first-canonical-supported-command";
 const MAX_SMOKE_COMMANDS: usize = 16;
 const MAX_STANDARD_COMMANDS: usize = 512;
 const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -494,20 +499,26 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     }
     let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;
     let seed = decoded.header().master_seed();
+    let synthetic_components = battle_components(
+        SYNTHETIC_STANDARD_CONFIG_DIGEST,
+        "synthetic-baseline-controller",
+        controller_digest(),
+    )?;
     let synthetic = matches!(
         decoded.header().entry(),
         ReplayEntry::Battle {
             definition_id: 1, ..
-        } if decoded.header().identity().config_bundle()
-            == ConfigBundleDigest::new(SYNTHETIC_STANDARD_CONFIG_DIGEST)
-            && decoded.header().identity().game_version() == "synthetic-v1"
-            && decoded.header().controller().digest() == controller_digest()
+        } if decoded.header().components() == &synthetic_components
+            && decoded.header().environment().game_version() == "synthetic"
     );
-    let battle = if synthetic {
-        SyntheticStandardProfile
-            .instantiate(seed)
-            .create_battle()
-            .map_err(|_| CliError::Simulation("synthetic replay battle construction failed"))?
+    let (battle, expected_components) = if synthetic {
+        (
+            SyntheticStandardProfile
+                .instantiate(seed)
+                .create_battle()
+                .map_err(|_| CliError::Simulation("synthetic replay battle construction failed"))?,
+            synthetic_components,
+        )
     } else {
         let (definition_id, spec_digest) = match decoded.header().entry() {
             ReplayEntry::Battle {
@@ -521,10 +532,13 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
             .find(|(_, _, encounter)| *encounter == definition_id)
             .map(|(scenario, _, _)| *scenario)
             .ok_or(CliError::UnknownScenario)?;
-        let valid_identity = decoded.header().identity().config_bundle()
-            == ConfigBundleDigest::new(standard::CONFIG_DIGEST)
-            && decoded.header().identity().game_version() == "4.4"
-            && decoded.header().controller().digest() == standard_controller_digest();
+        let components = battle_components(
+            standard::CONFIG_DIGEST,
+            "standard-baseline-controller",
+            standard_controller_digest(),
+        )?;
+        let valid_identity = decoded.header().components() == &components
+            && decoded.header().environment().game_version() == "4.4";
         if !valid_identity {
             return Err(CliError::UnknownScenario);
         }
@@ -533,9 +547,9 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         if EntrySpecDigest::new(instantiated.assembly_digest().bytes()) != spec_digest {
             return Err(CliError::UnknownScenario);
         }
-        instantiated.into_battle()
+        (instantiated.into_battle(), components)
     };
-    let report = verify_battle_replay(&bytes, battle)?;
+    let report = verify_battle_replay(&bytes, battle, &expected_components)?;
     if json {
         println!(
             "{{\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":{},\"phase\":\"{}\",\"state_hash\":\"{}\"}}",
@@ -575,18 +589,19 @@ fn replay_header(
     scenario: &starclock_mode_standard::synthetic::SyntheticStandardBattle,
     command_count: usize,
 ) -> Result<ReplayHeader, CliError> {
-    let identity = ReplayIdentity::new(
-        "synthetic-v1",
-        ConfigBundleDigest::new(scenario.config_digest()),
+    let environment = ReplayEnvironment::new("synthetic")?;
+    let components = battle_components(
+        scenario.config_digest(),
+        "synthetic-baseline-controller",
+        controller_digest(),
     )?;
-    let controller = ControllerIdentity::new(controller_digest());
     let entry = ReplayEntry::Battle {
         definition_id: scenario.encounter().get(),
         spec_digest: EntrySpecDigest::new(scenario.assembly_digest().bytes()),
     };
     ReplayHeader::new(
-        identity,
-        controller,
+        environment,
+        components,
         scenario.master_seed(),
         entry,
         battle_record_count(command_count)?,
@@ -602,11 +617,15 @@ fn standard_replay_header(
     ),
     command_count: usize,
 ) -> Result<ReplayHeader, CliError> {
-    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(standard::CONFIG_DIGEST))?;
-    let controller = ControllerIdentity::new(standard_controller_digest());
+    let environment = ReplayEnvironment::new("4.4")?;
+    let components = battle_components(
+        standard::CONFIG_DIGEST,
+        "standard-baseline-controller",
+        standard_controller_digest(),
+    )?;
     ReplayHeader::new(
-        identity,
-        controller,
+        environment,
+        components,
         master_seed,
         ReplayEntry::Battle {
             definition_id: encounter.get(),
@@ -649,16 +668,38 @@ fn hex(bytes: [u8; 32]) -> String {
     value
 }
 
-fn controller_digest() -> ControllerDigest {
+fn controller_digest() -> [u8; 32] {
     let mut digest = Sha256Sink::new();
     digest.write(CONTROLLER_DESCRIPTOR);
-    ControllerDigest::new(digest.finalize().bytes())
+    digest.finalize().bytes()
 }
 
-fn standard_controller_digest() -> ControllerDigest {
+fn standard_controller_digest() -> [u8; 32] {
     let mut digest = Sha256Sink::new();
     digest.write(STANDARD_CONTROLLER_DESCRIPTOR);
-    ControllerDigest::new(digest.finalize().bytes())
+    digest.finalize().bytes()
+}
+
+fn battle_components(
+    catalog_digest: [u8; 32],
+    controller_id: &str,
+    controller_digest: [u8; 32],
+) -> Result<ConfigurationComponentSet, CliError> {
+    ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::CombatCatalog,
+            "combat-catalog",
+            ComponentDigest::new(catalog_digest),
+        )
+        .map_err(|_| CliError::Simulation("invalid combat replay component"))?,
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            controller_id,
+            ComponentDigest::new(controller_digest),
+        )
+        .map_err(|_| CliError::Simulation("invalid controller replay component"))?,
+    ])
+    .map_err(|_| CliError::Simulation("invalid replay component set"))
 }
 
 fn json_escape(input: &str) -> String {
@@ -730,6 +771,12 @@ impl From<CatalogLoadError> for CliError {
 
 impl From<starclock_replay::record::ReplayFormatError> for CliError {
     fn from(value: starclock_replay::record::ReplayFormatError) -> Self {
+        Self::Replay(value.into())
+    }
+}
+
+impl From<ReplayError> for CliError {
+    fn from(value: ReplayError) -> Self {
         Self::Replay(value.into())
     }
 }

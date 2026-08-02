@@ -15,15 +15,12 @@ use super::{
 };
 use crate::{battle_materialization::UniverseBattleRoster, digest::Encoder};
 
-/// Stable controller identity contributed to the Gold component set by callers.
-pub const GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION: &str =
-    "gold-and-gears-baseline-controller-v1";
+const GOLD_AND_GEARS_BASELINE_CONTROLLER_DOMAIN: &str = "gold-and-gears-baseline-controller";
 
 /// Caller-owned controller identity included in the composed configuration root.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GoldAndGearsControllerIdentity<'a> {
     pub id: &'a str,
-    pub revision: &'a str,
     pub digest: [u8; 32],
 }
 
@@ -242,17 +239,17 @@ pub struct GoldAndGearsBaselineController {
 }
 
 impl GoldAndGearsBaselineController {
-    pub const REVISION: &'static str = GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION;
+    pub const ID: &'static str = GOLD_AND_GEARS_BASELINE_CONTROLLER_DOMAIN;
 
     /// Canonical controller-policy digest suitable for the caller-selected
     /// Controller configuration component.
     #[must_use]
     pub fn identity_digest() -> [u8; 32] {
-        let mut encoder = Encoder::new(b"starclock.gold-and-gears.baseline-controller.identity.v1");
-        encoder.text(Self::REVISION);
-        encoder.text(ActivityBaselineController::REVISION);
-        encoder.text("authored-priority-plus-bounded-activity-score-v1");
-        encoder.text("highest-total-then-lowest-option-id-v1");
+        let mut encoder = Encoder::new(b"starclock.gold-and-gears.baseline-controller.identity");
+        encoder.text(Self::ID);
+        encoder.text(ActivityBaselineController::ID);
+        encoder.text("authored-priority-plus-bounded-activity-score");
+        encoder.text("highest-total-then-lowest-option-id");
         encoder.u8(COMMAND_FAMILIES.len() as u8);
         for family in COMMAND_FAMILIES {
             encoder.u8(family as u8);
@@ -355,7 +352,7 @@ impl GoldAndGearsRuntimeInstance {
 
 fn decision_digest(run_digest: [u8; 32], decisions: &[GoldAndGearsBaselineDecision]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock.gold-and-gears.baseline-controller.v1");
-    encoder.text(GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION);
+    encoder.text(GOLD_AND_GEARS_BASELINE_CONTROLLER_DOMAIN);
     encoder.digest(run_digest);
     encoder.u32(u32::try_from(decisions.len()).expect("seeded decision count is bounded"));
     for decision in decisions {

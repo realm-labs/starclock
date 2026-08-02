@@ -1,4 +1,4 @@
-//! Versioned Standard-shaped benchmark fixtures with no production content claim.
+//! Standard-shaped benchmark fixtures with no production content claim.
 
 mod catalog;
 mod spec;
@@ -10,8 +10,6 @@ use starclock_combat::{
     catalog::CombatCatalog,
 };
 
-/// Exact workload definition revision bound into reports and ceilings.
-pub const BENCHMARK_WORKLOAD_REVISION: &str = "g01-phase4-full-kernel-v1";
 /// Catalog revision shared by every isolated job.
 pub const BENCHMARK_CATALOG_REVISION: &str = "g01-phase4-benchmark-catalog-v1";
 /// Rules revision for the synthetic benchmark battles.

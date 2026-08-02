@@ -168,7 +168,7 @@ pub struct StandardUniverseBaselineRunner {
 }
 
 impl StandardUniverseBaselineRunner {
-    pub const REVISION: &'static str = "standard-universe-baseline-runner-v1";
+    pub const ID: &'static str = "standard-universe-baseline-runner";
 
     pub fn advance<E: NestedBattleExecutor>(
         self,

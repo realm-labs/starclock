@@ -5,10 +5,12 @@ use proptest::{
 };
 use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, CodecError, Decoder, Encoder, hash_canonical},
-    digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest, Sha256Sink},
-    format::{
-        ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay, encode_replay,
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
     },
+    digest::{ComponentDigest, EntrySpecDigest, Sha256Sink},
+    entry::ReplayEntry,
+    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
     record::{MAX_RECORD_PAYLOAD_BYTES, RecordKind, RecordRef, ReplayFormatError},
 };
 
@@ -39,12 +41,9 @@ fn digest(byte: u8) -> [u8; 32] {
 }
 
 fn header(master_seed: u64, record_count: u32) -> ReplayHeader {
-    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(0x31)))
-        .expect("property identity is valid");
-    let controller = ControllerIdentity::new(ControllerDigest::new(digest(0x32)));
     ReplayHeader::new(
-        identity,
-        controller,
+        ReplayEnvironment::new("4.4").unwrap(),
+        components(),
         master_seed,
         ReplayEntry::Battle {
             definition_id: 1,
@@ -53,6 +52,24 @@ fn header(master_seed: u64, record_count: u32) -> ReplayHeader {
         record_count,
     )
     .expect("bounded property header is valid")
+}
+
+fn components() -> ConfigurationComponentSet {
+    ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::CombatCatalog,
+            "combat-catalog",
+            ComponentDigest::new(digest(0x31)),
+        )
+        .unwrap(),
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            "property-controller",
+            ComponentDigest::new(digest(0x32)),
+        )
+        .unwrap(),
+    ])
+    .unwrap()
 }
 
 fn record_kind(raw: u8) -> RecordKind {
@@ -185,14 +202,14 @@ proptest! {
                 bytes.push(0);
                 prop_assert_eq!(
                     decode_replay(&bytes).unwrap_err(),
-                    ReplayFormatError::Codec(CodecError::TrailingBytes)
+                    ReplayError::Format(ReplayFormatError::Codec(CodecError::TrailingBytes))
                 );
             }
             2 => {
                 bytes[record_offset] = 0xff;
                 prop_assert_eq!(
                     decode_replay(&bytes).unwrap_err(),
-                    ReplayFormatError::UnknownRecordKind(0xff)
+                    ReplayError::Format(ReplayFormatError::UnknownRecordKind(0xff))
                 );
             }
             3 => {
@@ -200,7 +217,7 @@ proptest! {
                     .copy_from_slice(&1_u64.to_le_bytes());
                 prop_assert_eq!(
                     decode_replay(&bytes).unwrap_err(),
-                    ReplayFormatError::InvalidRecordSequence
+                    ReplayError::Format(ReplayFormatError::InvalidRecordSequence)
                 );
             }
             _ => {
@@ -208,7 +225,7 @@ proptest! {
                     .copy_from_slice(&(MAX_RECORD_PAYLOAD_BYTES + 1).to_le_bytes());
                 prop_assert_eq!(
                     decode_replay(&bytes).unwrap_err(),
-                    ReplayFormatError::Codec(CodecError::LimitExceeded)
+                    ReplayError::Format(ReplayFormatError::Codec(CodecError::LimitExceeded))
                 );
             }
         }

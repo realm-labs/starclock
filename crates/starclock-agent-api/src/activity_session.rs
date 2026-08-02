@@ -10,19 +10,19 @@ use starclock_activity::{
 use starclock_mode_universe::{
     dynamic_battle_assembler::StandardUniverseBattleAssembler,
     nested_battle_executor::UniverseNestedBattleExecutor,
+    replay_trace::{
+        MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS, StandardUniverseReplayAction,
+        StandardUniverseTraceEntry,
+    },
     replay_verification::{
         encode_standard_universe_replay_parts, standard_universe_replay_header,
         verify_standard_universe_replay_dynamic,
     },
     runtime::StandardUniverseActivity,
-    universe_replay::{
-        MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS, StandardUniverseReplayAction,
-        StandardUniverseTraceEntry,
-    },
 };
 use starclock_replay::{
     activity::{ControllerDecisionKind, ControllerDiagnostic, ControllerOptionScore},
-    envelope::ReplayHeader,
+    format::ReplayHeader,
 };
 
 use crate::{
@@ -33,7 +33,7 @@ use crate::{
     activity_observation::{
         ActivityObservationContext, AgentActivityObservation, project_activity_observation,
     },
-    activity_runtime::{ActivityRuntimeError, ActivityRuntimeFactory, BATTLE_EXECUTOR_REVISION},
+    activity_runtime::{ActivityRuntimeError, ActivityRuntimeFactory},
     error::{AgentError, AgentErrorCode},
     schema::{ActionToken, AgentHash, AgentUInt, IdempotencyKey, SessionId},
     session::{MAX_CACHED_RESPONSE_BYTES, MAX_IDEMPOTENCY_ENTRIES},
@@ -42,7 +42,6 @@ use crate::{
 pub mod registry;
 
 pub const RESPONSIBILITY: &str = "authoritative Activity sessions and replay export";
-pub const ACTIVITY_AGENT_CONTROLLER_REVISION: &str = "agent-activity-session-v1";
 pub const MAX_ACTIVITY_ACTIONS_PER_SETTLEMENT: usize = 16;
 pub const DEFAULT_TECHNIQUE_POINTS: u16 = 5;
 
@@ -59,10 +58,6 @@ pub struct AgentUniverseWorldSummary {
 pub struct AgentUniverseManifest {
     pub game_version: Box<str>,
     pub snapshot_date: Box<str>,
-    pub catalog_revision: Box<str>,
-    pub profile_revision: Box<str>,
-    pub activity_interface_revision: Box<str>,
-    pub battle_executor_revision: Box<str>,
     pub worlds: Box<[AgentUniverseWorldSummary]>,
 }
 
@@ -213,11 +208,6 @@ impl ActivityAgentSessionFactory {
         AgentUniverseManifest {
             game_version: identity.game_version().into(),
             snapshot_date: identity.snapshot_date().into(),
-            catalog_revision: identity.catalog_revision().into(),
-            profile_revision: identity.profile_revision().into(),
-            activity_interface_revision:
-                crate::activity_observation::ACTIVITY_AGENT_INTERFACE_REVISION.into(),
-            battle_executor_revision: BATTLE_EXECUTOR_REVISION.into(),
             worlds: catalog
                 .worlds()
                 .iter()
@@ -265,6 +255,16 @@ impl ActivityAgentSessionFactory {
             terminal: terminal(report.terminal()),
         })
     }
+}
+
+#[cfg(test)]
+pub(crate) fn production_factory_for_tests() -> ActivityAgentSessionFactory {
+    static FACTORY: std::sync::OnceLock<ActivityAgentSessionFactory> = std::sync::OnceLock::new();
+    FACTORY
+        .get_or_init(|| {
+            ActivityAgentSessionFactory::load_production().expect("production factory loads")
+        })
+        .clone()
 }
 
 struct CachedActivityResponse {
@@ -626,8 +626,7 @@ impl ActivityAgentSession {
 
 fn controller_digest() -> [u8; 32] {
     let mut hash = Sha256::new();
-    hash.update(b"agent-activity-session-v1\0external-player\0");
-    hash.update(BATTLE_EXECUTOR_REVISION.as_bytes());
+    hash.update(b"agent-activity-session\0external-player\0nested-battle-executor");
     hash.finalize().into()
 }
 

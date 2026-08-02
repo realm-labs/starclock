@@ -16,7 +16,7 @@ use starclock_combat::{
     CombatantSpecDigest, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, StatValue,
     UnitDefinitionId, UnitLevel, catalog::CombatCatalog,
 };
-use starclock_replay::{component::ConfigurationComponentSet, envelope::ReplayEnvironment};
+use starclock_replay::{component::ConfigurationComponentSet, format::ReplayEnvironment};
 
 use crate::{
     ability_runtime::{
@@ -41,7 +41,7 @@ use crate::{
     runtime::StandardUniverseActivity,
 };
 
-pub const STANDARD_UNIVERSE_PROFILE_PREFIX: &str = "standard-universe-v1/world-";
+pub const STANDARD_UNIVERSE_PROFILE_PREFIX: &str = "standard-universe/world-";
 pub const STANDARD_UNIVERSE_DEFAULT_BUILD_REVISION: &str =
     "standard-universe-default-compiled-build-v2";
 
@@ -177,7 +177,6 @@ impl StandardUniverseRuntimeFactory {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct StandardUniverseControllerIdentity<'a> {
     pub id: &'a str,
-    pub revision: &'a str,
     pub digest: [u8; 32],
 }
 

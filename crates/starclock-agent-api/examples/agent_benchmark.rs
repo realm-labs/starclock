@@ -23,7 +23,6 @@ use starclock_agent_api::{
 };
 use starclock_data::standard::SCENARIOS;
 
-const WORKLOAD_REVISION: &str = "g02-agent-session-baseline-v1";
 const MASTER_SEED: u64 = 7;
 const PROJECTION_OPERATIONS: usize = 1_000;
 const STEP_OPERATIONS: usize = 100;
@@ -43,8 +42,7 @@ fn main() {
         measure_resident_sessions(&factory),
     ];
     println!(
-        "{{\"schema_revision\":\"starclock.agent-benchmark-report.v1\",\"workload_revision\":\"{}\",\"master_seed\":{},\"rows\":[{}]}}",
-        WORKLOAD_REVISION,
+        "{{\"master_seed\":{},\"rows\":[{}]}}",
         MASTER_SEED,
         rows.iter().map(Row::json).collect::<Vec<_>>().join(",")
     );
@@ -101,7 +99,7 @@ fn measure_projection(factory: &AgentSessionFactory) -> Row {
     let elapsed = start.elapsed();
     let observation = session.observe(&cursor).expect("projection succeeds");
     Row {
-        id: "projection-1000-v1",
+        id: "projection-1000",
         operations: PROJECTION_OPERATIONS,
         elapsed,
         allocations,
@@ -139,7 +137,7 @@ fn measure_step(factory: &AgentSessionFactory) -> Row {
         .observe(&zero_cursor())
         .expect("post-step projection succeeds");
     Row {
-        id: "agent-step-100-v1",
+        id: "agent-step-100",
         operations: STEP_OPERATIONS,
         elapsed,
         allocations,
@@ -183,7 +181,7 @@ fn measure_registry_observe(factory: &AgentSessionFactory) -> Row {
     });
     let elapsed = start.elapsed();
     Row {
-        id: "registry-observe-1000-v1",
+        id: "registry-observe-1000",
         operations: REGISTRY_OPERATIONS,
         elapsed,
         allocations,
@@ -212,7 +210,7 @@ fn measure_resident_sessions(factory: &AgentSessionFactory) -> Row {
     let retained_bytes = nonnegative(allocations.bytes_current);
     drop(sessions);
     Row {
-        id: "resident-sessions-16-v1",
+        id: "resident-sessions-16",
         operations: RESIDENT_SESSIONS,
         elapsed,
         allocations,

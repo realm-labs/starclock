@@ -60,7 +60,7 @@ if let Some(spec) = resolution.battle_spec {
 Goal 04 freezes the explicit module boundaries `entry::StandardUniverseProfile`,
 `entry::StandardUniverseEntry`, `runtime::StandardUniverseActivity`,
 `baseline_runner::StandardUniverseBaselineRunner` and
-`universe_replay::{encode_standard_universe_trace,
+`replay_verification::{encode_standard_universe_replay,
 verify_standard_universe_replay}`. No convenience `pub use` facade is part of
 the release contract. These ownership rules are fixed:
 

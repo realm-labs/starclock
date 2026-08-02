@@ -6,9 +6,7 @@ use starclock_mode_universe::{
     swarm_disaster_entry::{
         SwarmDisasterRuntimeFactory,
         baseline_fixture::{
-            SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION,
-            SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY, SWARM_DISASTER_BASELINE_PROFILE,
-            SwarmDisasterBaselineFixture,
+            SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY, SwarmDisasterBaselineFixture,
         },
         replay::{
             SWARM_DISASTER_REPLAY_PROFILE, encode_complete_swarm_replay,
@@ -17,7 +15,7 @@ use starclock_mode_universe::{
     },
 };
 use starclock_replay::{
-    codec::CanonicalSink, digest::Sha256Sink, entry::ReplayEntry, envelope::decode_replay,
+    codec::CanonicalSink, digest::Sha256Sink, entry::ReplayEntry, format::decode_replay,
 };
 
 const SWARM_BUNDLE: &[u8] = include_bytes!("../../../config/swarm-disaster-generated/config.sora");
@@ -61,7 +59,7 @@ pub fn coverage(args: &[String]) -> Result<(), SwarmDisasterCliError> {
         );
     } else {
         println!(
-            "universe coverage mode={MODE} goal=swarm-disaster-runtime-v1 categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0 digest={COVERAGE_SHA256}"
+            "universe coverage mode={MODE} categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0 digest={COVERAGE_SHA256}"
         );
     }
     Ok(())
@@ -99,7 +97,7 @@ pub fn run(args: &[String]) -> Result<(), SwarmDisasterCliError> {
     }
     if options.json {
         println!(
-            "{{\"kind\":\"universe-run\",\"mode\":\"{MODE}\",\"seed\":{},\"profile\":\"{SWARM_DISASTER_BASELINE_PROFILE}\",\"area\":\"{}\",\"path\":\"{}\",\"audience_die\":\"{}\",\"controller\":\"baseline\",\"battle_executor\":\"{SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION}\",\"fixture_accuracy\":\"{SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY}\",\"component_root\":\"{}\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{},\"replay_sha256\":\"{}\"}}",
+            "{{\"kind\":\"universe-run\",\"mode\":\"{MODE}\",\"seed\":{},\"profile\":\"{SWARM_DISASTER_REPLAY_PROFILE}\",\"area\":\"{}\",\"path\":\"{}\",\"audience_die\":\"{}\",\"controller\":\"baseline\",\"fixture_accuracy\":\"{SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY}\",\"component_root\":\"{}\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{},\"replay_sha256\":\"{}\"}}",
             options.seed,
             fixture.area(),
             fixture.path(),
@@ -114,7 +112,7 @@ pub fn run(args: &[String]) -> Result<(), SwarmDisasterCliError> {
         );
     } else {
         println!(
-            "universe completed mode={MODE} seed={} profile={SWARM_DISASTER_BASELINE_PROFILE} controller=baseline battle_executor={SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION} fixture_accuracy={SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY} component_root={} actions={} nested_battles={} battle_commands={} hash={} replay_bytes={} replay_sha256={}",
+            "universe completed mode={MODE} seed={} profile={SWARM_DISASTER_REPLAY_PROFILE} controller=baseline fixture_accuracy={SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY} component_root={} actions={} nested_battles={} battle_commands={} hash={} replay_bytes={} replay_sha256={}",
             options.seed,
             hex(fixture.components().root().bytes()),
             report.action_count(),

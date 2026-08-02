@@ -12,7 +12,6 @@ use crate::{
 };
 
 pub const RESPONSIBILITY: &str = "owned player-visible Activity projections";
-pub const ACTIVITY_AGENT_INTERFACE_REVISION: &str = "agent-activity-v1";
 pub const MAX_ACTIVITY_SLOT_ENTRIES: usize = 4_096;
 pub const MAX_ACTIVITY_INVENTORY_ENTRIES: usize = 4_096;
 pub const MAX_ACTIVITY_PARTICIPANTS: usize = 8;
@@ -113,7 +112,6 @@ pub struct AgentActivityParticipantView {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentActivityObservation {
-    pub interface_revision: Box<str>,
     pub session_id: SessionId,
     pub profile_id: Box<str>,
     pub world: AgentUInt,
@@ -247,7 +245,6 @@ pub(crate) fn project_activity_observation(
         return Err(ActivityProjectionError::UnstableBoundary);
     };
     Ok(AgentActivityObservation {
-        interface_revision: ACTIVITY_AGENT_INTERFACE_REVISION.into(),
         session_id: context.session.clone(),
         profile_id: context.profile.into(),
         world: AgentUInt::from_u64(u64::from(context.world)),

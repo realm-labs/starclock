@@ -288,13 +288,6 @@ mod tests {
             Arc::new(Clock),
             Arc::new(Ids),
         );
-        assert_eq!(
-            activity_factory
-                .manifest()
-                .battle_executor_revision
-                .as_ref(),
-            "standard-universe-nested-battle-executor-v1"
-        );
         for uri in [
             CATALOG_URI,
             RULES_URI,

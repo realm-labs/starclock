@@ -12,7 +12,7 @@ use starclock_agent_api::{
     schema::{ActionToken, AgentHash, AgentUInt, IdempotencyKey, SessionId},
 };
 use starclock_mode_universe::{
-    baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
+    baseline_runner::StandardUniverseBaselinePolicy,
     nested_battle_executor::UniverseNestedBattleExecutor,
     production_runtime::StandardUniverseControllerIdentity,
     replay_verification::{
@@ -152,7 +152,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
         replay.action_count().to_u64(),
         session.replay_action_count() as u64
     );
-    assert!(starclock_replay::envelope::decode_replay(replay.bytes()).is_ok());
+    assert!(starclock_replay::format::decode_replay(replay.bytes()).is_ok());
     let verified = session.verify_replay(factory, replay.bytes()).unwrap();
     assert_eq!(verified.action_count, replay.action_count().clone());
     assert_eq!(verified.final_state_hash, session.state_hash());
@@ -287,7 +287,6 @@ fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
     let runtime_factory = starclock_test_kit::standard_universe_factory();
     let controller = StandardUniverseControllerIdentity {
         id: "baseline-controller",
-        revision: StandardUniverseBaselineRunner::REVISION,
         digest: [0x65; 32],
     };
     let instance = runtime_factory.start(1, 0, 1, controller).unwrap();
@@ -327,7 +326,7 @@ fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
 }
 
 fn nested_authority_digest(bytes: &[u8]) -> [u8; 32] {
-    let replay = starclock_replay::envelope::decode_replay(bytes).unwrap();
+    let replay = starclock_replay::format::decode_replay(bytes).unwrap();
     let mut hash = Sha256::new();
     for record in replay.records() {
         let payload = match record.kind() {

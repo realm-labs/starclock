@@ -3,9 +3,7 @@ use std::{fmt, fs, path::PathBuf, sync::Arc};
 use starclock_mode_universe::{
     baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
     catalog::UniverseCatalog,
-    nested_battle_executor::{
-        UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION, UniverseNestedBattleExecutor,
-    },
+    nested_battle_executor::UniverseNestedBattleExecutor,
     production_runtime::{
         STANDARD_UNIVERSE_PROFILE_PREFIX, StandardUniverseControllerIdentity,
         StandardUniverseRuntimeFactory, StandardUniverseRuntimeFactoryError,
@@ -16,7 +14,7 @@ use starclock_mode_universe::{
     },
 };
 use starclock_replay::{
-    codec::CanonicalSink, digest::Sha256Sink, entry::ReplayEntry, envelope::ReplayEnvironment,
+    codec::CanonicalSink, digest::Sha256Sink, entry::ReplayEntry, format::ReplayEnvironment,
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -63,7 +61,7 @@ pub fn coverage(args: &[String]) -> Result<(), UniverseCliError> {
         );
     } else {
         println!(
-            "universe coverage goal=standard-universe-runtime-v1 content=2201 rules=786 fixtures=78 worlds={} difficulties={} paths={} encounter_groups={}",
+            "universe coverage content=2201 rules=786 fixtures=78 worlds={} difficulties={} paths={} encounter_groups={}",
             catalog.worlds().len(),
             catalog.difficulties().len(),
             catalog.paths().len(),
@@ -101,7 +99,7 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     let report = recorded.report();
     if options.json {
         println!(
-            "{{\"kind\":\"universe-run\",\"world\":{},\"difficulty_index\":{},\"seed\":{},\"controller\":\"baseline\",\"battle_executor\":\"{UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION}\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
+            "{{\"kind\":\"universe-run\",\"world\":{},\"difficulty_index\":{},\"seed\":{},\"controller\":\"baseline\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
             options.world,
             options.difficulty_index,
             options.seed,
@@ -117,7 +115,7 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
         );
     } else {
         println!(
-            "universe completed world={} difficulty_index={} seed={} controller=baseline battle_executor={UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION} actions={} nested_battles={} battle_commands={} hash={} replay_bytes={}",
+            "universe completed world={} difficulty_index={} seed={} controller=baseline actions={} nested_battles={} battle_commands={} hash={} replay_bytes={}",
             options.world,
             options.difficulty_index,
             options.seed,
@@ -136,7 +134,7 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
 }
 
 pub fn is_universe_replay(bytes: &[u8]) -> bool {
-    starclock_replay::envelope::decode_replay(bytes)
+    starclock_replay::format::decode_replay(bytes)
         .is_ok_and(|replay| is_universe_entry(replay.header().entry()))
 }
 
@@ -146,7 +144,7 @@ fn is_universe_entry(entry: &ReplayEntry) -> bool {
 
 pub fn verify_replay(bytes: &[u8], json: bool) -> Result<(), UniverseCliError> {
     let replay =
-        starclock_replay::envelope::decode_replay(bytes).map_err(|_| UniverseCliError::Replay)?;
+        starclock_replay::format::decode_replay(bytes).map_err(|_| UniverseCliError::Replay)?;
     let header = replay.header();
     let (world, difficulty_index, profile_id) = parse_profile(header.entry())?;
     let seed = header.master_seed();
@@ -264,7 +262,6 @@ fn context(
             seed,
             StandardUniverseControllerIdentity {
                 id: "baseline-controller",
-                revision: StandardUniverseBaselineRunner::REVISION,
                 digest: controller_digest(),
             },
         )
@@ -328,9 +325,9 @@ fn universe_bundle_digest() -> [u8; 32] {
 }
 fn controller_digest() -> [u8; 32] {
     let mut value = Sha256Sink::new();
-    value.write(StandardUniverseBaselineRunner::REVISION.as_bytes());
+    value.write(StandardUniverseBaselineRunner::ID.as_bytes());
     value.write(&[0]);
-    value.write(UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION.as_bytes());
+    value.write(b"nested-battle-executor");
     value.finalize().bytes()
 }
 fn hex(bytes: [u8; 32]) -> String {

@@ -1,12 +1,16 @@
 use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, CodecError, Decoder, Encoder, hash_canonical},
-    digest::{
-        BuildCatalogDigest, CombatantBuildDigest, ConfigBundleDigest, ControllerDigest,
-        DefinitionDigest, EntrySpecDigest, Sha256Digest, Sha256Sink, StateDigest,
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
     },
+    digest::{
+        BuildCatalogDigest, CombatantBuildDigest, ComponentDigest, DefinitionDigest,
+        EntrySpecDigest, Sha256Digest, Sha256Sink, StateDigest,
+    },
+    entry::{BuildBindings, ReplayEntry},
     format::{
-        BuildBindings, ControllerIdentity, REPLAY_ENVELOPE_TAG, ReplayEntry, ReplayHeader,
-        ReplayIdentity, decode_replay, encode_replay,
+        REPLAY_HEADER_TAG, ReplayEnvironment, ReplayError, ReplayHeader, decode_replay,
+        encode_replay,
     },
     record::{RecordKind, RecordRef, ReplayFormatError},
 };
@@ -16,9 +20,6 @@ fn digest(byte: u8) -> [u8; 32] {
 }
 
 fn header(record_count: u32) -> ReplayHeader {
-    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(0x11)))
-        .expect("golden identity is valid");
-    let controller = ControllerIdentity::new(ControllerDigest::new(digest(0x22)));
     let builds = BuildBindings::new(
         BuildCatalogDigest::new(digest(0x55)),
         vec![
@@ -28,15 +29,15 @@ fn header(record_count: u32) -> ReplayHeader {
     )
     .expect("golden build bindings are valid");
     let entry = ReplayEntry::Activity {
-        profile_id: "standard-v1".into(),
+        profile_id: "standard".into(),
         definition_id: 42,
         definition_digest: DefinitionDigest::new(digest(0x33)),
         spec_digest: EntrySpecDigest::new(digest(0x44)),
         builds: Some(builds),
     };
     ReplayHeader::new(
-        identity,
-        controller,
+        ReplayEnvironment::new("4.4").expect("golden environment is valid"),
+        components(),
         0x0123_4567_89ab_cdef,
         entry,
         record_count,
@@ -116,7 +117,7 @@ fn replay_header_records_round_trip_and_stream_hash() {
     assert_eq!(&bytes[..4], b"SCRP");
     assert_eq!(
         u32::from_le_bytes(bytes[4..8].try_into().expect("four bytes")),
-        REPLAY_ENVELOPE_TAG
+        REPLAY_HEADER_TAG
     );
     let decoded = decode_replay(&bytes).expect("golden replay decodes");
     assert_eq!(decoded.header(), &header);
@@ -128,23 +129,26 @@ fn replay_header_records_round_trip_and_stream_hash() {
     assert_eq!(
         streamed,
         Sha256Digest::new([
-            124, 214, 57, 62, 60, 86, 207, 226, 23, 14, 177, 85, 224, 25, 173, 207, 129, 224, 160,
-            57, 66, 72, 116, 149, 76, 103, 206, 79, 82, 143, 212, 67,
+            149, 147, 175, 250, 140, 29, 19, 16, 60, 33, 15, 75, 85, 126, 34, 134, 96, 5, 151, 70,
+            155, 15, 248, 129, 89, 35, 68, 26, 81, 25, 67, 63,
         ])
     );
 }
 
 #[test]
 fn low_level_battle_entry_round_trips_without_build_vocabulary() {
-    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(1)))
-        .expect("battle identity is valid");
-    let controller = ControllerIdentity::new(ControllerDigest::new(digest(2)));
     let entry = ReplayEntry::Battle {
         definition_id: 9,
         spec_digest: EntrySpecDigest::new(digest(3)),
     };
-    let header =
-        ReplayHeader::new(identity, controller, 5, entry, 0).expect("battle header is valid");
+    let header = ReplayHeader::new(
+        ReplayEnvironment::new("4.4").unwrap(),
+        components(),
+        5,
+        entry,
+        0,
+    )
+    .expect("battle header is valid");
     let bytes = encode_replay(&header, &[], Vec::new()).expect("empty replay encodes");
     let decoded = decode_replay(&bytes).expect("empty battle replay decodes");
     assert_eq!(decoded.header(), &header);
@@ -153,16 +157,21 @@ fn low_level_battle_entry_round_trips_without_build_vocabulary() {
 
 #[test]
 fn zero_entry_definition_is_rejected_before_encoding() {
-    let identity =
-        ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(1))).expect("identity is valid");
-    let controller = ControllerIdentity::new(ControllerDigest::new(digest(2)));
     let entry = ReplayEntry::Battle {
         definition_id: 0,
         spec_digest: EntrySpecDigest::new(digest(3)),
     };
     assert_eq!(
-        ReplayHeader::new(identity, controller, 1, entry, 0),
-        Err(ReplayFormatError::InvalidEntryDefinition)
+        ReplayHeader::new(
+            ReplayEnvironment::new("4.4").unwrap(),
+            components(),
+            1,
+            entry,
+            0
+        ),
+        Err(ReplayError::Format(
+            ReplayFormatError::InvalidEntryDefinition
+        ))
     );
 }
 
@@ -177,35 +186,28 @@ fn malformed_tags_unknown_records_and_framing_are_hard_failures() {
     wrong_version[4..8].copy_from_slice(&99_u32.to_le_bytes());
     assert_eq!(
         decode_replay(&wrong_version).expect_err("version must fail"),
-        ReplayFormatError::UnexpectedEnvelopeTag(99)
-    );
-
-    let mut wrong_schema = bytes.clone();
-    wrong_schema[8..12].copy_from_slice(&77_u32.to_le_bytes());
-    assert_eq!(
-        decode_replay(&wrong_schema).expect_err("schema must fail"),
-        ReplayFormatError::UnexpectedSchemaTag(77)
+        ReplayError::Format(ReplayFormatError::UnexpectedHeaderTag(99))
     );
 
     let mut wrong_policy = bytes.clone();
-    wrong_policy[12] = 1;
+    wrong_policy[8] = 1;
     assert_eq!(
         decode_replay(&wrong_policy).expect_err("policy must fail"),
-        ReplayFormatError::UnknownRecordPolicy(1)
+        ReplayError::Format(ReplayFormatError::UnknownRecordPolicy(1))
     );
 
     let mut unknown = bytes.clone();
     unknown[record_offset] = 0xff;
     assert_eq!(
         decode_replay(&unknown).expect_err("unknown record must fail"),
-        ReplayFormatError::UnknownRecordKind(0xff)
+        ReplayError::Format(ReplayFormatError::UnknownRecordKind(0xff))
     );
 
     let mut bad_sequence = bytes.clone();
     bad_sequence[record_offset + 1..record_offset + 9].copy_from_slice(&1_u64.to_le_bytes());
     assert_eq!(
         decode_replay(&bad_sequence).expect_err("sequence must fail"),
-        ReplayFormatError::InvalidRecordSequence
+        ReplayError::Format(ReplayFormatError::InvalidRecordSequence)
     );
 
     let mut oversized = bytes.clone();
@@ -213,19 +215,39 @@ fn malformed_tags_unknown_records_and_framing_are_hard_failures() {
         .copy_from_slice(&(16_u32 * 1024 * 1024 + 1).to_le_bytes());
     assert_eq!(
         decode_replay(&oversized).expect_err("oversized payload must fail"),
-        ReplayFormatError::Codec(CodecError::LimitExceeded)
+        ReplayError::Format(ReplayFormatError::Codec(CodecError::LimitExceeded))
     );
 
     let mut truncated = bytes.clone();
     truncated.pop();
     assert!(matches!(
         decode_replay(&truncated),
-        Err(ReplayFormatError::Codec(CodecError::UnexpectedEnd))
+        Err(ReplayError::Format(ReplayFormatError::Codec(
+            CodecError::UnexpectedEnd
+        )))
     ));
     let mut trailing = bytes;
     trailing.push(0);
     assert_eq!(
         decode_replay(&trailing).expect_err("trailing byte must fail"),
-        ReplayFormatError::Codec(CodecError::TrailingBytes)
+        ReplayError::Format(ReplayFormatError::Codec(CodecError::TrailingBytes))
     );
+}
+
+fn components() -> ConfigurationComponentSet {
+    ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::CombatCatalog,
+            "combat-catalog",
+            ComponentDigest::new(digest(0x11)),
+        )
+        .unwrap(),
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            "test-controller",
+            ComponentDigest::new(digest(0x22)),
+        )
+        .unwrap(),
+    ])
+    .unwrap()
 }

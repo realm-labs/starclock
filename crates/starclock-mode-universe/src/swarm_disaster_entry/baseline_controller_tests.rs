@@ -5,8 +5,8 @@ use starclock_activity::{
 use crate::baseline_controller::ActivityScoreComponents;
 
 use super::baseline_controller::{
-    SWARM_DISASTER_BASELINE_CONTROLLER_REVISION, SwarmBaselineController, SwarmBaselineError,
-    SwarmCommandFamily, SwarmOfferedAction, SwarmOfferedCommand,
+    SwarmBaselineController, SwarmBaselineError, SwarmCommandFamily, SwarmOfferedAction,
+    SwarmOfferedCommand,
 };
 
 fn id(raw: u64) -> ActivityOptionId {
@@ -53,15 +53,10 @@ fn action(family: SwarmCommandFamily, ordinal: u32) -> SwarmOfferedAction {
 
 #[test]
 fn every_swarm_family_selects_only_an_exact_offered_command() {
-    assert_eq!(
-        SWARM_DISASTER_BASELINE_CONTROLLER_REVISION,
-        "swarm-disaster-baseline-controller-v1"
-    );
     let identity = super::SwarmDisasterControllerIdentity::baseline();
-    assert_eq!(identity.revision, SWARM_DISASTER_BASELINE_CONTROLLER_REVISION);
     assert_eq!(
         hex(identity.digest),
-        "0fb602397c52be5020b1053f1df9f610adeb3594007db3ab2813e3c41c42e618"
+        "ad2a905b94942b0be7d6cd93293a976c14a859dc553cefa34d98d49d6de4d817"
     );
     let controller = SwarmBaselineController::default();
     let families = [
@@ -184,7 +179,7 @@ fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
     );
     assert_eq!(
         hex(report.decision_digest()),
-        "3579a6a514b78bc49a91a837fd382ce14dc401422fcc9edd9a81f3defa10aa28"
+        "e7f706791b3ad9c5a9509256a1e86d453a6dd1950cb328824e9e96215411e546"
     );
 }
 

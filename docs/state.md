@@ -33,10 +33,20 @@ explicit merge check. Current Sora/workbook/data validators run only when their
 owned inputs change. Seeded matrices, large property corpora and performance
 workloads are explicit exhaustive checks rather than default edit-loop gates.
 
+The default test profile minimizes compilation and linking for workspace
+crates. Third-party dependencies and the combat hot loop retain light
+optimization. Complete gameplay runs are excluded from default adapter tests
+because they measure end-to-end simulation rather than local API behavior.
+
 The Rust property/corruption corpus runs explicitly with
 `cargo test -p starclock-test-kit --features exhaustive --test exhaustive_suite`.
 Adapter corruption, concurrency and TCP load checks run with
 `cargo test -p starclock-test-kit --test adapter_suite -- --ignored`.
+
+Complete Agent API gameplay/replay checks run with
+`cargo test -p starclock-agent-api --lib public_offers_complete_real_battles_and_export_fresh_replay -- --ignored`.
+Complete CLI gameplay/replay and text/JSON parity checks run with
+`cargo test -p starclock-cli --test universe_cli -- --ignored`.
 
 The two current Universe seeded matrices run explicitly with
 `cargo test -p starclock-mode-universe seeded_run_tests::frozen_matrix -- --ignored`.
@@ -57,6 +67,7 @@ Removed from current runtime surfaces:
 - `current` forwarding modules and versioned Rust/example filenames;
 - Agent API schema selection and `schema_revision` request/response fields;
 - CLI schema/Goal identifiers and runtime/release evidence snapshots;
+- benchmark and seed-matrix schema/workload/executor revision fields;
 - textual component, controller and build revisions duplicated by exact digests.
 
 Runtime/catalog modules still contain textual `*_REVISION` domain labels used

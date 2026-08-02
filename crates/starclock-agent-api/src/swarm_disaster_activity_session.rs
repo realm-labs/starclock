@@ -10,13 +10,12 @@ use starclock_activity::{
 };
 use starclock_mode_universe::swarm_disaster_entry::{
     SwarmDisasterControllerIdentity, SwarmDisasterRuntimeFactory,
-    baseline_fixture::{
-        SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION,
-        SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY, SWARM_DISASTER_BASELINE_FIXTURE_REVISION,
-        SWARM_DISASTER_BASELINE_PROFILE, SwarmDisasterBaselineFixture,
-    },
+    baseline_fixture::{SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY, SwarmDisasterBaselineFixture},
     incremental_run::{SwarmDisasterIncrementalOffer, SwarmDisasterIncrementalRun},
-    replay::{SwarmReplayError, encode_incremental_swarm_replay, verify_complete_swarm_replay},
+    replay::{
+        SWARM_DISASTER_REPLAY_PROFILE, SwarmReplayError, encode_incremental_swarm_replay,
+        verify_complete_swarm_replay,
+    },
 };
 use starclock_replay::component::ConfigurationComponentSet;
 
@@ -30,8 +29,8 @@ use crate::{
         project_activity_observation,
     },
     activity_session::{
-        ACTIVITY_AGENT_CONTROLLER_REVISION, AgentActivityActionResponse, AgentActivityReplayExport,
-        AgentActivityReplayVerification, AgentActivitySettlementSummary, PlayActivityActionRequest,
+        AgentActivityActionResponse, AgentActivityReplayExport, AgentActivityReplayVerification,
+        AgentActivitySettlementSummary, PlayActivityActionRequest,
     },
     error::{AgentError, AgentErrorCode},
     schema::{ActionToken, AgentHash, AgentSInt, AgentUInt, SessionId},
@@ -54,11 +53,7 @@ pub struct CreateSwarmDisasterActivitySessionRequest {
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentSwarmDisasterManifest {
     pub profile_id: Box<str>,
-    pub fixture_revision: Box<str>,
     pub fixture_accuracy: Box<str>,
-    pub activity_interface_revision: Box<str>,
-    pub controller_revision: Box<str>,
-    pub battle_executor_revision: Box<str>,
     pub area: AgentUInt,
     pub path: Box<str>,
     pub audience_die: Box<str>,
@@ -83,7 +78,6 @@ impl SwarmDisasterActivityAgentSessionFactory {
         let components = fixture
             .components_for_controller(SwarmDisasterControllerIdentity {
                 id: "agent-activity-controller",
-                revision: ACTIVITY_AGENT_CONTROLLER_REVISION,
                 digest: controller_digest(),
             })
             .map_err(|_| configuration_error())?;
@@ -125,13 +119,8 @@ impl SwarmDisasterActivityAgentSessionFactory {
     #[must_use]
     pub fn manifest(&self) -> AgentSwarmDisasterManifest {
         AgentSwarmDisasterManifest {
-            profile_id: SWARM_DISASTER_BASELINE_PROFILE.into(),
-            fixture_revision: SWARM_DISASTER_BASELINE_FIXTURE_REVISION.into(),
+            profile_id: SWARM_DISASTER_REPLAY_PROFILE.into(),
             fixture_accuracy: SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY.into(),
-            activity_interface_revision:
-                crate::activity_observation::ACTIVITY_AGENT_INTERFACE_REVISION.into(),
-            controller_revision: ACTIVITY_AGENT_CONTROLLER_REVISION.into(),
-            battle_executor_revision: SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION.into(),
             area: AgentUInt::from_u64(u64::from(AREA)),
             path: self.fixture.path().into(),
             audience_die: self.fixture.audience_die().into(),
@@ -164,6 +153,18 @@ impl SwarmDisasterActivityAgentSessionFactory {
     }
 }
 
+#[cfg(test)]
+pub(crate) fn production_factory_for_tests() -> SwarmDisasterActivityAgentSessionFactory {
+    static FACTORY: std::sync::OnceLock<SwarmDisasterActivityAgentSessionFactory> =
+        std::sync::OnceLock::new();
+    FACTORY
+        .get_or_init(|| {
+            SwarmDisasterActivityAgentSessionFactory::load_production()
+                .expect("production factory loads")
+        })
+        .clone()
+}
+
 struct CachedSwarmResponse {
     request: PlayActivityActionRequest,
     response: AgentActivityActionResponse,
@@ -190,7 +191,7 @@ impl SwarmDisasterActivityAgentSession {
 
     #[must_use]
     pub const fn profile_id(&self) -> &'static str {
-        SWARM_DISASTER_BASELINE_PROFILE
+        SWARM_DISASTER_REPLAY_PROFILE
     }
 
     #[must_use]
@@ -231,7 +232,7 @@ impl SwarmDisasterActivityAgentSession {
             &view,
             ActivityObservationContext {
                 session: &self.id,
-                profile: SWARM_DISASTER_BASELINE_PROFILE,
+                profile: SWARM_DISASTER_REPLAY_PROFILE,
                 world: AREA,
                 difficulty_index: DIFFICULTY_INDEX,
                 offered,
@@ -520,7 +521,7 @@ fn activity_instance() -> Result<ActivityInstanceId, AgentError> {
 fn controller_digest() -> [u8; 32] {
     let mut hash = Sha256::new();
     hash.update(b"agent-activity-session-v1\0external-player\0swarm-disaster\0");
-    hash.update(SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION.as_bytes());
+    hash.update(b"swarm-disaster-nested-battle-execution");
     hash.finalize().into()
 }
 

@@ -560,7 +560,7 @@ mod tests {
     }
 
     fn registry(clock: Arc<ManualClock>, ids: Arc<CountingIds>) -> AgentSessionRegistry {
-        AgentSessionRegistry::new(AgentSessionFactory::load_production().unwrap(), clock, ids)
+        AgentSessionRegistry::new(crate::session::production_factory_for_tests(), clock, ids)
     }
 
     fn play_request(observation: &AgentObservation, idempotency_key: &str) -> PlayActionRequest {
@@ -667,7 +667,7 @@ mod tests {
         let clock = Arc::new(ManualClock::default());
         let ids = Arc::new(CountingIds::default());
         let registry = AgentSessionRegistry::with_limits(
-            AgentSessionFactory::load_production().unwrap(),
+            crate::session::production_factory_for_tests(),
             clock,
             ids.clone(),
             RegistryLimits {
@@ -703,7 +703,7 @@ mod tests {
     fn tenant_and_global_quotas_are_independent_and_close_releases_capacity() {
         let ids = Arc::new(CountingIds::default());
         let registry = AgentSessionRegistry::with_limits(
-            AgentSessionFactory::load_production().unwrap(),
+            crate::session::production_factory_for_tests(),
             Arc::new(ManualClock::default()),
             ids.clone(),
             RegistryLimits {

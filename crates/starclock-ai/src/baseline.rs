@@ -221,8 +221,6 @@ impl BaselineDecision {
 pub struct BaselineController;
 
 impl BaselineController {
-    pub const REVISION: &'static str = "baseline-battle-controller-v1";
-
     pub fn decide(
         self,
         view: BattleView<'_>,

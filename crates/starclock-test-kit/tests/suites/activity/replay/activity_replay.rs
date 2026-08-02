@@ -19,8 +19,12 @@ use starclock_replay::{
         ControllerDiagnostic, ControllerOptionScore, NestedBattleBoundary, activity_record_count,
         encode_activity_trace, verify_activity_replay,
     },
-    digest::{ConfigBundleDigest, ControllerDigest, DefinitionDigest, EntrySpecDigest},
-    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
+    },
+    digest::{ComponentDigest, DefinitionDigest, EntrySpecDigest},
+    entry::ReplayEntry,
+    format::{ReplayEnvironment, ReplayHeader, decode_replay},
     record::RecordKind,
 };
 
@@ -31,7 +35,7 @@ const SPEC_DIGEST: [u8; 32] = [0x33; 32];
 #[test]
 fn activity_trace_round_trips_with_nested_boundaries_and_diagnostics() {
     let fixture = replay_fixture();
-    let report = verify_activity_replay(&fixture.bytes, activity(), "standard-v1")
+    let report = verify_activity_replay(&fixture.bytes, activity(), "standard", &components())
         .expect("the canonical activity replay verifies");
 
     assert_eq!(report.command_count(), 2);
@@ -47,8 +51,8 @@ fn activity_trace_round_trips_with_nested_boundaries_and_diagnostics() {
     assert_eq!(
         digest.bytes(),
         [
-            120, 158, 195, 196, 50, 251, 34, 98, 152, 86, 210, 59, 54, 88, 126, 152, 232, 29, 111,
-            64, 68, 199, 167, 36, 73, 196, 223, 140, 243, 183, 101, 137,
+            76, 115, 126, 145, 107, 101, 85, 84, 70, 103, 92, 119, 122, 70, 25, 134, 177, 175, 250,
+            79, 13, 125, 46, 41, 208, 139, 94, 15, 197, 39, 98, 238,
         ]
     );
 }
@@ -60,7 +64,7 @@ fn verification_reports_the_first_state_and_nested_boundary_divergence() {
     let state_offset = payload_offset(&state_corrupt, RecordKind::ExpectedActivityState, 0);
     state_corrupt[state_offset] ^= 0x80;
     assert!(matches!(
-        verify_activity_replay(&state_corrupt, activity(), "standard-v1"),
+        verify_activity_replay(&state_corrupt, activity(), "standard", &components()),
         Err(ActivityReplayError::StateDivergence {
             command_index: 0,
             ..
@@ -71,7 +75,7 @@ fn verification_reports_the_first_state_and_nested_boundary_divergence() {
     let start_offset = payload_offset(&start_corrupt, RecordKind::NestedBattleStart, 0);
     start_corrupt[start_offset + 2] ^= 1;
     assert!(matches!(
-        verify_activity_replay(&start_corrupt, activity(), "standard-v1"),
+        verify_activity_replay(&start_corrupt, activity(), "standard", &components()),
         Err(ActivityReplayError::NestedStartDivergence {
             command_index: 0,
             ..
@@ -82,7 +86,7 @@ fn verification_reports_the_first_state_and_nested_boundary_divergence() {
     let end_offset = payload_offset(&end_corrupt, RecordKind::NestedBattleEnd, 0);
     end_corrupt[end_offset + 2] ^= 1;
     assert!(matches!(
-        verify_activity_replay(&end_corrupt, activity(), "standard-v1"),
+        verify_activity_replay(&end_corrupt, activity(), "standard", &components()),
         Err(ActivityReplayError::NestedEndDivergence {
             command_index: 1,
             ..
@@ -94,7 +98,7 @@ fn verification_reports_the_first_state_and_nested_boundary_divergence() {
 fn verification_rejects_wrong_profile_before_executing_commands() {
     let fixture = replay_fixture();
     assert_eq!(
-        verify_activity_replay(&fixture.bytes, activity(), "other-profile"),
+        verify_activity_replay(&fixture.bytes, activity(), "other-profile", &components()),
         Err(ActivityReplayError::IdentityMismatch(
             ActivityIdentityField::Profile
         ))
@@ -180,15 +184,12 @@ fn diagnostic(
 }
 
 fn header(record_count: u32) -> ReplayHeader {
-    let identity =
-        ReplayIdentity::new("4.4", ConfigBundleDigest::new(CONFIG_DIGEST)).expect("identity valid");
-    let controller = ControllerIdentity::new(ControllerDigest::new([0x22; 32]));
     ReplayHeader::new(
-        identity,
-        controller,
+        ReplayEnvironment::new("4.4").expect("environment valid"),
+        components(),
         0x5eed,
         ReplayEntry::Activity {
-            profile_id: "standard-v1".into(),
+            profile_id: "standard".into(),
             definition_id: 1,
             definition_digest: DefinitionDigest::new(DEFINITION_DIGEST),
             spec_digest: EntrySpecDigest::new(SPEC_DIGEST),
@@ -197,6 +198,24 @@ fn header(record_count: u32) -> ReplayHeader {
         record_count,
     )
     .expect("header valid")
+}
+
+fn components() -> ConfigurationComponentSet {
+    ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::ActivityCore,
+            "activity",
+            ComponentDigest::new(CONFIG_DIGEST),
+        )
+        .unwrap(),
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            "test-controller",
+            ComponentDigest::new([0x22; 32]),
+        )
+        .unwrap(),
+    ])
+    .unwrap()
 }
 
 fn payload_offset(bytes: &[u8], kind: RecordKind, ordinal: usize) -> usize {

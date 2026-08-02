@@ -4,8 +4,7 @@ use starclock_activity::{ActivityInstanceId, ActivityTerminalOutcome};
 use starclock_mode_universe::{
     gold_gears_catalog::validate_gold_and_gears_bundle,
     gold_gears_entry::{
-        GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GOLD_AND_GEARS_REPLAY_PROFILE,
-        GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunRequest,
+        GOLD_AND_GEARS_REPLAY_PROFILE, GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunRequest,
         baseline_fixture::{GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY, GoldAndGearsBaselineFixture},
         encode_gold_and_gears_replay, gold_and_gears_replay_header, record_gold_and_gears_run,
         verify_gold_and_gears_replay,
@@ -13,7 +12,7 @@ use starclock_mode_universe::{
     gold_gears_identity::GoldAndGearsCatalogIdentity,
 };
 use starclock_replay::{
-    codec::CanonicalSink, digest::Sha256Sink, entry::ReplayEntry, envelope::decode_replay,
+    codec::CanonicalSink, digest::Sha256Sink, entry::ReplayEntry, format::decode_replay,
 };
 
 const GOLD_BUNDLE: &[u8] = include_bytes!("../../../config/gold-and-gears-generated/config.sora");
@@ -78,7 +77,7 @@ pub fn coverage(args: &[String]) -> Result<(), GoldAndGearsCliError> {
         );
     } else {
         println!(
-            "universe coverage mode={MODE} goal=gold-and-gears-runtime-v1 categories={} slices={} source_obligations={} integrated={} shared_integrated={} external_outcomes={} metadata={} rules={} fixtures={} native_handlers={} digest={}",
+            "universe coverage mode={MODE} categories={} slices={} source_obligations={} integrated={} shared_integrated={} external_outcomes={} metadata={} rules={} fixtures={} native_handlers={} digest={}",
             coverage.source_categories(),
             coverage.source_runtime_slices(),
             coverage.source_obligations(),
@@ -115,7 +114,7 @@ pub fn run(args: &[String]) -> Result<(), GoldAndGearsCliError> {
     let report = recorded.report();
     if options.json {
         println!(
-            "{{\"kind\":\"universe-run\",\"mode\":\"{MODE}\",\"seed\":{},\"profile\":\"gold-gears.profile.v1\",\"area\":\"{}\",\"path\":\"{}\",\"custom_dice\":\"{}\",\"controller\":\"baseline\",\"battle_executor\":\"{GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION}\",\"fixture_accuracy\":\"{GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY}\",\"component_root\":\"{}\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{},\"replay_sha256\":\"{}\"}}",
+            "{{\"kind\":\"universe-run\",\"mode\":\"{MODE}\",\"seed\":{},\"profile\":\"{GOLD_AND_GEARS_REPLAY_PROFILE}\",\"area\":\"{}\",\"path\":\"{}\",\"custom_dice\":\"{}\",\"controller\":\"baseline\",\"fixture_accuracy\":\"{GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY}\",\"component_root\":\"{}\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{},\"replay_sha256\":\"{}\"}}",
             options.seed,
             fixture.area(),
             fixture.path(),
@@ -130,7 +129,7 @@ pub fn run(args: &[String]) -> Result<(), GoldAndGearsCliError> {
         );
     } else {
         println!(
-            "universe completed mode={MODE} seed={} profile=gold-gears.profile.v1 controller=baseline battle_executor={GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION} fixture_accuracy={GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY} component_root={} actions={} nested_battles={} battle_commands={} hash={} replay_bytes={} replay_sha256={}",
+            "universe completed mode={MODE} seed={} profile={GOLD_AND_GEARS_REPLAY_PROFILE} controller=baseline fixture_accuracy={GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY} component_root={} actions={} nested_battles={} battle_commands={} hash={} replay_bytes={} replay_sha256={}",
             options.seed,
             hex(fixture.components().root().bytes()),
             recorded.action_count(),

@@ -8,7 +8,6 @@ use crate::baseline_controller::ActivityScoreComponents;
 use super::{
     GoldAndGearsBaselineController, GoldAndGearsBaselineError, GoldAndGearsCommandFamily,
     GoldAndGearsOfferedAction, GoldAndGearsOfferedCommand, GoldAndGearsSeededRunRequest,
-    baseline_controller::GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
 
@@ -76,12 +75,8 @@ fn action(family: GoldAndGearsCommandFamily, ordinal: u32) -> GoldAndGearsOffere
 #[test]
 fn every_gold_family_selects_only_an_exact_offered_command() {
     assert_eq!(
-        GOLD_AND_GEARS_BASELINE_CONTROLLER_REVISION,
-        "gold-and-gears-baseline-controller-v1"
-    );
-    assert_eq!(
         hex(GoldAndGearsBaselineController::identity_digest()),
-        "a84aea733d6e43bdc3528e20c2c99c79223add2874c9dea0db83e8bb21cbc420"
+        "5e3e120d8507deafed8f1a1266cc5d9bdf8d6a5e938119112b690d543951e205"
     );
     let controller = GoldAndGearsBaselineController::default();
     let families = [
@@ -202,7 +197,7 @@ fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
     );
     assert_eq!(
         hex(report.decision_digest()),
-        "4ec146694fd904927d62b790084635ce1c0d56e4eb445c3e4e4ac23eb92eb8f9"
+        "c58eceddfb76c8a6f06a555f1b6f7d80a3c50a524e3c1317d423c7efc38753c1"
     );
 }
 

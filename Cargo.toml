@@ -49,9 +49,15 @@ debug = "full"
 [profile.dev-debug.package."*"]
 debug = "full"
 
-# Simulation-heavy integration tests spend far more time executing deterministic
-# battle/run loops than compiling. Level 1 removes debug-build hot-loop overhead
-# without imposing release-profile compile costs on daily development.
+# Keep ordinary test crates cheap to compile and link. The hot battle kernel and
+# third-party dependencies retain light optimization so long simulations do not
+# fall back to uniformly unoptimized code.
 [profile.test]
+debug = "line-tables-only"
+
+[profile.test.package."*"]
 opt-level = 1
-debug = 1
+debug = false
+
+[profile.test.package.starclock-combat]
+opt-level = 1

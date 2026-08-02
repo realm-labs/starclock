@@ -19,7 +19,7 @@ use starclock_replay::{
         },
     },
     component::ConfigurationComponentSet,
-    envelope::{
+    format::{
         DecodedReplay, ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay,
     },
     nested_battle::encode_nested_battle_state_payload,
@@ -40,11 +40,11 @@ use crate::{
         encode_trace_for_verification, execute_standard_universe_replay,
         execute_standard_universe_replay_dynamic, standard_universe_header,
     },
-    runtime::StandardUniverseActivity,
-    universe_replay::{
+    replay_trace::{
         StandardUniverseReplayAction, StandardUniverseReplayError as TraceReplayError,
         StandardUniverseTraceEntry, recorded_from_report,
     },
+    runtime::StandardUniverseActivity,
 };
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]

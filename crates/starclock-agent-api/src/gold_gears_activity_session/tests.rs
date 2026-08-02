@@ -9,13 +9,13 @@ use crate::{
 
 const SEED: u64 = 14_001;
 const FINAL_STATE: &str = "fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7";
-const COMPONENT_ROOT: &str = "26fe70c1a28ec80f949b3971fa6b4cac6fe947adf1950392ed8251468b5748b7";
-const REPLAY_BYTES: usize = 107_261;
-const REPLAY_SHA256: &str = "9ee780dec457ae17705ba22a13b4599d25288b64805681fd73b35bfc43509ecb";
+const COMPONENT_ROOT: &str = "a486167006069c0e3bd3a8c36b9a2c026ad2baccd309e14a3892ddf3500bbd81";
+const REPLAY_BYTES: usize = 107_257;
+const REPLAY_SHA256: &str = "261c54fb76f0ad081b710ac5e23e338a96a33fd6e27c090907a59b1e27364714";
 
 #[test]
 fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
-    let factory = GoldAndGearsActivityAgentSessionFactory::load_production().expect("factory");
+    let factory = production_factory_for_tests();
     let manifest = factory.manifest();
     assert_eq!(manifest.profile_id.as_ref(), PROFILE);
     assert_eq!(
@@ -44,7 +44,7 @@ fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
 
 #[test]
 fn forged_and_stale_actions_preserve_the_authoritative_boundary() {
-    let factory = GoldAndGearsActivityAgentSessionFactory::load_production().expect("factory");
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(create_request("gold_reject"))
         .expect("session");
@@ -84,8 +84,9 @@ fn forged_and_stale_actions_preserve_the_authoritative_boundary() {
 }
 
 #[test]
+#[ignore = "complete Gold and Gears run and replay boundary"]
 fn public_offers_complete_real_battles_and_export_fresh_replay() {
-    let factory = GoldAndGearsActivityAgentSessionFactory::load_production().expect("factory");
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(create_request("gold_complete"))
         .expect("session");

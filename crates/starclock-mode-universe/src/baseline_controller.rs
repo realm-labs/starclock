@@ -162,7 +162,7 @@ impl ActivityBaselineDecision {
 pub struct ActivityBaselineController;
 
 impl ActivityBaselineController {
-    pub const REVISION: &'static str = "baseline-activity-controller-v1";
+    pub const ID: &'static str = "baseline-activity-controller";
 
     pub fn decide(
         self,

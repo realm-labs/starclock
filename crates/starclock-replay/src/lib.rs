@@ -13,7 +13,6 @@ pub mod codec;
 pub mod component;
 pub mod digest;
 pub mod entry;
-pub mod envelope;
 pub mod format;
 pub mod nested_battle;
 pub mod record;

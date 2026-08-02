@@ -19,8 +19,10 @@ use starclock_combat::{
 
 use crate::{
     codec::{CodecError, Decoder, Encoder},
-    digest::{ConfigBundleDigest, StateDigest},
-    format::{DecodedReplay, ReplayEntry, ReplayHeader, decode_replay, encode_replay},
+    component::ConfigurationComponentSet,
+    digest::StateDigest,
+    entry::ReplayEntry,
+    format::{DecodedReplay, ReplayError, ReplayHeader, decode_replay, encode_replay},
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
 
@@ -320,9 +322,10 @@ pub fn verify_activity_replay(
     bytes: &[u8],
     mut activity: Activity,
     expected_profile_id: &str,
+    expected_components: &ConfigurationComponentSet,
 ) -> Result<ActivityReplayReport, ActivityReplayError> {
     let replay = decode_replay(bytes)?;
-    validate_identity(&replay, &activity, expected_profile_id)?;
+    validate_identity(&replay, &activity, expected_profile_id, expected_components)?;
     let records = replay.records();
     if records.is_empty() {
         return Err(ActivityReplayError::InvalidRecordLayout { record_index: 0 });
@@ -490,6 +493,7 @@ fn validate_identity(
     replay: &DecodedReplay<'_>,
     activity: &Activity,
     expected_profile_id: &str,
+    expected_components: &ConfigurationComponentSet,
 ) -> Result<(), ActivityReplayError> {
     let expected = match activity.decision() {
         ActivityDecision::StartBattle(identity) => identity,
@@ -497,11 +501,13 @@ fn validate_identity(
     };
     let expected_definition_id = activity.definition_identity().id().get();
     let header = replay.header();
-    if header.identity().config_bundle()
-        != ConfigBundleDigest::new(expected.config_digest().bytes())
+    if header
+        .components()
+        .verify_exact(expected_components)
+        .is_err()
     {
         return Err(ActivityReplayError::IdentityMismatch(
-            ActivityIdentityField::ConfigBundle,
+            ActivityIdentityField::Components,
         ));
     }
     match header.entry() {
@@ -983,7 +989,7 @@ impl From<CodecError> for ActivityCommandPayloadError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ActivityIdentityField {
-    ConfigBundle,
+    Components,
     Profile,
     Definition,
     Spec,
@@ -992,7 +998,7 @@ pub enum ActivityIdentityField {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ActivityReplayError {
-    Format(ReplayFormatError),
+    Format(ReplayError),
     CommandPayload(ActivityCommandPayloadError),
     NotActivityReplay,
     ActivityNotInitial,
@@ -1027,6 +1033,12 @@ pub enum ActivityReplayError {
 
 impl From<ReplayFormatError> for ActivityReplayError {
     fn from(value: ReplayFormatError) -> Self {
+        Self::Format(ReplayError::Format(value))
+    }
+}
+
+impl From<ReplayError> for ActivityReplayError {
+    fn from(value: ReplayError) -> Self {
         Self::Format(value)
     }
 }

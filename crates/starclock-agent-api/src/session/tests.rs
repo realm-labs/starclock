@@ -23,7 +23,7 @@ fn play_request(session: &AgentSession, token: ActionToken, key: &str) -> PlayAc
 
 #[test]
 fn factory_creates_only_frozen_scenarios_and_settles_internal_start() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let default_seeds = [104_729, 419_431, 314_159, 524_287, 209_759, 629_137];
     for ((scenario, _, encounter), expected_seed) in SCENARIOS.into_iter().zip(default_seeds) {
         let session = factory
@@ -45,7 +45,7 @@ fn factory_creates_only_frozen_scenarios_and_settles_internal_start() {
 
 #[test]
 fn factory_lists_exact_frozen_scenario_identities_and_default_seeds() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let summaries = factory.list_scenarios().unwrap();
     let default_seeds = [104_729, 419_431, 314_159, 524_287, 209_759, 629_137];
 
@@ -68,7 +68,7 @@ fn factory_lists_exact_frozen_scenario_identities_and_default_seeds() {
 
 #[test]
 fn factory_exposes_only_generated_row_free_catalog_and_character_summaries() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let manifest = factory.catalog_manifest().unwrap();
     assert_eq!(manifest.config_digest, AgentHash::from_bytes(CONFIG_DIGEST));
     assert_eq!(manifest.standard_scenario_count.to_u64(), 6);
@@ -92,7 +92,7 @@ fn factory_exposes_only_generated_row_free_catalog_and_character_summaries() {
 
 #[test]
 fn explicit_seed_is_exact_reproducible_and_operational_identity_is_inert() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let scenario = SCENARIOS[0].0;
     let mut first_request = request(scenario, AgentSeedPolicy::Explicit(AgentUInt::from_u64(7)));
     first_request.session_id = SessionId::parse("session_first").unwrap();
@@ -107,7 +107,7 @@ fn explicit_seed_is_exact_reproducible_and_operational_identity_is_inert() {
 
 #[test]
 fn unknown_scenario_and_unauthorized_debug_fail_before_session_creation() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let unknown = factory
         .create(request(
             "scenario.standard.not-authored",
@@ -128,7 +128,7 @@ fn unknown_scenario_and_unauthorized_debug_fail_before_session_creation() {
 
 #[test]
 fn external_action_settles_and_records_every_controller_boundary() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[4].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -167,7 +167,7 @@ fn external_action_settles_and_records_every_controller_boundary() {
 
 #[test]
 fn response_loss_retry_returns_identical_bytes_without_a_second_commit() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -204,7 +204,7 @@ fn response_loss_retry_returns_identical_bytes_without_a_second_commit() {
 
 #[test]
 fn stale_forged_conflicting_and_racing_equivalent_requests_are_inert() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -267,7 +267,7 @@ fn stale_forged_conflicting_and_racing_equivalent_requests_are_inert() {
 
 #[test]
 fn retained_events_page_exclusively_and_reject_expired_or_future_cursors() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -318,7 +318,7 @@ fn retained_events_page_exclusively_and_reject_expired_or_future_cursors() {
 
 #[test]
 fn terminal_action_returns_terminal_observation_and_complete_trace() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -358,7 +358,7 @@ fn terminal_action_returns_terminal_observation_and_complete_trace() {
 
 #[test]
 fn canonical_replay_round_trips_from_a_fresh_battle() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -417,7 +417,7 @@ fn canonical_replay_round_trips_from_a_fresh_battle() {
 
 #[test]
 fn replay_corruption_diverges_without_mutating_the_live_session() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let session = factory
         .create(request(SCENARIOS[1].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -445,7 +445,7 @@ fn replay_corruption_diverges_without_mutating_the_live_session() {
 
 #[test]
 fn diagnostic_attribution_cannot_change_canonical_replay_bytes() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(request(SCENARIOS[2].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
@@ -461,7 +461,7 @@ fn diagnostic_attribution_cannot_change_canonical_replay_bytes() {
 
 #[test]
 fn operational_session_identity_is_absent_from_canonical_replay() {
-    let factory = AgentSessionFactory::load_production().unwrap();
+    let factory = production_factory_for_tests();
     let mut first_request = request(
         SCENARIOS[3].0,
         AgentSeedPolicy::Explicit(AgentUInt::from_u64(91)),

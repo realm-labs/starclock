@@ -3,7 +3,7 @@ use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, Encoder},
     component::ConfigurationComponentSet,
     digest::Sha256Sink,
-    envelope::{ReplayHeader, decode_replay, encode_replay},
+    format::{ReplayHeader, decode_replay, encode_replay},
     record::{RecordKind, RecordRef},
 };
 

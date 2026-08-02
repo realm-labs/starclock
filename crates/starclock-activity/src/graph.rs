@@ -2,7 +2,7 @@ use std::collections::BTreeSet;
 
 use crate::{
     ActivityEdgeId, ActivityGraphDigest, NodeId, OneBattleFlow, SectionId, TerminalOutcome,
-    codec::ActivityV2Writer,
+    codec::ActivityGraphDigestWriter,
 };
 
 /// Hard definition bounds keep validation, hashing and future traversal finite.
@@ -12,8 +12,7 @@ pub const MAX_ACTIVITY_TOTAL_VISITS: u32 = 1_000_000;
 pub const MAX_NODE_VISITS: u32 = 65_535;
 pub const MAX_EDGE_TRAVERSALS: u32 = 65_535;
 
-/// Terminal settlement of a graph Activity. This is distinct from the legacy
-/// one-battle outcome so adding abandonment cannot change legacy enum tags.
+/// Terminal settlement of a graph Activity.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
 pub enum ActivityTerminalOutcome {
@@ -126,7 +125,7 @@ impl ActivityNodeDefinition {
         self.maximum_visits
     }
 
-    fn encode(self, writer: &mut ActivityV2Writer) {
+    fn encode(self, writer: &mut ActivityGraphDigestWriter) {
         writer.u32(self.id.get());
         writer.u32(self.section.get());
         writer.byte(self.kind.tag());
@@ -195,7 +194,7 @@ impl ActivityEdgeDefinition {
         self.maximum_traversals
     }
 
-    fn encode(self, writer: &mut ActivityV2Writer) {
+    fn encode(self, writer: &mut ActivityGraphDigestWriter) {
         writer.u32(self.id.get());
         writer.u32(self.from.get());
         writer.u32(self.to.get());
@@ -455,7 +454,8 @@ fn digest_graph(
     edges: &[ActivityEdgeDefinition],
     maximum_total_visits: u32,
 ) -> ActivityGraphDigest {
-    let mut writer = ActivityV2Writer::new(*b"SCAG", 1, b"starclock-activity-graph-definition-v1");
+    let mut writer =
+        ActivityGraphDigestWriter::new(*b"SCAG", 1, b"starclock-activity-graph-definition-v1");
     writer.u32(entry.get());
     writer.u32(maximum_total_visits);
     writer.u32(nodes.len() as u32);

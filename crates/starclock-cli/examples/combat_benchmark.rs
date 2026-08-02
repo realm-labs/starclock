@@ -9,13 +9,16 @@ use std::{
 use allocation_counter::{AllocationInfo, measure};
 use starclock_combat::{Battle, BattlePhase, Command, DecisionKind};
 use starclock_mode_standard::benchmark::{
-    BENCHMARK_CONFIG_DIGEST, BENCHMARK_WORKLOAD_REVISION, BenchmarkBattle, BenchmarkFactory,
-    BenchmarkScenario,
+    BENCHMARK_CONFIG_DIGEST, BenchmarkBattle, BenchmarkFactory, BenchmarkScenario,
 };
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
-    digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
-    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity},
+    component::{
+        ConfigurationComponentIdentity, ConfigurationComponentKind, ConfigurationComponentSet,
+    },
+    digest::{ComponentDigest, EntrySpecDigest},
+    entry::ReplayEntry,
+    format::{ReplayEnvironment, ReplayHeader},
 };
 
 const MASTER_SEED: u64 = 7;
@@ -40,8 +43,7 @@ fn main() {
     rows.push(measure_replay(&factory, &replay_500, 5));
     rows.push(measure_concurrent(&factory, &replay_100, 4, 4));
     println!(
-        "{{\"schema_revision\":\"starclock.benchmark-report.v1\",\"workload_revision\":\"{}\",\"master_seed\":{},\"rows\":[{}]}}",
-        BENCHMARK_WORKLOAD_REVISION,
+        "{{\"master_seed\":{},\"rows\":[{}]}}",
         MASTER_SEED,
         rows.iter().map(Row::json).collect::<Vec<_>>().join(",")
     );
@@ -205,7 +207,7 @@ fn measure_invalid_rejection(factory: &BenchmarkFactory, attempts: usize) -> Row
     assert_eq!(battle.state_hash().bytes(), before);
     assert_eq!(battle.view().rng_draw_count(), draws);
     row(
-        "invalid-rejection-v1",
+        "invalid-rejection",
         attempts,
         0,
         1,
@@ -258,6 +260,7 @@ fn measure_hash(factory: &BenchmarkFactory, scenario: BenchmarkScenario, hashes:
 
 struct ReplayFixture {
     bytes: Vec<u8>,
+    components: ConfigurationComponentSet,
     commands: usize,
     final_hash: [u8; 32],
 }
@@ -275,9 +278,11 @@ fn replay_fixture(factory: &BenchmarkFactory, commands: usize) -> ReplayFixture 
             .expect("offered command applies");
         trace.push(BattleTraceEntry::new(command, resolution.state_hash()));
     }
-    let header = replay_header(&instantiated, commands);
+    let components = benchmark_components();
+    let header = replay_header(&instantiated, commands, components.clone());
     ReplayFixture {
         bytes: encode_battle_trace(&header, &trace).expect("benchmark replay encodes"),
+        components,
         commands,
         final_hash: battle.state_hash().bytes(),
     }
@@ -292,7 +297,8 @@ fn measure_replay(factory: &BenchmarkFactory, replay: &ReplayFixture, jobs: usiz
                 .instantiate(BenchmarkScenario::Ordinary, MASTER_SEED)
                 .create_battle()
                 .expect("benchmark battle builds");
-            let report = verify_battle_replay(&replay.bytes, battle).expect("replay verifies");
+            let report = verify_battle_replay(&replay.bytes, battle, &replay.components)
+                .expect("replay verifies");
             final_hash = report.final_hash().bytes();
         }
     });
@@ -300,9 +306,9 @@ fn measure_replay(factory: &BenchmarkFactory, replay: &ReplayFixture, jobs: usiz
     assert_eq!(final_hash, replay.final_hash);
     row(
         if replay.commands == 100 {
-            "one-shot-replay-100-v1"
+            "one-shot-replay-100"
         } else {
-            "one-shot-replay-500-v1"
+            "one-shot-replay-500"
         },
         replay.commands * jobs,
         0,
@@ -329,12 +335,14 @@ fn measure_concurrent(
 ) -> Row {
     let factory = Arc::new(factory.clone());
     let bytes = Arc::<[u8]>::from(replay.bytes.clone());
+    let components = Arc::new(replay.components.clone());
     let start = Instant::now();
     let reports = std::thread::scope(|scope| {
         let mut handles = Vec::with_capacity(workers);
         for _ in 0..workers {
             let factory = Arc::clone(&factory);
             let bytes = Arc::clone(&bytes);
+            let components = Arc::clone(&components);
             handles.push(scope.spawn(move || {
                 let mut final_hash = [0; 32];
                 let allocations = measure(|| {
@@ -343,7 +351,8 @@ fn measure_concurrent(
                             .instantiate(BenchmarkScenario::Ordinary, MASTER_SEED)
                             .create_battle()
                             .expect("benchmark battle builds");
-                        let report = verify_battle_replay(&bytes, battle).expect("replay verifies");
+                        let report = verify_battle_replay(&bytes, battle, &components)
+                            .expect("replay verifies");
                         final_hash = report.final_hash().bytes();
                     }
                 });
@@ -366,7 +375,7 @@ fn measure_concurrent(
     allocations.bytes_max = peak_live_bytes;
     let jobs = workers * jobs_per_worker;
     row(
-        "concurrent-replay-shared-catalog-v1",
+        "concurrent-replay-shared-catalog",
         replay.commands * jobs,
         0,
         jobs,
@@ -421,14 +430,14 @@ fn row(
     }
 }
 
-fn replay_header(scenario: &BenchmarkBattle, commands: usize) -> ReplayHeader {
+fn replay_header(
+    scenario: &BenchmarkBattle,
+    commands: usize,
+    components: ConfigurationComponentSet,
+) -> ReplayHeader {
     ReplayHeader::new(
-        ReplayIdentity::new(
-            "benchmark-v1",
-            ConfigBundleDigest::new(BENCHMARK_CONFIG_DIGEST),
-        )
-        .expect("static identity is valid"),
-        ControllerIdentity::new(ControllerDigest::new(CONTROLLER_DIGEST)),
+        ReplayEnvironment::new("benchmark").expect("static environment is valid"),
+        components,
         scenario.master_seed(),
         ReplayEntry::Battle {
             definition_id: scenario.encounter().get(),
@@ -437,6 +446,24 @@ fn replay_header(scenario: &BenchmarkBattle, commands: usize) -> ReplayHeader {
         battle_record_count(commands).expect("benchmark command count is bounded"),
     )
     .expect("static replay header is valid")
+}
+
+fn benchmark_components() -> ConfigurationComponentSet {
+    ConfigurationComponentSet::new(vec![
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::CombatCatalog,
+            "combat-catalog",
+            ComponentDigest::new(BENCHMARK_CONFIG_DIGEST),
+        )
+        .unwrap(),
+        ConfigurationComponentIdentity::new(
+            ConfigurationComponentKind::Controller,
+            "benchmark-controller",
+            ComponentDigest::new(CONTROLLER_DIGEST),
+        )
+        .unwrap(),
+    ])
+    .unwrap()
 }
 
 fn select_command(battle: &Battle) -> Command {

@@ -5,7 +5,7 @@ use starclock_replay::{
     },
     digest::{ComponentDigest, EntrySpecDigest},
     entry::ReplayEntry,
-    envelope::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
+    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
 };
 
 fn component(

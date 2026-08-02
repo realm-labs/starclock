@@ -68,6 +68,7 @@ pub mod progression;
 pub mod propagation_runtime;
 pub mod remembrance_runtime;
 mod replay_execution;
+pub mod replay_trace;
 pub mod replay_verification;
 pub mod rule;
 pub mod run_runtime;
@@ -87,7 +88,6 @@ mod topology_identity;
 mod topology_reward;
 mod topology_service;
 mod topology_support;
-pub mod universe_replay;
 
 mod curio_lowering;
 mod encounter_digest;

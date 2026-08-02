@@ -32,8 +32,6 @@ const COMPLETE_SEED: u64 = 14_001;
 
 #[derive(Serialize)]
 struct Report {
-    schema_revision: &'static str,
-    workload_revision: &'static str,
     allocation_measurement_authoritative: bool,
     concurrent_allocation_scope: &'static str,
     rows: Vec<Row>,
@@ -91,8 +89,6 @@ fn main() {
     println!(
         "{}",
         serde_json::to_string(&Report {
-            schema_revision: "starclock.goal14-performance-report.v1",
-            workload_revision: "gold-and-gears-runtime-workloads-v1",
             allocation_measurement_authoritative: false,
             concurrent_allocation_scope: "coordinator-thread-only",
             rows: vec![

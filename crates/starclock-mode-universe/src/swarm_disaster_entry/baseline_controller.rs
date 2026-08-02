@@ -21,8 +21,7 @@ use super::seeded_run::{SwarmSeededRunReport, SwarmSeededRunRequest};
 use super::{SwarmDisasterRuntimeInstance, seeded_run::SwarmSeededRunError};
 
 /// Stable caller-selected baseline controller revision.
-pub const SWARM_DISASTER_BASELINE_CONTROLLER_REVISION: &str =
-    "swarm-disaster-baseline-controller-v1";
+const SWARM_DISASTER_BASELINE_CONTROLLER_DOMAIN: &str = "swarm-disaster-baseline-controller";
 
 const ROUTE_OPTION_BASE: u64 = 0x5344_0100_0000_0000;
 const BOSS_OPTION_BASE: u64 = 0x5344_0200_0000_0000;
@@ -240,14 +239,14 @@ pub(super) struct SwarmBaselineController {
 }
 
 impl SwarmBaselineController {
-    pub(super) const REVISION: &'static str = SWARM_DISASTER_BASELINE_CONTROLLER_REVISION;
+    pub(super) const ID: &'static str = SWARM_DISASTER_BASELINE_CONTROLLER_DOMAIN;
 
     pub(super) fn identity_digest() -> [u8; 32] {
-        let mut encoder = Encoder::new(b"starclock.swarm-disaster.baseline-controller.identity.v1");
-        encoder.text(Self::REVISION);
-        encoder.text(ActivityBaselineController::REVISION);
-        encoder.text("authored-priority-plus-bounded-activity-score-v1");
-        encoder.text("highest-total-then-lowest-option-id-v1");
+        let mut encoder = Encoder::new(b"starclock.swarm-disaster.baseline-controller.identity");
+        encoder.text(Self::ID);
+        encoder.text(ActivityBaselineController::ID);
+        encoder.text("authored-priority-plus-bounded-activity-score");
+        encoder.text("highest-total-then-lowest-option-id");
         encoder.u8(COMMAND_FAMILIES.len() as u8);
         for family in COMMAND_FAMILIES {
             encoder.u8(family as u8);
@@ -351,7 +350,7 @@ pub(super) fn decision_digest(
     decisions: &[SwarmBaselineDecision],
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock.swarm-disaster.baseline-controller.v1");
-    encoder.text(SWARM_DISASTER_BASELINE_CONTROLLER_REVISION);
+    encoder.text(SWARM_DISASTER_BASELINE_CONTROLLER_DOMAIN);
     encoder.digest(run_digest);
     encoder.u32(u32::try_from(decisions.len()).expect("seeded decision count is bounded"));
     for decision in decisions {

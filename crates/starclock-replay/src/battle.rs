@@ -8,12 +8,14 @@ use starclock_combat::{
 
 use crate::{
     codec::{CodecError, Decoder, Encoder},
-    digest::{ConfigBundleDigest, StateDigest},
-    format::{DecodedReplay, ReplayEntry, ReplayHeader, decode_replay, encode_replay},
+    component::ConfigurationComponentSet,
+    digest::StateDigest,
+    entry::ReplayEntry,
+    format::{DecodedReplay, ReplayError, ReplayHeader, decode_replay, encode_replay},
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
 
-/// Version of the domain payload inside `AcceptedBattleCommand` records.
+/// Domain payload tag inside `AcceptedBattleCommand` records.
 pub const BATTLE_COMMAND_PAYLOAD_TAG: u16 = 1;
 
 /// One accepted command and the resulting full canonical state hash.
@@ -113,9 +115,10 @@ impl BattleReplayReport {
 pub fn verify_battle_replay(
     bytes: &[u8],
     mut battle: Battle,
+    expected_components: &ConfigurationComponentSet,
 ) -> Result<BattleReplayReport, BattleReplayError> {
     let replay = decode_replay(bytes)?;
-    validate_identity(&replay, &battle)?;
+    validate_identity(&replay, &battle, expected_components)?;
     if replay.records().is_empty() || replay.records().len() % 2 != 0 {
         return Err(BattleReplayError::InvalidRecordLayout);
     }
@@ -156,15 +159,21 @@ pub fn verify_battle_replay(
     })
 }
 
-fn validate_identity(replay: &DecodedReplay<'_>, battle: &Battle) -> Result<(), BattleReplayError> {
+fn validate_identity(
+    replay: &DecodedReplay<'_>,
+    battle: &Battle,
+    expected_components: &ConfigurationComponentSet,
+) -> Result<(), BattleReplayError> {
     let header = replay.header();
-    let identity = header.identity();
     let view = battle.view();
     let battle_identity = view.identity();
-    if identity.config_bundle() != ConfigBundleDigest::new(battle_identity.catalog_digest().bytes())
+    if header
+        .components()
+        .verify_exact(expected_components)
+        .is_err()
     {
         return Err(BattleReplayError::IdentityMismatch(
-            BattleIdentityField::ConfigBundle,
+            BattleIdentityField::Components,
         ));
     }
     match header.entry() {
@@ -330,7 +339,7 @@ impl From<CodecError> for BattleCommandPayloadError {
 /// Identity field that rejected replay execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleIdentityField {
-    ConfigBundle,
+    Components,
     Entry,
 }
 
@@ -338,7 +347,7 @@ pub enum BattleIdentityField {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum BattleReplayError {
     /// Envelope/framing validation failed.
-    Format(ReplayFormatError),
+    Format(ReplayError),
     /// A command payload was malformed or incompatible.
     CommandPayload(BattleCommandPayloadError),
     /// The envelope contains an activity rather than a low-level battle entry.
@@ -364,6 +373,12 @@ pub enum BattleReplayError {
 
 impl From<ReplayFormatError> for BattleReplayError {
     fn from(value: ReplayFormatError) -> Self {
+        Self::Format(ReplayError::Format(value))
+    }
+}
+
+impl From<ReplayError> for BattleReplayError {
+    fn from(value: ReplayError) -> Self {
         Self::Format(value)
     }
 }

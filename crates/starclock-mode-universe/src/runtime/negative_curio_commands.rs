@@ -932,7 +932,6 @@ mod tests {
                 seed,
                 StandardUniverseControllerIdentity {
                     id: "negative-curio-test",
-                    revision: "v1",
                     digest: [0x90; 32],
                 },
             )

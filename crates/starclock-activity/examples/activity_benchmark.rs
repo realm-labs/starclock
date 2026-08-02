@@ -11,8 +11,6 @@ use starclock_activity::{
 };
 
 const OPERATIONS: u64 = 4_096;
-const REVISION: &str = "g04-activity-core-provisional-v1";
-
 fn main() {
     assert!(
         std::env::args().len() == 1,
@@ -20,7 +18,7 @@ fn main() {
     );
     let rows = [measure_hash(), measure_invalid(), measure_rng()];
     println!(
-        "{{\"schema_revision\":\"starclock.goal04-activity-benchmark.v1\",\"workload_revision\":\"{REVISION}\",\"budget_stage\":\"phase2-provisional\",\"rows\":[{}]}}",
+        "{{\"rows\":[{}]}}",
         rows.iter().map(Row::json).collect::<Vec<_>>().join(",")
     );
 }
@@ -68,7 +66,7 @@ fn measure_hash() -> Row {
         }
     });
     Row {
-        id: "activity-state-hash-4096-v1",
+        id: "activity-state-hash-4096",
         elapsed_ns: nanos(start),
         allocations,
         final_hash: hash.bytes(),
@@ -103,7 +101,7 @@ fn measure_invalid() -> Row {
         }
     });
     Row {
-        id: "invalid-command-4096-v1",
+        id: "invalid-command-4096",
         elapsed_ns: nanos(start),
         allocations,
         final_hash: state.state_hash(identity, &graph, instance, &rng).bytes(),
@@ -129,7 +127,7 @@ fn measure_rng() -> Row {
         digest.update(snapshot.draw_count().to_le_bytes());
     }
     Row {
-        id: "rng-mapping-4096-v1",
+        id: "rng-mapping-4096",
         elapsed_ns: nanos(start),
         allocations,
         final_hash: digest.finalize().into(),

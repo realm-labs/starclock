@@ -9,18 +9,15 @@ use crate::{
 
 const SEED: u64 = 20_001;
 const FINAL_STATE: &str = "058921eb765ac41314587c791c68f3267cb6a376ef71add9ce01a901d5645840";
-const COMPONENT_ROOT: &str = "0e3e661afc594e1c2d8092c35af1437754b30d4dd593ed35f3829775ba2f81d8";
-const REPLAY_BYTES: usize = 80_925;
-const REPLAY_SHA256: &str = "91f7781be7125ec59e821472e01f26815f001c9e92761b7761be5b8702acf7cb";
+const COMPONENT_ROOT: &str = "8675a697eb1fd24acdc509ecce60787311366fd5e8216e6f1cfbc26aafa7cd78";
+const REPLAY_BYTES: usize = 80_921;
+const REPLAY_SHA256: &str = "d63b6c87f2023c44832a5f8f3dffdeb2ee4ac6212ace8ac6103c7203a5cac452";
 
 #[test]
 fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
-    let factory = SwarmDisasterActivityAgentSessionFactory::load_production().expect("factory");
+    let factory = production_factory_for_tests();
     let manifest = factory.manifest();
-    assert_eq!(
-        manifest.profile_id.as_ref(),
-        SWARM_DISASTER_BASELINE_PROFILE
-    );
+    assert_eq!(manifest.profile_id.as_ref(), SWARM_DISASTER_REPLAY_PROFILE);
     assert_eq!(
         manifest.fixture_accuracy.as_ref(),
         SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY
@@ -39,7 +36,7 @@ fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
     let observation = session.observe().expect("observation");
     assert_eq!(
         observation.profile_id.as_ref(),
-        SWARM_DISASTER_BASELINE_PROFILE
+        SWARM_DISASTER_REPLAY_PROFILE
     );
     assert_eq!(observation.status, AgentActivityStatus::AwaitingAction);
     assert!(observation.decision_kind.is_some());
@@ -50,7 +47,7 @@ fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
 
 #[test]
 fn forged_and_stale_actions_preserve_the_authoritative_boundary() {
-    let factory = SwarmDisasterActivityAgentSessionFactory::load_production().expect("factory");
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(create_request("swarm_reject"))
         .expect("session");
@@ -90,8 +87,9 @@ fn forged_and_stale_actions_preserve_the_authoritative_boundary() {
 }
 
 #[test]
+#[ignore = "complete Swarm Disaster run and replay boundary"]
 fn public_offers_complete_real_battles_and_export_fresh_replay() {
-    let factory = SwarmDisasterActivityAgentSessionFactory::load_production().expect("factory");
+    let factory = production_factory_for_tests();
     let mut session = factory
         .create(create_request("swarm_complete"))
         .expect("session");

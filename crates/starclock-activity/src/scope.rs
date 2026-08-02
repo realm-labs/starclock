@@ -114,7 +114,7 @@ impl OneBattleFlow {
         }
     }
 
-    /// Compiles the legacy one-battle profile into the generic immutable graph.
+    /// Compiles the one-battle profile into the generic immutable graph.
     #[must_use]
     pub fn into_graph(self) -> crate::ActivityGraphDefinition {
         crate::ActivityGraphDefinition::one_battle(self)

@@ -7,20 +7,16 @@ use sha2::{Digest, Sha256};
 use starclock_activity::{ActivityInstanceId, ActivityPlayerView, ActivityStateHash};
 use starclock_mode_universe::{
     gold_gears_entry::{
-        GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsCommandFamily,
-        GoldAndGearsControllerIdentity, GoldAndGearsOfferedCommand, GoldAndGearsRuntimeFactory,
-        GoldAndGearsSeededRunError, GoldAndGearsSeededRunRequest,
-        baseline_fixture::{
-            GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY, GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION,
-            GoldAndGearsBaselineFixture,
-        },
+        GoldAndGearsCommandFamily, GoldAndGearsControllerIdentity, GoldAndGearsOfferedCommand,
+        GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunError, GoldAndGearsSeededRunRequest,
+        baseline_fixture::{GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY, GoldAndGearsBaselineFixture},
         encode_gold_and_gears_replay, gold_and_gears_replay_header,
         incremental_run::GoldAndGearsIncrementalRun,
         record_incremental_gold_and_gears_run, verify_gold_and_gears_replay,
     },
     gold_gears_identity::GoldAndGearsCatalogIdentity,
 };
-use starclock_replay::{component::ConfigurationComponentSet, envelope::ReplayHeader};
+use starclock_replay::{component::ConfigurationComponentSet, format::ReplayHeader};
 
 use crate::{
     activity_action::{
@@ -32,8 +28,8 @@ use crate::{
         project_activity_observation,
     },
     activity_session::{
-        ACTIVITY_AGENT_CONTROLLER_REVISION, AgentActivityActionResponse, AgentActivityReplayExport,
-        AgentActivityReplayVerification, AgentActivitySettlementSummary, PlayActivityActionRequest,
+        AgentActivityActionResponse, AgentActivityReplayExport, AgentActivityReplayVerification,
+        AgentActivitySettlementSummary, PlayActivityActionRequest,
     },
     error::{AgentError, AgentErrorCode},
     schema::{ActionToken, AgentHash, AgentSInt, AgentUInt, SessionId},
@@ -41,7 +37,7 @@ use crate::{
 };
 
 const GOLD_BUNDLE: &[u8] = include_bytes!("../../../config/gold-and-gears-generated/config.sora");
-const PROFILE: &str = "gold-gears.profile.v1";
+const PROFILE: &str = starclock_mode_universe::gold_gears_entry::GOLD_AND_GEARS_REPLAY_PROFILE;
 const AREA: u32 = 401;
 const DIFFICULTY_INDEX: usize = 0;
 const MAX_ACTIVITY_ACTIONS_PER_SETTLEMENT: usize = 16;
@@ -55,11 +51,7 @@ pub struct CreateGoldAndGearsActivitySessionRequest {
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentGoldAndGearsManifest {
     pub profile_id: Box<str>,
-    pub fixture_revision: Box<str>,
     pub fixture_accuracy: Box<str>,
-    pub activity_interface_revision: Box<str>,
-    pub controller_revision: Box<str>,
-    pub battle_executor_revision: Box<str>,
     pub area: AgentUInt,
     pub path: Box<str>,
     pub custom_dice: Box<str>,
@@ -84,7 +76,6 @@ impl GoldAndGearsActivityAgentSessionFactory {
         let components = fixture
             .components_for_controller(GoldAndGearsControllerIdentity {
                 id: "agent-activity-controller",
-                revision: ACTIVITY_AGENT_CONTROLLER_REVISION,
                 digest: controller_digest(),
             })
             .map_err(|_| configuration_error())?;
@@ -126,12 +117,7 @@ impl GoldAndGearsActivityAgentSessionFactory {
     pub fn manifest(&self) -> AgentGoldAndGearsManifest {
         AgentGoldAndGearsManifest {
             profile_id: PROFILE.into(),
-            fixture_revision: GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION.into(),
             fixture_accuracy: GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY.into(),
-            activity_interface_revision:
-                crate::activity_observation::ACTIVITY_AGENT_INTERFACE_REVISION.into(),
-            controller_revision: ACTIVITY_AGENT_CONTROLLER_REVISION.into(),
-            battle_executor_revision: GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION.into(),
             area: AgentUInt::from_u64(u64::from(AREA)),
             path: self.fixture.path().into(),
             custom_dice: self.fixture.custom_dice().into(),
@@ -160,6 +146,18 @@ impl GoldAndGearsActivityAgentSessionFactory {
             terminal: super::activity_session::terminal(report.terminal()),
         })
     }
+}
+
+#[cfg(test)]
+pub(crate) fn production_factory_for_tests() -> GoldAndGearsActivityAgentSessionFactory {
+    static FACTORY: std::sync::OnceLock<GoldAndGearsActivityAgentSessionFactory> =
+        std::sync::OnceLock::new();
+    FACTORY
+        .get_or_init(|| {
+            GoldAndGearsActivityAgentSessionFactory::load_production()
+                .expect("production factory loads")
+        })
+        .clone()
 }
 
 struct CachedGoldResponse {
@@ -505,7 +503,7 @@ fn run_request(
 fn controller_digest() -> [u8; 32] {
     let mut hash = Sha256::new();
     hash.update(b"agent-activity-session-v1\0external-player\0gold-and-gears\0");
-    hash.update(GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION.as_bytes());
+    hash.update(b"gold-and-gears-nested-battle-execution");
     hash.finalize().into()
 }
 

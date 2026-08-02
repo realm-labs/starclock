@@ -24,16 +24,8 @@ macro_rules! digest_type {
 }
 
 digest_type!(
-    ConfigBundleDigest,
-    "Exact production configuration-bundle digest."
-);
-digest_type!(
     EntrySpecDigest,
     "Digest of the replay entry's resolved specification."
-);
-digest_type!(
-    ControllerDigest,
-    "Digest of deterministic controller configuration."
 );
 digest_type!(
     DefinitionDigest,

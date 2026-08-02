@@ -6,7 +6,7 @@ use starclock_activity::{
 };
 use starclock_combat::{Battle, BattleStateHash, Energy, Hp, LifeState, PresenceState, TeamSide};
 use starclock_mode_universe::{
-    baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
+    baseline_runner::StandardUniverseBaselinePolicy,
     battle_technique::UniverseBattleTechniqueDefinition,
     dynamic_battle_assembler::{
         BattleAssemblyBudget, StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
@@ -38,7 +38,6 @@ fn activity_and_assembler(
             seed,
             StandardUniverseControllerIdentity {
                 id: "dynamic-assembly-test",
-                revision: "dynamic-assembly-test-v1",
                 digest: [0x62; 32],
             },
         )
@@ -357,7 +356,6 @@ fn production_baseline_records_and_verifies_current_dynamic_replay() {
     let factory = StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-test",
-        revision: StandardUniverseBaselineRunner::REVISION,
         digest: [0x63; 32],
     };
     let instance = factory.start(1, 0, SEED, controller).unwrap();
@@ -384,7 +382,7 @@ fn production_baseline_records_and_verifies_current_dynamic_replay() {
     .unwrap();
     let replay = encode_standard_universe_replay(&header, &recorded).unwrap();
     assert!(
-        starclock_replay::envelope::decode_replay(&replay).is_ok(),
+        starclock_replay::format::decode_replay(&replay).is_ok(),
         "production recordings use the replay envelope"
     );
 
@@ -412,7 +410,6 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
     const SEED: u64 = 0x6023;
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-corruption-test",
-        revision: StandardUniverseBaselineRunner::REVISION,
         digest: [0x64; 32],
     };
     let recording_factory =
@@ -546,7 +543,7 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
 }
 
 fn replay_payload_offset(bytes: &[u8], kind: RecordKind, ordinal: usize) -> usize {
-    let decoded = starclock_replay::envelope::decode_replay(bytes).unwrap();
+    let decoded = starclock_replay::format::decode_replay(bytes).unwrap();
     let payload = decoded
         .records()
         .iter()
@@ -558,7 +555,7 @@ fn replay_payload_offset(bytes: &[u8], kind: RecordKind, ordinal: usize) -> usiz
 }
 
 fn replay_payload_range(bytes: &[u8], kind: RecordKind, ordinal: usize) -> (usize, usize) {
-    let decoded = starclock_replay::envelope::decode_replay(bytes).unwrap();
+    let decoded = starclock_replay::format::decode_replay(bytes).unwrap();
     let payload = decoded
         .records()
         .iter()

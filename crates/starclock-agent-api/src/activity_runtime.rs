@@ -2,18 +2,14 @@
 
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
-    nested_battle_executor::UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION,
     production_runtime::{
         StandardUniverseControllerIdentity, StandardUniverseRuntimeFactory,
         StandardUniverseRuntimeFactoryError, StandardUniverseRuntimeInstance,
     },
 };
 
-use crate::activity_session::ACTIVITY_AGENT_CONTROLLER_REVISION;
-
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
-pub(crate) const BATTLE_EXECUTOR_REVISION: &str = UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION;
 
 #[derive(Clone)]
 pub(crate) struct ActivityRuntimeFactory {
@@ -42,7 +38,6 @@ impl ActivityRuntimeFactory {
                 seed,
                 StandardUniverseControllerIdentity {
                     id: "agent-activity-controller",
-                    revision: ACTIVITY_AGENT_CONTROLLER_REVISION,
                     digest: controller_digest,
                 },
             )

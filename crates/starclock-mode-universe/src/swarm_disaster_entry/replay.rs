@@ -11,7 +11,7 @@ use starclock_replay::{
         BuildCatalogDigest, CombatantBuildDigest, DefinitionDigest, EntrySpecDigest, StateDigest,
     },
     entry::{BuildBindings, ReplayEntry},
-    envelope::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
+    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, encode_nested_battle_command_payload,
     },

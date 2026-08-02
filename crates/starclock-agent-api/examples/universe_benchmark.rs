@@ -20,7 +20,6 @@ use starclock_agent_api::{
     schema::{AgentUInt, IdempotencyKey, SessionId},
 };
 
-const WORKLOAD_REVISION: &str = "g04-standard-universe-service-v1";
 const INCREMENTAL_COMMANDS: usize = 1_024;
 const INVALID_COMMANDS: usize = 4_096;
 const CATALOG_LOADS: usize = 10;
@@ -31,8 +30,6 @@ const MAX_EXTERNAL_ACTIONS: usize = 1_000;
 
 #[derive(Serialize)]
 struct Report {
-    schema_revision: &'static str,
-    workload_revision: &'static str,
     allocation_measurement_authoritative: bool,
     rows: Vec<Row>,
 }
@@ -76,8 +73,6 @@ fn main() {
     println!(
         "{}",
         serde_json::to_string(&Report {
-            schema_revision: "starclock.goal04-universe-benchmark.v1",
-            workload_revision: WORKLOAD_REVISION,
             allocation_measurement_authoritative: false,
             rows: vec![catalog, incremental, invalid, complete, replay, concurrent],
         })
@@ -99,7 +94,7 @@ fn measure_catalog_loads() -> Row {
         }
     });
     row(
-        "catalog-load-10-v1",
+        "catalog-load-10",
         CATALOG_LOADS,
         elapsed,
         allocations,
@@ -126,7 +121,7 @@ fn measure_incremental_commands(factory: &ActivityAgentSessionFactory) -> Row {
         }
     });
     row(
-        "incremental-session-1024-v1",
+        "incremental-session-1024",
         INCREMENTAL_COMMANDS,
         elapsed,
         allocations,
@@ -159,7 +154,7 @@ fn measure_invalid_commands(factory: &ActivityAgentSessionFactory) -> Row {
         assert_eq!(session.state_hash(), original);
     });
     row(
-        "invalid-command-4096-v1",
+        "invalid-command-4096",
         INVALID_COMMANDS,
         elapsed,
         allocations,
@@ -189,7 +184,7 @@ fn measure_complete_runs(factory: &ActivityAgentSessionFactory) -> (Row, Vec<Com
     });
     let payload_bytes = runs.iter().map(|run| run.replay.len()).sum();
     let row = row(
-        "world01-complete-32-v1",
+        "world01-complete-32",
         COMPLETE_RUNS,
         start.elapsed(),
         allocations,
@@ -222,7 +217,7 @@ fn measure_replay_verification(
         }
     });
     row(
-        "activity-replay-verify-32-v1",
+        "activity-replay-verify-32",
         REPLAY_VERIFICATIONS,
         start.elapsed(),
         allocations,
@@ -258,7 +253,7 @@ fn measure_concurrent_sessions(factory: &Arc<ActivityAgentSessionFactory>) -> Ro
     });
     completed.sort_by_key(|(ordinal, _)| *ordinal);
     row(
-        "concurrent-shared-catalog-64-v1",
+        "concurrent-shared-catalog-64",
         CONCURRENT_SESSIONS,
         start.elapsed(),
         allocations,

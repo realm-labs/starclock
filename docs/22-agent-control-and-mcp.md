@@ -89,12 +89,11 @@ validated specs, but public MCP tools do not imply that authority.
 
 ## Observation model
 
-`AgentObservation` is an owned, versioned projection rather than serialized
+`AgentObservation` is an owned projection rather than serialized
 `BattleView` internals:
 
 ```rust
 pub struct AgentObservation {
-    pub schema_revision: AgentSchemaRevision,
     pub session_id: SessionId,
     pub scenario_id: ScenarioId,
     pub catalog_digest: CatalogDigest,
@@ -300,7 +299,7 @@ commands without rerunning the external model.
 
 ## Failure model
 
-Errors distinguish invalid schema/revision, unknown/expired/not-owned session,
+Errors distinguish invalid input, unknown/expired/not-owned session,
 stale decision/hash, invalid action token, idempotency conflict, unauthorized
 policy, configuration rejection, combat rejection/fault, budget/rate limits,
 replay divergence and internal adapter failure.

@@ -26,7 +26,6 @@ use starclock_mcp::{
 };
 use tower::ServiceExt;
 
-const WORKLOAD_REVISION: &str = "g02-mcp-http-adapter-v1";
 const AUTHORITY: &str = "127.0.0.1:43125";
 const ORIGIN: &str = "http://127.0.0.1:43125";
 const TOKEN: &str = "benchmark-tenant:benchmark-principal";
@@ -51,8 +50,7 @@ fn main() {
         measure_resident_sessions(&runtime),
     ];
     println!(
-        "{{\"schema_revision\":\"starclock.mcp-http-benchmark-report.v1\",\"workload_revision\":\"{}\",\"rows\":[{}]}}",
-        WORKLOAD_REVISION,
+        "{{\"rows\":[{}]}}",
         rows.iter().map(Row::json).collect::<Vec<_>>().join(",")
     );
 }
@@ -130,7 +128,7 @@ fn measure_observe(runtime: &tokio::runtime::Runtime) -> Row {
         });
     });
     Row {
-        id: "http-observe-256-v1",
+        id: "http-observe-256",
         operations: OBSERVATIONS,
         sessions: 1,
         elapsed: start.elapsed(),
@@ -186,7 +184,7 @@ fn measure_actions(runtime: &tokio::runtime::Runtime) -> Row {
         });
     });
     Row {
-        id: "http-action-16-v1",
+        id: "http-action-16",
         operations: SESSIONS,
         sessions: SESSIONS,
         elapsed: start.elapsed(),
@@ -213,7 +211,7 @@ fn measure_resident_sessions(runtime: &tokio::runtime::Runtime) -> Row {
         });
     });
     Row {
-        id: "http-resident-sessions-16-v1",
+        id: "http-resident-sessions-16",
         operations: SESSIONS,
         sessions: SESSIONS,
         elapsed: start.elapsed(),
