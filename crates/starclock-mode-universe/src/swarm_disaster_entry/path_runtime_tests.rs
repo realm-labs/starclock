@@ -15,7 +15,6 @@ use super::*;
 #[test]
 fn frozen_catalog_closes_all_path_runtime_rows() {
     let factory = factory();
-    assert_eq!(REVISION, "swarm-disaster-path-resonance-runtime-v1");
     assert_eq!(factory.path_runtime.denominators(), (6, 8, 8, 32, 16));
 
     let propagation = instance(
@@ -34,10 +33,6 @@ fn frozen_catalog_closes_all_path_runtime_rows() {
     assert_eq!(
         propagation.path_boost_binding(),
         ("swarm-disaster.path-boost.641270", "StageAbility_641270")
-    );
-    assert_eq!(
-        hex(propagation.path_runtime_digest()),
-        "649f1d4c80be34556fd0c0e00bf1dc866815487b27e1371dd88631f464cd11b2"
     );
 }
 

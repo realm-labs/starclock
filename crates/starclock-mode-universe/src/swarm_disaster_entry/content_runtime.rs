@@ -30,7 +30,6 @@ use super::{
     state::{BLESSING_INVENTORY, CONTENT, CURIO_INVENTORY, DEFERRED},
 };
 
-pub const SWARM_DISASTER_CONTENT_RUNTIME_REVISION: &str = "swarm-disaster-content-runtime-v1";
 pub const SWARM_DISASTER_OFFER_POLICY_ACCURACY: &str =
     "DeterministicProjectPolicyNotObservedParity";
 

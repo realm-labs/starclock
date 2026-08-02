@@ -24,8 +24,6 @@ use super::{
     state::{DEFERRED, RESOURCES},
 };
 
-pub const SWARM_DISASTER_SERVICE_RUNTIME_REVISION: &str = "swarm-disaster-service-runtime-v1";
-pub const SWARM_DISASTER_ADVENTURE_RUNTIME_REVISION: &str = "swarm-disaster-adventure-runtime-v1";
 pub const SWARM_DISASTER_SERVICE_POLICY_ACCURACY: &str =
     "DeterministicProjectPolicyNotObservedParity";
 
@@ -740,8 +738,7 @@ fn service_digest(
     beacons: &[BeaconContribution],
     currency: &RuntimeCurrency,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.service-runtime.v1");
-    encoder.text(SWARM_DISASTER_SERVICE_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.service-runtime");
     encoder.text(SWARM_DISASTER_SERVICE_POLICY_ACCURACY);
     for row in services {
         encoder.u32(row.id);
@@ -776,8 +773,7 @@ fn service_digest(
 }
 
 fn adventure_digest(adventures: &[RuntimeAdventure]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.adventure-runtime.v1");
-    encoder.text(SWARM_DISASTER_ADVENTURE_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.adventure-runtime");
     for row in adventures {
         encoder.u32(row.source_row_id);
         encoder.u32(row.id);

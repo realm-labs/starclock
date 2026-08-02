@@ -11,8 +11,6 @@ use crate::{
 
 use super::SwarmDisasterRuntimeFactory;
 
-const REVISION: &str = "swarm-disaster-semantic-fixture-execution-v1";
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
 enum ExecutionKind {
@@ -370,8 +368,7 @@ fn execution_digest(
     inputs: &[SemanticFixtureRuntimeInput],
     encounter_shape: (usize, usize, usize, usize),
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster-semantic-fixture-execution.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.semantic-fixture-execution");
     encoder.u32(bindings.len() as u32);
     for (binding, input) in bindings.iter().zip(inputs) {
         encoder.text(&binding.fixture_id);

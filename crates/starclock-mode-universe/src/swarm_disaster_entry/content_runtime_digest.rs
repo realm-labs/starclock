@@ -6,8 +6,7 @@ use crate::{
 };
 
 use super::content_runtime::{
-    ReachableBlessing, RuntimeCurio, SWARM_DISASTER_CONTENT_RUNTIME_REVISION,
-    SWARM_DISASTER_OFFER_POLICY_ACCURACY,
+    ReachableBlessing, RuntimeCurio, SWARM_DISASTER_OFFER_POLICY_ACCURACY,
 };
 
 pub(super) fn catalog_digest(
@@ -16,8 +15,7 @@ pub(super) fn catalog_digest(
     curios: &[RuntimeCurio],
     input: &InventoryRuntimeInput,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.content-runtime.v1");
-    encoder.text(SWARM_DISASTER_CONTENT_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.content-runtime");
     encoder.text(SWARM_DISASTER_OFFER_POLICY_ACCURACY);
     encoder.digest(blessings.digest());
     for row in reachable {

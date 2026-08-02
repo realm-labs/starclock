@@ -23,7 +23,6 @@ use super::{
     state::{COUNTDOWN, DEFERRED, PROGRESSION, RESOURCES},
 };
 
-const REVISION: &str = "swarm-disaster-path-resonance-runtime-v1";
 const BONUS_APPLIED_KEY: u64 = 0x4000_0001;
 const INTERPLAY_KEY_BASE: u64 = 0x3000_0000;
 const DEFERRED_BLESSING_BASE: u64 = 0x5344_5100_0000_0000;
@@ -254,7 +253,7 @@ impl PathRuntimeCatalog {
                     .ok_or_else(|| reference("unknown Trailblaze Bonus runtime selection"))
             })
             .transpose()?;
-        let mut encoder = Encoder::new(b"starclock.swarm-disaster.path-runtime.instance.v1");
+        let mut encoder = Encoder::new(b"starclock.swarm-disaster.path-runtime.instance");
         encoder.digest(self.digest);
         encoder.text(&path.shared_path);
         encoder.optional_text(bonus.as_ref().map(|bonus| bonus.key.as_ref()));
@@ -848,8 +847,7 @@ fn request_key(
 }
 
 fn catalog_digest(bonuses: &[RuntimeBonus], paths: &[RuntimePath]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.path-runtime.catalog.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.path-runtime.catalog");
     for bonus in bonuses {
         encoder.u32(bonus.id);
         encoder.text(&bonus.key);

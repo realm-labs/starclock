@@ -25,10 +25,6 @@ fn closes_shared_blessing_and_swarm_curio_denominators() {
         instance.curio_candidates("ErrorCode", &[]).unwrap().len(),
         6
     );
-    assert_eq!(
-        hex(instance.content_runtime_digest()),
-        "5840363010af31710d2db6438eafb8dac613beef9c42e9d29ba36d82f8d5f6eb"
-    );
 }
 
 #[test]
@@ -327,8 +323,4 @@ fn assert_only_reward_advanced(
         };
         assert_eq!(after.draw_count(), before.draw_count() + expected);
     }
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

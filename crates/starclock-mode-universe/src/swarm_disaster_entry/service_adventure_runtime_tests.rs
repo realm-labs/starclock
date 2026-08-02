@@ -22,14 +22,6 @@ fn frozen_service_adventure_catalog_closes_all_runtime_inputs() {
     assert_eq!(instance.adventure_count(), 6);
     assert_eq!(instance.initial_cosmic_fragments(), 50);
     assert_eq!(
-        hex(instance.service_runtime_digest()),
-        "71d9b473f30b853b58c2cd5e56f02c9620093d3975a542fbcdf3fc4acebb1d80"
-    );
-    assert_eq!(
-        hex(instance.adventure_runtime_digest()),
-        "e174154cd9307d88075ffc2cad131ed03bc5c1440b86350b33092b46844762f3"
-    );
-    assert_eq!(
         instance
             .beacon_service_contribution("swarm-disaster.beacon.1")
             .unwrap(),
@@ -259,8 +251,4 @@ fn assert_only_label_advanced(
         let expected = if after.label() == label { draws } else { 0 };
         assert_eq!(after.draw_count(), before.draw_count() + expected);
     }
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

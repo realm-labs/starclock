@@ -15,10 +15,6 @@ fn frozen_occurrence_catalog_closes_every_pool_variant_choice_and_random_policy(
     assert_eq!(factory.occurrences.denominators(), (75, 57, 308, 60));
     let instance = instance(&factory);
     assert_eq!(instance.occurrence_count(), 75);
-    assert_eq!(
-        hex(instance.occurrence_runtime_digest()),
-        "d3d1a2fe70dc05cbd8046df2e7f56f1a2cb8668739dc9da1f5ff6527d0607bd1"
-    );
 }
 
 #[test]
@@ -199,8 +195,4 @@ fn assert_only_label_advanced(
         let expected = if after.label() == label { draws } else { 0 };
         assert_eq!(after.draw_count(), before.draw_count() + expected);
     }
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

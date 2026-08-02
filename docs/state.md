@@ -109,6 +109,8 @@ Removed from current runtime surfaces:
   snapshots; current behavior remains covered by contract and execution tests;
 - seven Swarm Disaster entry-policy revision constants and the Communing Trail
   digest snapshot;
+- Swarm Disaster content, occurrence, Path, semantic-fixture, service and
+  adventure runtime revisions and their fixed digest snapshots;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

@@ -18,10 +18,6 @@ fn all_23_semantic_fixture_families_bind_exactly_once() {
         binding.fixture_id.as_ref() == format!("swarm-disaster.fixture.{}", binding.family_id)
             && !binding.production_regression.is_empty()
     }));
-    assert_eq!(
-        hex(factory.semantic_fixture_execution_digest()),
-        "1171feaf374e837b1c0bd863be336fc29eaf506bb61df53b1ff55e5768e9f25b"
-    );
 }
 
 #[test]
@@ -105,8 +101,4 @@ fn encounter_fixture_is_catalog_bound_without_claiming_phase6_selection() {
 
 fn factory() -> SwarmDisasterRuntimeFactory {
     SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

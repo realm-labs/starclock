@@ -15,7 +15,6 @@ use crate::{
 
 use super::SwarmDisasterRuntimeInstance;
 
-pub const SWARM_DISASTER_OCCURRENCE_RUNTIME_REVISION: &str = "swarm-disaster-occurrence-runtime-v1";
 pub const SWARM_DISASTER_OCCURRENCE_POLICY_ACCURACY: &str =
     "DeterministicProjectPolicyNotObservedParity";
 
@@ -517,8 +516,7 @@ fn catalog_digest(
     variants: &[RuntimeVariant],
     choices: &[RuntimeChoice],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.occurrence-runtime.v1");
-    encoder.text(SWARM_DISASTER_OCCURRENCE_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.occurrence-runtime");
     encoder.text(SWARM_DISASTER_OCCURRENCE_POLICY_ACCURACY);
     for row in occurrences {
         encoder.u32(row.id);
