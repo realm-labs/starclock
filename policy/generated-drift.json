@@ -106,6 +106,10 @@
       "command": ["node", "tools/goal20/verify-phase8-b2.mjs"]
     },
     {
+      "name": "Goal 20 release audits",
+      "command": ["node", "tools/goal20/verify-release-audits.mjs", "."]
+    },
+    {
       "name": "Goal 14 performance and allocation budgets",
       "command": ["node", "tools/goal14/verify-performance.mjs", "."]
     },

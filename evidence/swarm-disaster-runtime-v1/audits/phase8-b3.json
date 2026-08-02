@@ -1,0 +1,62 @@
+{
+  "schema_revision": "starclock.swarm-disaster-phase8-b3-evidence.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P8-B3",
+  "observed_on": "2026-08-02",
+  "result": "ReleaseAuditsAndCleanCheckoutPass",
+  "release_audits": {
+    "prior_releases": 10,
+    "protected_reference_roots": 5,
+    "reviewed_registry_packages": 136,
+    "new_registry_packages": 0,
+    "native_handler_scopes": 8,
+    "admitted_native_handlers": 0,
+    "source_obligations": 6963,
+    "mechanic_rules": 23,
+    "semantic_fixture_families": 23,
+    "policy_boundaries": 31,
+    "exact_once_gaps": 0,
+    "exact_once_duplicates": 0,
+    "orphan_rules": 0,
+    "runtime_json_file_reads": 0,
+    "generated_drift_checks": 41,
+    "source_cache_checks": 4,
+    "policy_sha256": "c3f62121ddbfe697aae09a77e741ce45880ec3d7813d02e1a4d0d3dd981c5acf",
+    "evidence_sha256": "74096425d9b7ba8e223ec7917293468de95c3cf0c2c278ae11ab1526002ce932"
+  },
+  "source_cache_full_gate": {
+    "passed": true,
+    "elapsed_seconds": "147.7",
+    "workspace_harnesses": 35,
+    "generated_drift_checks": 41,
+    "source_cache_checks_skipped": 0
+  },
+  "clean_checkout_gate": {
+    "passed": true,
+    "failed_attempts": 1,
+    "first_failure": "shallow-fetch-omitted-goal08-ancestry",
+    "staged_tree_verified": true,
+    "fresh_cargo_target": true,
+    "cargo_incremental_disabled": true,
+    "source_cache_available": false,
+    "full_repository_gate": true,
+    "workspace_harnesses": 35,
+    "post_gate_repository_clean": true
+  },
+  "quick_gate": {
+    "passed": true,
+    "elapsed_seconds": "3.5",
+    "direct_packages": 0,
+    "downstream_packages": 0,
+    "deferred_inputs": 5
+  },
+  "commands": [
+    "node tools/goal20/verify-release-audits.mjs . --bless",
+    "node tools/repository-check/verify-generated-drift.mjs",
+    "STARCLOCK_TEST_JOBS=1 STARCLOCK_TEST_THREADS=8 node tools/repository-check/run.mjs --full --with-source-cache",
+    "STARCLOCK_TEST_JOBS=1 STARCLOCK_TEST_THREADS=8 node tools/repository-check/run.mjs",
+    "node tools/goal20/verify-phase8-b3.mjs",
+    "node tools/goal20/run-clean-checkout.mjs",
+    "git diff --check"
+  ]
+}
