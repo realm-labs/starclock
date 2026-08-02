@@ -171,6 +171,7 @@ impl RawResponse {
 }
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 4)]
+#[ignore = "exhaustive current-state TCP conformance and load trace"]
 async fn authorized_tcp_client_proves_conformance_trace_and_multi_session_load() {
     let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
     let address = listener.local_addr().unwrap();

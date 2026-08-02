@@ -4,13 +4,9 @@
 
 The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
-**Current repository status:** Goal 01 is complete. The deterministic Rust
-workspace, production Excel/Sora pipeline, battle/runtime libraries, headless
-CLI, six frozen Standard scenarios, all 88 released combat forms and all 165
-released Light Cones are executable. Machine evidence reports 283/283
-`GoldenVerified`; the final source-cache and isolated clean-checkout gates pass.
-See the [Goal 01 status ledger](goals/01-core-combat-and-content-status.md) for
-the complete batch and evidence record.
+**Current repository status:** See [Current state](current-state.md). Git records
+past iterations; this documentation describes the current mechanics, content,
+architecture and authoring model only.
 
 ## Research baseline
 
@@ -51,7 +47,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 25. [Combat content reference pack](content-reference/README.md) — prepared Version 4.4 character, Trace, Eidolon, Light Cone, enemy, ability, and ordinary-encounter facts used before Excel/Sora authoring.
 26. [Dependency and tool policy](dependency-and-tool-policy.md) — exact active package/tool versions, licenses, deterministic impact, compile-cost records and rejected alternatives.
 27. [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md) — checksum-bound installation, executed CLI/schema/codegen/export surface and pinned limitations.
-28. [CI platform matrix](ci-platform-matrix.md) — pinned hosted runners, native execution, compile-only targets and retained evidence boundaries.
+28. [CI verification](ci-platform-matrix.md) — direct Cargo formatting, lint and workspace-test commands for the current tree.
 29. [Common configuration schema](common-configuration-schema.md) — stable identity, localization, version, provenance, evidence and canonical-decimal transport contracts.
 30. [Character and build configuration schema](character-build-configuration-schema.md) — Sora contracts for abilities, hit plans, characters, Traces, Eidolons, build patches and Light Cones.
 31. [Typed Rule IR configuration schema](rule-ir-configuration-schema.md) — transport contracts for rules, slots, triggers, expressions, selectors, operations, effects, modifiers and native-handler metadata.
@@ -142,22 +138,6 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 116. [Gold and Gears public API migration](gold-and-gears-public-api-migration.md) — pre-1.0 facade contraction, retained caller surface and exact public re-export drift enforcement.
 117. [Goal 20 coverage and release contract](goal-20-coverage-and-release.md) — frozen Swarm Disaster matrix, policy owners, performance workloads, native CI and release gates.
 118. [Goal 20 release contract](goal-20-release-contract.md) — complete Swarm Disaster runtime coverage, replay/surface parity, hardening, performance and immutable completion boundary.
-
-## Execution goals
-
-- [Goal packages](goals/README.md) translate these specifications into
-  resumable, commit-sized implementation work.
-- [Goal 01 — Complete Core Combat and Released Character Content](goals/01-core-combat-and-content.md)
-  implements the deterministic combat kernel, Standard battles, all released
-  character forms with Traces/Techniques/Eidolons, and all released Light Cones.
-- [Goal 01 status ledger](goals/01-core-combat-and-content-status.md) records the
-  active batch, manifests, evidence and terminal gates.
-- [Goal 01 launch prompt](goals/01-core-combat-and-content-prompt.md) starts or
-  resumes the commit-by-commit execution loop until the goal is complete.
-- [Goal 02 — Agent Control API and MCP Adapter](goals/02-agent-control-and-mcp.md)
-  implements deterministic protocol-neutral sessions and the MCP adapters.
-- [Goal 02 status ledger](goals/02-agent-control-and-mcp-status.md) records its
-  frozen schema, conformance, security, performance and completion evidence.
 
 ## Delivery boundary
 

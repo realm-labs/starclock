@@ -16,7 +16,7 @@ use starclock_combat::{
     CombatantSpecDigest, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, StatValue,
     UnitDefinitionId, UnitLevel, catalog::CombatCatalog,
 };
-use starclock_replay::{component::ConfigurationComponentSet, format_v2::ReplayCompatibilityV2};
+use starclock_replay::{component::ConfigurationComponentSet, current::ReplayCompatibility};
 
 use crate::{
     ability_runtime::{
@@ -125,7 +125,7 @@ impl StandardUniverseRuntimeFactory {
             controller.digest,
         )
         .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
-        let compatibility = ReplayCompatibilityV2::new(
+        let compatibility = ReplayCompatibility::new(
             self.catalog.identity().game_version(),
             starclock_combat::NUMERIC_POLICY_REVISION,
             starclock_combat::rng::RNG_ALGORITHM_REVISION,
@@ -193,7 +193,7 @@ pub struct StandardUniverseRuntimeInstance {
     battle_assembler: Arc<StandardUniverseBattleAssembler>,
     combat_catalog: Arc<CombatCatalog>,
     components: ConfigurationComponentSet,
-    compatibility: ReplayCompatibilityV2,
+    compatibility: ReplayCompatibility,
 }
 
 impl StandardUniverseRuntimeInstance {
@@ -214,21 +214,21 @@ impl StandardUniverseRuntimeInstance {
         &self.components
     }
     #[must_use]
-    pub const fn compatibility(&self) -> &ReplayCompatibilityV2 {
+    pub const fn compatibility(&self) -> &ReplayCompatibility {
         &self.compatibility
     }
     /// Decomposes the instance for historical replay-v2 verification only.
     ///
     /// New execution must use [`Self::into_dynamic_parts`].
     #[must_use]
-    pub fn into_replay_v2_compatibility_parts(
+    pub fn into_replay_parts(
         self,
     ) -> (
         Box<str>,
         StandardUniverseActivity,
         Arc<CombatCatalog>,
         ConfigurationComponentSet,
-        ReplayCompatibilityV2,
+        ReplayCompatibility,
     ) {
         (
             self.profile_id,
@@ -247,7 +247,7 @@ impl StandardUniverseRuntimeInstance {
         StandardUniverseActivity,
         Arc<StandardUniverseBattleAssembler>,
         ConfigurationComponentSet,
-        ReplayCompatibilityV2,
+        ReplayCompatibility,
     ) {
         (
             self.profile_id,

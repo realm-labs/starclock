@@ -8,6 +8,10 @@ use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityTerminalOutcome,
 };
 use starclock_mode_universe::{
+    current_replay::{
+        encode_standard_universe_replay_parts, standard_universe_replay_header,
+        verify_standard_universe_replay_dynamic,
+    },
     dynamic_battle_assembler::StandardUniverseBattleAssembler,
     nested_battle_executor::UniverseNestedBattleExecutor,
     runtime::StandardUniverseActivity,
@@ -15,14 +19,10 @@ use starclock_mode_universe::{
         MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS, StandardUniverseReplayAction,
         StandardUniverseTraceEntry,
     },
-    universe_replay_v3::{
-        encode_standard_universe_trace_parts_v3, standard_universe_header_v3,
-        verify_standard_universe_replay_v3_dynamic,
-    },
 };
 use starclock_replay::{
     activity::{ControllerDecisionKind, ControllerDiagnostic, ControllerOptionScore},
-    format_v3::ReplayHeaderV3,
+    current::ReplayHeader,
 };
 
 use crate::{
@@ -183,7 +183,7 @@ impl ActivityAgentSessionFactory {
             .map_err(runtime_error)?;
         let (profile, activity, battle_assembler, components, compatibility) =
             runtime.into_dynamic_parts();
-        let replay_header = standard_universe_header_v3(
+        let replay_header = standard_universe_replay_header(
             compatibility.clone(),
             components.clone(),
             seed,
@@ -253,7 +253,7 @@ impl ActivityAgentSessionFactory {
             .map_err(runtime_error)?;
         let (profile, activity, battle_assembler, components, compatibility) =
             runtime.into_dynamic_parts();
-        let report = verify_standard_universe_replay_v3_dynamic(
+        let report = verify_standard_universe_replay_dynamic(
             bytes,
             activity,
             &battle_assembler,
@@ -284,7 +284,7 @@ pub struct ActivityAgentSession {
     difficulty_index: usize,
     seed: u64,
     activity: StandardUniverseActivity,
-    replay_header: ReplayHeaderV3,
+    replay_header: ReplayHeader,
     battle_assembler: Arc<StandardUniverseBattleAssembler>,
     battle_executor: UniverseNestedBattleExecutor,
     trace: Vec<StandardUniverseTraceEntry>,
@@ -453,7 +453,7 @@ impl ActivityAgentSession {
     }
 
     pub fn export_replay(&self) -> Result<AgentActivityReplayExport, AgentError> {
-        let bytes = encode_standard_universe_trace_parts_v3(
+        let bytes = encode_standard_universe_replay_parts(
             &self.replay_header,
             &self.trace,
             self.battle_executor.reports(),

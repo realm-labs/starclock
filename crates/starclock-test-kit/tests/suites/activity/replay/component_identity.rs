@@ -1,16 +1,11 @@
-use sha2::{Digest, Sha256};
 use starclock_replay::{
     component::{
         ComponentIdentityError, ConfigurationComponentIdentity, ConfigurationComponentKind,
         ConfigurationComponentSet,
     },
+    current::{ReplayCompatibility, ReplayError, ReplayHeader, decode_replay, encode_replay},
     digest::{ComponentDigest, EntrySpecDigest},
-    format::{ReplayEntry, decode_replay},
-    format_v2::{
-        REPLAY_FORMAT_VERSION_V2, ReplayCompatibilityV2, ReplayHeaderV2, decode_replay_v2,
-        encode_replay_v2,
-    },
-    format_v3::{REPLAY_FORMAT_VERSION_V3, decode_replay_v3, encode_replay_v3},
+    format::ReplayEntry,
 };
 
 fn component(
@@ -24,9 +19,9 @@ fn component(
 }
 
 #[test]
-fn v3_uses_a_distinct_envelope_and_rejects_unknown_records() {
-    let header = ReplayHeaderV2::new(
-        ReplayCompatibilityV2::new("4.4", "fixed-6-v1", "chacha8-v1", "sha256-v3").unwrap(),
+fn current_replay_round_trips_and_rejects_unknown_records() {
+    let header = ReplayHeader::new(
+        ReplayCompatibility::new("4.4", "fixed-6-v1", "chacha8-v1", "sha256-v3").unwrap(),
         component_set(0x44),
         42,
         ReplayEntry::Battle {
@@ -36,16 +31,11 @@ fn v3_uses_a_distinct_envelope_and_rejects_unknown_records() {
         0,
     )
     .unwrap();
-    let bytes = encode_replay_v3(&header, &[], Vec::new()).unwrap();
-    assert_eq!(
-        u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
-        REPLAY_FORMAT_VERSION_V3
-    );
-    assert_eq!(decode_replay_v3(&bytes).unwrap().header(), &header);
-    assert!(decode_replay_v2(&bytes).is_err());
+    let bytes = encode_replay(&header, &[], Vec::new()).unwrap();
+    assert_eq!(decode_replay(&bytes).unwrap().header(), &header);
 
-    let mut unknown = encode_replay_v3(
-        &ReplayHeaderV2::new(
+    let mut unknown = encode_replay(
+        &ReplayHeader::new(
             header.compatibility().clone(),
             header.components().clone(),
             header.master_seed(),
@@ -65,8 +55,8 @@ fn v3_uses_a_distinct_envelope_and_rejects_unknown_records() {
     let record_kind_offset = unknown.len() - 13;
     unknown[record_kind_offset] = 0xff;
     assert!(matches!(
-        decode_replay_v3(&unknown),
-        Err(starclock_replay::format_v3::ReplayV3Error::Format(
+        decode_replay(&unknown),
+        Err(ReplayError::Format(
             starclock_replay::record::ReplayFormatError::UnknownRecordKind(0xff)
         ))
     ));
@@ -149,44 +139,4 @@ fn component_set_rejects_duplicate_or_unsorted_keys() {
         .unwrap_err(),
         ComponentIdentityError::NonCanonicalOrder
     );
-}
-
-#[test]
-fn v2_round_trip_binds_components_without_changing_legacy_decoder() {
-    let header = ReplayHeaderV2::new(
-        ReplayCompatibilityV2::new("4.4", "fixed-6-v1", "chacha8-v1", "sha256-v3").unwrap(),
-        component_set(0x44),
-        42,
-        ReplayEntry::Battle {
-            definition_id: 7,
-            spec_digest: EntrySpecDigest::new([0x77; 32]),
-        },
-        0,
-    )
-    .unwrap();
-    let bytes = encode_replay_v2(&header, &[], Vec::new()).unwrap();
-    let frozen_digest: [u8; 32] = Sha256::digest(&bytes).into();
-    assert_eq!(
-        frozen_digest,
-        [
-            234, 149, 123, 1, 147, 51, 12, 39, 35, 100, 77, 57, 7, 10, 179, 250, 188, 168, 1, 171,
-            165, 220, 65, 140, 10, 54, 26, 226, 248, 58, 231, 172,
-        ]
-    );
-    assert_eq!(
-        u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
-        REPLAY_FORMAT_VERSION_V2
-    );
-    let decoded = decode_replay_v2(&bytes).unwrap();
-    assert_eq!(decoded.header(), &header);
-    assert!(decoded.records().is_empty());
-    assert!(matches!(
-        decode_replay(&bytes),
-        Err(starclock_replay::record::ReplayFormatError::UnsupportedFormatVersion(2))
-    ));
-
-    let root_offset = bytes.len() - 8 - 1 - 4 - 32 - 4 - 32;
-    let mut corrupt = bytes;
-    corrupt[root_offset] ^= 0x80;
-    assert!(decode_replay_v2(&corrupt).is_err());
 }

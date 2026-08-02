@@ -3,7 +3,7 @@ use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, Encoder},
     component::ConfigurationComponentSet,
     digest::Sha256Sink,
-    format_v2::{ReplayHeaderV2, decode_replay_v2, encode_replay_v2},
+    current::{ReplayHeader, decode_replay, encode_replay},
     record::{RecordKind, RecordRef},
 };
 
@@ -11,8 +11,8 @@ use crate::swarm_disaster_components::swarm_disaster_component_set;
 
 use super::{
     replay::{
-        SwarmReplayDivergenceKind, encode_complete_swarm_replay_v2,
-        verify_complete_swarm_replay_v2,
+        SwarmReplayDivergenceKind, encode_complete_swarm_replay,
+        verify_complete_swarm_replay,
     },
     seeded_run::{
         SWARM_DISASTER_SEEDED_RUN_REVISION, SwarmSeededBoundary, SwarmSeededRunRequest,
@@ -28,7 +28,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
         hex(component_set.root().bytes()),
         "01dce3ee71b2cf1e790d29b4ccc923e57055ea70208160c7fc1cc2940a0d0b22"
     );
-    let bytes = encode_complete_swarm_replay_v2(
+    let bytes = encode_complete_swarm_replay(
         &instance,
         request.seed,
         request.identity,
@@ -38,7 +38,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     )
     .unwrap();
     assert_eq!(
-        encode_complete_swarm_replay_v2(
+        encode_complete_swarm_replay(
             &instance,
             request.seed,
             request.identity,
@@ -51,7 +51,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
 
     let (fresh_instance, fresh_roster) = super::seeded_run_tests::representative_runtime();
-    let verified = verify_complete_swarm_replay_v2(
+    let verified = verify_complete_swarm_replay(
         &bytes,
         &fresh_instance,
         request.seed,
@@ -65,12 +65,12 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert!(verified.battle_command_count() > 0);
     assert_eq!(
         hex(verified.final_state_hash().bytes()),
-        "059710ea6ac74f7ae919a5f066b17fed91e13b249621eaba30e876126a207c11"
+        "19e64ca3bfa2b877b9a854bace2d21a3f9f6b0e3123d7a4bdc31a21622ab3749"
     );
 
     let mut replay_digest = Sha256Sink::new();
     replay_digest.write(&bytes);
-    let replay = decode_replay_v2(&bytes).unwrap();
+    let replay = decode_replay(&bytes).unwrap();
     assert_eq!(verified.action_count(), 48);
     assert_eq!(verified.battle_count(), 12);
     assert_eq!(verified.battle_command_count(), 74);
@@ -78,7 +78,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(replay.records().len(), 268);
     assert_eq!(
         hex(replay_digest.finalize().bytes()),
-        "c627e93fb58e350e7dd2cc0c3d2651ecc1140b705142a5a79628908fb755b259"
+        "4322283e2cc57a4723fcd16febc3cf5b44ae11020800dd01a17fc11575c6747d"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
@@ -90,11 +90,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "3eea401a501f1f70c30fbabaf655232544913861bee094c7439e45548559107b"
+        "1e494b77da9c8f05a942dd74629fe5cdf99137ac447980fb2b3ecb7c07d642e4"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
-        "91eda49f0fab401bb3ecbfe31ab60dbd094f09a18e96acf16251db1e61da2290"
+        "e35b63beef9558a38f2e0d012a7cd06eedeb716c37d98c563cda978014c7f087"
     );
 
     assert_divergence(
@@ -241,7 +241,7 @@ fn assert_divergence(
     components: &ConfigurationComponentSet,
     expected: SwarmReplayDivergenceKind,
 ) {
-    let error = verify_complete_swarm_replay_v2(
+    let error = verify_complete_swarm_replay(
         bytes,
         instance,
         request.seed,
@@ -264,7 +264,7 @@ fn mutate_first_where(
     predicate: impl Fn(&[u8]) -> bool,
     mutate: impl FnOnce(&mut Vec<u8>),
 ) -> Vec<u8> {
-    let replay = decode_replay_v2(bytes).unwrap();
+    let replay = decode_replay(bytes).unwrap();
     let mut payloads = replay
         .records()
         .iter()
@@ -279,17 +279,17 @@ fn mutate_first_where(
     encode_payloads(replay.header().clone(), &payloads)
 }
 
-fn encode_payloads(header: ReplayHeaderV2, payloads: &[(RecordKind, Vec<u8>)]) -> Vec<u8> {
+fn encode_payloads(header: ReplayHeader, payloads: &[(RecordKind, Vec<u8>)]) -> Vec<u8> {
     let records = payloads
         .iter()
         .enumerate()
         .map(|(index, (kind, payload))| RecordRef::new(*kind, index as u64, payload).unwrap())
         .collect::<Vec<_>>();
-    encode_replay_v2(&header, &records, Vec::new()).unwrap()
+    encode_replay(&header, &records, Vec::new()).unwrap()
 }
 
 fn record_digest(bytes: &[u8], kinds: &[RecordKind]) -> String {
-    let replay = decode_replay_v2(bytes).unwrap();
+    let replay = decode_replay(bytes).unwrap();
     let mut encoder = Encoder::new(Sha256Sink::new());
     for record in replay
         .records()

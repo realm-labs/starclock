@@ -11,6 +11,7 @@ pub mod battle_event;
 mod battle_event_cause;
 pub mod codec;
 pub mod component;
+pub mod current;
 pub mod digest;
 pub mod format;
 pub mod format_v2;

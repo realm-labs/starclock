@@ -11,13 +11,13 @@ use starclock_mode_universe::{
             SwarmDisasterBaselineFixture,
         },
         replay::{
-            SWARM_DISASTER_REAL_BATTLE_REPLAY_REVISION, encode_complete_swarm_replay_v2,
-            verify_complete_swarm_replay_v2,
+            SWARM_DISASTER_REAL_BATTLE_REPLAY_REVISION, encode_complete_swarm_replay,
+            verify_complete_swarm_replay,
         },
     },
 };
 use starclock_replay::{
-    codec::CanonicalSink, digest::Sha256Sink, format::ReplayEntry, format_v2::decode_replay_v2,
+    codec::CanonicalSink, current::decode_replay, digest::Sha256Sink, format::ReplayEntry,
 };
 
 const SWARM_BUNDLE: &[u8] = include_bytes!("../../../config/swarm-disaster-generated/config.sora");
@@ -72,7 +72,7 @@ pub fn run(args: &[String]) -> Result<(), SwarmDisasterCliError> {
     let options = RunOptions::parse(args)?;
     let fixture = fixture()?;
     let activity_instance = activity_instance()?;
-    let replay = encode_complete_swarm_replay_v2(
+    let replay = encode_complete_swarm_replay(
         fixture.instance(),
         options.seed,
         fixture.activity_identity(),
@@ -81,7 +81,7 @@ pub fn run(args: &[String]) -> Result<(), SwarmDisasterCliError> {
         fixture.components().clone(),
     )
     .map_err(|_| SwarmDisasterCliError::Simulation)?;
-    let report = verify_complete_swarm_replay_v2(
+    let report = verify_complete_swarm_replay(
         &replay,
         fixture.instance(),
         options.seed,
@@ -130,16 +130,16 @@ pub fn run(args: &[String]) -> Result<(), SwarmDisasterCliError> {
 }
 
 pub fn is_replay(bytes: &[u8]) -> bool {
-    decode_replay_v2(bytes).is_ok_and(|replay| {
+    decode_replay(bytes).is_ok_and(|replay| {
         matches!(replay.header().entry(), ReplayEntry::Activity { profile_id, .. }
             if profile_id.as_ref() == SWARM_DISASTER_REAL_BATTLE_REPLAY_REVISION)
     })
 }
 
 pub fn verify_replay(bytes: &[u8], json: bool) -> Result<(), SwarmDisasterCliError> {
-    let replay = decode_replay_v2(bytes).map_err(|_| SwarmDisasterCliError::Replay)?;
+    let replay = decode_replay(bytes).map_err(|_| SwarmDisasterCliError::Replay)?;
     let fixture = fixture()?;
-    let report = verify_complete_swarm_replay_v2(
+    let report = verify_complete_swarm_replay(
         bytes,
         fixture.instance(),
         replay.header().master_seed(),

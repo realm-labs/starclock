@@ -70,7 +70,6 @@ Allowed cases are limited to:
 
 - a small, deliberate crate-root facade for the stable external API;
 - re-exporting a type whose defining module is intentionally private implementation detail;
-- compatibility during a documented public-API migration, with a removal plan;
 - a macro or generated-code integration that technically requires a re-export.
 
 Rules for allowed re-exports:
@@ -169,7 +168,7 @@ Unsafe Rust is forbidden unless a measured requirement cannot be satisfied safel
 ## Documentation and comments
 
 - Public APIs require rustdoc that explains invariants and timing semantics, not only field names.
-- Formula code should cite the corresponding project document and identify the rules revision it implements.
+- Formula code should cite the corresponding current project document.
 - Comments explain why a rule or ordering exists. Do not narrate syntax.
 - Every workaround has an owner condition for removal, preferably an issue reference.
 - Keep examples compilable as doctests where practical.
@@ -209,60 +208,25 @@ the only owner-crate integration-test binaries outside the kit. Adding a new
 standalone integration harness requires a documented executable-boundary reason;
 ordinary growth belongs in a responsibility module inside an existing suite.
 
-## Formatting and validation gates
+## Formatting and validation
 
-Daily iteration uses the pinned change-aware gate:
+Daily work uses Cargo directly for the affected package:
 
-```powershell
-node tools/repository-check/run.mjs
+```text
+cargo fmt --all -- --check
+cargo clippy -p <affected-package> --all-targets -- -D warnings
+cargo test -p <affected-package>
 ```
 
-It has a 180-second warm-cache budget. Direct-package lib and bin harnesses plus
-the corresponding centralized integration suite use the same bounded
-process-level dispatcher as the full gate,
-while reverse dependants are compile-checked. It always checks formatting and static
-repository policies, runs Clippy plus library/integration tests for directly
-changed crates, and compiles their reverse dependants. It reuses the workspace
-Cargo target, incremental compilation and an ignored source/toolchain-bound
-pass receipt. Generated-data, release, strict-performance and cross-platform
-claims are reported as deferred rather than being silently treated as checked.
+The full workspace suite runs in CI. Run it locally only for a shared-boundary change or an explicit merge check:
 
-Before merge, and whenever the quick gate reports deferred inputs, run:
-
-```powershell
-node tools/repository-check/run.mjs --full
+```text
+cargo test --workspace
 ```
 
-The full profile executes generated-artifact drift, all-target/all-feature
-Clippy and all workspace tests. It compiles test harnesses once, executes
-independent harness binaries with bounded process-level parallelism, and runs
-doctests separately. Each native CI job invokes this full profile exactly once;
-completed Goal runners are standalone reproduction tools, not additive CI
-stages. Artifact/evidence validators must not recursively execute
-Rust tests in this profile: the workspace runner owns that coverage exactly
-once. Standalone goal validators may still run their focused Rust tests when
-invoked directly. The workspace contains 10 integration-test targets: five
-centralized suite binaries and five executable-boundary CLI tests, down from the
-previous 75-target baseline. The dispatcher therefore favors in-harness test
-threads while retaining limited process overlap. Its automatic schedule runs
-the measured memory-heavy Universe integration, Universe unit, and adapter
-harnesses one at a time with an exclusive CPU budget before dispatching the
-remaining harnesses; explicit job/thread overrides opt out of that policy. The
-workspace uses `[profile.test] opt-level = 1`: simulation and replay hot loops
-must not pay `opt-level = 0` runtime costs, while daily builds avoid release-profile
-compile time. Default `[profile.dev]` builds retain line tables for source-level
-backtraces but omit full debug information, including all debug information for
-dependencies, to bound the shared incremental cache. Use
-`cargo build --profile dev-debug` only when full debugger inspection is needed;
-Cargo keeps those artifacts isolated under `target/dev-debug`. Expensive
-deterministic workbook regeneration may reuse an ignored content-addressed
-receipt only when every workbook input, schema,
-generated output, authoring/verification tool, Sora binary, loader, Python and
-openpyxl identity matches; `STARCLOCK_NO_ARTIFACT_CACHE=1` forces regeneration.
-CI and isolated release checkouts normally begin without that receipt. CI
-selects the full profile automatically. Isolated release acceptance remains a
-separate fresh-target proof with incremental compilation disabled; it must not
-be used as the daily development loop.
+Current workbook, Sora and reference-data validators are separate authoring checks and run only when their owned inputs change. Exhaustive property corpora, seeded matrices, concurrency stress, TCP load and benchmarks are explicit opt-in commands. No JavaScript process dispatcher owns Rust test execution, and no historical Goal or release verifier participates in current validation.
+
+The workspace uses `[profile.test] opt-level = 1` for simulation-heavy tests. Default `[profile.dev]` retains line tables without full dependency debug data; `cargo build --profile dev-debug` is the explicit full-debug path. Preserve the shared Cargo target and incremental cache.
 
 Once the workspace is created, configure shared lints at the workspace root. At minimum:
 
@@ -273,22 +237,11 @@ Once the workspace is created, configure shared lints at the workspace root. At 
 
 A CI file-size check must fail when a handwritten `.rs` file exceeds 1,200 physical lines. It must exclude only explicit generated/vendor paths, not arbitrary filename patterns.
 
-Generated or vendored source exclusions and handwritten exceptions are valid
-only when their exact paths and review reasons appear in
-`policy/repository-checks.json`. Ignored Phase 0 evidence caches can be included
-in the full profile with `--with-source-cache`; they are not required
-clean-checkout inputs.
-
-Completed Goal evidence is historical. Repository checks validate its recorded
-completion commit/tree and read release policy/status/evidence from that
-snapshot. They must not compare historical source digests with the current
-working tree or require re-blessing a completed Goal after additive work.
-Current behavior is protected by current tests, generated-data checks, and the
-active Goal's evidence. Historical architecture, property, security,
-clean-checkout, and CI matrix reports may retain standalone verifiers, but
-those verifiers are not current-source gates after their Goal is complete. The
-normative extension rules are in
-[Mode extension and evolution](26-mode-extension-and-evolution.md).
+Generated or vendored source exclusions and handwritten exceptions must be
+obvious from their path or source header and receive explicit review. Current
+behavior is protected by current tests and the data checks applicable to the
+changed inputs. The normative extension rules are in [Mode extension and
+evolution](26-mode-extension-and-evolution.md).
 
 ## Review checklist
 
@@ -297,7 +250,7 @@ Before merging a Rust change, verify:
 - no handwritten `.rs` file exceeds 1,200 lines and files approaching 800 lines have a credible scope;
 - each changed module has one clear responsibility;
 - new public visibility is required by an actual consumer;
-- every `pub use` satisfies the limited facade/migration/integration policy;
+- every `pub use` satisfies the limited facade/integration policy;
 - no wildcard public re-export or project prelude was introduced;
 - configuration logic remains in Excel/Sora and `starclock-data`, not in presentation adapters;
 - deterministic ordering, RNG, rounding, and replay effects are covered;

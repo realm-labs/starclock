@@ -8,15 +8,15 @@ use starclock_combat::{Battle, BattleStateHash, Energy, Hp, LifeState, PresenceS
 use starclock_mode_universe::{
     baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
     battle_technique::UniverseBattleTechniqueDefinition,
+    current_replay::{
+        ReplayDivergenceKind, encode_standard_universe_replay, record_baseline_run,
+        standard_universe_replay_header, verify_standard_universe_replay_dynamic,
+    },
     dynamic_battle_assembler::{
         BattleAssemblyBudget, StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
     },
     nested_battle_executor::UniverseNestedBattleExecutor,
     production_runtime::{StandardUniverseControllerIdentity, StandardUniverseRuntimeFactory},
-    universe_replay_v3::{
-        ReplayV3DivergenceKind, encode_standard_universe_trace_v3, record_baseline_run_v3,
-        standard_universe_header_v3, verify_standard_universe_replay_v3_dynamic,
-    },
 };
 use starclock_replay::record::RecordKind;
 
@@ -352,7 +352,7 @@ fn damaged_win(handoff: &starclock_activity::ActivityBattleHandoff) -> BattleRes
 }
 
 #[test]
-fn production_baseline_records_and_verifies_dynamic_replay_v3() {
+fn production_baseline_records_and_verifies_current_dynamic_replay() {
     const SEED: u64 = 1;
     let factory = StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
     let controller = StandardUniverseControllerIdentity {
@@ -366,7 +366,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
     let compatibility = instance.compatibility().clone();
     let assembler = Arc::clone(instance.battle_assembler());
     let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
-    let header = standard_universe_header_v3(
+    let header = standard_universe_replay_header(
         compatibility.clone(),
         components.clone(),
         SEED,
@@ -375,23 +375,23 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
     )
     .unwrap();
     let mut executor = UniverseNestedBattleExecutor::dynamic();
-    let recorded = record_baseline_run_v3(
+    let recorded = record_baseline_run(
         &mut activity,
         &StandardUniverseBaselinePolicy::default(),
         &assembler,
         &mut executor,
     )
     .unwrap();
-    let replay = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+    let replay = encode_standard_universe_replay(&header, &recorded).unwrap();
     assert!(
-        starclock_replay::format_v3::decode_replay_v3(&replay).is_ok(),
-        "new production recordings use replay v3"
+        starclock_replay::current::decode_replay(&replay).is_ok(),
+        "production recordings use the current replay envelope"
     );
 
     let fresh = factory.start(1, 0, SEED, controller).unwrap();
     let fresh_assembler = Arc::clone(fresh.battle_assembler());
     let (_, fresh_activity, _, _, _) = fresh.into_dynamic_parts();
-    let verified = verify_standard_universe_replay_v3_dynamic(
+    let verified = verify_standard_universe_replay_dynamic(
         &replay,
         fresh_activity,
         &fresh_assembler,
@@ -423,7 +423,7 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
     let compatibility = instance.compatibility().clone();
     let assembler = Arc::clone(instance.battle_assembler());
     let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
-    let header = standard_universe_header_v3(
+    let header = standard_universe_replay_header(
         compatibility.clone(),
         components.clone(),
         SEED,
@@ -432,14 +432,14 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
     )
     .unwrap();
     let mut executor = UniverseNestedBattleExecutor::dynamic();
-    let recorded = record_baseline_run_v3(
+    let recorded = record_baseline_run(
         &mut activity,
         &StandardUniverseBaselinePolicy::default(),
         &assembler,
         &mut executor,
     )
     .unwrap();
-    let replay = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+    let replay = encode_standard_universe_replay(&header, &recorded).unwrap();
 
     let verify = |bytes: &[u8]| {
         let factory = StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
@@ -447,7 +447,7 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
         let assembler = Arc::clone(fresh.battle_assembler());
         let (_, activity, _, _, _) = fresh.into_dynamic_parts();
         let before = assembler.cache_metrics();
-        let result = verify_standard_universe_replay_v3_dynamic(
+        let result = verify_standard_universe_replay_dynamic(
             bytes,
             activity,
             &assembler,
@@ -470,7 +470,7 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
     );
 
     let divergence = |bytes: &[u8]| verify(bytes).0.unwrap_err().first_divergence();
-    let start_payload = v3_payload_offset(&replay, RecordKind::NestedBattleStart, 0);
+    let start_payload = current_payload_offset(&replay, RecordKind::NestedBattleStart, 0);
     let revision_length = u32::from_le_bytes(
         replay[start_payload + 34..start_payload + 38]
             .try_into()
@@ -479,84 +479,86 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
     let identity = start_payload + 38 + revision_length;
     let combat_input = identity + 8 + 16 + 96;
     let assembly = combat_input + 32;
-    let state_payload = v3_payload_offset(&replay, RecordKind::ExpectedBattleState, 0);
+    let state_payload = current_payload_offset(&replay, RecordKind::ExpectedBattleState, 0);
 
     let mut component_corrupt = replay.clone();
     component_corrupt[start_payload + 2] ^= 0x80;
     component_corrupt[assembly] ^= 0x80;
     assert_eq!(
         divergence(&component_corrupt),
-        Some(ReplayV3DivergenceKind::Component)
+        Some(ReplayDivergenceKind::Component)
     );
 
     let mut assembly_corrupt = replay.clone();
     assembly_corrupt[assembly] ^= 0x80;
     assert_eq!(
         divergence(&assembly_corrupt),
-        Some(ReplayV3DivergenceKind::Assembly)
+        Some(ReplayDivergenceKind::Assembly)
     );
 
     let mut combat_corrupt = replay.clone();
     combat_corrupt[combat_input] ^= 0x80;
     assert_eq!(
         divergence(&combat_corrupt),
-        Some(ReplayV3DivergenceKind::CombatInput)
+        Some(ReplayDivergenceKind::CombatInput)
     );
 
     let mut command_corrupt = replay.clone();
-    let command_payload = v3_payload_offset(&command_corrupt, RecordKind::AcceptedBattleCommand, 0);
+    let command_payload =
+        current_payload_offset(&command_corrupt, RecordKind::AcceptedBattleCommand, 0);
     command_corrupt[command_payload + 2] ^= 0xff;
     assert_eq!(
         divergence(&command_corrupt),
-        Some(ReplayV3DivergenceKind::Command)
+        Some(ReplayDivergenceKind::Command)
     );
 
     let mut event_corrupt = replay.clone();
     event_corrupt[state_payload + 42] ^= 0x80;
     assert_eq!(
         divergence(&event_corrupt),
-        Some(ReplayV3DivergenceKind::Event)
+        Some(ReplayDivergenceKind::Event)
     );
 
     let mut state_corrupt = replay.clone();
     state_corrupt[state_payload + 2] ^= 0x80;
     assert_eq!(
         divergence(&state_corrupt),
-        Some(ReplayV3DivergenceKind::State)
+        Some(ReplayDivergenceKind::State)
     );
 
     let mut result_corrupt = replay.clone();
     let (result_payload, result_length) =
-        v3_payload_range(&result_corrupt, RecordKind::NestedBattleEnd, 0);
+        current_payload_range(&result_corrupt, RecordKind::NestedBattleEnd, 0);
     result_corrupt[result_payload + result_length - 1] ^= 0x80;
     assert_eq!(
         divergence(&result_corrupt),
-        Some(ReplayV3DivergenceKind::Result)
+        Some(ReplayDivergenceKind::Result)
     );
 
     let mut activity_corrupt = replay;
-    let activity_state = v3_payload_offset(&activity_corrupt, RecordKind::ExpectedActivityState, 0);
+    let activity_state =
+        current_payload_offset(&activity_corrupt, RecordKind::ExpectedActivityState, 0);
     activity_corrupt[activity_state] ^= 0x80;
     assert_eq!(
         divergence(&activity_corrupt),
-        Some(ReplayV3DivergenceKind::Activity)
+        Some(ReplayDivergenceKind::Activity)
     );
 }
 
-fn v3_payload_offset(bytes: &[u8], kind: RecordKind, ordinal: usize) -> usize {
-    let decoded = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+fn current_payload_offset(bytes: &[u8], kind: RecordKind, ordinal: usize) -> usize {
+    let decoded = starclock_replay::current::decode_replay(bytes).unwrap();
     let payload = decoded
         .records()
         .iter()
         .filter(|record| record.kind() == kind)
         .nth(ordinal)
-        .unwrap_or_else(|| panic!("missing replay-v3 record {kind:?} at ordinal {ordinal}"))
+        .unwrap_or_else(|| panic!("missing current replay record {kind:?} at ordinal {ordinal}"))
         .payload();
     payload.as_ptr() as usize - bytes.as_ptr() as usize
 }
 
-fn v3_payload_range(bytes: &[u8], kind: RecordKind, ordinal: usize) -> (usize, usize) {
-    let decoded = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+fn current_payload_range(bytes: &[u8], kind: RecordKind, ordinal: usize) -> (usize, usize) {
+    let decoded = starclock_replay::current::decode_replay(bytes).unwrap();
     let payload = decoded
         .records()
         .iter()

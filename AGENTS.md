@@ -4,16 +4,17 @@ This file applies to the entire Starclock repository. A more specific
 `AGENTS.md` may add requirements for its subtree, but it must not weaken this
 root contract.
 
-Normative design lives in `docs/`. Goal plans and ledgers organize execution;
-they do not override architecture, determinism, configuration, evidence or
-release contracts.
+Normative design lives in `docs/`. Starclock maintains only the current source,
+data, behavior and generated current-state summary. Git history is the sole
+historical record; the working tree does not preserve completed-goal evidence,
+old formats or migration contracts.
 
 ## 1. Working Agreement
 
 - Prioritize correctness, determinism, readability, maintainability and
   testability.
-- Inspect the relevant design document, goal plan, status ledger and existing
-  implementation before changing code or data.
+- Inspect the relevant design document and existing implementation before
+  changing code or data.
 - Respect unrelated uncommitted work. Do not overwrite, revert, reformat or
   opportunistically clean up user changes.
 - Keep one responsibility-bounded change active. Do not broaden a documentation,
@@ -23,9 +24,9 @@ release contracts.
   the owning generator for generated artifacts.
 - Never hand-edit generated Rust, schema locks, Sora exports, coverage reports
   or other files whose owning generator is documented.
-- When two goals run concurrently, use separate branches/worktrees and isolated
-  artifact paths. Stop and reconcile shared-file conflicts rather than
-  overwriting another task.
+- Concurrent changes use separate branches/worktrees and isolated artifact
+  paths. Stop and reconcile shared-file conflicts rather than overwriting
+  another task.
 
 ## 2. Architecture Ownership
 
@@ -87,9 +88,10 @@ terminology in the mode layer.
   authoritative. Sort emitted work by a stable fixed-width domain key.
 - Do not serialize or hash `usize`, addresses, platform time, thread scheduling
   or filesystem enumeration order.
-- Preserve canonical codecs, state/config hashes and replay revisions. Any
-  compatibility-affecting change requires explicit migration or revisioned
-  golden evidence.
+- Canonical codecs and state/config hashes describe only the current tree and
+  may change intentionally with the implementation. Update current goldens in
+  the same change. Do not add compatibility migrations, legacy decoders,
+  revision branches or historical golden evidence.
 
 The normative rules are in `docs/09-determinism-and-numerics.md`,
 `docs/10-lifecycle-and-resolution.md` and
@@ -113,33 +115,36 @@ The normative rules are in `docs/09-determinism-and-numerics.md`,
   source locators unless an explicit contract says otherwise.
 - Shared content requires proven profile reachability. Source-table reuse,
   matching names or adjacent ID ranges are not membership evidence.
-- Adding an unrelated mode or localization-only partition must not invalidate
-  an existing replay; preserve component-aware configuration identity.
+- Runtime configuration identity binds the exact current inputs needed for
+  deterministic execution; it is not a compatibility promise for old inputs.
 
 Generated or raw source material belongs only in its declared cache/output
 boundary. Do not commit bulk upstream prose, assets, ability programs or source
 repositories.
 
-## 5. Evidence and Content Authoring
+## 5. Current Content Authoring
 
 - Use released/public evidence only. Reject leaks, beta dumps, previews,
   NDA-bound material and announced-but-unavailable content.
 - Evidence priority is pinned released structured data, official released text,
   reproducible observations, then independent public cross-checks.
-- Every factual row records an exact repository revision or URL/access date,
-  game version, path/page, row locator, evidence digest, quality and note.
+- Every factual row records its exact source repository revision or URL/access
+  date, game version, path/page, row locator, evidence digest, quality and note.
+  These locators are current gameplay provenance, not project-version history.
+  Do not build historical project release-evidence packages or completion
+  snapshots in the repository.
 - Preserve exact factual values and relationships. Write short independent
   bilingual summaries instead of copying long descriptions or dialogue.
 - Approximation is field-level and explicit. Record the unavailable fact,
   selected deterministic policy, alternatives, rationale, affected tests,
   confidence and replacement condition.
 - Never present a `ProjectPolicy` or inferred behavior as observed parity.
-- Completeness comes from frozen machine manifests with exact-once accounting,
-  not Wiki totals or a large source table.
+- Completeness comes from current reference manifests with exact-once
+  accounting, not historical Goal receipts, Wiki totals or a large source table.
 - Keep content ownership, runtime disposition, accuracy, provenance and
   coverage as separate dimensions.
 - Story presentation, account rewards, achievements and assets remain excluded
-  unless a goal explicitly includes a mechanically relevant locator.
+  unless the current task explicitly includes a mechanically relevant locator.
 
 Follow `docs/sources.md`,
 `docs/content-reference/authoring-contract.md` and
@@ -171,8 +176,7 @@ Follow `docs/sources.md`,
 - Use the narrowest visibility: private, then `pub(super)`, `pub(crate)`, and
   finally `pub` for a genuine external API.
 - Do not use `pub use` by default. It is allowed only for a small intentional
-  facade, a private-layout abstraction, generated integration requirement or
-  documented compatibility migration.
+  facade, a private-layout abstraction or a generated integration requirement.
 - List public re-exports explicitly. Do not use wildcard re-exports, project
   preludes or re-export chains merely to shorten paths.
 - Public APIs document invariants, timing, ownership and failure behavior.
@@ -196,70 +200,66 @@ Tests must be proportional to the change:
 - bug fixes include regression tests;
 - cross-module behavior uses integration tests;
 - RNG and codecs use stable golden vectors;
-- replay/golden tests bind configuration digests and compare canonical hashes;
+- replay/golden tests bind current configuration digests and compare current
+  canonical hashes from one shared current-state manifest;
 - Sora readers load real generated bundles;
 - tests do not depend on wall clock, unseeded randomness, filesystem order or
   thread scheduling.
 
-Use the Node version in `.node-version` (`24.15.0`). If the shell does not
-switch automatically, select it with `fnm use 24.15.0` or run commands through
-`fnm exec --using 24.15.0`.
+Node and Python are data-authoring tools, not Rust test orchestrators. When a
+current-data validator is needed, use the toolchain pinned by that validator.
 
-The default change-aware gate is:
-
-```text
-node tools/repository-check/run.mjs
-```
-
-It is required before completing ordinary repository changes. Run focused
-tests or goal verifiers for the affected responsibility as well.
-
-Before merge, at phase/release checkpoints, or whenever the quick gate reports
-deferred inputs, run:
+Run focused Rust tests during development:
 
 ```text
-node tools/repository-check/run.mjs --full
+cargo test -p <affected-package> [test-filter]
 ```
 
-Use `--with-source-cache` when the task changes or claims reproducibility of
-ignored upstream source caches.
+Before completing an ordinary Rust change, run Cargo directly for the affected
+package:
 
-For documentation-only changes, Rust compilation is not required when the
-change-aware gate selects no Rust scope, but applicable link, formatting,
-policy and document-specific validation must still pass.
+```text
+cargo fmt --all -- --check
+cargo clippy -p <affected-package> --all-targets -- -D warnings
+cargo test -p <affected-package>
+```
+
+Do not run the whole workspace repeatedly after a responsibility-local edit.
+CI runs `cargo test --workspace`. Run it locally only for shared-boundary
+changes, before merge when requested, or when focused results indicate wider
+impact.
+
+Run current Sora/workbook/data validators only when their owned inputs change.
+Large seeded matrices, property corpora and performance workloads are explicit
+exhaustive checks; they do not block the default edit-test loop.
+
+Run the Rust exhaustive suite explicitly with:
+
+```text
+cargo test -p starclock-test-kit --features exhaustive --test exhaustive_suite
+```
+
+Documentation-only changes do not require Rust compilation, but applicable
+links and document-specific validation must still pass.
 
 Never claim an unexecuted check passed. If a toolchain, dependency or external
 source prevents a required command, report the exact command, error and
 substitute checks.
 
-## 9. Goal Execution
+## 9. Current-State Maintenance
 
-Execution goals are resumable contracts under `docs/goals/`:
-
-- read the plan, status ledger and launch prompt completely before acting;
-- verify prerequisites and immutable release snapshots before the first
-  mutation;
-- select the earliest unblocked batch and keep only one batch `InProgress` per
-  goal worktree;
-- honor generated partition size/order and exact-once denominators;
-- complete data, schema, code, tests, evidence and documentation owned by the
-  batch together;
-- update the ledger with exact commands, counts, digests, decisions and
-  blockers in the same change;
-- do not stop at a partial phase, passing evaluator, workbook export or seeded
-  smoke run when the active goal requires continued execution;
-- do not mark a goal complete until every terminal gate and clean release check
-  passes and the required completion snapshot/evidence is registered.
-
-Completed Goal evidence is immutable historical state. Do not rewrite old
-ledgers or re-bless historical hashes to match the current tree. Current
-compatibility belongs to current tests and the new goal's evidence.
+- `docs/current-state.md` is the human-readable summary of the current tree.
+- `policy/current-state.json` is its machine-readable counterpart and contains
+  no schema version, Goal ID, completion batch or historical result.
+- Update current code, data, tests, goldens and the current-state summary
+  together when their facts change.
+- Replace obsolete current values instead of retaining legacy branches or
+  migration paths. Git history records what changed.
 
 ## 10. Git, Commits and Cache Safety
 
 - Do not stage, commit, push, branch, delete or rewrite history unless the user
-  or active Goal explicitly authorizes it.
-- Goal batch commits are atomic and use their exact batch ID.
+  explicitly authorizes it.
 - Every commit follows Conventional Commits:
   `<type>(<optional-scope>): <imperative lowercase description>`.
 - Keep commits focused. Do not mix unrelated formatting, refactoring,

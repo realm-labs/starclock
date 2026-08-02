@@ -7,13 +7,13 @@ use starclock_mode_universe::{
         GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION,
         GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunRequest,
         baseline_fixture::{GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY, GoldAndGearsBaselineFixture},
-        encode_gold_and_gears_replay, gold_and_gears_header_v2, record_gold_and_gears_run,
+        encode_gold_and_gears_replay, gold_and_gears_replay_header, record_gold_and_gears_run,
         verify_gold_and_gears_replay,
     },
     gold_gears_identity::GoldAndGearsCatalogIdentity,
 };
 use starclock_replay::{
-    codec::CanonicalSink, digest::Sha256Sink, format::ReplayEntry, format_v2::decode_replay_v2,
+    codec::CanonicalSink, current::decode_replay, digest::Sha256Sink, format::ReplayEntry,
 };
 
 const GOLD_BUNDLE: &[u8] = include_bytes!("../../../config/gold-and-gears-generated/config.sora");
@@ -102,8 +102,9 @@ pub fn run(args: &[String]) -> Result<(), GoldAndGearsCliError> {
     let request = request(options.seed, &fixture)?;
     let recorded = record_gold_and_gears_run(fixture.instance(), request, fixture.roster())
         .map_err(|_| GoldAndGearsCliError::Simulation)?;
-    let header = gold_and_gears_header_v2(fixture.components().clone(), request, fixture.roster())
-        .map_err(|_| GoldAndGearsCliError::Replay)?;
+    let header =
+        gold_and_gears_replay_header(fixture.components().clone(), request, fixture.roster())
+            .map_err(|_| GoldAndGearsCliError::Replay)?;
     let replay = encode_gold_and_gears_replay(&header, &recorded)
         .map_err(|_| GoldAndGearsCliError::Replay)?;
     let mut replay_digest = Sha256Sink::new();
@@ -145,14 +146,14 @@ pub fn run(args: &[String]) -> Result<(), GoldAndGearsCliError> {
 }
 
 pub fn is_replay(bytes: &[u8]) -> bool {
-    decode_replay_v2(bytes).is_ok_and(|replay| {
+    decode_replay(bytes).is_ok_and(|replay| {
         matches!(replay.header().entry(), ReplayEntry::Activity { profile_id, .. }
             if profile_id.as_ref() == GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION)
     })
 }
 
 pub fn verify_replay(bytes: &[u8], json: bool) -> Result<(), GoldAndGearsCliError> {
-    let replay = decode_replay_v2(bytes).map_err(|_| GoldAndGearsCliError::Replay)?;
+    let replay = decode_replay(bytes).map_err(|_| GoldAndGearsCliError::Replay)?;
     let fixture = fixture()?;
     let request = request(replay.header().master_seed(), &fixture)?;
     let report = verify_gold_and_gears_replay(

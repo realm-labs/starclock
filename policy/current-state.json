@@ -1,0 +1,24 @@
+{
+  "history": "git-only",
+  "compatibility": "current-only",
+  "migrations": false,
+  "legacy_input_acceptance": false,
+  "historical_evidence": false,
+  "runtime": {
+    "combat": true,
+    "activity": true,
+    "standard_battle": true,
+    "standard_universe": true,
+    "gold_and_gears": true,
+    "swarm_disaster": true,
+    "replay": "current-tree-only",
+    "agent_api": true,
+    "mcp": true,
+    "cli": true
+  },
+  "verification": {
+    "rust": "cargo",
+    "default_excludes_exhaustive": true,
+    "data_checks_are_change_scoped": true
+  }
+}

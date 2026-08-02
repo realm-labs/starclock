@@ -13,11 +13,11 @@ use starclock_agent_api::{
 };
 use starclock_mode_universe::{
     baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
+    current_replay::{
+        encode_standard_universe_replay, record_baseline_run, standard_universe_replay_header,
+    },
     nested_battle_executor::UniverseNestedBattleExecutor,
     production_runtime::StandardUniverseControllerIdentity,
-    universe_replay_v3::{
-        encode_standard_universe_trace_v3, record_baseline_run_v3, standard_universe_header_v3,
-    },
 };
 use starclock_replay::record::RecordKind;
 
@@ -153,7 +153,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
         replay.action_count().to_u64(),
         session.replay_action_count() as u64
     );
-    assert!(starclock_replay::format_v3::decode_replay_v3(replay.bytes()).is_ok());
+    assert!(starclock_replay::current::decode_replay(replay.bytes()).is_ok());
     let verified = session.verify_replay(factory, replay.bytes()).unwrap();
     assert_eq!(verified.action_count, replay.action_count().clone());
     assert_eq!(verified.final_state_hash, session.state_hash());
@@ -179,6 +179,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
 }
 
 #[test]
+#[ignore = "exhaustive current-state replay corruption corpus"]
 fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
     const CORPUS_CASES: usize = 16;
     const VERIFY_WORKERS: usize = 4;
@@ -243,6 +244,7 @@ fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
 }
 
 #[test]
+#[ignore = "exhaustive current-state concurrent session stress"]
 fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
     const SESSIONS: usize = 16;
 
@@ -296,16 +298,17 @@ fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
     let assembler = Arc::clone(instance.battle_assembler());
     let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
     let header =
-        standard_universe_header_v3(compatibility, components, 1, &activity, &profile_id).unwrap();
+        standard_universe_replay_header(compatibility, components, 1, &activity, &profile_id)
+            .unwrap();
     let mut executor = UniverseNestedBattleExecutor::dynamic();
-    let recorded = record_baseline_run_v3(
+    let recorded = record_baseline_run(
         &mut activity,
         &StandardUniverseBaselinePolicy::default(),
         &assembler,
         &mut executor,
     )
     .unwrap();
-    let baseline = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+    let baseline = encode_standard_universe_replay(&header, &recorded).unwrap();
 
     let agent_factory = starclock_test_kit::activity_agent_session_factory();
     let mut agent = create(agent_factory, "session_activity_cross_surface");
@@ -325,7 +328,7 @@ fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
 }
 
 fn nested_authority_digest(bytes: &[u8]) -> [u8; 32] {
-    let replay = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+    let replay = starclock_replay::current::decode_replay(bytes).unwrap();
     let mut hash = Sha256::new();
     for record in replay.records() {
         let payload = match record.kind() {

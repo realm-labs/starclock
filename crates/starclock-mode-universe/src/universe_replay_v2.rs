@@ -35,33 +35,27 @@ use starclock_replay::{
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, decode_nested_battle_command_payload,
         decode_nested_battle_state_payload, encode_nested_battle_command_payload,
-        encode_nested_battle_state_payload, encode_nested_battle_state_payload_v1,
+        encode_nested_battle_state_payload,
     },
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
 
 use crate::{
-    baseline_runner::{
-        NestedBattleExecutionError, StandardUniverseBaselinePolicy, StandardUniverseBaselineReport,
-    },
+    baseline_runner::{NestedBattleExecutionError, StandardUniverseBaselineReport},
     battle_materialization::UniverseBattleMaterialization,
     catalog::UniverseCatalog,
     dynamic_battle_assembler::StandardUniverseBattleAssembler,
     entry::CompiledActivity,
     handler_bundle::activity_handler_registry,
     nested_battle_executor::{
-        EventCommitment, NestedBattleExecutionReport, UniverseNestedBattleExecutor,
-        create_nested_battle, project_result,
+        EventCommitment, NestedBattleExecutionReport, create_nested_battle, project_result,
     },
     runtime::StandardUniverseActivity,
     universe_replay::{
         StandardUniverseReplayAction, StandardUniverseReplayError, StandardUniverseTraceEntry,
-        decode_action, encode_action, record_baseline_run, replay_entry_for,
+        decode_action, encode_action, replay_entry_for,
     },
 };
-
-pub const STANDARD_UNIVERSE_REAL_BATTLE_REPLAY_REVISION: &str =
-    "standard-universe-real-battle-replay-v1";
 
 /// Builds the exact ordered component manifest consumed by a materialized
 /// Standard Universe activity and its selected controller.
@@ -177,37 +171,6 @@ impl RecordedStandardUniverseRunV2 {
     }
 }
 
-/// Drives the production nested executor and retains every accepted command
-/// plus complete emitted events. Fake/atomic battle executors cannot enter v2.
-pub fn record_baseline_run_v2(
-    activity: &mut StandardUniverseActivity,
-    policy: &StandardUniverseBaselinePolicy,
-    executor: &mut UniverseNestedBattleExecutor,
-) -> Result<RecordedStandardUniverseRunV2, StandardUniverseReplayV2Error> {
-    let first_report = executor.reports().len();
-    let recorded = record_baseline_run(activity, policy, executor)?;
-    let battles = executor.reports()[first_report..].to_vec();
-    let expected_battles = recorded
-        .trace()
-        .iter()
-        .filter(|entry| matches!(entry.action(), StandardUniverseReplayAction::Battle { .. }))
-        .count();
-    if battles.len() != expected_battles {
-        return Err(StandardUniverseReplayV2Error::CapturedBattleMismatch);
-    }
-    Ok(RecordedStandardUniverseRunV2::new(
-        recorded.report().clone(),
-        recorded.trace().to_vec().into_boxed_slice(),
-        battles.into_boxed_slice(),
-    ))
-}
-
-pub fn standard_universe_record_count_v2(
-    recorded: &RecordedStandardUniverseRunV2,
-) -> Result<u32, StandardUniverseReplayV2Error> {
-    standard_universe_record_count_parts_v2(recorded.trace(), recorded.battles())
-}
-
 fn standard_universe_record_count_parts_v2(
     trace: &[StandardUniverseTraceEntry],
     battles: &[NestedBattleExecutionReport],
@@ -241,52 +204,18 @@ fn standard_universe_record_count_parts_v2(
     }
 }
 
-pub fn encode_standard_universe_trace_v2(
-    header_template: &ReplayHeaderV2,
-    recorded: &RecordedStandardUniverseRunV2,
-) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
-    encode_standard_universe_trace_parts_v2(header_template, recorded.trace(), recorded.battles())
-}
-
-/// Encodes an incremental externally controlled Activity session. Battle
-/// reports must correspond one-to-one with Battle actions in trace order.
-pub fn encode_standard_universe_trace_parts_v2(
+pub(crate) fn encode_current_trace_parts_for_core(
     header_template: &ReplayHeaderV2,
     trace: &[StandardUniverseTraceEntry],
     battles: &[NestedBattleExecutionReport],
 ) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
-    encode_standard_universe_trace_parts_with_event_payload(
-        header_template,
-        trace,
-        battles,
-        NestedEventPayload::ReleasedV2,
-    )
+    encode_standard_universe_trace_parts(header_template, trace, battles)
 }
 
-pub(crate) fn encode_standard_universe_trace_parts_v3_bridge(
+fn encode_standard_universe_trace_parts(
     header_template: &ReplayHeaderV2,
     trace: &[StandardUniverseTraceEntry],
     battles: &[NestedBattleExecutionReport],
-) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
-    encode_standard_universe_trace_parts_with_event_payload(
-        header_template,
-        trace,
-        battles,
-        NestedEventPayload::Current,
-    )
-}
-
-#[derive(Clone, Copy)]
-enum NestedEventPayload {
-    ReleasedV2,
-    Current,
-}
-
-fn encode_standard_universe_trace_parts_with_event_payload(
-    header_template: &ReplayHeaderV2,
-    trace: &[StandardUniverseTraceEntry],
-    battles: &[NestedBattleExecutionReport],
-    event_payload: NestedEventPayload,
 ) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
     let count = standard_universe_record_count_parts_v2(trace, battles)?;
     let header = ReplayHeaderV2::new(
@@ -334,14 +263,7 @@ fn encode_standard_universe_trace_parts_with_event_payload(
                 ));
                 payloads.push((
                     RecordKind::ExpectedBattleState,
-                    match event_payload {
-                        NestedEventPayload::ReleasedV2 => {
-                            encode_nested_battle_state_payload_v1(step.state_hash(), step.events())?
-                        }
-                        NestedEventPayload::Current => {
-                            encode_nested_battle_state_payload(step.state_hash(), step.events())?
-                        }
-                    },
+                    encode_nested_battle_state_payload(step.state_hash(), step.events())?,
                 ));
             }
             let result = match entry.action() {

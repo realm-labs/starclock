@@ -14,13 +14,13 @@ use starclock_mode_universe::{
             GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY, GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION,
             GoldAndGearsBaselineFixture,
         },
-        encode_gold_and_gears_replay, gold_and_gears_header_v2,
+        encode_gold_and_gears_replay, gold_and_gears_replay_header,
         incremental_run::GoldAndGearsIncrementalRun,
         record_incremental_gold_and_gears_run, verify_gold_and_gears_replay,
     },
     gold_gears_identity::GoldAndGearsCatalogIdentity,
 };
-use starclock_replay::{component::ConfigurationComponentSet, format_v2::ReplayHeaderV2};
+use starclock_replay::{component::ConfigurationComponentSet, current::ReplayHeader};
 
 use crate::{
     activity_action::{
@@ -100,9 +100,12 @@ impl GoldAndGearsActivityAgentSessionFactory {
         request: CreateGoldAndGearsActivitySessionRequest,
     ) -> Result<GoldAndGearsActivityAgentSession, AgentError> {
         let run_request = run_request(request.seed.to_u64(), &self.fixture)?;
-        let replay_header =
-            gold_and_gears_header_v2(self.components.clone(), run_request, self.fixture.roster())
-                .map_err(|_| adapter_error(false))?;
+        let replay_header = gold_and_gears_replay_header(
+            self.components.clone(),
+            run_request,
+            self.fixture.roster(),
+        )
+        .map_err(|_| adapter_error(false))?;
         let mut run = GoldAndGearsIncrementalRun::start(self.fixture.instance(), run_request);
         run.settle_automatic(self.fixture.instance(), self.fixture.roster())
             .map_err(|error| run_error(error, true))?;
@@ -171,7 +174,7 @@ pub struct GoldAndGearsActivityAgentSession {
     id: SessionId,
     seed: u64,
     fixture: Arc<GoldAndGearsBaselineFixture>,
-    replay_header: ReplayHeaderV2,
+    replay_header: ReplayHeader,
     run: GoldAndGearsIncrementalRun,
     offered: Option<GoldOfferedActionSet>,
     idempotency: BTreeMap<crate::schema::IdempotencyKey, CachedGoldResponse>,

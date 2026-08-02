@@ -498,7 +498,7 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     if gold_gears_v1::is_replay(&bytes) {
         return gold_gears_v1::verify_replay(&bytes, json).map_err(CliError::GoldAndGears);
     }
-    if universe_v1::is_universe_replay_v2(&bytes) {
+    if universe_v1::is_universe_replay(&bytes) {
         return universe_v1::verify_replay(&bytes, json).map_err(CliError::Universe);
     }
     let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;

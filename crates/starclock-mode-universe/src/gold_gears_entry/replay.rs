@@ -14,13 +14,11 @@ use starclock_replay::{
         ComponentIdentityError, ConfigurationComponentDivergence, ConfigurationComponentKind,
         ConfigurationComponentSet,
     },
+    current::{ReplayCompatibility, ReplayError, ReplayHeader, decode_replay, encode_replay},
     digest::{
         BuildCatalogDigest, CombatantBuildDigest, DefinitionDigest, EntrySpecDigest, StateDigest,
     },
     format::{BuildBindings, ReplayEntry},
-    format_v2::{
-        ReplayCompatibilityV2, ReplayHeaderV2, ReplayV2Error, decode_replay_v2, encode_replay_v2,
-    },
     nested_battle::{
         MAX_NESTED_BATTLE_EVENTS_PER_COMMAND, NESTED_BATTLE_STATE_PAYLOAD_VERSION,
         NestedBattleCommandPayload, NestedBattlePayloadError, decode_nested_battle_command_payload,
@@ -144,9 +142,9 @@ pub fn record_incremental_gold_and_gears_run(
 }
 
 /// Current compatibility identity for Gold replay-v2 envelopes.
-pub fn gold_and_gears_replay_compatibility()
--> Result<ReplayCompatibilityV2, GoldAndGearsReplayError> {
-    Ok(ReplayCompatibilityV2::new(
+pub fn gold_and_gears_replay_compatibility() -> Result<ReplayCompatibility, GoldAndGearsReplayError>
+{
+    Ok(ReplayCompatibility::new(
         "4.4",
         NUMERIC_POLICY_REVISION,
         RNG_ALGORITHM_REVISION,
@@ -155,13 +153,13 @@ pub fn gold_and_gears_replay_compatibility()
 }
 
 /// Creates a zero-record, build-aware header for one exact run entry.
-pub fn gold_and_gears_header_v2(
+pub fn gold_and_gears_replay_header(
     components: ConfigurationComponentSet,
     request: GoldAndGearsSeededRunRequest,
     roster: &UniverseBattleRoster,
-) -> Result<ReplayHeaderV2, GoldAndGearsReplayError> {
+) -> Result<ReplayHeader, GoldAndGearsReplayError> {
     let entry = replay_entry(&components, request, roster)?;
-    Ok(ReplayHeaderV2::new(
+    Ok(ReplayHeader::new(
         gold_and_gears_replay_compatibility()?,
         components,
         request.seed(),
@@ -172,7 +170,7 @@ pub fn gold_and_gears_header_v2(
 
 /// Encodes a complete real-battle trace under the frozen ReplayV2 envelope.
 pub fn encode_gold_and_gears_replay(
-    header_template: &ReplayHeaderV2,
+    header_template: &ReplayHeader,
     recorded: &RecordedGoldAndGearsRun,
 ) -> Result<Vec<u8>, GoldAndGearsReplayError> {
     validate_header(
@@ -182,7 +180,7 @@ pub fn encode_gold_and_gears_replay(
         None,
     )?;
     let count = record_count(&recorded.execution)?;
-    let header = ReplayHeaderV2::new(
+    let header = ReplayHeader::new(
         header_template.compatibility().clone(),
         header_template.components().clone(),
         header_template.master_seed(),
@@ -234,7 +232,7 @@ pub fn encode_gold_and_gears_replay(
         .enumerate()
         .map(|(index, (kind, payload))| RecordRef::new(*kind, index as u64, payload))
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(encode_replay_v2(&header, &records, Vec::new())?)
+    Ok(encode_replay(&header, &records, Vec::new())?)
 }
 
 /// Re-executes the complete run from fresh state and reports the first typed
@@ -246,7 +244,7 @@ pub fn verify_gold_and_gears_replay(
     roster: &UniverseBattleRoster,
     actual_components: &ConfigurationComponentSet,
 ) -> Result<GoldAndGearsReplayReport, GoldAndGearsReplayError> {
-    let replay = decode_replay_v2(bytes)?;
+    let replay = decode_replay(bytes)?;
     replay
         .header()
         .components()
@@ -287,7 +285,7 @@ fn replay_entry(
 }
 
 fn validate_header(
-    header: &ReplayHeaderV2,
+    header: &ReplayHeader,
     components: &ConfigurationComponentSet,
     request: GoldAndGearsSeededRunRequest,
     roster: Option<&UniverseBattleRoster>,
@@ -692,7 +690,7 @@ fn divergence(
 
 #[derive(Debug)]
 pub enum GoldAndGearsReplayError {
-    Envelope(ReplayV2Error),
+    Envelope(ReplayError),
     Format(ReplayFormatError),
     Codec(CodecError),
     NestedPayload(NestedBattlePayloadError),
@@ -721,8 +719,8 @@ impl GoldAndGearsReplayError {
     }
 }
 
-impl From<ReplayV2Error> for GoldAndGearsReplayError {
-    fn from(value: ReplayV2Error) -> Self {
+impl From<ReplayError> for GoldAndGearsReplayError {
+    fn from(value: ReplayError) -> Self {
         Self::Envelope(value)
     }
 }

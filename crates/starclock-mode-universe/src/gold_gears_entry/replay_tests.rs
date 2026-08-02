@@ -3,7 +3,7 @@ use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, Encoder},
     component::ConfigurationComponentSet,
     digest::Sha256Sink,
-    format_v2::{ReplayHeaderV2, decode_replay_v2, encode_replay_v2},
+    current::{ReplayHeader, decode_replay, encode_replay},
     record::{RecordKind, RecordRef},
 };
 
@@ -14,7 +14,7 @@ use crate::{
 
 use super::{
     GoldAndGearsReplayDivergenceKind, GoldAndGearsRuntimeFactory,
-    GoldAndGearsSeededRunRequest, encode_gold_and_gears_replay, gold_and_gears_header_v2,
+    GoldAndGearsSeededRunRequest, encode_gold_and_gears_replay, gold_and_gears_replay_header,
     record_gold_and_gears_run, verify_gold_and_gears_replay,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
@@ -37,7 +37,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
         "4dfaf6e6aea980f2a24d96800c9a4924d0f4ea88e8a0153413521abb259f1f32"
     );
     let recorded = record_gold_and_gears_run(&instance, request, &roster).unwrap();
-    let header = gold_and_gears_header_v2(component_set.clone(), request, &roster).unwrap();
+    let header = gold_and_gears_replay_header(component_set.clone(), request, &roster).unwrap();
     let bytes = encode_gold_and_gears_replay(&header, &recorded).unwrap();
     assert_eq!(encode_gold_and_gears_replay(&header, &recorded).unwrap(), bytes);
 
@@ -68,9 +68,9 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(bytes.len(), 111_347);
     assert_eq!(
         hex(replay_digest.finalize().bytes()),
-        "cfd954d84345f310287d6f0fee7d58921469e6729e997c6c95b851346a04dce8"
+        "2fb31c8fa70cb0cae062b1c6b6085d966989ba220d3a0ba283c7b98309b0592a"
     );
-    let replay = decode_replay_v2(&bytes).unwrap();
+    let replay = decode_replay(&bytes).unwrap();
     assert_eq!(replay.records().len(), 356);
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
@@ -82,11 +82,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "34bee6807cc9301c142555def9a4f15944f363084a8cb1c33f6b2ba3a02a5cfe"
+        "df5de4c08cdb77ec1fd905a7a1a00a50851fc2e6981a5d16c7024b3f85f2e0b5"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
-        "e52b79218edf637457107972cdd8b6c99559a93d6a341aa9a1504cf7437cb554"
+        "1f879b1c2b0c47456b84393cd4ed819c42cbdd52845f5600eb35c98417658c27"
     );
 
     assert_divergence(
@@ -249,7 +249,7 @@ fn mutate_first_where(
     predicate: impl Fn(&[u8]) -> bool,
     mutate: impl FnOnce(&mut Vec<u8>),
 ) -> Vec<u8> {
-    let replay = decode_replay_v2(bytes).unwrap();
+    let replay = decode_replay(bytes).unwrap();
     let mut payloads = replay
         .records()
         .iter()
@@ -264,17 +264,17 @@ fn mutate_first_where(
     encode_payloads(replay.header().clone(), &payloads)
 }
 
-fn encode_payloads(header: ReplayHeaderV2, payloads: &[(RecordKind, Vec<u8>)]) -> Vec<u8> {
+fn encode_payloads(header: ReplayHeader, payloads: &[(RecordKind, Vec<u8>)]) -> Vec<u8> {
     let records = payloads
         .iter()
         .enumerate()
         .map(|(index, (kind, payload))| RecordRef::new(*kind, index as u64, payload).unwrap())
         .collect::<Vec<_>>();
-    encode_replay_v2(&header, &records, Vec::new()).unwrap()
+    encode_replay(&header, &records, Vec::new()).unwrap()
 }
 
 fn record_digest(bytes: &[u8], kinds: &[RecordKind]) -> String {
-    let replay = decode_replay_v2(bytes).unwrap();
+    let replay = decode_replay(bytes).unwrap();
     let mut encoder = Encoder::new(Sha256Sink::new());
     for record in replay
         .records()

@@ -16,9 +16,7 @@ use starclock_mode_universe::swarm_disaster_entry::{
         SWARM_DISASTER_BASELINE_PROFILE, SwarmDisasterBaselineFixture,
     },
     incremental_run::{SwarmDisasterIncrementalOffer, SwarmDisasterIncrementalRun},
-    replay::{
-        SwarmReplayError, encode_incremental_swarm_replay_v2, verify_complete_swarm_replay_v2,
-    },
+    replay::{SwarmReplayError, encode_incremental_swarm_replay, verify_complete_swarm_replay},
 };
 use starclock_replay::component::ConfigurationComponentSet;
 
@@ -149,7 +147,7 @@ impl SwarmDisasterActivityAgentSessionFactory {
         seed: &AgentUInt,
         bytes: &[u8],
     ) -> Result<AgentActivityReplayVerification, AgentError> {
-        let report = verify_complete_swarm_replay_v2(
+        let report = verify_complete_swarm_replay(
             bytes,
             self.fixture.instance(),
             seed.to_u64(),
@@ -354,7 +352,7 @@ impl SwarmDisasterActivityAgentSession {
     /// Exports the live terminal transcript through the canonical Swarm
     /// ReplayV2 encoder.
     pub fn export_replay(&self) -> Result<AgentActivityReplayExport, AgentError> {
-        let bytes = encode_incremental_swarm_replay_v2(
+        let bytes = encode_incremental_swarm_replay(
             self.fixture.instance(),
             &self.run,
             self.fixture.roster(),

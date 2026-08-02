@@ -8,13 +8,11 @@ use starclock_replay::{
     battle_event::{BATTLE_EVENT_PAYLOAD_VERSION_V5, BattleEventPayloadError},
     codec::CodecError,
     component::{ComponentIdentityError, ConfigurationComponentKind, ConfigurationComponentSet},
+    current::{ReplayCompatibility, ReplayError, ReplayHeader, decode_replay, encode_replay},
     digest::{
         BuildCatalogDigest, CombatantBuildDigest, DefinitionDigest, EntrySpecDigest, StateDigest,
     },
     format::{BuildBindings, ReplayEntry},
-    format_v2::{
-        ReplayCompatibilityV2, ReplayHeaderV2, ReplayV2Error, decode_replay_v2, encode_replay_v2,
-    },
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, encode_nested_battle_command_payload,
     },
@@ -98,8 +96,8 @@ impl SwarmReplayReport {
 }
 
 /// Compatibility identity frozen for the Swarm Disaster ReplayV2 envelope.
-pub fn swarm_replay_compatibility_v2() -> Result<ReplayCompatibilityV2, ReplayV2Error> {
-    ReplayCompatibilityV2::new(
+pub fn swarm_replay_compatibility() -> Result<ReplayCompatibility, ReplayError> {
+    ReplayCompatibility::new(
         "4.4",
         NUMERIC_POLICY_REVISION,
         RNG_ALGORITHM_REVISION,
@@ -108,7 +106,7 @@ pub fn swarm_replay_compatibility_v2() -> Result<ReplayCompatibilityV2, ReplayV2
 }
 
 /// Executes one complete baseline run and encodes its canonical real-battle replay.
-pub fn encode_complete_swarm_replay_v2(
+pub fn encode_complete_swarm_replay(
     instance: &SwarmDisasterRuntimeInstance,
     seed: u64,
     identity: ActivityDefinitionIdentity,
@@ -118,13 +116,13 @@ pub fn encode_complete_swarm_replay_v2(
 ) -> Result<Vec<u8>, SwarmReplayError> {
     let request = baseline_request(seed, identity, activity_instance);
     let recorded = record_swarm_run(instance, request, roster)?;
-    let header = swarm_header_v2(components, request, roster)?;
+    let header = swarm_replay_header(components, request, roster)?;
     encode_swarm_replay(&header, &recorded)
 }
 
 /// Encodes one terminal incremental session through the canonical Swarm
 /// ReplayV2 encoder. Incomplete sessions fail closed.
-pub fn encode_incremental_swarm_replay_v2(
+pub fn encode_incremental_swarm_replay(
     instance: &SwarmDisasterRuntimeInstance,
     run: &SwarmDisasterIncrementalRun,
     roster: &UniverseBattleRoster,
@@ -134,12 +132,12 @@ pub fn encode_incremental_swarm_replay_v2(
         request: run.request(),
         execution: run.recorded_execution(instance)?,
     };
-    let header = swarm_header_v2(components, recorded.request, roster)?;
+    let header = swarm_replay_header(components, recorded.request, roster)?;
     encode_swarm_replay(&header, &recorded)
 }
 
 /// Re-executes one canonical replay from fresh local state without mutating a live session.
-pub fn verify_complete_swarm_replay_v2(
+pub fn verify_complete_swarm_replay(
     bytes: &[u8],
     instance: &SwarmDisasterRuntimeInstance,
     seed: u64,
@@ -182,14 +180,14 @@ fn record_swarm_run(
     })
 }
 
-fn swarm_header_v2(
+fn swarm_replay_header(
     components: ConfigurationComponentSet,
     request: SwarmSeededRunRequest,
     roster: &UniverseBattleRoster,
-) -> Result<ReplayHeaderV2, SwarmReplayError> {
+) -> Result<ReplayHeader, SwarmReplayError> {
     let entry = replay_entry(&components, request, roster)?;
-    Ok(ReplayHeaderV2::new(
-        swarm_replay_compatibility_v2()?,
+    Ok(ReplayHeader::new(
+        swarm_replay_compatibility()?,
         components,
         request.seed,
         entry,
@@ -198,7 +196,7 @@ fn swarm_header_v2(
 }
 
 fn encode_swarm_replay(
-    header_template: &ReplayHeaderV2,
+    header_template: &ReplayHeader,
     recorded: &RecordedSwarmRun,
 ) -> Result<Vec<u8>, SwarmReplayError> {
     validate_header(
@@ -208,7 +206,7 @@ fn encode_swarm_replay(
         None,
     )?;
     let count = record_count(&recorded.execution)?;
-    let header = ReplayHeaderV2::new(
+    let header = ReplayHeader::new(
         header_template.compatibility().clone(),
         header_template.components().clone(),
         header_template.master_seed(),
@@ -260,7 +258,7 @@ fn encode_swarm_replay(
         .enumerate()
         .map(|(index, (kind, payload))| RecordRef::new(*kind, index as u64, payload))
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(encode_replay_v2(&header, &records, Vec::new())?)
+    Ok(encode_replay(&header, &records, Vec::new())?)
 }
 
 /// Re-executes from fresh state. Recorded battle results are never submitted.
@@ -271,7 +269,7 @@ fn verify_swarm_replay(
     roster: &UniverseBattleRoster,
     actual_components: &ConfigurationComponentSet,
 ) -> Result<SwarmReplayReport, SwarmReplayError> {
-    let replay = decode_replay_v2(bytes)?;
+    let replay = decode_replay(bytes)?;
     replay
         .header()
         .components()
@@ -311,13 +309,13 @@ fn replay_entry(
 }
 
 fn validate_header(
-    header: &ReplayHeaderV2,
+    header: &ReplayHeader,
     components: &ConfigurationComponentSet,
     request: SwarmSeededRunRequest,
     roster: Option<&UniverseBattleRoster>,
 ) -> Result<(), SwarmReplayError> {
     if header.master_seed() != request.seed
-        || header.compatibility() != &swarm_replay_compatibility_v2()?
+        || header.compatibility() != &swarm_replay_compatibility()?
     {
         return Err(divergence(SwarmReplayDivergenceKind::Catalog, 0, 0, 0));
     }
@@ -572,8 +570,8 @@ impl SwarmReplayError {
     }
 }
 
-impl From<ReplayV2Error> for SwarmReplayError {
-    fn from(_: ReplayV2Error) -> Self {
+impl From<ReplayError> for SwarmReplayError {
+    fn from(_: ReplayError) -> Self {
         Self::Envelope
     }
 }

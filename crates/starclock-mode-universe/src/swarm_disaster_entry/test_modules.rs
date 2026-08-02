@@ -11,7 +11,7 @@ mod hardening_tests;
 mod map_overlay_tests;
 mod pathstrider_progress_tests;
 mod plane_transition_tests;
-mod replay_current_tests;
+mod replay_tests;
 mod seeded_run_tests;
 mod simultaneous_tests;
 mod tests;

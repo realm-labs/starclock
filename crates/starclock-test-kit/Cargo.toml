@@ -5,6 +5,9 @@ edition.workspace = true
 publish.workspace = true
 autotests = false
 
+[features]
+exhaustive = []
+
 [lints]
 workspace = true
 
@@ -48,3 +51,4 @@ path = "tests/adapter_suite.rs"
 [[test]]
 name = "exhaustive_suite"
 path = "tests/exhaustive_suite.rs"
+required-features = ["exhaustive"]

@@ -3,6 +3,10 @@ use std::{fmt, fs, path::PathBuf, sync::Arc};
 use starclock_mode_universe::{
     baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
     catalog::UniverseCatalog,
+    current_replay::{
+        encode_standard_universe_replay, record_baseline_run, standard_universe_replay_header,
+        verify_standard_universe_replay_dynamic,
+    },
     nested_battle_executor::{
         UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION, UniverseNestedBattleExecutor,
     },
@@ -10,14 +14,9 @@ use starclock_mode_universe::{
         STANDARD_UNIVERSE_PROFILE_PREFIX, StandardUniverseControllerIdentity,
         StandardUniverseRuntimeFactory, StandardUniverseRuntimeFactoryError,
     },
-    universe_replay_v2::verify_standard_universe_replay_v2,
-    universe_replay_v3::{
-        encode_standard_universe_trace_v3, record_baseline_run_v3, standard_universe_header_v3,
-        verify_standard_universe_replay_v3_dynamic,
-    },
 };
 use starclock_replay::{
-    codec::CanonicalSink, digest::Sha256Sink, format::ReplayEntry, format_v2::ReplayCompatibilityV2,
+    codec::CanonicalSink, current::ReplayCompatibility, digest::Sha256Sink, format::ReplayEntry,
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -79,7 +78,7 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     let options = RunOptions::parse(args)?;
     let context = context(options.world, options.difficulty_index, options.seed)?;
     let mut activity = context.activity;
-    let header = standard_universe_header_v3(
+    let header = standard_universe_replay_header(
         context.compatibility.clone(),
         context.components.clone(),
         options.seed,
@@ -88,14 +87,14 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     )
     .map_err(|_| UniverseCliError::Replay)?;
     let mut executor = UniverseNestedBattleExecutor::dynamic();
-    let recorded = record_baseline_run_v3(
+    let recorded = record_baseline_run(
         &mut activity,
         &StandardUniverseBaselinePolicy::default(),
         &context.battle_assembler,
         &mut executor,
     )
     .map_err(|_| UniverseCliError::Simulation)?;
-    let replay = encode_standard_universe_trace_v3(&header, &recorded)
+    let replay = encode_standard_universe_replay(&header, &recorded)
         .map_err(|_| UniverseCliError::Replay)?;
     if let Some(path) = &options.replay_out {
         fs::write(path, &replay).map_err(UniverseCliError::Io)?;
@@ -137,11 +136,9 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     Ok(())
 }
 
-pub fn is_universe_replay_v2(bytes: &[u8]) -> bool {
-    starclock_replay::format_v3::decode_replay_v3(bytes)
+pub fn is_universe_replay(bytes: &[u8]) -> bool {
+    starclock_replay::current::decode_replay(bytes)
         .is_ok_and(|replay| is_universe_entry(replay.header().entry()))
-        || starclock_replay::format_v2::decode_replay_v2(bytes)
-            .is_ok_and(|replay| is_universe_entry(replay.header().entry()))
 }
 
 fn is_universe_entry(entry: &ReplayEntry) -> bool {
@@ -149,47 +146,24 @@ fn is_universe_entry(entry: &ReplayEntry) -> bool {
 }
 
 pub fn verify_replay(bytes: &[u8], json: bool) -> Result<(), UniverseCliError> {
-    let v3 = starclock_replay::format_v3::decode_replay_v3(bytes).ok();
-    let v2 = if v3.is_none() {
-        Some(
-            starclock_replay::format_v2::decode_replay_v2(bytes)
-                .map_err(|_| UniverseCliError::Replay)?,
-        )
-    } else {
-        None
-    };
-    let header = v3
-        .as_ref()
-        .map(|replay| replay.header())
-        .or_else(|| v2.as_ref().map(|replay| replay.header()))
-        .ok_or(UniverseCliError::Replay)?;
+    let replay =
+        starclock_replay::current::decode_replay(bytes).map_err(|_| UniverseCliError::Replay)?;
+    let header = replay.header();
     let (world, difficulty_index, profile_id) = parse_profile(header.entry())?;
     let seed = header.master_seed();
     let context = context(world, difficulty_index, seed)?;
     if context.profile_id != profile_id {
         return Err(UniverseCliError::Replay);
     }
-    let report = if v3.is_some() {
-        verify_standard_universe_replay_v3_dynamic(
-            bytes,
-            context.activity,
-            &context.battle_assembler,
-            &context.components,
-            &context.compatibility,
-            &profile_id,
-        )
-        .map_err(|_| UniverseCliError::Replay)?
-    } else {
-        verify_standard_universe_replay_v2(
-            bytes,
-            context.activity,
-            context.materialized_combat_catalog,
-            &context.components,
-            &context.compatibility,
-            &profile_id,
-        )
-        .map_err(|_| UniverseCliError::Replay)?
-    };
+    let report = verify_standard_universe_replay_dynamic(
+        bytes,
+        context.activity,
+        &context.battle_assembler,
+        &context.components,
+        &context.compatibility,
+        &profile_id,
+    )
+    .map_err(|_| UniverseCliError::Replay)?;
     if json {
         println!(
             "{{\"schema_revision\":\"{CLI_REVISION}\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\"}}",
@@ -273,9 +247,8 @@ struct RunContext {
     activity: starclock_mode_universe::runtime::StandardUniverseActivity,
     battle_assembler:
         Arc<starclock_mode_universe::dynamic_battle_assembler::StandardUniverseBattleAssembler>,
-    materialized_combat_catalog: Arc<starclock_combat::catalog::CombatCatalog>,
     components: starclock_replay::component::ConfigurationComponentSet,
-    compatibility: ReplayCompatibilityV2,
+    compatibility: ReplayCompatibility,
 }
 
 fn context(
@@ -298,13 +271,12 @@ fn context(
         )
         .map_err(runtime_factory_error)?;
     let battle_assembler = Arc::clone(instance.battle_assembler());
-    let (profile_id, activity, materialized_combat_catalog, components, compatibility) =
-        instance.into_replay_v2_compatibility_parts();
+    let (profile_id, activity, _materialized_combat_catalog, components, compatibility) =
+        instance.into_replay_parts();
     Ok(RunContext {
         profile_id: profile_id.into(),
         activity,
         battle_assembler,
-        materialized_combat_catalog,
         components,
         compatibility,
     })
