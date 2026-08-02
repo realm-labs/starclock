@@ -53,7 +53,7 @@ fn current_activity_materializes_a_real_construction_validated_battle() {
     );
     assert_eq!(
         digest_hex(first.combat_input_digest().bytes()),
-        "a286fbb3d39ab8067d1a87992a6cd8016da5b26ebd7329562c58069c5bda5c71"
+        "d411df150eb9be4105442220b6fd8354baa0e087e3a624ece6356b69f60ad8cd"
     );
     assert_eq!(
         digest_hex(snapshot.digest),

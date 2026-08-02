@@ -14,7 +14,6 @@ use super::spec::{
 };
 
 const INPUT_MAGIC: &[u8; 4] = b"SCBI";
-const INPUT_CODEC_TAG: u16 = 1;
 
 pub(super) fn combat_input_digest(
     encounter: crate::EncounterId,
@@ -25,7 +24,6 @@ pub(super) fn combat_input_digest(
 ) -> CombatInputDigest {
     let mut encoder = Encoder(Sha256::new());
     encoder.raw(INPUT_MAGIC);
-    encoder.u16(INPUT_CODEC_TAG);
     encoder.u32(encounter.get());
     encoder.length(participants.len());
     for participant in participants {

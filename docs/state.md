@@ -77,6 +77,8 @@ Removed from current runtime surfaces:
 - Activity codec/RNG/scope/handler revisions duplicated by current structure and digests;
 - Combat catalog/rules/numeric/RNG/state-codec revisions and the duplicate
   `BattleSpecDigest` wrapper;
+- Combat input/state codec revision sentinels; `SCBI`/`SCBS` framing magic and
+  semantic field discriminants remain;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain
