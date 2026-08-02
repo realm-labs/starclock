@@ -11,18 +11,11 @@ use crate::{
     error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind},
 };
 
-use super::{
-    SWARM_DISASTER_PLANE_COMPLETION_REVISION, SwarmDisasterRuntimeFactory,
-    SwarmDisasterRuntimeInstance,
-};
+use super::{SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance};
 
 #[test]
 fn two_boss_choices_retain_exact_released_descriptors() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_PLANE_COMPLETION_REVISION,
-        "swarm-disaster-plane-completion-policy-v1"
-    );
     assert_eq!(
         factory.transitions.descriptors().collect::<Vec<_>>(),
         [

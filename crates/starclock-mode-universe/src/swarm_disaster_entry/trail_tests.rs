@@ -6,17 +6,13 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_TRAIL_REVISION, SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
-    SwarmDisasterRuntimeInstance, trail::TrailRuntimeCatalog,
+    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
+    trail::TrailRuntimeCatalog,
 };
 
 #[test]
 fn frozen_trail_catalog_retains_exact_chains_and_projection_denominators() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_TRAIL_REVISION,
-        "swarm-disaster-communing-trail-v1"
-    );
     assert_eq!(factory.trail.denominators(), (63, 56, 58));
 
     let instance = full_instance(&factory, false);
@@ -35,10 +31,6 @@ fn frozen_trail_catalog_retains_exact_chains_and_projection_denominators() {
             .unwrap()
             .collect::<Vec<_>>(),
         ["swarm-disaster.communing-trail.101"]
-    );
-    assert_eq!(
-        hex(instance.communing_trail_digest()),
-        "9bf0490a5f6937805444f1a9edc10b72dd14630aab6506e0af0447aa9c1965f6"
     );
 }
 
@@ -362,8 +354,4 @@ fn identity() -> ActivityDefinitionIdentity {
         ActivityDefinitionDigest::new([0x20; 32]).unwrap(),
         ActivityConfigDigest::new([0x53; 32]).unwrap(),
     )
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

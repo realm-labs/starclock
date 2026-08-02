@@ -115,10 +115,6 @@ fn compiles_canonical_bounded_three_plane_topology() {
     let graph = instance.graph_definition();
 
     assert_eq!(
-        SWARM_DISASTER_TOPOLOGY_REVISION,
-        "swarm-disaster-topology-policy-v1"
-    );
-    assert_eq!(
         instance.planes().collect::<Vec<_>>(),
         [
             "swarm-disaster.plane.2011",

@@ -9,17 +9,13 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_DICE_FACE_REVISION, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
+    SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     face_effect::{DiceFaceRuntimeCatalog, FaceSelector},
 };
 
 #[test]
 fn all_faces_compile_exact_program_denominators_and_typed_contracts() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_DICE_FACE_REVISION,
-        "swarm-disaster-dice-face-policy-v1"
-    );
     assert_eq!(factory.face_effects.denominators(), (42, 42, 59, 23, 63));
     assert_eq!(
         factory.face_effects.coverage(),

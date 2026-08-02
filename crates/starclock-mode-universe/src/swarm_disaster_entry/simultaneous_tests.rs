@@ -7,8 +7,7 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_SIMULTANEOUS_REVISION, SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
-    SwarmDisasterRuntimeInstance,
+    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     simultaneous::{PHASE3_FIXTURE_IDS, RESOLUTION_TIER_BASE},
 };
 
@@ -208,10 +207,6 @@ fn illegal_route_rejects_before_any_face_draw() {
 
 #[test]
 fn four_phase3_fixture_bindings_use_production_contracts_and_ordered_clamps() {
-    assert_eq!(
-        SWARM_DISASTER_SIMULTANEOUS_REVISION,
-        "swarm-disaster-simultaneous-resolution-v1"
-    );
     assert_eq!(
         PHASE3_FIXTURE_IDS,
         [

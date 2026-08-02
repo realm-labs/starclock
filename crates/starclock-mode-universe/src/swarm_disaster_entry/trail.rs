@@ -347,7 +347,7 @@ fn compile_selected(
     let mut initial_countdown = 0;
     let mut next_plane_rerolls = 0;
     let mut fixed_entry = None;
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.communing-trail.v1");
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.communing-trail");
     encoder.text(PREDECESSOR_POLICY);
     encoder.u32(u32::try_from(nodes.len()).map_err(|_| invalid("too many Trail nodes"))?);
     for node in &nodes {

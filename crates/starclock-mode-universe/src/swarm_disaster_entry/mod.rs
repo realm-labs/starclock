@@ -62,18 +62,6 @@ use crate::{
     swarm_disaster_unique::SwarmDisasterUniqueCatalog,
 };
 
-/// Versioned deterministic root-board and forward-route construction policy.
-pub const SWARM_DISASTER_TOPOLOGY_REVISION: &str = "swarm-disaster-topology-policy-v1";
-pub const SWARM_DISASTER_PLANE_COMPLETION_REVISION: &str =
-    "swarm-disaster-plane-completion-policy-v1";
-pub const SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION: &str = "swarm-disaster-audience-runtime-v1";
-/// Versioned roll, reroll, cheat and abandon execution policy.
-pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-control-v1";
-pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-policy-v1";
-/// Versioned five-tier atomic Phase 3 resolution policy.
-pub const SWARM_DISASTER_SIMULTANEOUS_REVISION: &str = "swarm-disaster-simultaneous-resolution-v1";
-/// Versioned Communing Trail prerequisite and effect projection policy.
-pub const SWARM_DISASTER_TRAIL_REVISION: &str = "swarm-disaster-communing-trail-v1";
 /// Caller-owned controller identity included in the composed configuration root.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SwarmDisasterControllerIdentity<'a> {

@@ -4,17 +4,13 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION, SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
-    SwarmDisasterRuntimeInstance, audience::AudienceRuntimeCatalog,
+    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
+    audience::AudienceRuntimeCatalog,
 };
 
 #[test]
 fn eight_audience_definitions_retain_exact_order_and_denominators() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION,
-        "swarm-disaster-audience-runtime-v1"
-    );
     assert_eq!(factory.audience.denominators(), (8, 3, 42, 7, 1, 16, 26));
     assert_eq!(
         factory.audience.ordered_paths().collect::<Vec<_>>(),

@@ -7,17 +7,13 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_DICE_CONTROL_REVISION, SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
-    SwarmDisasterRuntimeInstance, dice_control::DiceControlRuntimeCatalog,
+    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
+    dice_control::DiceControlRuntimeCatalog,
 };
 
 #[test]
 fn four_authored_controls_compile_exact_policy_and_unlock() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_DICE_CONTROL_REVISION,
-        "swarm-disaster-dice-control-v1"
-    );
     assert_eq!(factory.dice_controls.denominators(), (4, "1000022"));
     let instance = instance(&factory, false);
     let resources = instance
