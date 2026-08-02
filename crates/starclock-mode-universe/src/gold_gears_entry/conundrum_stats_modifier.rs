@@ -15,13 +15,9 @@ use starclock_combat::{
 use crate::digest::Encoder;
 
 use super::{
-    GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY, GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION,
-    GoldAndGearsConundrumEffect, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
+    GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY, GoldAndGearsConundrumEffect, GoldAndGearsEntryError,
+    GoldAndGearsRuntimeInstance,
 };
-
-/// Revision of the six-rule production combat-modifier projection.
-pub const GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION: &str =
-    "gold-and-gears-stats-conundrum-combat-modifier-v1";
 
 const MODIFIER_BASE: u32 = 0x7f10_0000;
 const GROUP_BASE: u32 = 0x7f11_0000;
@@ -422,9 +418,7 @@ fn source_digest(
     activation: GoldAndGearsStatsConundrumActivation,
     ratio_scaled: i64,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-gears.stats-conundrum-modifier-source.v1");
-    encoder.text(GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION);
-    encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION);
+    let mut encoder = Encoder::new(b"starclock.gold-gears.stats-conundrum-modifier-source");
     encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY);
     encoder.text(rule_id);
     encoder.text(owner_id);
@@ -442,9 +436,7 @@ fn set_digest(
     selected_level: u8,
     bindings: &[GoldAndGearsStatsConundrumModifierBinding],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-gears.stats-conundrum-modifier-set.v1");
-    encoder.text(GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION);
-    encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION);
+    let mut encoder = Encoder::new(b"starclock.gold-gears.stats-conundrum-modifier-set");
     encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY);
     encoder.u8(selected_level);
     encoder.u32(u32::try_from(bindings.len()).expect("bounded modifier count"));

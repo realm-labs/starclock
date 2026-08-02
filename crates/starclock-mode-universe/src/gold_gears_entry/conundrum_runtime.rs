@@ -12,15 +12,11 @@ use super::{
     api::GoldAndGearsRuntimeInstance,
     conundrum_policy::{
         GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
-        GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION,
-        GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION, GoldAndGearsBerserkPolicy,
+        GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION, GoldAndGearsBerserkPolicy,
         GoldAndGearsEliteBossResponsePolicy, GoldAndGearsEnemyStatPolicy, berserk_policy,
         elite_boss_response_policy, enemy_stat_policy,
     },
 };
-
-/// Runtime revision for both Conundrum tracks.
-pub const GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION: &str = "gold-and-gears-conundrum-runtime-v1";
 
 const SOURCE_POLICY: &str = "conundrum-unreleased-numeric-bindings-v1";
 
@@ -540,8 +536,7 @@ fn contribution_digest(
     berserk: GoldAndGearsBerserkPolicy,
     activity: ConundrumActivityEffects,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-gears.conundrum-runtime.v1");
-    encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION);
+    let mut encoder = Encoder::new(b"starclock.gold-gears.conundrum-runtime");
     encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY);
     encoder.text(GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION);
     encoder.u8(stats);

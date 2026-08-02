@@ -67,10 +67,7 @@ pub(crate) use battle_snapshot::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleContributionSnapshot,
 };
 pub use content_link_runtime::GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION;
-pub(crate) use conundrum_policy::{
-    GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY, GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION,
-};
-pub use conundrum_runtime::GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION;
+pub(crate) use conundrum_policy::GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY;
 pub(crate) use conundrum_runtime::GoldAndGearsConundrumEffect;
 pub(crate) use conundrum_stats_modifier::GoldAndGearsStatsConundrumModifierSet;
 pub use curio_runtime::GOLD_AND_GEARS_CURIO_OFFER_POLICY_ACCURACY;

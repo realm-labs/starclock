@@ -2,10 +2,6 @@
 
 use super::GoldAndGearsEntryError;
 
-/// Policy revision replacing Goal 08's fail-closed numeric fields.
-pub const GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION: &str =
-    "gold-and-gears-conundrum-numeric-policy-v1";
-
 /// Accuracy label retained beside every policy-projected numeric.
 pub const GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY: &str =
     "DeterministicProjectPolicyNotObservedParity";

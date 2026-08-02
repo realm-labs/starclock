@@ -121,6 +121,8 @@ Removed from current runtime surfaces:
   rules are now classified simply as `ProjectPolicy`;
 - seven Gold and Gears topology/cognition/knowledge/dice policy revision
   constants that were referenced only by self-asserting tests;
+- Gold and Gears Conundrum runtime, numeric-policy and combat-modifier
+  revisions and the fixed modifier-set digest snapshot;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

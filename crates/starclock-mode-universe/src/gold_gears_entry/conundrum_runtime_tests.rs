@@ -4,12 +4,9 @@ use super::{
     CONUNDRUM_AREA_KEY, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     conundrum_policy::{
         GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
-        GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION,
-        GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION, GoldAndGearsEnemyStatTier,
+        GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION, GoldAndGearsEnemyStatTier,
     },
-    conundrum_runtime::{
-        GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION, GoldAndGearsConundrumEffect,
-    },
+    conundrum_runtime::GoldAndGearsConundrumEffect,
     state_layout::{
         CONUNDRUM_BERSERK_KEY, CONUNDRUM_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY,
         RESOURCE_DICE_REROLLS_KEY, RUN_RESOURCES_SLOT,
@@ -23,14 +20,6 @@ const PATH: &str = "universe.path.preservation";
 fn all_twelve_levels_compile_with_independent_caps() {
     let factory = super::tests::shared_factory();
     assert_eq!(factory.conundrum.denominators(), (12, 6, 6));
-    assert_eq!(
-        GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION,
-        "gold-and-gears-conundrum-runtime-v1"
-    );
-    assert_eq!(
-        GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION,
-        "gold-and-gears-conundrum-numeric-policy-v1"
-    );
 
     for stats in 0..=6 {
         let instance = compile(factory, stats, 0);
