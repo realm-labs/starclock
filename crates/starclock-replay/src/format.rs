@@ -20,7 +20,6 @@ use crate::{
 
 pub const REPLAY_MAGIC: [u8; 4] = *b"SCRP";
 pub const MAX_HEADER_TEXT_BYTES: u32 = 128;
-pub const REPLAY_HEADER_TAG: u32 = 1;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ReplayEnvironment {
@@ -166,7 +165,6 @@ fn encode_header<S: CanonicalSink>(
     e: &mut Encoder<S>,
 ) -> Result<(), CodecError> {
     e.raw(&REPLAY_MAGIC);
-    e.u32(REPLAY_HEADER_TAG);
     e.u8(UnknownRecordPolicy::Reject as u8);
     encode_environment(&header.environment, e)?;
     header.components.encode(e)?;
@@ -229,12 +227,6 @@ fn decode_header(d: &mut Decoder<'_>) -> Result<ReplayHeader, ReplayError> {
     if d.take(4)? != REPLAY_MAGIC {
         return Err(ReplayError::Format(ReplayFormatError::InvalidMagic));
     }
-    let header_tag = d.u32()?;
-    if header_tag != REPLAY_HEADER_TAG {
-        return Err(ReplayError::Format(ReplayFormatError::UnexpectedHeaderTag(
-            header_tag,
-        )));
-    }
     let policy = d.u8()?;
     if policy != UnknownRecordPolicy::Reject as u8 {
         return Err(ReplayError::Format(ReplayFormatError::UnknownRecordPolicy(
@@ -250,10 +242,6 @@ fn decode_header(d: &mut Decoder<'_>) -> Result<ReplayHeader, ReplayError> {
 }
 
 fn decode_components(d: &mut Decoder<'_>) -> Result<ConfigurationComponentSet, ReplayError> {
-    let tag = d.u32()?;
-    if tag != crate::component::COMPONENT_SET_TAG {
-        return Err(ReplayError::UnexpectedComponentTag(tag));
-    }
     let count = d.u32()? as usize;
     if count == 0 || count > MAX_REPLAY_COMPONENTS {
         return Err(ReplayError::Component(
@@ -368,7 +356,6 @@ fn validate_header_text(value: &str) -> Result<(), ReplayError> {
 pub enum ReplayError {
     Format(ReplayFormatError),
     Component(ComponentIdentityError),
-    UnexpectedComponentTag(u32),
 }
 
 impl From<CodecError> for ReplayError {

@@ -12,7 +12,6 @@ use crate::{
 };
 
 use super::{
-    battle_execution::SWARM_DISASTER_BATTLE_EXECUTION_REVISION,
     battle_materialization_tests::{
         activity_identity, activity_rng, combat_state, commit, instance, roster,
     },
@@ -56,10 +55,6 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
         )
         .unwrap();
 
-    assert_eq!(
-        SWARM_DISASTER_BATTLE_EXECUTION_REVISION,
-        "swarm-disaster-nested-battle-execution-v1"
-    );
     assert_eq!(result.actual_digest(), result.claimed_digest());
     assert_eq!(
         digest_hex(result.actual_digest().bytes()),

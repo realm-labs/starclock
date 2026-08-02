@@ -6,23 +6,7 @@ use starclock_replay::{
     component::MAX_COMPONENT_TEXT_BYTES,
 };
 
-use super::{
-    SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION, SWARM_DISASTER_DICE_CONTROL_REVISION,
-    SWARM_DISASTER_DICE_FACE_REVISION, SWARM_DISASTER_PLANE_COMPLETION_REVISION,
-    SWARM_DISASTER_SIMULTANEOUS_REVISION, SWARM_DISASTER_TOPOLOGY_REVISION,
-    SWARM_DISASTER_TRAIL_REVISION,
-    battle_execution::SWARM_DISASTER_BATTLE_EXECUTION_REVISION,
-    battle_materialization::SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION,
-    encounter_runtime::{
-        EncounterRole, SWARM_DISASTER_ENCOUNTER_DIFFICULTY_REVISION,
-        SWARM_DISASTER_ENCOUNTER_SELECTION_REVISION,
-    },
-    profile_rule_runtime::SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION,
-};
-
-pub(super) const SWARM_DISASTER_REPLAY_ACTION_TAG: u16 = 1;
-const COUNTDOWN_DISARRAY_REVISION: &str = "swarm-disaster-countdown-disarray-v1";
-const BOSS_DECAY_SELECTION_REVISION: &str = "swarm-disaster-boss-decay-selection-v1";
+use super::encounter_runtime::EncounterRole;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(super) enum SwarmSeededRunAction {
@@ -71,51 +55,35 @@ pub(super) enum SwarmSeededRunAction {
 
 pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, ActionPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(SWARM_DISASTER_REPLAY_ACTION_TAG);
     match action {
         SwarmSeededRunAction::ProfileEntry { source_node } => {
             encoder.u8(0);
-            encoder.string(SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION)?;
             encoder.u32(source_node.get());
         }
         SwarmSeededRunAction::AudienceInitialization { source_node } => {
             encoder.u8(1);
-            encoder.string(SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION)?;
             encoder.u32(source_node.get());
         }
         SwarmSeededRunAction::TrailRunStart { source_node } => {
             encoder.u8(2);
-            encoder.string(SWARM_DISASTER_TRAIL_REVISION)?;
             encoder.u32(source_node.get());
         }
         SwarmSeededRunAction::CountdownSetup { source_node, delta } => {
             encoder.u8(3);
-            encoder.string(COUNTDOWN_DISARRAY_REVISION)?;
             encoder.u32(source_node.get());
             encoder.i64(*delta);
         }
         SwarmSeededRunAction::PlaneCreation { source_node, plane } => {
             encoder.u8(4);
-            encoder.string(SWARM_DISASTER_TOPOLOGY_REVISION)?;
             encoder.u32(source_node.get());
             encoder.u8(*plane);
         }
         SwarmSeededRunAction::DiceRoll { source_node } => {
             encoder.u8(5);
-            encoder.string(SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION)?;
-            encoder.string(SWARM_DISASTER_DICE_CONTROL_REVISION)?;
             encoder.u32(source_node.get());
         }
         SwarmSeededRunAction::Traverse { source_node, edge } => {
             encoder.u8(6);
-            for revision in [
-                SWARM_DISASTER_TOPOLOGY_REVISION,
-                COUNTDOWN_DISARRAY_REVISION,
-                SWARM_DISASTER_DICE_FACE_REVISION,
-                SWARM_DISASTER_SIMULTANEOUS_REVISION,
-            ] {
-                encoder.string(revision)?;
-            }
             encoder.u32(source_node.get());
             encoder.u32(edge.get());
         }
@@ -125,7 +93,6 @@ pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, Ac
             decay,
         } => {
             encoder.u8(7);
-            encoder.string(BOSS_DECAY_SELECTION_REVISION)?;
             encoder.u32(source_node.get());
             encoder.u8(*plane);
             encoder.string(decay)?;
@@ -136,7 +103,6 @@ pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, Ac
             boss,
         } => {
             encoder.u8(8);
-            encoder.string(SWARM_DISASTER_PLANE_COMPLETION_REVISION)?;
             encoder.u32(source_node.get());
             encoder.u8(*plane);
             encoder.string(boss)?;
@@ -149,9 +115,6 @@ pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, Ac
             effective_level,
         } => {
             encoder.u8(9);
-            for revision in battle_policy_revisions() {
-                encoder.string(revision)?;
-            }
             encoder.u32(source_node.get());
             encoder.u8(role_code(*role));
             encoder.string(group)?;
@@ -164,112 +127,52 @@ pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, Ac
 
 pub(super) fn decode_action(bytes: &[u8]) -> Result<SwarmSeededRunAction, ActionPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    if decoder.u16()? != SWARM_DISASTER_REPLAY_ACTION_TAG {
-        return Err(ActionPayloadError::Version);
-    }
     let action = match decoder.u8()? {
-        0 => {
-            expect_revision(&mut decoder, SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION)?;
-            SwarmSeededRunAction::ProfileEntry {
-                source_node: node(&mut decoder)?,
-            }
-        }
-        1 => {
-            expect_revision(&mut decoder, SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION)?;
-            SwarmSeededRunAction::AudienceInitialization {
-                source_node: node(&mut decoder)?,
-            }
-        }
-        2 => {
-            expect_revision(&mut decoder, SWARM_DISASTER_TRAIL_REVISION)?;
-            SwarmSeededRunAction::TrailRunStart {
-                source_node: node(&mut decoder)?,
-            }
-        }
-        3 => {
-            expect_revision(&mut decoder, COUNTDOWN_DISARRAY_REVISION)?;
-            SwarmSeededRunAction::CountdownSetup {
-                source_node: node(&mut decoder)?,
-                delta: decoder.i64()?,
-            }
-        }
-        4 => {
-            expect_revision(&mut decoder, SWARM_DISASTER_TOPOLOGY_REVISION)?;
-            SwarmSeededRunAction::PlaneCreation {
-                source_node: node(&mut decoder)?,
-                plane: decoder.u8()?,
-            }
-        }
-        5 => {
-            expect_revision(&mut decoder, SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION)?;
-            expect_revision(&mut decoder, SWARM_DISASTER_DICE_CONTROL_REVISION)?;
-            SwarmSeededRunAction::DiceRoll {
-                source_node: node(&mut decoder)?,
-            }
-        }
-        6 => {
-            for revision in [
-                SWARM_DISASTER_TOPOLOGY_REVISION,
-                COUNTDOWN_DISARRAY_REVISION,
-                SWARM_DISASTER_DICE_FACE_REVISION,
-                SWARM_DISASTER_SIMULTANEOUS_REVISION,
-            ] {
-                expect_revision(&mut decoder, revision)?;
-            }
-            SwarmSeededRunAction::Traverse {
-                source_node: node(&mut decoder)?,
-                edge: ActivityEdgeId::new(decoder.u32()?).ok_or(ActionPayloadError::InvalidId)?,
-            }
-        }
-        7 => {
-            expect_revision(&mut decoder, BOSS_DECAY_SELECTION_REVISION)?;
-            SwarmSeededRunAction::BossDecaySelection {
-                source_node: node(&mut decoder)?,
-                plane: decoder.u8()?,
-                decay: text(&mut decoder)?,
-            }
-        }
-        8 => {
-            expect_revision(&mut decoder, SWARM_DISASTER_PLANE_COMPLETION_REVISION)?;
-            SwarmSeededRunAction::BossSelection {
-                source_node: node(&mut decoder)?,
-                plane: decoder.u8()?,
-                boss: text(&mut decoder)?,
-            }
-        }
-        9 => {
-            for revision in battle_policy_revisions() {
-                expect_revision(&mut decoder, revision)?;
-            }
-            SwarmSeededRunAction::Battle {
-                source_node: node(&mut decoder)?,
-                role: decode_role(decoder.u8()?)?,
-                group: text(&mut decoder)?,
-                member: text(&mut decoder)?,
-                effective_level: decoder.u16()?,
-            }
-        }
+        0 => SwarmSeededRunAction::ProfileEntry {
+            source_node: node(&mut decoder)?,
+        },
+        1 => SwarmSeededRunAction::AudienceInitialization {
+            source_node: node(&mut decoder)?,
+        },
+        2 => SwarmSeededRunAction::TrailRunStart {
+            source_node: node(&mut decoder)?,
+        },
+        3 => SwarmSeededRunAction::CountdownSetup {
+            source_node: node(&mut decoder)?,
+            delta: decoder.i64()?,
+        },
+        4 => SwarmSeededRunAction::PlaneCreation {
+            source_node: node(&mut decoder)?,
+            plane: decoder.u8()?,
+        },
+        5 => SwarmSeededRunAction::DiceRoll {
+            source_node: node(&mut decoder)?,
+        },
+        6 => SwarmSeededRunAction::Traverse {
+            source_node: node(&mut decoder)?,
+            edge: ActivityEdgeId::new(decoder.u32()?).ok_or(ActionPayloadError::InvalidId)?,
+        },
+        7 => SwarmSeededRunAction::BossDecaySelection {
+            source_node: node(&mut decoder)?,
+            plane: decoder.u8()?,
+            decay: text(&mut decoder)?,
+        },
+        8 => SwarmSeededRunAction::BossSelection {
+            source_node: node(&mut decoder)?,
+            plane: decoder.u8()?,
+            boss: text(&mut decoder)?,
+        },
+        9 => SwarmSeededRunAction::Battle {
+            source_node: node(&mut decoder)?,
+            role: decode_role(decoder.u8()?)?,
+            group: text(&mut decoder)?,
+            member: text(&mut decoder)?,
+            effective_level: decoder.u16()?,
+        },
         _ => return Err(ActionPayloadError::Kind),
     };
     decoder.finish()?;
     Ok(action)
-}
-
-fn battle_policy_revisions() -> [&'static str; 4] {
-    [
-        SWARM_DISASTER_ENCOUNTER_SELECTION_REVISION,
-        SWARM_DISASTER_ENCOUNTER_DIFFICULTY_REVISION,
-        SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION,
-        SWARM_DISASTER_BATTLE_EXECUTION_REVISION,
-    ]
-}
-
-fn expect_revision(decoder: &mut Decoder<'_>, expected: &str) -> Result<(), ActionPayloadError> {
-    if decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)? == expected {
-        Ok(())
-    } else {
-        Err(ActionPayloadError::PolicyRevision)
-    }
 }
 
 fn node(decoder: &mut Decoder<'_>) -> Result<NodeId, ActionPayloadError> {
@@ -303,20 +206,16 @@ fn decode_role(value: u8) -> Result<EncounterRole, ActionPayloadError> {
 
 pub(super) enum ActionPayloadError {
     Codec(CodecError),
-    Version,
     Kind,
     InvalidId,
-    PolicyRevision,
 }
 
 impl core::fmt::Debug for ActionPayloadError {
     fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             Self::Codec(error) => formatter.debug_tuple("Codec").field(error).finish(),
-            Self::Version => formatter.write_str("Version"),
             Self::Kind => formatter.write_str("Kind"),
             Self::InvalidId => formatter.write_str("InvalidId"),
-            Self::PolicyRevision => formatter.write_str("PolicyRevision"),
         }
     }
 }

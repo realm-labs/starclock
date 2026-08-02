@@ -415,25 +415,14 @@ fn compare_records(
                     0,
                 )
             })?;
-        let decoded = match decode_action(action.payload()) {
-            Ok(action) => action,
-            Err(ActionPayloadError::PolicyRevision) => {
-                return Err(divergence(
-                    SwarmReplayDivergenceKind::Catalog,
-                    action_index,
-                    battle_index,
-                    0,
-                ));
-            }
-            Err(_) => {
-                return Err(divergence(
-                    SwarmReplayDivergenceKind::ActivityCommand,
-                    action_index,
-                    battle_index,
-                    0,
-                ));
-            }
-        };
+        let decoded = decode_action(action.payload()).map_err(|_| {
+            divergence(
+                SwarmReplayDivergenceKind::ActivityCommand,
+                action_index,
+                battle_index,
+                0,
+            )
+        })?;
         if decoded != step.action {
             return Err(divergence(
                 SwarmReplayDivergenceKind::ActivityCommand,
@@ -599,10 +588,7 @@ impl From<ActionPayloadError> for SwarmReplayError {
     fn from(value: ActionPayloadError) -> Self {
         match value {
             ActionPayloadError::Codec(_) => Self::Codec,
-            ActionPayloadError::Version
-            | ActionPayloadError::Kind
-            | ActionPayloadError::InvalidId
-            | ActionPayloadError::PolicyRevision => Self::FirstDivergence {
+            ActionPayloadError::Kind | ActionPayloadError::InvalidId => Self::FirstDivergence {
                 kind: SwarmReplayDivergenceKind::ActivityCommand,
                 action_index: 0,
                 battle_index: 0,

@@ -12,10 +12,6 @@ use super::{
     GoldAndGearsEntryError, cognition::CognitionRuntimeCatalog, state_layout::PLANE_STATE_SLOT,
 };
 
-/// Versioned explicit-boss and post-boss plane-completion policy.
-pub const GOLD_AND_GEARS_PLANE_COMPLETION_REVISION: &str =
-    "gold-and-gears-plane-completion-policy-v1";
-
 const BOSS_SELECTION_PROGRAM_BASE: u32 = 0x4760_0000;
 const PLANE_COMPLETION_PROGRAM_BASE: u32 = 0x4760_0010;
 

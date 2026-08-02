@@ -12,7 +12,7 @@ use crate::{
 };
 
 use super::{
-    GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GoldAndGearsBattleAssemblyContext,
+    GoldAndGearsBattleAssemblyContext,
     battle_materialization_tests::{
         activity_identity, activity_rng, commit, roster, selected_combat,
     },
@@ -56,10 +56,6 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
         )
         .unwrap();
 
-    assert_eq!(
-        GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION,
-        "gold-and-gears-nested-battle-execution-v1"
-    );
     assert_eq!(
         start.handoff().battle_spec().combat_input_digest(),
         start.handoff().identity().combat_input_digest()

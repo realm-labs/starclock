@@ -14,8 +14,6 @@ use super::{
     identity::{decode_identity, encode_identity},
 };
 
-pub const NESTED_BATTLE_IDENTITY_PAYLOAD_TAG: u16 = 1;
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NestedBattleStart {
     component_root: ComponentRootDigest,
@@ -115,7 +113,6 @@ pub fn encode_nested_battle_start(
     value: &NestedBattleStart,
 ) -> Result<Vec<u8>, NestedBattleIdentityPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_IDENTITY_PAYLOAD_TAG);
     encoder.raw(&value.component_root.bytes());
     encode_identity(value.handoff_identity, &mut encoder);
     Ok(encoder.into_inner())
@@ -125,7 +122,6 @@ pub fn decode_nested_battle_start(
     bytes: &[u8],
 ) -> Result<NestedBattleStart, NestedBattleIdentityPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    validate_tag(decoder.u16()?)?;
     let root = ComponentRootDigest::new(fixed_digest(&mut decoder)?);
     let identity = decode_identity(&mut decoder)
         .map_err(NestedBattleIdentityPayloadError::ActivityIdentity)?;
@@ -135,7 +131,6 @@ pub fn decode_nested_battle_start(
 
 pub fn encode_nested_battle_end(value: NestedBattleEnd) -> Vec<u8> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_IDENTITY_PAYLOAD_TAG);
     encode_identity(value.result_identity, &mut encoder);
     encoder.raw(&value.result_digest.bytes());
     encoder.into_inner()
@@ -145,7 +140,6 @@ pub fn decode_nested_battle_end(
     bytes: &[u8],
 ) -> Result<NestedBattleEnd, NestedBattleIdentityPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    validate_tag(decoder.u16()?)?;
     let identity = decode_identity(&mut decoder)
         .map_err(NestedBattleIdentityPayloadError::ActivityIdentity)?;
     let digest = BattleResultDigest::new(fixed_digest(&mut decoder)?)
@@ -154,19 +148,10 @@ pub fn decode_nested_battle_end(
     Ok(NestedBattleEnd::new(identity, digest))
 }
 
-fn validate_tag(tag: u16) -> Result<(), NestedBattleIdentityPayloadError> {
-    if tag == NESTED_BATTLE_IDENTITY_PAYLOAD_TAG {
-        Ok(())
-    } else {
-        Err(NestedBattleIdentityPayloadError::UnexpectedTag(tag))
-    }
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NestedBattleIdentityPayloadError {
     Codec(CodecError),
     ActivityIdentity(super::ActivityCommandPayloadError),
-    UnexpectedTag(u16),
     InvalidDigest,
 }
 

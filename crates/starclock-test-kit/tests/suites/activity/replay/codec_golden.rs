@@ -8,10 +8,7 @@ use starclock_replay::{
         EntrySpecDigest, Sha256Digest, Sha256Sink, StateDigest,
     },
     entry::{BuildBindings, ReplayEntry},
-    format::{
-        REPLAY_HEADER_TAG, ReplayEnvironment, ReplayError, ReplayHeader, decode_replay,
-        encode_replay,
-    },
+    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
     record::{RecordKind, RecordRef, ReplayFormatError},
 };
 
@@ -115,10 +112,6 @@ fn replay_header_records_round_trip_and_stream_hash() {
     let header = header(records.len() as u32);
     let bytes = encode_replay(&header, &records, Vec::new()).expect("replay encodes");
     assert_eq!(&bytes[..4], b"SCRP");
-    assert_eq!(
-        u32::from_le_bytes(bytes[4..8].try_into().expect("four bytes")),
-        REPLAY_HEADER_TAG
-    );
     let decoded = decode_replay(&bytes).expect("golden replay decodes");
     assert_eq!(decoded.header(), &header);
     assert_eq!(decoded.records(), records);
@@ -129,8 +122,8 @@ fn replay_header_records_round_trip_and_stream_hash() {
     assert_eq!(
         streamed,
         Sha256Digest::new([
-            149, 147, 175, 250, 140, 29, 19, 16, 60, 33, 15, 75, 85, 126, 34, 134, 96, 5, 151, 70,
-            155, 15, 248, 129, 89, 35, 68, 26, 81, 25, 67, 63,
+            14, 214, 221, 174, 182, 4, 68, 162, 195, 140, 251, 185, 11, 212, 124, 166, 227, 1, 235,
+            164, 204, 192, 25, 20, 226, 98, 211, 181, 219, 177, 130, 208,
         ])
     );
 }
@@ -176,21 +169,14 @@ fn zero_entry_definition_is_rejected_before_encoding() {
 }
 
 #[test]
-fn malformed_tags_unknown_records_and_framing_are_hard_failures() {
+fn unknown_records_and_malformed_framing_are_hard_failures() {
     let record = RecordRef::new(RecordKind::AcceptedBattleCommand, 0, b"x").expect("record valid");
     let header = header(1);
     let bytes = encode_replay(&header, &[record], Vec::new()).expect("replay encodes");
     let record_offset = bytes.len() - (1 + 8 + 4 + 1);
 
-    let mut wrong_version = bytes.clone();
-    wrong_version[4..8].copy_from_slice(&99_u32.to_le_bytes());
-    assert_eq!(
-        decode_replay(&wrong_version).expect_err("version must fail"),
-        ReplayError::Format(ReplayFormatError::UnexpectedHeaderTag(99))
-    );
-
     let mut wrong_policy = bytes.clone();
-    wrong_policy[8] = 1;
+    wrong_policy[4] = 1;
     assert_eq!(
         decode_replay(&wrong_policy).expect_err("policy must fail"),
         ReplayError::Format(ReplayFormatError::UnknownRecordPolicy(1))

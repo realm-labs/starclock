@@ -37,9 +37,6 @@ use super::{
     conundrum_stats_modifier::GoldAndGearsStatsConundrumActivation,
 };
 
-pub const GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION: &str =
-    "gold-and-gears-battle-materialization-v1";
-
 const ENCOUNTER_ID: EncounterId =
     EncounterId::new(0x7f50_0001).expect("reserved encounter ID is non-zero");
 const WAVE_ID_BASE: u32 = 0x7f51_0000;

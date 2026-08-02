@@ -34,9 +34,6 @@ use super::{
     },
 };
 
-pub const GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION: &str =
-    "gold-and-gears-nested-battle-execution-v1";
-
 const NORMAL_ENGAGEMENT_OPTION: u64 = 0x7f71_0001;
 const RESULT_PROJECTION_ID: u32 = 0x7f71_0001;
 const POST_BATTLE_PROGRAM_BASE: u32 = 0x7f72_0000;

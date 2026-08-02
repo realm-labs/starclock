@@ -399,25 +399,14 @@ fn compare_records(
                     0,
                 )
             })?;
-        let decoded = match decode_action(action.payload()) {
-            Ok(action) => action,
-            Err(ActionPayloadError::PolicyRevision) => {
-                return Err(divergence(
-                    GoldAndGearsReplayDivergenceKind::Catalog,
-                    action_index,
-                    battle_index,
-                    0,
-                ));
-            }
-            Err(_) => {
-                return Err(divergence(
-                    GoldAndGearsReplayDivergenceKind::ActivityCommand,
-                    action_index,
-                    battle_index,
-                    0,
-                ));
-            }
-        };
+        let decoded = decode_action(action.payload()).map_err(|_| {
+            divergence(
+                GoldAndGearsReplayDivergenceKind::ActivityCommand,
+                action_index,
+                battle_index,
+                0,
+            )
+        })?;
         if decoded != step.action {
             return Err(divergence(
                 GoldAndGearsReplayDivergenceKind::ActivityCommand,
@@ -714,10 +703,7 @@ impl From<ActionPayloadError> for GoldAndGearsReplayError {
     fn from(value: ActionPayloadError) -> Self {
         match value {
             ActionPayloadError::Codec(error) => Self::Codec(error),
-            ActionPayloadError::Version
-            | ActionPayloadError::Kind
-            | ActionPayloadError::InvalidId
-            | ActionPayloadError::PolicyRevision => Self::FirstDivergence {
+            ActionPayloadError::Kind | ActionPayloadError::InvalidId => Self::FirstDivergence {
                 kind: GoldAndGearsReplayDivergenceKind::ActivityCommand,
                 action_index: 0,
                 battle_index: 0,

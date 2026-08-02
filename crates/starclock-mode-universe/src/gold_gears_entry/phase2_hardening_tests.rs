@@ -7,7 +7,7 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_PLANE_COMPLETION_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
     state_layout::{COGNITION_SLOT, PLANE_STATE_SLOT, SECRETS_SLOT},
 };
 
@@ -15,10 +15,6 @@ use super::{
 fn six_boss_choices_are_explicit_and_plane_completion_is_atomic() {
     let factory = super::tests::shared_factory();
     assert_eq!(factory.transitions.denominator(), 6);
-    assert_eq!(
-        GOLD_AND_GEARS_PLANE_COMPLETION_REVISION,
-        "gold-and-gears-plane-completion-policy-v1"
-    );
     let instance = super::tests::compiled_fixture(factory);
     assert_eq!(
         instance.boss_choices().collect::<Vec<_>>(),

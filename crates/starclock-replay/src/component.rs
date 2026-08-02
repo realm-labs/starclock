@@ -5,8 +5,6 @@ use crate::{
     digest::{ComponentDigest, ComponentRootDigest, Sha256Sink},
 };
 
-/// Component-set canonical encoding tag.
-pub const COMPONENT_SET_TAG: u32 = 1;
 /// Maximum stable component-ID bytes.
 pub const MAX_COMPONENT_TEXT_BYTES: usize = 128;
 /// Maximum components consumed by one replay.
@@ -155,7 +153,6 @@ impl ConfigurationComponentSet {
 
 impl CanonicalEncode for ConfigurationComponentSet {
     fn encode<S: CanonicalSink>(&self, e: &mut Encoder<S>) -> Result<(), CodecError> {
-        e.u32(COMPONENT_SET_TAG);
         e.u32(u32::try_from(self.components.len()).map_err(|_| CodecError::LengthOverflow)?);
         for component in &self.components {
             component.encode(e)?;
@@ -209,7 +206,6 @@ fn calculate_root(
 ) -> Result<ComponentRootDigest, CodecError> {
     let mut encoder = Encoder::new(Sha256Sink::new());
     encoder.raw(b"starclock.configuration-components");
-    encoder.u32(COMPONENT_SET_TAG);
     encoder.u32(u32::try_from(components.len()).map_err(|_| CodecError::LengthOverflow)?);
     for component in components {
         component.encode(&mut encoder)?;

@@ -28,10 +28,6 @@ use crate::{
 
 use identity::{decode_identity, encode_identity};
 
-pub const ACTIVITY_COMMAND_PAYLOAD_TAG: u16 = 2;
-pub const NESTED_BATTLE_PAYLOAD_TAG: u16 = 2;
-pub const CONTROLLER_DIAGNOSTIC_PAYLOAD_TAG: u16 = 1;
-pub const BATTLE_RESULT_PAYLOAD_TAG: u16 = 2;
 pub const MAX_CONTROLLER_OPTIONS: u32 = 4_096;
 
 /// Generic controller family retained only as replay diagnostics.
@@ -555,7 +551,6 @@ fn validate_identity(
 
 fn encode_command(command: &ActivityCommand) -> Result<Vec<u8>, ActivityCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(ACTIVITY_COMMAND_PAYLOAD_TAG);
     match command {
         ActivityCommand::StartBattle {
             expected_state_hash,
@@ -577,10 +572,6 @@ fn encode_command(command: &ActivityCommand) -> Result<Vec<u8>, ActivityCommandP
 
 fn decode_command(bytes: &[u8]) -> Result<ActivityCommand, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != ACTIVITY_COMMAND_PAYLOAD_TAG {
-        return Err(ActivityCommandPayloadError::UnexpectedTag(tag));
-    }
     let kind = decoder.u8()?;
     let expected = ActivityStateHash::new(fixed_digest(&mut decoder)?)
         .expect("activity state hash accepts every byte sequence");
@@ -632,7 +623,6 @@ pub fn encode_battle_result_payload(
     result: &BattleResult,
 ) -> Result<Vec<u8>, ActivityCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(BATTLE_RESULT_PAYLOAD_TAG);
     encode_result(result, &mut encoder)?;
     Ok(encoder.into_inner())
 }
@@ -641,10 +631,6 @@ pub fn decode_battle_result_payload(
     bytes: &[u8],
 ) -> Result<BattleResult, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != BATTLE_RESULT_PAYLOAD_TAG {
-        return Err(ActivityCommandPayloadError::UnexpectedTag(tag));
-    }
     let result = decode_result(&mut decoder)?;
     decoder.finish()?;
     Ok(result)
@@ -849,7 +835,6 @@ fn decode_fault(decoder: &mut Decoder<'_>) -> Result<BattleFault, ActivityComman
 #[must_use]
 pub fn encode_nested_battle_start_payload(identity: BattleResultIdentity) -> Vec<u8> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_PAYLOAD_TAG);
     encode_identity(identity, &mut encoder);
     encoder.into_inner()
 }
@@ -858,10 +843,6 @@ pub fn decode_nested_battle_start_payload(
     bytes: &[u8],
 ) -> Result<BattleResultIdentity, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != NESTED_BATTLE_PAYLOAD_TAG {
-        return Err(ActivityCommandPayloadError::UnexpectedNestedTag(tag));
-    }
     let identity = decode_identity(&mut decoder)?;
     decoder.finish()?;
     Ok(identity)
@@ -870,7 +851,6 @@ pub fn decode_nested_battle_start_payload(
 #[must_use]
 pub fn encode_nested_battle_end_payload(digest: BattleResultDigest) -> Vec<u8> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_PAYLOAD_TAG);
     encoder.raw(&digest.bytes());
     encoder.into_inner()
 }
@@ -879,10 +859,6 @@ pub fn decode_nested_battle_end_payload(
     bytes: &[u8],
 ) -> Result<BattleResultDigest, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != NESTED_BATTLE_PAYLOAD_TAG {
-        return Err(ActivityCommandPayloadError::UnexpectedNestedTag(tag));
-    }
     let digest = BattleResultDigest::new(fixed_digest(&mut decoder)?)
         .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
     decoder.finish()?;
@@ -894,7 +870,6 @@ pub fn encode_controller_diagnostic_payload(
     value: &ControllerDiagnostic,
 ) -> Result<Vec<u8>, ActivityCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(CONTROLLER_DIAGNOSTIC_PAYLOAD_TAG);
     encoder.u8(value.kind as u8);
     encoder.u64(value.decision_sequence);
     encoder.u32(value.selected_ordinal);
@@ -915,10 +890,6 @@ pub fn decode_controller_diagnostic_payload(
     bytes: &[u8],
 ) -> Result<ControllerDiagnostic, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != CONTROLLER_DIAGNOSTIC_PAYLOAD_TAG {
-        return Err(ActivityCommandPayloadError::UnexpectedDiagnosticTag(tag));
-    }
     let kind = match decoder.u8()? {
         0 => ControllerDecisionKind::Activity,
         1 => ControllerDecisionKind::BattlePlayer,
@@ -961,9 +932,6 @@ pub(super) fn fixed_digest(decoder: &mut Decoder<'_>) -> Result<[u8; 32], CodecE
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ActivityCommandPayloadError {
-    UnexpectedTag(u16),
-    UnexpectedNestedTag(u16),
-    UnexpectedDiagnosticTag(u16),
     UnknownCommand(u8),
     UnknownOutcome(u8),
     UnknownProjection(u8),
@@ -1150,10 +1118,10 @@ mod tests {
         );
 
         let mut noncanonical = encoded;
-        let first: [u8; 12] = noncanonical[20..32].try_into().unwrap();
-        let second: [u8; 12] = noncanonical[32..44].try_into().unwrap();
-        noncanonical[20..32].copy_from_slice(&second);
-        noncanonical[32..44].copy_from_slice(&first);
+        let first: [u8; 12] = noncanonical[18..30].try_into().unwrap();
+        let second: [u8; 12] = noncanonical[30..42].try_into().unwrap();
+        noncanonical[18..30].copy_from_slice(&second);
+        noncanonical[30..42].copy_from_slice(&first);
         assert_eq!(
             decode_controller_diagnostic_payload(&noncanonical),
             Err(ActivityCommandPayloadError::InvalidDiagnostic(

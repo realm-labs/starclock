@@ -19,17 +19,11 @@ use starclock_combat::{
 use crate::battle_event_cause::encode_cause;
 use crate::codec::{CodecError, Encoder};
 
-/// Event payload tag. Activity provenance belongs to assembly identity,
-/// while battle events attribute executable definitions through
-/// [`starclock_combat::Cause::source_definition`].
-pub const BATTLE_EVENT_PAYLOAD_TAG: u16 = 6;
-
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
     event: &BattleEvent,
 ) -> Result<Vec<u8>, BattleEventPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(BATTLE_EVENT_PAYLOAD_TAG);
     encoder.u64(event.id().get());
     encode_cause(&mut encoder, event.cause());
     encode_kind(&mut encoder, event.kind())?;

@@ -5,25 +5,15 @@ use starclock_replay::{
     component::MAX_COMPONENT_TEXT_BYTES,
 };
 
-use super::{
-    GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION, GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION,
-    GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION, GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION,
-    GOLD_AND_GEARS_PLANE_COMPLETION_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION,
-    GoldAndGearsEncounterRole, GoldAndGearsSeededRunAction,
-};
-
-/// Canonical Gold action payload revision.
-pub const GOLD_AND_GEARS_REPLAY_ACTION_TAG: u16 = 1;
+use super::{GoldAndGearsEncounterRole, GoldAndGearsSeededRunAction};
 
 pub(super) fn encode_action(
     action: &GoldAndGearsSeededRunAction,
 ) -> Result<Vec<u8>, ActionPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(GOLD_AND_GEARS_REPLAY_ACTION_TAG);
     match action {
         GoldAndGearsSeededRunAction::PlaneCreation { source_node, plane } => {
             encoder.u8(0);
-            encoder.string(GOLD_AND_GEARS_TOPOLOGY_REVISION)?;
             encoder.u32(source_node.get());
             encoder.u8(*plane);
         }
@@ -33,14 +23,12 @@ pub(super) fn encode_action(
             boss,
         } => {
             encoder.u8(1);
-            encoder.string(GOLD_AND_GEARS_PLANE_COMPLETION_REVISION)?;
             encoder.u32(source_node.get());
             encoder.u8(*plane);
             encoder.string(boss)?;
         }
         GoldAndGearsSeededRunAction::Traverse { source_node, edge } => {
             encoder.u8(2);
-            encoder.string(GOLD_AND_GEARS_TOPOLOGY_REVISION)?;
             encoder.u32(source_node.get());
             encoder.u32(edge.get());
         }
@@ -52,9 +40,6 @@ pub(super) fn encode_action(
             effective_level,
         } => {
             encoder.u8(3);
-            for revision in battle_policy_revisions() {
-                encoder.string(revision)?;
-            }
             encoder.u32(source_node.get());
             encoder.u8(role_code(*role));
             encoder.string(group)?;
@@ -69,67 +54,33 @@ pub(super) fn decode_action(
     bytes: &[u8],
 ) -> Result<GoldAndGearsSeededRunAction, ActionPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    if decoder.u16()? != GOLD_AND_GEARS_REPLAY_ACTION_TAG {
-        return Err(ActionPayloadError::Version);
-    }
     let kind = decoder.u8()?;
     let action = match kind {
-        0 => {
-            expect_revision(&mut decoder, GOLD_AND_GEARS_TOPOLOGY_REVISION)?;
-            GoldAndGearsSeededRunAction::PlaneCreation {
-                source_node: node(&mut decoder)?,
-                plane: decoder.u8()?,
-            }
-        }
-        1 => {
-            expect_revision(&mut decoder, GOLD_AND_GEARS_PLANE_COMPLETION_REVISION)?;
-            GoldAndGearsSeededRunAction::BossSelection {
-                source_node: node(&mut decoder)?,
-                plane: decoder.u8()?,
-                boss: decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)?.into(),
-            }
-        }
-        2 => {
-            expect_revision(&mut decoder, GOLD_AND_GEARS_TOPOLOGY_REVISION)?;
-            GoldAndGearsSeededRunAction::Traverse {
-                source_node: node(&mut decoder)?,
-                edge: starclock_activity::ActivityEdgeId::new(decoder.u32()?)
-                    .ok_or(ActionPayloadError::InvalidId)?,
-            }
-        }
-        3 => {
-            for revision in battle_policy_revisions() {
-                expect_revision(&mut decoder, revision)?;
-            }
-            GoldAndGearsSeededRunAction::Battle {
-                source_node: node(&mut decoder)?,
-                role: decode_role(decoder.u8()?)?,
-                group: decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)?.into(),
-                member: decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)?.into(),
-                effective_level: decoder.u16()?,
-            }
-        }
+        0 => GoldAndGearsSeededRunAction::PlaneCreation {
+            source_node: node(&mut decoder)?,
+            plane: decoder.u8()?,
+        },
+        1 => GoldAndGearsSeededRunAction::BossSelection {
+            source_node: node(&mut decoder)?,
+            plane: decoder.u8()?,
+            boss: decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)?.into(),
+        },
+        2 => GoldAndGearsSeededRunAction::Traverse {
+            source_node: node(&mut decoder)?,
+            edge: starclock_activity::ActivityEdgeId::new(decoder.u32()?)
+                .ok_or(ActionPayloadError::InvalidId)?,
+        },
+        3 => GoldAndGearsSeededRunAction::Battle {
+            source_node: node(&mut decoder)?,
+            role: decode_role(decoder.u8()?)?,
+            group: decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)?.into(),
+            member: decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)?.into(),
+            effective_level: decoder.u16()?,
+        },
         _ => return Err(ActionPayloadError::Kind),
     };
     decoder.finish()?;
     Ok(action)
-}
-
-fn battle_policy_revisions() -> [&'static str; 4] {
-    [
-        GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION,
-        GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION,
-        GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION,
-        GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION,
-    ]
-}
-
-fn expect_revision(decoder: &mut Decoder<'_>, expected: &str) -> Result<(), ActionPayloadError> {
-    if decoder.string(MAX_COMPONENT_TEXT_BYTES as u32)? == expected {
-        Ok(())
-    } else {
-        Err(ActionPayloadError::PolicyRevision)
-    }
 }
 
 fn node(decoder: &mut Decoder<'_>) -> Result<starclock_activity::NodeId, ActionPayloadError> {
@@ -160,10 +111,8 @@ fn decode_role(value: u8) -> Result<GoldAndGearsEncounterRole, ActionPayloadErro
 #[derive(Debug)]
 pub(super) enum ActionPayloadError {
     Codec(CodecError),
-    Version,
     Kind,
     InvalidId,
-    PolicyRevision,
 }
 
 impl From<CodecError> for ActionPayloadError {

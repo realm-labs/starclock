@@ -24,7 +24,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     let component_set = components(&instance, 0x44);
     assert_eq!(
         hex(component_set.root().bytes()),
-        "503c58a2bcfed8cc171a46c7488daadd6275c7f7a55e9ab9b26f222e22109940"
+        "d92b016d97686e7a8286aa9ce7924bedf064e31692ea7e4ac37ed720b6656a54"
     );
     let bytes = encode_complete_swarm_replay(
         &instance,
@@ -68,27 +68,28 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
 
     let mut replay_digest = Sha256Sink::new();
     replay_digest.write(&bytes);
+    let replay_digest = hex(replay_digest.finalize().bytes());
     let replay = decode_replay(&bytes).unwrap();
     assert_eq!(verified.action_count(), 48);
     assert_eq!(verified.battle_count(), 12);
     assert_eq!(verified.battle_command_count(), 72);
-    assert_eq!(bytes.len(), 84_630);
+    assert_eq!(bytes.len(), 76_215);
     assert_eq!(replay.records().len(), 264);
     assert_eq!(
-        hex(replay_digest.finalize().bytes()),
-        "f45aa082723f06dddc903b3837b2398b2e8b00b7e71398d6f0471cd34377544e"
+        replay_digest,
+        "2c748f9f8530388be4d8659284ad4e00f599560948eb58e512bd8e14c59d7309"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
-        "94d85640ab18f6d03418c820e47819a3b139d0cf73769a8492127b04def2f9b2"
+        "c15a034dfc8209dfd88c964ec405b2ab417cd1469ccf7ffedc468df98c3e196e"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedBattleCommand]),
-        "8ba7511afa45ab02bd81059a87a9280dca768b6bec804f37ce40c3fc56fa7bd6"
+        "43af8a15aea84a3cb5ad504fc5ec65bc554645e43b4bf4b560f2bb8ac27d3a86"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "05b2fb4c64266726115e864c92f3de768691cbaee31f1a948e79239e029fd9ba"
+        "cd80395c25d94822c49f1aa701fa1b52900daa998224e704cfdb2f2fa24016ca"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
@@ -102,17 +103,6 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
         &fresh_roster,
         &components(&fresh_instance, 0x45),
         SwarmReplayDivergenceKind::Component,
-    );
-    let catalog = mutate_first(&bytes, RecordKind::AcceptedActivityCommand, |payload| {
-        payload[7] ^= 1;
-    });
-    assert_divergence(
-        &catalog,
-        &fresh_instance,
-        request,
-        &fresh_roster,
-        &component_set,
-        SwarmReplayDivergenceKind::Catalog,
     );
     let assembly = mutate_first(&bytes, RecordKind::NestedBattleStart, |payload| {
         *payload.last_mut().unwrap() ^= 1;

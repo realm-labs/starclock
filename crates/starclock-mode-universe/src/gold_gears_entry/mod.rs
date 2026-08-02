@@ -61,11 +61,8 @@ pub use baseline_controller::{
     GoldAndGearsCommandFamily, GoldAndGearsControllerIdentity, GoldAndGearsOfferedCommand,
 };
 pub(crate) use battle_enemy_catalog::GoldAndGearsEnemyDefinitionBinding;
-pub use battle_execution::GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION;
 pub(crate) use battle_execution::GoldAndGearsBattleExecutionError;
-pub(crate) use battle_materialization::{
-    GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GoldAndGearsBattleMaterialization,
-};
+pub(crate) use battle_materialization::GoldAndGearsBattleMaterialization;
 #[cfg(feature = "benchmark-harness")]
 pub(crate) use battle_materialization_cache::GoldAndGearsBattleAssemblyCacheMetrics;
 pub use battle_snapshot::GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION;
@@ -90,13 +87,10 @@ pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
 pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
 pub(crate) use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
 pub use dice_resolution::GOLD_AND_GEARS_DICE_RUNTIME_REVISION;
-pub(crate) use encounter_runtime::{
-    GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION, GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION,
-    GoldAndGearsEncounterRole, GoldAndGearsEncounterSelection,
-};
 pub use encounter_runtime::{
     GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY, GOLD_AND_GEARS_ENCOUNTER_POLICY_REPLACEMENT_CONDITION,
 };
+pub(crate) use encounter_runtime::{GoldAndGearsEncounterRole, GoldAndGearsEncounterSelection};
 pub use error::GoldAndGearsEntryError;
 pub use knowledge::GOLD_AND_GEARS_KNOWLEDGE_REVISION;
 pub use knowledge_resolution::GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION;
@@ -104,7 +98,6 @@ pub(crate) use neural_runtime::GoldAndGearsNeuralStatContribution;
 pub use neural_runtime::{GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsNeuralBattleStat};
 pub use occurrence_runtime::GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY;
 pub(crate) use path_boost_rule_runtime::GoldAndGearsPathBoostCombatSet;
-pub(crate) use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
 pub use profile_rule_runtime::GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION;
 pub use progression_runtime::GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION;
 pub(crate) use progression_runtime::{

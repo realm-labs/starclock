@@ -106,8 +106,6 @@ impl CanonicalEncode for RecordRef<'_> {
 pub enum ReplayFormatError {
     /// File magic is not `SCRP`.
     InvalidMagic,
-    /// The replay header tag is unexpected.
-    UnexpectedHeaderTag(u32),
     /// The envelope rejects every unknown record kind.
     UnknownRecordKind(u8),
     /// The replay entry kind is unsupported.

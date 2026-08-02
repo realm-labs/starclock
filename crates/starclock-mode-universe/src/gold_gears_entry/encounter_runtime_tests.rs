@@ -6,8 +6,7 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION, GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY,
-    GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION, GoldAndGearsEncounterRole, GoldAndGearsEntryError,
+    GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY, GoldAndGearsEncounterRole, GoldAndGearsEntryError,
     GoldAndGearsRuntimeInstance,
 };
 
@@ -15,14 +14,6 @@ use super::{
 fn catalog_closes_all_groups_waves_slots_and_enemy_identities() {
     let instance = super::tests::compiled_fixture(super::tests::shared_factory());
     assert_eq!(instance.encounter_runtime.denominators(), (181, 478, 1_513));
-    assert_eq!(
-        GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION,
-        "gold-and-gears-encounter-selection-policy-v1"
-    );
-    assert_eq!(
-        GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION,
-        "gold-and-gears-encounter-difficulty-policy-v1"
-    );
     assert_eq!(
         GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY,
         "DeterministicProjectPolicyNotObservedParity"

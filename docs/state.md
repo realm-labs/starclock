@@ -67,6 +67,8 @@ Retained because they describe external facts or build inputs:
 Removed from current runtime surfaces:
 
 - replay v1/v2/v3 modules, alternate decoders and payload-version selectors;
+- replay header, component-set and record-payload revision prefixes; the current
+  codec keeps only framing magic, semantic type discriminants and bounds;
 - `current` forwarding modules and versioned Rust/example filenames;
 - Agent API schema selection and `schema_revision` request/response fields;
 - CLI schema/Goal identifiers and runtime/release evidence snapshots;
@@ -80,8 +82,9 @@ Removed from current runtime surfaces:
 Mode and generated content modules still contain textual `*_REVISION` domain
 labels used inside digest construction. They are not compatibility branches,
 but they are redundant current-tree identity and remain cleanup debt. Replace
-them with the underlying canonical content/configuration digests; keep fixed
-binary layout sentinels as `*_TAG` values.
+them with the underlying canonical content/configuration digests. Retain only
+semantic type/variant discriminants; remove numeric sentinels whose only
+meaning is a codec or payload revision.
 
 The current Sora native-handler table still authors `handler_version`, but the
 runtime registry no longer consumes it. Removing that generated column requires

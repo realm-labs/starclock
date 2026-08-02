@@ -15,9 +15,6 @@ use crate::{
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
 
-/// Domain payload tag inside `AcceptedBattleCommand` records.
-pub const BATTLE_COMMAND_PAYLOAD_TAG: u16 = 1;
-
 /// One accepted command and the resulting full canonical state hash.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BattleTraceEntry {
@@ -196,7 +193,6 @@ pub fn encode_battle_command_payload(
     command: &Command,
 ) -> Result<Vec<u8>, BattleCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(BATTLE_COMMAND_PAYLOAD_TAG);
     match command {
         Command::StartBattle { decision } => {
             encoder.u8(0);
@@ -260,10 +256,6 @@ fn encode_action_command(
 
 pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != BATTLE_COMMAND_PAYLOAD_TAG {
-        return Err(BattleCommandPayloadError::UnexpectedTag(tag));
-    }
     let command = match decoder.u8()? {
         0 => Command::StartBattle {
             decision: runtime_id(decoder.u64()?)?,
@@ -320,8 +312,6 @@ where
 /// Stable command-payload decoding failure.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleCommandPayloadError {
-    /// The payload tag is not recognized.
-    UnexpectedTag(u16),
     /// The command discriminant is not part of the closed combat command family.
     UnknownCommand(u8),
     /// A fixed-width definition/runtime ID was zero or outside its domain.

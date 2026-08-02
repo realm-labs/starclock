@@ -33,9 +33,6 @@ use super::{
     validate::{error as invalid, reference},
 };
 
-pub const SWARM_DISASTER_BATTLE_EXECUTION_REVISION: &str =
-    "swarm-disaster-nested-battle-execution-v1";
-
 const NORMAL_ENGAGEMENT_OPTION: u64 = 0x7f95_0001;
 const RESULT_PROJECTION_ID: u32 = 0x7f95_0001;
 const POST_BATTLE_PROGRAM_BASE: u32 = 0x7f96_0000;

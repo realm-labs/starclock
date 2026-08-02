@@ -21,7 +21,6 @@ use crate::{
     runtime::StandardUniverseActivity,
 };
 
-pub const STANDARD_UNIVERSE_REPLAY_ACTION_TAG: u16 = 1;
 pub const MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS: u32 = 100_000;
 
 /// One accepted facade action. Nested execution is one atomic replay boundary:
@@ -224,7 +223,6 @@ pub(crate) fn encode_action(
     action: &StandardUniverseReplayAction,
 ) -> Result<Vec<u8>, StandardUniverseReplayError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(STANDARD_UNIVERSE_REPLAY_ACTION_TAG);
     match action {
         StandardUniverseReplayAction::Decision {
             decision,
@@ -254,10 +252,6 @@ pub(crate) fn decode_action(
     bytes: &[u8],
 ) -> Result<StandardUniverseReplayAction, StandardUniverseReplayError> {
     let mut decoder = Decoder::new(bytes);
-    let tag = decoder.u16()?;
-    if tag != STANDARD_UNIVERSE_REPLAY_ACTION_TAG {
-        return Err(StandardUniverseReplayError::UnexpectedActionTag(tag));
-    }
     let action = match decoder.u8()? {
         0 => StandardUniverseReplayAction::Decision {
             decision: ActivityDecisionId::new(decoder.u64()?)
@@ -310,7 +304,6 @@ pub enum StandardUniverseReplayError {
     TooManyActions,
     CapturedBattleMismatch,
     DiagnosticMismatch,
-    UnexpectedActionTag(u16),
     UnknownAction(u8),
     UnknownDecisionKind(u8),
     InvalidId,

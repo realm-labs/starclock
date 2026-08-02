@@ -16,14 +16,6 @@ use crate::{
 
 use super::{GoldAndGearsEntryError, GoldAndGearsRuntimeInstance, topology::CompiledTopology};
 
-/// Versioned replacement for the unpublished room/domain-to-group join.
-pub const GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION: &str =
-    "gold-and-gears-encounter-selection-policy-v1";
-
-/// Versioned replacement for the unpublished effective battle-level operation.
-pub const GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION: &str =
-    "gold-and-gears-encounter-difficulty-policy-v1";
-
 /// This policy is deterministic project behavior, not observed game parity.
 pub const GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY: &str =
     "DeterministicProjectPolicyNotObservedParity";
