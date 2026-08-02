@@ -65,6 +65,30 @@ fn gold_and_gears_configuration_and_coverage_are_machine_readable() {
 }
 
 #[test]
+fn swarm_disaster_configuration_and_coverage_are_machine_readable() {
+    let validation = output(&[
+        "universe",
+        "config",
+        "validate",
+        "--mode",
+        "swarm-disaster",
+        "--json",
+    ]);
+    assert!(validation.status.success(), "{validation:?}");
+    assert_eq!(
+        text(validation.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"universe-config-validation\",\"mode\":\"swarm-disaster\",\"valid\":true,\"bundle_sha256\":\"385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362\",\"tables\":65,\"rows\":33380,\"source_obligations\":6963,\"mechanic_rules\":23,\"fixtures\":23,\"policy_boundaries\":31}"
+    );
+
+    let coverage = output(&["universe", "coverage", "--mode", "swarm-disaster", "--json"]);
+    assert!(coverage.status.success(), "{coverage:?}");
+    assert_eq!(
+        text(coverage.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"universe-coverage\",\"mode\":\"swarm-disaster\",\"goal_id\":\"swarm-disaster-runtime-v1\",\"source_categories\":42,\"runtime_slices\":42,\"source_obligations\":6963,\"integrated\":6282,\"shared_integrated\":652,\"external_outcomes\":6,\"metadata\":23,\"mechanic_rules\":23,\"fixtures\":23,\"native_handlers\":0,\"coverage_digest\":\"8aeb60d2c1b322f9dcf8f84bc45dc1901276633398cdb60a984ccc4846f0bff4\"}"
+    );
+}
+
+#[test]
 fn gold_and_gears_human_diagnostics_match_the_json_run() {
     let validation = output(&["universe", "config", "validate", "--mode", "gold-and-gears"]);
     assert!(validation.status.success(), "{validation:?}");
@@ -94,6 +118,39 @@ fn gold_and_gears_human_diagnostics_match_the_json_run() {
     assert_eq!(
         text(run.stdout).trim(),
         "universe completed mode=gold-and-gears seed=14001 profile=gold-gears.profile.v1 controller=baseline battle_executor=gold-and-gears-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3 actions=62 nested_battles=17 battle_commands=97 hash=aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455 replay_bytes=107359 replay_sha256=71ad733fb0c1a222d70cfd76f755bab65e23f1ca13ea81c3b612e74d0dc277ac"
+    );
+}
+
+#[test]
+fn swarm_disaster_human_diagnostics_match_the_json_run() {
+    let validation = output(&["universe", "config", "validate", "--mode", "swarm-disaster"]);
+    assert!(validation.status.success(), "{validation:?}");
+    assert_eq!(
+        text(validation.stdout).trim(),
+        "universe config valid mode=swarm-disaster bundle_sha256=385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362 tables=65 rows=33380 source_obligations=6963 rules=23 fixtures=23 policies=31"
+    );
+
+    let coverage = output(&["universe", "coverage", "--mode", "swarm-disaster"]);
+    assert!(coverage.status.success(), "{coverage:?}");
+    assert_eq!(
+        text(coverage.stdout).trim(),
+        "universe coverage mode=swarm-disaster goal=swarm-disaster-runtime-v1 categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0 digest=8aeb60d2c1b322f9dcf8f84bc45dc1901276633398cdb60a984ccc4846f0bff4"
+    );
+
+    let run = output(&[
+        "universe",
+        "run",
+        "--mode",
+        "swarm-disaster",
+        "--seed",
+        "20001",
+        "--controller",
+        "baseline",
+    ]);
+    assert!(run.status.success(), "{run:?}");
+    assert_eq!(
+        text(run.stdout).trim(),
+        "universe completed mode=swarm-disaster seed=20001 profile=swarm-disaster.profile.v1 controller=baseline battle_executor=swarm-disaster-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=a87894170e22188cb00078c339e806a6e3387f5e49baf7fd7782f6f0732c823c actions=48 nested_battles=12 battle_commands=68 hash=eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075 replay_bytes=81107 replay_sha256=d052a392d91dd93e9e8baf44b80940fb9a57111384b052332f6c21ad869a73a4"
     );
 }
 
@@ -212,6 +269,60 @@ fn gold_and_gears_run_round_trips_component_replay_and_detects_corruption() {
     let rejected = output(&["replay", "verify", corrupt.to_str().unwrap()]);
     assert_eq!(rejected.status.code(), Some(4));
     assert!(text(rejected.stderr).contains("gold-and-gears replay error"));
+
+    fs::remove_file(replay).unwrap();
+    fs::remove_file(corrupt).unwrap();
+}
+
+#[test]
+fn swarm_disaster_run_round_trips_component_replay_and_detects_corruption() {
+    let replay = fixture_path("swarm-run");
+    let corrupt = fixture_path("swarm-corrupt");
+    for path in [&replay, &corrupt] {
+        let _ = fs::remove_file(path);
+    }
+
+    let run = output(&[
+        "universe",
+        "run",
+        "--mode",
+        "swarm-disaster",
+        "--seed",
+        "20001",
+        "--controller",
+        "baseline",
+        "--replay-out",
+        replay.to_str().unwrap(),
+        "--json",
+    ]);
+    assert!(run.status.success(), "{run:?}");
+    assert_eq!(
+        text(run.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"universe-run\",\"mode\":\"swarm-disaster\",\"seed\":20001,\"profile\":\"swarm-disaster.profile.v1\",\"area\":\"swarm-disaster.area.201\",\"path\":\"universe.path.preservation\",\"audience_die\":\"swarm-disaster.audience-die.1\",\"controller\":\"baseline\",\"battle_executor\":\"swarm-disaster-nested-battle-execution-v1\",\"fixture_accuracy\":\"SyntheticBalanceIndependentNotObservedNumericParity\",\"component_root\":\"a87894170e22188cb00078c339e806a6e3387f5e49baf7fd7782f6f0732c823c\",\"actions\":48,\"nested_battles\":12,\"battle_commands\":68,\"terminal\":\"completed\",\"state_hash\":\"eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075\",\"replay_bytes\":81107,\"replay_sha256\":\"d052a392d91dd93e9e8baf44b80940fb9a57111384b052332f6c21ad869a73a4\"}"
+    );
+
+    let replay_bytes = fs::read(&replay).unwrap();
+    assert_eq!(replay_bytes.len(), 81_107);
+    let decoded = starclock_replay::format_v2::decode_replay_v2(&replay_bytes).unwrap();
+    assert_eq!(decoded.header().components().components().len(), 10);
+    assert!(decoded.records().iter().any(|record| {
+        record.kind() == starclock_replay::record::RecordKind::AcceptedBattleCommand
+    }));
+
+    let verified = output(&["replay", "verify", replay.to_str().unwrap(), "--json"]);
+    assert!(verified.status.success(), "{verified:?}");
+    assert_eq!(
+        text(verified.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"replay-verify\",\"entry\":\"swarm-disaster\",\"actions\":48,\"nested_battles\":12,\"battle_commands\":68,\"terminal\":\"completed\",\"state_hash\":\"eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075\"}"
+    );
+
+    let mut changed = replay_bytes;
+    let last = changed.len() - 1;
+    changed[last] ^= 1;
+    fs::write(&corrupt, changed).unwrap();
+    let rejected = output(&["replay", "verify", corrupt.to_str().unwrap()]);
+    assert_eq!(rejected.status.code(), Some(4));
+    assert!(text(rejected.stderr).contains("swarm-disaster replay error"));
 
     fs::remove_file(replay).unwrap();
     fs::remove_file(corrupt).unwrap();

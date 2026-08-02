@@ -2,6 +2,7 @@
 mod audience;
 mod audience_rule_runtime;
 mod baseline_controller;
+pub mod baseline_fixture;
 mod battle_enemy_catalog;
 mod battle_execution;
 mod battle_materialization;
