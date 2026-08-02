@@ -89,9 +89,11 @@ Removed from current runtime surfaces:
 - the deleted Goal-manifest verifier dependency from production bootstrap;
 - four obsolete partition authoring scripts (3,215 lines) and their
   `G01-P7-*` partition ledger; the remaining current ConfigManifest author is
-  a focused three-field workbook adapter;
+  part of a focused current-workbook adapter;
 - Goal schema/id/generated-date metadata from the retained core-combat gameplay
   selection manifests;
+- the unused `handler_version` Native Handler column across schema, workbook,
+  generated reader and bundle;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain
@@ -100,10 +102,6 @@ but they are redundant current-tree identity and remain cleanup debt. Replace
 them with the underlying canonical content/configuration digests. Retain only
 semantic type/variant discriminants; remove numeric sentinels whose only
 meaning is a codec or payload revision.
-
-The current Sora native-handler table still authors `handler_version`, but the
-runtime registry no longer consumes it. Removing that generated column requires
-the workbook, schema, generated reader and bundle to change together.
 
 The core-combat gameplay reference manifests remain. Their per-row
 `implementation_state` labels and `standard-v1` stable IDs still mix workflow

@@ -201,11 +201,6 @@ name = "domain"
 type = "enum<RuleDomain>"
 
 [[tables.fields]]
-name = "handler_version"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
 name = "argument_schema_sha256"
 type = "string"
 length = [64, 64]

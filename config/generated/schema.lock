@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "7fc4b98168214023",
+  "fingerprint": "0ac8ff3e5b72adaa",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -10404,25 +10404,6 @@
             "default": null,
             "range": null,
             "length": null,
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "handler_version",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
             "parser": null,
             "derived_from": null
           },

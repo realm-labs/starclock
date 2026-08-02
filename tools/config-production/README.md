@@ -2,9 +2,9 @@
 
 - `bootstrap.mjs --output <new-root>` imports frozen reference identities into
   new `.xlsx` workbooks and refuses an existing root.
-- `author-config-manifest.py --write|--check` owns the three current
-  `ConfigManifest.xlsx` values: game version, snapshot date and pinned Sora
-  CLI version.
+- `author-workbooks.py --write|--check` owns the three current
+  `ConfigManifest.xlsx` values and keeps the empty Native Handler workbook
+  identical to its current schema template.
 - `generate-bootstrap-policy.mjs` verifies the standalone calamine/
   rust_xlsxwriter lock and license/checksum inventory.
 - `verify.mjs` runs pinned Sora, double-bootstrap reproduction,

@@ -10,8 +10,6 @@ pub struct NativeHandler {
     pub stable_key: String,
     #[serde(rename = "domain")]
     pub domain: RuleDomain,
-    #[serde(rename = "handler_version")]
-    pub handler_version: String,
     #[serde(rename = "argument_schema_sha256")]
     pub argument_schema_sha256: String,
     #[serde(rename = "determinism_note")]
@@ -34,7 +32,6 @@ impl super::runtime::SoraDecode for NativeHandler {
             id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             domain: <RuleDomain as super::runtime::SoraDecode>::decode(reader)?,
-            handler_version: <String as super::runtime::SoraDecode>::decode(reader)?,
             argument_schema_sha256: <String as super::runtime::SoraDecode>::decode(reader)?,
             determinism_note: <String as super::runtime::SoraDecode>::decode(reader)?,
             owner_note: <String as super::runtime::SoraDecode>::decode(reader)?,
