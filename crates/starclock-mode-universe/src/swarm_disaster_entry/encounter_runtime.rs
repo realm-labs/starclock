@@ -16,10 +16,6 @@ use crate::{
 
 use super::SwarmDisasterRuntimeInstance;
 
-pub(crate) const SWARM_DISASTER_ENCOUNTER_SELECTION_REVISION: &str =
-    "swarm-disaster-encounter-selection-policy-v1";
-pub(crate) const SWARM_DISASTER_ENCOUNTER_DIFFICULTY_REVISION: &str =
-    "swarm-disaster-encounter-difficulty-policy-v1";
 pub(crate) const SWARM_DISASTER_ENCOUNTER_POLICY_ACCURACY: &str =
     "DeterministicProjectPolicyNotObservedParity";
 pub(crate) const SWARM_DISASTER_ENCOUNTER_POLICY_REPLACEMENT_CONDITION: &str = "released engine code or pinned tables expose the exact ChessRogue room/domain/group join and effective battle-level selection sequence";
@@ -413,9 +409,7 @@ impl SwarmDisasterRuntimeInstance {
 }
 
 pub(super) fn selection_digest(selection: &EncounterSelection) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.encounter-selection.v1");
-    encoder.text(SWARM_DISASTER_ENCOUNTER_SELECTION_REVISION);
-    encoder.text(SWARM_DISASTER_ENCOUNTER_DIFFICULTY_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.encounter-selection");
     encoder.text(SWARM_DISASTER_ENCOUNTER_POLICY_ACCURACY);
     encoder.text(SWARM_DISASTER_ENCOUNTER_POLICY_REPLACEMENT_CONDITION);
     encoder.text(&selection.group);

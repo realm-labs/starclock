@@ -11,9 +11,6 @@ use crate::{catalog::UniverseCatalog, digest::Encoder, error::UniverseCatalogLoa
 
 use super::{encounter_runtime::EncounterRuntimeCatalog, validate::reference};
 
-pub(super) const SWARM_DISASTER_ENEMY_DEFINITION_REVISION: &str =
-    "swarm-disaster-enemy-definition-composition-v1";
-
 const MODE_ENEMY_BASE: u32 = 0x7f70_0000;
 const EXPECTED_ENEMIES: usize = 71;
 
@@ -236,8 +233,7 @@ fn clone_definition(
 }
 
 fn composition_digest(bindings: &[SwarmEnemyDefinitionBinding]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.enemy-composition.v1");
-    encoder.text(SWARM_DISASTER_ENEMY_DEFINITION_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.enemy-composition");
     encoder.u32(u32::try_from(bindings.len()).expect("enemy identity count is bounded"));
     for binding in bindings {
         encoder.text(&binding.stable_key);

@@ -111,6 +111,8 @@ Removed from current runtime surfaces:
   digest snapshot;
 - Swarm Disaster content, occurrence, Path, semantic-fixture, service and
   adventure runtime revisions and their fixed digest snapshots;
+- Swarm Disaster encounter, enemy-composition, battle-materialization and
+  battle-snapshot revisions and their byte-for-byte digest snapshots;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

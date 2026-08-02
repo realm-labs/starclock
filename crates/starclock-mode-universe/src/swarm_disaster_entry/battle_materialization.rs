@@ -37,9 +37,6 @@ use super::{
     validate::{error as invalid, reference},
 };
 
-pub(super) const SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION: &str =
-    "swarm-disaster-battle-materialization-v1";
-
 const ENCOUNTER_ID: EncounterId =
     EncounterId::new(0x7f90_0001).expect("reserved encounter ID is non-zero");
 const WAVE_ID_BASE: u32 = 0x7f91_0000;
@@ -383,7 +380,7 @@ fn disarray_modifiers(
     values: (i64, i64, i64),
 ) -> Result<Vec<ModifierAttachment>, UniverseCatalogLoadError> {
     let source_digest = {
-        let mut encoder = Encoder::new(b"starclock.swarm-disaster.disarray-source.v1");
+        let mut encoder = Encoder::new(b"starclock.swarm-disaster.disarray-source");
         encoder.i64(values.0);
         encoder.i64(values.1);
         encoder.i64(values.2);
@@ -494,7 +491,7 @@ fn attach_modifiers(
     );
     bindings.sort_unstable_by_key(|binding| binding.definition());
     bindings.dedup_by_key(|binding| binding.definition());
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.attached-combatant.v1");
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.attached-combatant");
     encoder.digest(root_digest);
     encoder.digest(base.digest().bytes());
     for binding in &bindings {
@@ -573,8 +570,7 @@ fn materialization_digest(
     selection: &EncounterSelection,
     snapshot: &CompiledSwarmBattleSnapshot,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.battle-materialization.v1");
-    encoder.text(SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.battle-materialization");
     encoder.digest(instance.battle_catalog.digest());
     encoder.digest(roster.participant_lock().bytes());
     encoder.digest(selection_digest(selection));
@@ -588,7 +584,7 @@ fn materialization_digest(
 }
 
 fn combatant_digest(root: [u8; 32], enemy: &str, wave: usize, slot: usize) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.enemy-combatant.v1");
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.enemy-combatant");
     encoder.digest(root);
     encoder.text(enemy);
     encoder.u32(u32::try_from(wave).expect("wave index is bounded"));

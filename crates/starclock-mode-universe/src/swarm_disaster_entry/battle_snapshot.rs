@@ -19,9 +19,6 @@ use super::{
     validate::{error as invalid, reference},
 };
 
-pub(super) const SWARM_DISASTER_BATTLE_SNAPSHOT_REVISION: &str =
-    "swarm-disaster-battle-snapshot-v1";
-
 pub(super) struct CompiledSwarmBattleSnapshot {
     pub(super) shared: UniverseBattleContributionSet,
     pub(super) disarray: (i64, i64, i64),
@@ -161,8 +158,7 @@ fn snapshot_digest(
     boss_decay: &[&super::countdown::BossDecayContribution],
     disarray: (i64, i64, i64),
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.battle-snapshot.v1");
-    encoder.text(SWARM_DISASTER_BATTLE_SNAPSHOT_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.battle-snapshot");
     encoder.digest(shared.digest());
     encoder.digest(instance.path_runtime_digest());
     encoder.digest(instance.communing_trail_digest());
