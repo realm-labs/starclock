@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Goal ID | `swarm-disaster-runtime-v1` |
-| State | `InProgress` |
-| Active phase | Phase 8 — Hardening and release |
-| Active batch | `G20-P8-B4` |
+| State | `ReleasePendingSnapshot` |
+| Active phase | Hosted CI and snapshot registration |
+| Active batch | None |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / Goal 09 reference release dated 2026-07-29 |
 | Profile | `swarm-disaster.profile.v1` |
@@ -17,7 +17,7 @@
 | Inherited policy boundaries | 31; 31 terminal / 0 pending |
 | Content lane | Candidate reference input; target `Released` runtime component |
 | Branch | `codex/goal20-swarm-disaster-runtime` in the current worktree by user direction |
-| Blocking condition | None |
+| Blocking condition | Hosted native/compile-only receipts must bind the P8-B4 completion commit before immutable snapshot registration. |
 
 ## Phase ledger
 
@@ -31,7 +31,7 @@
 | Phase 5 — Mechanic partitions | `Complete` | All 12 frozen mechanic partitions, all 23 semantic fixture families and exact-once 6,963/23/23 coverage close with zero gaps, duplicate IDs, orphan rules, admitted native handlers or shared-domain Swarm stable-ID branches. Encounter remains truthfully catalog-bound until P6-B1 selection and P6-B2 BattleSpec materialization. |
 | Phase 6 — Encounters and full-run integration | `Complete` | Encounter selection, real immutable `BattleSpec` materialization and generic nested-battle execution settle verified eight-field results, four-participant carry, explicit boss choice, defeat/revival, Curio repair and atomic post-battle/plane consequences. The frozen 16-run three-plane matrix covers five difficulties, all eight Path/Audience Die pairs, 42 reachable faces, eight Countdown/Disarray boundaries and all 31 terminal policy probes; 202 primary battles and 202 fresh-factory verification battles reproduce exact state/transcript goldens. |
 | Phase 7 — Replay, controllers and external surfaces | `Complete` | P7-B1–B5 add component-addressed ReplayV2 and fresh verification, exact-offer baseline control, human/JSON CLI diagnostics, authority-preserving Agent Activity sessions and authorized MCP access through the unchanged 13-tool/13-scope contract plus two bounded Swarm resources. |
-| Phase 8 — Hardening and release | `Pending` | — |
+| Phase 8 — Hardening and release | `Complete` | P8-B1–B4 freeze deterministic/rejection/RNG goldens, native CI contracts, seven performance workloads, dependency/architecture/source-cache/clean-checkout audits and the 51-batch pre-snapshot release contract. |
 
 ## Batch ledger
 
@@ -90,7 +90,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G20-P8-B1` | `Complete` | This batch commit | The 268-record component replay freezes 48 Activity actions, 74 Battle commands, 12 real battles and separate replay/Activity-command/Battle-command/Battle-event-state/Activity-state digests; replay SHA-256 remains `c627e93f…525b259`. Eight Swarm RNG domains each consume 257 perturbation draws without shifting unrelated streams or the next Battle draw, producing digest `bc22f82d…df235`; 64 seed cases preserve initial state/offers, three corrupted bundles fail repeatably, and one typed transaction fault discards partial mutation. Agent hardening rejects 4,096 forged actions with exact observation/state/replay identity and checks 256 bounded malformed replays twice without live mutation. The local `macos-arm64-native` hardening gate passed in 9.23s; hosted Windows/Linux execution remains explicitly unclaimed, while all three native profiles share the contract and three compile-only profiles claim no execution. Four focused hardening tests, one component replay, two Agent corpus tests, 146 Swarm entry tests, all 27 exhaustive tests and all 35 agent-api tests passed. Clippy, dependency/workflow/source policy and 34 generated-drift checks passed; the 966-file/72-re-export audit remains clean. Quick passed in 177.1s with seven harnesses and seven deferred inputs, the final cache-hit quick passed in 3.5s, and isolated Python 3.14.6 plus pinned `openpyxl==3.1.5` passed full in 224.3s with 34 generated checks, four source-cache-only skips and 34 workspace harnesses in 154.0s. |
 | `G20-P8-B2` | `Complete` | This batch commit | Seven P0-frozen workloads execute under three-sample `starclock-bench-macos15-m1-max-v1` evidence and a native macOS arm64 Broad-CI profile: three-bundle catalog loading, 16 matrix entries, one complete/freshly verified run, 100 trigger-heavy actions, 10,000 warm immutable assembly-identity reads, 16 concurrent shared-catalog sessions and 4,096 rejection/corruption cases. The feature-gated performance fixture performs one real current-state battle materialization before measurement; its non-authoritative one-entry digest cache records 10,000 hits with zero allocations, misses or evictions, while every workload reports zero catalog clones and replay-prefix reconstruction. Complete-run shape remains 27 external actions, 12 real battles and an 81,086-byte replay. Stable-runner regression and Broad-CI budgets pass; allocation figures are explicitly non-authoritative and concurrent figures cover the coordinator thread only. Swarm entry passed 146 tests, agent API 35, focused Clippy, dependency/workflow/source policy and 36 generated-drift checks passed with four source-cache-only skips; the Goal14 historical verifier now scopes out the exact Goal20 example block instead of rewriting immutable evidence. A cold quick built five harnesses in 85.0s then exhausted 180s without a test failure; the warm gate passed in 85.6s (five harnesses, two direct/three downstream, five deferred), and full passed in 325.1s with 35 workspace harnesses. |
 | `G20-P8-B3` | `Complete` | This batch commit | `node tools/goal20/verify-release-audits.mjs . --bless` closes dependency/license, architecture, native-handler, source/provenance, generated-drift and prior-release audits: all 10 frozen prerequisite snapshots and five protected Goal09 roots remain exact; 6,963/23/23/31 runtime coverage has zero gaps, duplicates or orphan rules and zero runtime JSON reads; Cargo.lock retains the exact 136 registry packages from baseline with no additions; eight native-handler scopes still admit zero handlers; source policy remains 968 handwritten files and 72 explicit public re-exports. The source-cache full gate executed all 41 generated checks with zero skips and passed 35 workspace harnesses in 147.7s. The cache-independent quick gate passed in 3.5s with no Rust scope and five deferred inputs. The first clean-checkout attempt exposed that fetching only `HEAD` from this shallow repository omitted Goal08 ancestry; the runner now clones the complete locally visible shallow graph, then `node tools/goal20/run-clean-checkout.mjs` passed the exact staged tree from a fresh Cargo target with incremental compilation disabled and no source cache and confirmed the checkout remained clean. |
-| `G20-P8-B4` | `InProgress` | — | Freezing release evidence, public documentation and the completion contract before snapshot registration. |
+| `G20-P8-B4` | `Complete` | This row's containing commit | The released contract freezes 51/51 batches, 6,963/23/23 exact-once coverage, 31 terminal policies, 16 freshly verified complete runs with 404 primary/fresh nested-battle executions, component replay and CLI/agent/MCP parity, hardening, seven performance workloads and every P8-B3 audit. Public documentation and machine evidence are generated by `node tools/goal20/verify-release-contract.mjs . --release`; the final quick gate passed in 3.4s with no Rust scope and five deferred inputs, while full passed in 152.1s with 38 cache-independent generated checks, four source-cache-only skips and 35 workspace harnesses. Windows x64, Linux x64 and macOS ARM64 hosted jobs must bind this exact completion commit before the separate hosted-receipt and immutable-snapshot registration commit; compile-only profiles make no runtime claim. |
 
 ## Decision ledger
 
@@ -204,8 +204,8 @@ contract proved by `G20-P6-B1`; all 31 policy boundaries are now terminal.
 
 ## Terminal checklist
 
-- [ ] Immutable prerequisites and protected roots pass.
-- [ ] All 65 Candidate tables load privately and validate.
+- [x] Immutable prerequisites and protected roots pass.
+- [x] All 65 Candidate tables load privately and validate.
 - [x] 6,963/6,963 source obligations have exact-once runtime dispositions.
 - [x] 23/23 mechanic rules have terminal execution evidence/dispositions.
 - [x] All 23 semantic fixture families execute against production values.
@@ -214,12 +214,18 @@ contract proved by `G20-P6-B1`; all 31 policy boundaries are now terminal.
 - [x] Progression, content, services, Adventure and encounters execute.
 - [x] Real nested battles use current Activity state and verified projections.
 - [x] The seeded matrix completes and freshly verifies every replay.
-- [ ] CLI, baseline AI, agent API and MCP offered-command parity passes.
-- [ ] Cross-platform determinism and RNG-isolation goldens pass.
-- [ ] Performance, dependency, architecture and generated-drift audits pass.
-- [ ] Prior-release compatibility and the full clean-checkout gate pass.
-- [ ] `G20-P8-B4` is committed and the completion snapshot is registered.
+- [x] CLI, baseline AI, agent API and MCP offered-command parity passes.
+- [x] Cross-platform determinism and RNG-isolation contracts/goldens pass.
+- [x] Performance, dependency, architecture and generated-drift audits pass.
+- [x] Prior-release compatibility and the full clean-checkout gate pass.
+- [ ] Register the P8-B4 completion snapshot after hosted native CI succeeds.
 
 ## Completion record
 
-Not yet released.
+| Field | Value |
+|---|---|
+| Completion commit | This row's containing `G20-P8-B4` commit |
+| Completion tree | Register separately after hosted native CI |
+| Release policy | `policy/goal20-release-contract.json` |
+| Release evidence | `evidence/swarm-disaster-runtime-v1/release/release-evidence.json` |
+| Hosted CI evidence | `evidence/swarm-disaster-runtime-v1/release/hosted-native-ci.json` in the snapshot registration commit |

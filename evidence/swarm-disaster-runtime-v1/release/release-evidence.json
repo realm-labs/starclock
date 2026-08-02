@@ -1,0 +1,165 @@
+{
+  "schema_revision": "starclock.goal20-release-evidence.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "released_on": "2026-08-02",
+  "result": "complete",
+  "completion_commit": "this file's containing G20-P8-B4 commit",
+  "completion": {
+    "phases": 9,
+    "fixed_batches": 39,
+    "mechanic_partitions": 12,
+    "total_batches": 51,
+    "release_batch": "G20-P8-B4"
+  },
+  "coverage": {
+    "source_obligations": 6963,
+    "mechanic_rules": 23,
+    "semantic_fixture_families": 23,
+    "policy_boundaries": 31,
+    "sora_tables": 65,
+    "workbook_rows": 33380,
+    "exact_once_gaps": 0,
+    "exact_once_duplicates": 0,
+    "orphan_rules": 0,
+    "native_handlers": 0,
+    "runtime_json_file_reads": 0
+  },
+  "production_matrix": {
+    "complete_runs": 16,
+    "fresh_factory_verified_runs": 16,
+    "primary_nested_battles": 202,
+    "fresh_verification_nested_battles": 202,
+    "total_executor_invocations": 404,
+    "difficulties": 5,
+    "paths": 8,
+    "audience_dice": 8,
+    "reachable_faces": 42,
+    "countdown_disarray_boundaries": 8,
+    "policy_probes": 31
+  },
+  "representative_replay": {
+    "seed": 20001,
+    "terminal": "Completed",
+    "activity_actions": 48,
+    "real_nested_battles": 12,
+    "accepted_battle_commands": 74,
+    "replay_bytes": 88813,
+    "replay_records": 268,
+    "replay_sha256": "c627e93fb58e350e7dd2cc0c3d2651ecc1140b705142a5a79628908fb755b259",
+    "component_root": "01dce3ee71b2cf1e790d29b4ccc923e57055ea70208160c7fc1cc2940a0d0b22",
+    "final_activity_state": "059710ea6ac74f7ae919a5f066b17fed91e13b249621eaba30e876126a207c11",
+    "accepted_activity_command_record": "182e304fd896c6826a3728041205635ccb8c18777fe7d8cedda405028dc21c74",
+    "accepted_battle_command_record": "46c7b023c09f585f23c5e06bf0229d690927226b10d2fa3ad1cf33cda0cc9127",
+    "expected_battle_state_record": "3eea401a501f1f70c30fbabaf655232544913861bee094c7439e45548559107b",
+    "expected_activity_state_record": "91eda49f0fab401bb3ecbfe31ab60dbd094f09a18e96acf16251db1e61da2290",
+    "action_families": [
+      "ProfileEntry",
+      "AudienceInitialization",
+      "TrailRunStart",
+      "PlaneCreation",
+      "DiceRoll",
+      "Traverse",
+      "BossDecaySelection",
+      "BossSelection",
+      "Battle"
+    ],
+    "graph_mutation_recompiled": true,
+    "nested_commands_reexecuted": true,
+    "complete_event_payloads_compared": true,
+    "battle_and_activity_state_hashes_compared": true
+  },
+  "surfaces": {
+    "baseline_controller_revision": "swarm-disaster-baseline-controller-v1",
+    "cli_revision": "starclock-cli-swarm-disaster-v1",
+    "agent_revision": "agent-activity-v1",
+    "mcp_revision": "2025-11-25",
+    "external_actions": 27,
+    "final_state_hash": "eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075",
+    "replay_sha256": "993b1efc55f3b4031a1bf2d600798a405fdf99eebe4a854350efeb7b58861e2f"
+  },
+  "hardening": {
+    "rng_domains": 8,
+    "invalid_actions": 4096,
+    "malformed_replays": 256,
+    "activity_command_sha256": "182e304fd896c6826a3728041205635ccb8c18777fe7d8cedda405028dc21c74",
+    "battle_command_sha256": "46c7b023c09f585f23c5e06bf0229d690927226b10d2fa3ad1cf33cda0cc9127",
+    "battle_event_state_sha256": "3eea401a501f1f70c30fbabaf655232544913861bee094c7439e45548559107b",
+    "activity_state_sha256": "91eda49f0fab401bb3ecbfe31ab60dbd094f09a18e96acf16251db1e61da2290",
+    "rng_domain_sha256": "bc22f82da8cfd2dbbfe1b1a9c28f39f93091e96e366e3c793e83836c43cdf235"
+  },
+  "performance": {
+    "workloads": 7,
+    "stable_runner_samples": 3,
+    "warm_assembly_hits": 10000,
+    "concurrent_sessions": 16
+  },
+  "audits": {
+    "reviewed_registry_packages": 136,
+    "protected_reference_roots": 5,
+    "generated_drift_checks": 42,
+    "source_cache_checks": 4,
+    "clean_checkout_command": "node tools/goal20/run-clean-checkout.mjs"
+  },
+  "native": {
+    "required_native_profiles": [
+      "windows-x64-native",
+      "linux-x64-native",
+      "macos-arm64-native"
+    ],
+    "compile_only_profiles": [
+      "windows-arm64-compile",
+      "linux-arm64-compile",
+      "macos-x64-compile"
+    ],
+    "compile_only_runtime_claims": 0,
+    "hosted_evidence_path": "evidence/swarm-disaster-runtime-v1/release/hosted-native-ci.json",
+    "registration": "separate snapshot commit after successful hosted CI"
+  },
+  "policy_files_sha256": {
+    "policy/goal20-foundation.json": "0ccdc1ce2093010a60ed3a5f91ebf94596e18cdd24081d14e90b2c3eec156d9d",
+    "policy/goal20-runtime-dispositions.json": "1b8508a7f7ccacbcab1f676d42f58cb63dfa978c9f62e8097bbef35e9532fabf",
+    "policy/goal20-runtime-contract.json": "bcf1c86a42abb744c88db317b480652da319239399b02895cdfdafcdea3f5715",
+    "policy/goal20-coverage-and-release.json": "7b18681f6fb3b8a382b69d7066d1d79e03fd76d40e0adf88037e6987e227b17b",
+    "policy/goal20-determinism-hardening.json": "ab33c14ca620eec49f56d4246ac8898fb9805528453dde3bfc1803df9eac9d9b",
+    "policy/goal20-performance.json": "b295f63a3c61d33f226128b3aaac855508cd3d204aa0b77bdb17bda66c306bef",
+    "policy/goal20-release-audits.json": "c3f62121ddbfe697aae09a77e741ce45880ec3d7813d02e1a4d0d3dd981c5acf"
+  },
+  "evidence_files_sha256": {
+    "evidence/swarm-disaster-runtime-v1/foundation/runtime-completeness.json": "50dd040ee0420c2a9bb56b05feaef4f9c636e635b83d90b4921d484cae83b09b",
+    "evidence/swarm-disaster-runtime-v1/topology/seeded-run-matrix.json": "725d2ab5c4227901f33a9d8e01f2e2f28607c4232afe3ae204905072667f88f9",
+    "evidence/swarm-disaster-runtime-v1/interfaces/component-replay.json": "745cb4d86ef0cd92f537585e7fc98aa973a9ca99ee72983383b33f87b150d819",
+    "evidence/swarm-disaster-runtime-v1/interfaces/baseline-controller.json": "b56e37e92295ddeb59b8ba5828fcae71b8b895fb651339a8b88c0ccae273f18a",
+    "evidence/swarm-disaster-runtime-v1/interfaces/universe-cli.json": "b962704f55a4baf36272117a0a753d71610cbb225c5f9f96040144255b1f7c1f",
+    "evidence/swarm-disaster-runtime-v1/interfaces/activity-agent-api.json": "20aa09319ff1288be3d5485c4ff03b482caf580c3a7aa3d7a9cbdb432b9721bb",
+    "evidence/swarm-disaster-runtime-v1/interfaces/activity-mcp.json": "415b47add681caf591963592af6703535bd73334f0d76f9a0c5f347c02f02c7f",
+    "evidence/swarm-disaster-runtime-v1/hardening/determinism-hardening.json": "dd562575579bd5a3cc7a35f39c509e59cbc06fdd8d6de66cfa00f35043425fe7",
+    "evidence/swarm-disaster-runtime-v1/performance/stable-runner.json": "2fbec51567298c70c96fd1704628ef4e5e7ade4e4b01f0c3b4917b397acca20e",
+    "evidence/swarm-disaster-runtime-v1/audits/release-audits.json": "74096425d9b7ba8e223ec7917293468de95c3cf0c2c278ae11ab1526002ce932",
+    "evidence/swarm-disaster-runtime-v1/audits/phase8-b3.json": "bc7317573c6af2295f3ee572e9f81e3a388c76b94471c1289208c2014109c6b9"
+  },
+  "documentation_files_sha256": {
+    "docs/goals/20-swarm-disaster-runtime.md": "7de900bdd3d91c51e7d4162918b6898fe48b5a4733c0d25eb34db0894512d3aa",
+    "docs/goals/20-swarm-disaster-runtime-status.md": "a663795ffbefe51e6c03fd870793602a165fb0f71aad2c4d4bc42872486db615",
+    "docs/goals/20-swarm-disaster-runtime-prompt.md": "f48b38c7ebca2b171052c2139ec70b5a14ae52bcc10eab8ea186208eca240dfe",
+    "docs/goals/README.md": "9417287434d4b1c6e520af1a72950c89ab3d486514947f4d83069b55f533ef46",
+    "docs/goal-20-coverage-and-release.md": "2f3dfe6b375bd0c3168618113b6b9d33e287ab06f9696cbbcc8ff1eac1662ee7",
+    "docs/goal-20-release-contract.md": "d127f51e0274a04e7fa1e78a6c56f34349dbb1277ff935e9b083c3fbc73fcf26",
+    "docs/17-documentation-coverage-matrix.md": "91be2e4d67319c5b5bd4962e34f9f7f81169d83e42bf57bbc4e40fdac1c79ad2",
+    "docs/starclock-agent-integration-contract.md": "86d1f5172670293031147b76c9158edc86fc177dd96e655ee3518c4dabac17f8",
+    "docs/starclock-mcp-tools.md": "b16c8744190886e201ddddeb3000237d25165ba651db8f7fc5c1877571de6a6a",
+    "docs/README.md": "cc5fead8683821328d0cd719ab932b666d70b5a9f3571e6147332e58be4eaab6"
+  },
+  "prior_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1",
+    "standard-universe-runtime-v1",
+    "standard-universe-end-to-end-v1",
+    "combat-identity-dynamic-assembly-v1",
+    "standard-universe-mechanics-complete-v1",
+    "gold-and-gears-reference-v1",
+    "swarm-disaster-reference-v1",
+    "gold-and-gears-runtime-v1"
+  ],
+  "clean_worktree_command": "node tools/goal20/verify-release-contract.mjs . --release --require-clean"
+}

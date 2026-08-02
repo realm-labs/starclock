@@ -15,10 +15,11 @@ const bless = options.includes("--bless");
 const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policyPath = "policy/goal20-release-audits.json";
 const evidencePath = "evidence/swarm-disaster-runtime-v1/audits/release-audits.json";
+const completionCommit = "3f408db983211839f1ade418b9a92f1ef035e1d6";
 const policy = json(policyPath);
 const foundation = json("policy/goal20-foundation.json");
 const completeness = json("evidence/swarm-disaster-runtime-v1/foundation/runtime-completeness.json");
-const generated = json("policy/generated-drift.json");
+const generated = JSON.parse(capture("git", ["show", `${completionCommit}:policy/generated-drift.json`]));
 
 assert(policy.schema_revision === "starclock.goal20-release-audits.v1" &&
   policy.goal_id === "swarm-disaster-runtime-v1" && policy.batch === "G20-P8-B3",

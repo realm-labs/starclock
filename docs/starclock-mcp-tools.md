@@ -50,15 +50,19 @@ names:
 Omitting `mode` or using `standard` preserves the Standard contract and requires
 `world` plus `difficulty_index`. `mode:"gold-and-gears"` selects the fixed Gold
 and Gears entry; `world` and `difficulty_index` may be omitted, but if present
-must be `401` and `0`. Standard and Gold sessions share the same owner binding,
-opaque identities, quotas, leases, idempotency rules and replay-import limit.
+must be `401` and `0`. `mode:"swarm-disaster"` selects the fixed Swarm entry
+and accepts only `201` and `0` when those fields are present. Standard, Gold
+and Swarm sessions share the same owner binding, opaque identities, quotas,
+leases, idempotency rules and replay-import limit.
 Unknown modes and incompatible fixed-entry fields are rejected before session
 creation or replay verification.
 
-The adapter exposes six inert static resources: core catalog and rules,
-Standard manifest and rules, and Gold and Gears manifest and rules at
+The adapter exposes eight inert static resources: core catalog and rules,
+Standard manifest and rules, Gold and Gears manifest and rules at
 `starclock://universe/gold-and-gears/manifest` and
-`starclock://rules/gold-and-gears`. The Gold resources and tools use the
+`starclock://rules/gold-and-gears`, and Swarm manifest and rules at
+`starclock://universe/swarm-disaster/manifest` and
+`starclock://rules/swarm-disaster`. The mode resources and tools use the
 existing Activity-read and Activity-tool scopes; the fixed thirteen-scope
 authorization matrix and thirteen tool names are unchanged. Two existing RFC
 6570 resource templates and the `starclock_battle_loop` prompt are unchanged.

@@ -110,6 +110,10 @@
       "command": ["node", "tools/goal20/verify-release-audits.mjs", "."]
     },
     {
+      "name": "Goal 20 released completion contract",
+      "command": ["node", "tools/goal20/verify-release-contract.mjs", ".", "--release"]
+    },
+    {
       "name": "Goal 14 performance and allocation budgets",
       "command": ["node", "tools/goal14/verify-performance.mjs", "."]
     },
