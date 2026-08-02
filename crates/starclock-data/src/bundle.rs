@@ -7,12 +7,6 @@ use crate::generated::{SoraConfig, runtime::SoraBundle};
 pub struct BundleMetadata {
     /// Authored game-version snapshot.
     pub game_version: String,
-    /// Stable data revision from the singleton manifest.
-    pub data_revision: String,
-    /// Rules compatibility revision required by the bundle.
-    pub required_rules_revision: String,
-    /// Frozen goal-coverage manifest digest.
-    pub coverage_manifest_sha256: String,
     /// Number of transport identities present in the bundle.
     pub identity_count: usize,
     /// Number of identities currently enabled for domain conversion.
@@ -44,9 +38,6 @@ pub fn inspect(bytes: &[u8]) -> Result<BundleMetadata, BundleLoadError> {
     let identities = config.content_identity();
     Ok(BundleMetadata {
         game_version: manifest.game_version.clone(),
-        data_revision: manifest.data_revision.clone(),
-        required_rules_revision: manifest.required_rules_revision.clone(),
-        coverage_manifest_sha256: manifest.coverage_manifest_sha256.clone(),
         identity_count: identities.len(),
         enabled_identity_count: identities.values().filter(|row| row.enabled).count(),
     })
@@ -68,13 +59,8 @@ mod tests {
     fn production_bundle_exposes_the_standard_metadata_boundary() {
         let metadata = inspect(PRODUCTION_BUNDLE).expect("production bundle must load");
         assert_eq!(metadata.game_version, "4.4");
-        assert_eq!(metadata.data_revision, "core-combat-v1-phase7-l11");
         assert_eq!(metadata.identity_count, 6719);
         assert_eq!(metadata.enabled_identity_count, 6719);
-        assert_eq!(
-            metadata.coverage_manifest_sha256,
-            "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"
-        );
     }
 
     #[test]

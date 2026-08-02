@@ -61,9 +61,10 @@ private canonical encoders. Public
 consumers see Starclock seed, purpose, sample, selection, digest and error
 types. The wrapper never implements `Clone`, and no dependency generator,
 distribution or digest type is re-exported.
-`rng_algorithm_revision = "chacha8-rand-0.10.2-intmap-v1"` binds
-the raw-word sequence, canonical SHA-256 derivation, range/weight mappings and
-draw-consumption policy.
+The project-owned RNG implementation and focused golden tests bind the raw-word
+sequence, canonical SHA-256 derivation, range/weight mappings and
+draw-consumption policy; the configuration manifest does not duplicate this
+identity with an internal revision string.
 
 `G01-P2-B4` reuses the exact reviewed `sha2 = 0.11.0` package as a direct
 `starclock-replay` dependency for the streaming canonical hash sink; it adds no

@@ -187,18 +187,16 @@ fn config_validate(args: &[String]) -> Result<(), CliError> {
     let bundle_digest = hex(digest.finalize().bytes());
     if json {
         println!(
-            "{{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"{}\",\"data_revision\":\"{}\",\"bundle_sha256\":\"{}\",\"identities\":{},\"enabled\":{}}}",
+            "{{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"{}\",\"bundle_sha256\":\"{}\",\"identities\":{},\"enabled\":{}}}",
             json_escape(&catalog.manifest().game_version),
-            json_escape(&catalog.manifest().data_revision),
             bundle_digest,
             summary.identity_count,
             summary.enabled_identity_count,
         );
     } else {
         println!(
-            "config valid game_version={} data_revision={} bundle_sha256={} identities={} enabled={}",
+            "config valid game_version={} bundle_sha256={} identities={} enabled={}",
             catalog.manifest().game_version,
-            catalog.manifest().data_revision,
             bundle_digest,
             summary.identity_count,
             summary.enabled_identity_count,
@@ -250,8 +248,7 @@ fn write_coverage(catalog: &SimulationCatalog, selected: Option<GoalCoverageCate
             .collect::<Vec<_>>()
             .join(",");
         println!(
-            "{{\"kind\":\"catalog-coverage\",\"manifest_sha256\":\"{}\",\"required\":{},\"enabled\":{},\"data_ready\":{},\"golden_verified\":{},\"categories\":[{}]}}",
-            report.manifest_digest(),
+            "{{\"kind\":\"catalog-coverage\",\"required\":{},\"enabled\":{},\"data_ready\":{},\"golden_verified\":{},\"categories\":[{}]}}",
             categories.iter().map(|row| row.required()).sum::<usize>(),
             categories.iter().map(|row| row.enabled()).sum::<usize>(),
             categories.iter().map(|row| row.data_ready()).sum::<usize>(),
@@ -263,8 +260,7 @@ fn write_coverage(catalog: &SimulationCatalog, selected: Option<GoalCoverageCate
         );
     } else {
         println!(
-            "catalog coverage goal=core-combat-v1 manifest={} required={} enabled={} data_ready={} golden_verified={}",
-            report.manifest_digest(),
+            "catalog coverage required={} enabled={} data_ready={} golden_verified={}",
             categories.iter().map(|row| row.required()).sum::<usize>(),
             categories.iter().map(|row| row.enabled()).sum::<usize>(),
             categories.iter().map(|row| row.data_ready()).sum::<usize>(),

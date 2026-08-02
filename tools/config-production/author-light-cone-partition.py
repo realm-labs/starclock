@@ -389,23 +389,17 @@ def main() -> None:
     rows, internals, _cones, selected, base = generated_rows(code)
     expected = {name: merged_table(name, rows[name], base, selected) for name in OWNED_TABLES}
     identities, evidence = update_metadata(code, internals, selected, base)
-    _, manifest_rows = V1B.workbook_rows("ConfigManifest")
-    if len(manifest_rows) != 1:
-        raise ValueError("production ConfigManifest must remain a singleton")
     if args.write:
-        manifest_rows[0]["data_revision"] = f"core-combat-v1-phase7-{code.lower()}"
         for name in OWNED_TABLES:
             V1B.write_rows(name, expected[name])
         V1B.write_rows("ContentIdentity", identities)
         V1B.write_rows("ContentEvidenceBinding", evidence)
-        V1B.write_rows("ConfigManifest", manifest_rows)
         print(f"Authored frozen {code} Light Cone partition into production workbooks.")
     else:
         for name in OWNED_TABLES:
             V1B.check_exact(name, expected[name])
         V1B.check_exact("ContentIdentity", identities)
         V1B.check_exact("ContentEvidenceBinding", evidence)
-        V1B.check_exact("ConfigManifest", manifest_rows)
         print(f"Frozen {code} Light Cone workbooks match deterministic authoring output.")
 
 

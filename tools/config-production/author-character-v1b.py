@@ -987,23 +987,17 @@ def main() -> None:
     rows, internals, source_rows = generated_rows()
     expected = {name: merged_table(name, rows[name]) for name in OWNED_TABLES}
     identities, evidence = update_metadata(internals, source_rows)
-    _, manifest_rows = workbook_rows("ConfigManifest")
-    if len(manifest_rows) != 1:
-        raise ValueError("production ConfigManifest must remain a singleton")
     if args.write:
-        manifest_rows[0]["data_revision"] = "core-combat-v1-phase7-v1b"
         for name in OWNED_TABLES:
             write_rows(name, expected[name])
         write_rows("ContentIdentity", identities)
         write_rows("ContentEvidenceBinding", evidence)
-        write_rows("ConfigManifest", manifest_rows)
         print("Authored six frozen V1B character forms into production workbooks.")
     else:
         for name in OWNED_TABLES:
             check_exact(name, expected[name])
         check_exact("ContentIdentity", identities)
         check_exact("ContentEvidenceBinding", evidence)
-        check_exact("ConfigManifest", manifest_rows)
         print("Frozen V1B character workbooks match deterministic authoring output.")
 
 

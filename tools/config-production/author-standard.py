@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import shutil
 from decimal import Decimal
 from pathlib import Path
 from typing import Any
@@ -24,10 +25,10 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "config" / "data"
+TEMPLATES = ROOT / "config" / "generated" / "templates"
 REFERENCE = ROOT / "content-reference" / "v4.4"
 MANIFEST = ROOT / "content-manifests" / "core-combat-v1" / "standard-v1.json"
 REFERENCE_DIGEST = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a"
-GOAL_DIGEST = "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"
 
 OWNED_TABLES = (
     "Ability",
@@ -105,9 +106,14 @@ def normalized(value: Any) -> Any:
 
 def write_rows(name: str, records: list[dict[str, Any]]) -> None:
     path = DATA / f"{name}.xlsx"
+    fields, current = workbook_rows(name)
+    project = lambda rows: [
+        {field: normalized(row.get(field)) for field in fields} for row in rows
+    ]
+    if project(current) == project(records):
+        return
     workbook = load_workbook(path)
     sheet = workbook.active
-    fields = [cell.value for cell in sheet[3][1:] if cell.value]
     for record in records:
         unknown = set(record) - set(fields)
         if unknown:
@@ -120,6 +126,15 @@ def write_rows(name: str, records: list[dict[str, Any]]) -> None:
             if value is not None:
                 sheet.cell(row=row_index, column=field_index, value=value)
     workbook.save(path)
+
+
+def sync_template(name: str) -> None:
+    template = TEMPLATES / f"{name}.xlsx"
+    current_fields, _ = workbook_rows(name)
+    workbook = load_workbook(template, read_only=True, data_only=False)
+    template_fields = [cell.value for cell in workbook.active[3][1:] if cell.value]
+    if current_fields != template_fields:
+        shutil.copyfile(template, DATA / f"{name}.xlsx")
 
 
 def source_data() -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any], dict[str, Any], dict[str, Any]]:
@@ -536,11 +551,7 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
 
 def expected_manifest_row() -> dict[str, Any]:
     return {
-        "game_version": "4.4", "snapshot_date": "2026-07-17", "data_revision": "core-combat-v1-phase7-v1b",
-        "required_rules_revision": "core-combat-rules-v1", "sora_cli_version": "0.3.0",
-        "numeric_policy_revision": "fixed-i64-6dp-v1", "rng_algorithm_revision": "chacha8-rand-0.10.2-intmap-v1",
-        "state_hash_revision": "sha256-v4", "replay_format_version": "replay-v1",
-        "coverage_manifest_sha256": GOAL_DIGEST,
+        "game_version": "4.4", "snapshot_date": "2026-07-17", "sora_cli_version": "0.3.0",
     }
 
 
@@ -557,7 +568,17 @@ def main() -> None:
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--write", action="store_true")
     mode.add_argument("--check", action="store_true")
+    parser.add_argument("--manifest-only", action="store_true")
     args = parser.parse_args()
+    if args.manifest_only:
+        if args.write:
+            sync_template("ConfigManifest")
+            write_rows("ConfigManifest", [expected_manifest_row()])
+            print("Authored current production config manifest.")
+        else:
+            check_table("ConfigManifest", [expected_manifest_row()])
+            print("Current production config manifest matches deterministic authoring output.")
+        return
     manifest = read_json(REFERENCE / "pack-index.json")
     if manifest["pack_sha256"] != REFERENCE_DIGEST:
         raise ValueError("prepared reference pack digest changed")
@@ -567,6 +588,7 @@ def main() -> None:
             write_rows(name, rows[name])
         write_rows("ContentIdentity", identities)
         write_rows("ContentEvidenceBinding", evidence)
+        sync_template("ConfigManifest")
         write_rows("ConfigManifest", [expected_manifest_row()])
         _, evidence_rows = workbook_rows("EvidenceRecord")
         for record in evidence_rows:

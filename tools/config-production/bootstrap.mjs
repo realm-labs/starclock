@@ -13,7 +13,6 @@ assert(relativeOutput && !relativeOutput.startsWith("../") && relativeOutput !==
 assert(!fs.existsSync(output), `refusing to overwrite existing output root ${relativeOutput}`);
 
 run("node", ["tools/content-reference/verify.mjs", "content-reference/v4.4"]);
-run("node", ["tools/goal-manifest/verify.mjs"]);
 const toolPolicy = readJson("policy/sora-toolchain.json");
 const sora = path.join(root, toolPolicy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
 assert(fs.existsSync(sora), `Sora ${toolPolicy.version} is not installed; run ${toolPolicy.install_command}`);
@@ -27,7 +26,7 @@ fs.mkdirSync(rowsRoot, { recursive: true });
 run(sora, ["--serial", "excel-template", "--project", "config/project.toml", "--out", path.relative(root, templates)]);
 writeRows(rowsRoot);
 run("cargo", ["run", "--manifest-path", "tools/workbook-bootstrap/Cargo.toml", "--locked", "--quiet", "--", templates, rowsRoot, output]);
-console.log(`Bootstrapped ${identityRecords().length} disabled frozen identities into ${relativeOutput}.`);
+console.log(`Bootstrapped ${identityRecords().length} disabled catalog identities into ${relativeOutput}.`);
 
 function writeRows(directory) {
   const manifest = readJson("content-reference/v4.4/manifest.json");
@@ -78,14 +77,7 @@ function writeRows(directory) {
   writeTsv(directory, "ConfigManifest", [{
     game_version: "4.4",
     snapshot_date: "2026-07-17",
-    data_revision: "core-combat-v1-bootstrap-v1",
-    required_rules_revision: "rules-unimplemented",
     sora_cli_version: "0.3.0",
-    numeric_policy_revision: "fixed-i64-6dp-v1",
-    rng_algorithm_revision: "chacha8-v1-pending",
-    state_hash_revision: "sha256-v1-pending",
-    replay_format_version: "replay-v1-pending",
-    coverage_manifest_sha256: "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
   }]);
 }
 
@@ -113,13 +105,13 @@ function identityRecords() {
   for (const entry of standard.enemies) {
     const variant = required(variantById, entry.variant_reference_id);
     const template = required(templateById, variant.enemy_id);
-    records.push(base(entry.id, "EnemyVariant", `${template.name_en} Variant`, `${template.name_zh_cn}变体`, "Frozen Standard enemy-variant identity.", "已冻结的标准模式敌人变体身份。", entry.reference_quality));
+    records.push(base(entry.id, "EnemyVariant", `${template.name_en} Variant`, `${template.name_zh_cn}变体`, "Standard enemy-variant identity.", "标准模式敌人变体身份。", entry.reference_quality));
   }
-  for (const entry of standard.encounters) records.push(base(entry.id, "Encounter", title(entry.id), `标准遭遇：${entry.id}`, entry.note, "已冻结的标准模式遭遇身份。", "ExactStructured"));
-  for (const entry of standard.scenarios) records.push(base(entry.id, "Scenario", title(entry.id), `标准场景：${entry.id}`, "Frozen seeded Standard scenario identity.", "已冻结的标准模式种子场景身份。", "ExactStructured"));
-  records.push(base(standard.profile.id, "StandardProfile", "Standard Version 1 Profile", "标准模式第一版配置", "Ordinary battle profile without challenge semantics.", "不含挑战模式语义的普通战斗配置。", "ProjectPolicy"));
+  for (const entry of standard.encounters) records.push(base(entry.id, "Encounter", title(entry.id), `标准遭遇：${entry.id}`, entry.note, "标准模式遭遇身份。", "ExactStructured"));
+  for (const entry of standard.scenarios) records.push(base(entry.id, "Scenario", title(entry.id), `标准场景：${entry.id}`, "Seeded Standard scenario identity.", "标准模式种子场景身份。", "ExactStructured"));
+  records.push(base(standard.profile.id, "StandardProfile", "Standard Profile", "标准模式配置", "Ordinary battle profile without challenge semantics.", "不含挑战模式语义的普通战斗配置。", "ProjectPolicy"));
   records.sort((left, right) => left.id.localeCompare(right.id));
-  assert(records.length === 283 && new Set(records.map((record) => record.id)).size === 283, "frozen identity bootstrap does not contain exactly 283 unique entries");
+  assert(records.length === 283 && new Set(records.map((record) => record.id)).size === 283, "identity bootstrap does not contain exactly 283 unique entries");
   return records.map((record, index) => ({
     ...record,
     transport_id: index + 1,

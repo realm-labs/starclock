@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-l11\",\"bundle_sha256\":\"a6c6c67913685ccaab5e05665bb40b92001b3388e6be4977e25dd9cd029cb300\",\"identities\":6719,\"enabled\":6719}"
+        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"bundle_sha256\":\"7f7fc51f8ff2fb6714199c49a949f6ff21d1002dffb09f199849c62b809f7fce\",\"identities\":6719,\"enabled\":6719}"
     );
 
     let bundle =

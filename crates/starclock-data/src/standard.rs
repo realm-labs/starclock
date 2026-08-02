@@ -1,4 +1,4 @@
-//! Frozen production Standard scenario catalog and battle instantiation.
+//! Current production Standard scenario catalog and battle instantiation.
 
 use std::{collections::BTreeSet, sync::Arc};
 
@@ -424,47 +424,47 @@ mod tests {
     }
 
     #[test]
-    fn every_frozen_scenario_reaches_its_seeded_terminal_golden() {
+    fn every_scenario_reaches_its_expected_seeded_terminal_state() {
         const EXPECTED: [(&str, usize, &str); 6] = [
             (
                 SCENARIOS[0].0,
                 154,
-                "c3a887357ed05ed76e51512f9813635cbd7bea223bde32ca10570b530ef44342",
+                "cdb68a534f2cbb67393e55dacd2f052c42cc331d494db369ca4650188abcd474",
             ),
             (
                 SCENARIOS[1].0,
                 33,
-                "19067843678c8a095cbc4f1f69c7a9a6270b847240606a1be9f6fe20620bb5c6",
+                "aca9ec6fad9dd8d4a6e6c7802d106630d28bea90ddbeec2b18dd105b654cec3b",
             ),
             (
                 SCENARIOS[2].0,
                 109,
-                "558b60771387770b389c7645ea280198304dda200f75d578d9b525c3805def30",
+                "5371f1152d5753c86d18ce8ee48e0ea84f841ed04f29a28a5981b4cbc9cfdb42",
             ),
             (
                 SCENARIOS[3].0,
                 48,
-                "f3655371526d94f22361b11723e5db60a902b61789bc0f37efb4be132182108b",
+                "884af531aa8991cce0f9145336bb76969ad0f9f028405ff706a6367bdc8efbf6",
             ),
             (
                 SCENARIOS[4].0,
                 314,
-                "dd8c895e6e22af5c51fb56d315f383ab15948d03a1dac1656800a3cdb3a2d676",
+                "cecc10e7e23c91df77212ab5db7592736777ce32d296218eeabd93319f1b823a",
             ),
             (
                 SCENARIOS[5].0,
                 417,
-                "4d2f3410f4d1b5021db5f7b2d7cd509dbae0344b528da739576204e8b496bc56",
+                "457c13c14148aca0ab6e5e89636df61bda51f44d99c9907b33bd82d5e0575a3a",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {
             let mut instantiated =
-                instantiate(scenario, None).expect("frozen scenario instantiates");
+                instantiate(scenario, None).expect("current scenario instantiates");
             let battle = instantiated.battle_mut();
             let mut events = 0;
             let mut commands = 0;
             while !battle.view().phase().is_terminal() {
-                assert!(commands < 512, "frozen scenario exceeded command budget");
+                assert!(commands < 512, "current scenario exceeded command budget");
                 let decision = battle.decision().expect("nonterminal decision");
                 let command = match decision.kind() {
                     DecisionKind::BattleStart => decision.legal_commands().first(),

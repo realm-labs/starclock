@@ -18,6 +18,14 @@
   "verification": {
     "rust": "cargo",
     "default_excludes_exhaustive": true,
-    "data_checks_are_change_scoped": true
+    "data_checks_are_change_scoped": true,
+    "production_config_compares_current_generation": true
+  },
+  "config_manifest": {
+    "game_version": true,
+    "snapshot_date": true,
+    "sora_cli_version": true,
+    "internal_revisions": false,
+    "historical_coverage_digest": false
   }
 }

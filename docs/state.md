@@ -79,6 +79,14 @@ Removed from current runtime surfaces:
   `BattleSpecDigest` wrapper;
 - Combat input/state codec revision sentinels; `SCBI`/`SCBS` framing magic and
   semantic field discriminants remain;
+- generated `ConfigManifest` data/rules/numeric/RNG/state/replay revision
+  labels and the old Goal coverage digest; the manifest now carries only
+  gameplay `game_version`, source `snapshot_date` and pinned
+  `sora_cli_version`;
+- the production configuration golden registry and its `--bless` path;
+  verification now rebuilds directly from the current schema/workbooks and
+  compares current generated artifacts;
+- the deleted Goal-manifest verifier dependency from production bootstrap;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain
@@ -92,8 +100,8 @@ The current Sora native-handler table still authors `handler_version`, but the
 runtime registry no longer consumes it. Removing that generated column requires
 the workbook, schema, generated reader and bundle to change together.
 
-The generated configuration manifests still author rules, numeric, RNG,
-state-hash and battle-policy revision strings. Runtime combat no longer exposes
-or consumes those labels. Their remaining validators are generated-data cleanup
-and must be removed through the workbook/schema/export path rather than by
-editing generated Rust or bundles directly.
+The core-combat gameplay reference manifests remain, but their top-level
+`schema_revision`, `goal_id`, generated-date and partition/batch metadata are
+still historical authoring metadata rather than gameplay facts. Remove that
+metadata only while preserving the actual character, Light Cone, enemy,
+encounter and scenario reference rows.

@@ -227,7 +227,7 @@ Prefer several focused workbooks with related sheets over one giant workbook. Th
 | `Challenge.xlsx / ChallengeNodeProfile` | stage, team alias, selectable buff pool, activity bindings | Challenge-specific metadata without duplicate graph/clock/score types. |
 | `Challenge.xlsx / ChallengeBuffOption` | season/node applicability, rule/program references | Memory Turbulence, Cacophony, Ruinous Embers, and Finality's Axiom content. |
 | `common / SourceRecord` | `id`, URL, access date, version, confidence, evidence digest | Row-level provenance for imported facts. |
-| `common / ConfigManifest` | singleton revision row | Game version, data revision, rules compatibility, and notes. |
+| `common / ConfigManifest` | singleton source row | Game version, source snapshot date, and Sora tool version. |
 
 Use Sora `ref<Table.key>` for cross-table references to a map table's declared
 primary key and secondary unique indexes for additional natural keys that must
@@ -330,40 +330,35 @@ At application startup:
 
 1. `starclock-data` opens `config.sora` through the Sora-generated Rust reader.
 2. It checks the bundle format supported by the generated reader.
-3. It checks `rules_revision` against the `starclock-combat`, `starclock-build`, and `starclock-activity` compatibility ranges.
+3. It checks the pinned Sora authoring-tool version and required source metadata.
 4. It resolves generated table references into stable runtime IDs.
 5. It parses canonical decimal strings into checked domain fixed-point values and performs domain validation spanning combat operations/events, build graphs/patches/curves, and activity graphs/projections.
-6. It constructs an immutable `Arc<SimulationCatalog>` containing separate `CombatCatalog`, `BuildCatalog`, activity definitions, and mode-profile indexes plus their compatibility/digests.
-7. A build compilation, battle, or activity captures the relevant catalog revisions and cannot switch data while running.
+6. It constructs an immutable `Arc<SimulationCatalog>` containing separate `CombatCatalog`, `BuildCatalog`, activity definitions, and mode-profile indexes plus their digests.
+7. A build compilation, battle, or activity captures the relevant immutable catalog and cannot switch data while running.
 
 `SimulationCatalog` is an application/data-layer aggregate, not a combat-core type. Composition code passes only `CombatCatalog` to `Battle`, both `CombatCatalog` and `BuildCatalog` to `starclock-build`, and generic activity definitions/resolved participant specs to `starclock-activity`.
 
 Do not make domain APIs expose generated Sora row types. Convert them at the `starclock-data -> starclock-combat/starclock-build/starclock-activity` boundaries so Sora upgrades cannot leak into rules, build policies, profiles, or engine adapters.
 
-## Revision and replay policy
+## Current configuration identity
 
 The workbook's `ConfigManifest` should include:
 
 ```text
 game_version
 snapshot_date
-data_revision
-required_rules_revision
 sora_cli_version
-numeric_policy_revision
-rng_algorithm_revision
-state_hash_revision
-replay_format_version
-coverage_manifest_sha256
 ```
 
-After export, compute a SHA-256 digest of `config.sora`. Store this digest in the replay header alongside the human-readable data revision. Replay loading rejects a different digest unless an explicit migration supplies the original bundle.
+After export, compute a SHA-256 digest of `config.sora`. The digest is the
+machine identity of the current runtime configuration; internal version and
+revision labels do not duplicate it.
 
 Generated `.xlsx` ZIP bytes are not stable identities because archive metadata
 varies across invocations. Workbook drift is checked by exact workbook/sheet
 projection and a read-only `excel-sync` no-change report. Schema locks,
-explicitly formatted generated Rust, diagnostic JSON and `config.sora` remain
-byte-for-byte golden artifacts.
+explicitly formatted generated Rust, diagnostic JSON and `config.sora` are
+checked against the current schema and workbook projection.
 
 A config change never alters an already running battle or activity. Development hot reload may replace the catalog used for newly created activities/battles only.
 

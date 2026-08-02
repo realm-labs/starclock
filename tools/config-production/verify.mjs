@@ -6,11 +6,9 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const arguments_ = process.argv.slice(2);
-assert(arguments_.every((argument) => argument === "--bless"), "usage: verify.mjs [--bless]");
-const bless = arguments_.includes("--bless");
+assert(arguments_.length === 0, "usage: verify.mjs");
 const work = path.join(root, ".cache/config-production-verify");
 const projectRoot = path.join(work, "config");
-const expectedFile = path.join(root, "config/production-golden.json");
 assert(path.relative(root, work).replaceAll("\\", "/") === ".cache/config-production-verify", "unexpected verification work path");
 
 run("node", ["tools/config-production/generate-bootstrap-policy.mjs"]);
@@ -33,31 +31,8 @@ verifyReadOnlySync();
 verifyBootstrapReproduction();
 
 const stable = artifactMap(path.join(projectRoot, "generated"));
-const outputDigest = digestFileMap(stable);
-if (bless) {
-  copyGenerated(path.join(projectRoot, "generated"), path.join(root, "config/generated"));
-  fs.writeFileSync(expectedFile, `${JSON.stringify({
-    schema_revision: "starclock.production-config-golden.v1",
-    sora_cli_version: toolPolicy.version,
-    reference_pack_sha256: "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
-    goal_manifest_sha256: "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
-    identity_count: 6719,
-    enabled_identity_count: 6719,
-    table_count: 82,
-    output_digest: outputDigest,
-    files: stable,
-  }, null, 2)}\n`);
-  console.log(`Blessed production config golden (${Object.keys(stable).length} files; ${outputDigest}).`);
-} else {
-  const expected = readJson(expectedFile);
-  assert(expected.schema_revision === "starclock.production-config-golden.v1", "unexpected production golden revision");
-  assert(expected.sora_cli_version === toolPolicy.version, "production golden uses another Sora version");
-  assert(expected.reference_pack_sha256 === "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a", "production golden reference digest differs");
-  assert(expected.goal_manifest_sha256 === "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19", "production golden goal digest differs");
-  assert(JSON.stringify(stable) === JSON.stringify(expected.files) && outputDigest === expected.output_digest, "production config golden drifted");
-  assertMapsEqual(new Map(Object.entries(stable)), new Map(Object.entries(artifactMap(path.join(root, "config/generated")))), "committed production generated artifacts drifted");
-  console.log(`Production config golden verified (${Object.keys(stable).length} files; ${outputDigest}).`);
-}
+assertMapsEqual(new Map(Object.entries(stable)), new Map(Object.entries(artifactMap(path.join(root, "config/generated")))), "committed production generated artifacts drifted");
+console.log(`Current production config verified (${Object.keys(stable).length} generated files).`);
 
 function verifyProductionSchemaSources() {
   for (const file of walk(path.join(root, "config/schema")).filter((candidate) => candidate.endsWith(".toml"))) {
@@ -145,17 +120,6 @@ function verifyTemplateList(directory) {
   assert(JSON.stringify(data) === JSON.stringify(templates), "designer workbook layout differs from schema template layout");
 }
 
-function copyGenerated(source, destination) {
-  fs.mkdirSync(destination, { recursive: true });
-  for (const relative of stableFiles(source)) {
-    const target = path.join(destination, relative);
-    fs.mkdirSync(path.dirname(target), { recursive: true });
-    fs.copyFileSync(path.join(source, relative), target);
-  }
-  const templateDestination = path.join(destination, "templates");
-  fs.rmSync(templateDestination, { recursive: true, force: true });
-  fs.cpSync(path.join(source, "templates"), templateDestination, { recursive: true });
-}
 function artifactMap(directory) { return Object.fromEntries(stableFiles(directory).map((relative) => [relative, sha256(path.join(directory, relative))])); }
 function stableFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).filter((relative) => !relative.startsWith("templates/") && !relative.startsWith("rust/universe_reference/")).sort(); }
 function rows(directory, name) { return readJson(path.join(directory, `${name}.json`)).table.rows; }
@@ -166,7 +130,6 @@ function walk(directory) { assert(fs.existsSync(directory), `missing directory $
 function assertSameFile(left, right, message) { assert(fs.readFileSync(left).equals(fs.readFileSync(right)), message); }
 function assertSameTree(left, right, message) { assertMapsEqual(hashTree(left), hashTree(right), message); }
 function assertMapsEqual(left, right, message) { assert(JSON.stringify([...left]) === JSON.stringify([...right]), message); }
-function digestFileMap(files) { return crypto.createHash("sha256").update(Object.entries(files).map(([name, digest]) => `${name}\0${digest}\n`).join(""), "utf8").digest("hex"); }
 function sha256(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
 function readJson(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }
 function run(command, args, cwd = root) { const environment = command === "cargo" ? { ...process.env, CARGO_TARGET_DIR: path.join(root, ".cache/workbook-bootstrap-target") } : process.env; const result = spawnSync(command, args, { cwd, stdio: "inherit", env: environment }); if (result.error) throw result.error; assert(result.status === 0, `${command} ${args.join(" ")} exited with ${result.status}`); }

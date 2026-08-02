@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_common_schema_fixture",
-  "fingerprint": "69f55e0b5cfaaaed",
+  "fingerprint": "8fabf8ae17455ca0",
   "schema": {
     "package": "starclock_common_schema_fixture",
     "enums": [
@@ -1043,44 +1043,6 @@
             "derived_from": null
           },
           {
-            "name": "data_revision",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "required_rules_revision",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
             "name": "sora_cli_version",
             "ty": "String",
             "scope": {
@@ -1095,101 +1057,6 @@
             "length": [
               1,
               32
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "numeric_policy_revision",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "rng_algorithm_revision",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "state_hash_revision",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "replay_format_version",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              80
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "coverage_manifest_sha256",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              64,
-              64
             ],
             "parser": null,
             "derived_from": null

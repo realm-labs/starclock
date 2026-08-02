@@ -6,22 +6,8 @@ pub struct ConfigManifest {
     pub game_version: String,
     #[serde(rename = "snapshot_date")]
     pub snapshot_date: String,
-    #[serde(rename = "data_revision")]
-    pub data_revision: String,
-    #[serde(rename = "required_rules_revision")]
-    pub required_rules_revision: String,
     #[serde(rename = "sora_cli_version")]
     pub sora_cli_version: String,
-    #[serde(rename = "numeric_policy_revision")]
-    pub numeric_policy_revision: String,
-    #[serde(rename = "rng_algorithm_revision")]
-    pub rng_algorithm_revision: String,
-    #[serde(rename = "state_hash_revision")]
-    pub state_hash_revision: String,
-    #[serde(rename = "replay_format_version")]
-    pub replay_format_version: String,
-    #[serde(rename = "coverage_manifest_sha256")]
-    pub coverage_manifest_sha256: String,
 }
 
 impl super::runtime::SoraDecode for ConfigManifest {
@@ -31,14 +17,7 @@ impl super::runtime::SoraDecode for ConfigManifest {
         Ok(Self {
             game_version: <String as super::runtime::SoraDecode>::decode(reader)?,
             snapshot_date: <String as super::runtime::SoraDecode>::decode(reader)?,
-            data_revision: <String as super::runtime::SoraDecode>::decode(reader)?,
-            required_rules_revision: <String as super::runtime::SoraDecode>::decode(reader)?,
             sora_cli_version: <String as super::runtime::SoraDecode>::decode(reader)?,
-            numeric_policy_revision: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rng_algorithm_revision: <String as super::runtime::SoraDecode>::decode(reader)?,
-            state_hash_revision: <String as super::runtime::SoraDecode>::decode(reader)?,
-            replay_format_version: <String as super::runtime::SoraDecode>::decode(reader)?,
-            coverage_manifest_sha256: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

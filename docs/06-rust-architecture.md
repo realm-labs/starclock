@@ -336,7 +336,7 @@ Bevy time, frame rate, and entity iteration order must not affect core results.
 Validate authored data before constructing a battle or activity:
 
 - the Sora bundle format and schema fingerprint match the generated reader;
-- the config manifest's Sora CLI, data, and required rules revisions are accepted;
+- the config manifest's Sora CLI and source metadata are accepted;
 - all IDs resolve and references are acyclic where required;
 - hit ratios and target rules are legal;
 - costs and resource caps are non-negative;

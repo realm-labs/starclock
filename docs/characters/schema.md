@@ -84,6 +84,11 @@ TurnStarted / TurnEnded / WaveStarted / WaveEnded
 
 Counters must say whether they react once per ability, target, hit, action, or event batch. A multi-hit bounce attack must not accidentally trigger a once-per-action passive once per hit.
 
-## Versioning rule
+## Current configuration identity
 
-The singleton Sora config manifest carries `game_version`, `rules_revision`, `data_revision`, and `sora_cli_version`; the exported bundle receives a SHA-256 digest. An announced profile may use optional Excel fields, but simulation startup must reject an incomplete or disabled definition unless a test explicitly enables provisional data. This prevents guessed values for Rin Tohsaka or Gilgamesh from silently becoming production rules.
+The singleton Sora config manifest carries `game_version`, `snapshot_date`, and
+`sora_cli_version`; the exported bundle receives a SHA-256 digest. An announced
+profile may use optional Excel fields, but
+simulation startup must reject an incomplete or disabled definition unless a
+test explicitly enables provisional data. This prevents guessed values for Rin
+Tohsaka or Gilgamesh from silently becoming production rules.

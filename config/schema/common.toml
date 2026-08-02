@@ -337,41 +337,6 @@ type = "string"
 length = [10, 10]
 
 [[tables.fields]]
-name = "data_revision"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
-name = "required_rules_revision"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
 name = "sora_cli_version"
 type = "string"
 length = [1, 32]
-
-[[tables.fields]]
-name = "numeric_policy_revision"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
-name = "rng_algorithm_revision"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
-name = "state_hash_revision"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
-name = "replay_format_version"
-type = "string"
-length = [1, 80]
-
-[[tables.fields]]
-name = "coverage_manifest_sha256"
-type = "string"
-length = [64, 64]

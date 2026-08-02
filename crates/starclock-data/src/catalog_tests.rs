@@ -16,10 +16,6 @@ fn production_bundle_builds_standard_and_representative_characters() {
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
     assert_eq!(catalog.manifest().game_version, "4.4");
     assert_eq!(
-        catalog.manifest().coverage_manifest_sha256,
-        "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"
-    );
-    assert_eq!(
         catalog.summary(),
         CatalogSummary {
             identity_count: 6719,
@@ -1104,10 +1100,6 @@ fn production_characters_compile_at_e0_and_complete_e6() {
 fn real_fixture_bundle_builds_representative_private_definitions() {
     let catalog = load_with_mode(REPRESENTATIVE_BUNDLE, LoadMode::Fixture)
         .expect("representative catalog must load");
-    assert_eq!(
-        catalog.manifest().data_revision,
-        "catalog-representative-v1"
-    );
     assert_eq!(
         catalog.summary(),
         CatalogSummary {

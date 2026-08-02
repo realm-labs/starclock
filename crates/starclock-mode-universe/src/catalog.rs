@@ -40,15 +40,9 @@ const EXPECTED_CONTENT_MANIFEST: &str =
     "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216";
 const EXPECTED_PACK_DIGEST: &str =
     "e620b9e4371f41afb43967a0537f8e705a33ae70f6e8ede0468b80f3444cd933";
-const EXPECTED_CORE_DATA_REVISION: &str = "core-combat-v1-phase7-l11";
-const EXPECTED_CORE_RULES_REVISION: &str = "core-combat-rules-v1";
-const EXPECTED_NUMERIC_REVISION: &str = "fixed-i64-6dp-v1";
-const EXPECTED_RNG_REVISION: &str = "chacha8-rand-0.10.2-intmap-v1";
-const EXPECTED_STATE_HASH_REVISION: &str = "sha256-v5";
-
 const EXPECTED_CORE_BUNDLE: [u8; 32] = [
-    0xa6, 0xc6, 0xc6, 0x79, 0x13, 0x68, 0x5c, 0xca, 0xab, 0x5e, 0x05, 0x66, 0x5b, 0xb4, 0x0b, 0x92,
-    0x00, 0x1b, 0x33, 0x88, 0xe6, 0xbe, 0x49, 0x77, 0xe2, 0x5d, 0xd9, 0xcd, 0x02, 0x9c, 0xb3, 0x00,
+    0x7f, 0x7f, 0xc5, 0x1f, 0x8f, 0xf2, 0xfb, 0x67, 0x14, 0x19, 0x9c, 0x49, 0xa9, 0x49, 0xf6, 0xff,
+    0x21, 0xd1, 0x00, 0x2d, 0xff, 0xb0, 0x9f, 0x19, 0x98, 0x49, 0xc6, 0x2b, 0x80, 0x9f, 0x7f, 0xce,
 ];
 const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new([
     0x5e, 0x52, 0x34, 0xee, 0x39, 0x77, 0xf7, 0x94, 0xae, 0x9b, 0x1b, 0x83, 0x33, 0x72, 0xf5, 0x1c,
@@ -60,7 +54,6 @@ const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new
 pub struct UniverseCatalogIdentity {
     game_version: Box<str>,
     snapshot_date: Box<str>,
-    core_data_revision: Box<str>,
     core_bundle: [u8; 32],
     build_catalog: [u8; 32],
     universe_bundle: UniverseBundleDigest,
@@ -81,10 +74,6 @@ impl UniverseCatalogIdentity {
     #[must_use]
     pub fn snapshot_date(&self) -> &str {
         &self.snapshot_date
-    }
-    #[must_use]
-    pub fn core_data_revision(&self) -> &str {
-        &self.core_data_revision
     }
     #[must_use]
     pub const fn core_bundle_digest(&self) -> [u8; 32] {
@@ -160,7 +149,7 @@ impl UniverseCatalog {
         if actual_digest != EXPECTED_UNIVERSE_BUNDLE {
             return Err(error(
                 UniverseCatalogLoadErrorKind::UniverseBundleDigest,
-                "Universe bundle SHA-256 does not match the reviewed Goal 07 catalog revision",
+                "Universe bundle SHA-256 does not match the current reviewed catalog",
             ));
         }
         validate_core(&core)?;
@@ -180,7 +169,6 @@ impl UniverseCatalog {
         let identity = UniverseCatalogIdentity {
             game_version: profile.game_version.as_str().into(),
             snapshot_date: profile.snapshot_date.as_str().into(),
-            core_data_revision: core.manifest().data_revision.as_str().into(),
             core_bundle: core.combat_catalog().digest().bytes(),
             build_catalog: build_digest,
             universe_bundle: actual_digest,
@@ -518,7 +506,7 @@ fn validate_profile(
     } else {
         Err(error(
             UniverseCatalogLoadErrorKind::UniverseRevision,
-            "Universe profile identity/revision differs from the frozen Goal 03 release",
+            "Universe profile identity differs from the current reviewed catalog",
         ))
     }
 }
@@ -529,11 +517,6 @@ fn validate_core(
     let manifest = core.manifest();
     let valid = core.combat_catalog().digest().bytes() == EXPECTED_CORE_BUNDLE
         && manifest.game_version == EXPECTED_GAME_VERSION
-        && manifest.data_revision == EXPECTED_CORE_DATA_REVISION
-        && manifest.required_rules_revision == EXPECTED_CORE_RULES_REVISION
-        && manifest.numeric_policy_revision == EXPECTED_NUMERIC_REVISION
-        && manifest.rng_algorithm_revision == EXPECTED_RNG_REVISION
-        && manifest.state_hash_revision == EXPECTED_STATE_HASH_REVISION
         && core.build_catalog().combat_digest().bytes() == EXPECTED_CORE_BUNDLE;
     if valid {
         Ok(())
@@ -542,10 +525,9 @@ fn validate_core(
             UniverseCatalogLoadErrorKind::CoreCompatibility,
             format!(
                 "combat/build catalog identity does not match Standard Universe: \
-                 combat={:02x?}, build={:02x?}, state={}",
+                 combat={:02x?}, build={:02x?}",
                 core.combat_catalog().digest().bytes(),
                 core.build_catalog().combat_digest().bytes(),
-                manifest.state_hash_revision,
             ),
         ))
     }
@@ -944,8 +926,8 @@ mod tests {
         assert_eq!(
             catalog.identity().configuration_digest().bytes(),
             [
-                86, 37, 204, 35, 242, 110, 31, 146, 221, 185, 171, 54, 231, 211, 168, 181, 237,
-                141, 111, 224, 246, 180, 206, 34, 71, 192, 180, 50, 73, 245, 111, 22,
+                191, 100, 202, 136, 189, 99, 217, 86, 67, 123, 181, 0, 15, 147, 154, 71, 127, 22,
+                123, 197, 139, 51, 178, 39, 231, 252, 215, 55, 203, 54, 144, 90,
             ]
         );
         assert_eq!(

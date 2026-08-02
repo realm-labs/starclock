@@ -118,15 +118,10 @@ impl GoalCoverageCategorySummary {
 /// Complete frozen-denominator view derived only from validated Sora rows.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GoalCoverageReport {
-    manifest_digest: Box<str>,
     categories: Box<[GoalCoverageCategorySummary]>,
 }
 
 impl GoalCoverageReport {
-    #[must_use]
-    pub fn manifest_digest(&self) -> &str {
-        &self.manifest_digest
-    }
     #[must_use]
     pub fn categories(&self) -> &[GoalCoverageCategorySummary] {
         &self.categories
@@ -182,11 +177,6 @@ impl SimulationCatalog {
             ));
         }
         GoalCoverageReport {
-            manifest_digest: self
-                .manifest()
-                .coverage_manifest_sha256
-                .clone()
-                .into_boxed_str(),
             categories: Box::new(categories),
         }
     }

@@ -160,29 +160,15 @@ impl std::fmt::Display for CatalogLoadError {
 
 impl std::error::Error for CatalogLoadError {}
 
-/// Starclock-owned compatibility metadata copied from the singleton manifest.
+/// Current source and tool metadata copied from the singleton manifest.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CatalogManifest {
     /// Authored game-version snapshot.
     pub game_version: String,
     /// Source snapshot date in `YYYY-MM-DD` form.
     pub snapshot_date: String,
-    /// Stable data revision.
-    pub data_revision: String,
-    /// Rules compatibility revision required by the data.
-    pub required_rules_revision: String,
     /// Pinned Sora authoring-tool version.
     pub sora_cli_version: String,
-    /// Authoritative numeric policy revision.
-    pub numeric_policy_revision: String,
-    /// RNG mapping revision.
-    pub rng_algorithm_revision: String,
-    /// Canonical state-hash revision.
-    pub state_hash_revision: String,
-    /// Replay envelope revision.
-    pub replay_format_version: String,
-    /// Frozen coverage-manifest SHA-256 digest.
-    pub coverage_manifest_sha256: String,
 }
 
 /// Counts from the validated metadata and private domain partitions.
