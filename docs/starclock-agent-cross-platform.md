@@ -18,7 +18,6 @@ Their evidence says `compiled-not-executed`; it is not schema-byte, replay,
 hash, numeric or runtime compatibility evidence.
 
 The committed
-[`ci-golden-matrix.json`](../evidence/core-combat-v1/hardening/ci-golden-matrix.json)
 binds the workflow contract, normalized suite-source hashes, schema digest and
 transport artifact digest. Hosted run IDs remain in the 30-day CI artifacts
 rather than being fabricated in the repository. Verify the static evidence

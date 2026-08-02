@@ -1160,8 +1160,7 @@ mod tests {
         let create = json!({
             "jsonrpc":"2.0", "id":2, "method":"tools/call",
             "params":{"name":"starclock_create_battle","arguments":{
-                "schema_revision":"agent-api-v1",
-                "scenario_id":"scenario.standard-v1.basic-single-wave"
+                                "scenario_id":"scenario.standard.basic-single-wave"
             }}
         });
         let mut create_request = with_bearer(

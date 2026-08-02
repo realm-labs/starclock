@@ -4,7 +4,7 @@
 
 The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
-**Current repository status:** See [Current state](current-state.md). Git records
+**Current repository status:** See [Repository state](current-state.md). Git records
 past iterations; this documentation describes the current mechanics, content,
 architecture and authoring model only.
 

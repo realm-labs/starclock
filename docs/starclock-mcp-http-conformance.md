@@ -10,7 +10,6 @@ readiness and metrics through the production network-header boundary.
 The conformance script completes the basic frozen Standard scenario using only
 the first public `use_ability` action, or `pass_interrupt` when no ability is
 offered. In-process, stdio and HTTP tests all consume the same retained
-[`basic-transport-trace.json`](../evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json).
 That artifact freezes nine decision-boundary state hashes and the exact
 987-byte, nine-command replay envelope. Each transport must reproduce every
 hash and every replay byte, not only the terminal result.
@@ -29,12 +28,11 @@ same frozen artifact. The executable and retained evidence are verified with:
 
 ```text
 cargo test -p starclock-mcp --test http_conformance --all-features
-node tools/agent-control/verify-mcp-http-conformance.mjs
 ```
 
 ## HTTP adapter baseline
 
-The release-only `g02_http_benchmark` harness isolates the in-process Axum
+The release-only `http_benchmark` harness isolates the in-process Axum
 middleware, authorization/rate classification, MCP SDK dispatch and JSON/SSE
 serialization layers. It deliberately excludes TCP and does not attribute
 combat cost to the adapter. The three fixed workloads are 256 authorized

@@ -3,7 +3,7 @@ use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, Encoder},
     component::ConfigurationComponentSet,
     digest::Sha256Sink,
-    current::{ReplayHeader, decode_replay, encode_replay},
+    envelope::{ReplayHeader, decode_replay, encode_replay},
     record::{RecordKind, RecordRef},
 };
 
@@ -14,9 +14,7 @@ use super::{
         SwarmReplayDivergenceKind, encode_complete_swarm_replay,
         verify_complete_swarm_replay,
     },
-    seeded_run::{
-        SWARM_DISASTER_SEEDED_RUN_REVISION, SwarmSeededBoundary, SwarmSeededRunRequest,
-    },
+    seeded_run::{SwarmSeededBoundary, SwarmSeededRunRequest},
 };
 
 #[test]
@@ -26,7 +24,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     let component_set = components(&instance, 0x44);
     assert_eq!(
         hex(component_set.root().bytes()),
-        "01dce3ee71b2cf1e790d29b4ccc923e57055ea70208160c7fc1cc2940a0d0b22"
+        "8c952b6210dc1a74eb573c876af63eb3beb9a1a636ec7475e33aba283bc0921d"
     );
     let bytes = encode_complete_swarm_replay(
         &instance,
@@ -74,11 +72,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(verified.action_count(), 48);
     assert_eq!(verified.battle_count(), 12);
     assert_eq!(verified.battle_command_count(), 74);
-    assert_eq!(bytes.len(), 88_813);
+    assert_eq!(bytes.len(), 88_727);
     assert_eq!(replay.records().len(), 268);
     assert_eq!(
         hex(replay_digest.finalize().bytes()),
-        "4322283e2cc57a4723fcd16febc3cf5b44ae11020800dd01a17fc11575c6747d"
+        "7a7e51f5f6bcf4b1a3db2ea64051fd6aa9b35ffeb086ddcb07cc427e0a311514"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
@@ -90,7 +88,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "1e494b77da9c8f05a942dd74629fe5cdf99137ac447980fb2b3ecb7c07d642e4"
+        "4b0e29f841f22d74d949ecc0537c241420e12bfcec89a5a4a4c8bbee85e0cfd7"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
@@ -217,18 +215,14 @@ fn components(
     let combat = instance.battle_catalog.combat();
     swarm_disaster_component_set(
         super::tests::BUNDLE,
-        (combat.revision().as_str(), combat.digest().bytes()),
-        ("swarm-disaster-synthetic-build-v1", [0x33; 32]),
+        combat.digest().bytes(),
+        [0x33; 32],
         super::battle_materialization_tests::activity_identity()
             .definition_digest()
             .bytes(),
         instance.battle_catalog.digest(),
         instance.graph_definition().digest().bytes(),
-        (
-            "swarm-disaster-seeded-controller",
-            SWARM_DISASTER_SEEDED_RUN_REVISION,
-            [controller; 32],
-        ),
+        ("swarm-disaster-seeded-controller", [controller; 32]),
     )
     .unwrap()
 }

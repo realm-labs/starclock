@@ -11,7 +11,7 @@ use starclock_combat::{
 };
 
 /// Scenario key reserved for the Phase 3 deterministic vertical slice.
-pub const SYNTHETIC_STANDARD_SCENARIO_ID: &str = "synthetic-standard-v1";
+pub const SYNTHETIC_STANDARD_SCENARIO_ID: &str = "synthetic-standard";
 /// Synthetic catalog identity; production Standard data lands in Phase 6.
 pub const SYNTHETIC_STANDARD_CATALOG_REVISION: &str = "synthetic-standard-catalog-v1";
 /// Rules identity bound into the synthetic battle and replay.

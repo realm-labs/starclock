@@ -20,7 +20,7 @@ use starclock_mode_universe::{
     },
     gold_gears_identity::GoldAndGearsCatalogIdentity,
 };
-use starclock_replay::{component::ConfigurationComponentSet, current::ReplayHeader};
+use starclock_replay::{component::ConfigurationComponentSet, envelope::ReplayHeader};
 
 use crate::{
     activity_action::{
@@ -36,7 +36,7 @@ use crate::{
         AgentActivityReplayVerification, AgentActivitySettlementSummary, PlayActivityActionRequest,
     },
     error::{AgentError, AgentErrorCode},
-    schema::{ActionToken, AgentHash, AgentSInt, AgentSchemaRevision, AgentUInt, SessionId},
+    schema::{ActionToken, AgentHash, AgentSInt, AgentUInt, SessionId},
     session::{MAX_CACHED_RESPONSE_BYTES, MAX_IDEMPOTENCY_ENTRIES},
 };
 
@@ -54,7 +54,6 @@ pub struct CreateGoldAndGearsActivitySessionRequest {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentGoldAndGearsManifest {
-    pub schema_revision: AgentSchemaRevision,
     pub profile_id: Box<str>,
     pub fixture_revision: Box<str>,
     pub fixture_accuracy: Box<str>,
@@ -126,7 +125,6 @@ impl GoldAndGearsActivityAgentSessionFactory {
     #[must_use]
     pub fn manifest(&self) -> AgentGoldAndGearsManifest {
         AgentGoldAndGearsManifest {
-            schema_revision: AgentSchemaRevision::V1,
             profile_id: PROFILE.into(),
             fixture_revision: GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION.into(),
             fixture_accuracy: GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY.into(),
@@ -311,7 +309,6 @@ impl GoldAndGearsActivityAgentSession {
         }
         self.refresh_offer()?;
         let response = AgentActivityActionResponse {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: self.id.clone(),
             committed: true,
             idempotent_replay: false,

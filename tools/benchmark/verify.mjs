@@ -55,7 +55,7 @@ console.log(`Benchmark ${policy.workload_revision} passed (${samples} sample${sa
 function runBenchmark() {
   const stdout = execFileSync("cargo", [
     "run", "--release", "--quiet", "--locked", "-p", "starclock-cli", "--example",
-    "g01_benchmark", "--features", "benchmark-harness",
+    "combat_benchmark", "--features", "benchmark-harness",
   ], { cwd: root, encoding: "utf8", timeout: 600_000 });
   return JSON.parse(stdout);
 }

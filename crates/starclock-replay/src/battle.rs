@@ -14,7 +14,7 @@ use crate::{
 };
 
 /// Version of the domain payload inside `AcceptedBattleCommand` records.
-pub const BATTLE_COMMAND_PAYLOAD_VERSION: u16 = 1;
+pub const BATTLE_COMMAND_PAYLOAD_TAG: u16 = 1;
 
 /// One accepted command and the resulting full canonical state hash.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -109,7 +109,7 @@ impl BattleReplayReport {
     }
 }
 
-/// Verifies compatibility identity, then applies the accepted stream once.
+/// Verifies exact identity, then applies the accepted stream once.
 pub fn verify_battle_replay(
     bytes: &[u8],
     mut battle: Battle,
@@ -167,31 +167,6 @@ fn validate_identity(replay: &DecodedReplay<'_>, battle: &Battle) -> Result<(), 
             BattleIdentityField::ConfigBundle,
         ));
     }
-    if identity.rules_revision() != battle_identity.rules_revision() {
-        return Err(BattleReplayError::IdentityMismatch(
-            BattleIdentityField::RulesRevision,
-        ));
-    }
-    if identity.data_revision() != battle_identity.catalog_revision() {
-        return Err(BattleReplayError::IdentityMismatch(
-            BattleIdentityField::DataRevision,
-        ));
-    }
-    if identity.numeric_policy_revision() != battle_identity.numeric_policy_revision() {
-        return Err(BattleReplayError::IdentityMismatch(
-            BattleIdentityField::NumericPolicy,
-        ));
-    }
-    if identity.rng_algorithm_revision() != battle_identity.rng_algorithm_revision() {
-        return Err(BattleReplayError::IdentityMismatch(
-            BattleIdentityField::RngAlgorithm,
-        ));
-    }
-    if identity.state_hash_revision() != battle_identity.state_hash_revision() {
-        return Err(BattleReplayError::IdentityMismatch(
-            BattleIdentityField::StateHashPolicy,
-        ));
-    }
     match header.entry() {
         ReplayEntry::Battle {
             definition_id,
@@ -212,7 +187,7 @@ pub fn encode_battle_command_payload(
     command: &Command,
 ) -> Result<Vec<u8>, BattleCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(BATTLE_COMMAND_PAYLOAD_VERSION);
+    encoder.u16(BATTLE_COMMAND_PAYLOAD_TAG);
     match command {
         Command::StartBattle { decision } => {
             encoder.u8(0);
@@ -276,9 +251,9 @@ fn encode_action_command(
 
 pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let version = decoder.u16()?;
-    if version != BATTLE_COMMAND_PAYLOAD_VERSION {
-        return Err(BattleCommandPayloadError::UnsupportedVersion(version));
+    let tag = decoder.u16()?;
+    if tag != BATTLE_COMMAND_PAYLOAD_TAG {
+        return Err(BattleCommandPayloadError::UnexpectedTag(tag));
     }
     let command = match decoder.u8()? {
         0 => Command::StartBattle {
@@ -336,8 +311,8 @@ where
 /// Stable command-payload decoding failure.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleCommandPayloadError {
-    /// The payload version is not supported by replay schema version 1.
-    UnsupportedVersion(u16),
+    /// The payload tag is not recognized.
+    UnexpectedTag(u16),
     /// The command discriminant is not part of the closed combat command family.
     UnknownCommand(u8),
     /// A fixed-width definition/runtime ID was zero or outside its domain.
@@ -352,28 +327,23 @@ impl From<CodecError> for BattleCommandPayloadError {
     }
 }
 
-/// Compatibility field that rejected replay execution.
+/// Identity field that rejected replay execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleIdentityField {
     ConfigBundle,
-    RulesRevision,
-    DataRevision,
-    NumericPolicy,
-    RngAlgorithm,
-    StateHashPolicy,
     Entry,
 }
 
 /// Stable low-level battle replay construction or verification failure.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum BattleReplayError {
-    /// Envelope/version/framing validation failed.
+    /// Envelope/framing validation failed.
     Format(ReplayFormatError),
     /// A command payload was malformed or incompatible.
     CommandPayload(BattleCommandPayloadError),
     /// The envelope contains an activity rather than a low-level battle entry.
     NotBattleReplay,
-    /// One required compatibility field differs from the supplied battle.
+    /// One required identity field differs from the supplied battle.
     IdentityMismatch(BattleIdentityField),
     /// Records are not non-empty alternating command/hash pairs.
     InvalidRecordLayout,

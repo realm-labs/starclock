@@ -48,7 +48,7 @@ console.log(`MCP HTTP benchmark ${policy.workload_revision} passed (${samples} s
 function runBenchmark() {
   const stdout = execFileSync("cargo", [
     "run", "--release", "--quiet", "--locked", "-p", "starclock-mcp", "--example",
-    "g02_http_benchmark", "--features", "benchmark-harness",
+    "http_benchmark", "--features", "benchmark-harness",
   ], { cwd: root, encoding: "utf8", timeout: 600_000 });
   return JSON.parse(stdout);
 }

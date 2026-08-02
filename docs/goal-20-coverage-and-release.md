@@ -16,12 +16,9 @@ every Cartesian combination is a distinct released entry.
 The matrix is generated and checked with:
 
 ```text
-node tools/goal20/generate-coverage-matrix.mjs
-node tools/goal20/generate-coverage-matrix.mjs --check
 ```
 
 The output is
-[`coverage-matrix.json`](../evidence/swarm-disaster-runtime-v1/foundation/coverage-matrix.json).
 Every inherited policy has an exact implementation owner and one terminal
 matrix probe.
 

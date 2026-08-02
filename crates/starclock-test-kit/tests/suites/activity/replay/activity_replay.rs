@@ -20,10 +20,7 @@ use starclock_replay::{
         encode_activity_trace, verify_activity_replay,
     },
     digest::{ConfigBundleDigest, ControllerDigest, DefinitionDigest, EntrySpecDigest},
-    format::{
-        ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, STATE_HASH_REVISION,
-        decode_replay,
-    },
+    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
     record::RecordKind,
 };
 
@@ -50,8 +47,8 @@ fn activity_trace_round_trips_with_nested_boundaries_and_diagnostics() {
     assert_eq!(
         digest.bytes(),
         [
-            174, 27, 1, 10, 105, 12, 7, 75, 206, 76, 150, 62, 217, 63, 88, 255, 53, 134, 63, 103,
-            136, 224, 35, 22, 80, 96, 20, 227, 39, 110, 178, 172,
+            120, 158, 195, 196, 50, 251, 34, 98, 152, 86, 210, 59, 54, 88, 126, 152, 232, 29, 111,
+            64, 68, 199, 167, 36, 73, 196, 223, 140, 243, 183, 101, 137,
         ]
     );
 }
@@ -183,19 +180,9 @@ fn diagnostic(
 }
 
 fn header(record_count: u32) -> ReplayHeader {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        "standard-rules-v1",
-        "catalog-v4.4",
-        ConfigBundleDigest::new(CONFIG_DIGEST),
-        "fixed-i64-6dp-v1",
-        "chacha8-rand-0.10.2-intmap-v1",
-        STATE_HASH_REVISION,
-    )
-    .expect("identity valid");
-    let controller =
-        ControllerIdentity::new("baseline-controller-v1", ControllerDigest::new([0x22; 32]))
-            .expect("controller valid");
+    let identity =
+        ReplayIdentity::new("4.4", ConfigBundleDigest::new(CONFIG_DIGEST)).expect("identity valid");
+    let controller = ControllerIdentity::new(ControllerDigest::new([0x22; 32]));
     ReplayHeader::new(
         identity,
         controller,

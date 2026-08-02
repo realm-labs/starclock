@@ -8,12 +8,12 @@ use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityTerminalOutcome,
 };
 use starclock_mode_universe::{
-    current_replay::{
+    dynamic_battle_assembler::StandardUniverseBattleAssembler,
+    nested_battle_executor::UniverseNestedBattleExecutor,
+    replay_verification::{
         encode_standard_universe_replay_parts, standard_universe_replay_header,
         verify_standard_universe_replay_dynamic,
     },
-    dynamic_battle_assembler::StandardUniverseBattleAssembler,
-    nested_battle_executor::UniverseNestedBattleExecutor,
     runtime::StandardUniverseActivity,
     universe_replay::{
         MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS, StandardUniverseReplayAction,
@@ -22,7 +22,7 @@ use starclock_mode_universe::{
 };
 use starclock_replay::{
     activity::{ControllerDecisionKind, ControllerDiagnostic, ControllerOptionScore},
-    current::ReplayHeader,
+    envelope::ReplayHeader,
 };
 
 use crate::{
@@ -35,7 +35,7 @@ use crate::{
     },
     activity_runtime::{ActivityRuntimeError, ActivityRuntimeFactory, BATTLE_EXECUTOR_REVISION},
     error::{AgentError, AgentErrorCode},
-    schema::{ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
+    schema::{ActionToken, AgentHash, AgentUInt, IdempotencyKey, SessionId},
     session::{MAX_CACHED_RESPONSE_BYTES, MAX_IDEMPOTENCY_ENTRIES},
 };
 
@@ -57,7 +57,6 @@ pub struct AgentUniverseWorldSummary {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentUniverseManifest {
-    pub schema_revision: AgentSchemaRevision,
     pub game_version: Box<str>,
     pub snapshot_date: Box<str>,
     pub catalog_revision: Box<str>,
@@ -77,7 +76,6 @@ pub struct CreateActivitySessionRequest {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct PlayActivityActionRequest {
-    pub schema_revision: AgentSchemaRevision,
     pub session_id: SessionId,
     pub boundary_id: AgentUInt,
     pub expected_state_hash: AgentHash,
@@ -93,7 +91,6 @@ pub struct AgentActivitySettlementSummary {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentActivityActionResponse {
-    pub schema_revision: AgentSchemaRevision,
     pub session_id: SessionId,
     pub committed: bool,
     pub idempotent_replay: bool,
@@ -181,10 +178,10 @@ impl ActivityAgentSessionFactory {
             .runtime
             .start(world, difficulty_index, seed, controller_digest())
             .map_err(runtime_error)?;
-        let (profile, activity, battle_assembler, components, compatibility) =
+        let (profile, activity, battle_assembler, components, environment) =
             runtime.into_dynamic_parts();
         let replay_header = standard_universe_replay_header(
-            compatibility.clone(),
+            environment.clone(),
             components.clone(),
             seed,
             &activity,
@@ -214,7 +211,6 @@ impl ActivityAgentSessionFactory {
         let catalog = self.runtime.catalog();
         let identity = catalog.identity();
         AgentUniverseManifest {
-            schema_revision: AgentSchemaRevision::V1,
             game_version: identity.game_version().into(),
             snapshot_date: identity.snapshot_date().into(),
             catalog_revision: identity.catalog_revision().into(),
@@ -251,14 +247,14 @@ impl ActivityAgentSessionFactory {
             .runtime
             .start(world, difficulty_index, seed.to_u64(), controller_digest())
             .map_err(runtime_error)?;
-        let (profile, activity, battle_assembler, components, compatibility) =
+        let (profile, activity, battle_assembler, components, environment) =
             runtime.into_dynamic_parts();
         let report = verify_standard_universe_replay_dynamic(
             bytes,
             activity,
             &battle_assembler,
             &components,
-            &compatibility,
+            &environment,
             &profile,
         )
         .map_err(|error| replay_error_with_reason(&format!("{error:?}")))?;
@@ -420,7 +416,6 @@ impl ActivityAgentSession {
         }
         self.refresh_offer()?;
         let response = AgentActivityActionResponse {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: self.id.clone(),
             committed: true,
             idempotent_replay: false,

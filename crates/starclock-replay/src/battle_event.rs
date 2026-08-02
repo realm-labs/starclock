@@ -19,57 +19,26 @@ use starclock_combat::{
 use crate::battle_event_cause::encode_cause;
 use crate::codec::{CodecError, Encoder};
 
-/// Historical event payload emitted by released replay-v2 files.
-pub const BATTLE_EVENT_PAYLOAD_VERSION_V1: u16 = 1;
-/// Historical event payload emitted by released replay-v3 files.
-pub const BATTLE_EVENT_PAYLOAD_VERSION_V2: u16 = 2;
-/// Historical payload with action-origin and elemental toughness events.
-pub const BATTLE_EVENT_PAYLOAD_VERSION_V3: u16 = 3;
-/// Historical payload with shield-removal source identity.
-pub const BATTLE_EVENT_PAYLOAD_VERSION_V4: u16 = 4;
-/// Historical payload with effect-removal definition identity.
-pub const BATTLE_EVENT_PAYLOAD_VERSION_V5: u16 = 5;
-/// Current event payload with committed targets on resolved actions. Activity provenance belongs to assembly identity,
+/// Event payload tag. Activity provenance belongs to assembly identity,
 /// while battle events attribute executable definitions through
 /// [`starclock_combat::Cause::source_definition`].
-pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 6;
+pub const BATTLE_EVENT_PAYLOAD_TAG: u16 = 6;
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
     event: &BattleEvent,
 ) -> Result<Vec<u8>, BattleEventPayloadError> {
-    encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION)
-}
-
-/// Encodes an event for an explicit released payload revision.
-pub fn encode_battle_event_payload_for_version(
-    event: &BattleEvent,
-    version: u16,
-) -> Result<Vec<u8>, BattleEventPayloadError> {
-    if ![
-        BATTLE_EVENT_PAYLOAD_VERSION_V1,
-        BATTLE_EVENT_PAYLOAD_VERSION_V2,
-        BATTLE_EVENT_PAYLOAD_VERSION_V3,
-        BATTLE_EVENT_PAYLOAD_VERSION_V4,
-        BATTLE_EVENT_PAYLOAD_VERSION_V5,
-        BATTLE_EVENT_PAYLOAD_VERSION,
-    ]
-    .contains(&version)
-    {
-        return Err(BattleEventPayloadError::UnsupportedVersion(version));
-    }
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(version);
+    encoder.u16(BATTLE_EVENT_PAYLOAD_TAG);
     encoder.u64(event.id().get());
-    encode_cause(&mut encoder, event.cause(), version);
-    encode_kind(&mut encoder, event.kind(), version)?;
+    encode_cause(&mut encoder, event.cause());
+    encode_kind(&mut encoder, event.kind())?;
     Ok(encoder.into_inner())
 }
 
 fn encode_kind(
     encoder: &mut Encoder<Vec<u8>>,
     kind: &BattleEventKind,
-    version: u16,
 ) -> Result<(), BattleEventPayloadError> {
     match kind {
         BattleEventKind::Battle(value) => {
@@ -82,11 +51,11 @@ fn encode_kind(
         }
         BattleEventKind::Turn(value) => {
             encoder.u8(2);
-            encode_turn(encoder, *value, version)?;
+            encode_turn(encoder, *value);
         }
         BattleEventKind::Action(value) => {
             encoder.u8(3);
-            encode_action(encoder, value, version)?;
+            encode_action(encoder, value)?;
         }
         BattleEventKind::Phase(value) => {
             encoder.u8(4);
@@ -110,11 +79,11 @@ fn encode_kind(
         }
         BattleEventKind::Shield(value) => {
             encoder.u8(9);
-            encode_shield(encoder, *value, version)?;
+            encode_shield(encoder, *value);
         }
         BattleEventKind::Toughness(value) => {
             encoder.u8(10);
-            encode_toughness(encoder, *value, version);
+            encode_toughness(encoder, *value);
         }
         BattleEventKind::BreakDamage(value) => {
             encoder.u8(11);
@@ -138,7 +107,7 @@ fn encode_kind(
         }
         BattleEventKind::Effect(value) => {
             encoder.u8(16);
-            encode_effect(encoder, *value, version);
+            encode_effect(encoder, *value);
         }
         BattleEventKind::RuleState(value) => {
             encoder.u8(17);
@@ -188,24 +157,7 @@ fn encode_decision(encoder: &mut Encoder<Vec<u8>>, value: DecisionEventData) {
     }
 }
 
-fn encode_turn(
-    encoder: &mut Encoder<Vec<u8>>,
-    value: TurnEventData,
-    version: u16,
-) -> Result<(), BattleEventPayloadError> {
-    if version <= BATTLE_EVENT_PAYLOAD_VERSION_V2 {
-        let (kind, actor, owner) = match value {
-            TurnEventData::Started { actor, owner, .. } => (0, actor, owner),
-            TurnEventData::Ended { actor, owner, .. } => (1, actor, owner),
-            TurnEventData::ExtraTurnGranted { .. } | TurnEventData::ActionGaugeChanged { .. } => {
-                return Err(BattleEventPayloadError::UnsupportedEventFamily);
-            }
-        };
-        encoder.u8(kind);
-        encoder.u64(actor.get());
-        encoder.u64(owner.get());
-        return Ok(());
-    }
+fn encode_turn(encoder: &mut Encoder<Vec<u8>>, value: TurnEventData) {
     match value {
         TurnEventData::ExtraTurnGranted { owner, insertion } => {
             encoder.u8(0);
@@ -249,13 +201,11 @@ fn encode_turn(
             encoder.u8(origin as u8);
         }
     }
-    Ok(())
 }
 
 fn encode_action(
     encoder: &mut Encoder<Vec<u8>>,
     value: &ActionEventData,
-    version: u16,
 ) -> Result<(), BattleEventPayloadError> {
     match value {
         ActionEventData::Queued {
@@ -319,11 +269,9 @@ fn encode_action(
                 *origin as u8,
                 *tags,
             );
-            if version >= BATTLE_EVENT_PAYLOAD_VERSION {
-                encoder.u32(u32::try_from(targets.len()).map_err(|_| CodecError::LengthOverflow)?);
-                for target in targets {
-                    encoder.u64(target.get());
-                }
+            encoder.u32(u32::try_from(targets.len()).map_err(|_| CodecError::LengthOverflow)?);
+            for target in targets {
+                encoder.u64(target.get());
             }
         }
         ActionEventData::Cancelled {
@@ -434,11 +382,7 @@ fn encode_hp_consumption(encoder: &mut Encoder<Vec<u8>>, value: HpConsumptionEve
     encoder.i64(value.hp_after.get());
 }
 
-fn encode_shield(
-    encoder: &mut Encoder<Vec<u8>>,
-    value: ShieldEventData,
-    version: u16,
-) -> Result<(), BattleEventPayloadError> {
+fn encode_shield(encoder: &mut Encoder<Vec<u8>>, value: ShieldEventData) {
     match value {
         ShieldEventData::Applied {
             operation,
@@ -472,9 +416,6 @@ fn encode_shield(
             target,
             before,
         } => {
-            if version < BATTLE_EVENT_PAYLOAD_VERSION_V4 {
-                return Err(BattleEventPayloadError::UnsupportedEventFamily);
-            }
             encoder.u8(2);
             encoder.u64(operation.get());
             encoder.u64(shield.get());
@@ -482,7 +423,6 @@ fn encode_shield(
             encoder.i64(before.get());
         }
     }
-    Ok(())
 }
 
 fn encode_break_damage(encoder: &mut Encoder<Vec<u8>>, value: BreakDamageEventData) {
@@ -502,7 +442,7 @@ fn encode_break_damage(encoder: &mut Encoder<Vec<u8>>, value: BreakDamageEventDa
     encoder.i64(value.hp_after.get());
 }
 
-fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData, version: u16) {
+fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData) {
     match value {
         EffectEventData::Applied {
             operation,
@@ -552,9 +492,7 @@ fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData, version
         } => {
             encoder.u8(3);
             operation_effect_target(encoder, operation.get(), effect.get(), target.get());
-            if version >= BATTLE_EVENT_PAYLOAD_VERSION_V5 {
-                encoder.u32(definition.get());
-            }
+            encoder.u32(definition.get());
         }
         EffectEventData::Ticked {
             operation,
@@ -579,7 +517,7 @@ fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData, version
     }
 }
 
-fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData, version: u16) {
+fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData) {
     match value {
         ToughnessEventData::WeaknessAdded {
             operation,
@@ -618,9 +556,7 @@ fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData, v
             encoder.u8(2);
             encoder.u64(operation.get());
             encoder.u64(target.get());
-            if version >= BATTLE_EVENT_PAYLOAD_VERSION_V3 {
-                element(encoder, value);
-            }
+            element(encoder, value);
             optional_u32(encoder, layer_key);
             encoder.i64(attempted.get());
             encoder.i64(effective.get());
@@ -1023,7 +959,6 @@ fn operation_effect_target(
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleEventPayloadError {
     Codec(CodecError),
-    UnsupportedVersion(u16),
     UnsupportedEventFamily,
 }
 

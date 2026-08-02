@@ -35,7 +35,7 @@ All 283 released character/Light Cone entries are both `DataReady` and
 
 ## Battle and replay
 
-The retained smoke-only `synthetic-standard-v1` scenario runs through
+The retained smoke-only `synthetic-standard` scenario runs through
 `baseline-battle-controller-v1`, using explicit authored ability and target
 hints. The header controller digest is SHA-256 over the exact versioned hint
 descriptor. Repeated runs produce identical JSON, commands, state hash and
@@ -44,9 +44,9 @@ replay bytes. `--replay-out` writes the canonical low-level replay.
 `replay verify` decodes the bounded envelope, resolves its compatible synthetic
 or production Standard scenario, reconstructs a fresh battle and compares every
 recorded command state. Corruption reports the first command divergence and
-uses the replay exit class. The six frozen `scenario.standard-v1.*` identities
+uses the replay exit class. The six frozen `scenario.standard.*` identities
 resolve through the production Activity/profile/catalog path; the CLI golden
-runs and verifies `scenario.standard-v1.basic-single-wave` at seed 104729.
+runs and verifies `scenario.standard.basic-single-wave` at seed 104729.
 
 Human and JSON modes are projections of the same result. JSON stdout contains
 one `starclock-cli-v1` object; errors go to stderr. Exit codes are stable:

@@ -20,7 +20,7 @@ const EXPECTED_TOOLS: [&str; 13] = [
     "starclock_verify_activity_replay",
     "starclock_verify_replay",
 ];
-const BASIC_SCENARIO: &str = "scenario.standard-v1.basic-single-wave";
+const BASIC_SCENARIO: &str = "scenario.standard.basic-single-wave";
 const BASIC_FINAL_HASH: &str = "eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178";
 
 fn spawn_server() -> std::process::Child {
@@ -220,7 +220,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     );
     for uri in [
         "starclock://catalog/manifest",
-        "starclock://scenario/scenario.standard-v1.basic-single-wave",
+        "starclock://scenario/scenario.standard.basic-single-wave",
     ] {
         let resource = client.result("resources/read", json!({"uri": uri}));
         let text = resource["contents"][0]["text"].as_str().unwrap();
@@ -235,7 +235,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     assert_eq!(scenarios["scenarios"].as_array().unwrap().len(), 6);
     let created = client.tool(
         "starclock_create_battle",
-        json!({"schema_revision": "agent-api-v1", "scenario_id": BASIC_SCENARIO}),
+        json!({"scenario_id": BASIC_SCENARIO}),
     );
     let mut observation = created["observation"].clone();
     let mut transport_hashes = vec![observation["state_hash"].clone()];
@@ -248,8 +248,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     let first_result = client.tool(
         "starclock_play_action",
         json!({
-            "schema_revision": "agent-api-v1",
-            "session_id": session_id,
+                        "session_id": session_id,
             "decision_id": observation["decision_id"],
             "expected_state_hash": observation["state_hash"],
             "action_token": first["token"],
@@ -265,8 +264,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         json!({
             "name": "starclock_play_action",
             "arguments": {
-                "schema_revision": "agent-api-v1",
-                "session_id": session_id,
+                                "session_id": session_id,
                 "decision_id": stale_decision,
                 "expected_state_hash": stale_hash,
                 "action_token": stale_token,
@@ -284,7 +282,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         "tools/call",
         json!({
             "name": "starclock_play_action",
-            "arguments": {"schema_revision": "agent-api-v1", "session_id": session_id}
+            "arguments": {"session_id": session_id}
         }),
     );
     assert_eq!(malformed["result"]["isError"], true, "{malformed}");
@@ -301,7 +299,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     );
     let observed = client.tool(
         "starclock_observe_battle",
-        json!({"schema_revision": "agent-api-v1", "session_id": session_id}),
+        json!({"session_id": session_id}),
     );
     assert_eq!(observed["observation"]["state_hash"], post_first_hash);
     observation = observed["observation"].clone();
@@ -313,8 +311,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         let played = client.tool(
             "starclock_play_action",
             json!({
-                "schema_revision": "agent-api-v1",
-                "session_id": session_id,
+                                "session_id": session_id,
                 "decision_id": observation["decision_id"],
                 "expected_state_hash": observation["state_hash"],
                 "action_token": action["token"],
@@ -330,23 +327,16 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     assert_eq!(observation["state_hash"], BASIC_FINAL_HASH);
     assert_eq!(transport_hashes.last(), Some(&observation["state_hash"]));
 
-    let exported = client.tool(
-        "starclock_export_replay",
-        json!({"schema_revision": "agent-api-v1", "session_id": session_id}),
-    );
+    let exported = client.tool("starclock_export_replay", json!({"session_id": session_id}));
     assert_eq!(exported["command_count"], "21");
     assert!(exported["replay_hex"].as_str().unwrap().len() > 1_000);
     let replay_hex = exported["replay_hex"].clone();
-    let closed = client.tool(
-        "starclock_close_battle",
-        json!({"schema_revision": "agent-api-v1", "session_id": session_id}),
-    );
+    let closed = client.tool("starclock_close_battle", json!({"session_id": session_id}));
     assert_eq!(closed["closed"], true);
     let verified = client.tool(
         "starclock_verify_replay",
         json!({
-            "schema_revision": "agent-api-v1",
-            "scenario_id": BASIC_SCENARIO,
+                        "scenario_id": BASIC_SCENARIO,
             "replay_hex": replay_hex
         }),
     );

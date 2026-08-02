@@ -1,7 +1,6 @@
 # Goal 02 Clean-Checkout Acceptance
 
 Goal 02's retained clean-run record is
-[`clean-checkout-acceptance.json`](../evidence/agent-control-mcp-v1/release/clean-checkout-acceptance.json).
 It covers staged tree `f71f36cc8126877c4e73d1074abf4743a46b6da2` on the designated
 Windows x64 stable runner. The run used a temporary checkout and a fresh Cargo
 target, imported only Git history required to verify earlier release objects,

@@ -15,8 +15,7 @@ async fn request_authority_cancellation_and_idempotency_do_not_cross_tenants() {
     let create = json!({
         "jsonrpc":"2.0", "id":2, "method":"tools/call",
         "params":{"name":"starclock_create_battle","arguments":{
-            "schema_revision":"agent-api-v1",
-            "scenario_id":"scenario.standard-v1.basic-single-wave"
+                        "scenario_id":"scenario.standard.basic-single-wave"
         }}
     });
     let created = app
@@ -42,8 +41,7 @@ async fn request_authority_cancellation_and_idempotency_do_not_cross_tenants() {
     let play = json!({
         "jsonrpc":"2.0", "id":3, "method":"tools/call",
         "params":{"name":"starclock_play_action","arguments":{
-            "schema_revision":"agent-api-v1",
-            "session_id":battle_session,
+                        "session_id":battle_session,
             "decision_id":observation["decision_id"],
             "expected_state_hash":observation["state_hash"],
             "action_token":action["token"],
@@ -64,8 +62,7 @@ async fn request_authority_cancellation_and_idempotency_do_not_cross_tenants() {
     let observe = json!({
         "jsonrpc":"2.0", "id":4, "method":"tools/call",
         "params":{"name":"starclock_observe_battle","arguments":{
-            "schema_revision":"agent-api-v1",
-            "session_id":battle_session
+                        "session_id":battle_session
         }}
     });
     let observed = response_json(

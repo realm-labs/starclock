@@ -40,7 +40,6 @@ resource templates, reads, typed missing-tool errors and cancellation delivery.
 A loopback Streamable HTTP test proves successful frozen-version initialization
 and rejection of an inconsistent protocol header/body pair. The exact passing
 test names and toolchain are retained in
-[`mcp-sdk-capabilities.json`](../evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json).
 
 ## Explicit limitations
 

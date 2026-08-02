@@ -12,7 +12,7 @@ mod light_cone_tests;
 mod modifier_tests;
 
 #[test]
-fn production_bundle_builds_standard_v1_and_representative_characters() {
+fn production_bundle_builds_standard_and_representative_characters() {
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
     assert_eq!(catalog.manifest().game_version, "4.4");
     assert_eq!(

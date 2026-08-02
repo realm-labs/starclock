@@ -5,8 +5,8 @@ use starclock_replay::{
         DefinitionDigest, EntrySpecDigest, Sha256Digest, Sha256Sink, StateDigest,
     },
     format::{
-        BuildBindings, ControllerIdentity, REPLAY_FORMAT_VERSION, ReplayEntry, ReplayHeader,
-        ReplayIdentity, STATE_HASH_REVISION, decode_replay, encode_replay,
+        BuildBindings, ControllerIdentity, REPLAY_ENVELOPE_TAG, ReplayEntry, ReplayHeader,
+        ReplayIdentity, decode_replay, encode_replay,
     },
     record::{RecordKind, RecordRef, ReplayFormatError},
 };
@@ -16,23 +16,10 @@ fn digest(byte: u8) -> [u8; 32] {
 }
 
 fn header(record_count: u32) -> ReplayHeader {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        "standard-rules-v1",
-        "catalog-v4.4",
-        ConfigBundleDigest::new(digest(0x11)),
-        "fixed-i64-6dp-v1",
-        "chacha8-rand-0.10.2-intmap-v1",
-        STATE_HASH_REVISION,
-    )
-    .expect("golden compatibility identity is valid");
-    let controller = ControllerIdentity::new(
-        "baseline-controller-v1",
-        ControllerDigest::new(digest(0x22)),
-    )
-    .expect("golden controller identity is valid");
+    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(0x11)))
+        .expect("golden identity is valid");
+    let controller = ControllerIdentity::new(ControllerDigest::new(digest(0x22)));
     let builds = BuildBindings::new(
-        "build-catalog-v1",
         BuildCatalogDigest::new(digest(0x55)),
         vec![
             CombatantBuildDigest::new(digest(0x66)),
@@ -129,7 +116,7 @@ fn replay_header_records_round_trip_and_stream_hash() {
     assert_eq!(&bytes[..4], b"SCRP");
     assert_eq!(
         u32::from_le_bytes(bytes[4..8].try_into().expect("four bytes")),
-        REPLAY_FORMAT_VERSION
+        REPLAY_ENVELOPE_TAG
     );
     let decoded = decode_replay(&bytes).expect("golden replay decodes");
     assert_eq!(decoded.header(), &header);
@@ -141,27 +128,17 @@ fn replay_header_records_round_trip_and_stream_hash() {
     assert_eq!(
         streamed,
         Sha256Digest::new([
-            172, 168, 128, 50, 235, 62, 223, 229, 102, 206, 129, 194, 171, 255, 189, 213, 76, 155,
-            93, 210, 36, 185, 59, 7, 137, 69, 40, 136, 232, 15, 68, 20,
+            124, 214, 57, 62, 60, 86, 207, 226, 23, 14, 177, 85, 224, 25, 173, 207, 129, 224, 160,
+            57, 66, 72, 116, 149, 76, 103, 206, 79, 82, 143, 212, 67,
         ])
     );
 }
 
 #[test]
 fn low_level_battle_entry_round_trips_without_build_vocabulary() {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        "standard-rules-v1",
-        "catalog-v4.4",
-        ConfigBundleDigest::new(digest(1)),
-        "fixed-i64-6dp-v1",
-        "chacha8-rand-0.10.2-intmap-v1",
-        STATE_HASH_REVISION,
-    )
-    .expect("battle identity is valid");
-    let controller =
-        ControllerIdentity::new("external-offered-v1", ControllerDigest::new(digest(2)))
-            .expect("controller identity is valid");
+    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(1)))
+        .expect("battle identity is valid");
+    let controller = ControllerIdentity::new(ControllerDigest::new(digest(2)));
     let entry = ReplayEntry::Battle {
         definition_id: 9,
         spec_digest: EntrySpecDigest::new(digest(3)),
@@ -176,18 +153,9 @@ fn low_level_battle_entry_round_trips_without_build_vocabulary() {
 
 #[test]
 fn zero_entry_definition_is_rejected_before_encoding() {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        "rules-v1",
-        "data-v1",
-        ConfigBundleDigest::new(digest(1)),
-        "fixed-i64-6dp-v1",
-        "chacha8-rand-0.10.2-intmap-v1",
-        STATE_HASH_REVISION,
-    )
-    .expect("identity is valid");
-    let controller = ControllerIdentity::new("external-v1", ControllerDigest::new(digest(2)))
-        .expect("controller identity is valid");
+    let identity =
+        ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(1))).expect("identity is valid");
+    let controller = ControllerIdentity::new(ControllerDigest::new(digest(2)));
     let entry = ReplayEntry::Battle {
         definition_id: 0,
         spec_digest: EntrySpecDigest::new(digest(3)),
@@ -199,7 +167,7 @@ fn zero_entry_definition_is_rejected_before_encoding() {
 }
 
 #[test]
-fn malformed_versions_unknown_records_and_framing_are_hard_failures() {
+fn malformed_tags_unknown_records_and_framing_are_hard_failures() {
     let record = RecordRef::new(RecordKind::AcceptedBattleCommand, 0, b"x").expect("record valid");
     let header = header(1);
     let bytes = encode_replay(&header, &[record], Vec::new()).expect("replay encodes");
@@ -209,14 +177,14 @@ fn malformed_versions_unknown_records_and_framing_are_hard_failures() {
     wrong_version[4..8].copy_from_slice(&99_u32.to_le_bytes());
     assert_eq!(
         decode_replay(&wrong_version).expect_err("version must fail"),
-        ReplayFormatError::UnsupportedFormatVersion(99)
+        ReplayFormatError::UnexpectedEnvelopeTag(99)
     );
 
     let mut wrong_schema = bytes.clone();
     wrong_schema[8..12].copy_from_slice(&77_u32.to_le_bytes());
     assert_eq!(
         decode_replay(&wrong_schema).expect_err("schema must fail"),
-        ReplayFormatError::UnsupportedSchemaVersion(77)
+        ReplayFormatError::UnexpectedSchemaTag(77)
     );
 
     let mut wrong_policy = bytes.clone();

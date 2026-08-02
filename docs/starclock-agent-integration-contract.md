@@ -9,11 +9,11 @@ combat rules and it is not required by in-process consumers.
 Run the complete minimal loop with:
 
 ```text
-cargo run -p starclock-agent-api --example g02_in_process
+cargo run -p starclock-agent-api --example in_process
 ```
 
 The source is
-[`g02_in_process.rs`](../crates/starclock-agent-api/examples/g02_in_process.rs).
+[`in_process.rs`](../crates/starclock-agent-api/examples/in_process.rs).
 It loads the frozen production catalog, selects only an offered opaque action,
 uses decision/hash/idempotency preconditions, reaches a terminal outcome,
 exports the canonical replay and verifies it from a fresh battle. Applications
@@ -61,11 +61,11 @@ an `AuthorizationPolicy` whose expected audience and protected-resource
 metadata URL exactly match the configured listener. Every request is
 revalidated and mapped to tenant/principal authority before MCP session work.
 
-[`g02_authorized_http.rs`](../crates/starclock-mcp/examples/g02_authorized_http.rs)
+[`authorized_http.rs`](../crates/starclock-mcp/examples/authorized_http.rs)
 shows the embedding seam:
 
 ```text
-cargo run -p starclock-mcp --example g02_authorized_http
+cargo run -p starclock-mcp --example authorized_http
 ```
 
 The runnable example constructs a deny-all authorized router and exits. This is
@@ -159,5 +159,4 @@ deployment security profile. Bulk replay verification should call the
 protocol-neutral/batch boundary directly.
 
 The reproducible byte and semantic lock is retained in
-[`contract-freeze.json`](../evidence/agent-control-mcp-v1/contracts/contract-freeze.json)
 and checked by `node tools/agent-control/verify-agent-contract-freeze.mjs`.

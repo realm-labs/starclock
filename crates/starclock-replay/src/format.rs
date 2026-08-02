@@ -12,59 +12,33 @@ use crate::{
 
 /// Fixed replay file magic.
 pub const REPLAY_MAGIC: [u8; 4] = *b"SCRP";
-/// Canonical replay envelope/codec revision.
-pub const REPLAY_FORMAT_VERSION: u32 = 1;
-/// Initial domain-payload schema revision.
-pub const REPLAY_SCHEMA_VERSION: u32 = 1;
-/// Full canonical state hash policy revision.
-pub const STATE_HASH_REVISION: &str = "sha256-v7";
-/// Maximum bytes in any compatibility/header text identity.
+/// Canonical replay envelope tag.
+pub const REPLAY_ENVELOPE_TAG: u32 = 1;
+/// Canonical replay schema tag.
+pub const REPLAY_SCHEMA_TAG: u32 = 1;
+/// Maximum bytes in any header text identity.
 pub const MAX_HEADER_TEXT_BYTES: u32 = 128;
 /// Maximum participant/build digests bound into one entry header.
 pub const MAX_BUILD_BINDINGS: u32 = 1024;
 
-/// Compatibility identities required before replay execution.
+/// Runtime identity required before replay execution.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ReplayIdentity {
     game_version: Box<str>,
-    rules_revision: Box<str>,
-    data_revision: Box<str>,
     config_bundle: ConfigBundleDigest,
-    numeric_policy_revision: Box<str>,
-    rng_algorithm_revision: Box<str>,
-    state_hash_revision: Box<str>,
 }
 
 impl ReplayIdentity {
-    /// Creates validated compatibility identity fields.
+    /// Creates a validated runtime identity.
     pub fn new(
         game_version: impl Into<Box<str>>,
-        rules_revision: impl Into<Box<str>>,
-        data_revision: impl Into<Box<str>>,
         config_bundle: ConfigBundleDigest,
-        numeric_policy_revision: impl Into<Box<str>>,
-        rng_algorithm_revision: impl Into<Box<str>>,
-        state_hash_revision: impl Into<Box<str>>,
     ) -> Result<Self, ReplayFormatError> {
         let value = Self {
             game_version: game_version.into(),
-            rules_revision: rules_revision.into(),
-            data_revision: data_revision.into(),
             config_bundle,
-            numeric_policy_revision: numeric_policy_revision.into(),
-            rng_algorithm_revision: rng_algorithm_revision.into(),
-            state_hash_revision: state_hash_revision.into(),
         };
-        for text in [
-            &value.game_version,
-            &value.rules_revision,
-            &value.data_revision,
-            &value.numeric_policy_revision,
-            &value.rng_algorithm_revision,
-            &value.state_hash_revision,
-        ] {
-            validate_text(text)?;
-        }
+        validate_text(&value.game_version)?;
         Ok(value)
     }
     /// Returns the exact configuration digest.
@@ -72,59 +46,23 @@ impl ReplayIdentity {
     pub const fn config_bundle(&self) -> ConfigBundleDigest {
         self.config_bundle
     }
-    /// Returns the compatibility-target game version.
+    /// Returns the source game version.
     #[must_use]
     pub fn game_version(&self) -> &str {
         &self.game_version
     }
-    /// Returns the combat/activity rules revision.
-    #[must_use]
-    pub fn rules_revision(&self) -> &str {
-        &self.rules_revision
-    }
-    /// Returns the domain catalog revision.
-    #[must_use]
-    pub fn data_revision(&self) -> &str {
-        &self.data_revision
-    }
-    /// Returns the numeric compatibility revision.
-    #[must_use]
-    pub fn numeric_policy_revision(&self) -> &str {
-        &self.numeric_policy_revision
-    }
-    /// Returns the RNG compatibility revision.
-    #[must_use]
-    pub fn rng_algorithm_revision(&self) -> &str {
-        &self.rng_algorithm_revision
-    }
-    /// Returns the canonical state-hash revision.
-    #[must_use]
-    pub fn state_hash_revision(&self) -> &str {
-        &self.state_hash_revision
-    }
 }
 
-/// Controller compatibility identity; diagnostics never affect authoritative state.
+/// Controller identity; diagnostics never affect authoritative state.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ControllerIdentity {
-    revision: Box<str>,
     digest: ControllerDigest,
 }
 
 impl ControllerIdentity {
     /// Creates a validated controller identity.
-    pub fn new(
-        revision: impl Into<Box<str>>,
-        digest: ControllerDigest,
-    ) -> Result<Self, ReplayFormatError> {
-        let revision = revision.into();
-        validate_text(&revision)?;
-        Ok(Self { revision, digest })
-    }
-    /// Returns the controller implementation/policy revision.
-    #[must_use]
-    pub fn revision(&self) -> &str {
-        &self.revision
+    pub const fn new(digest: ControllerDigest) -> Self {
+        Self { digest }
     }
     /// Returns its exact configuration digest.
     #[must_use]
@@ -136,7 +74,6 @@ impl ControllerIdentity {
 /// Optional build-aware replay binding in participant order.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BuildBindings {
-    catalog_revision: Box<str>,
     catalog_digest: BuildCatalogDigest,
     combatants: Box<[CombatantBuildDigest]>,
 }
@@ -144,25 +81,16 @@ pub struct BuildBindings {
 impl BuildBindings {
     /// Creates validated build bindings.
     pub fn new(
-        revision: impl Into<Box<str>>,
         digest: BuildCatalogDigest,
         combatants: Vec<CombatantBuildDigest>,
     ) -> Result<Self, ReplayFormatError> {
-        let catalog_revision = revision.into();
-        validate_text(&catalog_revision)?;
         if combatants.len() > MAX_BUILD_BINDINGS as usize {
             return Err(CodecError::LimitExceeded.into());
         }
         Ok(Self {
-            catalog_revision,
             catalog_digest: digest,
             combatants: combatants.into_boxed_slice(),
         })
-    }
-    /// Returns the build catalog revision.
-    #[must_use]
-    pub fn catalog_revision(&self) -> &str {
-        &self.catalog_revision
     }
     /// Returns the exact build catalog digest.
     #[must_use]
@@ -194,7 +122,7 @@ pub enum ReplayEntry {
     },
 }
 
-/// Validated version-1 replay header.
+/// Validated replay header.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ReplayHeader {
     identity: ReplayIdentity,
@@ -239,12 +167,12 @@ impl ReplayHeader {
     pub const fn record_count(&self) -> u32 {
         self.record_count
     }
-    /// Returns compatibility identities.
+    /// Returns runtime identity.
     #[must_use]
     pub const fn identity(&self) -> &ReplayIdentity {
         &self.identity
     }
-    /// Returns controller compatibility identity.
+    /// Returns controller identity.
     #[must_use]
     pub const fn controller(&self) -> &ControllerIdentity {
         &self.controller
@@ -264,11 +192,10 @@ impl ReplayHeader {
 impl CanonicalEncode for ReplayHeader {
     fn encode<S: CanonicalSink>(&self, e: &mut Encoder<S>) -> Result<(), CodecError> {
         e.raw(&REPLAY_MAGIC);
-        e.u32(REPLAY_FORMAT_VERSION);
-        e.u32(REPLAY_SCHEMA_VERSION);
+        e.u32(REPLAY_ENVELOPE_TAG);
+        e.u32(REPLAY_SCHEMA_TAG);
         e.u8(UnknownRecordPolicy::Reject as u8);
         encode_identity(&self.identity, e)?;
-        e.string(&self.controller.revision)?;
         e.raw(&self.controller.digest.bytes());
         e.u64(self.master_seed);
         match &self.entry {
@@ -366,19 +293,14 @@ fn encode_identity<S: CanonicalSink>(
     e: &mut Encoder<S>,
 ) -> Result<(), CodecError> {
     e.string(&v.game_version)?;
-    e.string(&v.rules_revision)?;
-    e.string(&v.data_revision)?;
     e.raw(&v.config_bundle.bytes());
-    e.string(&v.numeric_policy_revision)?;
-    e.string(&v.rng_algorithm_revision)?;
-    e.string(&v.state_hash_revision)
+    Ok(())
 }
 
 fn encode_builds<S: CanonicalSink>(
     v: &BuildBindings,
     e: &mut Encoder<S>,
 ) -> Result<(), CodecError> {
-    e.string(&v.catalog_revision)?;
     e.raw(&v.catalog_digest.bytes());
     e.u32(u32::try_from(v.combatants.len()).map_err(|_| CodecError::LengthOverflow)?);
     for digest in &v.combatants {
@@ -401,13 +323,13 @@ fn decode_header(d: &mut Decoder<'_>) -> Result<ReplayHeader, ReplayFormatError>
     if d.take(4)? != REPLAY_MAGIC {
         return Err(ReplayFormatError::InvalidMagic);
     }
-    let version = d.u32()?;
-    if version != REPLAY_FORMAT_VERSION {
-        return Err(ReplayFormatError::UnsupportedFormatVersion(version));
+    let envelope_tag = d.u32()?;
+    if envelope_tag != REPLAY_ENVELOPE_TAG {
+        return Err(ReplayFormatError::UnexpectedEnvelopeTag(envelope_tag));
     }
     let schema = d.u32()?;
-    if schema != REPLAY_SCHEMA_VERSION {
-        return Err(ReplayFormatError::UnsupportedSchemaVersion(schema));
+    if schema != REPLAY_SCHEMA_TAG {
+        return Err(ReplayFormatError::UnexpectedSchemaTag(schema));
     }
     let policy = d.u8()?;
     if policy != UnknownRecordPolicy::Reject as u8 {
@@ -415,17 +337,11 @@ fn decode_header(d: &mut Decoder<'_>) -> Result<ReplayHeader, ReplayFormatError>
     }
     let identity = ReplayIdentity::new(
         d.string(MAX_HEADER_TEXT_BYTES)?,
-        d.string(MAX_HEADER_TEXT_BYTES)?,
-        d.string(MAX_HEADER_TEXT_BYTES)?,
         ConfigBundleDigest::new(d.take(32)?.try_into().expect("fixed length")),
-        d.string(MAX_HEADER_TEXT_BYTES)?,
-        d.string(MAX_HEADER_TEXT_BYTES)?,
-        d.string(MAX_HEADER_TEXT_BYTES)?,
     )?;
-    let controller = ControllerIdentity::new(
-        d.string(MAX_HEADER_TEXT_BYTES)?,
-        ControllerDigest::new(d.take(32)?.try_into().expect("fixed length")),
-    )?;
+    let controller = ControllerIdentity::new(ControllerDigest::new(
+        d.take(32)?.try_into().expect("fixed length"),
+    ));
     let master_seed = d.u64()?;
     let entry = match d.u8()? {
         1 => ReplayEntry::Battle {
@@ -459,7 +375,6 @@ fn decode_activity_entry(d: &mut Decoder<'_>) -> Result<ReplayEntry, ReplayForma
 }
 
 fn decode_builds(d: &mut Decoder<'_>) -> Result<BuildBindings, ReplayFormatError> {
-    let revision = Box::<str>::from(d.string(MAX_HEADER_TEXT_BYTES)?);
     let digest = BuildCatalogDigest::new(d.take(32)?.try_into().expect("fixed length"));
     let count = d.u32()?;
     if count > MAX_BUILD_BINDINGS {
@@ -471,7 +386,7 @@ fn decode_builds(d: &mut Decoder<'_>) -> Result<BuildBindings, ReplayFormatError
             d.take(32)?.try_into().expect("fixed length"),
         ));
     }
-    BuildBindings::new(revision, digest, combatants)
+    BuildBindings::new(digest, combatants)
 }
 
 fn validate_records(bytes: &[u8], count: u32) -> Result<(), ReplayFormatError> {

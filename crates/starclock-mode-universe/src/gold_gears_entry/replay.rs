@@ -3,26 +3,22 @@
 use core::fmt;
 
 use starclock_activity::ActivityTerminalOutcome;
-use starclock_combat::{NUMERIC_POLICY_REVISION, rng::RNG_ALGORITHM_REVISION};
 use starclock_replay::{
-    battle_event::{
-        BATTLE_EVENT_PAYLOAD_VERSION_V5, BattleEventPayloadError,
-        encode_battle_event_payload_for_version,
-    },
-    codec::{CodecError, Encoder},
+    battle_event::{BattleEventPayloadError, encode_battle_event_payload},
+    codec::CodecError,
     component::{
         ComponentIdentityError, ConfigurationComponentDivergence, ConfigurationComponentKind,
         ConfigurationComponentSet,
     },
-    current::{ReplayCompatibility, ReplayError, ReplayHeader, decode_replay, encode_replay},
     digest::{
         BuildCatalogDigest, CombatantBuildDigest, DefinitionDigest, EntrySpecDigest, StateDigest,
     },
-    format::{BuildBindings, ReplayEntry},
+    entry::{BuildBindings, ReplayEntry},
+    envelope::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
     nested_battle::{
-        MAX_NESTED_BATTLE_EVENTS_PER_COMMAND, NESTED_BATTLE_STATE_PAYLOAD_VERSION,
         NestedBattleCommandPayload, NestedBattlePayloadError, decode_nested_battle_command_payload,
         decode_nested_battle_state_payload, encode_nested_battle_command_payload,
+        encode_nested_battle_state_payload,
     },
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
@@ -37,10 +33,8 @@ use super::{
     seeded_run::{GoldAndGearsRecordedExecution, GoldAndGearsSeededBattleRecord},
 };
 
-/// Frozen mode replay revision from the Goal 14 Phase 0 contract.
-pub const GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION: &str = "gold-and-gears-real-battle-replay-v1";
-/// Frozen nested event payload revision for this replay contract.
-pub const GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION: u16 = BATTLE_EVENT_PAYLOAD_VERSION_V5;
+/// Profile identifier carried by every Gold and Gears replay entry.
+pub const GOLD_AND_GEARS_REPLAY_PROFILE: &str = "gold-and-gears-real-battle-replay";
 
 /// First authoritative boundary which differs during fresh verification.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -141,15 +135,9 @@ pub fn record_incremental_gold_and_gears_run(
     })
 }
 
-/// Current compatibility identity for Gold replay-v2 envelopes.
-pub fn gold_and_gears_replay_compatibility() -> Result<ReplayCompatibility, GoldAndGearsReplayError>
-{
-    Ok(ReplayCompatibility::new(
-        "4.4",
-        NUMERIC_POLICY_REVISION,
-        RNG_ALGORITHM_REVISION,
-        starclock_activity::ACTIVITY_STATE_HASH_REVISION,
-    )?)
+/// Replay environment identity for Gold replay envelopes.
+pub fn gold_and_gears_replay_environment() -> Result<ReplayEnvironment, GoldAndGearsReplayError> {
+    Ok(ReplayEnvironment::new("4.4")?)
 }
 
 /// Creates a zero-record, build-aware header for one exact run entry.
@@ -160,7 +148,7 @@ pub fn gold_and_gears_replay_header(
 ) -> Result<ReplayHeader, GoldAndGearsReplayError> {
     let entry = replay_entry(&components, request, roster)?;
     Ok(ReplayHeader::new(
-        gold_and_gears_replay_compatibility()?,
+        gold_and_gears_replay_environment()?,
         components,
         request.seed(),
         entry,
@@ -168,7 +156,7 @@ pub fn gold_and_gears_replay_header(
     )?)
 }
 
-/// Encodes a complete real-battle trace under the frozen ReplayV2 envelope.
+/// Encodes a complete real-battle trace under the frozen replay envelope.
 pub fn encode_gold_and_gears_replay(
     header_template: &ReplayHeader,
     recorded: &RecordedGoldAndGearsRun,
@@ -181,7 +169,7 @@ pub fn encode_gold_and_gears_replay(
     )?;
     let count = record_count(&recorded.execution)?;
     let header = ReplayHeader::new(
-        header_template.compatibility().clone(),
+        header_template.environment().clone(),
         header_template.components().clone(),
         header_template.master_seed(),
         header_template.entry().clone(),
@@ -212,7 +200,7 @@ pub fn encode_gold_and_gears_replay(
                 ));
                 payloads.push((
                     RecordKind::ExpectedBattleState,
-                    encode_nested_state_v5(nested.state_hash(), nested.events())?,
+                    encode_nested_battle_state_payload(nested.state_hash(), nested.events())?,
                 ));
             }
             payloads.push((
@@ -266,7 +254,6 @@ fn replay_entry(
         .find(|component| component.kind() == ConfigurationComponentKind::BuildCatalog)
         .ok_or(GoldAndGearsReplayError::MissingBuildComponent)?;
     let builds = BuildBindings::new(
-        build.revision(),
         BuildCatalogDigest::new(build.digest().bytes()),
         roster
             .entries()
@@ -276,7 +263,7 @@ fn replay_entry(
     )?;
     let identity = request.identity();
     Ok(ReplayEntry::Activity {
-        profile_id: GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION.into(),
+        profile_id: GOLD_AND_GEARS_REPLAY_PROFILE.into(),
         definition_id: identity.id().get(),
         definition_digest: DefinitionDigest::new(identity.definition_digest().bytes()),
         spec_digest: EntrySpecDigest::new(identity.config_digest().bytes()),
@@ -291,7 +278,7 @@ fn validate_header(
     roster: Option<&UniverseBattleRoster>,
 ) -> Result<(), GoldAndGearsReplayError> {
     if header.master_seed() != request.seed()
-        || header.compatibility() != &gold_and_gears_replay_compatibility()?
+        || header.environment() != &gold_and_gears_replay_environment()?
     {
         return Err(divergence(
             GoldAndGearsReplayDivergenceKind::Catalog,
@@ -309,7 +296,7 @@ fn validate_header(
             definition_digest,
             spec_digest,
             ..
-        } if profile_id.as_ref() == GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION
+        } if profile_id.as_ref() == GOLD_AND_GEARS_REPLAY_PROFILE
             && *definition_id == identity.id().get()
             && definition_digest.bytes() == identity.definition_digest().bytes()
             && spec_digest.bytes() == identity.config_digest().bytes()
@@ -626,18 +613,7 @@ fn compare_events(
         ));
     }
     for (payload, event) in expected.iter().zip(actual) {
-        let version = payload
-            .get(..2)
-            .and_then(|bytes| bytes.try_into().ok())
-            .map(u16::from_le_bytes);
-        if version != Some(GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION)
-            || payload
-                != &encode_battle_event_payload_for_version(
-                    event,
-                    GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION,
-                )?
-                .as_slice()
-        {
+        if payload != &encode_battle_event_payload(event)?.as_slice() {
             return Err(divergence(
                 GoldAndGearsReplayDivergenceKind::Event,
                 action_index,
@@ -647,26 +623,6 @@ fn compare_events(
         }
     }
     Ok(())
-}
-
-fn encode_nested_state_v5(
-    state_hash: starclock_combat::BattleStateHash,
-    events: &[starclock_combat::BattleEvent],
-) -> Result<Vec<u8>, GoldAndGearsReplayError> {
-    if events.len() > MAX_NESTED_BATTLE_EVENTS_PER_COMMAND as usize {
-        return Err(GoldAndGearsReplayError::TooManyRecords);
-    }
-    let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_STATE_PAYLOAD_VERSION);
-    encoder.raw(&state_hash.bytes());
-    encoder.u32(u32::try_from(events.len()).map_err(|_| CodecError::LengthOverflow)?);
-    for event in events {
-        encoder.bytes(&encode_battle_event_payload_for_version(
-            event,
-            GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION,
-        )?)?;
-    }
-    Ok(encoder.into_inner())
 }
 
 fn checked_add(left: u32, right: u32) -> Result<u32, GoldAndGearsReplayError> {

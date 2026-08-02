@@ -5,14 +5,14 @@ use crate::{
     digest::{ComponentDigest, ComponentRootDigest, Sha256Sink},
 };
 
-/// Component-set canonical encoding revision.
-pub const COMPONENT_SET_REVISION: u32 = 1;
-/// Maximum stable component-ID or revision bytes.
+/// Component-set canonical encoding tag.
+pub const COMPONENT_SET_TAG: u32 = 1;
+/// Maximum stable component-ID bytes.
 pub const MAX_COMPONENT_TEXT_BYTES: usize = 128;
 /// Maximum components consumed by one replay.
 pub const MAX_REPLAY_COMPONENTS: usize = 256;
 
-/// Closed component families in canonical compatibility order.
+/// Closed component families in canonical order.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
 pub enum ConfigurationComponentKind {
@@ -51,7 +51,6 @@ impl TryFrom<u8> for ConfigurationComponentKind {
 pub struct ConfigurationComponentIdentity {
     kind: ConfigurationComponentKind,
     id: Box<str>,
-    revision: Box<str>,
     digest: ComponentDigest,
 }
 
@@ -59,17 +58,14 @@ impl ConfigurationComponentIdentity {
     pub fn new(
         kind: ConfigurationComponentKind,
         id: impl Into<Box<str>>,
-        revision: impl Into<Box<str>>,
         digest: ComponentDigest,
     ) -> Result<Self, ComponentIdentityError> {
         let value = Self {
             kind,
             id: id.into(),
-            revision: revision.into(),
             digest,
         };
         validate_text(&value.id)?;
-        validate_text(&value.revision)?;
         Ok(value)
     }
 
@@ -84,11 +80,6 @@ impl ConfigurationComponentIdentity {
     }
 
     #[must_use]
-    pub fn revision(&self) -> &str {
-        &self.revision
-    }
-
-    #[must_use]
     pub const fn digest(&self) -> ComponentDigest {
         self.digest
     }
@@ -98,13 +89,12 @@ impl CanonicalEncode for ConfigurationComponentIdentity {
     fn encode<S: CanonicalSink>(&self, e: &mut Encoder<S>) -> Result<(), CodecError> {
         e.u8(self.kind as u8);
         e.string(&self.id)?;
-        e.string(&self.revision)?;
         e.raw(&self.digest.bytes());
         Ok(())
     }
 }
 
-/// Strictly ordered, duplicate-free component compatibility manifest.
+/// Strictly ordered, duplicate-free component manifest.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConfigurationComponentSet {
     components: Box<[ConfigurationComponentIdentity]>,
@@ -165,7 +155,7 @@ impl ConfigurationComponentSet {
 
 impl CanonicalEncode for ConfigurationComponentSet {
     fn encode<S: CanonicalSink>(&self, e: &mut Encoder<S>) -> Result<(), CodecError> {
-        e.u32(COMPONENT_SET_REVISION);
+        e.u32(COMPONENT_SET_TAG);
         e.u32(u32::try_from(self.components.len()).map_err(|_| CodecError::LengthOverflow)?);
         for component in &self.components {
             component.encode(e)?;
@@ -175,7 +165,7 @@ impl CanonicalEncode for ConfigurationComponentSet {
     }
 }
 
-/// First exact component mismatch encountered during compatibility verification.
+/// First exact component mismatch encountered during verification.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConfigurationComponentDivergence {
     pub index: usize,
@@ -219,7 +209,7 @@ fn calculate_root(
 ) -> Result<ComponentRootDigest, CodecError> {
     let mut encoder = Encoder::new(Sha256Sink::new());
     encoder.raw(b"starclock.configuration-components");
-    encoder.u32(COMPONENT_SET_REVISION);
+    encoder.u32(COMPONENT_SET_TAG);
     encoder.u32(u32::try_from(components.len()).map_err(|_| CodecError::LengthOverflow)?);
     for component in components {
         component.encode(&mut encoder)?;

@@ -14,12 +14,12 @@
     "run the same control contract in-process, over local stdio MCP, or over authorized Streamable HTTP MCP"
   ],
   "standard_scenarios": [
-    { "stable_id": "scenario.standard-v1.basic-single-wave", "scenario_definition_id": 278, "encounter_stable_id": "encounter.cocoon.0001", "encounter_definition_id": 89, "default_seed": 104729 },
-    { "stable_id": "scenario.standard-v1.multi-wave-dot-revival", "scenario_definition_id": 282, "encounter_stable_id": "encounter.mainline.0541", "encounter_definition_id": 92, "default_seed": 209759 },
-    { "stable_id": "scenario.standard-v1.elite-control-counter", "scenario_definition_id": 280, "encounter_stable_id": "encounter.farmelement.0008", "encounter_definition_id": 90, "default_seed": 314159 },
-    { "stable_id": "scenario.standard-v1.cocolia-phase-change", "scenario_definition_id": 279, "encounter_stable_id": "encounter.mainline.0276", "encounter_definition_id": 91, "default_seed": 419431 },
-    { "stable_id": "scenario.standard-v1.layered-toughness", "scenario_definition_id": 281, "encounter_stable_id": "encounter.mainline.0755", "encounter_definition_id": 93, "default_seed": 524287 },
-    { "stable_id": "scenario.standard-v1.target-invalidation-and-return", "scenario_definition_id": 283, "encounter_stable_id": "encounter.mainline.1253", "encounter_definition_id": 94, "default_seed": 629137 }
+    { "stable_id": "scenario.standard.basic-single-wave", "scenario_definition_id": 278, "encounter_stable_id": "encounter.cocoon.0001", "encounter_definition_id": 89, "default_seed": 104729 },
+    { "stable_id": "scenario.standard.multi-wave-dot-revival", "scenario_definition_id": 282, "encounter_stable_id": "encounter.mainline.0541", "encounter_definition_id": 92, "default_seed": 209759 },
+    { "stable_id": "scenario.standard.elite-control-counter", "scenario_definition_id": 280, "encounter_stable_id": "encounter.farmelement.0008", "encounter_definition_id": 90, "default_seed": 314159 },
+    { "stable_id": "scenario.standard.cocolia-phase-change", "scenario_definition_id": 279, "encounter_stable_id": "encounter.mainline.0276", "encounter_definition_id": 91, "default_seed": 419431 },
+    { "stable_id": "scenario.standard.layered-toughness", "scenario_definition_id": 281, "encounter_stable_id": "encounter.mainline.0755", "encounter_definition_id": 93, "default_seed": 524287 },
+    { "stable_id": "scenario.standard.target-invalidation-and-return", "scenario_definition_id": 283, "encounter_stable_id": "encounter.mainline.1253", "encounter_definition_id": 94, "default_seed": 629137 }
   ],
   "dependency_layers_low_to_high": [
     ["starclock-combat", "starclock-rules"],

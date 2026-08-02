@@ -1,13 +1,10 @@
-//! Versioned cause-chain encoding for battle-event payloads.
+//! Cause-chain encoding for battle-event payloads.
 
 use starclock_combat::{Cause, CauseActor};
 
-use crate::{
-    battle_event::BATTLE_EVENT_PAYLOAD_VERSION_V1,
-    codec::{CanonicalSink, Encoder},
-};
+use crate::codec::{CanonicalSink, Encoder};
 
-pub(crate) fn encode_cause<S: CanonicalSink>(encoder: &mut Encoder<S>, cause: Cause, version: u16) {
+pub(crate) fn encode_cause<S: CanonicalSink>(encoder: &mut Encoder<S>, cause: Cause) {
     optional_u64(encoder, cause.parent_event().map(|value| value.get()));
     encoder.u64(cause.root_command().get());
     optional_u64(encoder, cause.action().map(|value| value.get()));
@@ -28,11 +25,6 @@ pub(crate) fn encode_cause<S: CanonicalSink>(encoder: &mut Encoder<S>, cause: Ca
     optional_u64(encoder, cause.applier().map(|value| value.get()));
     optional_u32(encoder, cause.source_definition().map(|value| value.get()));
     optional_u64(encoder, cause.primary_target().map(|value| value.get()));
-    if version == BATTLE_EVENT_PAYLOAD_VERSION_V1 {
-        // Released v1 reserved this unwritten field. Preserve its exact zero
-        // option byte for historical replay verification.
-        optional_u32(encoder, None);
-    }
 }
 
 fn optional_u32<S: CanonicalSink>(encoder: &mut Encoder<S>, value: Option<u32>) {

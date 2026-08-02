@@ -476,17 +476,17 @@ impl<'a> BattleIdentityView<'a> {
     }
     /// Returns the authoritative numeric compatibility revision.
     #[must_use]
-    pub const fn numeric_policy_revision(self) -> &'static str {
+    pub const fn numeric_policy(self) -> &'static str {
         NUMERIC_POLICY_REVISION
     }
     /// Returns the authoritative RNG/mapping compatibility revision.
     #[must_use]
-    pub const fn rng_algorithm_revision(self) -> &'static str {
+    pub const fn rng_algorithm(self) -> &'static str {
         RNG_ALGORITHM_REVISION
     }
     /// Returns the canonical battle-state hash compatibility revision.
     #[must_use]
-    pub const fn state_hash_revision(self) -> &'static str {
+    pub const fn state_hash_policy(self) -> &'static str {
         crate::STATE_HASH_REVISION
     }
     /// Returns the exact isolated battle seed.

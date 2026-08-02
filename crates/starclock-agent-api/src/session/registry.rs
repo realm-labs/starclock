@@ -511,9 +511,9 @@ mod tests {
     use super::*;
     use crate::{
         action::AgentActionKind,
-        schema::{AgentSchemaRevision, AgentUInt, IdempotencyKey},
+        schema::{AgentUInt, IdempotencyKey},
     };
-    use starclock_data::standard_v1::SCENARIOS;
+    use starclock_data::standard::SCENARIOS;
 
     #[derive(Default)]
     struct ManualClock(AtomicU64);
@@ -570,7 +570,6 @@ mod tests {
             .find(|action| action.kind != AgentActionKind::Concede)
             .unwrap();
         PlayActionRequest {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: observation.session_id.clone(),
             decision_id: observation.decision_id.clone().unwrap(),
             expected_state_hash: observation.state_hash.clone(),
@@ -689,7 +688,7 @@ mod tests {
         assert_eq!(ids.consumed(), consumed);
 
         let invalid = RegistryCreateSessionRequest {
-            scenario_id: ScenarioId::parse("scenario.standard-v1.unknown").unwrap(),
+            scenario_id: ScenarioId::parse("scenario.standard.unknown").unwrap(),
             ..create_request()
         };
         let other = owner("tenant_a", "other");

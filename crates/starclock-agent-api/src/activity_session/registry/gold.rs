@@ -1,4 +1,4 @@
-//! Gold and Gears compatibility constructor over the shared Activity registry.
+//! Gold and Gears constructor over the shared Activity registry.
 
 use super::*;
 

@@ -13,13 +13,13 @@ use super::{
 };
 
 /// Canonical Gold action payload revision.
-pub const GOLD_AND_GEARS_REPLAY_ACTION_VERSION: u16 = 1;
+pub const GOLD_AND_GEARS_REPLAY_ACTION_TAG: u16 = 1;
 
 pub(super) fn encode_action(
     action: &GoldAndGearsSeededRunAction,
 ) -> Result<Vec<u8>, ActionPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(GOLD_AND_GEARS_REPLAY_ACTION_VERSION);
+    encoder.u16(GOLD_AND_GEARS_REPLAY_ACTION_TAG);
     match action {
         GoldAndGearsSeededRunAction::PlaneCreation { source_node, plane } => {
             encoder.u8(0);
@@ -69,7 +69,7 @@ pub(super) fn decode_action(
     bytes: &[u8],
 ) -> Result<GoldAndGearsSeededRunAction, ActionPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    if decoder.u16()? != GOLD_AND_GEARS_REPLAY_ACTION_VERSION {
+    if decoder.u16()? != GOLD_AND_GEARS_REPLAY_ACTION_TAG {
         return Err(ActionPayloadError::Version);
     }
     let kind = decoder.u8()?;

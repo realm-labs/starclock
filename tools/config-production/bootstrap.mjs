@@ -98,11 +98,9 @@ function identityRecords() {
   const coneById = new Map(lightCones.map((record) => [record.id, record]));
   const variantById = new Map(enemyVariants.map((record) => [record.id, record]));
   const templateById = new Map(enemyTemplates.map((record) => [record.id, record]));
-  const coverage = readJson("evidence/core-combat-v1/coverage/goal-coverage.json");
-  const coverageById = new Map(coverage.entries.map((entry) => [entry.id, entry.terminal_state]));
-  const characterManifest = readJson("content-manifests/core-combat-v1/released-character-forms.json");
-  const coneManifest = readJson("content-manifests/core-combat-v1/released-light-cones.json");
-  const standard = readJson("content-manifests/core-combat-v1/standard-v1.json");
+  const characterManifest = readJson("content-manifests/core-combat/released-character-forms.json");
+  const coneManifest = readJson("content-manifests/core-combat/released-light-cones.json");
+  const standard = readJson("content-manifests/core-combat/standard.json");
   const records = [];
   for (const entry of characterManifest.entries) {
     const reference = required(characterById, entry.reference_id);
@@ -125,7 +123,7 @@ function identityRecords() {
   return records.map((record, index) => ({
     ...record,
     transport_id: index + 1,
-    coverage: required(coverageById, record.id),
+    coverage: "DataReady",
     source_id: record.quality === "ExactPreviousRelease" ? 2 : 1,
   }));
 }

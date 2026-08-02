@@ -14,7 +14,7 @@ use super::spec::{
 };
 
 const INPUT_MAGIC: &[u8; 4] = b"SCBI";
-const INPUT_CODEC_VERSION: u16 = 1;
+const INPUT_CODEC_TAG: u16 = 1;
 
 pub(super) fn combat_input_digest(
     rules_revision: &str,
@@ -26,7 +26,7 @@ pub(super) fn combat_input_digest(
 ) -> CombatInputDigest {
     let mut encoder = Encoder(Sha256::new());
     encoder.raw(INPUT_MAGIC);
-    encoder.u16(INPUT_CODEC_VERSION);
+    encoder.u16(INPUT_CODEC_TAG);
     encoder.text(crate::COMBAT_INPUT_CODEC_REVISION);
     encoder.text(rules_revision);
     encoder.u32(encounter.get());

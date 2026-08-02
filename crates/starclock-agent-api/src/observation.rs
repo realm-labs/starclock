@@ -10,9 +10,7 @@ use starclock_combat::{
 
 use crate::{
     action::OfferedAction,
-    schema::{
-        AgentHash, AgentSInt, AgentSchemaRevision, AgentUInt, EventCursor, ScenarioId, SessionId,
-    },
+    schema::{AgentHash, AgentSInt, AgentUInt, EventCursor, ScenarioId, SessionId},
 };
 
 /// Human-readable responsibility marker used by architecture tests.
@@ -147,7 +145,6 @@ pub struct AgentBattleView {
 /// Complete frozen player-visible observation envelope.
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentObservation {
-    pub schema_revision: AgentSchemaRevision,
     pub session_id: SessionId,
     pub scenario_id: ScenarioId,
     pub catalog_digest: AgentHash,

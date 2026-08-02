@@ -23,7 +23,7 @@ use starclock_agent_api::{
 use crate::server::StarclockMcp;
 
 const FINAL_STATE: &str = "058921eb765ac41314587c791c68f3267cb6a376ef71add9ce01a901d5645840";
-const REPLAY_SHA256: &str = "3a7eb3742a6be456f8f8d3c526ea314fbf09b44d6719925d261ebbefc8997a67";
+const REPLAY_SHA256: &str = "91f7781be7125ec59e821472e01f26815f001c9e92761b7761be5b8702acf7cb";
 
 struct TestClock;
 impl OperationalClock for TestClock {
@@ -86,7 +86,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1", "mode":"swarm", "seed":"20001"
+                    "mode":"swarm", "seed":"20001"
                 }),
             )),
         )
@@ -104,7 +104,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1", "mode":"swarm-disaster",
+                    "mode":"swarm-disaster",
                     "world":"401", "difficulty_index":"0", "seed":"20001"
                 }),
             )),
@@ -146,7 +146,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1", "mode":"swarm-disaster",
+                    "mode":"swarm-disaster",
                     "world":"201", "difficulty_index":"0", "seed":"20001"
                 }),
             )),
@@ -165,7 +165,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
     while observation["status"] != "completed" {
         let action = selected_action(&observation).clone();
         let input = json!({
-            "schema_revision":"agent-api-v1", "session_id":session_id,
+            "session_id":session_id,
             "boundary_id":observation["boundary_id"],
             "expected_state_hash":observation["state_hash"], "action_token":action["token"],
             "idempotency_key":format!("swarm_mcp_action_{external_actions}")
@@ -205,7 +205,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_export_activity_replay").with_arguments(
                 arguments(json!({
-                    "schema_revision":"agent-api-v1", "session_id":session_id
+                    "session_id":session_id
                 })),
             ),
         )
@@ -216,14 +216,14 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
     assert_eq!(export["sha256"], REPLAY_SHA256);
     assert_eq!(
         export["replay_hex"].as_str().expect("hex").len(),
-        81_086 * 2
+        80_925 * 2
     );
 
     let verified = client
         .call_tool(
             CallToolRequestParams::new("starclock_verify_activity_replay").with_arguments(
                 arguments(json!({
-                    "schema_revision":"agent-api-v1", "mode":"swarm-disaster",
+                    "mode":"swarm-disaster",
                     "world":"201", "difficulty_index":"0", "seed":"20001",
                     "replay_hex":export["replay_hex"]
                 })),
@@ -240,7 +240,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_close_activity").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1", "session_id":session_id
+                    "session_id":session_id
                 }),
             )),
         )

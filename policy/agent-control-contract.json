@@ -52,8 +52,8 @@
   "examples": [
     {
       "kind": "in-process",
-      "path": "crates/starclock-agent-api/examples/g02_in_process.rs",
-      "command": "cargo run -p starclock-agent-api --example g02_in_process"
+      "path": "crates/starclock-agent-api/examples/in_process.rs",
+      "command": "cargo run -p starclock-agent-api --example in_process"
     },
     {
       "kind": "stdio",
@@ -62,8 +62,8 @@
     },
     {
       "kind": "authorized-http",
-      "path": "crates/starclock-mcp/examples/g02_authorized_http.rs",
-      "command": "cargo run -p starclock-mcp --example g02_authorized_http"
+      "path": "crates/starclock-mcp/examples/authorized_http.rs",
+      "command": "cargo run -p starclock-mcp --example authorized_http"
     }
   ],
   "guidance": {
@@ -85,9 +85,9 @@
     "crates/starclock-agent-api/src/activity_reference.rs",
     "crates/starclock-agent-api/src/activity_session.rs",
     "crates/starclock-agent-api/src/activity_session/registry.rs",
-    "schemas/agent-api-v1/observation.schema.json",
-    "schemas/agent-api-v1/action.schema.json",
-    "schemas/agent-api-v1/error.schema.json",
+    "schemas/agent-api/observation.schema.json",
+    "schemas/agent-api/action.schema.json",
+    "schemas/agent-api/error.schema.json",
     "crates/starclock-mcp/Cargo.toml",
     "crates/starclock-mcp/src/lib.rs",
     "crates/starclock-mcp/src/authorization.rs",
@@ -103,14 +103,14 @@
     "crates/starclock-cli/Cargo.toml",
     "crates/starclock-cli/src/main.rs",
     "docs/starclock-agent-integration-contract.md",
-    "crates/starclock-agent-api/examples/g02_in_process.rs",
-    "crates/starclock-mcp/examples/g02_authorized_http.rs",
+    "crates/starclock-agent-api/examples/in_process.rs",
+    "crates/starclock-mcp/examples/authorized_http.rs",
     "examples/agent-control/stdio-discovery.mjs"
   ],
   "verification": [
     "node tools/agent-control/verify-agent-contract-freeze.mjs",
-    "cargo run -p starclock-agent-api --example g02_in_process",
-    "cargo run -p starclock-mcp --example g02_authorized_http",
+    "cargo run -p starclock-agent-api --example in_process",
+    "cargo run -p starclock-mcp --example authorized_http",
     "cargo build -p starclock-cli",
     "node examples/agent-control/stdio-discovery.mjs target/debug/starclock"
   ]

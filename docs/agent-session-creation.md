@@ -1,14 +1,14 @@
 # Agent session creation
 
 `AgentSessionFactory::load_production` validates the embedded production bundle
-and builds the frozen Standard-v1 combat catalog once. Cloned production
+and builds the frozen Standard combat catalog once. Cloned production
 factories share immutable `Arc`-owned data and combat catalogs; every creation
 allocates a distinct mutable `Battle` and incremental replay trace.
 
 Untrusted creation accepts only:
 
 - a checked opaque session ID;
-- a checked `scenario.standard-v1.*` identity that must resolve to one of the
+- a checked `scenario.standard.*` identity that must resolve to one of the
   six frozen production scenarios;
 - either the authored scenario seed or one exact `u64` encoded as an
   `AgentUInt` string;
@@ -28,5 +28,5 @@ incremental and will receive each accepted command/hash boundary during
 settlement; live session work never verifies by replaying a growing prefix.
 
 The shared factory was moved from private CLI code into the stable
-`starclock-data::standard_v1` application/data seam. The CLI now delegates to
+`starclock-data::standard` application/data seam. The CLI now delegates to
 that same factory, eliminating a second production construction path.

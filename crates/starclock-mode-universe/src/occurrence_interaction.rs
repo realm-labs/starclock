@@ -42,7 +42,7 @@ use support::{
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
     "standard-universe-occurrence-interaction-runtime-v14";
-const PAYLOAD_REVISION: u8 = 6;
+const PAYLOAD_TAG: u8 = 6;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
 const TAG_INVENTORY: u8 = 3;
@@ -575,7 +575,7 @@ pub(crate) fn execute(
     input: ActivityHandlerInput<'_>,
 ) -> Result<ActivityHandlerOutput, ActivityHandlerFault> {
     let mut decoder = Decoder::new(input.payload());
-    if decoder.u8()? != PAYLOAD_REVISION {
+    if decoder.u8()? != PAYLOAD_TAG {
         return Err(invalid_payload());
     }
     let count = usize::from(decoder.u16()?);

@@ -45,7 +45,7 @@
   },
   "benchmark_harness_compile_cost_measurement": {
     "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not the strict stable performance report)",
-    "command": "fresh CARGO_TARGET_DIR cargo build -p starclock-cli --example g01_benchmark --features benchmark-harness --release --locked",
+    "command": "fresh CARGO_TARGET_DIR cargo build -p starclock-cli --example combat_benchmark --features benchmark-harness --release --locked",
     "elapsed_milliseconds": 21720,
     "scope": "Benchmark-only example plus allocation-counter 0.8.1 and existing workspace graph",
     "classification": "Moderate benchmark-only release-build cost; allocation-counter adds one dependency and no production edge"

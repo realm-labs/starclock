@@ -3,25 +3,23 @@ use starclock_replay::{
         ComponentIdentityError, ConfigurationComponentIdentity, ConfigurationComponentKind,
         ConfigurationComponentSet,
     },
-    current::{ReplayCompatibility, ReplayError, ReplayHeader, decode_replay, encode_replay},
     digest::{ComponentDigest, EntrySpecDigest},
-    format::ReplayEntry,
+    entry::ReplayEntry,
+    envelope::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
 };
 
 fn component(
     kind: ConfigurationComponentKind,
     id: &str,
-    revision: &str,
     byte: u8,
 ) -> ConfigurationComponentIdentity {
-    ConfigurationComponentIdentity::new(kind, id, revision, ComponentDigest::new([byte; 32]))
-        .unwrap()
+    ConfigurationComponentIdentity::new(kind, id, ComponentDigest::new([byte; 32])).unwrap()
 }
 
 #[test]
-fn current_replay_round_trips_and_rejects_unknown_records() {
+fn replay_envelope_round_trips_and_rejects_unknown_records() {
     let header = ReplayHeader::new(
-        ReplayCompatibility::new("4.4", "fixed-6-v1", "chacha8-v1", "sha256-v3").unwrap(),
+        ReplayEnvironment::new("4.4").unwrap(),
         component_set(0x44),
         42,
         ReplayEntry::Battle {
@@ -36,7 +34,7 @@ fn current_replay_round_trips_and_rejects_unknown_records() {
 
     let mut unknown = encode_replay(
         &ReplayHeader::new(
-            header.compatibility().clone(),
+            header.environment().clone(),
             header.components().clone(),
             header.master_seed(),
             header.entry().clone(),
@@ -67,25 +65,21 @@ fn component_set(controller_byte: u8) -> ConfigurationComponentSet {
         component(
             ConfigurationComponentKind::CombatCatalog,
             "combat-v4.4",
-            "2026-07-17",
             0x11,
         ),
         component(
             ConfigurationComponentKind::ActivityCore,
             "activity-core",
-            "logical-scope-v1",
             0x22,
         ),
         component(
             ConfigurationComponentKind::ModeContent,
             "standard-universe",
-            "v4.4",
             0x33,
         ),
         component(
             ConfigurationComponentKind::Controller,
             "baseline",
-            "v2",
             controller_byte,
         ),
     ])
@@ -98,8 +92,8 @@ fn component_root_is_canonical_and_reports_the_first_mismatch() {
     assert_eq!(
         expected.root().bytes(),
         [
-            122, 237, 94, 177, 68, 36, 68, 84, 178, 122, 230, 129, 205, 47, 204, 28, 237, 229, 167,
-            252, 163, 60, 88, 111, 68, 77, 76, 163, 201, 102, 201, 249,
+            126, 217, 36, 235, 26, 87, 203, 124, 213, 193, 199, 14, 33, 210, 84, 204, 204, 158,
+            210, 10, 105, 84, 252, 225, 132, 183, 91, 191, 174, 140, 28, 168,
         ]
     );
     let actual = component_set(0x45);
@@ -111,30 +105,15 @@ fn component_root_is_canonical_and_reports_the_first_mismatch() {
 
 #[test]
 fn component_set_rejects_duplicate_or_unsorted_keys() {
-    let duplicate = component(
-        ConfigurationComponentKind::CombatCatalog,
-        "combat-v4.4",
-        "one",
-        1,
-    );
+    let duplicate = component(ConfigurationComponentKind::CombatCatalog, "combat-v4.4", 1);
     assert_eq!(
         ConfigurationComponentSet::new(vec![duplicate.clone(), duplicate]).unwrap_err(),
         ComponentIdentityError::NonCanonicalOrder
     );
     assert_eq!(
         ConfigurationComponentSet::new(vec![
-            component(
-                ConfigurationComponentKind::Controller,
-                "controller",
-                "one",
-                1,
-            ),
-            component(
-                ConfigurationComponentKind::CombatCatalog,
-                "catalog",
-                "one",
-                2,
-            ),
+            component(ConfigurationComponentKind::Controller, "controller", 1),
+            component(ConfigurationComponentKind::CombatCatalog, "catalog", 2),
         ])
         .unwrap_err(),
         ComponentIdentityError::NonCanonicalOrder

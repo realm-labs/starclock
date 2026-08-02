@@ -1,6 +1,6 @@
 use super::*;
 use crate::observation::VisibilityPolicy;
-use starclock_data::standard_v1::SCENARIOS;
+use starclock_data::standard::SCENARIOS;
 
 fn request(scenario: &str, seed: AgentSeedPolicy) -> CreateSessionRequest {
     CreateSessionRequest {
@@ -13,7 +13,6 @@ fn request(scenario: &str, seed: AgentSeedPolicy) -> CreateSessionRequest {
 
 fn play_request(session: &AgentSession, token: ActionToken, key: &str) -> PlayActionRequest {
     PlayActionRequest {
-        schema_revision: AgentSchemaRevision::V1,
         session_id: session.session_id().clone(),
         decision_id: session.offered.as_ref().unwrap().decision_id(),
         expected_state_hash: session.state_hash(),
@@ -71,8 +70,6 @@ fn factory_lists_exact_frozen_scenario_identities_and_default_seeds() {
 fn factory_exposes_only_generated_row_free_catalog_and_character_summaries() {
     let factory = AgentSessionFactory::load_production().unwrap();
     let manifest = factory.catalog_manifest().unwrap();
-    assert_eq!(manifest.catalog_revision.as_ref(), CATALOG_REVISION);
-    assert_eq!(manifest.rules_revision.as_ref(), RULES_REVISION);
     assert_eq!(manifest.config_digest, AgentHash::from_bytes(CONFIG_DIGEST));
     assert_eq!(manifest.standard_scenario_count.to_u64(), 6);
     assert_eq!(manifest.character_count.to_u64(), 88);
@@ -105,7 +102,7 @@ fn explicit_seed_is_exact_reproducible_and_operational_identity_is_inert() {
     let second = factory.create(second_request).unwrap();
     assert_eq!(first.master_seed().as_str(), "7");
     assert_eq!(first.state_hash(), second.state_hash());
-    assert_eq!(first.spec_digest(), second.spec_digest());
+    assert_eq!(first.assembly_digest(), second.assembly_digest());
 }
 
 #[test]
@@ -113,7 +110,7 @@ fn unknown_scenario_and_unauthorized_debug_fail_before_session_creation() {
     let factory = AgentSessionFactory::load_production().unwrap();
     let unknown = factory
         .create(request(
-            "scenario.standard-v1.not-authored",
+            "scenario.standard.not-authored",
             AgentSeedPolicy::ScenarioDefault,
         ))
         .err()
@@ -425,11 +422,7 @@ fn replay_corruption_diverges_without_mutating_the_live_session() {
         .create(request(SCENARIOS[1].0, AgentSeedPolicy::ScenarioDefault))
         .unwrap();
     let mut bytes = session.export_replay().unwrap().bytes().to_vec();
-    let controller_offset = bytes
-        .windows(AGENT_REPLAY_CONTROLLER_REVISION.len())
-        .position(|window| window == AGENT_REPLAY_CONTROLLER_REVISION.as_bytes())
-        .unwrap();
-    bytes[controller_offset] ^= 0x01;
+    *bytes.last_mut().expect("replay is non-empty") ^= 0x01;
     let before = (
         session.state_hash(),
         session.replay_command_count(),

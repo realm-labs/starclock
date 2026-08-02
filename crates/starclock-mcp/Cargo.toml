@@ -9,8 +9,8 @@ autotests = false
 workspace = true
 
 [[example]]
-name = "g02_http_benchmark"
-path = "examples/g02_http_benchmark.rs"
+name = "http_benchmark"
+path = "examples/http_benchmark.rs"
 required-features = ["benchmark-harness"]
 
 [features]

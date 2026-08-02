@@ -2,10 +2,10 @@
 
 #![forbid(unsafe_code)]
 
-mod gold_gears_v1;
-mod standard_v1;
-mod swarm_disaster_v1;
-mod universe_v1;
+mod gold_gears;
+mod standard;
+mod swarm_disaster;
+mod universe;
 
 use std::{env, fmt, fs, path::PathBuf, process::ExitCode};
 
@@ -19,8 +19,7 @@ use starclock_data::{
     coverage::{GoalCoverageCategory, GoalCoverageCategorySummary},
 };
 use starclock_mode_standard::synthetic::{
-    SYNTHETIC_STANDARD_CATALOG_REVISION, SYNTHETIC_STANDARD_CONFIG_DIGEST,
-    SYNTHETIC_STANDARD_RULES_REVISION, SYNTHETIC_STANDARD_SCENARIO_ID, SyntheticStandardProfile,
+    SYNTHETIC_STANDARD_CONFIG_DIGEST, SYNTHETIC_STANDARD_SCENARIO_ID, SyntheticStandardProfile,
 };
 use starclock_replay::{
     battle::{
@@ -32,14 +31,12 @@ use starclock_replay::{
     format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
 };
 
-const CONTROLLER_REVISION: &str = BaselineController::REVISION;
-const CONTROLLER_DESCRIPTOR: &[u8] = b"baseline-battle-controller-v1\0synthetic-standard-v1\0ability:1:basic:0:0:0:0:0:false\0target:2:0";
+const CONTROLLER_DESCRIPTOR: &[u8] = b"baseline-battle-controller-v1\0synthetic-standard\0ability:1:basic:0:0:0:0:0:false\0target:2:0";
 const STANDARD_CONTROLLER_DESCRIPTOR: &[u8] =
     b"baseline-battle-controller-v1\0standard-v1\0first-canonical-supported-command";
 const MAX_SMOKE_COMMANDS: usize = 16;
 const MAX_STANDARD_COMMANDS: usize = 512;
 const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
-const CLI_SCHEMA_REVISION: &str = "starclock-cli-v1";
 
 fn main() -> ExitCode {
     match run(env::args().skip(1).collect()) {
@@ -61,53 +58,51 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
         }
         [group, command, rest @ ..] if group == "battle" && command == "run" => battle_run(rest),
         [group, command, rest @ ..]
-            if group == "universe" && command == "run" && swarm_disaster_v1::requested(rest) =>
+            if group == "universe" && command == "run" && swarm_disaster::requested(rest) =>
         {
-            swarm_disaster_v1::run(rest).map_err(CliError::SwarmDisaster)
+            swarm_disaster::run(rest).map_err(CliError::SwarmDisaster)
         }
         [group, command, rest @ ..]
-            if group == "universe" && command == "run" && gold_gears_v1::requested(rest) =>
+            if group == "universe" && command == "run" && gold_gears::requested(rest) =>
         {
-            gold_gears_v1::run(rest).map_err(CliError::GoldAndGears)
+            gold_gears::run(rest).map_err(CliError::GoldAndGears)
         }
         [group, command, rest @ ..] if group == "universe" && command == "run" => {
-            universe_v1::run(rest).map_err(CliError::Universe)
+            universe::run(rest).map_err(CliError::Universe)
         }
         [group, command, rest @ ..]
-            if group == "universe"
-                && command == "coverage"
-                && swarm_disaster_v1::requested(rest) =>
+            if group == "universe" && command == "coverage" && swarm_disaster::requested(rest) =>
         {
-            swarm_disaster_v1::coverage(rest).map_err(CliError::SwarmDisaster)
+            swarm_disaster::coverage(rest).map_err(CliError::SwarmDisaster)
         }
         [group, command, rest @ ..]
-            if group == "universe" && command == "coverage" && gold_gears_v1::requested(rest) =>
+            if group == "universe" && command == "coverage" && gold_gears::requested(rest) =>
         {
-            gold_gears_v1::coverage(rest).map_err(CliError::GoldAndGears)
+            gold_gears::coverage(rest).map_err(CliError::GoldAndGears)
         }
         [group, command, rest @ ..] if group == "universe" && command == "coverage" => {
-            universe_v1::coverage(rest).map_err(CliError::Universe)
+            universe::coverage(rest).map_err(CliError::Universe)
         }
         [group, scope, command, rest @ ..]
             if group == "universe"
                 && scope == "config"
                 && command == "validate"
-                && swarm_disaster_v1::requested(rest) =>
+                && swarm_disaster::requested(rest) =>
         {
-            swarm_disaster_v1::config_validate(rest).map_err(CliError::SwarmDisaster)
+            swarm_disaster::config_validate(rest).map_err(CliError::SwarmDisaster)
         }
         [group, scope, command, rest @ ..]
             if group == "universe"
                 && scope == "config"
                 && command == "validate"
-                && gold_gears_v1::requested(rest) =>
+                && gold_gears::requested(rest) =>
         {
-            gold_gears_v1::config_validate(rest).map_err(CliError::GoldAndGears)
+            gold_gears::config_validate(rest).map_err(CliError::GoldAndGears)
         }
         [group, scope, command, rest @ ..]
             if group == "universe" && scope == "config" && command == "validate" =>
         {
-            universe_v1::config_validate(rest).map_err(CliError::Universe)
+            universe::config_validate(rest).map_err(CliError::Universe)
         }
         [group, command, rest @ ..] if group == "mcp" && command == "serve" => mcp_serve(rest),
         [group, command, file, rest @ ..] if group == "replay" && command == "verify" => {
@@ -187,8 +182,7 @@ fn config_validate(args: &[String]) -> Result<(), CliError> {
     let bundle_digest = hex(digest.finalize().bytes());
     if json {
         println!(
-            "{{\"schema_revision\":\"{}\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"{}\",\"data_revision\":\"{}\",\"bundle_sha256\":\"{}\",\"identities\":{},\"enabled\":{}}}",
-            CLI_SCHEMA_REVISION,
+            "{{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"{}\",\"data_revision\":\"{}\",\"bundle_sha256\":\"{}\",\"identities\":{},\"enabled\":{}}}",
             json_escape(&catalog.manifest().game_version),
             json_escape(&catalog.manifest().data_revision),
             bundle_digest,
@@ -251,8 +245,7 @@ fn write_coverage(catalog: &SimulationCatalog, selected: Option<GoalCoverageCate
             .collect::<Vec<_>>()
             .join(",");
         println!(
-            "{{\"schema_revision\":\"{}\",\"kind\":\"catalog-coverage\",\"goal_id\":\"core-combat-v1\",\"manifest_sha256\":\"{}\",\"required\":{},\"enabled\":{},\"data_ready\":{},\"golden_verified\":{},\"categories\":[{}]}}",
-            CLI_SCHEMA_REVISION,
+            "{{\"kind\":\"catalog-coverage\",\"manifest_sha256\":\"{}\",\"required\":{},\"enabled\":{},\"data_ready\":{},\"golden_verified\":{},\"categories\":[{}]}}",
             report.manifest_digest(),
             categories.iter().map(|row| row.required()).sum::<usize>(),
             categories.iter().map(|row| row.enabled()).sum::<usize>(),
@@ -346,7 +339,7 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
         return Err(CliError::Usage("unknown battle controller"));
     }
     if scenario != SYNTHETIC_STANDARD_SCENARIO_ID {
-        return standard_v1_battle_run(scenario, seed, replay_out, json);
+        return standard_battle_run(scenario, seed, replay_out, json);
     }
     let instantiated = SyntheticStandardProfile.instantiate(seed);
     let mut battle = instantiated
@@ -384,8 +377,7 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
     let final_hash = battle.state_hash().bytes();
     if json {
         println!(
-            "{{\"schema_revision\":\"{}\",\"kind\":\"battle-run\",\"scenario\":\"{}\",\"seed\":{},\"controller\":\"baseline\",\"commands\":{},\"phase\":\"won\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
-            CLI_SCHEMA_REVISION,
+            "{{\"kind\":\"battle-run\",\"scenario\":\"{}\",\"seed\":{},\"controller\":\"baseline\",\"commands\":{},\"phase\":\"won\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
             SYNTHETIC_STANDARD_SCENARIO_ID,
             seed,
             trace.len(),
@@ -405,14 +397,14 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
     Ok(())
 }
 
-fn standard_v1_battle_run(
+fn standard_battle_run(
     scenario: &str,
     seed: u64,
     replay_out: Option<PathBuf>,
     json: bool,
 ) -> Result<(), CliError> {
     let mut instantiated =
-        standard_v1::instantiate(scenario, Some(seed)).map_err(|_| CliError::UnknownScenario)?;
+        standard::instantiate(scenario, Some(seed)).map_err(|_| CliError::UnknownScenario)?;
     let header_identity = (
         instantiated.encounter(),
         starclock_combat::BattleSpecDigest::new(instantiated.assembly_digest().bytes())
@@ -423,7 +415,7 @@ fn standard_v1_battle_run(
     let battle = instantiated.battle_mut();
     while !battle.view().phase().is_terminal() {
         if trace.len() == MAX_STANDARD_COMMANDS {
-            return Err(CliError::Simulation("Standard-v1 command budget exhausted"));
+            return Err(CliError::Simulation("Standard command budget exhausted"));
         }
         let decision = battle
             .decision()
@@ -442,7 +434,7 @@ fn standard_v1_battle_run(
         }
         .cloned()
         .ok_or(CliError::Simulation(
-            "Standard-v1 decision has no supported command",
+            "Standard decision has no supported command",
         ))?;
         let resolution = battle
             .apply(command.clone())
@@ -450,7 +442,7 @@ fn standard_v1_battle_run(
         trace.push(BattleTraceEntry::new(command, resolution.state_hash()));
     }
     if battle.view().phase() != BattlePhase::Won {
-        return Err(CliError::Simulation("Standard-v1 battle did not win"));
+        return Err(CliError::Simulation("Standard battle did not win"));
     }
     let header = standard_replay_header(header_identity, trace.len())?;
     let replay = encode_battle_trace(&header, &trace)?;
@@ -460,8 +452,7 @@ fn standard_v1_battle_run(
     let final_hash = battle.state_hash().bytes();
     if json {
         println!(
-            "{{\"schema_revision\":\"{}\",\"kind\":\"battle-run\",\"scenario\":\"{}\",\"seed\":{},\"controller\":\"baseline\",\"commands\":{},\"phase\":\"won\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
-            CLI_SCHEMA_REVISION,
+            "{{\"kind\":\"battle-run\",\"scenario\":\"{}\",\"seed\":{},\"controller\":\"baseline\",\"commands\":{},\"phase\":\"won\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
             json_escape(scenario),
             seed,
             trace.len(),
@@ -492,14 +483,14 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         }
     };
     let bytes = fs::read(file).map_err(CliError::Io)?;
-    if swarm_disaster_v1::is_replay(&bytes) {
-        return swarm_disaster_v1::verify_replay(&bytes, json).map_err(CliError::SwarmDisaster);
+    if swarm_disaster::is_replay(&bytes) {
+        return swarm_disaster::verify_replay(&bytes, json).map_err(CliError::SwarmDisaster);
     }
-    if gold_gears_v1::is_replay(&bytes) {
-        return gold_gears_v1::verify_replay(&bytes, json).map_err(CliError::GoldAndGears);
+    if gold_gears::is_replay(&bytes) {
+        return gold_gears::verify_replay(&bytes, json).map_err(CliError::GoldAndGears);
     }
-    if universe_v1::is_universe_replay(&bytes) {
-        return universe_v1::verify_replay(&bytes, json).map_err(CliError::Universe);
+    if universe::is_universe_replay(&bytes) {
+        return universe::verify_replay(&bytes, json).map_err(CliError::Universe);
     }
     let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;
     let seed = decoded.header().master_seed();
@@ -510,11 +501,6 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         } if decoded.header().identity().config_bundle()
             == ConfigBundleDigest::new(SYNTHETIC_STANDARD_CONFIG_DIGEST)
             && decoded.header().identity().game_version() == "synthetic-v1"
-            && decoded.header().identity().rules_revision()
-                == SYNTHETIC_STANDARD_RULES_REVISION
-            && decoded.header().identity().data_revision()
-                == SYNTHETIC_STANDARD_CATALOG_REVISION
-            && decoded.header().controller().revision() == CONTROLLER_REVISION
             && decoded.header().controller().digest() == controller_digest()
     );
     let battle = if synthetic {
@@ -530,23 +516,20 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
             } => (*definition_id, *spec_digest),
             _ => return Err(CliError::UnknownScenario),
         };
-        let scenario = standard_v1::SCENARIOS
+        let scenario = standard::SCENARIOS
             .iter()
             .find(|(_, _, encounter)| *encounter == definition_id)
             .map(|(scenario, _, _)| *scenario)
             .ok_or(CliError::UnknownScenario)?;
         let valid_identity = decoded.header().identity().config_bundle()
-            == ConfigBundleDigest::new(standard_v1::CONFIG_DIGEST)
+            == ConfigBundleDigest::new(standard::CONFIG_DIGEST)
             && decoded.header().identity().game_version() == "4.4"
-            && decoded.header().identity().rules_revision() == standard_v1::RULES_REVISION
-            && decoded.header().identity().data_revision() == standard_v1::CATALOG_REVISION
-            && decoded.header().controller().revision() == CONTROLLER_REVISION
             && decoded.header().controller().digest() == standard_controller_digest();
         if !valid_identity {
             return Err(CliError::UnknownScenario);
         }
-        let instantiated = standard_v1::instantiate(scenario, Some(seed))
-            .map_err(|_| CliError::UnknownScenario)?;
+        let instantiated =
+            standard::instantiate(scenario, Some(seed)).map_err(|_| CliError::UnknownScenario)?;
         if EntrySpecDigest::new(instantiated.assembly_digest().bytes()) != spec_digest {
             return Err(CliError::UnknownScenario);
         }
@@ -555,8 +538,7 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     let report = verify_battle_replay(&bytes, battle)?;
     if json {
         println!(
-            "{{\"schema_revision\":\"{}\",\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":{},\"phase\":\"{}\",\"state_hash\":\"{}\"}}",
-            CLI_SCHEMA_REVISION,
+            "{{\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":{},\"phase\":\"{}\",\"state_hash\":\"{}\"}}",
             report.command_count(),
             phase_name(report.phase()),
             hex(report.final_hash().bytes())
@@ -595,14 +577,9 @@ fn replay_header(
 ) -> Result<ReplayHeader, CliError> {
     let identity = ReplayIdentity::new(
         "synthetic-v1",
-        SYNTHETIC_STANDARD_RULES_REVISION,
-        scenario.catalog_revision(),
         ConfigBundleDigest::new(scenario.config_digest()),
-        starclock_combat::NUMERIC_POLICY_REVISION,
-        starclock_combat::rng::RNG_ALGORITHM_REVISION,
-        starclock_combat::STATE_HASH_REVISION,
     )?;
-    let controller = ControllerIdentity::new(CONTROLLER_REVISION, controller_digest())?;
+    let controller = ControllerIdentity::new(controller_digest());
     let entry = ReplayEntry::Battle {
         definition_id: scenario.encounter().get(),
         spec_digest: EntrySpecDigest::new(scenario.assembly_digest().bytes()),
@@ -625,16 +602,8 @@ fn standard_replay_header(
     ),
     command_count: usize,
 ) -> Result<ReplayHeader, CliError> {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        standard_v1::RULES_REVISION,
-        standard_v1::CATALOG_REVISION,
-        ConfigBundleDigest::new(standard_v1::CONFIG_DIGEST),
-        starclock_combat::NUMERIC_POLICY_REVISION,
-        starclock_combat::rng::RNG_ALGORITHM_REVISION,
-        starclock_combat::STATE_HASH_REVISION,
-    )?;
-    let controller = ControllerIdentity::new(CONTROLLER_REVISION, standard_controller_digest())?;
+    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(standard::CONFIG_DIGEST))?;
+    let controller = ControllerIdentity::new(standard_controller_digest());
     ReplayHeader::new(
         identity,
         controller,
@@ -725,9 +694,9 @@ enum CliError {
     Replay(BattleReplayError),
     Mcp(starclock_mcp::stdio::StdioServeError),
     McpHttp(starclock_mcp::http::HttpServeError),
-    Universe(universe_v1::UniverseCliError),
-    GoldAndGears(gold_gears_v1::GoldAndGearsCliError),
-    SwarmDisaster(swarm_disaster_v1::SwarmDisasterCliError),
+    Universe(universe::UniverseCliError),
+    GoldAndGears(gold_gears::GoldAndGearsCliError),
+    SwarmDisaster(swarm_disaster::SwarmDisasterCliError),
 }
 
 impl CliError {

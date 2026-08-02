@@ -1,4 +1,4 @@
-use std::{collections::BTreeMap, str::FromStr};
+use std::collections::BTreeMap;
 
 use proptest::prelude::*;
 use proptest::test_runner::{RngAlgorithm, RngSeed};
@@ -8,8 +8,8 @@ use starclock_agent_api::{
     error::{AgentError, AgentErrorCode},
     observation::{MAX_EFFECTS, MAX_EVENTS_PER_PAGE, MAX_TIMELINE_ENTRIES, MAX_UNITS},
     schema::{
-        ACTION_SCHEMA_JSON, AGENT_SCHEMA_BUNDLE_SHA256, AgentHash, AgentSInt, AgentSchemaRevision,
-        AgentUInt, AgentValueError, ERROR_SCHEMA_JSON, OBSERVATION_SCHEMA_JSON,
+        ACTION_SCHEMA_JSON, AGENT_SCHEMA_BUNDLE_SHA256, AgentHash, AgentSInt, AgentUInt,
+        AgentValueError, ERROR_SCHEMA_JSON, OBSERVATION_SCHEMA_JSON,
         ORDINARY_OBSERVATION_GOLDEN_JSON, STALE_DECISION_ERROR_GOLDEN_JSON, SessionId,
         TRIGGER_HEAVY_ACTION_GOLDEN_JSON,
     },
@@ -44,12 +44,6 @@ proptest! {
     }
 
     #[test]
-    fn every_unknown_printable_revision_is_rejected(value in "[ -~]{0,64}") {
-        prop_assume!(value != "agent-api-v1");
-        prop_assert_eq!(AgentSchemaRevision::from_str(&value), Err(AgentValueError::UnknownRevision));
-    }
-
-    #[test]
     fn detail_serialization_is_independent_of_generated_insertion_order(
         entries in proptest::collection::btree_map("[a-z]{1,12}", "[a-z0-9]{1,24}", 0..=16),
         reverse in any::<bool>(),
@@ -70,25 +64,22 @@ proptest! {
 #[test]
 fn published_schema_and_golden_bytes_match_the_frozen_bundle_digest() {
     let files = [
+        ("schemas/agent-api/action.schema.json", ACTION_SCHEMA_JSON),
+        ("schemas/agent-api/error.schema.json", ERROR_SCHEMA_JSON),
         (
-            "schemas/agent-api-v1/action.schema.json",
-            ACTION_SCHEMA_JSON,
-        ),
-        ("schemas/agent-api-v1/error.schema.json", ERROR_SCHEMA_JSON),
-        (
-            "schemas/agent-api-v1/goldens/ordinary-observation.json",
+            "schemas/agent-api/goldens/ordinary-observation.json",
             ORDINARY_OBSERVATION_GOLDEN_JSON,
         ),
         (
-            "schemas/agent-api-v1/goldens/stale-decision-error.json",
+            "schemas/agent-api/goldens/stale-decision-error.json",
             STALE_DECISION_ERROR_GOLDEN_JSON,
         ),
         (
-            "schemas/agent-api-v1/goldens/trigger-heavy-action-response.json",
+            "schemas/agent-api/goldens/trigger-heavy-action-response.json",
             TRIGGER_HEAVY_ACTION_GOLDEN_JSON,
         ),
         (
-            "schemas/agent-api-v1/observation.schema.json",
+            "schemas/agent-api/observation.schema.json",
             OBSERVATION_SCHEMA_JSON,
         ),
     ];
@@ -110,7 +101,7 @@ fn published_schema_and_golden_bytes_match_the_frozen_bundle_digest() {
 #[test]
 fn implementation_bounds_equal_the_frozen_schema_limits() {
     let policy: Value =
-        serde_json::from_str(include_str!("../../../../../../policy/agent-api-v1.json")).unwrap();
+        serde_json::from_str(include_str!("../../../../../../policy/agent-api.json")).unwrap();
     assert_eq!(policy["limits"]["max_units"], MAX_UNITS);
     assert_eq!(policy["limits"]["max_effects"], MAX_EFFECTS);
     assert_eq!(

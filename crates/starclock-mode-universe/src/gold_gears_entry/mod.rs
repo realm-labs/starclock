@@ -114,11 +114,10 @@ pub(crate) use progression_runtime::{
     GoldAndGearsTrailblazeOffer,
 };
 pub use replay::{
-    GOLD_AND_GEARS_REAL_BATTLE_REPLAY_REVISION, GOLD_AND_GEARS_REPLAY_EVENT_PAYLOAD_VERSION,
-    GoldAndGearsReplayDivergenceKind, GoldAndGearsReplayError, GoldAndGearsReplayReport,
-    RecordedGoldAndGearsRun, encode_gold_and_gears_replay, gold_and_gears_replay_compatibility,
-    gold_and_gears_replay_header, record_gold_and_gears_run, record_incremental_gold_and_gears_run,
-    verify_gold_and_gears_replay,
+    GOLD_AND_GEARS_REPLAY_PROFILE, GoldAndGearsReplayDivergenceKind, GoldAndGearsReplayError,
+    GoldAndGearsReplayReport, RecordedGoldAndGearsRun, encode_gold_and_gears_replay,
+    gold_and_gears_replay_environment, gold_and_gears_replay_header, record_gold_and_gears_run,
+    record_incremental_gold_and_gears_run, verify_gold_and_gears_replay,
 };
 pub(crate) use resonance_rule_runtime::GoldAndGearsResonanceCombatSet;
 pub use runtime_coverage::{

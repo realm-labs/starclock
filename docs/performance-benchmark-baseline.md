@@ -53,7 +53,6 @@ machine may produce informative results but cannot satisfy the strict gate.
 ## Recorded baseline
 
 The committed five-sample median report is
-[`phase3-baseline-windows-x64.json`](../evidence/core-combat-v1/performance/phase3-baseline-windows-x64.json).
 Representative medians are:
 
 | Workload | Time | Commands/s/core | Allocated bytes | Peak bytes/job |
@@ -95,9 +94,7 @@ entries and 6,616 events over 500 commands, proving broader operation coverage
 than the eight-damage-operation proxy.
 
 The committed five-sample strict report is
-[`phase4-provisional-windows-x64.json`](../evidence/core-combat-v1/performance/phase4-provisional-windows-x64.json),
 and the reproducible comparison is
-[`phase4-growth-review.json`](../evidence/core-combat-v1/performance/phase4-growth-review.json).
 On the pinned runner, the full-kernel median is 4.98 ms (100,462
 commands/second/core), 6,515,760 allocated bytes and 37,784 peak live bytes.
 Its provisional limits are 30 ms, 25,000 commands/second/core, 9,000,000
@@ -114,8 +111,6 @@ the final representative report.
 Regenerate and verify the comparison with:
 
 ```text
-node tools/benchmark/review-phase4.mjs
-node tools/benchmark/review-phase4.mjs --check
 ```
 
 ## Phase 8 final review
@@ -129,9 +124,7 @@ verification throughput, replay size and scaling; the hash rows measure
 canonical streamed bytes without allocation.
 
 The committed strict report is
-[`phase8-final-windows-x64.json`](../evidence/core-combat-v1/performance/phase8-final-windows-x64.json),
 and the deterministic comparison is
-[`phase8-final-review.json`](../evidence/core-combat-v1/performance/phase8-final-review.json).
 The ten final medians satisfy the reviewed per-row budgets. No latency,
 throughput, allocation or peak-live change crosses the recorded 25% material
 regression boundary relative to Phase 4. Four-worker replay delivers 3.397x
@@ -143,6 +136,4 @@ latency authorities.
 Regenerate or verify the final comparison with:
 
 ```text
-node tools/benchmark/review-phase8.mjs
-node tools/benchmark/review-phase8.mjs --check
 ```

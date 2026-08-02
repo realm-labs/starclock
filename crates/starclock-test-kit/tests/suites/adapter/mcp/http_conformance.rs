@@ -16,7 +16,7 @@ use tokio::{
     net::TcpStream,
 };
 
-const SCENARIO: &str = "scenario.standard-v1.basic-single-wave";
+const SCENARIO: &str = "scenario.standard.basic-single-wave";
 const TOKEN: &str = "tenant-conformance:principal-conformance";
 const CLIENTS: usize = 8;
 
@@ -218,9 +218,8 @@ async fn authorized_tcp_client_proves_conformance_trace_and_multi_session_load()
 
     run_activity_boundary(&mut discovery).await;
 
-    let expected = frozen_trace();
     let primary = run_basic_trace(discovery, "primary").await;
-    assert_trace(&primary, &expected);
+    assert_trace(&primary);
 
     let mut tasks = Vec::with_capacity(CLIENTS);
     for index in 0..CLIENTS {
@@ -232,7 +231,7 @@ async fn authorized_tcp_client_proves_conformance_trace_and_multi_session_load()
     }
     for task in tasks {
         let trace = task.await.unwrap();
-        assert_trace(&trace, &expected);
+        assert_trace(&trace);
     }
 
     shutdown_sender.send(()).unwrap();
@@ -247,14 +246,14 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_create_universe",
             json!({
-                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"1"
+                "world":"1", "difficulty_index":"0", "seed":"1"
             }),
         )
         .await;
     let observation = &created["observation"];
     let session_id = observation["session_id"].as_str().unwrap().to_owned();
     let input = json!({
-        "schema_revision":"agent-api-v1", "session_id":session_id,
+        "session_id":session_id,
         "boundary_id":observation["boundary_id"], "expected_state_hash":observation["state_hash"],
         "action_token":observation["legal_actions"][0]["token"],
         "idempotency_key":"http_activity_1"
@@ -278,8 +277,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
             .tool(
                 "starclock_play_activity_action",
                 json!({
-                    "schema_revision":"agent-api-v1",
-                    "session_id":session_id,
+                                        "session_id":session_id,
                     "boundary_id":observation["boundary_id"],
                     "expected_state_hash":observation["state_hash"],
                     "action_token":action["token"],
@@ -295,7 +293,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_export_activity_replay",
             json!({
-                "schema_revision":"agent-api-v1", "session_id":session_id
+                "session_id":session_id
             }),
         )
         .await;
@@ -305,8 +303,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_verify_activity_replay",
             json!({
-                "schema_revision":"agent-api-v1",
-                "world":"1",
+                                "world":"1",
                 "difficulty_index":"0",
                 "seed":"1",
                 "replay_hex":exported["replay_hex"]
@@ -326,7 +323,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_observe_activity",
             json!({
-                "schema_revision":"agent-api-v1", "session_id":session_id
+                "session_id":session_id
             }),
         )
         .await;
@@ -335,7 +332,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_close_activity",
             json!({
-                "schema_revision":"agent-api-v1", "session_id":session_id
+                "session_id":session_id
             }),
         )
         .await;
@@ -351,10 +348,7 @@ struct TransportTrace {
 
 async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTrace {
     let created = client
-        .tool(
-            "starclock_create_battle",
-            json!({"schema_revision":"agent-api-v1", "scenario_id":SCENARIO}),
-        )
+        .tool("starclock_create_battle", json!({"scenario_id":SCENARIO}))
         .await;
     let mut observation = created["observation"].clone();
     let session_id = observation["session_id"].as_str().unwrap().to_owned();
@@ -378,8 +372,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
             .tool(
                 "starclock_play_action",
                 json!({
-                    "schema_revision":"agent-api-v1",
-                    "session_id":session_id,
+                                        "session_id":session_id,
                     "decision_id":observation["decision_id"],
                     "expected_state_hash":observation["state_hash"],
                     "action_token":action["token"],
@@ -393,10 +386,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
         assert!(step <= 16, "basic trace exceeded its frozen action count");
     }
     let exported = client
-        .tool(
-            "starclock_export_replay",
-            json!({"schema_revision":"agent-api-v1", "session_id":session_id}),
-        )
+        .tool("starclock_export_replay", json!({"session_id":session_id}))
         .await;
     let replay_hex = exported["replay_hex"].clone();
     let command_count = exported["command_count"].clone();
@@ -404,8 +394,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
         .tool(
             "starclock_verify_replay",
             json!({
-                "schema_revision":"agent-api-v1",
-                "scenario_id":SCENARIO,
+                                "scenario_id":SCENARIO,
                 "replay_hex":replay_hex
             }),
         )
@@ -413,10 +402,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
     assert_eq!(verified["phase"], "won");
     assert_eq!(verified["command_count"], command_count);
     let closed = client
-        .tool(
-            "starclock_close_battle",
-            json!({"schema_revision":"agent-api-v1", "session_id":session_id}),
-        )
+        .tool("starclock_close_battle", json!({"session_id":session_id}))
         .await;
     assert_eq!(closed["closed"], true);
     TransportTrace {
@@ -427,14 +413,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
     }
 }
 
-fn frozen_trace() -> Value {
-    serde_json::from_str(include_str!(
-        "../../../../../../evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json"
-    ))
-    .unwrap()
-}
-
-fn assert_trace(actual: &TransportTrace, expected: &Value) {
+fn assert_trace(actual: &TransportTrace) {
     const CURRENT_COMBAT_STATE_HASHES: [&str; 17] = [
         "08bd3cbddc356df065f1a0a0014c3300bb5a930b0a2aafd713afcbdb6d881fca",
         "9f7c1c9909677305a886392cdb8237dc53e57b2e8e5ff638785ec574d21f7dd0",
@@ -459,13 +438,6 @@ fn assert_trace(actual: &TransportTrace, expected: &Value) {
         serde_json::to_value(CURRENT_COMBAT_STATE_HASHES).unwrap(),
         "the transport trace follows the current declared combat state codec"
     );
-    assert_eq!(
-        expected["schema_revision"],
-        "starclock.agent-transport-trace.v1"
-    );
-    assert_eq!(expected["scenario_id"], SCENARIO);
-    assert_eq!(expected["external_actions"], 8);
-    assert_eq!(expected["replay_commands"], 9);
     assert!(!actual.replay_hex.as_str().unwrap().is_empty());
     assert_eq!(actual.command_count, "21");
     assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[16]);

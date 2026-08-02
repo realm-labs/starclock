@@ -52,7 +52,6 @@ and make no runtime claim.
 The P8-B4 completion commit is registered separately in
 `policy/release-snapshots.json` only after those hosted jobs succeed. Their
 receipts belong in
-`evidence/swarm-disaster-runtime-v1/release/hosted-native-ci.json`. Later work
 may evolve current source but may not rewrite the frozen completion tree.
 
 ## Accuracy boundary

@@ -9,7 +9,7 @@ universe, shop, reward, score, clock or generic future-node semantics.
 ## Synthetic profile
 
 `starclock_mode_standard::synthetic::SyntheticStandardProfile` creates one
-immutable low-level battle handoff for `synthetic-standard-v1`:
+immutable low-level battle handoff for `synthetic-standard`:
 
 - one player and one encounter enemy in one ordered wave;
 - no implicit Skill Points, Energy, clock, score, objective or mode rule;
@@ -62,7 +62,7 @@ The temporary vertical-slice surface is:
 
 ```text
 starclock battle run \
-  --scenario synthetic-standard-v1 \
+  --scenario synthetic-standard \
   --seed U64 \
   [--replay-out PATH] [--json]
 

@@ -3,16 +3,15 @@
 use core::fmt;
 
 use starclock_activity::{ActivityDefinitionIdentity, ActivityInstanceId, ActivityTerminalOutcome};
-use starclock_combat::{NUMERIC_POLICY_REVISION, rng::RNG_ALGORITHM_REVISION};
 use starclock_replay::{
-    battle_event::{BATTLE_EVENT_PAYLOAD_VERSION_V5, BattleEventPayloadError},
+    battle_event::BattleEventPayloadError,
     codec::CodecError,
     component::{ComponentIdentityError, ConfigurationComponentKind, ConfigurationComponentSet},
-    current::{ReplayCompatibility, ReplayError, ReplayHeader, decode_replay, encode_replay},
     digest::{
         BuildCatalogDigest, CombatantBuildDigest, DefinitionDigest, EntrySpecDigest, StateDigest,
     },
-    format::{BuildBindings, ReplayEntry},
+    entry::{BuildBindings, ReplayEntry},
+    envelope::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, encode_nested_battle_command_payload,
     },
@@ -25,21 +24,19 @@ use super::{
     SwarmDisasterRuntimeInstance,
     incremental_run::SwarmDisasterIncrementalRun,
     replay_action::{ActionPayloadError, decode_action, encode_action},
-    replay_battle::{compare_battle, encode_nested_state_v5},
+    replay_battle::{compare_battle, encode_nested_state},
     seeded_run::{SwarmRecordedExecution, SwarmSeededRunError, SwarmSeededRunRequest},
 };
 
-/// Frozen mode revision carried by every Swarm Disaster replay entry.
-pub const SWARM_DISASTER_REAL_BATTLE_REPLAY_REVISION: &str = "swarm-disaster-real-battle-replay-v1";
-/// Frozen complete-event payload revision used for nested battle states.
-pub const SWARM_DISASTER_REPLAY_EVENT_PAYLOAD_VERSION: u16 = BATTLE_EVENT_PAYLOAD_VERSION_V5;
+/// Profile identifier carried by every Swarm Disaster replay entry.
+pub const SWARM_DISASTER_REPLAY_PROFILE: &str = "swarm-disaster-real-battle-replay";
 
 /// First authoritative replay boundary that differs during fresh verification.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum SwarmReplayDivergenceKind {
     /// The exact ordered consumed-component set differs.
     Component,
-    /// Replay compatibility, entry identity, build binding or policy revision differs.
+    /// Replay environment, entry identity, build binding or policy revision differs.
     Catalog,
     /// The nested-battle handoff identity differs.
     Assembly,
@@ -95,14 +92,9 @@ impl SwarmReplayReport {
     }
 }
 
-/// Compatibility identity frozen for the Swarm Disaster ReplayV2 envelope.
-pub fn swarm_replay_compatibility() -> Result<ReplayCompatibility, ReplayError> {
-    ReplayCompatibility::new(
-        "4.4",
-        NUMERIC_POLICY_REVISION,
-        RNG_ALGORITHM_REVISION,
-        starclock_activity::ACTIVITY_STATE_HASH_REVISION,
-    )
+/// Environment identity frozen for the Swarm Disaster replay envelope.
+pub fn swarm_replay_environment() -> Result<ReplayEnvironment, ReplayError> {
+    ReplayEnvironment::new("4.4")
 }
 
 /// Executes one complete baseline run and encodes its canonical real-battle replay.
@@ -121,7 +113,7 @@ pub fn encode_complete_swarm_replay(
 }
 
 /// Encodes one terminal incremental session through the canonical Swarm
-/// ReplayV2 encoder. Incomplete sessions fail closed.
+/// replay encoder. Incomplete sessions fail closed.
 pub fn encode_incremental_swarm_replay(
     instance: &SwarmDisasterRuntimeInstance,
     run: &SwarmDisasterIncrementalRun,
@@ -187,7 +179,7 @@ fn swarm_replay_header(
 ) -> Result<ReplayHeader, SwarmReplayError> {
     let entry = replay_entry(&components, request, roster)?;
     Ok(ReplayHeader::new(
-        swarm_replay_compatibility()?,
+        swarm_replay_environment()?,
         components,
         request.seed,
         entry,
@@ -207,7 +199,7 @@ fn encode_swarm_replay(
     )?;
     let count = record_count(&recorded.execution)?;
     let header = ReplayHeader::new(
-        header_template.compatibility().clone(),
+        header_template.environment().clone(),
         header_template.components().clone(),
         header_template.master_seed(),
         header_template.entry().clone(),
@@ -238,7 +230,7 @@ fn encode_swarm_replay(
                 ));
                 payloads.push((
                     RecordKind::ExpectedBattleState,
-                    encode_nested_state_v5(nested.state_hash(), nested.events())?,
+                    encode_nested_state(nested.state_hash(), nested.events())?,
                 ));
             }
             payloads.push((
@@ -291,7 +283,6 @@ fn replay_entry(
         .find(|component| component.kind() == ConfigurationComponentKind::BuildCatalog)
         .ok_or(SwarmReplayError::MissingBuildComponent)?;
     let builds = BuildBindings::new(
-        build.revision(),
         BuildCatalogDigest::new(build.digest().bytes()),
         roster
             .entries()
@@ -300,7 +291,7 @@ fn replay_entry(
             .collect(),
     )?;
     Ok(ReplayEntry::Activity {
-        profile_id: SWARM_DISASTER_REAL_BATTLE_REPLAY_REVISION.into(),
+        profile_id: SWARM_DISASTER_REPLAY_PROFILE.into(),
         definition_id: request.identity.id().get(),
         definition_digest: DefinitionDigest::new(request.identity.definition_digest().bytes()),
         spec_digest: EntrySpecDigest::new(request.config_digest.bytes()),
@@ -314,8 +305,7 @@ fn validate_header(
     request: SwarmSeededRunRequest,
     roster: Option<&UniverseBattleRoster>,
 ) -> Result<(), SwarmReplayError> {
-    if header.master_seed() != request.seed
-        || header.compatibility() != &swarm_replay_compatibility()?
+    if header.master_seed() != request.seed || header.environment() != &swarm_replay_environment()?
     {
         return Err(divergence(SwarmReplayDivergenceKind::Catalog, 0, 0, 0));
     }
@@ -327,7 +317,7 @@ fn validate_header(
             definition_digest,
             spec_digest,
             ..
-        } if profile_id.as_ref() == SWARM_DISASTER_REAL_BATTLE_REPLAY_REVISION
+        } if profile_id.as_ref() == SWARM_DISASTER_REPLAY_PROFILE
             && *definition_id == request.identity.id().get()
             && definition_digest.bytes() == request.identity.definition_digest().bytes()
             && spec_digest.bytes() == request.config_digest.bytes()
@@ -526,7 +516,7 @@ fn divergence(
 /// Typed failures from canonical encoding or fresh replay verification.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum SwarmReplayError {
-    /// The ReplayV2 envelope or compatibility identity is invalid.
+    /// The replay envelope or environment identity is invalid.
     Envelope,
     /// The ordered record stream is malformed.
     Format,
@@ -544,7 +534,7 @@ pub enum SwarmReplayError {
     Execution,
     /// The roster has no matching build component binding.
     MissingBuildComponent,
-    /// A canonical count exceeds the frozen ReplayV2 bound.
+    /// A canonical count exceeds the frozen replay bound.
     TooManyRecords,
     /// Fresh execution first differed at one authoritative boundary.
     FirstDivergence {

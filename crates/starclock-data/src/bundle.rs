@@ -65,7 +65,7 @@ mod tests {
     const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 
     #[test]
-    fn production_bundle_exposes_the_standard_v1_metadata_boundary() {
+    fn production_bundle_exposes_the_standard_metadata_boundary() {
         let metadata = inspect(PRODUCTION_BUNDLE).expect("production bundle must load");
         assert_eq!(metadata.game_version, "4.4");
         assert_eq!(metadata.data_revision, "core-combat-v1-phase7-l11");

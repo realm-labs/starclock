@@ -34,7 +34,7 @@ use crate::{
         AgentActivityReplayVerification, AgentActivitySettlementSummary, PlayActivityActionRequest,
     },
     error::{AgentError, AgentErrorCode},
-    schema::{ActionToken, AgentHash, AgentSInt, AgentSchemaRevision, AgentUInt, SessionId},
+    schema::{ActionToken, AgentHash, AgentSInt, AgentUInt, SessionId},
     session::{MAX_CACHED_RESPONSE_BYTES, MAX_IDEMPOTENCY_ENTRIES},
 };
 
@@ -53,7 +53,6 @@ pub struct CreateSwarmDisasterActivitySessionRequest {
 /// Immutable mode and configuration identity advertised to agent clients.
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentSwarmDisasterManifest {
-    pub schema_revision: AgentSchemaRevision,
     pub profile_id: Box<str>,
     pub fixture_revision: Box<str>,
     pub fixture_accuracy: Box<str>,
@@ -126,7 +125,6 @@ impl SwarmDisasterActivityAgentSessionFactory {
     #[must_use]
     pub fn manifest(&self) -> AgentSwarmDisasterManifest {
         AgentSwarmDisasterManifest {
-            schema_revision: AgentSchemaRevision::V1,
             profile_id: SWARM_DISASTER_BASELINE_PROFILE.into(),
             fixture_revision: SWARM_DISASTER_BASELINE_FIXTURE_REVISION.into(),
             fixture_accuracy: SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY.into(),
@@ -317,7 +315,6 @@ impl SwarmDisasterActivityAgentSession {
         }
         self.refresh_offer()?;
         let response = AgentActivityActionResponse {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: self.id.clone(),
             committed: true,
             idempotent_replay: false,
@@ -350,7 +347,7 @@ impl SwarmDisasterActivityAgentSession {
     }
 
     /// Exports the live terminal transcript through the canonical Swarm
-    /// ReplayV2 encoder.
+    /// replay encoder.
     pub fn export_replay(&self) -> Result<AgentActivityReplayExport, AgentError> {
         let bytes = encode_incremental_swarm_replay(
             self.fixture.instance(),

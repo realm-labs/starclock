@@ -1,10 +1,10 @@
-//! Current dual-digest and historical single-digest Activity identities.
+//! Activity replay identity codec.
 
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityInstanceId, AttemptId,
     BattleResultConfiguration, BattleResultIdentity, BattleSequence, ScopeIdentity, SectionId,
 };
-use starclock_combat::{AssemblyDigest, BattleSeed, BattleSpecDigest, CombatInputDigest};
+use starclock_combat::{AssemblyDigest, BattleSeed, CombatInputDigest};
 
 use crate::codec::{Decoder, Encoder};
 
@@ -39,22 +39,6 @@ pub(super) fn decode_identity(
         configuration,
         combat_input,
         assembly,
-        seed,
-    ))
-}
-
-pub(super) fn decode_identity_legacy(
-    decoder: &mut Decoder<'_>,
-) -> Result<BattleResultIdentity, ActivityCommandPayloadError> {
-    let (scope, sequence, configuration) = decode_prefix(decoder)?;
-    let spec = BattleSpecDigest::new(fixed_digest(decoder)?)
-        .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
-    let seed = BattleSeed::new(fixed_digest(decoder)?);
-    Ok(BattleResultIdentity::new_legacy(
-        scope,
-        sequence,
-        configuration,
-        spec,
         seed,
     ))
 }

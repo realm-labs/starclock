@@ -9,9 +9,9 @@ use crate::{
 
 const SEED: u64 = 14_001;
 const FINAL_STATE: &str = "fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7";
-const COMPONENT_ROOT: &str = "6d0153750e5bcecbfc06aff754cd5d9df81b42b37bbda108daa3290c24d81391";
-const REPLAY_BYTES: usize = 107_338;
-const REPLAY_SHA256: &str = "da7887876921a80334c5f21742e9d7748cf04c4d7959d1ac8ed3d14a7b7836e1";
+const COMPONENT_ROOT: &str = "26fe70c1a28ec80f949b3971fa6b4cac6fe947adf1950392ed8251468b5748b7";
+const REPLAY_BYTES: usize = 107_261;
+const REPLAY_SHA256: &str = "9ee780dec457ae17705ba22a13b4599d25288b64805681fd73b35bfc43509ecb";
 
 #[test]
 fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
@@ -55,7 +55,6 @@ fn forged_and_stale_actions_preserve_the_authoritative_boundary() {
 
     let forged = session
         .apply_action(PlayActivityActionRequest {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: session.session_id().clone(),
             boundary_id: before.boundary_id.clone().expect("boundary"),
             expected_state_hash: before.state_hash.clone(),
@@ -71,7 +70,6 @@ fn forged_and_stale_actions_preserve_the_authoritative_boundary() {
 
     let stale = session
         .apply_action(PlayActivityActionRequest {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: session.session_id().clone(),
             boundary_id: AgentUInt::from_u64(before.boundary_id.expect("boundary").to_u64() + 1),
             expected_state_hash: before.state_hash,
@@ -99,7 +97,6 @@ fn public_offers_complete_real_battles_and_export_fresh_replay() {
         let observation = session.observe().expect("observation");
         let selected = select_public(&observation).clone();
         let request = PlayActivityActionRequest {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: session.session_id().clone(),
             boundary_id: observation.boundary_id.expect("boundary"),
             expected_state_hash: observation.state_hash,

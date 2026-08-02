@@ -14,7 +14,7 @@ verify replay; and close or expire the session. The same protocol-neutral
 contract must support in-process callers, local stdio MCP, and authorized remote
 Streamable HTTP MCP.
 
-The denominator is exactly the six `scenario.standard-v1.*` rows in the Goal 01
+The denominator is exactly the six `scenario.standard.*` rows in the Goal 01
 manifest. Their stable scenario and encounter identities, numeric production
 definition IDs, and frozen default seeds are recorded in the policy. Adding a
 scenario is a revisioned contract change; silently testing a subset is not

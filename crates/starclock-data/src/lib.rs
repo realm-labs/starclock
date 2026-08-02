@@ -28,8 +28,8 @@ mod operation_lower;
 mod probe_tests;
 mod rule_lower;
 mod selector_lower;
+pub mod standard;
 mod standard_lower;
-pub mod standard_v1;
 
 pub use build_lower::CharacterDataDefinition;
 pub use encounter_lower::{EnemyRuntimeProfileDefinition, EnemyRuntimeStatDefinition};

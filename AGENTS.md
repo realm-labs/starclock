@@ -5,7 +5,7 @@ This file applies to the entire Starclock repository. A more specific
 root contract.
 
 Normative design lives in `docs/`. Starclock maintains only the current source,
-data, behavior and generated current-state summary. Git history is the sole
+data, behavior and generated state summary. Git history is the sole
 historical record; the working tree does not preserve completed-goal evidence,
 old formats or migration contracts.
 
@@ -201,13 +201,13 @@ Tests must be proportional to the change:
 - cross-module behavior uses integration tests;
 - RNG and codecs use stable golden vectors;
 - replay/golden tests bind current configuration digests and compare current
-  canonical hashes from one shared current-state manifest;
+  canonical hashes from one shared state manifest;
 - Sora readers load real generated bundles;
 - tests do not depend on wall clock, unseeded randomness, filesystem order or
   thread scheduling.
 
 Node and Python are data-authoring tools, not Rust test orchestrators. When a
-current-data validator is needed, use the toolchain pinned by that validator.
+data validator is needed, use the toolchain pinned by that validator.
 
 Run focused Rust tests during development:
 
@@ -248,10 +248,10 @@ substitute checks.
 
 ## 9. Current-State Maintenance
 
-- `docs/current-state.md` is the human-readable summary of the current tree.
-- `policy/current-state.json` is its machine-readable counterpart and contains
+- `docs/state.md` is the human-readable summary of the current tree.
+- `policy/state.json` is its machine-readable counterpart and contains
   no schema version, Goal ID, completion batch or historical result.
-- Update current code, data, tests, goldens and the current-state summary
+- Update current code, data, tests, goldens and the state summary
   together when their facts change.
 - Replace obsolete current values instead of retaining legacy branches or
   migration paths. Git history records what changed.

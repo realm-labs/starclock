@@ -8,7 +8,7 @@ use starclock_combat::{LifeState, PresenceState};
 
 use crate::{
     activity_action::OfferedActivityAction,
-    schema::{AgentHash, AgentSInt, AgentSchemaRevision, AgentUInt, SessionId},
+    schema::{AgentHash, AgentSInt, AgentUInt, SessionId},
 };
 
 pub const RESPONSIBILITY: &str = "owned player-visible Activity projections";
@@ -113,7 +113,6 @@ pub struct AgentActivityParticipantView {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentActivityObservation {
-    pub schema_revision: AgentSchemaRevision,
     pub interface_revision: Box<str>,
     pub session_id: SessionId,
     pub profile_id: Box<str>,
@@ -248,7 +247,6 @@ pub(crate) fn project_activity_observation(
         return Err(ActivityProjectionError::UnstableBoundary);
     };
     Ok(AgentActivityObservation {
-        schema_revision: AgentSchemaRevision::V1,
         interface_revision: ACTIVITY_AGENT_INTERFACE_REVISION.into(),
         session_id: context.session.clone(),
         profile_id: context.profile.into(),

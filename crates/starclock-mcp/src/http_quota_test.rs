@@ -14,8 +14,7 @@ async fn validated_authority_activates_principal_and_tenant_session_quotas() {
         json!({
             "jsonrpc":"2.0", "id":id, "method":"tools/call",
             "params":{"name":"starclock_create_battle","arguments":{
-                "schema_revision":"agent-api-v1",
-                "scenario_id":"scenario.standard-v1.basic-single-wave"
+                                "scenario_id":"scenario.standard.basic-single-wave"
             }}
         })
     };

@@ -1,9 +1,9 @@
 //! Versioned full-run replay for the Standard Universe Activity facade.
 
 use starclock_activity::{
-    ACTIVITY_STATE_HASH_REVISION, ActivityDecisionId, ActivityDecisionKind,
-    ActivityExternalOutcomeId, ActivityOptionId, ActivityStateHash, ActivityTerminalOutcome,
-    BattleResult, BattleResultDigest, BattleResultIdentity,
+    ActivityDecisionId, ActivityDecisionKind, ActivityExternalOutcomeId, ActivityOptionId,
+    ActivityStateHash, ActivityTerminalOutcome, BattleResult, BattleResultDigest,
+    BattleResultIdentity,
 };
 use starclock_replay::{
     activity::{
@@ -31,7 +31,7 @@ use crate::{
     },
 };
 
-pub const STANDARD_UNIVERSE_REPLAY_ACTION_VERSION: u16 = 1;
+pub const STANDARD_UNIVERSE_REPLAY_ACTION_TAG: u16 = 1;
 pub const MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS: u32 = 100_000;
 
 /// One accepted facade action. Nested execution is one atomic replay boundary:
@@ -345,30 +345,9 @@ pub fn verify_standard_universe_replay(
     activity: StandardUniverseActivity,
     expected_profile_id: &str,
 ) -> Result<StandardUniverseReplayReport, StandardUniverseReplayError> {
-    verify_standard_universe_replay_with_controller(
-        bytes,
-        activity,
-        expected_profile_id,
-        StandardUniverseBaselineRunner::REVISION,
-    )
-}
-
-/// Verifies the same authoritative Activity trace for a specifically bound
-/// external controller. The baseline helper above preserves the original B2
-/// contract while agent sessions bind their own truthful controller identity.
-pub fn verify_standard_universe_replay_with_controller(
-    bytes: &[u8],
-    mut activity: StandardUniverseActivity,
-    expected_profile_id: &str,
-    expected_controller_revision: &str,
-) -> Result<StandardUniverseReplayReport, StandardUniverseReplayError> {
+    let mut activity = activity;
     let replay = decode_replay(bytes)?;
-    validate_identity(
-        replay.header(),
-        &activity,
-        expected_profile_id,
-        expected_controller_revision,
-    )?;
+    validate_identity(replay.header(), &activity, expected_profile_id)?;
     let records = replay.records();
     let mut record_index = 0_usize;
     let mut action_index = 0_u32;
@@ -622,13 +601,7 @@ fn validate_identity(
     header: &ReplayHeader,
     activity: &StandardUniverseActivity,
     expected_profile_id: &str,
-    expected_controller_revision: &str,
 ) -> Result<(), StandardUniverseReplayError> {
-    if header.controller().revision() != expected_controller_revision
-        || header.identity().state_hash_revision() != ACTIVITY_STATE_HASH_REVISION
-    {
-        return Err(StandardUniverseReplayError::IdentityMismatch);
-    }
     let identity = activity.graph().definition().identity();
     match header.entry() {
         ReplayEntry::Activity {
@@ -652,7 +625,7 @@ pub(crate) fn encode_action(
     action: &StandardUniverseReplayAction,
 ) -> Result<Vec<u8>, StandardUniverseReplayError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(STANDARD_UNIVERSE_REPLAY_ACTION_VERSION);
+    encoder.u16(STANDARD_UNIVERSE_REPLAY_ACTION_TAG);
     match action {
         StandardUniverseReplayAction::Decision {
             decision,
@@ -682,11 +655,9 @@ pub(crate) fn decode_action(
     bytes: &[u8],
 ) -> Result<StandardUniverseReplayAction, StandardUniverseReplayError> {
     let mut decoder = Decoder::new(bytes);
-    let version = decoder.u16()?;
-    if version != STANDARD_UNIVERSE_REPLAY_ACTION_VERSION {
-        return Err(StandardUniverseReplayError::UnsupportedActionVersion(
-            version,
-        ));
+    let tag = decoder.u16()?;
+    if tag != STANDARD_UNIVERSE_REPLAY_ACTION_TAG {
+        return Err(StandardUniverseReplayError::UnexpectedActionTag(tag));
     }
     let action = match decoder.u8()? {
         0 => StandardUniverseReplayAction::Decision {
@@ -752,7 +723,7 @@ pub enum StandardUniverseReplayError {
         record_index: u32,
     },
     InvalidStateHashPayload,
-    UnsupportedActionVersion(u16),
+    UnexpectedActionTag(u16),
     UnknownAction(u8),
     UnknownDecisionKind(u8),
     InvalidId,

@@ -1,7 +1,6 @@
 # Starclock Agent Security and Architecture Audit
 
 Goal 02 retains a machine-verified audit at
-[`security-audit.json`](../evidence/agent-control-mcp-v1/security/security-audit.json).
 Run `node tools/agent-control/verify-agent-security-audit.mjs` to reproduce it.
 The report is generated from the current Cargo graph, tracked production Rust,
 the reviewed dependency/license inventory and the frozen MCP, authorization and

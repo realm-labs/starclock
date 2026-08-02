@@ -3,7 +3,7 @@ use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, Encoder},
     component::ConfigurationComponentSet,
     digest::Sha256Sink,
-    current::{ReplayHeader, decode_replay, encode_replay},
+    envelope::{ReplayHeader, decode_replay, encode_replay},
     record::{RecordKind, RecordRef},
 };
 
@@ -34,7 +34,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     let component_set = components(&instance, 0x44);
     assert_eq!(
         hex(component_set.root().bytes()),
-        "4dfaf6e6aea980f2a24d96800c9a4924d0f4ea88e8a0153413521abb259f1f32"
+        "3a4b7a0327cef2ae8ab422129de35c435cd7e7d9d27008cac3c8cf3c3e931165"
     );
     let recorded = record_gold_and_gears_run(&instance, request, &roster).unwrap();
     let header = gold_and_gears_replay_header(component_set.clone(), request, &roster).unwrap();
@@ -65,10 +65,10 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(verified.action_count(), 62);
     assert_eq!(verified.battle_count(), 17);
     assert_eq!(verified.battle_command_count(), 99);
-    assert_eq!(bytes.len(), 111_347);
+    assert_eq!(bytes.len(), 111_337);
     assert_eq!(
         hex(replay_digest.finalize().bytes()),
-        "2fb31c8fa70cb0cae062b1c6b6085d966989ba220d3a0ba283c7b98309b0592a"
+        "dcca30125ff40af7be88ac9e395e96c6d4913aa4ea503a89468f09eda74d44e5"
     );
     let replay = decode_replay(&bytes).unwrap();
     assert_eq!(replay.records().len(), 356);
@@ -82,7 +82,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "df5de4c08cdb77ec1fd905a7a1a00a50851fc2e6981a5d16c7024b3f85f2e0b5"
+        "7feefa4f43cd58871a82fb524d1669c14b02c76ce0d0dac8312948ad92011f13"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
@@ -212,14 +212,13 @@ fn components(
     let combat = instance.battle_catalog.combat();
     gold_and_gears_component_set(
         &identity,
-        (combat.revision().as_str(), combat.digest().bytes()),
-        ("gold-and-gears-synthetic-build-v1", [0x33; 32]),
+        combat.digest().bytes(),
+        [0x33; 32],
         activity_identity().definition_digest().bytes(),
         instance.battle_catalog.digest(),
         instance.graph_definition().digest().bytes(),
         (
             "gold-and-gears-seeded-controller",
-            super::GOLD_AND_GEARS_SEEDED_RUN_REVISION,
             [controller; 32],
         ),
     )

@@ -16,7 +16,7 @@ use starclock_combat::{
     CombatantSpecDigest, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, StatValue,
     UnitDefinitionId, UnitLevel, catalog::CombatCatalog,
 };
-use starclock_replay::{component::ConfigurationComponentSet, current::ReplayCompatibility};
+use starclock_replay::{component::ConfigurationComponentSet, envelope::ReplayEnvironment};
 
 use crate::{
     ability_runtime::{
@@ -36,9 +36,9 @@ use crate::{
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     id::WorldId,
     path_runtime::PathRuntimeCatalog,
+    replay_execution::standard_universe_component_set,
     run_runtime::RunRuntimeCatalog,
     runtime::StandardUniverseActivity,
-    universe_replay_v2::standard_universe_component_set,
 };
 
 pub const STANDARD_UNIVERSE_PROFILE_PREFIX: &str = "standard-universe-v1/world-";
@@ -121,17 +121,11 @@ impl StandardUniverseRuntimeFactory {
             &compiled,
             &self.materialization,
             controller.id,
-            controller.revision,
             controller.digest,
         )
         .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
-        let compatibility = ReplayCompatibility::new(
-            self.catalog.identity().game_version(),
-            starclock_combat::NUMERIC_POLICY_REVISION,
-            starclock_combat::rng::RNG_ALGORITHM_REVISION,
-            starclock_activity::ACTIVITY_STATE_HASH_REVISION,
-        )
-        .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
+        let environment = ReplayEnvironment::new(self.catalog.identity().game_version())
+            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
         let instance = ActivityInstanceId::new(
             seed.checked_add(1)
                 .ok_or(StandardUniverseRuntimeFactoryError::InvalidSeed)?,
@@ -150,7 +144,7 @@ impl StandardUniverseRuntimeFactory {
             battle_assembler: Arc::clone(&self.battle_assembler),
             combat_catalog: Arc::clone(self.materialization.combat_catalog()),
             components,
-            compatibility,
+            environment,
         })
     }
 
@@ -193,7 +187,7 @@ pub struct StandardUniverseRuntimeInstance {
     battle_assembler: Arc<StandardUniverseBattleAssembler>,
     combat_catalog: Arc<CombatCatalog>,
     components: ConfigurationComponentSet,
-    compatibility: ReplayCompatibility,
+    environment: ReplayEnvironment,
 }
 
 impl StandardUniverseRuntimeInstance {
@@ -214,8 +208,8 @@ impl StandardUniverseRuntimeInstance {
         &self.components
     }
     #[must_use]
-    pub const fn compatibility(&self) -> &ReplayCompatibility {
-        &self.compatibility
+    pub const fn environment(&self) -> &ReplayEnvironment {
+        &self.environment
     }
     /// Decomposes the instance for historical replay-v2 verification only.
     ///
@@ -228,14 +222,14 @@ impl StandardUniverseRuntimeInstance {
         StandardUniverseActivity,
         Arc<CombatCatalog>,
         ConfigurationComponentSet,
-        ReplayCompatibility,
+        ReplayEnvironment,
     ) {
         (
             self.profile_id,
             self.activity,
             self.combat_catalog,
             self.components,
-            self.compatibility,
+            self.environment,
         )
     }
 
@@ -247,14 +241,14 @@ impl StandardUniverseRuntimeInstance {
         StandardUniverseActivity,
         Arc<StandardUniverseBattleAssembler>,
         ConfigurationComponentSet,
-        ReplayCompatibility,
+        ReplayEnvironment,
     ) {
         (
             self.profile_id,
             self.activity,
             self.battle_assembler,
             self.components,
-            self.compatibility,
+            self.environment,
         )
     }
 }

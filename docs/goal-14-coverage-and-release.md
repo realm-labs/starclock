@@ -23,12 +23,9 @@ by baseline entries. This is axis and boundary coverage, not a claim that all
 The matrix is generated and checked with:
 
 ```text
-node tools/goal14/generate-coverage-matrix.mjs
-node tools/goal14/generate-coverage-matrix.mjs --check
 ```
 
 The output is
-[`coverage-matrix.json`](../evidence/gold-and-gears-runtime-v1/foundation/coverage-matrix.json).
 Each of the 16 inherited policies is assigned to one matrix probe and retains
 its exact implementation owner.
 

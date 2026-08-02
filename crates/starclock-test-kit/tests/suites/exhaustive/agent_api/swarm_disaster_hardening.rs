@@ -8,7 +8,7 @@ use proptest::{
 use starclock_agent_api::{
     activity_session::PlayActivityActionRequest,
     error::AgentErrorCode,
-    schema::{ActionToken, AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
+    schema::{ActionToken, AgentUInt, IdempotencyKey, SessionId},
     swarm_disaster_activity_session::{
         CreateSwarmDisasterActivitySessionRequest, SwarmDisasterActivityAgentSessionFactory,
     },
@@ -32,7 +32,6 @@ fn four_thousand_ninety_six_forged_swarm_actions_preserve_exact_observation() {
     for index in 0..4_096_u32 {
         let error = session
             .apply_action(PlayActivityActionRequest {
-                schema_revision: AgentSchemaRevision::V1,
                 session_id: session.session_id().clone(),
                 boundary_id: before.boundary_id.clone().unwrap(),
                 expected_state_hash: before.state_hash.clone(),

@@ -1,10 +1,10 @@
 use starclock_agent_api::{
     action::AgentActionKind,
     observation::{AgentBattlePhase, AgentBattleStatus, VisibilityPolicy},
-    schema::{AgentSchemaRevision, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId},
+    schema::{AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId},
     session::{AgentSeedPolicy, CreateSessionRequest, PlayActionRequest},
 };
-use starclock_data::standard_v1::SCENARIOS;
+use starclock_data::standard::SCENARIOS;
 
 const EXPECTED_FINAL_HASHES: [&str; 6] = [
     "eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178",
@@ -50,7 +50,6 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
                 .expect("the frozen script always has an ability or interrupt pass");
             let response = session
                 .apply_action(PlayActionRequest {
-                    schema_revision: AgentSchemaRevision::V1,
                     session_id: session_id.clone(),
                     decision_id: observation.decision_id.clone().unwrap(),
                     expected_state_hash: observation.state_hash.clone(),

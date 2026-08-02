@@ -1,19 +1,16 @@
 //! Nested-battle replay encoding and first-divergence comparison.
 
 use starclock_replay::{
-    battle_event::encode_battle_event_payload_for_version,
-    codec::{CodecError, Encoder},
+    battle_event::encode_battle_event_payload,
     nested_battle::{
-        MAX_NESTED_BATTLE_EVENTS_PER_COMMAND, NESTED_BATTLE_STATE_PAYLOAD_VERSION,
         decode_nested_battle_command_payload, decode_nested_battle_state_payload,
+        encode_nested_battle_state_payload,
     },
     record::{RecordKind, RecordRef},
 };
 
 use super::{
-    replay::{
-        SWARM_DISASTER_REPLAY_EVENT_PAYLOAD_VERSION, SwarmReplayDivergenceKind, SwarmReplayError,
-    },
+    replay::{SwarmReplayDivergenceKind, SwarmReplayError},
     seeded_run::SwarmSeededBattleRecord,
 };
 
@@ -155,18 +152,7 @@ fn compare_events(
         ));
     }
     for (payload, event) in expected.iter().zip(actual) {
-        let version = payload
-            .get(..2)
-            .and_then(|bytes| bytes.try_into().ok())
-            .map(u16::from_le_bytes);
-        if version != Some(SWARM_DISASTER_REPLAY_EVENT_PAYLOAD_VERSION)
-            || payload
-                != &encode_battle_event_payload_for_version(
-                    event,
-                    SWARM_DISASTER_REPLAY_EVENT_PAYLOAD_VERSION,
-                )?
-                .as_slice()
-        {
+        if payload != &encode_battle_event_payload(event)?.as_slice() {
             return Err(divergence(
                 SwarmReplayDivergenceKind::Event,
                 action_index,
@@ -178,24 +164,11 @@ fn compare_events(
     Ok(())
 }
 
-pub(super) fn encode_nested_state_v5(
+pub(super) fn encode_nested_state(
     state_hash: starclock_combat::BattleStateHash,
     events: &[starclock_combat::BattleEvent],
 ) -> Result<Vec<u8>, SwarmReplayError> {
-    if events.len() > MAX_NESTED_BATTLE_EVENTS_PER_COMMAND as usize {
-        return Err(SwarmReplayError::TooManyRecords);
-    }
-    let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_STATE_PAYLOAD_VERSION);
-    encoder.raw(&state_hash.bytes());
-    encoder.u32(u32::try_from(events.len()).map_err(|_| CodecError::LengthOverflow)?);
-    for event in events {
-        encoder.bytes(&encode_battle_event_payload_for_version(
-            event,
-            SWARM_DISASTER_REPLAY_EVENT_PAYLOAD_VERSION,
-        )?)?;
-    }
-    Ok(encoder.into_inner())
+    Ok(encode_nested_battle_state_payload(state_hash, events)?)
 }
 
 fn divergence(

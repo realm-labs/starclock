@@ -12,8 +12,7 @@ use starclock_agent_api::{
     error::{AgentError, AgentErrorCode},
     observation::{AgentBattleStatus, VisibilityPolicy},
     schema::{
-        ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, EventCursor, IdempotencyKey,
-        ScenarioId, SessionId,
+        ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId,
     },
     session::{
         AgentSeedPolicy, AgentSession, AgentSessionFactory, AgentSessionOwner,
@@ -24,7 +23,7 @@ use starclock_agent_api::{
 
 fn corpus() -> Value {
     serde_json::from_str(include_str!(
-        "../../../../../../evidence/agent-control-mcp-v1/security/hardening-corpus.json"
+        "../../../fixtures/agent-hardening-corpus.json"
     ))
     .unwrap()
 }
@@ -50,7 +49,6 @@ fn action_request(session: &AgentSession, key: &str) -> PlayActionRequest {
         .find(|action| action.kind != AgentActionKind::Concede)
         .unwrap();
     PlayActionRequest {
-        schema_revision: AgentSchemaRevision::V1,
         session_id: observation.session_id,
         decision_id: observation.decision_id.unwrap(),
         expected_state_hash: observation.state_hash,
@@ -216,7 +214,6 @@ fn every_settlement_corpus_path_stays_within_all_three_budgets() {
                 });
             let response = session
                 .apply_action(PlayActionRequest {
-                    schema_revision: AgentSchemaRevision::V1,
                     session_id: observation.session_id,
                     decision_id: observation.decision_id.unwrap(),
                     expected_state_hash: observation.state_hash,
@@ -300,7 +297,6 @@ fn seeded_race_corpus_allows_exactly_one_commit_per_round() {
             .find(|action| action.kind != AgentActionKind::Concede)
             .unwrap();
         let base = PlayActionRequest {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: observation.session_id.clone(),
             decision_id: observation.decision_id.clone().unwrap(),
             expected_state_hash: observation.state_hash,
@@ -340,5 +336,5 @@ fn seeded_race_corpus_allows_exactly_one_commit_per_round() {
 }
 
 fn scenario() -> &'static str {
-    "scenario.standard-v1.basic-single-wave"
+    "scenario.standard.basic-single-wave"
 }

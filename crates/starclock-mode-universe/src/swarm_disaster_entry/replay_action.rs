@@ -20,7 +20,7 @@ use super::{
     profile_rule_runtime::SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION,
 };
 
-pub(super) const SWARM_DISASTER_REPLAY_ACTION_VERSION: u16 = 1;
+pub(super) const SWARM_DISASTER_REPLAY_ACTION_TAG: u16 = 1;
 const COUNTDOWN_DISARRAY_REVISION: &str = "swarm-disaster-countdown-disarray-v1";
 const BOSS_DECAY_SELECTION_REVISION: &str = "swarm-disaster-boss-decay-selection-v1";
 
@@ -71,7 +71,7 @@ pub(super) enum SwarmSeededRunAction {
 
 pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, ActionPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(SWARM_DISASTER_REPLAY_ACTION_VERSION);
+    encoder.u16(SWARM_DISASTER_REPLAY_ACTION_TAG);
     match action {
         SwarmSeededRunAction::ProfileEntry { source_node } => {
             encoder.u8(0);
@@ -164,7 +164,7 @@ pub(super) fn encode_action(action: &SwarmSeededRunAction) -> Result<Vec<u8>, Ac
 
 pub(super) fn decode_action(bytes: &[u8]) -> Result<SwarmSeededRunAction, ActionPayloadError> {
     let mut decoder = Decoder::new(bytes);
-    if decoder.u16()? != SWARM_DISASTER_REPLAY_ACTION_VERSION {
+    if decoder.u16()? != SWARM_DISASTER_REPLAY_ACTION_TAG {
         return Err(ActionPayloadError::Version);
     }
     let action = match decoder.u8()? {

@@ -20,13 +20,12 @@ use crate::{
     server::StarclockMcp,
     tools::{
         MAX_REPLAY_IMPORT_BYTES, decode_hex_bounded, encode_hex, invalid_request, json_output,
-        parse_revision, parse_session, schema_revision,
+        parse_session,
     },
 };
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct CreateUniverseInput {
-    pub schema_revision: String,
     #[serde(default)]
     pub mode: Option<String>,
     #[serde(default)]
@@ -38,13 +37,11 @@ pub(crate) struct CreateUniverseInput {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct ActivitySessionInput {
-    pub schema_revision: String,
     pub session_id: String,
 }
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct PlayActivityActionInput {
-    pub schema_revision: String,
     pub session_id: String,
     pub boundary_id: String,
     pub expected_state_hash: String,
@@ -54,7 +51,6 @@ pub(crate) struct PlayActivityActionInput {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct VerifyActivityReplayInput {
-    pub schema_revision: String,
     #[serde(default)]
     pub mode: Option<String>,
     #[serde(default)]
@@ -77,7 +73,6 @@ pub(crate) struct ActivityActionOutput {
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub(crate) struct ActivityReplayExportOutput {
-    pub schema_revision: String,
     pub session_id: String,
     pub encoding: String,
     pub replay_hex: String,
@@ -88,14 +83,12 @@ pub(crate) struct ActivityReplayExportOutput {
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub(crate) struct CloseActivityOutput {
-    pub schema_revision: String,
     pub session_id: String,
     pub closed: bool,
 }
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub(crate) struct VerifyActivityReplayOutput {
-    pub schema_revision: String,
     pub action_count: String,
     pub nested_battles: String,
     pub final_state_hash: String,
@@ -108,7 +101,6 @@ impl StarclockMcp {
         owner: &AgentSessionOwner,
         input: CreateUniverseInput,
     ) -> Result<ActivityObservationOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let seed = uint(&input.seed, "The seed is invalid.")?;
         let observation = match activity_mode(input.mode.as_deref())? {
             ActivityMode::Standard => self.activity_registry.create(
@@ -147,7 +139,6 @@ impl StarclockMcp {
         owner: &AgentSessionOwner,
         input: ActivitySessionInput,
     ) -> Result<ActivityObservationOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let observation = self
             .activity_registry
             .observe(owner, &parse_session(&input.session_id)?)?;
@@ -164,7 +155,6 @@ impl StarclockMcp {
         let response = self.activity_registry.apply_action(
             owner,
             PlayActivityActionRequest {
-                schema_revision: parse_revision(&input.schema_revision)?,
                 session_id: parse_session(&input.session_id)?,
                 boundary_id: uint(&input.boundary_id, "The boundary ID is invalid.")?,
                 expected_state_hash: AgentHash::parse(&input.expected_state_hash)
@@ -185,11 +175,9 @@ impl StarclockMcp {
         owner: &AgentSessionOwner,
         input: ActivitySessionInput,
     ) -> Result<ActivityReplayExportOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
         let export = self.activity_registry.export_replay(owner, &session_id)?;
         Ok(ActivityReplayExportOutput {
-            schema_revision: schema_revision(),
             session_id: session_id.as_str().into(),
             encoding: "lowercase_hex".into(),
             replay_hex: encode_hex(export.bytes()),
@@ -204,11 +192,9 @@ impl StarclockMcp {
         owner: &AgentSessionOwner,
         input: ActivitySessionInput,
     ) -> Result<CloseActivityOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
         self.activity_registry.close(owner, &session_id)?;
         Ok(CloseActivityOutput {
-            schema_revision: schema_revision(),
             session_id: session_id.as_str().into(),
             closed: true,
         })
@@ -218,7 +204,6 @@ impl StarclockMcp {
         &self,
         input: VerifyActivityReplayInput,
     ) -> Result<VerifyActivityReplayOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let seed = uint(&input.seed, "The seed is invalid.")?;
         let replay = decode_hex_bounded(&input.replay_hex, MAX_REPLAY_IMPORT_BYTES)?;
         let verification = match activity_mode(input.mode.as_deref())? {
@@ -243,7 +228,6 @@ impl StarclockMcp {
             }
         };
         Ok(VerifyActivityReplayOutput {
-            schema_revision: schema_revision(),
             action_count: verification.action_count.as_str().into(),
             nested_battles: verification.nested_battles.as_str().into(),
             final_state_hash: verification.final_state_hash.as_str().into(),

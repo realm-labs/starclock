@@ -101,16 +101,16 @@ impl CanonicalEncode for RecordRef<'_> {
     }
 }
 
-/// Stable replay framing/version failure.
+/// Stable replay framing failure.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ReplayFormatError {
     /// File magic is not `SCRP`.
     InvalidMagic,
-    /// The replay format version is unsupported.
-    UnsupportedFormatVersion(u32),
-    /// The schema version is unsupported.
-    UnsupportedSchemaVersion(u32),
-    /// Version 1 rejects every unknown record kind.
+    /// The replay envelope tag is unexpected.
+    UnexpectedEnvelopeTag(u32),
+    /// The replay schema tag is unexpected.
+    UnexpectedSchemaTag(u32),
+    /// The envelope rejects every unknown record kind.
     UnknownRecordKind(u8),
     /// The replay entry kind is unsupported.
     UnknownEntryKind(u8),

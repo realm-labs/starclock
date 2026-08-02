@@ -56,7 +56,6 @@ CLI, agent API and MCP remain adapters over the same authoritative runtime.
 ## Verification result
 
 The retained execution evidence is
-[`execution-baseline.json`](../evidence/gold-and-gears-runtime-v1/foundation/execution-baseline.json).
 It records eight immutable prerequisites, the passing merged Candidate audit,
 the five protected roots, the nine historical runtime crate trees and the
 48-batch execution package. The next batch is `G14-P0-B2`, which generates the

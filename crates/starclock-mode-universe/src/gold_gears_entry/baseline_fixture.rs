@@ -87,7 +87,6 @@ impl GoldAndGearsBaselineFixture {
             ConfigurationComponentIdentity::new(
                 ConfigurationComponentKind::Controller,
                 controller.id,
-                controller.revision,
                 ComponentDigest::new(controller.digest),
             )
             .map_err(|_| GoldAndGearsBaselineFixtureError::Component)?,
@@ -156,17 +155,13 @@ impl GoldAndGearsRuntimeFactory {
         let combat = instance.battle_catalog.combat();
         let components = gold_and_gears_component_set(
             identity,
-            (combat.revision().as_str(), combat.digest().bytes()),
-            (
-                GOLD_AND_GEARS_BASELINE_BUILD_CATALOG_REVISION,
-                build_catalog_digest(&roster),
-            ),
+            combat.digest().bytes(),
+            build_catalog_digest(&roster),
             activity_identity.definition_digest().bytes(),
             instance.battle_catalog.digest(),
             instance.graph_definition().digest().bytes(),
             (
                 "gold-and-gears-baseline-controller",
-                GoldAndGearsBaselineController::REVISION,
                 GoldAndGearsBaselineController::identity_digest(),
             ),
         )

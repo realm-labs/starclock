@@ -5,7 +5,7 @@ use std::collections::BTreeMap;
 
 use serde::{Deserialize, Serialize};
 
-use crate::schema::{AgentHash, AgentSchemaRevision, AgentUInt, AgentValueError, SessionId};
+use crate::schema::{AgentHash, AgentUInt, AgentValueError, SessionId};
 
 /// Human-readable responsibility marker used by architecture tests.
 pub const RESPONSIBILITY: &str = "stable protocol-neutral failures";
@@ -14,7 +14,6 @@ pub const RESPONSIBILITY: &str = "stable protocol-neutral failures";
 #[serde(rename_all = "snake_case")]
 pub enum AgentErrorCode {
     InvalidSchema,
-    UnknownRevision,
     InvalidRequest,
     UnknownSession,
     ExpiredSession,
@@ -40,7 +39,6 @@ pub enum AgentErrorCode {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentError {
-    pub schema_revision: AgentSchemaRevision,
     pub code: AgentErrorCode,
     pub message: Box<str>,
     pub retryable: bool,
@@ -70,7 +68,6 @@ impl AgentError {
             return Err(AgentValueError::TooLong);
         }
         Ok(Self {
-            schema_revision: AgentSchemaRevision::V1,
             code,
             message,
             retryable,

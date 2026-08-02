@@ -9,7 +9,6 @@ Run the retained conformance proof from the repository root:
 
 ```text
 cargo test -p starclock-cli --test mcp_stdio --all-features
-node tools/agent-control/verify-mcp-stdio-conformance.mjs
 ```
 
 The client negotiates MCP `2025-11-25`, discovers all seven typed tools, both

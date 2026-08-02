@@ -1,7 +1,6 @@
 # Starclock agent hardening corpus
 
 The Goal 02 hardening corpus is retained at
-`evidence/agent-control-mcp-v1/security/hardening-corpus.json`. It has a fixed
 identity seed and 60 explicit regression cases covering malformed action JSON,
 opaque token boundaries, idempotency conflicts, cursor representations,
 truncated/trailing/bit-flipped replay bytes, all six production Standard

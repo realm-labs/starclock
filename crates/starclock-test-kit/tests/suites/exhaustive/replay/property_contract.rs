@@ -7,8 +7,7 @@ use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, CodecError, Decoder, Encoder, hash_canonical},
     digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest, Sha256Sink},
     format::{
-        ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, STATE_HASH_REVISION,
-        decode_replay, encode_replay,
+        ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay, encode_replay,
     },
     record::{MAX_RECORD_PAYLOAD_BYTES, RecordKind, RecordRef, ReplayFormatError},
 };
@@ -40,21 +39,9 @@ fn digest(byte: u8) -> [u8; 32] {
 }
 
 fn header(master_seed: u64, record_count: u32) -> ReplayHeader {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        "property-rules-v1",
-        "property-data-v1",
-        ConfigBundleDigest::new(digest(0x31)),
-        "fixed-i64-6dp-v1",
-        "chacha8-rand-0.10.2-intmap-v1",
-        STATE_HASH_REVISION,
-    )
-    .expect("property identity is valid");
-    let controller = ControllerIdentity::new(
-        "property-controller-v1",
-        ControllerDigest::new(digest(0x32)),
-    )
-    .expect("property controller is valid");
+    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(digest(0x31)))
+        .expect("property identity is valid");
+    let controller = ControllerIdentity::new(ControllerDigest::new(digest(0x32)));
     ReplayHeader::new(
         identity,
         controller,

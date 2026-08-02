@@ -31,9 +31,8 @@ mod tests {
     use rmcp::model::ErrorCode;
     use starclock_agent_api::error::AgentErrorCode;
 
-    const CODES: [AgentErrorCode; 23] = [
+    const CODES: [AgentErrorCode; 22] = [
         AgentErrorCode::InvalidSchema,
-        AgentErrorCode::UnknownRevision,
         AgentErrorCode::InvalidRequest,
         AgentErrorCode::UnknownSession,
         AgentErrorCode::ExpiredSession,

@@ -33,5 +33,5 @@ mod replay_activity;
 mod replay_codec_golden;
 #[path = "suites/activity/replay/component_identity.rs"]
 mod replay_component_identity;
-#[path = "suites/activity/replay/nested_identity_v3.rs"]
-mod replay_nested_identity_v3;
+#[path = "suites/activity/replay/nested_identity.rs"]
+mod replay_nested_identity;

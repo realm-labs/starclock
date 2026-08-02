@@ -84,15 +84,12 @@ impl SwarmDisasterBaselineFixture {
         let combat = self.instance.battle_catalog.combat();
         swarm_disaster_component_set(
             BUNDLE,
-            (combat.revision().as_str(), combat.digest().bytes()),
-            (
-                SWARM_DISASTER_BASELINE_BUILD_CATALOG_REVISION,
-                build_catalog_digest(&self.roster),
-            ),
+            combat.digest().bytes(),
+            build_catalog_digest(&self.roster),
             self.activity_identity.definition_digest().bytes(),
             self.instance.battle_catalog.digest(),
             self.instance.graph_definition().digest().bytes(),
-            (controller.id, controller.revision, controller.digest),
+            (controller.id, controller.digest),
         )
         .map_err(|_| SwarmDisasterBaselineFixtureError::Component)
     }
@@ -166,15 +163,12 @@ impl SwarmDisasterRuntimeFactory {
         let controller = SwarmDisasterControllerIdentity::baseline();
         let components = swarm_disaster_component_set(
             BUNDLE,
-            (combat.revision().as_str(), combat.digest().bytes()),
-            (
-                SWARM_DISASTER_BASELINE_BUILD_CATALOG_REVISION,
-                build_catalog_digest(&roster),
-            ),
+            combat.digest().bytes(),
+            build_catalog_digest(&roster),
             activity_identity.definition_digest().bytes(),
             instance.battle_catalog.digest(),
             instance.graph_definition().digest().bytes(),
-            (controller.id, controller.revision, controller.digest),
+            (controller.id, controller.digest),
         )
         .map_err(|_| SwarmDisasterBaselineFixtureError::Component)?;
         Ok(SwarmDisasterBaselineFixture {

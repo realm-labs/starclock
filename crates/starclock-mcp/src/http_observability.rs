@@ -43,7 +43,6 @@ pub(crate) struct RequestGuard {
 
 #[derive(Serialize)]
 struct MetricsSnapshot {
-    schema_revision: &'static str,
     authoritative: bool,
     ready: bool,
     draining: bool,
@@ -146,7 +145,6 @@ impl HttpOperations {
     pub(crate) fn metrics_response(&self) -> Response<Body> {
         let lifecycle = self.inner.lifecycle.load(Ordering::Acquire);
         let snapshot = MetricsSnapshot {
-            schema_revision: "starclock.mcp-http-metrics.v1",
             authoritative: false,
             ready: lifecycle == RUNNING,
             draining: lifecycle == DRAINING,
@@ -157,8 +155,7 @@ impl HttpOperations {
             worker_rejections: self.inner.worker_rejections.load(Ordering::Relaxed),
             rate_rejections: self.inner.rate_rejections.load(Ordering::Relaxed),
         };
-        let body = serde_json::to_string(&snapshot)
-            .unwrap_or_else(|_| "{\"schema_revision\":\"starclock.mcp-http-metrics.v1\"}".into());
+        let body = serde_json::to_string(&snapshot).unwrap_or_else(|_| "{}".into());
         json_response(StatusCode::OK, body)
     }
 

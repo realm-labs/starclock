@@ -50,7 +50,6 @@ and make no runtime claim.
 The P8-B4 completion commit is registered separately in
 `policy/release-snapshots.json` only after those three hosted jobs succeed.
 The registration commit retains their receipts in
-`evidence/gold-and-gears-runtime-v1/release/hosted-native-ci.json`. Later work
 may evolve current source, but it may not rewrite the frozen completion tree.
 
 ## Accuracy boundary

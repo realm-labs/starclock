@@ -44,7 +44,6 @@ about 7.6 KiB per newly started session while sharing the production catalogs.
 Read-only direct and registry projections retain no measured allocation.
 
 The committed report is
-[`phase2-baseline-windows-x64.json`](../evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json).
 It was captured as a five-sample median on the designated Windows x64 runner
 and passes the reviewed strict budgets in
 [`agent-benchmark-workloads.json`](../policy/agent-benchmark-workloads.json).

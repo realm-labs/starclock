@@ -1,6 +1,4 @@
-use super::{
-    OccurrenceExternalResult, OccurrenceInteractionError, PAYLOAD_REVISION, PayloadOperation,
-};
+use super::{OccurrenceExternalResult, OccurrenceInteractionError, PAYLOAD_TAG, PayloadOperation};
 
 pub(super) struct Choice {
     pub(super) content: u64,
@@ -83,7 +81,7 @@ pub(super) fn encode_operations(
         .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
         .saturating_sub(deferred_operations);
     let mut payload = Vec::new();
-    payload.push(PAYLOAD_REVISION);
+    payload.push(PAYLOAD_TAG);
     payload.extend_from_slice(
         &u16::try_from(operations.len())
             .map_err(|_| OccurrenceInteractionError::TooManyOperations)?

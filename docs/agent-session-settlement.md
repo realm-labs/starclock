@@ -13,7 +13,7 @@ Decision ownership is closed and explicit:
   graph and selects one exact offered command;
 - `System` accepts only the exact offered battle-start or pass-interrupt command.
 
-The frozen Standard-v1 enemy graphs use static literal conditions and no
+The frozen Standard enemy graphs use static literal conditions and no
 transitions. The agent evaluator supports literal/not/all/any trees and fails
 closed if a future production graph requires battle-context condition semantics
 that the controller boundary cannot safely evaluate. The controller RNG seed is

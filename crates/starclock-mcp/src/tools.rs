@@ -1,7 +1,5 @@
 //! Frozen tool names, input schemas and registry/application delegation.
 
-use core::str::FromStr;
-
 use rmcp::{
     ErrorData as McpError, handler::server::wrapper::Parameters, model::CallToolResult, tool,
     tool_router,
@@ -13,8 +11,7 @@ use starclock_agent_api::{
     error::{AgentError, AgentErrorCode},
     observation::VisibilityPolicy,
     schema::{
-        ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, EventCursor, IdempotencyKey,
-        ScenarioId, SessionId,
+        ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId,
     },
     session::{AgentSeedPolicy, PlayActionRequest, RegistryCreateSessionRequest},
 };
@@ -33,27 +30,23 @@ pub struct EmptyInput {}
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct CreateBattleInput {
-    pub schema_revision: String,
     pub scenario_id: String,
     pub seed: Option<String>,
 }
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct SessionInput {
-    pub schema_revision: String,
     pub session_id: String,
 }
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct ObserveBattleInput {
-    pub schema_revision: String,
     pub session_id: String,
     pub event_cursor: Option<String>,
 }
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct PlayActionInput {
-    pub schema_revision: String,
     pub session_id: String,
     pub decision_id: String,
     pub expected_state_hash: String,
@@ -63,7 +56,6 @@ pub struct PlayActionInput {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct VerifyReplayInput {
-    pub schema_revision: String,
     pub scenario_id: String,
     pub seed: Option<String>,
     pub replay_hex: String,
@@ -79,7 +71,6 @@ pub struct ScenarioSummaryOutput {
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub struct ListScenariosOutput {
-    pub schema_revision: String,
     pub scenarios: Vec<ScenarioSummaryOutput>,
 }
 
@@ -97,7 +88,6 @@ pub struct ActionOutput {
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub struct ReplayExportOutput {
-    pub schema_revision: String,
     pub session_id: String,
     pub encoding: String,
     pub replay_hex: String,
@@ -109,14 +99,12 @@ pub struct ReplayExportOutput {
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub struct CloseBattleOutput {
-    pub schema_revision: String,
     pub session_id: String,
     pub closed: bool,
 }
 
 #[derive(Debug, JsonSchema, Serialize)]
 pub struct VerifyReplayOutput {
-    pub schema_revision: String,
     pub command_count: String,
     pub final_state_hash: String,
     pub phase: String,
@@ -290,7 +278,6 @@ struct EventSchema {
 #[allow(dead_code)]
 #[derive(JsonSchema)]
 struct ObservationSchema {
-    schema_revision: String,
     session_id: String,
     scenario_id: String,
     catalog_digest: String,
@@ -316,7 +303,6 @@ struct SettlementSchema {
 #[allow(dead_code)]
 #[derive(JsonSchema)]
 struct ActionResponseSchema {
-    schema_revision: String,
     session_id: String,
     committed: bool,
     idempotent_replay: bool,
@@ -549,10 +535,7 @@ impl StarclockMcp {
                 default_seed: scenario.default_seed.as_str().into(),
             })
             .collect();
-        Ok(ListScenariosOutput {
-            schema_revision: schema_revision(),
-            scenarios,
-        })
+        Ok(ListScenariosOutput { scenarios })
     }
 
     fn create_battle_output(
@@ -560,7 +543,6 @@ impl StarclockMcp {
         owner: &starclock_agent_api::session::AgentSessionOwner,
         input: CreateBattleInput,
     ) -> Result<ObservationOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let observation = self.registry.create(
             owner,
             RegistryCreateSessionRequest {
@@ -577,7 +559,6 @@ impl StarclockMcp {
         owner: &starclock_agent_api::session::AgentSessionOwner,
         input: ObserveBattleInput,
     ) -> Result<ObservationOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
         let cursor = EventCursor::parse(input.event_cursor.as_deref().unwrap_or("event_0"))
             .map_err(|_| invalid_request("The event cursor is invalid."))?;
@@ -590,11 +571,9 @@ impl StarclockMcp {
         owner: &starclock_agent_api::session::AgentSessionOwner,
         input: PlayActionInput,
     ) -> Result<ActionOutput, AgentError> {
-        let revision = parse_revision(&input.schema_revision)?;
         let response = self.registry.apply_action(
             owner,
             PlayActionRequest {
-                schema_revision: revision,
                 session_id: parse_session(&input.session_id)?,
                 decision_id: AgentUInt::parse(&input.decision_id)
                     .map_err(|_| invalid_request("The decision ID is invalid."))?,
@@ -614,11 +593,9 @@ impl StarclockMcp {
         owner: &starclock_agent_api::session::AgentSessionOwner,
         input: SessionInput,
     ) -> Result<ReplayExportOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
         let export = self.registry.export_replay(owner, &session_id)?;
         Ok(ReplayExportOutput {
-            schema_revision: schema_revision(),
             session_id: session_id.as_str().into(),
             encoding: "lowercase_hex".into(),
             replay_hex: encode_hex(export.bytes()),
@@ -633,11 +610,9 @@ impl StarclockMcp {
         owner: &starclock_agent_api::session::AgentSessionOwner,
         input: SessionInput,
     ) -> Result<CloseBattleOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
         self.registry.close(owner, &session_id)?;
         Ok(CloseBattleOutput {
-            schema_revision: schema_revision(),
             session_id: session_id.as_str().into(),
             closed: true,
         })
@@ -647,7 +622,6 @@ impl StarclockMcp {
         &self,
         input: VerifyReplayInput,
     ) -> Result<VerifyReplayOutput, AgentError> {
-        parse_revision(&input.schema_revision)?;
         let bytes = decode_hex(&input.replay_hex)?;
         let verification = self.factory.verify_replay(
             &parse_scenario(&input.scenario_id)?,
@@ -659,16 +633,11 @@ impl StarclockMcp {
             .and_then(|value| value.as_str().map(str::to_owned))
             .ok_or_else(adapter_error)?;
         Ok(VerifyReplayOutput {
-            schema_revision: schema_revision(),
             command_count: verification.command_count.as_str().into(),
             final_state_hash: verification.final_state_hash.as_str().into(),
             phase,
         })
     }
-}
-
-pub(crate) fn parse_revision(value: &str) -> Result<AgentSchemaRevision, AgentError> {
-    AgentSchemaRevision::from_str(value).map_err(|_| unknown_revision())
 }
 
 pub(crate) fn parse_session(value: &str) -> Result<SessionId, AgentError> {
@@ -731,23 +700,9 @@ fn hex_nibble(byte: u8) -> Option<u8> {
     }
 }
 
-pub(crate) fn schema_revision() -> String {
-    AgentSchemaRevision::V1.as_str().into()
-}
-
 pub(crate) fn invalid_request(message: &'static str) -> AgentError {
     AgentError::new(AgentErrorCode::InvalidRequest, message, false, false)
         .expect("static MCP validation error is bounded")
-}
-
-fn unknown_revision() -> AgentError {
-    AgentError::new(
-        AgentErrorCode::UnknownRevision,
-        "The agent schema revision is unknown.",
-        false,
-        false,
-    )
-    .expect("static MCP revision error is bounded")
 }
 
 fn request_too_large() -> AgentError {
@@ -812,11 +767,7 @@ mod tests {
     }
 
     #[test]
-    fn exact_revision_and_bounded_lowercase_hex_fail_closed() {
-        assert_eq!(
-            parse_revision("agent-api-v2").unwrap_err().code,
-            AgentErrorCode::UnknownRevision
-        );
+    fn bounded_lowercase_hex_fails_closed() {
         assert_eq!(decode_hex("00ff").unwrap(), [0, 255]);
         assert_eq!(
             decode_hex("00FF").unwrap_err().code,
@@ -956,7 +907,7 @@ mod tests {
         );
         let scenario_resource = client
             .read_resource(ReadResourceRequestParams::new(
-                "starclock://scenario/scenario.standard-v1.basic-single-wave",
+                "starclock://scenario/scenario.standard.basic-single-wave",
             ))
             .await
             .unwrap();
@@ -1000,8 +951,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_create_battle").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1",
-                        "scenario_id":"scenario.standard-v1.basic-single-wave"
+                                                "scenario_id":"scenario.standard.basic-single-wave"
                     }),
                 )),
             )
@@ -1019,8 +969,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_play_action").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1",
-                        "session_id":session_id,
+                                                "session_id":session_id,
                         "decision_id":observation["decision_id"],
                         "expected_state_hash":observation["state_hash"],
                         "action_token":action["token"],
@@ -1035,7 +984,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_observe_battle").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1", "session_id":session_id
+                        "session_id":session_id
                     }),
                 )),
             )
@@ -1046,7 +995,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_export_replay").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1", "session_id":session_id
+                        "session_id":session_id
                     }),
                 )),
             )
@@ -1065,7 +1014,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_close_battle").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1", "session_id":session_id
+                        "session_id":session_id
                     }),
                 )),
             )
@@ -1077,8 +1026,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_verify_replay").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1",
-                        "scenario_id":"scenario.standard-v1.basic-single-wave",
+                                                "scenario_id":"scenario.standard.basic-single-wave",
                         "replay_hex":replay_hex
                     }),
                 )),
@@ -1091,16 +1039,21 @@ mod tests {
             final_state_hash
         );
 
-        let universe = client.call_tool(
-            CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(json!({
-                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"10"
-            }))),
-        ).await.unwrap();
+        let universe = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
+                    json!({
+                        "world":"1", "difficulty_index":"0", "seed":"10"
+                    }),
+                )),
+            )
+            .await
+            .unwrap();
         let activity = &universe.structured_content.as_ref().unwrap()["observation"];
         let activity_id = activity["session_id"].as_str().unwrap().to_owned();
         let activity_action = &activity["legal_actions"][0];
         let activity_input = json!({
-            "schema_revision":"agent-api-v1", "session_id":activity_id,
+            "session_id":activity_id,
             "boundary_id":activity["boundary_id"], "expected_state_hash":activity["state_hash"],
             "action_token":activity_action["token"], "idempotency_key":"mcp_activity_1"
         });
@@ -1124,7 +1077,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_export_activity_replay").with_arguments(
                     arguments(json!({
-                        "schema_revision":"agent-api-v1", "session_id":activity_id
+                        "session_id":activity_id
                     })),
                 ),
             )
@@ -1142,7 +1095,7 @@ mod tests {
             .call_tool(
                 CallToolRequestParams::new("starclock_close_activity").with_arguments(arguments(
                     json!({
-                        "schema_revision":"agent-api-v1", "session_id":activity_id
+                        "session_id":activity_id
                     }),
                 )),
             )

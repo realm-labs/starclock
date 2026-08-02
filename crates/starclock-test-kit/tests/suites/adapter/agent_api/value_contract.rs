@@ -1,5 +1,3 @@
-use std::str::FromStr;
-
 use starclock_agent_api::{
     error::{AgentError, AgentErrorCode},
     observation::{
@@ -8,21 +6,13 @@ use starclock_agent_api::{
         AgentUnitView, AgentWaveView, VisibilityPolicy,
     },
     schema::{
-        ActionToken, AgentHash, AgentSInt, AgentSchemaRevision, AgentUInt, AgentValueError,
-        EventCursor, IdempotencyKey, ScenarioId, SessionId,
+        ActionToken, AgentHash, AgentSInt, AgentUInt, EventCursor, IdempotencyKey, ScenarioId,
+        SessionId,
     },
 };
 
 #[test]
-fn revisions_ids_hashes_and_exact_integers_reject_noncanonical_values() {
-    assert_eq!(
-        AgentSchemaRevision::from_str("agent-api-v1"),
-        Ok(AgentSchemaRevision::V1)
-    );
-    assert_eq!(
-        AgentSchemaRevision::from_str("agent-api-v2"),
-        Err(AgentValueError::UnknownRevision)
-    );
+fn ids_hashes_and_exact_integers_reject_noncanonical_values() {
     for invalid in ["", "00", "01", "+1", "-1", "18446744073709551616"] {
         assert!(AgentUInt::parse(invalid).is_err(), "accepted {invalid}");
     }
@@ -39,7 +29,7 @@ fn revisions_ids_hashes_and_exact_integers_reject_noncanonical_values() {
     );
     assert_eq!(AgentHash::from_bytes([0xab; 32]).as_str(), "ab".repeat(32));
     assert!(AgentHash::parse(&"AB".repeat(32)).is_err());
-    assert!(ScenarioId::parse("scenario.standard-v1.basic-single-wave").is_ok());
+    assert!(ScenarioId::parse("scenario.standard.basic-single-wave").is_ok());
     assert!(ScenarioId::parse("scenario.challenge-v1.not-allowed").is_err());
     assert!(SessionId::parse("session_01-safe").is_ok());
     assert!(SessionId::parse("session/unsafe").is_err());

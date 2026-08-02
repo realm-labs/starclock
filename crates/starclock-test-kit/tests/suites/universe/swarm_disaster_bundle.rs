@@ -129,12 +129,12 @@ fn component_roots_are_mode_scoped_and_controller_sensitive() {
     .unwrap();
     let gold = gold_and_gears_component_set(
         &gold_identity,
-        ("combat-v1", [0x11; 32]),
-        ("build-v1", [0x22; 32]),
+        [0x11; 32],
+        [0x22; 32],
         [0x33; 32],
         [0x44; 32],
         [0x55; 32],
-        ("baseline-controller", "baseline-v1", [0x66; 32]),
+        ("baseline-controller", [0x66; 32]),
     )
     .unwrap();
     assert_eq!(
@@ -377,12 +377,12 @@ fn apply(
 fn swarm_components(controller: u8) -> starclock_replay::component::ConfigurationComponentSet {
     swarm_disaster_component_set(
         BUNDLE,
-        ("combat-v1", [0x11; 32]),
-        ("build-v1", [0x22; 32]),
+        [0x11; 32],
+        [0x22; 32],
         [0x33; 32],
         [0x44; 32],
         [0x55; 32],
-        ("baseline-controller", "baseline-v1", [controller; 32]),
+        ("baseline-controller", [controller; 32]),
     )
     .unwrap()
 }

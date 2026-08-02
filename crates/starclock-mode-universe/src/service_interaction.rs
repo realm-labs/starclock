@@ -29,7 +29,7 @@ pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
 pub const SERVICE_INTERACTION_RUNTIME_REVISION: &str =
     "standard-universe-service-interaction-runtime-v6";
 
-const PAYLOAD_REVISION: u8 = 6;
+const PAYLOAD_TAG: u8 = 6;
 const TAG_SET_FRAGMENTS: u8 = 1;
 const TAG_DEBIT_FRAGMENTS: u8 = 2;
 const TAG_ADD_INVENTORY: u8 = 4;
@@ -658,7 +658,7 @@ fn encode_program(
         | PayloadOperation::AdjustedBlessingDebit(amount) => Some(*amount),
         _ => None,
     });
-    let mut payload = vec![PAYLOAD_REVISION];
+    let mut payload = vec![PAYLOAD_TAG];
     payload.extend_from_slice(&fragments.get().to_le_bytes());
     payload.extend_from_slice(&uses.get().to_le_bytes());
     payload.extend_from_slice(&effects.get().to_le_bytes());
@@ -683,7 +683,7 @@ pub(crate) fn execute(
     input: ActivityHandlerInput<'_>,
 ) -> Result<ActivityHandlerOutput, ActivityHandlerFault> {
     let mut decoder = Decoder::new(input.payload());
-    if decoder.u8()? != PAYLOAD_REVISION {
+    if decoder.u8()? != PAYLOAD_TAG {
         return Err(invalid_payload());
     }
     let fragments = slot(decoder.u32()?)?;

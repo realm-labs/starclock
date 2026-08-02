@@ -22,7 +22,7 @@ use starclock_agent_api::{
 use crate::server::StarclockMcp;
 
 const FINAL_STATE: &str = "fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7";
-const REPLAY_SHA256: &str = "da7887876921a80334c5f21742e9d7748cf04c4d7959d1ac8ed3d14a7b7836e1";
+const REPLAY_SHA256: &str = "9ee780dec457ae17705ba22a13b4599d25288b64805681fd73b35bfc43509ecb";
 
 struct TestClock;
 impl OperationalClock for TestClock {
@@ -84,8 +84,7 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1",
-                    "mode":"golden-gears",
+                                        "mode":"golden-gears",
                     "seed":"14001"
                 }),
             )),
@@ -104,8 +103,7 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1",
-                    "mode":"gold-and-gears",
+                                        "mode":"gold-and-gears",
                     "world":"1",
                     "difficulty_index":"0",
                     "seed":"14001"
@@ -138,8 +136,7 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1",
-                    "mode":"gold-and-gears",
+                                        "mode":"gold-and-gears",
                     "seed":"14001"
                 }),
             )),
@@ -158,8 +155,7 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
     while observation["status"] != "completed" {
         let action = selected_action(&observation).clone();
         let input = json!({
-            "schema_revision":"agent-api-v1",
-            "session_id":session_id,
+                        "session_id":session_id,
             "boundary_id":observation["boundary_id"],
             "expected_state_hash":observation["state_hash"],
             "action_token":action["token"],
@@ -198,9 +194,8 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
 
     let observed = client
         .call_tool(
-            CallToolRequestParams::new("starclock_observe_activity").with_arguments(arguments(
-                json!({"schema_revision":"agent-api-v1", "session_id":session_id}),
-            )),
+            CallToolRequestParams::new("starclock_observe_activity")
+                .with_arguments(arguments(json!({"session_id":session_id}))),
         )
         .await
         .expect("observe");
@@ -213,7 +208,7 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
         .call_tool(
             CallToolRequestParams::new("starclock_export_activity_replay").with_arguments(
                 arguments(json!({
-                    "schema_revision":"agent-api-v1", "session_id":session_id
+                    "session_id":session_id
                 })),
             ),
         )
@@ -224,15 +219,14 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
     assert_eq!(export["sha256"], REPLAY_SHA256);
     assert_eq!(
         export["replay_hex"].as_str().expect("hex").len(),
-        107_338 * 2
+        107_261 * 2
     );
 
     let verified = client
         .call_tool(
             CallToolRequestParams::new("starclock_verify_activity_replay").with_arguments(
                 arguments(json!({
-                    "schema_revision":"agent-api-v1",
-                    "mode":"gold-and-gears",
+                                        "mode":"gold-and-gears",
                     "seed":"14001",
                     "replay_hex":export["replay_hex"]
                 })),
@@ -247,9 +241,8 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
 
     let closed = client
         .call_tool(
-            CallToolRequestParams::new("starclock_close_activity").with_arguments(arguments(
-                json!({"schema_revision":"agent-api-v1", "session_id":session_id}),
-            )),
+            CallToolRequestParams::new("starclock_close_activity")
+                .with_arguments(arguments(json!({"session_id":session_id}))),
         )
         .await
         .expect("close");

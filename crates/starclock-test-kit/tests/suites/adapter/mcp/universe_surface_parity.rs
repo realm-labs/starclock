@@ -97,8 +97,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
         .call_tool(
             CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
                 json!({
-                    "schema_revision":"agent-api-v1",
-                    "world":"1",
+                                        "world":"1",
                     "difficulty_index":"0",
                     "seed":"1"
                 }),
@@ -117,8 +116,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
             .call_tool(
                 CallToolRequestParams::new("starclock_play_activity_action").with_arguments(
                     arguments(json!({
-                        "schema_revision":"agent-api-v1",
-                        "session_id":session_id,
+                                                "session_id":session_id,
                         "boundary_id":observation["boundary_id"],
                         "expected_state_hash":observation["state_hash"],
                         "action_token":action["token"],
@@ -141,8 +139,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
         .call_tool(
             CallToolRequestParams::new("starclock_export_activity_replay").with_arguments(
                 arguments(json!({
-                    "schema_revision":"agent-api-v1",
-                    "session_id":session_id
+                                        "session_id":session_id
                 })),
             ),
         )
@@ -160,8 +157,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
         .call_tool(
             CallToolRequestParams::new("starclock_verify_activity_replay").with_arguments(
                 arguments(json!({
-                    "schema_revision":"agent-api-v1",
-                    "world":"1",
+                                        "world":"1",
                     "difficulty_index":"0",
                     "seed":"1",
                     "replay_hex":export["replay_hex"]

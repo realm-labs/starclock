@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-l11\",\"bundle_sha256\":\"a6c6c67913685ccaab5e05665bb40b92001b3388e6be4977e25dd9cd029cb300\",\"identities\":6719,\"enabled\":6719}"
+        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-l11\",\"bundle_sha256\":\"a6c6c67913685ccaab5e05665bb40b92001b3388e6be4977e25dd9cd029cb300\",\"identities\":6719,\"enabled\":6719}"
     );
 
     let bundle =
@@ -45,7 +45,6 @@ fn coverage_is_goal_aware_filterable_and_not_readiness_inflated() {
     let all = output(&["catalog", "coverage", "--goal", "core-combat-v1", "--json"]);
     assert!(all.status.success(), "{:?}", all);
     let all = text(all.stdout);
-    assert!(all.contains("\"goal_id\":\"core-combat-v1\""));
     assert!(
         all.contains("\"required\":283,\"enabled\":283,\"data_ready\":283,\"golden_verified\":283")
     );
@@ -86,7 +85,7 @@ fn battle_controller_and_exit_classes_are_explicit() {
         "battle",
         "run",
         "--scenario",
-        "synthetic-standard-v1",
+        "synthetic-standard",
         "--seed",
         "7",
         "--controller",
@@ -109,7 +108,7 @@ fn battle_controller_and_exit_classes_are_explicit() {
         "battle",
         "run",
         "--scenario",
-        "synthetic-standard-v1",
+        "synthetic-standard",
         "--seed",
         "-1",
     ]);

@@ -25,7 +25,7 @@ When configuration, workbooks, generated readers or current content data
 change, also run:
 
 ```sh
-node tools/repository-check/verify-current-data.mjs
+node tools/repository-check/verify-data.mjs
 ```
 
 Large seeded matrices, broad property corpora and performance workloads are

@@ -5,9 +5,9 @@ use proptest::{
     test_runner::{Config as ProptestConfig, FileFailurePersistence, RngAlgorithm, RngSeed},
 };
 use starclock_combat::{
-    AbilityId, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
-    CombatantSpecDigest, Command, ConcedePolicy, DecisionKind, EncounterId, EnemyDefinitionId,
-    FormationIndex, Hp, ParticipantSource, ParticipantSpec, ProgramId, ResolvedCombatantSpec,
+    AbilityId, AssemblyDigest, Battle, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
+    ConcedePolicy, DecisionKind, EncounterId, EnemyDefinitionId, FormationIndex, Hp,
+    ParticipantSource, ParticipantSpec, ProgramId, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, SelectorId, Speed, TeamResourceSpec, TeamSide, UnitDefinitionId,
     UnitLevel,
     catalog::{
@@ -25,12 +25,6 @@ use starclock_combat::{
 };
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
-    battle_event::{
-        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1,
-        BATTLE_EVENT_PAYLOAD_VERSION_V2, BATTLE_EVENT_PAYLOAD_VERSION_V3,
-        BATTLE_EVENT_PAYLOAD_VERSION_V4, BATTLE_EVENT_PAYLOAD_VERSION_V5, BattleEventPayloadError,
-        encode_battle_event_payload, encode_battle_event_payload_for_version,
-    },
     digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
     format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
     record::RecordKind,
@@ -153,19 +147,10 @@ fn header() -> ReplayHeader {
     ReplayHeader::new(
         ReplayIdentity::new(
             "battle-property-v1",
-            "battle-property-rules-v1",
-            "battle-property-catalog-v1",
             ConfigBundleDigest::new(CATALOG_DIGEST),
-            starclock_combat::NUMERIC_POLICY_REVISION,
-            starclock_combat::rng::RNG_ALGORITHM_REVISION,
-            starclock_combat::STATE_HASH_REVISION,
         )
         .unwrap(),
-        ControllerIdentity::new(
-            "battle-property-controller-v1",
-            ControllerDigest::new([0xd4; 32]),
-        )
-        .unwrap(),
+        ControllerIdentity::new(ControllerDigest::new([0xd4; 32])),
         7,
         ReplayEntry::Battle {
             definition_id: 1,
@@ -217,99 +202,6 @@ fn unique_offset(bytes: &[u8], needle: &[u8]) -> usize {
         .collect::<Vec<_>>();
     assert_eq!(offsets.len(), 1, "fixture payload must occur exactly once");
     offsets[0]
-}
-
-#[test]
-fn event_payload_v6_retains_all_historical_event_revisions() {
-    let mut battle = battle();
-    let command = supported_command(&battle);
-    let resolution = battle.apply(command).unwrap();
-    let event = &resolution.events()[0];
-    let historical =
-        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V1).unwrap();
-    let previous =
-        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V2).unwrap();
-    let previous_v3 =
-        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V3).unwrap();
-    let previous_v4 =
-        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V4).unwrap();
-    let previous_v5 =
-        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V5).unwrap();
-    let current = encode_battle_event_payload(event).unwrap();
-
-    assert_eq!(
-        u16::from_le_bytes(historical[..2].try_into().unwrap()),
-        BATTLE_EVENT_PAYLOAD_VERSION_V1
-    );
-    assert_eq!(
-        u16::from_le_bytes(previous[..2].try_into().unwrap()),
-        BATTLE_EVENT_PAYLOAD_VERSION_V2
-    );
-    assert_eq!(
-        u16::from_le_bytes(previous_v3[..2].try_into().unwrap()),
-        BATTLE_EVENT_PAYLOAD_VERSION_V3
-    );
-    assert_eq!(
-        u16::from_le_bytes(previous_v4[..2].try_into().unwrap()),
-        BATTLE_EVENT_PAYLOAD_VERSION_V4
-    );
-    assert_eq!(
-        u16::from_le_bytes(previous_v5[..2].try_into().unwrap()),
-        BATTLE_EVENT_PAYLOAD_VERSION_V5
-    );
-    assert_eq!(
-        u16::from_le_bytes(current[..2].try_into().unwrap()),
-        BATTLE_EVENT_PAYLOAD_VERSION
-    );
-    assert_eq!(historical.len(), previous.len() + 1);
-    assert_eq!(previous[2..], previous_v3[2..]);
-    assert_eq!(previous_v3[2..], previous_v4[2..]);
-    assert_eq!(previous_v4[2..], previous_v5[2..]);
-    assert_eq!(previous_v5[2..], current[2..]);
-    assert_eq!(
-        encode_battle_event_payload_for_version(event, u16::MAX),
-        Err(BattleEventPayloadError::UnsupportedVersion(u16::MAX))
-    );
-}
-
-#[test]
-fn event_payload_v6_commits_resolved_action_targets_without_changing_v5_bytes() {
-    let mut battle = battle();
-    for _ in 0..4 {
-        let command = supported_command(&battle);
-        let resolution = battle.apply(command).unwrap();
-        let Some(event) = resolution.events().iter().find(|event| {
-            matches!(
-                event.kind(),
-                BattleEventKind::Action(starclock_combat::ActionEventData::Resolved { .. })
-            )
-        }) else {
-            continue;
-        };
-        let BattleEventKind::Action(starclock_combat::ActionEventData::Resolved {
-            targets, ..
-        }) = event.kind()
-        else {
-            unreachable!();
-        };
-        assert_eq!(targets.len(), 1);
-        let previous =
-            encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V5)
-                .unwrap();
-        let current = encode_battle_event_payload(event).unwrap();
-        assert_eq!(current.len(), previous.len() + 4 + 8);
-        assert_eq!(previous[2..], current[2..previous.len()]);
-        assert_eq!(
-            &current[previous.len()..],
-            &[
-                1_u32.to_le_bytes().as_slice(),
-                &targets[0].get().to_le_bytes()
-            ]
-            .concat()
-        );
-        return;
-    }
-    panic!("fixture did not resolve an action");
 }
 
 proptest! {

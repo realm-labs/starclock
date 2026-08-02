@@ -11,7 +11,7 @@ use rmcp::{
 use serde::Serialize;
 use starclock_agent_api::{
     activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
-    schema::{AgentSchemaRevision, AgentUInt, ScenarioId},
+    schema::{AgentUInt, ScenarioId},
     session::AgentSessionFactory,
 };
 
@@ -34,18 +34,13 @@ const USAGE_TEXT: &str = "Use starclock_list_scenarios, then starclock_create_ba
 
 #[derive(Serialize)]
 struct ResourceEnvelope<T: Serialize> {
-    schema_revision: &'static str,
     resource_kind: &'static str,
     inert_data: bool,
     data: T,
 }
 
 #[derive(Serialize)]
-struct CoreRulesResource<'a> {
-    rules_revision: &'a str,
-    numeric_policy_revision: &'a str,
-    rng_algorithm_revision: &'a str,
-    state_hash_revision: &'a str,
+struct CoreRulesResource {
     exact_number_encoding: &'static str,
     external_decision_owner: &'static str,
     action_authority: &'static str,
@@ -67,7 +62,7 @@ pub(crate) fn list_resources() -> ListResourcesResult {
     ListResourcesResult::with_all_items(vec![
         Resource::new(CATALOG_URI, "catalog-manifest")
             .with_title("Starclock catalog manifest")
-            .with_description("Bounded compatibility revisions and aggregate production counts.")
+            .with_description("Bounded identities and aggregate production counts.")
             .with_mime_type(MIME_JSON),
         Resource::new(RULES_URI, "core-combat-rules")
             .with_title("Starclock core combat rules")
@@ -75,7 +70,7 @@ pub(crate) fn list_resources() -> ListResourcesResult {
             .with_mime_type(MIME_JSON),
         Resource::new(UNIVERSE_URI, "standard-universe-manifest")
             .with_title("Starclock Standard Universe manifest")
-            .with_description("Bounded entry compatibility and world summaries.")
+            .with_description("Bounded entry identity and world summaries.")
             .with_mime_type(MIME_JSON),
         Resource::new(UNIVERSE_RULES_URI, "standard-universe-rules")
             .with_title("Starclock Standard Universe Activity rules")
@@ -83,7 +78,7 @@ pub(crate) fn list_resources() -> ListResourcesResult {
             .with_mime_type(MIME_JSON),
         Resource::new(GOLD_AND_GEARS_URI, "gold-and-gears-manifest")
             .with_title("Starclock Gold and Gears manifest")
-            .with_description("Bounded fixed-entry compatibility and accuracy metadata.")
+            .with_description("Bounded fixed-entry identity and accuracy metadata.")
             .with_mime_type(MIME_JSON),
         Resource::new(GOLD_AND_GEARS_RULES_URI, "gold-and-gears-rules")
             .with_title("Starclock Gold and Gears Activity rules")
@@ -91,7 +86,7 @@ pub(crate) fn list_resources() -> ListResourcesResult {
             .with_mime_type(MIME_JSON),
         Resource::new(SWARM_DISASTER_URI, "swarm-disaster-manifest")
             .with_title("Starclock Swarm Disaster manifest")
-            .with_description("Bounded fixed-entry compatibility and accuracy metadata.")
+            .with_description("Bounded fixed-entry identity and accuracy metadata.")
             .with_mime_type(MIME_JSON),
         Resource::new(SWARM_DISASTER_RULES_URI, "swarm-disaster-rules")
             .with_title("Starclock Swarm Disaster Activity rules")
@@ -127,23 +122,16 @@ pub(crate) fn read_resource(
             "catalog_manifest",
             factory.catalog_manifest().map_err(agent_adapter_error)?,
         )?,
-        RULES_URI => {
-            let manifest = factory.catalog_manifest().map_err(agent_adapter_error)?;
-            resource_json(
-                "core_combat_rules",
-                CoreRulesResource {
-                    rules_revision: &manifest.rules_revision,
-                    numeric_policy_revision: &manifest.numeric_policy_revision,
-                    rng_algorithm_revision: &manifest.rng_algorithm_revision,
-                    state_hash_revision: &manifest.state_hash_revision,
-                    exact_number_encoding: "canonical_decimal_strings",
-                    external_decision_owner: "team_player",
-                    action_authority: "currently_offered_opaque_token",
-                    settlement_boundary: "next_player_decision_or_terminal",
-                    replay_authority: "accepted_commands_and_resulting_state_hashes",
-                },
-            )?
-        }
+        RULES_URI => resource_json(
+            "core_combat_rules",
+            CoreRulesResource {
+                exact_number_encoding: "canonical_decimal_strings",
+                external_decision_owner: "team_player",
+                action_authority: "currently_offered_opaque_token",
+                settlement_boundary: "next_player_decision_or_terminal",
+                replay_authority: "accepted_commands_and_resulting_state_hashes",
+            },
+        )?,
         UNIVERSE_URI => resource_json("standard_universe_manifest", activity_factory.manifest())?,
         UNIVERSE_RULES_URI => resource_json(
             "standard_universe_rules",
@@ -238,7 +226,6 @@ pub(crate) fn get_prompt(name: &str) -> Result<GetPromptResult, McpError> {
 
 fn resource_json<T: Serialize>(resource_kind: &'static str, data: T) -> Result<String, McpError> {
     let json = serde_json::to_string(&ResourceEnvelope {
-        schema_revision: AgentSchemaRevision::V1.as_str(),
         resource_kind,
         inert_data: true,
         data,
@@ -311,7 +298,7 @@ mod tests {
         for uri in [
             CATALOG_URI,
             RULES_URI,
-            "starclock://scenario/scenario.standard-v1.basic-single-wave",
+            "starclock://scenario/scenario.standard.basic-single-wave",
             "starclock://character/1",
             UNIVERSE_URI,
             UNIVERSE_RULES_URI,

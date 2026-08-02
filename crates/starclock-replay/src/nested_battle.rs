@@ -6,17 +6,14 @@ use crate::{
     battle::{
         BattleCommandPayloadError, decode_battle_command_payload, encode_battle_command_payload,
     },
-    battle_event::{
-        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1, BattleEventPayloadError,
-        encode_battle_event_payload_for_version,
-    },
+    battle_event::{BattleEventPayloadError, encode_battle_event_payload},
     codec::{CodecError, Decoder, Encoder},
     digest::StateDigest,
     record::MAX_RECORD_PAYLOAD_BYTES,
 };
 
-pub const NESTED_BATTLE_COMMAND_PAYLOAD_VERSION: u16 = 1;
-pub const NESTED_BATTLE_STATE_PAYLOAD_VERSION: u16 = 1;
+pub const NESTED_BATTLE_COMMAND_PAYLOAD_TAG: u16 = 1;
+pub const NESTED_BATTLE_STATE_PAYLOAD_TAG: u16 = 1;
 pub const MAX_NESTED_BATTLE_EVENTS_PER_COMMAND: u32 = 1_000_000;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -48,7 +45,7 @@ pub fn encode_nested_battle_command_payload(
 ) -> Result<Vec<u8>, NestedBattlePayloadError> {
     let command = encode_battle_command_payload(value.command())?;
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_COMMAND_PAYLOAD_VERSION);
+    encoder.u16(NESTED_BATTLE_COMMAND_PAYLOAD_TAG);
     encoder.u8(value.controller);
     encoder.bytes(&command)?;
     Ok(encoder.into_inner())
@@ -58,9 +55,9 @@ pub fn decode_nested_battle_command_payload(
     bytes: &[u8],
 ) -> Result<NestedBattleCommandPayload, NestedBattlePayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let version = decoder.u16()?;
-    if version != NESTED_BATTLE_COMMAND_PAYLOAD_VERSION {
-        return Err(NestedBattlePayloadError::UnsupportedCommandVersion(version));
+    let tag = decoder.u16()?;
+    if tag != NESTED_BATTLE_COMMAND_PAYLOAD_TAG {
+        return Err(NestedBattlePayloadError::UnexpectedCommandTag(tag));
     }
     let controller = decoder.u8()?;
     let command = decode_battle_command_payload(decoder.bytes(MAX_RECORD_PAYLOAD_BYTES)?)?;
@@ -72,42 +69,15 @@ pub fn encode_nested_battle_state_payload(
     state_hash: BattleStateHash,
     events: &[BattleEvent],
 ) -> Result<Vec<u8>, NestedBattlePayloadError> {
-    encode_nested_battle_state_payload_for_event_version(
-        state_hash,
-        events,
-        BATTLE_EVENT_PAYLOAD_VERSION,
-    )
-}
-
-/// Encodes the released replay-v2 state/event representation.
-pub fn encode_nested_battle_state_payload_v1(
-    state_hash: BattleStateHash,
-    events: &[BattleEvent],
-) -> Result<Vec<u8>, NestedBattlePayloadError> {
-    encode_nested_battle_state_payload_for_event_version(
-        state_hash,
-        events,
-        BATTLE_EVENT_PAYLOAD_VERSION_V1,
-    )
-}
-
-fn encode_nested_battle_state_payload_for_event_version(
-    state_hash: BattleStateHash,
-    events: &[BattleEvent],
-    event_version: u16,
-) -> Result<Vec<u8>, NestedBattlePayloadError> {
     if events.len() > MAX_NESTED_BATTLE_EVENTS_PER_COMMAND as usize {
         return Err(NestedBattlePayloadError::TooManyEvents);
     }
     let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(NESTED_BATTLE_STATE_PAYLOAD_VERSION);
+    encoder.u16(NESTED_BATTLE_STATE_PAYLOAD_TAG);
     encoder.raw(&state_hash.bytes());
     encoder.u32(u32::try_from(events.len()).map_err(|_| CodecError::LengthOverflow)?);
     for event in events {
-        encoder.bytes(&encode_battle_event_payload_for_version(
-            event,
-            event_version,
-        )?)?;
+        encoder.bytes(&encode_battle_event_payload(event)?)?;
     }
     Ok(encoder.into_inner())
 }
@@ -133,9 +103,9 @@ pub fn decode_nested_battle_state_payload(
     bytes: &[u8],
 ) -> Result<DecodedNestedBattleState<'_>, NestedBattlePayloadError> {
     let mut decoder = Decoder::new(bytes);
-    let version = decoder.u16()?;
-    if version != NESTED_BATTLE_STATE_PAYLOAD_VERSION {
-        return Err(NestedBattlePayloadError::UnsupportedStateVersion(version));
+    let tag = decoder.u16()?;
+    if tag != NESTED_BATTLE_STATE_PAYLOAD_TAG {
+        return Err(NestedBattlePayloadError::UnexpectedStateTag(tag));
     }
     let state_hash = StateDigest::new(
         decoder
@@ -163,8 +133,8 @@ pub enum NestedBattlePayloadError {
     Codec(CodecError),
     Command(BattleCommandPayloadError),
     Event(BattleEventPayloadError),
-    UnsupportedCommandVersion(u16),
-    UnsupportedStateVersion(u16),
+    UnexpectedCommandTag(u16),
+    UnexpectedStateTag(u16),
     TooManyEvents,
 }
 

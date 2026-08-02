@@ -9,15 +9,15 @@ use starclock_agent_api::{
         PlayActivityActionRequest,
     },
     error::AgentErrorCode,
-    schema::{ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
+    schema::{ActionToken, AgentHash, AgentUInt, IdempotencyKey, SessionId},
 };
 use starclock_mode_universe::{
     baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
-    current_replay::{
-        encode_standard_universe_replay, record_baseline_run, standard_universe_replay_header,
-    },
     nested_battle_executor::UniverseNestedBattleExecutor,
     production_runtime::StandardUniverseControllerIdentity,
+    replay_verification::{
+        encode_standard_universe_replay, record_baseline_run, standard_universe_replay_header,
+    },
 };
 use starclock_replay::record::RecordKind;
 
@@ -61,7 +61,6 @@ fn request(session: &ActivityAgentSession, sequence: u64) -> PlayActivityActionR
     let observation = session.observe().unwrap();
     let action = selected(&observation.legal_actions);
     PlayActivityActionRequest {
-        schema_revision: AgentSchemaRevision::V1,
         session_id: session.session_id().clone(),
         boundary_id: observation.boundary_id.unwrap(),
         expected_state_hash: observation.state_hash,
@@ -153,7 +152,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
         replay.action_count().to_u64(),
         session.replay_action_count() as u64
     );
-    assert!(starclock_replay::current::decode_replay(replay.bytes()).is_ok());
+    assert!(starclock_replay::envelope::decode_replay(replay.bytes()).is_ok());
     let verified = session.verify_replay(factory, replay.bytes()).unwrap();
     assert_eq!(verified.action_count, replay.action_count().clone());
     assert_eq!(verified.final_state_hash, session.state_hash());
@@ -294,11 +293,11 @@ fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
     let instance = runtime_factory.start(1, 0, 1, controller).unwrap();
     let profile_id = instance.profile_id().to_owned();
     let components = instance.components().clone();
-    let compatibility = instance.compatibility().clone();
+    let environment = instance.environment().clone();
     let assembler = Arc::clone(instance.battle_assembler());
     let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
     let header =
-        standard_universe_replay_header(compatibility, components, 1, &activity, &profile_id)
+        standard_universe_replay_header(environment, components, 1, &activity, &profile_id)
             .unwrap();
     let mut executor = UniverseNestedBattleExecutor::dynamic();
     let recorded = record_baseline_run(
@@ -328,7 +327,7 @@ fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
 }
 
 fn nested_authority_digest(bytes: &[u8]) -> [u8; 32] {
-    let replay = starclock_replay::current::decode_replay(bytes).unwrap();
+    let replay = starclock_replay::envelope::decode_replay(bytes).unwrap();
     let mut hash = Sha256::new();
     for record in replay.records() {
         let payload = match record.kind() {

@@ -2,7 +2,7 @@
 
 An agent session exports the unchanged Goal 01 canonical battle replay: one
 frozen compatibility header followed by alternating accepted-command and
-resulting-state-hash records. The header binds the Standard-v1 rules, catalog,
+resulting-state-hash records. The header binds the Standard rules, catalog,
 configuration, numeric policy, RNG, state-hash and agent-controller revisions,
 the exact master seed, encounter identity and battle-spec digest.
 
@@ -17,7 +17,7 @@ or discarding this sidecar cannot change the canonical bytes or their SHA-256
 digest; verification trusts only the canonical envelope.
 
 Verification is one-shot and isolated. It reconstructs a fresh production
-Standard-v1 battle from the session's frozen scenario and seed, then delegates
+Standard battle from the session's frozen scenario and seed, then delegates
 record decoding, identity checks, command application and every resulting hash
 comparison to `starclock-replay`. It never reuses or mutates the live battle.
 Malformed, incompatible, truncated or divergent input returns

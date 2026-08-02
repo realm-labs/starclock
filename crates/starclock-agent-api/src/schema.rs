@@ -1,43 +1,23 @@
-//! Revisioned, exact, transport-neutral value vocabulary.
+//! Exact, transport-neutral value vocabulary.
 
-use core::{fmt, str::FromStr};
+use core::fmt;
 use serde::{Deserialize, Deserializer, Serialize, de::Error as _};
 
 /// Human-readable responsibility marker used by architecture tests.
-pub const RESPONSIBILITY: &str = "schema revisions and exact agent values";
-/// Frozen public schema revision.
-pub const AGENT_SCHEMA_REVISION: &str = "agent-api-v1";
-/// Frozen schema/golden bundle identity.
+pub const RESPONSIBILITY: &str = "exact agent values";
+/// Schema/golden bundle identity.
 pub const AGENT_SCHEMA_BUNDLE_SHA256: &str =
-    "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725";
+    "52f09f8eca07eb22fea51c63ca268d4814b1edaa3104a3aeb8ae594d7c5049c0";
 pub const OBSERVATION_SCHEMA_JSON: &str =
-    include_str!("../../../schemas/agent-api-v1/observation.schema.json");
-pub const ACTION_SCHEMA_JSON: &str =
-    include_str!("../../../schemas/agent-api-v1/action.schema.json");
-pub const ERROR_SCHEMA_JSON: &str = include_str!("../../../schemas/agent-api-v1/error.schema.json");
+    include_str!("../../../schemas/agent-api/observation.schema.json");
+pub const ACTION_SCHEMA_JSON: &str = include_str!("../../../schemas/agent-api/action.schema.json");
+pub const ERROR_SCHEMA_JSON: &str = include_str!("../../../schemas/agent-api/error.schema.json");
 pub const ORDINARY_OBSERVATION_GOLDEN_JSON: &str =
-    include_str!("../../../schemas/agent-api-v1/goldens/ordinary-observation.json");
+    include_str!("../../../schemas/agent-api/goldens/ordinary-observation.json");
 pub const TRIGGER_HEAVY_ACTION_GOLDEN_JSON: &str =
-    include_str!("../../../schemas/agent-api-v1/goldens/trigger-heavy-action-response.json");
+    include_str!("../../../schemas/agent-api/goldens/trigger-heavy-action-response.json");
 pub const STALE_DECISION_ERROR_GOLDEN_JSON: &str =
-    include_str!("../../../schemas/agent-api-v1/goldens/stale-decision-error.json");
-
-/// Public schema revision accepted by this crate.
-#[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
-pub enum AgentSchemaRevision {
-    /// Goal 02 version-one contract.
-    #[serde(rename = "agent-api-v1")]
-    V1,
-}
-
-impl AgentSchemaRevision {
-    #[must_use]
-    pub const fn as_str(self) -> &'static str {
-        match self {
-            Self::V1 => AGENT_SCHEMA_REVISION,
-        }
-    }
-}
+    include_str!("../../../schemas/agent-api/goldens/stale-decision-error.json");
 
 /// Stable rejection while parsing exact public values.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -48,7 +28,6 @@ pub enum AgentValueError {
     InvalidOpaqueId,
     InvalidScenarioId,
     InvalidHash,
-    UnknownRevision,
 }
 
 impl fmt::Display for AgentValueError {
@@ -199,7 +178,7 @@ pub struct ScenarioId(Box<str>);
 
 impl ScenarioId {
     pub fn parse(value: &str) -> Result<Self, AgentValueError> {
-        const PREFIX: &str = "scenario.standard-v1.";
+        const PREFIX: &str = "scenario.standard.";
         let suffix = value
             .strip_prefix(PREFIX)
             .ok_or(AgentValueError::InvalidScenarioId)?;
@@ -263,17 +242,6 @@ impl AgentHash {
 impl<'de> Deserialize<'de> for AgentHash {
     fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
         deserialize_checked(deserializer, Self::parse)
-    }
-}
-
-impl FromStr for AgentSchemaRevision {
-    type Err = AgentValueError;
-
-    fn from_str(value: &str) -> Result<Self, Self::Err> {
-        match value {
-            AGENT_SCHEMA_REVISION => Ok(Self::V1),
-            _ => Err(AgentValueError::UnknownRevision),
-        }
     }
 }
 

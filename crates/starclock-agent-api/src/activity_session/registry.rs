@@ -754,7 +754,6 @@ mod tests {
         let observation = registry.create(&owner, request()).unwrap();
         let action = observation.legal_actions.first().unwrap();
         let request = PlayActivityActionRequest {
-            schema_revision: crate::schema::AgentSchemaRevision::V1,
             session_id: observation.session_id.clone(),
             boundary_id: observation.boundary_id.clone().unwrap(),
             expected_state_hash: observation.state_hash.clone(),

@@ -717,19 +717,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     let header = starclock_replay::format::ReplayHeader::new(
         starclock_replay::format::ReplayIdentity::new(
             "4.4",
-            "standard-universe-rules-v1",
-            "standard-universe-data-v4.4",
             starclock_replay::digest::ConfigBundleDigest::new([0x41; 32]),
-            "fixed-i64-6dp-v1",
-            "chacha8-rand-0.10.2-intmap-v1",
-            starclock_activity::ACTIVITY_STATE_HASH_REVISION,
         )
         .unwrap(),
         starclock_replay::format::ControllerIdentity::new(
-            StandardUniverseBaselineRunner::REVISION,
             starclock_replay::digest::ControllerDigest::new([0x42; 32]),
-        )
-        .unwrap(),
+        ),
         0,
         replay_entry_for(&activity, "standard-universe-v1"),
         0,

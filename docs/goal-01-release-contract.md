@@ -3,7 +3,6 @@
 `G01-P8-B6` freezes the headless release surface for `core-combat-v1`. The
 machine-readable policy and evidence are
 [`release-contract.json`](../policy/release-contract.json) and
-[`release-evidence.json`](../evidence/core-combat-v1/release/release-evidence.json).
 
 ## Command-line surface
 

@@ -88,12 +88,12 @@ fn component_set_has_exact_ten_component_closure_and_stable_order() {
     let identity = identity();
     let components = gold_and_gears_component_set(
         &identity,
-        ("combat-v1", [0x11; 32]),
-        ("build-v1", [0x22; 32]),
+        [0x11; 32],
+        [0x22; 32],
         [0x33; 32],
         [0x44; 32],
         [0x55; 32],
-        ("baseline-controller", "baseline-v1", [0x66; 32]),
+        ("baseline-controller", [0x66; 32]),
     )
     .unwrap();
     assert_eq!(components.components().len(), 10);
@@ -151,12 +151,12 @@ fn component_set_has_exact_ten_component_closure_and_stable_order() {
 
     let changed_controller = gold_and_gears_component_set(
         &identity,
-        ("combat-v1", [0x11; 32]),
-        ("build-v1", [0x22; 32]),
+        [0x11; 32],
+        [0x22; 32],
         [0x33; 32],
         [0x44; 32],
         [0x55; 32],
-        ("baseline-controller", "baseline-v1", [0x67; 32]),
+        ("baseline-controller", [0x67; 32]),
     )
     .unwrap();
     assert_ne!(components.root(), changed_controller.root());

@@ -4,7 +4,7 @@ This document is normative for `G06-P4-B1`.
 
 ## Measured service shape
 
-The release-only `g06_dynamic_assembly_benchmark` measures five Goal 06
+The release-only `dynamic_assembly_benchmark` measures five Goal 06
 workloads without adding instrumentation to authoritative state:
 
 | Workload | Iterations | Stable-runner observation |

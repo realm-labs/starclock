@@ -9,13 +9,11 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use starclock_ai::EnemyController;
 use starclock_combat::{
-    Battle, BattlePhase, BattleSpecDigest, Command, DecisionKind, DecisionOwner, EncounterId,
+    AssemblyDigest, Battle, BattlePhase, Command, DecisionKind, DecisionOwner, EncounterId,
     TeamSide, UnitDefinitionId, catalog::encounter::AiTransitionTiming, rng::types::RngSeed,
     rule::model::ConditionExpr,
 };
-use starclock_data::standard_v1::{
-    CATALOG_REVISION, CONFIG_DIGEST, RULES_REVISION, SCENARIOS, StandardV1Catalog,
-};
+use starclock_data::standard::{CONFIG_DIGEST, SCENARIOS, StandardCatalog};
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
     digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
@@ -30,8 +28,7 @@ use crate::{
         project_event_summary, project_player_visible,
     },
     schema::{
-        ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, EventCursor, IdempotencyKey,
-        ScenarioId, SessionId,
+        ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId,
     },
 };
 
@@ -69,7 +66,6 @@ pub struct CreateSessionRequest {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct PlayActionRequest {
-    pub schema_revision: AgentSchemaRevision,
     pub session_id: SessionId,
     pub decision_id: AgentUInt,
     pub expected_state_hash: AgentHash,
@@ -80,7 +76,7 @@ pub struct PlayActionRequest {
 /// Validated shared production catalog factory; mutable battles are never shared.
 #[derive(Clone)]
 pub struct AgentSessionFactory {
-    standard: StandardV1Catalog,
+    standard: StandardCatalog,
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -93,16 +89,9 @@ pub struct AgentScenarioSummary {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentCatalogManifest {
-    pub catalog_revision: Box<str>,
     pub config_digest: AgentHash,
     pub game_version: Box<str>,
     pub snapshot_date: Box<str>,
-    pub data_revision: Box<str>,
-    pub rules_revision: Box<str>,
-    pub numeric_policy_revision: Box<str>,
-    pub rng_algorithm_revision: Box<str>,
-    pub state_hash_revision: Box<str>,
-    pub replay_format_version: Box<str>,
     pub coverage_manifest_sha256: Box<str>,
     pub identity_count: AgentUInt,
     pub enabled_identity_count: AgentUInt,
@@ -131,7 +120,7 @@ pub struct AgentCharacterSummary {
 
 impl AgentSessionFactory {
     pub fn load_production() -> Result<Self, AgentError> {
-        let standard = StandardV1Catalog::load().map_err(|_| {
+        let standard = StandardCatalog::load().map_err(|_| {
             agent_error(
                 AgentErrorCode::ConfigurationRejected,
                 "The frozen production Standard catalog could not be loaded.",
@@ -175,16 +164,9 @@ impl AgentSessionFactory {
         let manifest = self.standard.manifest();
         let summary = self.standard.summary();
         Ok(AgentCatalogManifest {
-            catalog_revision: CATALOG_REVISION.into(),
             config_digest: AgentHash::from_bytes(CONFIG_DIGEST),
             game_version: manifest.game_version.as_str().into(),
             snapshot_date: manifest.snapshot_date.as_str().into(),
-            data_revision: manifest.data_revision.as_str().into(),
-            rules_revision: manifest.required_rules_revision.as_str().into(),
-            numeric_policy_revision: manifest.numeric_policy_revision.as_str().into(),
-            rng_algorithm_revision: manifest.rng_algorithm_revision.as_str().into(),
-            state_hash_revision: manifest.state_hash_revision.as_str().into(),
-            replay_format_version: manifest.replay_format_version.as_str().into(),
             coverage_manifest_sha256: manifest.coverage_manifest_sha256.as_str().into(),
             identity_count: agent_count(summary.identity_count)?,
             enabled_identity_count: agent_count(summary.enabled_identity_count)?,
@@ -250,7 +232,7 @@ impl AgentSessionFactory {
         let expected = build_replay_header(
             instantiated.master_seed(),
             instantiated.encounter(),
-            instantiated.spec_digest(),
+            instantiated.assembly_digest(),
             decoded.header().record_count(),
         )?;
         if decoded.header() != &expected {
@@ -299,7 +281,7 @@ impl AgentSessionFactory {
             scenario: scenario_id,
             visibility: visibility_policy,
             encounter: instantiated.encounter(),
-            spec_digest: instantiated.spec_digest(),
+            assembly_digest: instantiated.assembly_digest(),
             master_seed,
             battle: instantiated.into_battle(),
             standard: self.standard.clone(),
@@ -346,7 +328,6 @@ pub struct AgentSettlementSummary {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentActionResponse {
-    pub schema_revision: AgentSchemaRevision,
     pub session_id: SessionId,
     pub committed: bool,
     pub idempotent_replay: bool,
@@ -465,10 +446,10 @@ pub struct AgentSession {
     scenario: ScenarioId,
     visibility: VisibilityPolicy,
     encounter: EncounterId,
-    spec_digest: BattleSpecDigest,
+    assembly_digest: AssemblyDigest,
     master_seed: u64,
     battle: Battle,
-    standard: StandardV1Catalog,
+    standard: StandardCatalog,
     enemy: EnemyController,
     offered: Option<OfferedActionSet>,
     replay: AgentReplayRecorder,
@@ -512,8 +493,8 @@ impl AgentSession {
     }
 
     #[must_use]
-    pub const fn spec_digest(&self) -> BattleSpecDigest {
-        self.spec_digest
+    pub const fn assembly_digest(&self) -> AssemblyDigest {
+        self.assembly_digest
     }
 
     #[must_use]
@@ -567,7 +548,7 @@ impl AgentSession {
         build_replay_header(
             self.master_seed,
             self.encounter,
-            self.spec_digest,
+            self.assembly_digest,
             battle_record_count(self.replay.trace.len()).map_err(|_| replay_header_error())?,
         )
     }
@@ -628,7 +609,6 @@ impl AgentSession {
         let event_cursor = self.replay.latest_cursor();
         let settlement = self.play_token(&request.action_token)?;
         let response = AgentActionResponse {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: self.id.clone(),
             committed: true,
             idempotent_replay: false,
@@ -713,7 +693,6 @@ impl AgentSession {
             }
         };
         Ok(AgentObservation {
-            schema_revision: AgentSchemaRevision::V1,
             session_id: self.id.clone(),
             scenario_id: self.scenario.clone(),
             catalog_digest: AgentHash::from_bytes(view.identity().catalog_digest().bytes()),
@@ -941,31 +920,21 @@ fn agent_count(value: usize) -> Result<AgentUInt, AgentError> {
 fn build_replay_header(
     master_seed: u64,
     encounter: EncounterId,
-    spec_digest: BattleSpecDigest,
+    assembly_digest: AssemblyDigest,
     record_count: u32,
 ) -> Result<ReplayHeader, AgentError> {
-    let identity = ReplayIdentity::new(
-        "4.4",
-        RULES_REVISION,
-        CATALOG_REVISION,
-        ConfigBundleDigest::new(CONFIG_DIGEST),
-        starclock_combat::NUMERIC_POLICY_REVISION,
-        starclock_combat::rng::RNG_ALGORITHM_REVISION,
-        starclock_combat::STATE_HASH_REVISION,
-    )
-    .map_err(|_| replay_header_error())?;
-    let controller = ControllerIdentity::new(
-        AGENT_REPLAY_CONTROLLER_REVISION,
-        ControllerDigest::new(Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into()),
-    )
-    .map_err(|_| replay_header_error())?;
+    let identity = ReplayIdentity::new("4.4", ConfigBundleDigest::new(CONFIG_DIGEST))
+        .map_err(|_| replay_header_error())?;
+    let controller = ControllerIdentity::new(ControllerDigest::new(
+        Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into(),
+    ));
     ReplayHeader::new(
         identity,
         controller,
         master_seed,
         ReplayEntry::Battle {
             definition_id: encounter.get(),
-            spec_digest: EntrySpecDigest::new(spec_digest.bytes()),
+            spec_digest: EntrySpecDigest::new(assembly_digest.bytes()),
         },
         record_count,
     )
@@ -988,7 +957,7 @@ fn replay_phase(phase: BattlePhase) -> Result<crate::observation::AgentBattlePha
 fn replay_header_error() -> AgentError {
     agent_error(
         AgentErrorCode::AdapterFailure,
-        "The frozen replay compatibility header could not be constructed.",
+        "The replay header could not be constructed.",
     )
 }
 

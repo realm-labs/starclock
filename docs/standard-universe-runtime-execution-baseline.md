@@ -50,7 +50,6 @@ Standard profile compiler. Its release-mode rows cover 4,096 canonical state
 hashes, 4,096 alternating stale/not-offered battle commands and 4,096 stable
 integer RNG mappings. All retain zero catalog clones, zero reconstructed replay
 prefixes and deterministic final hashes. The first Windows x64 measurement is
-stored in `evidence/standard-universe-runtime-v1/activity/activity-hardening.json`.
 
 This baseline intentionally does not claim catalog-load, complete World 1,
 full-run replay or concurrent shared-catalog rows. Those frozen workloads become
@@ -79,7 +78,6 @@ allocations only because `allocation-counter` is thread-local; it never claims
 that worker allocations are zero. Windows x64 CI reruns one broad-budget sample,
 while deterministic native execution remains covered on all three native hosts.
 The retained baseline is
-`evidence/standard-universe-runtime-v1/performance/stable-runner.json`.
 
 ### P3-B1 entry compilation
 

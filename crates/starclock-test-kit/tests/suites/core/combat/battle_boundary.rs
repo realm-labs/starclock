@@ -229,15 +229,12 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
     assert_eq!(view.identity().catalog_digest().bytes(), [0x41; 32]);
     assert_eq!(view.identity().rules_revision(), "synthetic-rules-v1");
     assert_eq!(view.identity().spec_digest().bytes(), [0x51; 32]);
+    assert_eq!(view.identity().numeric_policy(), "fixed-i64-6dp-v1");
     assert_eq!(
-        view.identity().numeric_policy_revision(),
-        "fixed-i64-6dp-v1"
-    );
-    assert_eq!(
-        view.identity().rng_algorithm_revision(),
+        view.identity().rng_algorithm(),
         "chacha8-rand-0.10.2-intmap-v1"
     );
-    assert_eq!(view.identity().state_hash_revision(), "sha256-v7");
+    assert_eq!(view.identity().state_hash_policy(), "sha256-v7");
     assert_eq!(view.identity().seed().bytes(), [0x71; 32]);
     assert_eq!(view.encounter().definition(), definition::<EncounterId>(1));
     assert_eq!(view.encounter().wave().get(), 1);
