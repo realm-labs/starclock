@@ -51,7 +51,7 @@ fn neural_partition_binds_exactly_forty_rules_to_production_executors() {
     let policy_rules = bindings
         .iter()
         .filter(|binding| {
-            binding.accuracy() == GoldAndGearsNeuralRuleAccuracy::VersionedProjectPolicy
+            binding.accuracy() == GoldAndGearsNeuralRuleAccuracy::ProjectPolicy
         })
         .map(|binding| binding.rule_id())
         .collect::<Vec<_>>();

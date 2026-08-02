@@ -24,7 +24,7 @@ pub enum GoldAndGearsOccurrenceRuleOwnership {
 #[repr(u8)]
 pub enum GoldAndGearsOccurrenceRuleAccuracy {
     ExactPublic,
-    VersionedProjectPolicy,
+    ProjectPolicy,
 }
 
 /// One of the 384 frozen Occurrence-choice rules with terminal dispatch.
@@ -67,7 +67,7 @@ impl GoldAndGearsOccurrenceRuleBinding {
     pub const fn accuracy_name(&self) -> &'static str {
         match self.accuracy {
             GoldAndGearsOccurrenceRuleAccuracy::ExactPublic => "ExactPublic",
-            GoldAndGearsOccurrenceRuleAccuracy::VersionedProjectPolicy => "VersionedProjectPolicy",
+            GoldAndGearsOccurrenceRuleAccuracy::ProjectPolicy => "ProjectPolicy",
         }
     }
 

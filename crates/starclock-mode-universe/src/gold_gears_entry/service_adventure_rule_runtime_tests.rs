@@ -70,7 +70,7 @@ fn service_adventure_partition_binds_exactly_38_shared_rules() {
             .iter()
             .filter(|binding| {
                 binding.accuracy()
-                    == GoldAndGearsServiceAdventureRuleAccuracy::VersionedProjectPolicy
+                    == GoldAndGearsServiceAdventureRuleAccuracy::ProjectPolicy
             })
             .count(),
         8

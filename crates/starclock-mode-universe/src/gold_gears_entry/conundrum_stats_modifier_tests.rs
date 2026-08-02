@@ -27,7 +27,7 @@ use super::{
 const PATH: &str = "universe.path.preservation";
 
 #[test]
-fn stats_partition_binds_exactly_six_versioned_policy_rules() {
+fn stats_partition_binds_exactly_six_project_policy_rules() {
     let factory = super::tests::shared_factory();
     assert_eq!(
         GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION,

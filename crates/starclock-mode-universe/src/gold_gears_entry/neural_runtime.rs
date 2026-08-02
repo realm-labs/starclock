@@ -142,7 +142,7 @@ impl GoldAndGearsNeuralRuleBinding {
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum GoldAndGearsNeuralRuleAccuracy {
     ExactPublic,
-    VersionedProjectPolicy,
+    ProjectPolicy,
 }
 
 impl GoldAndGearsNeuralStatContribution {
@@ -663,7 +663,7 @@ fn rule_binding(node: &RuntimeNeuralNode) -> GoldAndGearsNeuralRuleBinding {
         ),
         NeuralEffect::DiceSlotUpgrade { .. } => (
             "UpgradeDiceFaceSlot",
-            GoldAndGearsNeuralRuleAccuracy::VersionedProjectPolicy,
+            GoldAndGearsNeuralRuleAccuracy::ProjectPolicy,
         ),
         NeuralEffect::TrailblazeBonusUnlock(_) => (
             "UnlockTrailblazeBonus",
@@ -683,7 +683,7 @@ fn rule_binding(node: &RuntimeNeuralNode) -> GoldAndGearsNeuralRuleBinding {
         ),
         NeuralEffect::RerollExclusion => (
             "ExcludePreviousRerollResult",
-            GoldAndGearsNeuralRuleAccuracy::VersionedProjectPolicy,
+            GoldAndGearsNeuralRuleAccuracy::ProjectPolicy,
         ),
     };
     GoldAndGearsNeuralRuleBinding {

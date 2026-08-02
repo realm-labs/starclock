@@ -16,7 +16,7 @@ pub enum GoldAndGearsServiceAdventureRuleKind {
 #[repr(u8)]
 pub enum GoldAndGearsServiceAdventureRuleAccuracy {
     ExactPublic,
-    VersionedProjectPolicy,
+    ProjectPolicy,
 }
 
 /// One frozen Service or Adventure rule bound to the released shared executor.
@@ -53,9 +53,7 @@ impl GoldAndGearsServiceAdventureRuleBinding {
     pub const fn accuracy_name(&self) -> &'static str {
         match self.accuracy {
             GoldAndGearsServiceAdventureRuleAccuracy::ExactPublic => "ExactPublic",
-            GoldAndGearsServiceAdventureRuleAccuracy::VersionedProjectPolicy => {
-                "VersionedProjectPolicy"
-            }
+            GoldAndGearsServiceAdventureRuleAccuracy::ProjectPolicy => "ProjectPolicy",
         }
     }
 

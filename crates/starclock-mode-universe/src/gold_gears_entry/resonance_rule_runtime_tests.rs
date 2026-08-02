@@ -62,7 +62,7 @@ fn resonance_partition_binds_exactly_90_terminal_rules() {
         bindings
             .iter()
             .filter(|binding| {
-                binding.accuracy() == GoldAndGearsResonanceRuleAccuracy::VersionedProjectPolicy
+                binding.accuracy() == GoldAndGearsResonanceRuleAccuracy::ProjectPolicy
             })
             .count(),
         36
@@ -167,7 +167,7 @@ fn all_36_extrapolation_rules_project_with_seeded_enemy_attachment() {
                 );
                 assert_eq!(
                     binding.terminal().accuracy(),
-                    GoldAndGearsResonanceRuleAccuracy::VersionedProjectPolicy
+                    GoldAndGearsResonanceRuleAccuracy::ProjectPolicy
                 );
                 assert_eq!(binding.terminal().executor(), "CombatRuleIr");
                 path_rules

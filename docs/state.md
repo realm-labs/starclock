@@ -117,6 +117,8 @@ Removed from current runtime surfaces:
   versions, plus fixed baseline controller digest snapshots;
 - seven Gold and Gears mechanic execution/profile revisions and their direct
   fixed digest snapshots;
+- Gold and Gears `VersionedProjectPolicy` accuracy naming; current inferred
+  rules are now classified simply as `ProjectPolicy`;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

@@ -41,7 +41,7 @@ pub enum GoldAndGearsResonanceRuleOwnership {
 #[repr(u8)]
 pub enum GoldAndGearsResonanceRuleAccuracy {
     ExactPublic = 0,
-    VersionedProjectPolicy = 1,
+    ProjectPolicy = 1,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -232,7 +232,7 @@ impl GoldAndGearsResonanceRuleRuntimeCatalog {
                 &extrapolation.identity.stable_key,
                 contribution,
                 GoldAndGearsResonanceRuleKind::Extrapolation,
-                GoldAndGearsResonanceRuleAccuracy::VersionedProjectPolicy,
+                GoldAndGearsResonanceRuleAccuracy::ProjectPolicy,
             )?);
         }
         bindings.sort_unstable_by(|left, right| left.rule_id.cmp(&right.rule_id));

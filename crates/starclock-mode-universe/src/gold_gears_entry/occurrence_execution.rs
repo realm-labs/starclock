@@ -54,7 +54,7 @@ pub(super) fn compile_rule_runtime(
             .find(|choice| choice.stable_key() == source.key.as_str())
             .ok_or(GoldAndGearsEntryError::InvalidOccurrenceRuntime)?;
         let accuracy = if choice.outcome().uses_seeded_uniform_policy() {
-            GoldAndGearsOccurrenceRuleAccuracy::VersionedProjectPolicy
+            GoldAndGearsOccurrenceRuleAccuracy::ProjectPolicy
         } else {
             GoldAndGearsOccurrenceRuleAccuracy::ExactPublic
         };

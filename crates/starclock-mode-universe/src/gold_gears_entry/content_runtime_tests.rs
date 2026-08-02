@@ -25,7 +25,7 @@ use super::{
 };
 
 #[test]
-fn curio_partition_binds_exactly_160_versioned_policy_rules() {
+fn curio_partition_binds_exactly_160_project_policy_rules() {
     let factory = factory();
     let bindings = factory.curio_rule_bindings();
     assert_eq!(bindings.len(), 160);
@@ -37,7 +37,7 @@ fn curio_partition_binds_exactly_160_versioned_policy_rules() {
     assert!(
         bindings
             .iter()
-            .all(|binding| binding.accuracy() == "VersionedProjectPolicy")
+            .all(|binding| binding.accuracy() == "ProjectPolicy")
     );
     assert_eq!(
         bindings

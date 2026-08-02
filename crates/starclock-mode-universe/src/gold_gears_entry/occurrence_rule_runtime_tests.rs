@@ -68,7 +68,7 @@ fn occurrence_partition_binds_exactly_384_terminal_rules() {
         bindings
             .iter()
             .filter(|binding| {
-                binding.accuracy() == GoldAndGearsOccurrenceRuleAccuracy::VersionedProjectPolicy
+                binding.accuracy() == GoldAndGearsOccurrenceRuleAccuracy::ProjectPolicy
             })
             .count(),
         43

@@ -36,7 +36,7 @@ pub(super) fn compile_rule_runtime(
             adventure.rule(),
             adventure.stable_key(),
             GoldAndGearsServiceAdventureRuleKind::AdventureOutcome,
-            GoldAndGearsServiceAdventureRuleAccuracy::VersionedProjectPolicy,
+            GoldAndGearsServiceAdventureRuleAccuracy::ProjectPolicy,
         )?);
     }
     bindings.sort_by(|left, right| left.rule_id.cmp(&right.rule_id));

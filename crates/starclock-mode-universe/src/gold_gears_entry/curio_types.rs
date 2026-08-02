@@ -177,7 +177,7 @@ impl GoldAndGearsCurioRuleBinding {
 
     #[must_use]
     pub const fn accuracy(&self) -> &'static str {
-        "VersionedProjectPolicy"
+        "ProjectPolicy"
     }
 
     #[must_use]
