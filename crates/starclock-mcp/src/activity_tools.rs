@@ -8,6 +8,7 @@ use starclock_agent_api::{
         PlayActivityActionRequest,
         registry::{
             RegistryCreateActivitySessionRequest, RegistryCreateGoldAndGearsSessionRequest,
+            RegistryCreateSwarmDisasterSessionRequest,
         },
     },
     error::AgentError,
@@ -128,6 +129,13 @@ impl StarclockMcp {
                     RegistryCreateGoldAndGearsSessionRequest { seed },
                 )?
             }
+            ActivityMode::SwarmDisaster => {
+                validate_swarm_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
+                self.activity_registry.create_swarm_disaster(
+                    owner,
+                    RegistryCreateSwarmDisasterSessionRequest { seed },
+                )?
+            }
         };
         Ok(ActivityObservationOutput {
             observation: json_output(observation)?,
@@ -228,6 +236,11 @@ impl StarclockMcp {
                 self.activity_registry
                     .verify_gold_and_gears_replay(&seed, &replay)?
             }
+            ActivityMode::SwarmDisaster => {
+                validate_swarm_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
+                self.activity_registry
+                    .verify_swarm_disaster_replay(&seed, &replay)?
+            }
         };
         Ok(VerifyActivityReplayOutput {
             schema_revision: schema_revision(),
@@ -251,12 +264,14 @@ fn required_uint(value: Option<&str>, message: &'static str) -> Result<AgentUInt
 enum ActivityMode {
     Standard,
     GoldAndGears,
+    SwarmDisaster,
 }
 
 fn activity_mode(value: Option<&str>) -> Result<ActivityMode, AgentError> {
     match value {
         None | Some("standard") => Ok(ActivityMode::Standard),
         Some("gold-and-gears") => Ok(ActivityMode::GoldAndGears),
+        Some("swarm-disaster") => Ok(ActivityMode::SwarmDisaster),
         Some(_) => Err(invalid_request("The Universe mode is invalid.")),
     }
 }
@@ -270,6 +285,20 @@ fn validate_gold_entry(
     {
         return Err(invalid_request(
             "The Gold and Gears fixed entry is incompatible.",
+        ));
+    }
+    Ok(())
+}
+
+fn validate_swarm_entry(
+    world: Option<&str>,
+    difficulty_index: Option<&str>,
+) -> Result<(), AgentError> {
+    if world.is_some_and(|value| value != "201")
+        || difficulty_index.is_some_and(|value| value != "0")
+    {
+        return Err(invalid_request(
+            "The Swarm Disaster fixed entry is incompatible.",
         ));
     }
     Ok(())

@@ -22,6 +22,8 @@ const UNIVERSE_URI: &str = "starclock://universe/manifest";
 const UNIVERSE_RULES_URI: &str = "starclock://rules/standard-universe";
 const GOLD_AND_GEARS_URI: &str = "starclock://universe/gold-and-gears/manifest";
 const GOLD_AND_GEARS_RULES_URI: &str = "starclock://rules/gold-and-gears";
+const SWARM_DISASTER_URI: &str = "starclock://universe/swarm-disaster/manifest";
+const SWARM_DISASTER_RULES_URI: &str = "starclock://rules/swarm-disaster";
 const SCENARIO_PREFIX: &str = "starclock://scenario/";
 const CHARACTER_PREFIX: &str = "starclock://character/";
 const USAGE_PROMPT: &str = "starclock_battle_loop";
@@ -85,6 +87,14 @@ pub(crate) fn list_resources() -> ListResourcesResult {
             .with_mime_type(MIME_JSON),
         Resource::new(GOLD_AND_GEARS_RULES_URI, "gold-and-gears-rules")
             .with_title("Starclock Gold and Gears Activity rules")
+            .with_description("Concise shared authority, settlement and replay invariants.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(SWARM_DISASTER_URI, "swarm-disaster-manifest")
+            .with_title("Starclock Swarm Disaster manifest")
+            .with_description("Bounded fixed-entry compatibility and accuracy metadata.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(SWARM_DISASTER_RULES_URI, "swarm-disaster-rules")
+            .with_title("Starclock Swarm Disaster Activity rules")
             .with_description("Concise shared authority, settlement and replay invariants.")
             .with_mime_type(MIME_JSON),
     ])
@@ -154,6 +164,23 @@ pub(crate) fn read_resource(
         )?,
         GOLD_AND_GEARS_RULES_URI => resource_json(
             "gold_and_gears_rules",
+            UniverseRulesResource {
+                exact_number_encoding: "canonical_decimal_strings",
+                external_decision_owner: "activity_player",
+                action_authority: "currently_offered_opaque_token",
+                settlement_boundary: "next_external_activity_decision_or_terminal",
+                nested_battle_policy: "authoritative_real_combat_settlement",
+                replay_authority: "accepted_activity_actions_nested_battle_commands_events_and_state_hashes",
+            },
+        )?,
+        SWARM_DISASTER_URI => resource_json(
+            "swarm_disaster_manifest",
+            activity_registry
+                .swarm_disaster_manifest()
+                .map_err(agent_adapter_error)?,
+        )?,
+        SWARM_DISASTER_RULES_URI => resource_json(
+            "swarm_disaster_rules",
             UniverseRulesResource {
                 exact_number_encoding: "canonical_decimal_strings",
                 external_decision_owner: "activity_player",
@@ -245,6 +272,7 @@ mod tests {
         gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
         schema::SessionId,
         session::{OperationalClock, SessionIdSource},
+        swarm_disaster_activity_session::SwarmDisasterActivityAgentSessionFactory,
     };
 
     struct Clock;
@@ -265,9 +293,11 @@ mod tests {
         let factory = AgentSessionFactory::load_production().unwrap();
         let activity_factory = ActivityAgentSessionFactory::load_production().unwrap();
         let gold_factory = GoldAndGearsActivityAgentSessionFactory::load_production().unwrap();
-        let activity_registry = ActivityAgentSessionRegistry::new_with_gold_and_gears(
+        let swarm_factory = SwarmDisasterActivityAgentSessionFactory::load_production().unwrap();
+        let activity_registry = ActivityAgentSessionRegistry::new_with_modes(
             activity_factory.clone(),
             gold_factory,
+            swarm_factory,
             Arc::new(Clock),
             Arc::new(Ids),
         );
@@ -287,6 +317,8 @@ mod tests {
             UNIVERSE_RULES_URI,
             GOLD_AND_GEARS_URI,
             GOLD_AND_GEARS_RULES_URI,
+            SWARM_DISASTER_URI,
+            SWARM_DISASTER_RULES_URI,
         ] {
             let result =
                 read_resource(&factory, &activity_factory, &activity_registry, uri).unwrap();

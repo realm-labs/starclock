@@ -840,6 +840,8 @@ mod tests {
                 .unwrap();
         let gold_factory = starclock_agent_api::gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory::load_production()
             .unwrap();
+        let swarm_factory = starclock_agent_api::swarm_disaster_activity_session::SwarmDisasterActivityAgentSessionFactory::load_production()
+            .unwrap();
         let clock = Arc::new(TestClock);
         let ids = Arc::new(TestIds::default());
         let registry = starclock_agent_api::session::AgentSessionRegistry::new(
@@ -847,9 +849,10 @@ mod tests {
             clock.clone(),
             ids.clone(),
         );
-        let activity_registry = starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new_with_gold_and_gears(
+        let activity_registry = starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new_with_modes(
                 activity_factory.clone(),
                 gold_factory,
+                swarm_factory,
                 clock,
                 ids,
             );
@@ -935,7 +938,9 @@ mod tests {
                 "starclock://universe/manifest",
                 "starclock://rules/standard-universe",
                 "starclock://universe/gold-and-gears/manifest",
-                "starclock://rules/gold-and-gears"
+                "starclock://rules/gold-and-gears",
+                "starclock://universe/swarm-disaster/manifest",
+                "starclock://rules/swarm-disaster"
             ]
         );
         let templates = client.list_all_resource_templates().await.unwrap();
@@ -1156,3 +1161,6 @@ mod tests {
 #[cfg(test)]
 #[path = "tools/gold_gears_tests.rs"]
 mod gold_gears_tests;
+#[cfg(test)]
+#[path = "tools/swarm_disaster_tests.rs"]
+mod swarm_disaster_tests;

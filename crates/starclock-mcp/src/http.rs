@@ -48,6 +48,7 @@ use starclock_agent_api::{
         AgentSessionFactory, AgentSessionOwner, AgentSessionRegistry, OperationalClock,
         SessionIdSource,
     },
+    swarm_disaster_activity_session::SwarmDisasterActivityAgentSessionFactory,
 };
 use tokio::sync::{OwnedSemaphorePermit, Semaphore};
 
@@ -190,6 +191,8 @@ fn build_loopback_app(
         ActivityAgentSessionFactory::load_production().map_err(|_| HttpServeError::Startup)?;
     let gold_factory = GoldAndGearsActivityAgentSessionFactory::load_production()
         .map_err(|_| HttpServeError::Startup)?;
+    let swarm_factory = SwarmDisasterActivityAgentSessionFactory::load_production()
+        .map_err(|_| HttpServeError::Startup)?;
     let operational_clock = Arc::new(HttpClock::new());
     let session_ids = Arc::new(HttpBattleSessionIds::new());
     let registry = AgentSessionRegistry::new(
@@ -197,9 +200,10 @@ fn build_loopback_app(
         operational_clock.clone(),
         session_ids.clone(),
     );
-    let activity_registry = ActivityAgentSessionRegistry::new_with_gold_and_gears(
+    let activity_registry = ActivityAgentSessionRegistry::new_with_modes(
         activity_factory.clone(),
         gold_factory,
+        swarm_factory,
         operational_clock.clone(),
         session_ids,
     );

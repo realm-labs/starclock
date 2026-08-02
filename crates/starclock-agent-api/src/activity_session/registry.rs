@@ -10,6 +10,9 @@ use std::{
 
 use serde::{Deserialize, Serialize};
 
+mod gold;
+mod swarm;
+
 use super::{
     ActivityAgentSession, ActivityAgentSessionFactory, AgentActivityActionResponse,
     AgentActivityObservation, AgentActivityReplayExport, AgentActivityReplayVerification,
@@ -26,6 +29,10 @@ use crate::{
         AgentSessionOwner, IDLE_TTL_SECONDS, MAX_GLOBAL_SESSIONS, MAX_SESSIONS_PER_PRINCIPAL,
         MAX_SESSIONS_PER_TENANT, MAXIMUM_LIFETIME_SECONDS, OperationalClock, SessionIdSource,
     },
+    swarm_disaster_activity_session::{
+        AgentSwarmDisasterManifest, CreateSwarmDisasterActivitySessionRequest,
+        SwarmDisasterActivityAgentSession, SwarmDisasterActivityAgentSessionFactory,
+    },
 };
 
 const MAX_TERMINAL_TOMBSTONES: usize = MAX_GLOBAL_SESSIONS;
@@ -39,6 +46,11 @@ pub struct RegistryCreateActivitySessionRequest {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct RegistryCreateGoldAndGearsSessionRequest {
+    pub seed: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct RegistryCreateSwarmDisasterSessionRequest {
     pub seed: AgentUInt,
 }
 
@@ -67,6 +79,7 @@ pub struct ActivityAgentSessionRegistry {
 struct RegistryInner {
     factory: ActivityAgentSessionFactory,
     gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
+    swarm_factory: Option<SwarmDisasterActivityAgentSessionFactory>,
     clock: Arc<dyn OperationalClock>,
     id_source: Arc<dyn SessionIdSource>,
     last_clock: AtomicU64,
@@ -102,6 +115,7 @@ enum SessionLaneState {
 enum HostedActivitySession {
     Standard(ActivityAgentSession),
     GoldAndGears(GoldAndGearsActivityAgentSession),
+    SwarmDisaster(SwarmDisasterActivityAgentSession),
 }
 
 impl HostedActivitySession {
@@ -109,6 +123,7 @@ impl HostedActivitySession {
         match self {
             Self::Standard(session) => session.observe(),
             Self::GoldAndGears(session) => session.observe(),
+            Self::SwarmDisaster(session) => session.observe(),
         }
     }
 
@@ -119,6 +134,7 @@ impl HostedActivitySession {
         match self {
             Self::Standard(session) => session.apply_action(request),
             Self::GoldAndGears(session) => session.apply_action(request),
+            Self::SwarmDisaster(session) => session.apply_action(request),
         }
     }
 
@@ -126,6 +142,7 @@ impl HostedActivitySession {
         match self {
             Self::Standard(session) => session.export_replay(),
             Self::GoldAndGears(session) => session.export_replay(),
+            Self::SwarmDisaster(session) => session.export_replay(),
         }
     }
 
@@ -133,12 +150,16 @@ impl HostedActivitySession {
         &mut self,
         standard: &ActivityAgentSessionFactory,
         gold: Option<&GoldAndGearsActivityAgentSessionFactory>,
+        swarm: Option<&SwarmDisasterActivityAgentSessionFactory>,
         bytes: &[u8],
     ) -> Result<AgentActivityReplayVerification, AgentError> {
         match self {
             Self::Standard(session) => session.verify_replay(standard, bytes),
             Self::GoldAndGears(session) => {
                 session.verify_replay(gold.ok_or_else(gold_not_configured)?, bytes)
+            }
+            Self::SwarmDisaster(session) => {
+                session.verify_replay(swarm.ok_or_else(swarm::swarm_not_configured)?, bytes)
             }
         }
     }
@@ -147,6 +168,7 @@ impl HostedActivitySession {
         match self {
             Self::Standard(session) => session.close(),
             Self::GoldAndGears(session) => session.close(),
+            Self::SwarmDisaster(session) => session.close(),
         }
     }
 }
@@ -169,21 +191,13 @@ impl ActivityAgentSessionRegistry {
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
     ) -> Self {
-        Self::with_limits(factory, None, clock, id_source, FROZEN_LIMITS)
-    }
-
-    pub fn new_with_gold_and_gears(
-        factory: ActivityAgentSessionFactory,
-        gold_factory: GoldAndGearsActivityAgentSessionFactory,
-        clock: Arc<dyn OperationalClock>,
-        id_source: Arc<dyn SessionIdSource>,
-    ) -> Self {
-        Self::with_limits(factory, Some(gold_factory), clock, id_source, FROZEN_LIMITS)
+        Self::with_limits(factory, None, None, clock, id_source, FROZEN_LIMITS)
     }
 
     fn with_limits(
         factory: ActivityAgentSessionFactory,
         gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
+        swarm_factory: Option<SwarmDisasterActivityAgentSessionFactory>,
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
         limits: RegistryLimits,
@@ -192,6 +206,7 @@ impl ActivityAgentSessionRegistry {
             inner: Arc::new(RegistryInner {
                 factory,
                 gold_factory,
+                swarm_factory,
                 clock,
                 id_source,
                 last_clock: AtomicU64::new(0),
@@ -310,8 +325,14 @@ impl ActivityAgentSessionRegistry {
     ) -> Result<AgentActivityReplayVerification, AgentError> {
         let factory = self.inner.factory.clone();
         let gold_factory = self.inner.gold_factory.clone();
+        let swarm_factory = self.inner.swarm_factory.clone();
         self.with_active(owner, id, |session| {
-            session.verify_replay(&factory, gold_factory.as_ref(), bytes)
+            session.verify_replay(
+                &factory,
+                gold_factory.as_ref(),
+                swarm_factory.as_ref(),
+                bytes,
+            )
         })
     }
 
@@ -568,7 +589,6 @@ fn gold_not_configured() -> AgentError {
         "Gold and Gears Activity sessions are not configured.",
     )
 }
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -601,6 +621,7 @@ mod tests {
             ActivityAgentSessionRegistry::with_limits(
                 ActivityAgentSessionFactory::load_production().unwrap(),
                 None,
+                None,
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -608,12 +629,13 @@ mod tests {
             ids,
         )
     }
-    fn registry_with_gold(limits: RegistryLimits) -> (ActivityAgentSessionRegistry, Arc<Ids>) {
+    fn registry_with_modes(limits: RegistryLimits) -> (ActivityAgentSessionRegistry, Arc<Ids>) {
         let ids = Arc::new(Ids(AtomicUsize::new(1)));
         (
             ActivityAgentSessionRegistry::with_limits(
                 ActivityAgentSessionFactory::load_production().unwrap(),
                 Some(GoldAndGearsActivityAgentSessionFactory::load_production().unwrap()),
+                Some(SwarmDisasterActivityAgentSessionFactory::load_production().unwrap()),
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -677,27 +699,36 @@ mod tests {
     }
 
     #[test]
-    fn standard_and_gold_share_tenant_quota_and_identity_allocation() {
+    fn all_activity_modes_share_tenant_quota_and_identity_allocation() {
         let limits = RegistryLimits {
-            global: 2,
-            tenant: 1,
-            principal: 2,
+            global: 3,
+            tenant: 2,
+            principal: 3,
             ..FROZEN_LIMITS
         };
-        let (registry, ids) = registry_with_gold(limits);
+        let (registry, ids) = registry_with_modes(limits);
         let alice = AgentSessionOwner::new("tenant", "alice").unwrap();
         let bob = AgentSessionOwner::new("tenant", "bob").unwrap();
+        let carol = AgentSessionOwner::new("tenant", "carol").unwrap();
         registry.create(&alice, request()).unwrap();
-        let error = registry
+        registry
             .create_gold_and_gears(
                 &bob,
                 RegistryCreateGoldAndGearsSessionRequest {
                     seed: AgentUInt::from_u64(14_001),
                 },
             )
+            .unwrap();
+        let error = registry
+            .create_swarm_disaster(
+                &carol,
+                RegistryCreateSwarmDisasterSessionRequest {
+                    seed: AgentUInt::from_u64(20_001),
+                },
+            )
             .unwrap_err();
         assert_eq!(error.code, AgentErrorCode::SessionQuotaExceeded);
-        assert_eq!(ids.0.load(Ordering::Relaxed), 2);
+        assert_eq!(ids.0.load(Ordering::Relaxed), 3);
         assert_eq!(
             registry
                 .gold_and_gears_manifest()
@@ -705,6 +736,14 @@ mod tests {
                 .profile_id
                 .as_ref(),
             "gold-gears.profile.v1"
+        );
+        assert_eq!(
+            registry
+                .swarm_disaster_manifest()
+                .unwrap()
+                .profile_id
+                .as_ref(),
+            "swarm-disaster.profile.v1"
         );
     }
 

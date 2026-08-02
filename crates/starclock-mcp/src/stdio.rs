@@ -21,6 +21,7 @@ use starclock_agent_api::{
         AgentSessionFactory, AgentSessionOwner, AgentSessionRegistry, OperationalClock,
         SessionIdSource,
     },
+    swarm_disaster_activity_session::SwarmDisasterActivityAgentSessionFactory,
 };
 use tokio::io::{AsyncRead, ReadBuf};
 
@@ -61,12 +62,15 @@ async fn serve_async() -> Result<(), StdioServeError> {
         ActivityAgentSessionFactory::load_production().map_err(|_| StdioServeError::Startup)?;
     let gold_factory = GoldAndGearsActivityAgentSessionFactory::load_production()
         .map_err(|_| StdioServeError::Startup)?;
+    let swarm_factory = SwarmDisasterActivityAgentSessionFactory::load_production()
+        .map_err(|_| StdioServeError::Startup)?;
     let clock = Arc::new(LocalClock::new());
     let ids = Arc::new(LocalSessionIds::new());
     let registry = AgentSessionRegistry::new(factory.clone(), clock.clone(), ids.clone());
-    let activity_registry = ActivityAgentSessionRegistry::new_with_gold_and_gears(
+    let activity_registry = ActivityAgentSessionRegistry::new_with_modes(
         activity_factory.clone(),
         gold_factory,
+        swarm_factory,
         clock,
         ids,
     );
