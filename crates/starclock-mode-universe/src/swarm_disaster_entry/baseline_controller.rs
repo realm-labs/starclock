@@ -349,7 +349,7 @@ pub(super) fn decision_digest(
     run_digest: [u8; 32],
     decisions: &[SwarmBaselineDecision],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.baseline-controller.v1");
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.baseline-controller");
     encoder.text(SWARM_DISASTER_BASELINE_CONTROLLER_DOMAIN);
     encoder.digest(run_digest);
     encoder.u32(u32::try_from(decisions.len()).expect("seeded decision count is bounded"));

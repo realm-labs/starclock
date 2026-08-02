@@ -228,7 +228,7 @@ impl SwarmDisasterRuntimeInstance {
     ///
     /// Explicit selectors accept one eligible node. Random selectors consume
     /// only the labeled Spawn target stream. An empty legal set commits the
-    /// versioned no-op result without consuming RNG.
+    /// deterministic no-op result without consuming RNG.
     pub fn compile_dice_face_activation(
         &self,
         state: &ActivityTransactionState,
@@ -247,7 +247,7 @@ impl SwarmDisasterRuntimeInstance {
             .map(super::face_effect::RuntimeDiceFace::activation_stage)
     }
 
-    /// Returns the versioned target contract for one selected-Die face.
+    /// Returns the target contract for one selected-Die face.
     #[must_use]
     pub fn dice_face_target_contract(&self, face: &str) -> Option<&'static str> {
         self.dice_face_runtime(face)
@@ -413,7 +413,7 @@ impl SwarmDisasterRuntimeInstance {
 
     /// Compiles one five-tier Phase 3 boundary into a single Activity program.
     ///
-    /// The versioned ProjectPolicy order is movement/Countdown, selected face,
+    /// The ProjectPolicy order is movement/Countdown, selected face,
     /// optional map replacement, optional Communing choice, then optional
     /// cabinet completion. `rng` is transactional: a later validation failure
     /// restores every stream. No new mode-owned state machine is introduced.

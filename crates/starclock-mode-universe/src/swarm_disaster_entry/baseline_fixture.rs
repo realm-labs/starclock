@@ -269,7 +269,7 @@ fn activity_identity(instance: &SwarmDisasterRuntimeInstance) -> ActivityDefinit
     definition.digest(instance.graph_definition().digest().bytes());
     definition.digest(instance.participants().digest().bytes());
     definition.digest(instance.battle_catalog.digest());
-    let mut config = Encoder::new(b"starclock.swarm-disaster.baseline-entry-spec.v1");
+    let mut config = Encoder::new(b"starclock.swarm-disaster.baseline-entry-spec");
     config.text(AREA);
     config.text(PATH);
     config.text(AUDIENCE_DIE);

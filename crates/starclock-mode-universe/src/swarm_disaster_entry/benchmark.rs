@@ -113,7 +113,7 @@ impl SwarmDisasterPerformanceFixture {
         let communing = (1..=7)
             .map(|id| (format!("swarm-disaster.communing-dimension.{id}"), 20))
             .collect::<Vec<_>>();
-        let mut hash = Encoder::new(b"starclock.swarm-disaster.performance-matrix.v1");
+        let mut hash = Encoder::new(b"starclock.swarm-disaster.performance-matrix");
         for (area, path, die) in MATRIX {
             let entry = SwarmDisasterEntry::new(
                 format!("swarm-disaster.area.{area}"),

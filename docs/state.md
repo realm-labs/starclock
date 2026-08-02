@@ -113,6 +113,8 @@ Removed from current runtime surfaces:
   adventure runtime revisions and their fixed digest snapshots;
 - Swarm Disaster encounter, enemy-composition, battle-materialization and
   battle-snapshot revisions and their byte-for-byte digest snapshots;
+- Swarm Disaster baseline entry/controller and performance-matrix hash-domain
+  versions, plus fixed baseline controller digest snapshots;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain
