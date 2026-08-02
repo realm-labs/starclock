@@ -328,6 +328,25 @@ impl MapRuntimeCatalog {
             .ok_or_else(|| invalid("unknown Swarm domain"))
     }
 
+    pub(super) fn node_domain_key<'a>(
+        &'a self,
+        state: &ActivityTransactionState,
+        node: NodeId,
+    ) -> Result<Option<&'a str>, UniverseCatalogLoadError> {
+        let values = map_values(state, NODE_DOMAIN)?;
+        let raw = u64::from(node.get());
+        let Some(index) = values.binary_search_by_key(&raw, |(key, _)| *key).ok() else {
+            return Ok(None);
+        };
+        let id = u32::try_from(values[index].1)
+            .map_err(|_| invalid("invalid Swarm node domain value"))?;
+        Ok(self
+            .domains
+            .iter()
+            .find(|(_, candidate)| *candidate == id)
+            .map(|(key, _)| key.as_ref()))
+    }
+
     fn beacon(&self, key: Option<&str>) -> Result<u32, UniverseCatalogLoadError> {
         key.map_or(Ok(0), |key| {
             self.beacons

@@ -10,8 +10,8 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
     audience_rule_runtime, boss_rule_runtime, communing, communing_rule_runtime, content_runtime,
     countdown, curio_rule_runtime, dice_control, disarray_rule_runtime, encounter_rule_runtime,
-    face_effect, map_overlay, occurrence_rule_runtime, occurrence_runtime, path_rule_runtime,
-    path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
+    encounter_runtime, face_effect, map_overlay, occurrence_rule_runtime, occurrence_runtime,
+    path_rule_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
     progression_rule_runtime, runtime_coverage, semantic_fixture_runtime,
     service_adventure_runtime, service_rule_runtime, state, topology_rule_runtime, trail,
     validate::{
@@ -67,6 +67,9 @@ impl SwarmDisasterRuntimeFactory {
                 "encounter-selection",
             )?)?,
         );
+        let encounters = Arc::new(encounter_runtime::EncounterRuntimeCatalog::compile(
+            content.encounter_runtime_input()?,
+        )?);
         let audience_input = unique.audience_runtime_input();
         let face_effects = Arc::new(face_effect::DiceFaceRuntimeCatalog::compile(
             &audience_input.faces,
@@ -158,6 +161,7 @@ impl SwarmDisasterRuntimeFactory {
             transitions,
             boss_rules,
             encounter_rule,
+            encounters,
             audience,
             audience_rules,
             dice_controls,
@@ -240,6 +244,12 @@ impl SwarmDisasterRuntimeFactory {
                 .topology_input(area.id)
                 .ok_or_else(|| reference("Swarm topology input is incomplete"))?,
         )?;
+        let encounter_runtime = encounter_runtime::CompiledEncounterRuntime::compile(
+            Arc::clone(&self.encounters),
+            self.structural
+                .encounter_runtime_input(area.id)
+                .ok_or_else(|| reference("Swarm encounter structural input is incomplete"))?,
+        )?;
         let state = state::compile(state::SwarmStateCompileInput {
             area,
             selection,
@@ -267,6 +277,7 @@ impl SwarmDisasterRuntimeFactory {
             transitions: Arc::clone(&self.transitions),
             boss_rules: Arc::clone(&self.boss_rules),
             encounter_rule: Arc::clone(&self.encounter_rule),
+            encounter_runtime,
             audience,
             audience_rules: Arc::clone(&self.audience_rules),
             dice_controls,

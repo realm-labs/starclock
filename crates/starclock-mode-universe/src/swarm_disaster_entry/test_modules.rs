@@ -2,6 +2,7 @@ mod audience_tests;
 mod communing_tests;
 mod countdown_tests;
 mod dice_control_tests;
+mod encounter_runtime_tests;
 mod face_effect_tests;
 mod map_overlay_tests;
 mod pathstrider_progress_tests;

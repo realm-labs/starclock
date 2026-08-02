@@ -1,6 +1,7 @@
 //! Immutable content, encounter, rule and coverage catalogs for Swarm Disaster.
 
 pub(crate) mod coverage_access;
+pub(crate) mod encounter_access;
 pub(crate) mod interaction_access;
 pub(crate) mod inventory_access;
 mod lower;
