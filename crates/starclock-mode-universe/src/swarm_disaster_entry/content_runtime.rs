@@ -52,7 +52,7 @@ pub(super) struct ContentRuntimeCatalog {
     pub(super) run: Arc<RunRuntimeCatalog>,
     pub(super) battle_contributions: Arc<UniverseBattleContributionCompiler>,
     reachable_blessings: Box<[ReachableBlessing]>,
-    curios: Box<[RuntimeCurio]>,
+    pub(super) curios: Box<[RuntimeCurio]>,
     digest: [u8; 32],
 }
 
@@ -1177,11 +1177,11 @@ fn lifecycle_slot() -> ActivitySlotId {
     ActivitySlotId::new(CONTENT).expect("static lifecycle slot is non-zero")
 }
 
-const fn state_key(id: u32) -> u64 {
+pub(super) const fn state_key(id: u32) -> u64 {
     CURIO_STATE_BASE + id as u64
 }
 
-const fn counter_key(id: u32) -> u64 {
+pub(super) const fn counter_key(id: u32) -> u64 {
     CURIO_COUNTER_BASE + id as u64
 }
 

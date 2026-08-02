@@ -109,6 +109,13 @@ impl SwarmDisasterRuntimeInstance {
         let next_battle_face = self
             .dice_resolution_face(state)
             .filter(|face| self.dice_face_activation_stage(face) == Some(3));
+        let selected_boss =
+            boss_plane(selection.role).and_then(|plane| self.selected_boss(state, plane));
+        let boss_decay = if selection.role == EncounterRole::FinalBoss {
+            self.countdown.selected_boss_decay(state)?
+        } else {
+            Box::new([])
+        };
         let curio_entries = inventory(state, CURIO_INVENTORY)?;
         let curio_state = counter_map(state, CONTENT)?;
         let disarray = self.disarray_modifiers(state)?;
@@ -122,6 +129,8 @@ impl SwarmDisasterRuntimeInstance {
             &interplays,
             &trail,
             next_battle_face,
+            selected_boss,
+            &boss_decay,
             disarray,
         );
         Ok(CompiledSwarmBattleSnapshot {
@@ -148,6 +157,8 @@ fn snapshot_digest(
     interplays: &[(&str, &str, &str)],
     trail: &[(&str, &str, &str)],
     next_battle_face: Option<&str>,
+    selected_boss: Option<&str>,
+    boss_decay: &[&super::countdown::BossDecayContribution],
     disarray: (i64, i64, i64),
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock.swarm-disaster.battle-snapshot.v1");
@@ -205,6 +216,14 @@ fn snapshot_digest(
             instance.dice_face_turn_duration(face).unwrap_or(0),
         ));
     }
+    if selected_boss.is_some() || !boss_decay.is_empty() {
+        encoder.optional_text(selected_boss);
+        encoder.u32(u32::try_from(boss_decay.len()).expect("Boss Decay set is bounded"));
+        for contribution in boss_decay {
+            encoder.text(contribution.key());
+            encoder.text(contribution.effect_program());
+        }
+    }
     encoder.i64(disarray.0);
     encoder.i64(disarray.1);
     encoder.i64(disarray.2);
@@ -235,6 +254,15 @@ fn counter_map(
 
 fn checked_u16(value: usize) -> Result<u16, UniverseCatalogLoadError> {
     u16::try_from(value).map_err(|_| invalid("Swarm battle snapshot count overflow"))
+}
+
+const fn boss_plane(role: EncounterRole) -> Option<u8> {
+    match role {
+        EncounterRole::Combat | EncounterRole::Elite => None,
+        EncounterRole::FirstPlaneBoss => Some(1),
+        EncounterRole::SecondPlaneBoss => Some(2),
+        EncounterRole::FinalBoss => Some(3),
+    }
 }
 
 fn checked_u8(value: usize) -> Result<u8, UniverseCatalogLoadError> {

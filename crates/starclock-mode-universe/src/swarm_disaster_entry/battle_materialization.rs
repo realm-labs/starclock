@@ -55,6 +55,13 @@ struct ModifierAttachment {
     source: RuleSource,
 }
 
+pub(super) struct SwarmBattleMaterialization {
+    pub(super) battle_spec: BattleSpec,
+    pub(super) combat_catalog: Arc<CombatCatalog>,
+    pub(super) selection: EncounterSelection,
+    pub(super) snapshot_digest: [u8; 32],
+}
+
 impl SwarmDisasterRuntimeInstance {
     /// Selects the current encounter from the labeled Encounter stream and
     /// materializes a construction-validated immutable battle request.
@@ -66,6 +73,16 @@ impl SwarmDisasterRuntimeInstance {
         rng: &mut ActivityRngStreams,
         roster: &UniverseBattleRoster,
     ) -> Result<BattleSpec, UniverseCatalogLoadError> {
+        self.resolve_current_battle(state, rng, roster)
+            .map(|materialization| materialization.battle_spec)
+    }
+
+    pub(super) fn resolve_current_battle(
+        &self,
+        state: &ActivityTransactionState,
+        rng: &mut ActivityRngStreams,
+        roster: &UniverseBattleRoster,
+    ) -> Result<SwarmBattleMaterialization, UniverseCatalogLoadError> {
         if state.current_battle_attempt_is_settled()
             || roster.participant_lock() != self.participants().digest()
         {
@@ -125,7 +142,12 @@ impl SwarmDisasterRuntimeInstance {
                 BattleSeed::new([0x53; 32]),
             )
             .map_err(|_| invalid("Swarm BattleSpec failed construction validation"))?;
-            Ok(battle_spec)
+            Ok(SwarmBattleMaterialization {
+                battle_spec,
+                combat_catalog,
+                selection,
+                snapshot_digest: snapshot.digest,
+            })
         })
     }
 }

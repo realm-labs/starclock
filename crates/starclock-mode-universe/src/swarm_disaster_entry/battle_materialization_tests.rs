@@ -217,7 +217,7 @@ fn trail_path_and_next_battle_die_face_are_bound_into_the_spec() {
     assert_ne!(before.assembly_digest(), after.assembly_digest());
 }
 
-fn instance() -> SwarmDisasterRuntimeInstance {
+pub(super) fn instance() -> SwarmDisasterRuntimeInstance {
     SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE)
         .unwrap()
         .compile_entry(super::tests::released_entry(
@@ -253,7 +253,7 @@ fn battle_participants() -> ParticipantLock {
     ParticipantLock::seal(super::tests::policy(), entries).unwrap()
 }
 
-fn combat_state(instance: &SwarmDisasterRuntimeInstance) -> ActivityTransactionState {
+pub(super) fn combat_state(instance: &SwarmDisasterRuntimeInstance) -> ActivityTransactionState {
     let node = instance.graph_definition().entry();
     let mut state = ActivityTransactionState::new(instance.state_definition().clone(), node);
     commit(
@@ -266,7 +266,7 @@ fn combat_state(instance: &SwarmDisasterRuntimeInstance) -> ActivityTransactionS
     state
 }
 
-fn roster(instance: &SwarmDisasterRuntimeInstance) -> UniverseBattleRoster {
+pub(super) fn roster(instance: &SwarmDisasterRuntimeInstance) -> UniverseBattleRoster {
     let combat = instance
         .content_runtime
         .standard
@@ -310,7 +310,7 @@ fn roster(instance: &SwarmDisasterRuntimeInstance) -> UniverseBattleRoster {
     UniverseBattleRoster::new(instance.participants(), combatants).unwrap()
 }
 
-fn commit(
+pub(super) fn commit(
     instance: &SwarmDisasterRuntimeInstance,
     state: &mut ActivityTransactionState,
     program: starclock_activity::ActivityProgramDefinition,
@@ -327,12 +327,19 @@ fn commit(
     ));
 }
 
-fn activity_rng(instance: &SwarmDisasterRuntimeInstance, seed: u64) -> ActivityRngStreams {
-    let identity = ActivityDefinitionIdentity::new(
+pub(super) fn activity_identity() -> ActivityDefinitionIdentity {
+    ActivityDefinitionIdentity::new(
         ActivityDefinitionId::new(20).unwrap(),
         ActivityDefinitionDigest::new([0x20; 32]).unwrap(),
         ActivityConfigDigest::new([0x6d; 32]).unwrap(),
-    );
+    )
+}
+
+pub(super) fn activity_rng(
+    instance: &SwarmDisasterRuntimeInstance,
+    seed: u64,
+) -> ActivityRngStreams {
+    let identity = activity_identity();
     ActivityRngStreams::new(ActivityRngContext::new(
         ActivityMasterSeed::from_u64(seed),
         identity.id(),

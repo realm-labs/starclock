@@ -236,6 +236,20 @@ impl ServiceAdventureRuntimeCatalog {
             .find(|row| row.key.as_ref() == key)
             .ok_or_else(|| reference("unknown Swarm Adventure"))
     }
+
+    pub(super) fn reviver_binding(
+        &self,
+        key: &str,
+    ) -> Result<(u32, &str, u32), UniverseCatalogLoadError> {
+        let service = self.service(key)?;
+        let [cost] = service.allowed_costs.as_ref() else {
+            return Err(reference("Swarm Reviver requires one exact authored cost"));
+        };
+        if service.kind != ServiceKind::Reviver {
+            return Err(reference("Swarm Service is not a Reviver"));
+        }
+        Ok((service.id, service.shared_key.as_ref(), *cost))
+    }
 }
 
 impl SwarmDisasterRuntimeInstance {
