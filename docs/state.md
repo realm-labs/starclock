@@ -87,6 +87,11 @@ Removed from current runtime surfaces:
   verification now rebuilds directly from the current schema/workbooks and
   compares current generated artifacts;
 - the deleted Goal-manifest verifier dependency from production bootstrap;
+- four obsolete partition authoring scripts (3,215 lines) and their
+  `G01-P7-*` partition ledger; the remaining current ConfigManifest author is
+  a focused three-field workbook adapter;
+- Goal schema/id/generated-date metadata from the retained core-combat gameplay
+  selection manifests;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain
@@ -100,8 +105,8 @@ The current Sora native-handler table still authors `handler_version`, but the
 runtime registry no longer consumes it. Removing that generated column requires
 the workbook, schema, generated reader and bundle to change together.
 
-The core-combat gameplay reference manifests remain, but their top-level
-`schema_revision`, `goal_id`, generated-date and partition/batch metadata are
-still historical authoring metadata rather than gameplay facts. Remove that
-metadata only while preserving the actual character, Light Cone, enemy,
-encounter and scenario reference rows.
+The core-combat gameplay reference manifests remain. Their per-row
+`implementation_state` labels and `standard-v1` stable IDs still mix workflow
+state/version naming into gameplay selections and remain cleanup debt; the
+actual character, Light Cone, enemy, encounter and scenario references must be
+preserved while that metadata is removed.
