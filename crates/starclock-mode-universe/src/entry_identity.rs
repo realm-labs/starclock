@@ -9,7 +9,7 @@ use crate::{
     battle_overlay::UniverseEncounterOverlay,
     catalog::UniverseCatalog,
     digest::Encoder,
-    entry::{STANDARD_UNIVERSE_ENTRY_REVISION, StandardUniverseCompileError},
+    entry::StandardUniverseCompileError,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
 };
 
@@ -23,19 +23,9 @@ pub(super) fn compile_identity(
     encounter_overlay: Option<&UniverseEncounterOverlay>,
 ) -> Result<ActivityDefinitionIdentity, StandardUniverseCompileError> {
     let catalog_identity = catalog.identity();
-    let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition-v1");
-    encoder.text(STANDARD_UNIVERSE_ENTRY_REVISION);
+    let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition");
     encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
     encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
-    encoder.text(crate::preservation_runtime::PRESERVATION_RUNTIME_REVISION);
-    encoder.text(crate::remembrance_runtime::REMEMBRANCE_RUNTIME_REVISION);
-    encoder.text(crate::nihility_runtime::NIHILITY_RUNTIME_REVISION);
-    encoder.text(crate::abundance_runtime::ABUNDANCE_RUNTIME_REVISION);
-    encoder.text(crate::hunt_runtime::HUNT_RUNTIME_REVISION);
-    encoder.text(crate::destruction_runtime::DESTRUCTION_RUNTIME_REVISION);
-    encoder.text(crate::elation_runtime::ELATION_RUNTIME_REVISION);
-    encoder.text(crate::propagation_runtime::PROPAGATION_RUNTIME_REVISION);
-    encoder.text(crate::erudition_runtime::ERUDITION_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);

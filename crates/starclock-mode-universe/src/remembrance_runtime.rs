@@ -11,7 +11,6 @@ use crate::{
     },
 };
 
-pub const REMEMBRANCE_RUNTIME_REVISION: &str = "standard-universe-remembrance-runtime-v1";
 const REMEMBRANCE_PATH_KEY: &str = "universe.path.remembrance";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -523,8 +522,7 @@ fn catalog_digest(
     blessings: &[BlessingPrograms],
     resonances: &[ResonanceProgram],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-universe-remembrance-runtime-catalog-v1");
-    encoder.text(REMEMBRANCE_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock-universe-remembrance-runtime-catalog");
     encoder.u32(path.get());
     encoder.u32(blessings.len() as u32);
     for blessing in blessings {

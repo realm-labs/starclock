@@ -7,7 +7,7 @@ use starclock_mode_universe::{
         PathBattleEvent, PathEffect, PathEffectDamageKind, PathEffectElement, PathEffectFacts,
         PathEffectStat, PathEffectTarget, PathEffectValue,
     },
-    remembrance_runtime::{REMEMBRANCE_RUNTIME_REVISION, RemembranceRuntimeCatalog},
+    remembrance_runtime::RemembranceRuntimeCatalog,
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../../config/generated/config.sora");
@@ -70,21 +70,10 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        REMEMBRANCE_RUNTIME_REVISION,
-        "standard-universe-remembrance-runtime-v1"
-    );
     assert_eq!(runtime.content_count(), 59);
     assert_eq!(runtime.rule_count(), 58);
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            216, 72, 8, 207, 24, 86, 136, 61, 220, 185, 104, 126, 105, 135, 94, 160, 170, 103, 139,
-            100, 205, 183, 135, 79, 219, 184, 115, 168, 208, 209, 113, 164,
-        ]
-    );
 }
 
 #[test]

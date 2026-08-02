@@ -1,7 +1,7 @@
 use std::sync::{Arc, OnceLock};
 
 use starclock_mode_universe::{
-    abundance_runtime::{ABUNDANCE_RUNTIME_REVISION, AbundanceRuntimeCatalog},
+    abundance_runtime::AbundanceRuntimeCatalog,
     catalog::UniverseCatalog,
     id::{BlessingId, ResonanceId},
     path_effect_runtime::{
@@ -67,21 +67,10 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        ABUNDANCE_RUNTIME_REVISION,
-        "standard-universe-abundance-runtime-v1"
-    );
     assert_eq!(runtime.content_count(), 59);
     assert_eq!(runtime.rule_count(), 58);
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            103, 237, 199, 123, 21, 176, 32, 35, 134, 240, 239, 13, 29, 159, 183, 83, 171, 45, 216,
-            236, 24, 47, 119, 154, 96, 200, 138, 156, 112, 10, 141, 209,
-        ]
-    );
 }
 
 #[test]

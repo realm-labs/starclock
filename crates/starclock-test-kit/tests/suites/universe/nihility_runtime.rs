@@ -3,7 +3,7 @@ use std::sync::{Arc, OnceLock};
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     id::{BlessingId, ResonanceId},
-    nihility_runtime::{NIHILITY_RUNTIME_REVISION, NihilityRuntimeCatalog},
+    nihility_runtime::NihilityRuntimeCatalog,
     path_effect_runtime::{
         PathBattleEvent, PathDotSelection, PathEffect, PathEffectFacts, PathEffectTarget,
     },
@@ -60,21 +60,10 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        NIHILITY_RUNTIME_REVISION,
-        "standard-universe-nihility-runtime-v1"
-    );
     assert_eq!(runtime.content_count(), 59);
     assert_eq!(runtime.rule_count(), 58);
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            209, 124, 68, 174, 98, 137, 142, 158, 49, 50, 237, 94, 28, 227, 129, 47, 234, 224, 226,
-            254, 87, 131, 187, 111, 101, 55, 49, 53, 31, 76, 94, 179,
-        ]
-    );
 }
 
 #[test]

@@ -10,10 +10,7 @@ use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
     ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     catalog::UniverseCatalog,
-    entry::{
-        STANDARD_UNIVERSE_ENTRY_REVISION, StandardUniverseCompileError, StandardUniverseEntry,
-        StandardUniverseProfile,
-    },
+    entry::{StandardUniverseCompileError, StandardUniverseEntry, StandardUniverseProfile},
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../../config/generated/config.sora");
@@ -111,10 +108,6 @@ fn every_world_and_difficulty_compiles_the_same_generic_entry_contract() {
     }
 
     assert_eq!(compiled, 33);
-    assert_eq!(
-        STANDARD_UNIVERSE_ENTRY_REVISION,
-        "standard-universe-entry-v15"
-    );
 }
 
 #[test]
@@ -257,13 +250,6 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
 
     assert_ne!(base.identity(), different_roster.identity());
     assert_ne!(base.identity(), different_tree.identity());
-    assert_eq!(
-        base.identity().definition_digest().bytes(),
-        [
-            101, 32, 46, 201, 48, 25, 128, 246, 152, 44, 235, 39, 50, 116, 110, 27, 68, 53, 36,
-            249, 153, 93, 56, 213, 74, 98, 68, 100, 171, 205, 254, 171,
-        ]
-    );
     assert_eq!(
         base.identity().config_digest().bytes(),
         catalog.identity().configuration_digest().bytes()

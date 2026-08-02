@@ -11,7 +11,6 @@ use crate::{
     },
 };
 
-pub const HUNT_RUNTIME_REVISION: &str = "standard-universe-hunt-runtime-v1";
 const HUNT_PATH_KEY: &str = "universe.path.hunt";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -499,8 +498,7 @@ fn catalog_digest(
     blessings: &[BlessingPrograms],
     resonances: &[ResonanceProgram],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-universe-hunt-runtime-catalog-v1");
-    encoder.text(HUNT_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock-universe-hunt-runtime-catalog");
     encoder.u32(path.get());
     encoder.u32(blessings.len() as u32);
     for blessing in blessings {

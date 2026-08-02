@@ -94,6 +94,10 @@ Removed from current runtime surfaces:
   selection manifests;
 - the unused `handler_version` Native Handler column across schema, workbook,
   generated reader and bundle;
+- nine Standard Universe path-runtime revision constants, their duplicate
+  digest inputs and byte-for-byte digest snapshots;
+- the Standard Universe entry revision and its hard-coded core catalog digest;
+  composition now requires the current combat and build catalogs to agree;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

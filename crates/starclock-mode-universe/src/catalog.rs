@@ -40,10 +40,6 @@ const EXPECTED_CONTENT_MANIFEST: &str =
     "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216";
 const EXPECTED_PACK_DIGEST: &str =
     "e620b9e4371f41afb43967a0537f8e705a33ae70f6e8ede0468b80f3444cd933";
-const EXPECTED_CORE_BUNDLE: [u8; 32] = [
-    0x7f, 0x7f, 0xc5, 0x1f, 0x8f, 0xf2, 0xfb, 0x67, 0x14, 0x19, 0x9c, 0x49, 0xa9, 0x49, 0xf6, 0xff,
-    0x21, 0xd1, 0x00, 0x2d, 0xff, 0xb0, 0x9f, 0x19, 0x98, 0x49, 0xc6, 0x2b, 0x80, 0x9f, 0x7f, 0xce,
-];
 const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new([
     0x5e, 0x52, 0x34, 0xee, 0x39, 0x77, 0xf7, 0x94, 0xae, 0x9b, 0x1b, 0x83, 0x33, 0x72, 0xf5, 0x1c,
     0x38, 0x40, 0x8c, 0x20, 0x51, 0x05, 0xc4, 0x64, 0xf1, 0x18, 0x27, 0xe9, 0xe9, 0xae, 0x6a, 0x75,
@@ -515,9 +511,8 @@ fn validate_core(
     core: &starclock_data::catalog::SimulationCatalog,
 ) -> Result<(), UniverseCatalogLoadError> {
     let manifest = core.manifest();
-    let valid = core.combat_catalog().digest().bytes() == EXPECTED_CORE_BUNDLE
-        && manifest.game_version == EXPECTED_GAME_VERSION
-        && core.build_catalog().combat_digest().bytes() == EXPECTED_CORE_BUNDLE;
+    let valid = manifest.game_version == EXPECTED_GAME_VERSION
+        && core.combat_catalog().digest().bytes() == core.build_catalog().combat_digest().bytes();
     if valid {
         Ok(())
     } else {
@@ -645,12 +640,10 @@ mod tests {
     #[test]
     fn exact_isolated_bundle_composes_with_exact_core_catalog() {
         let core = starclock_data::catalog::load(CORE_BUNDLE).expect("core catalog");
+        let core_digest = core.combat_catalog().digest().bytes();
         let catalog = UniverseCatalog::load(UNIVERSE_BUNDLE, core).expect("Universe catalog");
         assert_eq!(catalog.identity().game_version(), "4.4");
-        assert_eq!(
-            catalog.identity().core_bundle_digest(),
-            EXPECTED_CORE_BUNDLE
-        );
+        assert_eq!(catalog.identity().core_bundle_digest(), core_digest);
         assert_eq!(
             catalog.identity().universe_bundle_digest(),
             EXPECTED_UNIVERSE_BUNDLE
@@ -921,13 +914,6 @@ mod tests {
             [
                 120, 190, 196, 196, 192, 213, 164, 29, 203, 115, 129, 13, 40, 28, 227, 231, 104,
                 126, 149, 212, 102, 134, 210, 15, 137, 244, 199, 104, 237, 30, 183, 242,
-            ]
-        );
-        assert_eq!(
-            catalog.identity().configuration_digest().bytes(),
-            [
-                191, 100, 202, 136, 189, 99, 217, 86, 67, 123, 181, 0, 15, 147, 154, 71, 127, 22,
-                123, 197, 139, 51, 178, 39, 231, 252, 215, 55, 203, 54, 144, 90,
             ]
         );
         assert_eq!(

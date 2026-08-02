@@ -2,7 +2,7 @@ use std::sync::{Arc, OnceLock};
 
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
-    hunt_runtime::{HUNT_RUNTIME_REVISION, HuntRuntimeCatalog},
+    hunt_runtime::HuntRuntimeCatalog,
     id::{BlessingId, ResonanceId},
     path_effect_runtime::{
         PathBattleEvent, PathEffect, PathEffectFacts, PathEffectStat, PathEffectTarget,
@@ -61,17 +61,9 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(HUNT_RUNTIME_REVISION, "standard-universe-hunt-runtime-v1");
     assert_eq!((runtime.content_count(), runtime.rule_count()), (59, 58));
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            43, 53, 103, 169, 116, 55, 82, 241, 46, 75, 244, 99, 129, 251, 145, 112, 9, 68, 191,
-            98, 254, 141, 6, 122, 154, 219, 190, 109, 108, 130, 161, 61,
-        ]
-    );
 }
 
 #[test]

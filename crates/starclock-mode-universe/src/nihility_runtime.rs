@@ -11,7 +11,6 @@ use crate::{
     },
 };
 
-pub const NIHILITY_RUNTIME_REVISION: &str = "standard-universe-nihility-runtime-v1";
 const NIHILITY_PATH_KEY: &str = "universe.path.nihility";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -502,8 +501,7 @@ fn catalog_digest(
     blessings: &[BlessingPrograms],
     resonances: &[ResonanceProgram],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-universe-nihility-runtime-catalog-v1");
-    encoder.text(NIHILITY_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock-universe-nihility-runtime-catalog");
     encoder.u32(path.get());
     encoder.u32(blessings.len() as u32);
     for blessing in blessings {

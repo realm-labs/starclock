@@ -10,7 +10,6 @@ use crate::{
     },
 };
 
-pub const PROPAGATION_RUNTIME_REVISION: &str = "standard-universe-propagation-runtime-v1";
 const PROPAGATION_PATH_KEY: &str = "universe.path.propagation";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -453,8 +452,7 @@ fn catalog_digest(
     blessings: &[BlessingPrograms],
     resonances: &[ResonanceProgram],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-universe-propagation-runtime-catalog-v1");
-    encoder.text(PROPAGATION_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock-universe-propagation-runtime-catalog");
     encoder.u32(path.get());
     encoder.u32(blessings.len() as u32);
     for blessing in blessings {

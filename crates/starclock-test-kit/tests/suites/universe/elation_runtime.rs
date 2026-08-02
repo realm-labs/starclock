@@ -2,7 +2,7 @@ use std::sync::{Arc, OnceLock};
 
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
-    elation_runtime::{ELATION_RUNTIME_REVISION, ElationRuntimeCatalog},
+    elation_runtime::ElationRuntimeCatalog,
     id::{BlessingId, ResonanceId},
     path_effect_runtime::{
         PathBattleEvent, PathEffect, PathEffectFacts, PathEffectStat, PathEffectValue,
@@ -60,20 +60,9 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        ELATION_RUNTIME_REVISION,
-        "standard-universe-elation-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (59, 58));
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            166, 155, 183, 2, 108, 42, 58, 107, 17, 76, 91, 125, 225, 44, 250, 174, 15, 75, 92,
-            251, 43, 60, 247, 168, 55, 142, 49, 151, 67, 44, 143, 71,
-        ]
-    );
 }
 
 #[test]

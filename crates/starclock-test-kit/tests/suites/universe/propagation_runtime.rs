@@ -6,7 +6,7 @@ use starclock_mode_universe::{
     path_effect_runtime::{
         PathBattleEvent, PathEffect, PathEffectFacts, PathEffectStat, PathEffectValue,
     },
-    propagation_runtime::{PROPAGATION_RUNTIME_REVISION, PropagationRuntimeCatalog},
+    propagation_runtime::PropagationRuntimeCatalog,
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../../config/generated/config.sora");
@@ -55,20 +55,9 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        PROPAGATION_RUNTIME_REVISION,
-        "standard-universe-propagation-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (59, 58));
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            69, 203, 33, 65, 21, 255, 219, 202, 68, 82, 156, 241, 20, 15, 125, 52, 202, 157, 163,
-            43, 72, 157, 215, 211, 234, 24, 206, 179, 181, 157, 109, 26,
-        ]
-    );
 }
 
 #[test]

@@ -11,7 +11,6 @@ use crate::{
     },
 };
 
-pub const ABUNDANCE_RUNTIME_REVISION: &str = "standard-universe-abundance-runtime-v1";
 const ABUNDANCE_PATH_KEY: &str = "universe.path.abundance";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -513,8 +512,7 @@ fn catalog_digest(
     blessings: &[BlessingPrograms],
     resonances: &[ResonanceProgram],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-universe-abundance-runtime-catalog-v1");
-    encoder.text(ABUNDANCE_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock-universe-abundance-runtime-catalog");
     encoder.u32(path.get());
     encoder.u32(blessings.len() as u32);
     for blessing in blessings {

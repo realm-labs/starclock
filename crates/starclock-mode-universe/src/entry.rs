@@ -62,8 +62,6 @@ use crate::{
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v15";
-
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
 /// Path selection is deliberately not an entry argument. It is the first

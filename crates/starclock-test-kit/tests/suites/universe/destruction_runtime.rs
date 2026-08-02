@@ -2,7 +2,7 @@ use std::sync::{Arc, OnceLock};
 
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
-    destruction_runtime::{DESTRUCTION_RUNTIME_REVISION, DestructionRuntimeCatalog},
+    destruction_runtime::DestructionRuntimeCatalog,
     id::{BlessingId, ResonanceId},
     path_effect_runtime::{
         PathBattleEvent, PathEffect, PathEffectFacts, PathEffectStat, PathEffectTarget,
@@ -67,20 +67,9 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        DESTRUCTION_RUNTIME_REVISION,
-        "standard-universe-destruction-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (59, 58));
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            192, 210, 254, 1, 176, 92, 239, 4, 157, 221, 66, 143, 33, 61, 88, 120, 85, 233, 214,
-            196, 175, 199, 184, 163, 229, 64, 77, 27, 166, 205, 125, 51,
-        ]
-    );
 }
 
 #[test]

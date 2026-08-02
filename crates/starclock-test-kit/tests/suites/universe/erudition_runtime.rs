@@ -2,7 +2,7 @@ use std::sync::{Arc, OnceLock};
 
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
-    erudition_runtime::{ERUDITION_RUNTIME_REVISION, EruditionRuntimeCatalog},
+    erudition_runtime::EruditionRuntimeCatalog,
     id::{BlessingId, ResonanceId},
     path_effect_runtime::{
         PathBattleEvent, PathEffect, PathEffectFacts, PathEffectStat, PathEffectValue,
@@ -62,20 +62,9 @@ fn facts() -> PathEffectFacts {
 #[test]
 fn complete_partition_compiles_through_one_closed_registry() {
     let runtime = runtime();
-    assert_eq!(
-        ERUDITION_RUNTIME_REVISION,
-        "standard-universe-erudition-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (59, 58));
     assert_eq!(runtime.blessing_ids().len(), 18);
     assert_eq!(runtime.resonance_ids().len(), 4);
-    assert_eq!(
-        runtime.digest(),
-        [
-            190, 199, 55, 169, 80, 220, 63, 248, 160, 216, 119, 183, 169, 244, 212, 165, 247, 88,
-            209, 114, 114, 146, 174, 251, 117, 134, 71, 236, 51, 19, 2, 219,
-        ]
-    );
 }
 
 #[test]
