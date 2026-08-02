@@ -1,4 +1,4 @@
-//! Versioned static registry for exceptional battle and activity rule handlers.
+//! Static registry for exceptional battle and activity rule handlers.
 //!
 //! Registrations are ordinary immutable Rust values. Battle handlers receive a
 //! read-only Rule IR context and return the same typed emissions as authored IR;

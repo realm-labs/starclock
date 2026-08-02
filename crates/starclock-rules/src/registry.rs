@@ -7,36 +7,25 @@ use crate::model::{
     RegistryErrorKind,
 };
 
-pub const PRODUCTION_REGISTRY_REVISION: &str = "native-registry-v1";
 static PRODUCTION_BATTLE_HANDLERS: [BattleHandlerRegistration; 0] = [];
 
 /// Returns the immutable registry compiled into this Starclock build.
 ///
-/// Goal 01 V1a admits no production handler: all reviewed probes lower to the
+/// The current tree admits no production handler: all reviewed probes lower to the
 /// typed Rule IR. Future registrations must be added here and to the committed
 /// native-handler audit in the same batch.
 pub fn production() -> NativeHandlerRegistry {
-    NativeHandlerRegistry::new(PRODUCTION_REGISTRY_REVISION, &PRODUCTION_BATTLE_HANDLERS)
+    NativeHandlerRegistry::new(&PRODUCTION_BATTLE_HANDLERS)
         .expect("the static production native-handler registry is valid")
 }
 
 #[derive(Clone, Copy, Debug)]
 pub struct NativeHandlerRegistry {
-    revision: &'static str,
     battle: &'static [BattleHandlerRegistration],
 }
 
 impl NativeHandlerRegistry {
-    pub fn new(
-        revision: &'static str,
-        battle: &'static [BattleHandlerRegistration],
-    ) -> Result<Self, RegistryError> {
-        if revision.is_empty()
-            || revision.len() > 128
-            || !revision.bytes().all(|byte| byte.is_ascii_graphic())
-        {
-            return Err(registry_error(RegistryErrorKind::InvalidRevision, None));
-        }
+    pub fn new(battle: &'static [BattleHandlerRegistration]) -> Result<Self, RegistryError> {
         for (index, registration) in battle.iter().enumerate() {
             if index > 0 && battle[index - 1].id >= registration.id {
                 return Err(registry_error(
@@ -49,7 +38,6 @@ impl NativeHandlerRegistry {
                     .stable_key
                     .bytes()
                     .all(|byte| byte.is_ascii_graphic())
-                || !metadata_present(registration.version)
                 || registration
                     .argument_schema_digest
                     .iter()
@@ -65,12 +53,7 @@ impl NativeHandlerRegistry {
                 ));
             }
         }
-        Ok(Self { revision, battle })
-    }
-
-    #[must_use]
-    pub const fn revision(self) -> &'static str {
-        self.revision
+        Ok(Self { battle })
     }
 
     #[must_use]
@@ -93,7 +76,6 @@ impl NativeHandlerRegistry {
                 ));
             }
             if !metadata_present(requirement.stable_key)
-                || !metadata_present(requirement.version)
                 || requirement
                     .argument_schema_digest
                     .iter()
@@ -119,12 +101,6 @@ impl NativeHandlerRegistry {
             if registration.stable_key != requirement.stable_key {
                 return Err(registry_error(
                     RegistryErrorKind::StableKeyMismatch,
-                    Some(requirement.id),
-                ));
-            }
-            if registration.version != requirement.version {
-                return Err(registry_error(
-                    RegistryErrorKind::VersionMismatch,
                     Some(requirement.id),
                 ));
             }

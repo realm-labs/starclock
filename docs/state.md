@@ -72,9 +72,13 @@ Removed from current runtime surfaces:
 - Activity codec/RNG/scope/handler revisions duplicated by current structure and digests;
 - empty deferred relic/planar build fields and their placeholder document.
 
-Combat, static-rule and generated content modules still contain textual
+Combat and generated content modules still contain textual
 `*_REVISION` domain labels used
 inside digest construction. They are not compatibility branches, but they are
 redundant current-tree identity and remain cleanup debt. Replace them with the
 underlying canonical content/configuration digests; keep fixed binary layout
 sentinels as `*_TAG` values.
+
+The current Sora native-handler table still authors `handler_version`, but the
+runtime registry no longer consumes it. Removing that generated column requires
+the workbook, schema, generated reader and bundle to change together.

@@ -39,26 +39,24 @@ fn synthetic_handler(
 static REGISTRATIONS: [BattleHandlerRegistration; 1] = [BattleHandlerRegistration {
     id: HANDLER_ID,
     stable_key: "synthetic.echo",
-    version: "1",
     argument_schema_digest: SCHEMA,
     determinism_note: "pure echo fixture with no RNG",
-    owner: "G01-P4-B1 synthetic test",
+    owner: "synthetic registry test",
     ir_insufficiency: "test-only equivalent shape; no content admission",
     removal_condition: "remove with the synthetic registry fixture",
     handler: synthetic_handler,
 }];
 
 #[test]
-fn registry_audits_version_schema_and_written_decision() {
-    let registry = NativeHandlerRegistry::new("native-registry-v1", &REGISTRATIONS).unwrap();
+fn registry_audits_schema_and_written_decision() {
+    let registry = NativeHandlerRegistry::new(&REGISTRATIONS).unwrap();
     let requirement = NativeHandlerRequirement {
         id: HANDLER_ID,
         stable_key: "synthetic.echo",
         domain: HandlerDomain::Battle,
-        version: "1",
         argument_schema_digest: SCHEMA,
         determinism_note: "pure echo fixture with no RNG",
-        owner: "G01-P4-B1 synthetic test",
+        owner: "synthetic registry test",
         ir_insufficiency: "test-only equivalent shape; no content admission",
         removal_condition: "remove with the synthetic registry fixture",
         enabled: true,
@@ -82,13 +80,6 @@ fn registry_audits_version_schema_and_written_decision() {
                 ..requirement
             },
             RegistryErrorKind::StableKeyMismatch,
-        ),
-        (
-            NativeHandlerRequirement {
-                version: "2",
-                ..requirement
-            },
-            RegistryErrorKind::VersionMismatch,
         ),
         (
             NativeHandlerRequirement {
@@ -154,16 +145,6 @@ fn registry_audits_version_schema_and_written_decision() {
             .kind(),
         RegistryErrorKind::UnsupportedDomain
     );
-    assert_eq!(
-        registry
-            .audit(&[NativeHandlerRequirement {
-                version: " ",
-                ..requirement
-            }])
-            .unwrap_err()
-            .kind(),
-        RegistryErrorKind::InvalidRequirement
-    );
 }
 
 #[test]
@@ -172,24 +153,19 @@ fn registry_rejects_noncanonical_and_incomplete_static_metadata() {
     incomplete.owner = " ";
     let incomplete = Box::leak(vec![incomplete].into_boxed_slice());
     assert_eq!(
-        NativeHandlerRegistry::new("native-registry-v1", incomplete)
-            .unwrap_err()
-            .kind(),
+        NativeHandlerRegistry::new(incomplete).unwrap_err().kind(),
         RegistryErrorKind::InvalidRegistration
     );
     let duplicate = Box::leak(vec![REGISTRATIONS[0], REGISTRATIONS[0]].into_boxed_slice());
     assert_eq!(
-        NativeHandlerRegistry::new("native-registry-v1", duplicate)
-            .unwrap_err()
-            .kind(),
+        NativeHandlerRegistry::new(duplicate).unwrap_err().kind(),
         RegistryErrorKind::NonCanonicalRegistration
     );
 }
 
 #[test]
-fn production_registry_is_explicitly_empty_after_the_v1a_review() {
+fn production_registry_is_explicitly_empty_after_the_review() {
     let registry = starclock_rules::registry::production();
-    assert_eq!(registry.revision(), "native-registry-v1");
     assert!(registry.battle(HANDLER_ID).is_none());
     registry.audit(&[]).unwrap();
 }

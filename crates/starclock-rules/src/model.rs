@@ -75,7 +75,6 @@ pub type BattleHandler =
 pub struct BattleHandlerRegistration {
     pub id: NativeHandlerId,
     pub stable_key: &'static str,
-    pub version: &'static str,
     pub argument_schema_digest: [u8; 32],
     pub determinism_note: &'static str,
     pub owner: &'static str,
@@ -90,7 +89,6 @@ impl core::fmt::Debug for BattleHandlerRegistration {
             .debug_struct("BattleHandlerRegistration")
             .field("id", &self.id)
             .field("stable_key", &self.stable_key)
-            .field("version", &self.version)
             .field("argument_schema_digest", &self.argument_schema_digest)
             .field("determinism_note", &self.determinism_note)
             .field("owner", &self.owner)
@@ -105,7 +103,6 @@ pub struct NativeHandlerRequirement<'a> {
     pub id: NativeHandlerId,
     pub stable_key: &'a str,
     pub domain: HandlerDomain,
-    pub version: &'a str,
     pub argument_schema_digest: [u8; 32],
     pub determinism_note: &'a str,
     pub owner: &'a str,
@@ -116,14 +113,12 @@ pub struct NativeHandlerRequirement<'a> {
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RegistryErrorKind {
-    InvalidRevision,
     NonCanonicalRegistration,
     InvalidRegistration,
     InvalidRequirement,
     MissingRegistration,
     UnsupportedDomain,
     StableKeyMismatch,
-    VersionMismatch,
     ArgumentSchemaMismatch,
     MissingIrInsufficiencyDecision,
     DeterminismNoteMismatch,

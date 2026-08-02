@@ -388,7 +388,7 @@ Catalog compilation creates trigger indexes by event kind, phase, and cheap filt
 
 `RuleInstanceState` stores only definition ID, owner/scope links, lifecycle flags, and declared slot values. Character-specific fields are forbidden in `UnitState`. Once-scope keys live in the rule-state subsystem and use the IDs defined by the corresponding event/action/scope.
 
-Static native handlers implement the same evaluation contract: read-only context in, typed proposals/templates out. They do not receive mutable stores or a `&mut BattleState`. The registry is versioned and looked up by validated `NativeHandlerId`.
+Static native handlers implement the same evaluation contract: read-only context in, typed proposals/templates out. They do not receive mutable stores or a `&mut BattleState`. The registry is immutable and looked up by validated `NativeHandlerId`.
 
 ## Stat, modifier, and formula services
 

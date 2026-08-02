@@ -66,13 +66,13 @@ this read-only proposal boundary.
 
 ## Native handler registry
 
-`starclock-rules` contains an immutable versioned registry over sorted static
+`starclock-rules` contains an immutable registry over sorted static
 function registrations. A battle handler receives the same read-only
 evaluation input plus validated typed arguments and returns ordinary
 `RuleEmission` values. It has no mutable battle handle, dynamic library name,
 filesystem/network/time access or global mutable registry.
 
-An enabled authoring requirement must match handler domain, stable key, version,
+An enabled authoring requirement must match handler domain, stable key,
 argument-schema digest, determinism note, owner, written IR-insufficiency
 decision and removal condition exactly. B1 registered no production/content
 handler; its only implementation was a test-local synthetic echo used to prove

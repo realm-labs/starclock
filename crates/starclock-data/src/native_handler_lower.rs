@@ -25,7 +25,6 @@ pub(super) fn audit(config: &SoraConfig) -> Result<BTreeSet<NativeHandlerId>, Ca
                     rule_domain::RuleDomain::Battle => HandlerDomain::Battle,
                     rule_domain::RuleDomain::Activity => HandlerDomain::Activity,
                 },
-                version: &row.handler_version,
                 argument_schema_digest: digest(&row.argument_schema_sha256)?,
                 determinism_note: &row.determinism_note,
                 owner: &row.owner_note,
