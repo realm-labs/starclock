@@ -4,7 +4,7 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_COGNITION_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
     state_layout::{COGNITION_SLOT, SECRETS_SLOT},
     tests::{compiled_fixture, entry},
 };
@@ -14,10 +14,6 @@ fn cognition_catalog_closes_all_ranges_secrets_and_policy_metadata() {
     let factory = super::tests::shared_factory();
     assert_eq!(factory.cognition.denominators(), (13, 20, 10));
     assert_eq!(factory.cognition.initial(), 0);
-    assert_eq!(
-        GOLD_AND_GEARS_COGNITION_REVISION,
-        "gold-and-gears-cognition-policy-v1"
-    );
 }
 
 #[test]

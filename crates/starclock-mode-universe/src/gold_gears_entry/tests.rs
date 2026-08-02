@@ -512,10 +512,6 @@ fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
         .expect("formal topology");
     let scopes = instance.state_definition().logical_scopes();
 
-    assert_eq!(
-        GOLD_AND_GEARS_TOPOLOGY_REVISION,
-        "gold-and-gears-topology-policy-v1"
-    );
     assert_eq!(scopes.classes().len(), 3);
     assert_eq!(scopes.bindings().len(), 82);
     assert_eq!(

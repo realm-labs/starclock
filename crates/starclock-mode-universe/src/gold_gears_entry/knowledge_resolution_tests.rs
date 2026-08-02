@@ -9,9 +9,7 @@ use starclock_activity::{
 
 use super::{
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
-    knowledge_resolution::{
-        GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION, GoldAndGearsKnowledgeResolution,
-    },
+    knowledge_resolution::GoldAndGearsKnowledgeResolution,
     state_layout::{
         BOARD_NODE_STATE_SLOT, DEFERRED_EFFECTS_SLOT, DEFERRED_KNOWLEDGE_TIER_BASE,
         DICE_RESOLUTION_FACE_KEY, DICE_RESOLUTION_SLOT, KNOWLEDGE_SLOT, PLANE_ACTION_POINTS_KEY,
@@ -205,10 +203,6 @@ fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
         factory.knowledge.denominators().1,
         [15, 1, 5, 1],
         "Apply, Preserve, Query and Remove access modes"
-    );
-    assert_eq!(
-        GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION,
-        "knowledge-simultaneous-resolution-v1"
     );
     let mut state = created_state(&instance, 14_508);
     let target = candidates(factory, &instance, &state, "SelectedNonBossDomain", None)[0];

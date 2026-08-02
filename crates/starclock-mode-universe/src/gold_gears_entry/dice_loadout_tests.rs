@@ -5,7 +5,7 @@ use starclock_activity::ActivityValue;
 use crate::gold_gears_unique::{DiceDefinition, DiceFace};
 
 use super::{
-    GOLD_AND_GEARS_DICE_LOADOUT_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
     state_layout::{DICE_LOADOUT_MAX_RARITY_KEY_BASE, DICE_LOADOUT_SLOT},
     tests::entry,
 };
@@ -42,10 +42,6 @@ fn all_default_loadouts_and_recommendation_pools_are_legal() {
     }
 
     assert_eq!(factory.unique.dice.len(), 12);
-    assert_eq!(
-        GOLD_AND_GEARS_DICE_LOADOUT_REVISION,
-        "gold-and-gears-dice-loadout-policy-v1"
-    );
 }
 
 #[test]

@@ -6,8 +6,6 @@ use crate::gold_gears_unique::{GoldAndGearsUniqueCatalog, KnowledgeRule};
 
 use super::GoldAndGearsEntryError;
 
-pub const GOLD_AND_GEARS_KNOWLEDGE_REVISION: &str = "gold-and-gears-knowledge-policy-v1";
-
 const TARGET_POLICY_ID: &str = "knowledge-target-selection-v1";
 const SIMULTANEOUS_POLICY_ID: &str = "knowledge-simultaneous-resolution-v1";
 

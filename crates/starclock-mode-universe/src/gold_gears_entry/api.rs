@@ -55,9 +55,6 @@ use crate::{
     gold_gears_unique::GoldAndGearsUniqueCatalog,
 };
 
-/// Versioned root-board and forward-edge topology construction policy.
-pub const GOLD_AND_GEARS_TOPOLOGY_REVISION: &str = "gold-and-gears-topology-policy-v1";
-
 /// Caller-owned selections for one Gold and Gears run.
 ///
 /// The six dice faces retain slot order. Neural nodes, completed formal areas,

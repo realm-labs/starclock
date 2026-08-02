@@ -10,8 +10,6 @@ use crate::gold_gears_unique::{
 
 use super::GoldAndGearsEntryError;
 
-pub const GOLD_AND_GEARS_DICE_LOADOUT_REVISION: &str = "gold-and-gears-dice-loadout-policy-v1";
-
 const BASELINE_FACE_UNLOCK_SOURCE: &str = "100";
 const SLOT_UPGRADE_OPERATION: &str = "UpgradeDiceFaceSlot";
 const SLOT_UPGRADE_POLICY: &str = "neural-network-slot-upgrade-target-v1";

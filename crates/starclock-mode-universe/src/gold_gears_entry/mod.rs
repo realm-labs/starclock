@@ -49,10 +49,7 @@ mod state;
 mod state_layout;
 mod topology;
 mod validate;
-pub use api::{
-    GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
-};
+pub use api::{GoldAndGearsEntry, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance};
 pub(crate) use baseline_controller::{
     GoldAndGearsBaselineController, GoldAndGearsBaselineDecision, GoldAndGearsBaselineError,
     GoldAndGearsOfferedAction,
@@ -69,7 +66,6 @@ pub use battle_snapshot::GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION;
 pub(crate) use battle_snapshot::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleContributionSnapshot,
 };
-pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
 pub use content_link_runtime::GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION;
 pub(crate) use conundrum_policy::{
     GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY, GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION,
@@ -82,17 +78,12 @@ pub(crate) use curio_types::{
     GoldAndGearsCurioCategory, GoldAndGearsCurioContributionSet, GoldAndGearsCurioId,
     GoldAndGearsCurioOfferContext, GoldAndGearsCurioOfferSource, GoldAndGearsCurioState,
 };
-pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
-pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
 pub(crate) use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
-pub use dice_resolution::GOLD_AND_GEARS_DICE_RUNTIME_REVISION;
 pub use encounter_runtime::{
     GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY, GOLD_AND_GEARS_ENCOUNTER_POLICY_REPLACEMENT_CONDITION,
 };
 pub(crate) use encounter_runtime::{GoldAndGearsEncounterRole, GoldAndGearsEncounterSelection};
 pub use error::GoldAndGearsEntryError;
-pub use knowledge::GOLD_AND_GEARS_KNOWLEDGE_REVISION;
-pub use knowledge_resolution::GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION;
 pub(crate) use neural_runtime::GoldAndGearsNeuralStatContribution;
 pub use neural_runtime::{GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsNeuralBattleStat};
 pub use occurrence_runtime::GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY;

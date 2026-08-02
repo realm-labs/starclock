@@ -25,9 +25,6 @@ use super::{
     },
 };
 
-pub const GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION: &str =
-    "knowledge-simultaneous-resolution-v1";
-
 const RESOLUTION_PROGRAM_ID: u32 = 0x47E0_0001;
 const KEY_FAMILY_MASK: u64 = 0xFFFF_FF00_0000_0000;
 

@@ -17,8 +17,6 @@ use super::{
 };
 
 /// Versioned executable resolution of the Goal 08 Cognition policy.
-pub const GOLD_AND_GEARS_COGNITION_REVISION: &str = "gold-and-gears-cognition-policy-v1";
-
 const COGNITION_ADJUSTMENT_PROGRAM: u32 = 0x4750_0001;
 const COGNITION_CARRY_PROGRAM: u32 = 0x4750_0002;
 const PLANE_BOSS_EVALUATION_BASE: u32 = 0x4750_0010;

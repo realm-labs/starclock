@@ -23,8 +23,6 @@ use super::{
     },
 };
 
-pub const GOLD_AND_GEARS_DICE_RUNTIME_REVISION: &str = "gold-and-gears-dice-runtime-v1";
-
 pub(super) const DICE_ROLL_PURPOSE: u16 = 0x4751;
 pub(super) const DICE_REROLL_PURPOSE: u16 = 0x4752;
 

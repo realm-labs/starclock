@@ -7,8 +7,7 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_KNOWLEDGE_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     state_layout::{
         BOARD_NODE_STATE_SLOT, DICE_RESOLUTION_FACE_KEY, DICE_RESOLUTION_SLOT, KNOWLEDGE_SLOT,
         PLANE_ACTION_POINTS_KEY, PLANE_STATE_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY,
@@ -26,10 +25,6 @@ fn all_twenty_two_rules_lower_exact_policy_denominators_and_triggers() {
     assert_eq!(
         factory.knowledge.denominators(),
         (22, [15, 1, 5, 1], [4, 2, 11, 1, 4])
-    );
-    assert_eq!(
-        GOLD_AND_GEARS_KNOWLEDGE_REVISION,
-        "gold-and-gears-knowledge-policy-v1"
     );
     for rule in &factory.unique.knowledge_rules {
         let face = factory

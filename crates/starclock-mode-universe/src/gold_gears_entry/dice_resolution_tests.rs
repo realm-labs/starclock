@@ -6,8 +6,8 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_DICE_RUNTIME_REVISION, GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent,
-    GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent, GoldAndGearsEntryError,
+    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     dice_resolution::compile_reroll,
     state_layout::{
         PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, PROGRESSION_DICE_PATH_INTERVAL_KEY,
@@ -25,10 +25,6 @@ const PATH: &str = "universe.path.preservation";
 fn all_authored_dice_parts_and_path_values_compile_exactly() {
     let factory = super::tests::shared_factory();
     assert_eq!(factory.dice_runtime.denominators(), (12, 108, 39));
-    assert_eq!(
-        GOLD_AND_GEARS_DICE_RUNTIME_REVISION,
-        "gold-and-gears-dice-runtime-v1"
-    );
 
     let mut compiled = 0;
     for dice in &factory.unique.dice {

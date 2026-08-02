@@ -8,8 +8,7 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_DICE_FACE_REVISION, GoldAndGearsEntry, GoldAndGearsEntryError,
-    GoldAndGearsRuntimeInstance,
+    GoldAndGearsEntry, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
     state_layout::{DEFERRED_DICE_FACE_USE_BASE, DEFERRED_EFFECTS_SLOT},
     tests::entry,
 };
@@ -24,10 +23,6 @@ fn all_eighty_faces_lower_exact_parameters_effects_tags_and_policies() {
     assert_eq!(
         factory.dice_faces.coverage(),
         ([53, 13, 14], [45, 22, 13], [77, 3])
-    );
-    assert_eq!(
-        GOLD_AND_GEARS_DICE_FACE_REVISION,
-        "gold-and-gears-dice-face-policy-v1"
     );
 
     let mut selected = BTreeSet::new();

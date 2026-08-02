@@ -20,8 +20,6 @@ use super::{
     },
 };
 
-pub const GOLD_AND_GEARS_DICE_FACE_REVISION: &str = "gold-and-gears-dice-face-policy-v1";
-
 const TARGET_POLICY_ID: &str = "dice-face-target-resolution-v1";
 const FACE_PROGRAM_BASE: u32 = 0x4780_0000;
 pub(super) const DICE_FACE_TARGET_PURPOSE: u16 = 0x4753;
