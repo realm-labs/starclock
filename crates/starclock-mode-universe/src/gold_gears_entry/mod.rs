@@ -113,14 +113,10 @@ pub use replay::{
     record_incremental_gold_and_gears_run, verify_gold_and_gears_replay,
 };
 pub(crate) use resonance_rule_runtime::GoldAndGearsResonanceCombatSet;
-pub use runtime_coverage::{
-    GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION, GoldAndGearsCoverage,
-    GoldAndGearsRuntimeCoverageSummary,
-};
+pub use runtime_coverage::{GoldAndGearsCoverage, GoldAndGearsRuntimeCoverageSummary};
 pub use seeded_run::{
-    GOLD_AND_GEARS_SEEDED_RUN_REVISION, GoldAndGearsSeededRunAction, GoldAndGearsSeededRunError,
-    GoldAndGearsSeededRunReport, GoldAndGearsSeededRunRequest, GoldAndGearsSeededRunStep,
-    GoldAndGearsSeededRunStepKind,
+    GoldAndGearsSeededRunAction, GoldAndGearsSeededRunError, GoldAndGearsSeededRunReport,
+    GoldAndGearsSeededRunRequest, GoldAndGearsSeededRunStep, GoldAndGearsSeededRunStepKind,
 };
 pub use service_adventure_runtime::GOLD_AND_GEARS_ADVENTURE_POLICY_ACCURACY;
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";

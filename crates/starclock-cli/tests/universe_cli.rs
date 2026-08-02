@@ -60,7 +60,7 @@ fn gold_and_gears_configuration_and_coverage_are_machine_readable() {
     assert!(coverage.status.success(), "{coverage:?}");
     assert_eq!(
         text(coverage.stdout).trim(),
-        "{\"kind\":\"universe-coverage\",\"mode\":\"gold-and-gears\",\"source_categories\":42,\"runtime_slices\":44,\"source_obligations\":7913,\"integrated\":7181,\"shared_integrated\":706,\"external_outcomes\":8,\"metadata\":18,\"mechanic_rules\":1224,\"fixtures\":18,\"native_handlers\":0,\"coverage_digest\":\"f2d927d197cb77c548522bf39383a68e927f3881412f44dee8a0b4302c38ca9d\"}"
+        "{\"kind\":\"universe-coverage\",\"mode\":\"gold-and-gears\",\"source_categories\":42,\"runtime_slices\":44,\"source_obligations\":7913,\"integrated\":7181,\"shared_integrated\":706,\"external_outcomes\":8,\"metadata\":18,\"mechanic_rules\":1224,\"fixtures\":18,\"native_handlers\":0}"
     );
 }
 
@@ -84,7 +84,7 @@ fn swarm_disaster_configuration_and_coverage_are_machine_readable() {
     assert!(coverage.status.success(), "{coverage:?}");
     assert_eq!(
         text(coverage.stdout).trim(),
-        "{\"kind\":\"universe-coverage\",\"mode\":\"swarm-disaster\",\"source_categories\":42,\"runtime_slices\":42,\"source_obligations\":6963,\"integrated\":6282,\"shared_integrated\":652,\"external_outcomes\":6,\"metadata\":23,\"mechanic_rules\":23,\"fixtures\":23,\"native_handlers\":0,\"coverage_digest\":\"8aeb60d2c1b322f9dcf8f84bc45dc1901276633398cdb60a984ccc4846f0bff4\"}"
+        "{\"kind\":\"universe-coverage\",\"mode\":\"swarm-disaster\",\"source_categories\":42,\"runtime_slices\":42,\"source_obligations\":6963,\"integrated\":6282,\"shared_integrated\":652,\"external_outcomes\":6,\"metadata\":23,\"mechanic_rules\":23,\"fixtures\":23,\"native_handlers\":0}"
     );
 }
 
@@ -102,7 +102,7 @@ fn gold_and_gears_human_diagnostics_match_the_json_run() {
     assert!(coverage.status.success(), "{coverage:?}");
     assert_eq!(
         text(coverage.stdout).trim(),
-        "universe coverage mode=gold-and-gears categories=42 slices=44 source_obligations=7913 integrated=7181 shared_integrated=706 external_outcomes=8 metadata=18 rules=1224 fixtures=18 native_handlers=0 digest=f2d927d197cb77c548522bf39383a68e927f3881412f44dee8a0b4302c38ca9d"
+        "universe coverage mode=gold-and-gears categories=42 slices=44 source_obligations=7913 integrated=7181 shared_integrated=706 external_outcomes=8 metadata=18 rules=1224 fixtures=18 native_handlers=0"
     );
 
     let run = output(&[
@@ -136,7 +136,7 @@ fn swarm_disaster_human_diagnostics_match_the_json_run() {
     assert!(coverage.status.success(), "{coverage:?}");
     assert_eq!(
         text(coverage.stdout).trim(),
-        "universe coverage mode=swarm-disaster categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0 digest=8aeb60d2c1b322f9dcf8f84bc45dc1901276633398cdb60a984ccc4846f0bff4"
+        "universe coverage mode=swarm-disaster categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0"
     );
 
     let run = output(&[

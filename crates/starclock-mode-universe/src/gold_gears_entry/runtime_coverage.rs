@@ -10,8 +10,6 @@ use super::{
     content_link_runtime::GoldAndGearsContentRuntimeCatalog,
 };
 
-pub const GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION: &str = "gold-and-gears-runtime-coverage-v1";
-
 const SOURCE_CATEGORY_COUNT: usize = 42;
 const SOURCE_OBLIGATION_COUNT: u32 = 7_913;
 const MECHANIC_RULE_COUNT: usize = 1_224;
@@ -448,8 +446,7 @@ fn coverage_digest(
     rule_bindings: &[(&str, &str)],
     fixture_ids: &[&str],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-gold-gears-runtime-coverage-v1");
-    encoder.text(GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION);
+    let mut encoder = Encoder::new(b"starclock-gold-gears-runtime-coverage");
     encoder.u32(source_bindings.len() as u32);
     for binding in source_bindings {
         encoder.text(&binding.category);

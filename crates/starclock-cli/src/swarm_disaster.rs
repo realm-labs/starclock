@@ -20,7 +20,6 @@ use starclock_replay::{
 
 const SWARM_BUNDLE: &[u8] = include_bytes!("../../../config/swarm-disaster-generated/config.sora");
 const MODE: &str = "swarm-disaster";
-const COVERAGE_SHA256: &str = "8aeb60d2c1b322f9dcf8f84bc45dc1901276633398cdb60a984ccc4846f0bff4";
 
 pub fn requested(args: &[String]) -> bool {
     args.windows(2)
@@ -48,18 +47,15 @@ pub fn config_validate(args: &[String]) -> Result<(), SwarmDisasterCliError> {
 
 pub fn coverage(args: &[String]) -> Result<(), SwarmDisasterCliError> {
     let json = mode_json_only(args)?;
-    let factory = SwarmDisasterRuntimeFactory::load_candidate(SWARM_BUNDLE)
+    SwarmDisasterRuntimeFactory::load_candidate(SWARM_BUNDLE)
         .map_err(|_| SwarmDisasterCliError::Configuration)?;
-    if hex(factory.runtime_coverage_digest()) != COVERAGE_SHA256 {
-        return Err(SwarmDisasterCliError::Configuration);
-    }
     if json {
         println!(
-            "{{\"kind\":\"universe-coverage\",\"mode\":\"{MODE}\",\"source_categories\":42,\"runtime_slices\":42,\"source_obligations\":6963,\"integrated\":6282,\"shared_integrated\":652,\"external_outcomes\":6,\"metadata\":23,\"mechanic_rules\":23,\"fixtures\":23,\"native_handlers\":0,\"coverage_digest\":\"{COVERAGE_SHA256}\"}}"
+            "{{\"kind\":\"universe-coverage\",\"mode\":\"{MODE}\",\"source_categories\":42,\"runtime_slices\":42,\"source_obligations\":6963,\"integrated\":6282,\"shared_integrated\":652,\"external_outcomes\":6,\"metadata\":23,\"mechanic_rules\":23,\"fixtures\":23,\"native_handlers\":0}}"
         );
     } else {
         println!(
-            "universe coverage mode={MODE} categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0 digest={COVERAGE_SHA256}"
+            "universe coverage mode={MODE} categories=42 slices=42 source_obligations=6963 integrated=6282 shared_integrated=652 external_outcomes=6 metadata=23 rules=23 fixtures=23 native_handlers=0"
         );
     }
     Ok(())

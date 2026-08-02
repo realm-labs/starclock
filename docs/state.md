@@ -102,6 +102,7 @@ Removed from current runtime surfaces:
   service, encounter and run revision constants and duplicate digest inputs;
 - Standard Universe battle assembly, contribution, materialization, snapshot
   and event-commitment revisions and their byte-for-byte digest snapshots;
+- Gold and Gears runtime-coverage, baseline-fixture and seeded-run revisions;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

@@ -29,8 +29,6 @@ use super::{
     baseline_controller::{GoldAndGearsBaselineController, GoldAndGearsControllerIdentity},
 };
 
-pub const GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION: &str =
-    "gold-and-gears-synthetic-baseline-fixture-v1";
 pub const GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY: &str =
     "SyntheticBalanceIndependentNotObservedNumericParity";
 
@@ -268,12 +266,11 @@ fn synthetic_roster(
 }
 
 fn activity_identity(instance: &GoldAndGearsRuntimeInstance) -> ActivityDefinitionIdentity {
-    let mut definition = Encoder::new(b"starclock.gold-and-gears.baseline-activity-definition.v1");
-    definition.text(GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION);
+    let mut definition = Encoder::new(b"starclock.gold-and-gears.baseline-activity-definition");
     definition.digest(instance.graph_definition().digest().bytes());
     definition.digest(instance.participants().digest().bytes());
     definition.digest(instance.battle_catalog.digest());
-    let mut config = Encoder::new(b"starclock.gold-and-gears.baseline-entry-spec.v1");
+    let mut config = Encoder::new(b"starclock.gold-and-gears.baseline-entry-spec");
     config.text(AREA);
     config.text(PATH);
     config.text(DICE);

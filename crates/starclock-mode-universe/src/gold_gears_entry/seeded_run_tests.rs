@@ -3,8 +3,7 @@ use std::collections::BTreeSet;
 use starclock_activity::{ActivityInstanceId, ActivityTerminalOutcome};
 
 use super::{
-    GOLD_AND_GEARS_SEEDED_RUN_REVISION, GoldAndGearsRuntimeFactory,
-    GoldAndGearsSeededRunRequest,
+    GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunRequest,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
 
@@ -76,10 +75,6 @@ static MATRIX: &[MatrixRow] = &[
 #[ignore = "exhaustive current-state seeded matrix"]
 fn frozen_matrix_completes_real_battles_and_verifies_from_a_fresh_factory() {
     assert_eq!(MATRIX.len(), 25);
-    assert_eq!(
-        GOLD_AND_GEARS_SEEDED_RUN_REVISION,
-        "gold-and-gears-seeded-run-v1"
-    );
     let primary = super::tests::shared_factory();
     let fresh = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let mut policies = BTreeSet::new();

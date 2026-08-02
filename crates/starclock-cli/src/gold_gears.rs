@@ -62,7 +62,7 @@ pub fn coverage(args: &[String]) -> Result<(), GoldAndGearsCliError> {
     let coverage = factory.runtime_coverage_summary();
     if json {
         println!(
-            "{{\"kind\":\"universe-coverage\",\"mode\":\"{MODE}\",\"source_categories\":{},\"runtime_slices\":{},\"source_obligations\":{},\"integrated\":{},\"shared_integrated\":{},\"external_outcomes\":{},\"metadata\":{},\"mechanic_rules\":{},\"fixtures\":{},\"native_handlers\":{},\"coverage_digest\":\"{}\"}}",
+            "{{\"kind\":\"universe-coverage\",\"mode\":\"{MODE}\",\"source_categories\":{},\"runtime_slices\":{},\"source_obligations\":{},\"integrated\":{},\"shared_integrated\":{},\"external_outcomes\":{},\"metadata\":{},\"mechanic_rules\":{},\"fixtures\":{},\"native_handlers\":{}}}",
             coverage.source_categories(),
             coverage.source_runtime_slices(),
             coverage.source_obligations(),
@@ -73,11 +73,10 @@ pub fn coverage(args: &[String]) -> Result<(), GoldAndGearsCliError> {
             coverage.mechanic_rules(),
             coverage.semantic_fixtures(),
             coverage.native_handlers(),
-            hex(coverage.digest()),
         );
     } else {
         println!(
-            "universe coverage mode={MODE} categories={} slices={} source_obligations={} integrated={} shared_integrated={} external_outcomes={} metadata={} rules={} fixtures={} native_handlers={} digest={}",
+            "universe coverage mode={MODE} categories={} slices={} source_obligations={} integrated={} shared_integrated={} external_outcomes={} metadata={} rules={} fixtures={} native_handlers={}",
             coverage.source_categories(),
             coverage.source_runtime_slices(),
             coverage.source_obligations(),
@@ -88,7 +87,6 @@ pub fn coverage(args: &[String]) -> Result<(), GoldAndGearsCliError> {
             coverage.mechanic_rules(),
             coverage.semantic_fixtures(),
             coverage.native_handlers(),
-            hex(coverage.digest()),
         );
     }
     Ok(())

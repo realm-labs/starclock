@@ -19,9 +19,7 @@ use super::{
     incremental_run::GoldAndGearsIncrementalRun,
 };
 
-/// Stable deterministic runner contract used by the P0-frozen seeded matrix.
-pub const GOLD_AND_GEARS_SEEDED_RUN_REVISION: &str = "gold-and-gears-seeded-run-v1";
-
+/// Deterministic runner used by the explicit exhaustive seeded matrix.
 pub(super) const MAX_SEEDED_RUN_STEPS: usize = 256;
 
 /// Stable inputs which bind one deterministic complete-run execution.
@@ -401,8 +399,7 @@ fn transcript_digest(
     battle_count: u32,
     steps: &[GoldAndGearsSeededRunStep],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-and-gears.seeded-run.v1");
-    encoder.text(GOLD_AND_GEARS_SEEDED_RUN_REVISION);
+    let mut encoder = Encoder::new(b"starclock.gold-and-gears.seeded-run");
     encoder.u64(seed);
     encoder.u8(terminal_code(terminal));
     encoder.digest(final_state_hash.bytes());
