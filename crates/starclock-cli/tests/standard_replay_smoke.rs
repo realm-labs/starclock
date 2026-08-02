@@ -54,14 +54,14 @@ fn cli_runs_writes_replays_reproduces_bytes_and_detects_divergence() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            0xfb, 0x5c, 0xd0, 0xcf, 0xee, 0xbe, 0x89, 0x8b, 0x3d, 0xa0, 0xaf, 0x9e, 0x42, 0xa0,
-            0x29, 0x36, 0xb7, 0x8d, 0xe8, 0x0c, 0xa8, 0xc5, 0xbd, 0x96, 0xb7, 0xdb, 0xe7, 0x44,
-            0x33, 0x6c, 0x25, 0xc0,
+            0xfa, 0xd8, 0xcc, 0xbf, 0xc1, 0xf5, 0x03, 0xef, 0xae, 0x8e, 0x2a, 0x4e, 0x5f, 0xaf,
+            0xcb, 0x51, 0x7d, 0x5e, 0x33, 0x16, 0x47, 0xea, 0x2c, 0x15, 0x39, 0x25, 0x0b, 0x75,
+            0x7c, 0xe6, 0x1d, 0x83,
         ])
     );
     assert_eq!(
         String::from_utf8(first_run.stdout).unwrap().trim(),
-        "{\"kind\":\"battle-run\",\"scenario\":\"synthetic-standard\",\"seed\":7,\"controller\":\"baseline\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"2f61f927be14e24df81813e49403e5367fdb51301c6e820a6e276676773e35e8\",\"replay_bytes\":370}"
+        "{\"kind\":\"battle-run\",\"scenario\":\"synthetic-standard\",\"seed\":7,\"controller\":\"baseline\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"2f61f927be14e24df81813e49403e5367fdb51301c6e820a6e276676773e35e8\",\"replay_bytes\":456}"
     );
 
     let verified = output(&["replay", "verify", first.to_str().unwrap(), "--json"]);
@@ -96,7 +96,7 @@ fn cli_runs_writes_replays_reproduces_bytes_and_detects_divergence() {
 
 #[test]
 fn cli_runs_and_verifies_the_frozen_public_standard_scenario() {
-    let replay = fixture_path("public-standard-v1");
+    let replay = fixture_path("public-standard");
     let _ = fs::remove_file(&replay);
     let run = output(&[
         "battle",
@@ -112,7 +112,7 @@ fn cli_runs_and_verifies_the_frozen_public_standard_scenario() {
     assert!(run.status.success(), "{:?}", run);
     assert_eq!(
         String::from_utf8(run.stdout).unwrap().trim(),
-        "{\"kind\":\"battle-run\",\"scenario\":\"scenario.standard.basic-single-wave\",\"seed\":104729,\"controller\":\"baseline\",\"commands\":21,\"phase\":\"won\",\"state_hash\":\"eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178\",\"replay_bytes\":1792}"
+        "{\"kind\":\"battle-run\",\"scenario\":\"scenario.standard.basic-single-wave\",\"seed\":104729,\"controller\":\"baseline\",\"commands\":21,\"phase\":\"won\",\"state_hash\":\"eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178\",\"replay_bytes\":1880}"
     );
     let verified = output(&["replay", "verify", replay.to_str().unwrap(), "--json"]);
     assert!(verified.status.success(), "{:?}", verified);

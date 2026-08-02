@@ -96,7 +96,6 @@ impl ParticipantPolicy {
 pub struct OpaqueParticipantBuild {
     resolved_spec: CombatantSpecDigest,
     build: BuildDigest,
-    build_catalog_revision: Box<str>,
     source: ParticipantSourceKind,
 }
 
@@ -104,20 +103,11 @@ impl OpaqueParticipantBuild {
     pub fn new(
         resolved_spec: CombatantSpecDigest,
         build: BuildDigest,
-        build_catalog_revision: impl Into<Box<str>>,
         source: ParticipantSourceKind,
     ) -> Result<Self, ParticipantLockError> {
-        let revision = build_catalog_revision.into();
-        if revision.is_empty()
-            || revision.len() > 80
-            || !revision.bytes().all(|byte| byte.is_ascii_graphic())
-        {
-            return Err(ParticipantLockError::InvalidCatalogRevision);
-        }
         Ok(Self {
             resolved_spec,
             build,
-            build_catalog_revision: revision,
             source,
         })
     }
@@ -129,10 +119,6 @@ impl OpaqueParticipantBuild {
     #[must_use]
     pub const fn build_digest(&self) -> BuildDigest {
         self.build
-    }
-    #[must_use]
-    pub fn build_catalog_revision(&self) -> &str {
-        &self.build_catalog_revision
     }
     #[must_use]
     pub const fn source(&self) -> ParticipantSourceKind {
@@ -197,7 +183,6 @@ impl ParticipantLockEntry {
         writer.u32(self.character.get());
         writer.digest(self.build.resolved_spec.bytes());
         writer.digest(self.build.build.bytes());
-        writer.text(&self.build.build_catalog_revision);
         writer.byte(self.build.source as u8);
     }
 }
@@ -344,7 +329,6 @@ fn encode_policy(policy: ParticipantPolicy, writer: &mut CanonicalWriter) {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ParticipantLockError {
     FormationOutOfRange,
-    InvalidCatalogRevision,
     InvalidParticipantCount,
     DuplicateFormation,
     DuplicateParticipant,

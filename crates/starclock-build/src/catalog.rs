@@ -22,23 +22,6 @@ use crate::{
     trace::{TraceGraphDefinition, TraceGraphError},
 };
 
-/// Human-readable immutable build-catalog revision.
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct BuildCatalogRevision(Box<str>);
-
-impl BuildCatalogRevision {
-    /// Creates a non-empty revision.
-    #[must_use]
-    pub fn new(value: &str) -> Option<Self> {
-        (!value.trim().is_empty()).then(|| Self(value.into()))
-    }
-
-    #[must_use]
-    pub fn as_str(&self) -> &str {
-        &self.0
-    }
-}
-
 /// One already-resolved character row used by the B1 compilation boundary.
 ///
 /// Later batches replace the fixed level row and bindings with curves and
@@ -217,13 +200,11 @@ impl CharacterStatRow {
     }
 }
 
-/// Immutable validated build definitions compatible with one combat revision.
+/// Immutable validated build definitions bound to one combat catalog digest.
 #[derive(Debug)]
 pub struct BuildCatalog {
-    revision: BuildCatalogRevision,
     digest: BuildCatalogDigest,
-    compatible_combat_revision: Box<str>,
-    compatible_combat_digest: CatalogDigest,
+    combat_digest: CatalogDigest,
     characters: Box<[CharacterBuildDefinition]>,
     light_cones: Box<[LightConeDefinition]>,
     presets: Box<[BuildPreset]>,
@@ -231,20 +212,12 @@ pub struct BuildCatalog {
 
 impl BuildCatalog {
     #[must_use]
-    pub const fn revision(&self) -> &BuildCatalogRevision {
-        &self.revision
-    }
-    #[must_use]
     pub const fn digest(&self) -> BuildCatalogDigest {
         self.digest
     }
     #[must_use]
-    pub fn compatible_combat_revision(&self) -> &str {
-        &self.compatible_combat_revision
-    }
-    #[must_use]
-    pub const fn compatible_combat_digest(&self) -> CatalogDigest {
-        self.compatible_combat_digest
+    pub const fn combat_digest(&self) -> CatalogDigest {
+        self.combat_digest
     }
     #[must_use]
     pub fn character(&self, form: UnitDefinitionId) -> Option<&CharacterBuildDefinition> {
@@ -289,8 +262,7 @@ impl BuildCatalog {
 /// Validated catalog builder; input order is never retained as semantics.
 #[derive(Debug)]
 pub struct BuildCatalogBuilder {
-    revision: BuildCatalogRevision,
-    compatible_combat_revision: Box<str>,
+    combat_digest: CatalogDigest,
     characters: Vec<CharacterBuildDefinition>,
     light_cones: Vec<LightConeDefinition>,
     presets: Vec<BuildPreset>,
@@ -298,14 +270,13 @@ pub struct BuildCatalogBuilder {
 
 impl BuildCatalogBuilder {
     #[must_use]
-    pub fn new(revision: BuildCatalogRevision, compatible_combat_revision: &str) -> Option<Self> {
-        (!compatible_combat_revision.trim().is_empty()).then(|| Self {
-            revision,
-            compatible_combat_revision: compatible_combat_revision.into(),
+    pub fn new(combat: &CombatCatalog) -> Self {
+        Self {
+            combat_digest: combat.digest(),
             characters: Vec::new(),
             light_cones: Vec::new(),
             presets: Vec::new(),
-        })
+        }
     }
 
     pub fn add_character(&mut self, definition: CharacterBuildDefinition) {
@@ -321,9 +292,9 @@ impl BuildCatalogBuilder {
     }
 
     pub fn build(mut self, combat: &CombatCatalog) -> Result<BuildCatalog, BuildCatalogError> {
-        if combat.revision().as_str() != self.compatible_combat_revision.as_ref() {
+        if combat.digest() != self.combat_digest {
             return Err(BuildCatalogError::new(
-                BuildCatalogErrorKind::IncompatibleCombatRevision,
+                BuildCatalogErrorKind::CombatCatalogMismatch,
                 None,
             ));
         }
@@ -380,18 +351,14 @@ impl BuildCatalogBuilder {
             ));
         }
         let digest = catalog_digest(
-            &self.revision,
-            &self.compatible_combat_revision,
             combat.digest().bytes(),
             &self.characters,
             &self.light_cones,
             &self.presets,
         );
         let catalog = BuildCatalog {
-            revision: self.revision,
             digest,
-            compatible_combat_revision: self.compatible_combat_revision,
-            compatible_combat_digest: combat.digest(),
+            combat_digest: combat.digest(),
             characters: self.characters.into_boxed_slice(),
             light_cones: self.light_cones.into_boxed_slice(),
             presets: self.presets.into_boxed_slice(),
@@ -844,7 +811,7 @@ const fn preset_error(kind: BuildCatalogErrorKind, id: BuildPresetId) -> BuildCa
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BuildCatalogErrorKind {
-    IncompatibleCombatRevision,
+    CombatCatalogMismatch,
     DuplicateCharacter,
     MissingCombatForm,
     InvalidStatCurve,

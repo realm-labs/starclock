@@ -138,7 +138,6 @@ fn roster_and_lock(catalog: &UniverseCatalog) -> (UniverseBattleRoster, Particip
                 OpaqueParticipantBuild::new(
                     combatant.digest(),
                     BuildDigest::new([index + 17; 32]).unwrap(),
-                    "battle-materialization-test-v1",
                     ParticipantSourceKind::FixedResolved,
                 )
                 .unwrap(),
@@ -694,7 +693,6 @@ fn roster_mismatch_fails_before_any_catalog_or_spec_is_emitted() {
                     OpaqueParticipantBuild::new(
                         entry.combatant().digest(),
                         BuildDigest::new([entry.formation().get() + 17; 32]).unwrap(),
-                        "battle-materialization-test-v1",
                         ParticipantSourceKind::FixedResolved,
                     )
                     .unwrap(),

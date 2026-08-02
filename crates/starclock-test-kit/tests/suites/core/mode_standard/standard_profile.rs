@@ -302,7 +302,6 @@ fn participant_entry(raw: u32, team: u8) -> ParticipantLockEntry {
         OpaqueParticipantBuild::new(
             CombatantSpecDigest::new([0x50 + team; 32]).unwrap(),
             BuildDigest::new([0x60 + team; 32]).unwrap(),
-            "build-catalog-v1",
             ParticipantSourceKind::CompiledBuild,
         )
         .unwrap(),

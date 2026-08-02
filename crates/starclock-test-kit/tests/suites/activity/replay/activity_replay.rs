@@ -51,8 +51,8 @@ fn activity_trace_round_trips_with_nested_boundaries_and_diagnostics() {
     assert_eq!(
         digest.bytes(),
         [
-            76, 115, 126, 145, 107, 101, 85, 84, 70, 103, 92, 119, 122, 70, 25, 134, 177, 175, 250,
-            79, 13, 125, 46, 41, 208, 139, 94, 15, 197, 39, 98, 238,
+            6, 67, 36, 214, 88, 164, 164, 150, 112, 212, 152, 194, 122, 60, 112, 208, 202, 104,
+            195, 46, 114, 163, 56, 94, 46, 4, 110, 195, 252, 116, 46, 158,
         ]
     );
 }
@@ -321,7 +321,6 @@ fn participant_entry() -> ParticipantLockEntry {
         OpaqueParticipantBuild::new(
             CombatantSpecDigest::new([0x55; 32]).unwrap(),
             BuildDigest::new([0x44; 32]).unwrap(),
-            "build-catalog-v1",
             ParticipantSourceKind::CompiledBuild,
         )
         .unwrap(),

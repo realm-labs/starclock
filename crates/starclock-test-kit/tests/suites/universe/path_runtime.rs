@@ -48,7 +48,6 @@ fn participants() -> ParticipantLock {
                 OpaqueParticipantBuild::new(
                     CombatantSpecDigest::new([byte; 32]).expect("spec digest"),
                     BuildDigest::new([byte + 32; 32]).expect("build digest"),
-                    "test-build-catalog-v1",
                     ParticipantSourceKind::CompiledBuild,
                 )
                 .expect("build"),

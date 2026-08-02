@@ -236,7 +236,6 @@ pub(super) fn battle_participants() -> ParticipantLock {
             let build = OpaqueParticipantBuild::new(
                 CombatantSpecDigest::new([byte; 32]).unwrap(),
                 BuildDigest::new([byte + 32; 32]).unwrap(),
-                "swarm-battle-test-build-v1",
                 ParticipantSourceKind::CompiledBuild,
             )
             .unwrap();

@@ -42,8 +42,6 @@ use crate::{
 };
 
 pub const STANDARD_UNIVERSE_PROFILE_PREFIX: &str = "standard-universe/world-";
-pub const STANDARD_UNIVERSE_DEFAULT_BUILD_REVISION: &str =
-    "standard-universe-default-compiled-build-v2";
 
 /// Immutable bundles and catalog composition shared by CLI and
 /// protocol-neutral agent sessions.
@@ -304,7 +302,6 @@ fn default_roster(
                     runtime.digest(),
                     BuildDigest::new(compiled.build_digest().bytes())
                         .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
-                    STANDARD_UNIVERSE_DEFAULT_BUILD_REVISION,
                     ParticipantSourceKind::CompiledBuild,
                 )
                 .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,

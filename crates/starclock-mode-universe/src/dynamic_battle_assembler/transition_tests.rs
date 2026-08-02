@@ -285,7 +285,6 @@ fn roster(catalog: &UniverseCatalog) -> (ParticipantLock, UniverseBattleRoster) 
                 OpaqueParticipantBuild::new(
                     combatant.digest(),
                     BuildDigest::new([index + 17; 32]).unwrap(),
-                    "goal06-transition-fixture-v1",
                     ParticipantSourceKind::FixedResolved,
                 )
                 .unwrap(),

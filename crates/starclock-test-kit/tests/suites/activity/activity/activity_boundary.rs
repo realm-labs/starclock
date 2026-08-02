@@ -39,8 +39,8 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         initial_hash.bytes(),
         [
-            128, 116, 68, 112, 23, 240, 183, 208, 139, 124, 108, 122, 170, 254, 186, 127, 158, 231,
-            122, 93, 0, 56, 81, 85, 82, 49, 59, 153, 175, 42, 21, 17,
+            0, 119, 41, 170, 106, 61, 179, 159, 201, 158, 63, 118, 112, 123, 55, 194, 78, 177, 86,
+            25, 152, 196, 169, 222, 34, 184, 19, 28, 209, 72, 227, 186,
         ]
     );
     let started = activity
@@ -54,16 +54,16 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         handoff.seed().bytes(),
         [
-            25, 206, 192, 61, 175, 224, 249, 113, 195, 142, 46, 3, 59, 221, 141, 94, 159, 233, 204,
-            241, 83, 73, 242, 126, 126, 105, 103, 154, 148, 185, 216, 0,
+            104, 109, 232, 73, 73, 90, 114, 199, 98, 24, 70, 93, 200, 168, 174, 21, 201, 195, 168,
+            56, 75, 254, 8, 174, 144, 57, 231, 168, 88, 5, 74, 86,
         ]
     );
     assert_ne!(started.state_hash(), initial_hash);
     assert_eq!(
         started.state_hash().bytes(),
         [
-            51, 14, 154, 180, 212, 44, 73, 221, 55, 65, 218, 99, 173, 8, 235, 118, 140, 255, 150,
-            66, 240, 250, 229, 149, 126, 27, 86, 140, 75, 46, 23, 66,
+            161, 91, 241, 37, 206, 56, 60, 79, 141, 107, 231, 2, 44, 191, 13, 180, 173, 178, 77,
+            232, 115, 104, 82, 80, 54, 115, 168, 53, 15, 218, 55, 9,
         ]
     );
     assert_eq!(activity.phase(), ActivityPhase::AwaitingBattleResult);
@@ -85,8 +85,8 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         terminal.state_hash().bytes(),
         [
-            193, 4, 0, 70, 181, 123, 252, 122, 111, 2, 137, 164, 89, 33, 77, 80, 74, 213, 92, 180,
-            95, 33, 154, 104, 202, 21, 213, 62, 70, 7, 106, 35,
+            208, 83, 18, 84, 193, 228, 43, 196, 129, 39, 222, 104, 202, 74, 0, 161, 232, 28, 191,
+            247, 54, 250, 203, 85, 26, 166, 54, 141, 180, 52, 103, 81,
         ]
     );
     assert!(matches!(
@@ -391,7 +391,6 @@ fn participant_entry() -> ParticipantLockEntry {
         OpaqueParticipantBuild::new(
             CombatantSpecDigest::new([0x55; 32]).unwrap(),
             BuildDigest::new([0x44; 32]).unwrap(),
-            "build-catalog-v1",
             ParticipantSourceKind::CompiledBuild,
         )
         .unwrap(),

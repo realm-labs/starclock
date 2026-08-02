@@ -33,8 +33,6 @@ pub const GOLD_AND_GEARS_BASELINE_FIXTURE_REVISION: &str =
     "gold-and-gears-synthetic-baseline-fixture-v1";
 pub const GOLD_AND_GEARS_BASELINE_FIXTURE_ACCURACY: &str =
     "SyntheticBalanceIndependentNotObservedNumericParity";
-pub const GOLD_AND_GEARS_BASELINE_BUILD_CATALOG_REVISION: &str =
-    "gold-and-gears-synthetic-baseline-build-catalog-v1";
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.abundance";
@@ -192,7 +190,6 @@ fn synthetic_participant_lock() -> Result<ParticipantLock, GoldAndGearsBaselineF
                     .ok_or(GoldAndGearsBaselineFixtureError::Participant)?,
                 BuildDigest::new([byte + 32; 32])
                     .ok_or(GoldAndGearsBaselineFixtureError::Participant)?,
-                GOLD_AND_GEARS_BASELINE_BUILD_CATALOG_REVISION,
                 ParticipantSourceKind::CompiledBuild,
             )
             .map_err(|_| GoldAndGearsBaselineFixtureError::Participant)?;
@@ -293,8 +290,7 @@ fn activity_identity(instance: &GoldAndGearsRuntimeInstance) -> ActivityDefiniti
 }
 
 fn build_catalog_digest(roster: &UniverseBattleRoster) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-and-gears.synthetic-build-catalog.v1");
-    encoder.text(GOLD_AND_GEARS_BASELINE_BUILD_CATALOG_REVISION);
+    let mut encoder = Encoder::new(b"starclock.gold-and-gears.synthetic-build-catalog");
     encoder.u32(u32::try_from(roster.entries().len()).expect("the roster is bounded"));
     for entry in roster.entries() {
         encoder.u32(entry.participant().get());

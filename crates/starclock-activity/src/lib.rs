@@ -32,7 +32,7 @@ mod transaction;
 mod view;
 
 pub use activity_rng::{
-    ACTIVITY_RNG_REVISION, ActivityRngContext, ActivityRngDraw, ActivityRngError, ActivityRngLabel,
+    ActivityRngContext, ActivityRngDraw, ActivityRngError, ActivityRngLabel,
     ActivityRngStreamSnapshot, ActivityRngStreams,
 };
 pub use aggregate::{
@@ -59,10 +59,9 @@ pub use battle_settlement_in_place::{
     ActivityBattleInPlaceSettlement, ActivityBattleInPlaceSettlementError,
 };
 pub use codec::{
-    ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION, ActivityConfigDigest,
-    ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash, BattleProjectionDigest,
-    BattleResultDigest, BattleSettlementContractDigest, BuildDigest, EncounterPreparationDigest,
-    EventDigest, ParticipantLockDigest, TechniqueContributionDigest,
+    ActivityConfigDigest, ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash,
+    BattleProjectionDigest, BattleResultDigest, BattleSettlementContractDigest, BuildDigest,
+    EncounterPreparationDigest, EventDigest, ParticipantLockDigest, TechniqueContributionDigest,
 };
 pub use graph::{
     ActivityEdgeCondition, ActivityEdgeDefinition, ActivityGraphDefinition,
@@ -75,20 +74,18 @@ pub use graph_activity::{
     GraphActivityDefinition, GraphActivityNodeProgram, GraphActivityPreparationResolution,
     GraphActivityResolution,
 };
-pub use graph_command::{
-    GRAPH_ACTIVITY_API_REVISION, GraphActivityCommand, GraphActivityCommandKind,
-};
+pub use graph_command::{GraphActivityCommand, GraphActivityCommandKind};
 pub use graph_error::{
     GraphActivityBattleError, GraphActivityCommandError, GraphActivityDefinitionError,
     GraphActivityEncounterError, GraphActivityRandomOfferError, GraphActivityRuntimeError,
     GraphActivityStartError,
 };
 pub use handler_registry::{
-    ACTIVITY_HANDLER_REGISTRY_REVISION, ActivityHandler, ActivityHandlerBundle,
-    ActivityHandlerFault, ActivityHandlerFaultKind, ActivityHandlerInput, ActivityHandlerOutput,
-    ActivityHandlerRegistration, ActivityHandlerRegistry, ActivityHandlerRegistryDigest,
-    ActivityHandlerRegistryError, MAX_ACTIVITY_HANDLER_BUNDLES, MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES,
-    MAX_ACTIVITY_HANDLERS, core_activity_handler_bundle,
+    ActivityHandler, ActivityHandlerBundle, ActivityHandlerFault, ActivityHandlerFaultKind,
+    ActivityHandlerInput, ActivityHandlerOutput, ActivityHandlerRegistration,
+    ActivityHandlerRegistry, ActivityHandlerRegistryDigest, ActivityHandlerRegistryError,
+    MAX_ACTIVITY_HANDLER_BUNDLES, MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES, MAX_ACTIVITY_HANDLERS,
+    core_activity_handler_bundle,
 };
 pub use id::{
     ActivityBattleHandoffId, ActivityDecisionId, ActivityDefinitionId, ActivityEdgeId,
@@ -102,20 +99,20 @@ pub use interaction::{
     MAX_ACTIVITY_INTERACTION_BINDINGS, MAX_ACTIVITY_INTERACTION_RANDOM_CANDIDATES,
 };
 pub use logical_scope::{
-    ACTIVITY_LOGICAL_SCOPE_REVISION, LogicalScopeAddress, LogicalScopeClassDefinition,
-    LogicalScopeDefinitionError, LogicalScopeDefinitions, LogicalScopeInstance,
-    LogicalScopeNodeBinding, MAX_LOGICAL_SCOPE_BINDINGS, MAX_LOGICAL_SCOPE_CLASSES,
-    MAX_LOGICAL_SCOPE_DEPTH, MAX_LOGICAL_SCOPE_INSTANCES,
+    LogicalScopeAddress, LogicalScopeClassDefinition, LogicalScopeDefinitionError,
+    LogicalScopeDefinitions, LogicalScopeInstance, LogicalScopeNodeBinding,
+    MAX_LOGICAL_SCOPE_BINDINGS, MAX_LOGICAL_SCOPE_CLASSES, MAX_LOGICAL_SCOPE_DEPTH,
+    MAX_LOGICAL_SCOPE_INSTANCES,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,
     ParticipantLockError, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
 };
 pub use program::{
-    ACTIVITY_RELOCATION_REVISION, ActivityCondition, ActivityDecisionKind, ActivityExpression,
-    ActivityOperation, ActivityOptionDefinition, ActivityProgramBindingError,
-    ActivityProgramDefinition, ActivityProgramDefinitionError, ActivityValueType,
-    MAX_ACTIVITY_OPTIONS, MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
+    ActivityCondition, ActivityDecisionKind, ActivityExpression, ActivityOperation,
+    ActivityOptionDefinition, ActivityProgramBindingError, ActivityProgramDefinition,
+    ActivityProgramDefinitionError, ActivityValueType, MAX_ACTIVITY_OPTIONS,
+    MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
 };
 pub use projection::{
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultIdentity,

@@ -43,7 +43,6 @@ fn participants(policy: ParticipantPolicy) -> ParticipantLock {
             let build = OpaqueParticipantBuild::new(
                 CombatantSpecDigest::new([byte; 32]).expect("resolved digest"),
                 BuildDigest::new([byte + 32; 32]).expect("build digest"),
-                "gold-entry-test-build-v1",
                 ParticipantSourceKind::CompiledBuild,
             )
             .expect("opaque build");
@@ -596,7 +595,6 @@ pub(super) fn battle_entry(
             let build = OpaqueParticipantBuild::new(
                 CombatantSpecDigest::new([byte; 32]).expect("resolved digest"),
                 BuildDigest::new([byte + 32; 32]).expect("build digest"),
-                "gold-entry-battle-test-build-v1",
                 ParticipantSourceKind::CompiledBuild,
             )
             .expect("opaque build");

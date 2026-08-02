@@ -294,7 +294,6 @@ fn compiled_build_roster(catalog: &Arc<UniverseCatalog>) -> UniverseBattleRoster
                 OpaqueParticipantBuild::new(
                     compiled.combatant().digest(),
                     BuildDigest::new(compiled.build_digest().bytes()).unwrap(),
-                    core.build_catalog().revision().as_str(),
                     ParticipantSourceKind::CompiledBuild,
                 )
                 .unwrap(),

@@ -5,13 +5,10 @@ use starclock_activity::{
 };
 
 pub(crate) const SWARM_DISASTER_HANDLER_BUNDLE_ID: &str = "starclock.mode.swarm-disaster";
-pub(crate) const SWARM_DISASTER_HANDLER_BUNDLE_REVISION: &str =
-    "swarm-disaster-activity-handlers-v1";
 
 pub(crate) fn swarm_disaster_activity_handler_bundle() -> ActivityHandlerBundle {
     ActivityHandlerBundle::new(
         SWARM_DISASTER_HANDLER_BUNDLE_ID,
-        SWARM_DISASTER_HANDLER_BUNDLE_REVISION,
         vec!["starclock.activity.core"],
         Vec::new(),
     )
@@ -36,10 +33,6 @@ mod tests {
         assert_eq!(registry.bundles().len(), 2);
         assert_eq!(registry.bundles()[0].id(), "starclock.activity.core");
         assert_eq!(registry.bundles()[1].id(), SWARM_DISASTER_HANDLER_BUNDLE_ID);
-        assert_eq!(
-            registry.bundles()[1].revision(),
-            SWARM_DISASTER_HANDLER_BUNDLE_REVISION
-        );
         assert_eq!(
             registry.bundles()[1].dependencies(),
             ["starclock.activity.core"]

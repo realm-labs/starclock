@@ -28,9 +28,6 @@ pub const SWARM_DISASTER_BASELINE_FIXTURE_REVISION: &str =
 /// Accuracy label that prevents the synthetic high-stat roster from claiming observed parity.
 pub const SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY: &str =
     "SyntheticBalanceIndependentNotObservedNumericParity";
-/// Build-catalog revision bound into fixture replays.
-pub const SWARM_DISASTER_BASELINE_BUILD_CATALOG_REVISION: &str =
-    "swarm-disaster-synthetic-baseline-build-catalog-v1";
 /// Profile identity emitted by headless Swarm clients.
 pub const SWARM_DISASTER_BASELINE_PROFILE: &str = "swarm-disaster.profile.v1";
 /// Real nested-battle executor bound into headless diagnostics and replay actions.
@@ -197,7 +194,6 @@ fn synthetic_participant_lock() -> Result<ParticipantLock, SwarmDisasterBaseline
                     .ok_or(SwarmDisasterBaselineFixtureError::Participant)?,
                 BuildDigest::new([byte + 32; 32])
                     .ok_or(SwarmDisasterBaselineFixtureError::Participant)?,
-                SWARM_DISASTER_BASELINE_BUILD_CATALOG_REVISION,
                 ParticipantSourceKind::CompiledBuild,
             )
             .map_err(|_| SwarmDisasterBaselineFixtureError::Participant)?;
@@ -298,8 +294,7 @@ fn activity_identity(instance: &SwarmDisasterRuntimeInstance) -> ActivityDefinit
 }
 
 fn build_catalog_digest(roster: &UniverseBattleRoster) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.synthetic-build-catalog.v1");
-    encoder.text(SWARM_DISASTER_BASELINE_BUILD_CATALOG_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.synthetic-build-catalog");
     encoder.u32(u32::try_from(roster.entries().len()).expect("the roster is bounded"));
     for entry in roster.entries() {
         encoder.u32(entry.participant().get());

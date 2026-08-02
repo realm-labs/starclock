@@ -366,7 +366,6 @@ fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
                 OpaqueParticipantBuild::new(
                     combatant.digest(),
                     BuildDigest::new([2; 32]).unwrap(),
-                    "goal07-ability-tree-s02",
                     ParticipantSourceKind::FixedResolved,
                 )
                 .unwrap(),

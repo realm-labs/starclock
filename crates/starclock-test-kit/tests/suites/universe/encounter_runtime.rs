@@ -59,7 +59,6 @@ fn participants() -> ParticipantLock {
                 OpaqueParticipantBuild::new(
                     CombatantSpecDigest::new([byte; 32]).unwrap(),
                     BuildDigest::new([byte + 32; 32]).unwrap(),
-                    "universe-test-build-v1",
                     ParticipantSourceKind::CompiledBuild,
                 )
                 .unwrap(),

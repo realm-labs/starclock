@@ -162,7 +162,6 @@ fn roster_for_forms_with_ability_kinds_and_energy(
                 OpaqueParticipantBuild::new(
                     combatant.digest(),
                     BuildDigest::new([index + 17; 32]).unwrap(),
-                    "mechanic-integration-v1",
                     ParticipantSourceKind::FixedResolved,
                 )
                 .unwrap(),

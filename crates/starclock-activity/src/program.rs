@@ -8,8 +8,6 @@ use starclock_combat::{Energy, Hp, Ratio};
 pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 8_192;
 pub const MAX_ACTIVITY_PROGRAM_DEPTH: usize = 16;
 pub const MAX_ACTIVITY_OPTIONS: usize = 256;
-pub const ACTIVITY_RELOCATION_REVISION: &str = "activity-relocation-v1";
-
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
 pub enum ActivityValueType {

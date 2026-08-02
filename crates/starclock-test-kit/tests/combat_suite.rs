@@ -53,9 +53,6 @@ mod build_eidolon_compilation;
 mod build_identity;
 #[path = "suites/core/build/light_cone_compilation.rs"]
 mod build_light_cone_compilation;
-#[path = "suites/core/build/relic_boundary.rs"]
-mod build_relic_boundary;
-
 #[path = "suites/core/data/production_hit_plans.rs"]
 mod data_production_hit_plans;
 #[path = "suites/core/mode_standard/standard_profile.rs"]

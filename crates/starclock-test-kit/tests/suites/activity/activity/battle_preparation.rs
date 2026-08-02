@@ -43,8 +43,8 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     assert_eq!(
         definition.digest().bytes(),
         [
-            250, 66, 223, 160, 60, 206, 12, 55, 165, 175, 243, 6, 98, 2, 197, 127, 23, 52, 15, 30,
-            8, 252, 120, 59, 27, 97, 89, 85, 164, 58, 15, 16,
+            57, 47, 129, 147, 125, 11, 169, 87, 236, 190, 247, 131, 39, 49, 35, 208, 170, 152, 131,
+            34, 190, 255, 255, 139, 139, 222, 12, 11, 98, 78, 123, 224,
         ]
     );
     assert_eq!(
@@ -107,8 +107,8 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     assert_eq!(
         pending_state_hash.bytes(),
         [
-            192, 174, 154, 75, 169, 204, 69, 11, 248, 10, 3, 241, 101, 141, 43, 15, 232, 246, 247,
-            31, 104, 146, 248, 255, 73, 177, 167, 54, 24, 84, 129, 99,
+            231, 127, 79, 111, 13, 190, 251, 68, 25, 42, 57, 58, 204, 113, 250, 215, 33, 222, 10,
+            103, 3, 28, 167, 148, 168, 110, 226, 88, 61, 24, 73, 0,
         ]
     );
     assert_eq!(
@@ -415,7 +415,6 @@ fn lock_entry(
         OpaqueParticipantBuild::new(
             CombatantSpecDigest::new([resolved; 32]).unwrap(),
             BuildDigest::new([resolved.wrapping_add(1); 32]).unwrap(),
-            "build-v1",
             ParticipantSourceKind::CompiledBuild,
         )
         .unwrap(),

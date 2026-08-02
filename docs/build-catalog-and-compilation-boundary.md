@@ -13,13 +13,12 @@ boundary: form, supported level, maximum HP, Speed, canonical combat-definition
 bindings and a declared nonzero combatant-spec digest. The builder sorts rows by
 `UnitDefinitionId`, rejects duplicate forms, and verifies every ability, rule
 bundle and modifier against both the immutable `CombatCatalog` and the selected
-unit definition. It captures the exact compatible combat revision and digest.
+unit definition. It captures the exact combat catalog digest.
 
 This fixed row is synthetic foundation evidence, not production character
 coverage. B2 extends it with exact stat rows, ability curves and Trace patches; B3 adds
 Eidolons; B4 adds Light Cones; B5 adds canonical definition/catalog/build/spec
-digest encoding, source attribution, named presets and build locks; B6 protects
-the relic boundary.
+digest encoding, source attribution, named presets and build locks.
 Production Excel/Sora lowering is not bypassed, and coverage remains 0/283
 `DataReady`.
 
@@ -28,7 +27,7 @@ Production Excel/Sora lowering is not bypassed, and coverage remains 0/283
 Compilation is pure, allocates no battle/runtime ID, consumes no RNG and never
 mutates either catalog. Its typed report records these stages in fixed order:
 
-1. exact combat revision and digest compatibility;
+1. exact combat catalog digest match;
 2. character-form lookup;
 3. exact supported level;
 4. current combat-definition reference integrity;

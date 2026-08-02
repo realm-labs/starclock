@@ -12,7 +12,6 @@ fn registration(id: u32, key: &'static str, schema: u8) -> ActivityHandlerRegist
     ActivityHandlerRegistration::new(
         ActivityHandlerId::new(id).unwrap(),
         key,
-        "v1",
         [schema; 32],
         "ordered-input-no-rng",
         "test",
@@ -24,14 +23,12 @@ fn registration(id: u32, key: &'static str, schema: u8) -> ActivityHandlerRegist
 fn composed_registry_is_canonical_and_lookup_is_stable() {
     let mode = ActivityHandlerBundle::new(
         "starclock.mode.test",
-        "mode-v1",
         vec!["starclock.core"],
         vec![registration(20, "test.second", 2)],
     )
     .unwrap();
     let core = ActivityHandlerBundle::new(
         "starclock.core",
-        "core-v1",
         vec![],
         vec![registration(10, "test.first", 1)],
     )
@@ -54,7 +51,6 @@ fn composed_registry_is_canonical_and_lookup_is_stable() {
 fn composition_rejects_duplicates_and_invalid_dependency_direction() {
     let duplicate = ActivityHandlerBundle::new(
         "starclock.core",
-        "core-v1",
         vec![],
         vec![registration(10, "test.first", 1)],
     )
@@ -65,10 +61,8 @@ fn composition_rejects_duplicates_and_invalid_dependency_direction() {
     );
 
     let first =
-        ActivityHandlerBundle::new("a", "v1", vec!["z"], vec![registration(1, "test.a", 1)])
-            .unwrap();
-    let last =
-        ActivityHandlerBundle::new("z", "v1", vec![], vec![registration(2, "test.z", 2)]).unwrap();
+        ActivityHandlerBundle::new("a", vec!["z"], vec![registration(1, "test.a", 1)]).unwrap();
+    let last = ActivityHandlerBundle::new("z", vec![], vec![registration(2, "test.z", 2)]).unwrap();
     assert_eq!(
         ActivityHandlerRegistry::compose(vec![first, last]).unwrap_err(),
         ActivityHandlerRegistryError::InvalidDependency
@@ -76,11 +70,10 @@ fn composition_rejects_duplicates_and_invalid_dependency_direction() {
 }
 
 #[test]
-fn digest_covers_schema_revision_and_bundle_dependencies() {
+fn digest_covers_schema_digest_and_bundle_dependencies() {
     let base = ActivityHandlerRegistry::compose(vec![
         ActivityHandlerBundle::new(
             "starclock.core",
-            "core-v1",
             vec![],
             vec![registration(10, "test.first", 1)],
         )
@@ -90,7 +83,6 @@ fn digest_covers_schema_revision_and_bundle_dependencies() {
     let changed = ActivityHandlerRegistry::compose(vec![
         ActivityHandlerBundle::new(
             "starclock.core",
-            "core-v2",
             vec![],
             vec![registration(10, "test.first", 2)],
         )

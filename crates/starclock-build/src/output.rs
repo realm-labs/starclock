@@ -21,11 +21,9 @@ impl CompiledBuild {
         combatant: ResolvedCombatantSpec,
         report: BuildCompilationReport,
         build_digest: CombatantBuildDigest,
-        catalog_revision: &str,
         catalog_digest: BuildCatalogDigest,
     ) -> Self {
         let lock = BuildLock {
-            catalog_revision: catalog_revision.into(),
             catalog_digest,
             build_digest,
             combatant_digest: combatant.digest(),
@@ -57,17 +55,12 @@ impl CompiledBuild {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BuildLock {
-    catalog_revision: Box<str>,
     catalog_digest: BuildCatalogDigest,
     build_digest: CombatantBuildDigest,
     combatant_digest: CombatantSpecDigest,
 }
 
 impl BuildLock {
-    #[must_use]
-    pub fn catalog_revision(&self) -> &str {
-        &self.catalog_revision
-    }
     #[must_use]
     pub const fn catalog_digest(&self) -> BuildCatalogDigest {
         self.catalog_digest
@@ -85,9 +78,7 @@ impl BuildLock {
         catalog: &BuildCatalog,
         compiled: &CompiledBuild,
     ) -> Result<(), BuildLockError> {
-        if self.catalog_revision.as_ref() != catalog.revision().as_str()
-            || self.catalog_digest != catalog.digest()
-        {
+        if self.catalog_digest != catalog.digest() {
             return Err(BuildLockError::CatalogMismatch);
         }
         if self.build_digest != compiled.build_digest {

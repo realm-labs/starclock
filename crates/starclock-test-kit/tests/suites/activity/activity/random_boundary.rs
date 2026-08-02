@@ -254,7 +254,6 @@ fn participants() -> ParticipantLock {
     let build = OpaqueParticipantBuild::new(
         CombatantSpecDigest::new([3; 32]).unwrap(),
         BuildDigest::new([4; 32]).unwrap(),
-        "random-boundary-test",
         ParticipantSourceKind::Synthetic,
     )
     .unwrap();

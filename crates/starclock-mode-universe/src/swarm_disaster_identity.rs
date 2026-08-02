@@ -1,25 +1,13 @@
 //! Private component-aware identity for Swarm Disaster catalog composition.
 
 use crate::{
-    digest::Encoder,
-    error::UniverseCatalogLoadError,
+    digest::Encoder, error::UniverseCatalogLoadError,
     swarm_disaster_catalog::SwarmDisasterBundleSummary,
     swarm_disaster_content::SwarmDisasterContentCatalog,
-    swarm_disaster_handler_bundle::{
-        SWARM_DISASTER_HANDLER_BUNDLE_REVISION, swarm_disaster_activity_handler_registry,
-    },
+    swarm_disaster_handler_bundle::swarm_disaster_activity_handler_registry,
     swarm_disaster_structural::SwarmDisasterStructuralCatalog,
     swarm_disaster_unique::SwarmDisasterUniqueCatalog,
 };
-
-pub(crate) const SWARM_DISASTER_CATALOG_REVISION: &str = "swarm-disaster-v4.4-runtime-v1";
-pub(crate) const SWARM_DISASTER_PROFILE_REVISION: &str = "swarm-disaster-profile-v1";
-pub(crate) const SWARM_DISASTER_CONTENT_REVISION: &str = "swarm-disaster-content-v1";
-pub(crate) const UNIVERSE_SHARED_CONTENT_REVISION: &str = "universe-shared-content-v1";
-pub(crate) const SWARM_DISASTER_COMBAT_RULE_REGISTRY_REVISION: &str =
-    "swarm-disaster-rule-registry-v1";
-pub(crate) const SWARM_DISASTER_ENCOUNTER_OVERLAY_REVISION: &str =
-    "swarm-disaster-encounter-overlay-v1";
 
 const STANDARD_UNIVERSE_SHARED_CONTENT_DIGEST: [u8; 32] = [
     0x5e, 0x52, 0x34, 0xee, 0x39, 0x77, 0xf7, 0x94, 0xae, 0x9b, 0x1b, 0x83, 0x33, 0x72, 0xf5, 0x1c,
@@ -85,8 +73,7 @@ impl SwarmDisasterCatalogIdentity {
 }
 
 fn profile_digest(bundle: [u8; 32]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.profile-identity.v1");
-    encoder.text(SWARM_DISASTER_PROFILE_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.profile-identity");
     encoder.digest(bundle);
     encoder.finish()
 }
@@ -97,18 +84,7 @@ fn composition_digest(
     profile: [u8; 32],
     activity_handlers: [u8; 32],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.catalog-composition.v1");
-    for revision in [
-        SWARM_DISASTER_CATALOG_REVISION,
-        SWARM_DISASTER_PROFILE_REVISION,
-        SWARM_DISASTER_CONTENT_REVISION,
-        UNIVERSE_SHARED_CONTENT_REVISION,
-        SWARM_DISASTER_HANDLER_BUNDLE_REVISION,
-        SWARM_DISASTER_COMBAT_RULE_REGISTRY_REVISION,
-        SWARM_DISASTER_ENCOUNTER_OVERLAY_REVISION,
-    ] {
-        encoder.text(revision);
-    }
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.catalog-composition");
     encoder.digest(bundle);
     encoder.digest(shared_content);
     encoder.digest(profile);
@@ -138,9 +114,8 @@ mod tests {
         assert_eq!(
             identity.composition_digest(),
             [
-                0x8f, 0x29, 0x97, 0x49, 0xc3, 0xd7, 0x23, 0xe1, 0x73, 0x89, 0x96, 0xeb, 0xfc, 0x11,
-                0xc5, 0x72, 0x9c, 0xe2, 0xac, 0xd5, 0xf4, 0xe4, 0xd8, 0xe9, 0xa8, 0x1b, 0x71, 0xc8,
-                0xe3, 0x00, 0x76, 0x18,
+                114, 175, 143, 1, 20, 219, 162, 250, 14, 252, 123, 200, 150, 94, 222, 210, 182,
+                149, 50, 229, 106, 230, 64, 117, 33, 169, 253, 105, 220, 209, 202, 35,
             ]
         );
     }

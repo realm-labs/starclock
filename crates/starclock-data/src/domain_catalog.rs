@@ -7,10 +7,7 @@ use std::{
 
 use starclock_build::{
     ability::{AbilityLevel, AbilityLevelRow, AbilityLevelTable},
-    catalog::{
-        BuildCatalog, BuildCatalogBuilder, BuildCatalogRevision, CharacterBuildDefinition,
-        CharacterStatRow,
-    },
+    catalog::{BuildCatalog, BuildCatalogBuilder, CharacterBuildDefinition, CharacterStatRow},
     eidolon::{EidolonDefinition as BuildEidolonDefinition, EidolonSetDefinition},
     id::{EidolonDefinitionId, TraceNodeId},
     light_cone::CombatPath,
@@ -66,7 +63,7 @@ pub(super) fn compile(
     let combat_catalog = compile_combat(
         revision, digest, identities, combat, builds, encounters, mode,
     )?;
-    let build_catalog = compile_build(revision, builds, &combat_catalog)?;
+    let build_catalog = compile_build(builds, &combat_catalog)?;
     Ok((combat_catalog, build_catalog))
 }
 
@@ -294,14 +291,10 @@ fn compile_combat(
 }
 
 fn compile_build(
-    revision: &str,
     builds: &BuildDefinitions,
     combat: &CombatCatalog,
 ) -> Result<BuildCatalog, CatalogLoadError> {
-    let build_revision = BuildCatalogRevision::new(revision)
-        .ok_or_else(|| domain_fail("empty build catalog revision"))?;
-    let mut builder = BuildCatalogBuilder::new(build_revision, combat.revision().as_str())
-        .ok_or_else(|| domain_fail("empty combat compatibility revision"))?;
+    let mut builder = BuildCatalogBuilder::new(combat);
     for character in builds
         .characters
         .iter()
@@ -886,7 +879,7 @@ pub(super) fn source(
 mod tests {
     use starclock_build::{
         ability::{AbilityInvestment, AbilityLevel},
-        catalog::{BuildCatalogBuilder, BuildCatalogRevision},
+        catalog::BuildCatalogBuilder,
         compiler::LoadoutCompiler,
         spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
     };
@@ -921,11 +914,7 @@ mod tests {
         let combat = combat_catalog(digest);
         let character = character_definition();
         let compiled = character.compile(digest).unwrap();
-        let mut builder = BuildCatalogBuilder::new(
-            BuildCatalogRevision::new("data-domain-test").unwrap(),
-            "data-domain-test",
-        )
-        .unwrap();
+        let mut builder = BuildCatalogBuilder::new(&combat);
         builder.add_character(compiled);
         let builds = builder.build(&combat).unwrap();
 

@@ -8,10 +8,10 @@ use crate::{
 };
 
 const SEED: u64 = 14_001;
-const FINAL_STATE: &str = "fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7";
-const COMPONENT_ROOT: &str = "a486167006069c0e3bd3a8c36b9a2c026ad2baccd309e14a3892ddf3500bbd81";
-const REPLAY_BYTES: usize = 107_257;
-const REPLAY_SHA256: &str = "261c54fb76f0ad081b710ac5e23e338a96a33fd6e27c090907a59b1e27364714";
+const FINAL_STATE: &str = "0019d89fb81f2654a324b07561de8a301e3f07c735b1e3407592c186641b326b";
+const COMPONENT_ROOT: &str = "5757099eb52e0c29ced360d8aa25b6cfc39b8f59f48aaf76b5c881e2470b28a3";
+const REPLAY_BYTES: usize = 104_201;
+const REPLAY_SHA256: &str = "98b31fddf2d0e9469ec10d20a9e735105201574be4deb1fa19f2c7c80ba842a1";
 
 #[test]
 fn manifest_and_first_observation_are_bounded_and_mode_explicit() {
@@ -121,9 +121,9 @@ fn public_offers_complete_real_battles_and_export_fresh_replay() {
     }
     assert!(first_request.is_some());
     assert_eq!(external_actions, 42);
-    assert_eq!(accepted_actions, 61);
-    assert_eq!(session.replay_action_count(), 62);
-    assert_eq!(nested_battles, 17);
+    assert_eq!(accepted_actions, 60);
+    assert_eq!(session.replay_action_count(), 61);
+    assert_eq!(nested_battles, 16);
     assert_eq!(session.state_hash().as_str(), FINAL_STATE);
     let terminal = session.observe().expect("terminal observation");
     assert_eq!(terminal.status, AgentActivityStatus::Completed);
@@ -131,7 +131,7 @@ fn public_offers_complete_real_battles_and_export_fresh_replay() {
 
     let replay = session.export_replay().expect("replay");
     assert!(replay.complete());
-    assert_eq!(replay.action_count().to_u64(), 62);
+    assert_eq!(replay.action_count().to_u64(), 61);
     assert_eq!(replay.bytes().len(), REPLAY_BYTES);
     assert_eq!(replay.sha256().as_str(), REPLAY_SHA256);
     assert_eq!(
@@ -141,8 +141,8 @@ fn public_offers_complete_real_battles_and_export_fresh_replay() {
     let verification = session
         .verify_replay(&factory, replay.bytes())
         .expect("verification");
-    assert_eq!(verification.action_count.to_u64(), 62);
-    assert_eq!(verification.nested_battles.to_u64(), 17);
+    assert_eq!(verification.action_count.to_u64(), 61);
+    assert_eq!(verification.nested_battles.to_u64(), 16);
     assert_eq!(verification.final_state_hash.as_str(), FINAL_STATE);
     let live_hash = session.state_hash();
     let mut corrupted = replay.bytes().to_vec();

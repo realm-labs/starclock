@@ -68,9 +68,12 @@ Removed from current runtime surfaces:
 - Agent API schema selection and `schema_revision` request/response fields;
 - CLI schema/Goal identifiers and runtime/release evidence snapshots;
 - benchmark and seed-matrix schema/workload/executor revision fields;
-- textual component, controller and build revisions duplicated by exact digests.
+- textual component, controller and build revisions duplicated by exact digests;
+- Activity codec/RNG/scope/handler revisions duplicated by current structure and digests;
+- empty deferred relic/planar build fields and their placeholder document.
 
-Runtime/catalog modules still contain textual `*_REVISION` domain labels used
+Combat, static-rule and generated content modules still contain textual
+`*_REVISION` domain labels used
 inside digest construction. They are not compatibility branches, but they are
 redundant current-tree identity and remain cleanup debt. Replace them with the
 underlying canonical content/configuration digests; keep fixed binary layout

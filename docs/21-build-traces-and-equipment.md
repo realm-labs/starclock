@@ -408,8 +408,8 @@ Child rows use composite keys and explicit order fields where order is semantic.
 
 ```rust
 pub struct BuildCatalog {
-    revision: BuildCatalogRevision,
     digest: BuildCatalogDigest,
+    combat_digest: CatalogDigest,
     characters: DefinitionTable<UnitDefinitionId, CharacterBuildDefinition>,
     character_stat_curves: DefinitionTable<CharacterStatCurveId, CharacterStatCurve>,
     ability_levels: DefinitionTable<AbilityLevelTableId, AbilityLevelTable>,

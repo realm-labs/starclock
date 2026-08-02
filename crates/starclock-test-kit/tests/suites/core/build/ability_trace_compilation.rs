@@ -3,8 +3,8 @@ use std::sync::Arc;
 use starclock_build::{
     ability::{AbilityInvestment, AbilityLevel, AbilityLevelRow, AbilityLevelTable},
     catalog::{
-        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, BuildCatalogRevision,
-        CharacterBuildDefinition, CharacterStatRow,
+        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, CharacterBuildDefinition,
+        CharacterStatRow,
     },
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
     eidolon::{EidolonDefinition, EidolonSetDefinition},
@@ -260,11 +260,7 @@ fn empty_eidolons() -> EidolonSetDefinition {
 }
 
 fn build_builder() -> BuildCatalogBuilder {
-    BuildCatalogBuilder::new(
-        BuildCatalogRevision::new("build-b2-v1").unwrap(),
-        "combat-build-b2-v1",
-    )
-    .unwrap()
+    BuildCatalogBuilder::new(&combat_catalog())
 }
 
 fn build_spec(trace_ids: Vec<u32>, reverse_investments: bool) -> CombatantBuildSpec {

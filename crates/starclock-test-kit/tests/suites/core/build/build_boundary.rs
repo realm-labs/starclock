@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use starclock_build::{
     catalog::{
-        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, BuildCatalogRevision,
-        CharacterBuildDefinition, CharacterStatRow,
+        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, CharacterBuildDefinition,
+        CharacterStatRow,
     },
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
     eidolon::{EidolonDefinition, EidolonSetDefinition},
@@ -30,7 +30,7 @@ use starclock_combat::{
 #[test]
 fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
     let combat = combat_catalog("combat-v1");
-    let mut builder = build_builder("combat-v1");
+    let mut builder = build_builder(&combat);
     builder.add_character(character(2, 2));
     builder.add_character(character(1, 1));
     let catalog = builder.build(&combat).unwrap();
@@ -70,14 +70,14 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
 #[test]
 fn catalog_rejects_duplicate_forms_and_cross_catalog_bindings() {
     let combat = combat_catalog("combat-v1");
-    let mut duplicates = build_builder("combat-v1");
+    let mut duplicates = build_builder(&combat);
     duplicates.add_character(character(1, 1));
     duplicates.add_character(character(1, 1));
     let error = duplicates.build(&combat).unwrap_err();
     assert_eq!(error.kind(), BuildCatalogErrorKind::DuplicateCharacter);
     assert_eq!(error.form(), Some(form(1)));
 
-    let mut invalid = build_builder("combat-v1");
+    let mut invalid = build_builder(&combat);
     invalid.add_character(character(1, 2));
     let error = invalid.build(&combat).unwrap_err();
     assert_eq!(error.kind(), BuildCatalogErrorKind::InvalidAbilityBinding);
@@ -87,7 +87,7 @@ fn catalog_rejects_duplicate_forms_and_cross_catalog_bindings() {
 #[test]
 fn invalid_builds_return_ordered_typed_validation_reports() {
     let combat = combat_catalog("combat-v1");
-    let catalog = build_catalog(&combat, "combat-v1");
+    let catalog = build_catalog(&combat);
     let unknown = build_spec(form(3), 80);
     let error = LoadoutCompiler
         .compile(&catalog, &combat, &unknown)
@@ -117,7 +117,7 @@ fn invalid_builds_return_ordered_typed_validation_reports() {
 #[test]
 fn compile_rechecks_catalog_compatibility_without_mutating_either_catalog() {
     let combat_v1 = combat_catalog("combat-v1");
-    let catalog = build_catalog(&combat_v1, "combat-v1");
+    let catalog = build_catalog(&combat_v1);
     let combat_v2 = combat_catalog_with_digest("combat-v2", 0x72);
     let spec = build_spec(form(1), 80);
 
@@ -140,14 +140,14 @@ fn compile_rechecks_catalog_compatibility_without_mutating_either_catalog() {
     assert_eq!(error.kind(), BuildCompileErrorKind::IncompatibleCatalogs);
 }
 
-fn build_catalog(combat: &CombatCatalog, compatible: &str) -> BuildCatalog {
-    let mut builder = build_builder(compatible);
+fn build_catalog(combat: &CombatCatalog) -> BuildCatalog {
+    let mut builder = build_builder(combat);
     builder.add_character(character(1, 1));
     builder.build(combat).unwrap()
 }
 
-fn build_builder(compatible: &str) -> BuildCatalogBuilder {
-    BuildCatalogBuilder::new(BuildCatalogRevision::new("build-v1").unwrap(), compatible).unwrap()
+fn build_builder(combat: &CombatCatalog) -> BuildCatalogBuilder {
+    BuildCatalogBuilder::new(combat)
 }
 
 fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {

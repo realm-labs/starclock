@@ -16,7 +16,6 @@ use self::support::{
 };
 
 use crate::{
-    ACTIVITY_RNG_REVISION, ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION,
     ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity,
     ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInstanceId,
     ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition, ActivityOptionId,
@@ -377,9 +376,6 @@ impl ActivityTransactionState {
         rng: &ActivityRngStreams,
     ) -> Box<[u8]> {
         let mut writer = ActivityStateEncoder::new();
-        writer.text(ACTIVITY_STATE_CODEC_REVISION);
-        writer.text(ACTIVITY_STATE_HASH_REVISION);
-        writer.text(ACTIVITY_RNG_REVISION);
         writer.u32(identity.id().get());
         writer.digest(identity.definition_digest().bytes());
         writer.digest(identity.config_digest().bytes());

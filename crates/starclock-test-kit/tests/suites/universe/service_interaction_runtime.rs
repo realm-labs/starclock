@@ -966,7 +966,6 @@ fn participants() -> ParticipantLock {
     let build = OpaqueParticipantBuild::new(
         CombatantSpecDigest::new([1; 32]).unwrap(),
         BuildDigest::new([2; 32]).unwrap(),
-        "service-interaction-test-v1",
         ParticipantSourceKind::CompiledBuild,
     )
     .unwrap();

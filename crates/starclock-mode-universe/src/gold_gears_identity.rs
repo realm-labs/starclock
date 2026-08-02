@@ -6,19 +6,10 @@ use crate::{
         GoldAndGearsBundleLoadError, GoldAndGearsBundleSummary, validate_gold_and_gears_bundle,
     },
     gold_gears_content::GoldAndGearsContentCatalog,
-    gold_gears_handler_bundle::{
-        GOLD_AND_GEARS_HANDLER_BUNDLE_REVISION, gold_and_gears_activity_handler_registry,
-    },
+    gold_gears_handler_bundle::gold_and_gears_activity_handler_registry,
     gold_gears_structural::GoldAndGearsStructuralCatalog,
     gold_gears_unique::GoldAndGearsUniqueCatalog,
 };
-
-pub const GOLD_AND_GEARS_CATALOG_REVISION: &str = "gold-and-gears-v4.4-runtime-v1";
-pub const GOLD_AND_GEARS_PROFILE_REVISION: &str = "gold-gears-profile-v1";
-pub const GOLD_AND_GEARS_CONTENT_REVISION: &str = "gold-gears-content-v1";
-pub const UNIVERSE_SHARED_CONTENT_REVISION: &str = "universe-shared-content-v1";
-pub const GOLD_AND_GEARS_COMBAT_RULE_REGISTRY_REVISION: &str = "gold-and-gears-rule-registry-v1";
-pub const GOLD_AND_GEARS_ENCOUNTER_OVERLAY_REVISION: &str = "gold-and-gears-encounter-overlay-v1";
 
 const GAME_VERSION: &str = "4.4";
 const SNAPSHOT_DATE: &str = "2026-07-22";
@@ -82,22 +73,6 @@ impl GoldAndGearsCatalogIdentity {
         SNAPSHOT_DATE
     }
     #[must_use]
-    pub const fn catalog_revision(&self) -> &'static str {
-        GOLD_AND_GEARS_CATALOG_REVISION
-    }
-    #[must_use]
-    pub const fn profile_revision(&self) -> &'static str {
-        GOLD_AND_GEARS_PROFILE_REVISION
-    }
-    #[must_use]
-    pub const fn content_revision(&self) -> &'static str {
-        GOLD_AND_GEARS_CONTENT_REVISION
-    }
-    #[must_use]
-    pub const fn shared_content_revision(&self) -> &'static str {
-        UNIVERSE_SHARED_CONTENT_REVISION
-    }
-    #[must_use]
     pub const fn bundle_digest(&self) -> [u8; 32] {
         self.bundle
     }
@@ -120,8 +95,7 @@ impl GoldAndGearsCatalogIdentity {
 }
 
 fn profile_digest(bundle: [u8; 32]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-and-gears.profile-identity.v1");
-    encoder.text(GOLD_AND_GEARS_PROFILE_REVISION);
+    let mut encoder = Encoder::new(b"starclock.gold-and-gears.profile-identity");
     encoder.digest(bundle);
     encoder.finish()
 }
@@ -132,18 +106,7 @@ fn composition_digest(
     profile: [u8; 32],
     activity_handlers: [u8; 32],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.gold-and-gears.catalog-composition.v1");
-    for revision in [
-        GOLD_AND_GEARS_CATALOG_REVISION,
-        GOLD_AND_GEARS_PROFILE_REVISION,
-        GOLD_AND_GEARS_CONTENT_REVISION,
-        UNIVERSE_SHARED_CONTENT_REVISION,
-        GOLD_AND_GEARS_HANDLER_BUNDLE_REVISION,
-        GOLD_AND_GEARS_COMBAT_RULE_REGISTRY_REVISION,
-        GOLD_AND_GEARS_ENCOUNTER_OVERLAY_REVISION,
-    ] {
-        encoder.text(revision);
-    }
+    let mut encoder = Encoder::new(b"starclock.gold-and-gears.catalog-composition");
     encoder.digest(bundle);
     encoder.digest(shared_content);
     encoder.digest(profile);

@@ -233,7 +233,6 @@ fn participants(first: u32) -> ParticipantLock {
                 OpaqueParticipantBuild::new(
                     CombatantSpecDigest::new([digest_byte; 32]).unwrap(),
                     BuildDigest::new([digest_byte.wrapping_add(32); 32]).unwrap(),
-                    "goal07-ability-tree-s03",
                     ParticipantSourceKind::CompiledBuild,
                 )
                 .unwrap(),

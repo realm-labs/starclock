@@ -1,14 +1,14 @@
 use starclock_activity::{
-    ACTIVITY_RELOCATION_REVISION, ActivityCause, ActivityCondition, ActivityEdgeCondition,
-    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityGraphDefinition,
-    ActivityInventoryDefinition, ActivityInventoryId, ActivityModifierDefinition,
-    ActivityModifierId, ActivityModifierOwner, ActivityNodeDefinition, ActivityNodeKind,
-    ActivityOperation, ActivityOptionDefinition, ActivityOptionId, ActivityProgramBindingError,
-    ActivityProgramDefinition, ActivityProgramDefinitionError, ActivityProgramId, ActivityScope,
-    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
-    ActivityStateVisibility, ActivityTerminalOutcome, ActivityTransactionEventKind,
-    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
-    ActivityValue, NodeId, SectionId, SlotCarryPolicy,
+    ActivityCause, ActivityCondition, ActivityEdgeCondition, ActivityEdgeDefinition,
+    ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInventoryDefinition,
+    ActivityInventoryId, ActivityModifierDefinition, ActivityModifierId, ActivityModifierOwner,
+    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
+    ActivityOptionId, ActivityProgramBindingError, ActivityProgramDefinition,
+    ActivityProgramDefinitionError, ActivityProgramId, ActivityScope, ActivitySlotDefinition,
+    ActivitySlotId, ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility,
+    ActivityTerminalOutcome, ActivityTransactionEventKind, ActivityTransactionOutcome,
+    ActivityTransactionRejection, ActivityTransactionState, ActivityValue, NodeId, SectionId,
+    SlotCarryPolicy,
 };
 
 #[test]
@@ -63,7 +63,6 @@ fn ordered_program_commits_slots_inventory_modifiers_graph_and_decision_atomical
 
 #[test]
 fn explicit_relocation_obeys_graph_node_and_visit_contracts_without_an_edge() {
-    assert_eq!(ACTIVITY_RELOCATION_REVISION, "activity-relocation-v1");
     let graph = graph();
     let mut state = runtime();
     let program =

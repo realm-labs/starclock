@@ -3,8 +3,6 @@ use crate::{
     ActivityStateHash, BattleResult,
 };
 
-pub const GRAPH_ACTIVITY_API_REVISION: &str = "starclock-activity-api-v2";
-
 /// Closed command vocabulary for graph-capable Activities.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum GraphActivityCommandKind {
@@ -15,8 +13,8 @@ pub enum GraphActivityCommandKind {
     Abandon,
 }
 
-/// Version-2 optimistic command envelope. The aggregate validates all three
-/// identity axes before beginning a mutation transaction.
+/// Optimistic command envelope. The aggregate validates all three identity
+/// axes before beginning a mutation transaction.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphActivityCommand {
     expected_state_hash: ActivityStateHash,

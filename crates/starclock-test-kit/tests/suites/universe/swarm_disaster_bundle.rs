@@ -402,7 +402,6 @@ fn participants() -> ParticipantLock {
             let build = OpaqueParticipantBuild::new(
                 CombatantSpecDigest::new([byte; 32]).unwrap(),
                 BuildDigest::new([byte + 32; 32]).unwrap(),
-                "swarm-entry-integration-v1",
                 ParticipantSourceKind::CompiledBuild,
             )
             .unwrap();

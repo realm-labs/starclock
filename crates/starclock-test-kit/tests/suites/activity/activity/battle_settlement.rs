@@ -73,8 +73,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         handoff.identity().seed().bytes(),
         [
-            107, 248, 253, 65, 70, 103, 161, 87, 92, 125, 44, 13, 211, 235, 103, 32, 19, 81, 144,
-            87, 196, 75, 125, 215, 39, 116, 237, 21, 101, 229, 137, 132,
+            112, 76, 203, 31, 229, 77, 135, 189, 20, 154, 195, 3, 6, 63, 188, 173, 137, 115, 214,
+            250, 166, 68, 111, 29, 53, 249, 146, 196, 197, 153, 81, 150,
         ]
     );
     let awaiting = state.state_hash(setup.identity, &setup.graph, setup.instance, &setup.rng);
@@ -115,8 +115,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         settlement.state_hash().bytes(),
         [
-            197, 175, 74, 189, 130, 201, 218, 130, 127, 115, 228, 211, 169, 242, 203, 207, 46, 168,
-            129, 145, 10, 217, 75, 129, 152, 161, 167, 35, 146, 252, 245, 137,
+            56, 142, 134, 214, 222, 20, 165, 4, 26, 175, 72, 42, 171, 33, 156, 146, 12, 212, 132,
+            125, 101, 46, 90, 172, 6, 230, 71, 196, 141, 135, 42, 0,
         ]
     );
 }
@@ -724,7 +724,6 @@ fn participant_lock() -> ParticipantLock {
                 OpaqueParticipantBuild::new(
                     CombatantSpecDigest::new([0x81; 32]).unwrap(),
                     BuildDigest::new([0x82; 32]).unwrap(),
-                    "build-v1",
                     ParticipantSourceKind::CompiledBuild,
                 )
                 .unwrap(),

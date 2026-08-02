@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use starclock_build::{
     catalog::{
-        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, BuildCatalogRevision,
-        CharacterBuildDefinition, CharacterStatRow,
+        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, CharacterBuildDefinition,
+        CharacterStatRow,
     },
     compiler::{BuildPresetCompileError, LoadoutCompiler},
     digest::CombatantBuildDigest,
@@ -59,23 +59,23 @@ fn canonical_definition_catalog_build_and_spec_digests_are_stable() {
     assert_eq!(compiled, reversed_compiled);
     assert_eq!(
         hex(first.digest().bytes()),
-        "0d7f0288c2bc0fbdc1c22bdf69505b36245fce0ecfd82de82e8152c4bb687562"
+        "ba16be7a562244218a6db27d53fc27c4a08b1aac0f9f2a201171ebc3aa79989e"
     );
     assert_eq!(
         hex(first.character_digest(form(1)).unwrap().bytes()),
-        "4d52d6aacdf1643903345ba1d4fe4a5fec5788cc86150745cf6c84d19f76e268"
+        "2a879bfeb373df415c71d381892ad7ed8a06462e740fb0080fa3a8250fdac330"
     );
     assert_eq!(
         hex(first.light_cone_digest(cone_id(1)).unwrap().bytes()),
-        "3988011da64bf3f0d4ec9d017fb8670c57a78a3b569da05fdccc9aacfb665f85"
+        "1793cbcef9a129b8a42bb90ff1c247f5e477b2145c70103a23a64b344bd4c50c"
     );
     assert_eq!(
         hex(compiled.build_digest().bytes()),
-        "dd3d94158a289d54d4d78fe68e94591df3620968644d54548bd25e65ce1c8572"
+        "82178b6bcfb4efe6089f0affb7b762ce6feebd1b2e2ead7ec2527c0cf91c67d2"
     );
     assert_eq!(
         hex(compiled.combatant().digest().bytes()),
-        "fd966e983776290d286e6aae271791a31207c4d395fda0e248ce4c18e83f23c8"
+        "e2420b5932a723bbe006792d256f4242890ab8530abccec9cac5299ea4d18c42"
     );
 }
 
@@ -150,7 +150,11 @@ fn named_presets_expand_exactly_and_build_locks_reject_stale_values() {
         expanded.lock().verify(&catalog, &changed),
         Err(BuildLockError::BuildMismatch)
     );
-    let other_catalog = build_catalog_with_revision(&combat, "build-b5-v2", None);
+    let other_catalog = build_catalog(
+        &combat,
+        false,
+        Some(BuildPreset::new(preset_id(2), "other", exact_spec(1)).unwrap()),
+    );
     assert_eq!(
         expanded.lock().verify(&other_catalog, &expanded),
         Err(BuildLockError::CatalogMismatch)
@@ -164,7 +168,7 @@ fn named_presets_expand_exactly_and_build_locks_reject_stale_values() {
 #[test]
 fn catalog_rejects_duplicate_invalid_and_digest_mismatched_presets() {
     let combat = combat_catalog();
-    let mut duplicates = builder("build-b5-v1");
+    let mut duplicates = builder(&combat);
     duplicates.add_character(character(false));
     duplicates.add_light_cone(light_cone(false));
     duplicates.add_preset(BuildPreset::new(preset_id(1), "same", exact_spec(1)).unwrap());
@@ -196,7 +200,7 @@ fn build_error(
     combat: &CombatCatalog,
     preset: BuildPreset,
 ) -> starclock_build::catalog::BuildCatalogError {
-    let mut value = builder("build-b5-v1");
+    let mut value = builder(combat);
     value.add_character(character(false));
     value.add_light_cone(light_cone(false));
     value.add_preset(preset);
@@ -208,24 +212,7 @@ fn build_catalog(
     reverse: bool,
     preset: Option<BuildPreset>,
 ) -> BuildCatalog {
-    build_catalog_with_revision_and_order(combat, "build-b5-v1", reverse, preset)
-}
-
-fn build_catalog_with_revision(
-    combat: &CombatCatalog,
-    revision: &str,
-    preset: Option<BuildPreset>,
-) -> BuildCatalog {
-    build_catalog_with_revision_and_order(combat, revision, false, preset)
-}
-
-fn build_catalog_with_revision_and_order(
-    combat: &CombatCatalog,
-    revision: &str,
-    reverse: bool,
-    preset: Option<BuildPreset>,
-) -> BuildCatalog {
-    let mut value = builder(revision);
+    let mut value = builder(combat);
     if let Some(preset) = preset {
         value.add_preset(preset);
     }
@@ -234,12 +221,8 @@ fn build_catalog_with_revision_and_order(
     value.build(combat).unwrap()
 }
 
-fn builder(revision: &str) -> BuildCatalogBuilder {
-    BuildCatalogBuilder::new(
-        BuildCatalogRevision::new(revision).unwrap(),
-        "combat-build-b5-v1",
-    )
-    .unwrap()
+fn builder(combat: &CombatCatalog) -> BuildCatalogBuilder {
+    BuildCatalogBuilder::new(combat)
 }
 
 fn character(reverse: bool) -> CharacterBuildDefinition {

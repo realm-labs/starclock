@@ -4,19 +4,13 @@ use crate::{
     ActivityHandlerId, ActivityOperation, ActivityPlayerView, codec::ActivityRegistryWriter,
 };
 
-pub const ACTIVITY_HANDLER_REGISTRY_REVISION: &str = "activity-handler-registry-v1";
 pub const MAX_ACTIVITY_HANDLER_BUNDLES: usize = 64;
 pub const MAX_ACTIVITY_HANDLERS: usize = 4_096;
 pub const MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES: usize = 64 * 1024;
 
 pub fn core_activity_handler_bundle() -> ActivityHandlerBundle {
-    ActivityHandlerBundle::new(
-        "starclock.activity.core",
-        ACTIVITY_HANDLER_REGISTRY_REVISION,
-        Vec::new(),
-        Vec::new(),
-    )
-    .expect("the static core Activity handler bundle is valid")
+    ActivityHandlerBundle::new("starclock.activity.core", Vec::new(), Vec::new())
+        .expect("the static core Activity handler bundle is valid")
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -90,7 +84,6 @@ pub type ActivityHandler =
 pub struct ActivityHandlerRegistration {
     id: ActivityHandlerId,
     stable_key: &'static str,
-    version: &'static str,
     payload_schema_digest: [u8; 32],
     determinism_note: &'static str,
     owner: &'static str,
@@ -103,7 +96,6 @@ impl ActivityHandlerRegistration {
     pub const fn new(
         id: ActivityHandlerId,
         stable_key: &'static str,
-        version: &'static str,
         payload_schema_digest: [u8; 32],
         determinism_note: &'static str,
         owner: &'static str,
@@ -112,7 +104,6 @@ impl ActivityHandlerRegistration {
         Self {
             id,
             stable_key,
-            version,
             payload_schema_digest,
             determinism_note,
             owner,
@@ -128,11 +119,6 @@ impl ActivityHandlerRegistration {
     #[must_use]
     pub const fn stable_key(self) -> &'static str {
         self.stable_key
-    }
-
-    #[must_use]
-    pub const fn version(self) -> &'static str {
-        self.version
     }
 
     #[must_use]
@@ -164,7 +150,6 @@ impl core::fmt::Debug for ActivityHandlerRegistration {
             .debug_struct("ActivityHandlerRegistration")
             .field("id", &self.id)
             .field("stable_key", &self.stable_key)
-            .field("version", &self.version)
             .field("payload_schema_digest", &self.payload_schema_digest)
             .field("determinism_note", &self.determinism_note)
             .field("owner", &self.owner)
@@ -175,7 +160,6 @@ impl core::fmt::Debug for ActivityHandlerRegistration {
 #[derive(Clone, Debug)]
 pub struct ActivityHandlerBundle {
     id: &'static str,
-    revision: &'static str,
     dependencies: Box<[&'static str]>,
     registrations: Box<[ActivityHandlerRegistration]>,
 }
@@ -183,12 +167,10 @@ pub struct ActivityHandlerBundle {
 impl ActivityHandlerBundle {
     pub fn new(
         id: &'static str,
-        revision: &'static str,
         mut dependencies: Vec<&'static str>,
         mut registrations: Vec<ActivityHandlerRegistration>,
     ) -> Result<Self, ActivityHandlerRegistryError> {
         validate_text(id)?;
-        validate_text(revision)?;
         dependencies.sort_unstable();
         if dependencies.windows(2).any(|pair| pair[0] == pair[1]) || dependencies.contains(&id) {
             return Err(ActivityHandlerRegistryError::InvalidDependency);
@@ -208,7 +190,6 @@ impl ActivityHandlerBundle {
         }
         Ok(Self {
             id,
-            revision,
             dependencies: dependencies.into_boxed_slice(),
             registrations: registrations.into_boxed_slice(),
         })
@@ -217,11 +198,6 @@ impl ActivityHandlerBundle {
     #[must_use]
     pub const fn id(&self) -> &'static str {
         self.id
-    }
-
-    #[must_use]
-    pub const fn revision(&self) -> &'static str {
-        self.revision
     }
 
     #[must_use]
@@ -372,7 +348,6 @@ fn validate_registration(
     registration: ActivityHandlerRegistration,
 ) -> Result<(), ActivityHandlerRegistryError> {
     validate_text(registration.stable_key)?;
-    validate_text(registration.version)?;
     validate_text(registration.determinism_note)?;
     validate_text(registration.owner)?;
     if registration
@@ -393,12 +368,10 @@ fn validate_text(value: &str) -> Result<(), ActivityHandlerRegistryError> {
 }
 
 fn registry_digest(bundles: &[ActivityHandlerBundle]) -> ActivityHandlerRegistryDigest {
-    let mut writer = ActivityRegistryWriter::new(b"starclock-activity-handler-registry-v1");
-    writer.text(ACTIVITY_HANDLER_REGISTRY_REVISION);
+    let mut writer = ActivityRegistryWriter::new(b"starclock-activity-handler-registry");
     writer.u32(u32::try_from(bundles.len()).expect("bundle limit fits u32"));
     for bundle in bundles {
         writer.text(bundle.id);
-        writer.text(bundle.revision);
         writer.u32(u32::try_from(bundle.dependencies.len()).expect("bundle limit fits u32"));
         for dependency in &bundle.dependencies {
             writer.text(dependency);
@@ -407,7 +380,6 @@ fn registry_digest(bundles: &[ActivityHandlerBundle]) -> ActivityHandlerRegistry
         for registration in &bundle.registrations {
             writer.u32(registration.id.get());
             writer.text(registration.stable_key);
-            writer.text(registration.version);
             writer.digest(registration.payload_schema_digest);
             writer.text(registration.determinism_note);
             writer.text(registration.owner);

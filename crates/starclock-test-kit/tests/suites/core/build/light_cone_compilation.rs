@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use starclock_build::{
     catalog::{
-        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, BuildCatalogRevision,
-        CharacterBuildDefinition, CharacterStatRow,
+        BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, CharacterBuildDefinition,
+        CharacterStatRow,
     },
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
     eidolon::{EidolonDefinition, EidolonSetDefinition},
@@ -335,11 +335,7 @@ fn assert_cone_error(
 }
 
 fn build_builder() -> BuildCatalogBuilder {
-    BuildCatalogBuilder::new(
-        BuildCatalogRevision::new("build-b4-v1").unwrap(),
-        "combat-build-b4-v1",
-    )
-    .unwrap()
+    BuildCatalogBuilder::new(&combat_catalog())
 }
 
 fn combat_catalog() -> Arc<CombatCatalog> {

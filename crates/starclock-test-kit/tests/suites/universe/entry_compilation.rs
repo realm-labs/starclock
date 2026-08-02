@@ -35,7 +35,6 @@ fn participants(seed: u8, policy: ParticipantPolicy) -> ParticipantLock {
             let build = OpaqueParticipantBuild::new(
                 CombatantSpecDigest::new([byte; 32]).expect("non-zero digest"),
                 BuildDigest::new([byte.wrapping_add(32); 32]).expect("non-zero digest"),
-                "test-build-catalog-v1",
                 ParticipantSourceKind::CompiledBuild,
             )
             .expect("opaque build");
@@ -261,8 +260,8 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
     assert_eq!(
         base.identity().definition_digest().bytes(),
         [
-            234, 179, 108, 254, 165, 51, 48, 66, 126, 188, 12, 202, 246, 233, 161, 206, 63, 167,
-            24, 194, 166, 218, 85, 195, 224, 9, 156, 123, 122, 140, 226, 251,
+            101, 32, 46, 201, 48, 25, 128, 246, 152, 44, 235, 39, 50, 116, 110, 27, 68, 53, 36,
+            249, 153, 93, 56, 213, 74, 98, 68, 100, 171, 205, 254, 171,
         ]
     );
     assert_eq!(

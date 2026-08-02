@@ -6,7 +6,6 @@ use crate::{
     ability::AbilityInvestment,
     id::{LightConeId, TraceNodeId},
     light_cone::{LightConeLevel, Superimposition},
-    relic_boundary::DeferredRelicBoundary,
 };
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -86,8 +85,7 @@ impl LightConeLoadout {
     }
 }
 
-/// Minimal exact build input. Later Phase 5 batches extend this value with
-/// ability, Trace, Eidolon and equipment selections.
+/// Exact supported build input.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CombatantBuildSpec {
     form: UnitDefinitionId,
@@ -97,7 +95,6 @@ pub struct CombatantBuildSpec {
     traces: Box<[TraceNodeId]>,
     eidolon: EidolonLevel,
     light_cone: Option<LightConeLoadout>,
-    relic_boundary: DeferredRelicBoundary,
 }
 
 impl CombatantBuildSpec {
@@ -111,7 +108,6 @@ impl CombatantBuildSpec {
             traces: Box::new([]),
             eidolon: EidolonLevel::E0,
             light_cone: None,
-            relic_boundary: DeferredRelicBoundary::EMPTY,
         }
     }
     pub fn with_ability_levels(
@@ -173,10 +169,6 @@ impl CombatantBuildSpec {
     #[must_use]
     pub const fn light_cone(&self) -> Option<LightConeLoadout> {
         self.light_cone
-    }
-    #[must_use]
-    pub const fn relic_boundary(&self) -> DeferredRelicBoundary {
-        self.relic_boundary
     }
 }
 

@@ -8,7 +8,7 @@ use starclock_combat::{
 };
 
 use crate::{
-    catalog::{BuildCatalogRevision, CharacterBuildDefinition},
+    catalog::CharacterBuildDefinition,
     light_cone::{CombatPath, LightConeApplicability, LightConeDefinition},
     patch::BuildPatch,
     preset::BuildPreset,
@@ -39,7 +39,7 @@ digest_type!(
     "Digest of one canonical build definition."
 );
 
-pub const COMBATANT_BUILD_DIGEST_REVISION: &str = "starclock-combatant-build-v2";
+const COMBATANT_BUILD_DIGEST_DOMAIN: &str = "starclock-combatant-build";
 digest_type!(BuildCatalogDigest, "Digest of one canonical build catalog.");
 digest_type!(
     CombatantBuildDigest,
@@ -47,28 +47,24 @@ digest_type!(
 );
 
 pub(crate) fn character_digest(definition: &CharacterBuildDefinition) -> BuildDefinitionDigest {
-    let mut encoder = Encoder::new(b"starclock-build-character-v1");
+    let mut encoder = Encoder::new(b"starclock-build-character");
     encode_character(&mut encoder, definition);
     BuildDefinitionDigest::new(encoder.finish())
 }
 
 pub(crate) fn light_cone_digest(definition: &LightConeDefinition) -> BuildDefinitionDigest {
-    let mut encoder = Encoder::new(b"starclock-build-light-cone-v1");
+    let mut encoder = Encoder::new(b"starclock-build-light-cone");
     encode_light_cone(&mut encoder, definition);
     BuildDefinitionDigest::new(encoder.finish())
 }
 
 pub(crate) fn catalog_digest(
-    revision: &BuildCatalogRevision,
-    combat_revision: &str,
     combat_digest: [u8; 32],
     characters: &[CharacterBuildDefinition],
     light_cones: &[LightConeDefinition],
     presets: &[BuildPreset],
 ) -> BuildCatalogDigest {
-    let mut encoder = Encoder::new(b"starclock-build-catalog-v1");
-    encoder.string(revision.as_str());
-    encoder.string(combat_revision);
+    let mut encoder = Encoder::new(b"starclock-build-catalog");
     encoder.bytes(&combat_digest);
     encoder.len(characters.len());
     for character in characters {
@@ -91,7 +87,7 @@ pub(crate) fn selected_build_digest(
     catalog: BuildCatalogDigest,
     spec: &CombatantBuildSpec,
 ) -> CombatantBuildDigest {
-    let mut encoder = Encoder::new(COMBATANT_BUILD_DIGEST_REVISION.as_bytes());
+    let mut encoder = Encoder::new(COMBATANT_BUILD_DIGEST_DOMAIN.as_bytes());
     encoder.bytes(&catalog.bytes());
     encode_spec(&mut encoder, spec);
     CombatantBuildDigest::new(encoder.finish())
@@ -112,7 +108,7 @@ pub(crate) struct ResolvedDigestInput<'a> {
 }
 
 pub(crate) fn resolved_spec_digest(input: ResolvedDigestInput<'_>) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-resolved-combatant-v2");
+    let mut encoder = Encoder::new(b"starclock-resolved-combatant");
     encoder.u32(input.form.get());
     encoder.u8(input.level.get());
     encoder.i64(input.maximum_hp.get());
@@ -228,8 +224,6 @@ fn encode_spec(encoder: &mut Encoder, spec: &CombatantBuildSpec) {
             encoder.u8(cone.superimposition().get());
         }
     }
-    encoder.string(spec.relic_boundary().revision());
-    encoder.len(spec.relic_boundary().piece_count());
 }
 
 fn encode_patches(encoder: &mut Encoder, patches: &[BuildPatch]) {

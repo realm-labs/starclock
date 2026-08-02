@@ -88,9 +88,7 @@ impl LoadoutCompiler {
         spec: &CombatantBuildSpec,
     ) -> Result<CompiledBuild, BuildCompileError> {
         let mut entries = Vec::with_capacity(9);
-        if build_catalog.compatible_combat_revision() != combat_catalog.revision().as_str()
-            || build_catalog.compatible_combat_digest() != combat_catalog.digest()
-        {
+        if build_catalog.combat_digest() != combat_catalog.digest() {
             return Err(failure(
                 spec,
                 entries,
@@ -288,7 +286,6 @@ impl LoadoutCompiler {
             combatant,
             report,
             selected_build_digest(build_catalog.digest(), spec),
-            build_catalog.revision().as_str(),
             build_catalog.digest(),
         ))
     }

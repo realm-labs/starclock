@@ -4,7 +4,6 @@ use std::collections::BTreeMap;
 
 use crate::{ActivityGraphDefinition, LogicalScopeClassId, NodeId, codec::ActivityStateEncoder};
 
-pub const ACTIVITY_LOGICAL_SCOPE_REVISION: &str = "activity-logical-scope-v1";
 pub const MAX_LOGICAL_SCOPE_CLASSES: usize = 64;
 pub const MAX_LOGICAL_SCOPE_BINDINGS: usize = 16_384;
 pub const MAX_LOGICAL_SCOPE_DEPTH: usize = 16;
@@ -289,7 +288,6 @@ impl LogicalScopeRuntimeState {
     }
 
     pub(crate) fn encode(&self, writer: &mut ActivityStateEncoder) {
-        writer.text(ACTIVITY_LOGICAL_SCOPE_REVISION);
         writer.u32(self.active.len() as u32);
         for instance in &self.active {
             writer.u32(instance.address.class.get());

@@ -46,7 +46,7 @@ fn labeled_rng_streams_are_golden_reproducible_and_perturbation_isolated() {
             .unwrap()
             .unwrap()
     );
-    assert_eq!(graph.raw(), 8_809_253_053_890_565_554);
+    assert_eq!(graph.raw(), 13_992_164_911_201_838_730);
 
     let _ = left.choose_index(ActivityRngLabel::Reward, 2, 9).unwrap();
     let next_left = left.choose_index(ActivityRngLabel::Graph, 3, 17).unwrap();
@@ -97,20 +97,20 @@ fn weighted_without_replacement_is_unique_bounded_and_draw_exact() {
 }
 
 #[test]
-fn canonical_v3_state_bytes_and_hash_cover_commands_values_options_and_rng() {
+fn canonical_state_bytes_and_hash_cover_commands_values_options_and_rng() {
     let graph = graph();
     let identity = identity();
     let instance = instance();
     let mut state = state();
     let mut rng = rng();
     let initial_bytes = state.canonical_state_bytes(identity, &graph, instance, &rng);
-    assert_eq!(&initial_bytes[..8], b"SCAS\x03\0\0\0");
+    assert_eq!(&initial_bytes[..4], b"SCAS");
     let initial = state.state_hash(identity, &graph, instance, &rng);
     assert_eq!(
         initial.bytes(),
         [
-            116, 155, 220, 196, 228, 4, 204, 209, 57, 74, 87, 165, 119, 129, 137, 119, 119, 212,
-            178, 234, 156, 127, 243, 75, 215, 62, 204, 52, 221, 213, 156, 213,
+            163, 28, 28, 1, 84, 149, 249, 184, 221, 2, 170, 246, 67, 188, 198, 142, 35, 6, 183,
+            102, 37, 154, 132, 7, 36, 18, 39, 220, 81, 248, 11, 189,
         ]
     );
 

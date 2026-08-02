@@ -46,39 +46,26 @@ fn catalog_identity_separates_gold_and_shared_content() {
     let identity = identity();
     assert_eq!(identity.game_version(), "4.4");
     assert_eq!(identity.snapshot_date(), "2026-07-22");
-    assert_eq!(
-        identity.catalog_revision(),
-        "gold-and-gears-v4.4-runtime-v1"
-    );
-    assert_eq!(identity.profile_revision(), "gold-gears-profile-v1");
-    assert_eq!(identity.content_revision(), "gold-gears-content-v1");
-    assert_eq!(
-        identity.shared_content_revision(),
-        "universe-shared-content-v1"
-    );
     assert_ne!(identity.bundle_digest(), identity.shared_content_digest());
     assert_eq!(
         identity.profile_digest(),
         [
-            0xb9, 0xda, 0x9f, 0x15, 0x9d, 0x3b, 0x80, 0xfe, 0x47, 0xea, 0x2b, 0xfe, 0x70, 0x2c,
-            0x66, 0xc8, 0x8d, 0xc9, 0xba, 0x2e, 0x53, 0xbb, 0x44, 0xb2, 0x6b, 0x90, 0x38, 0xc7,
-            0x0d, 0xf9, 0x90, 0x3b,
+            238, 19, 209, 46, 114, 118, 173, 4, 47, 152, 201, 200, 241, 238, 51, 26, 68, 55, 67,
+            81, 186, 215, 37, 251, 195, 122, 212, 169, 146, 147, 206, 35,
         ]
     );
     assert_eq!(
         identity.activity_handler_registry_digest(),
         [
-            0x83, 0xc5, 0x42, 0xb5, 0x14, 0x2a, 0x9b, 0x62, 0x7d, 0xcc, 0x5a, 0xdd, 0x7b, 0xc3,
-            0x82, 0xcb, 0x51, 0xf7, 0x61, 0x85, 0xda, 0x73, 0x6a, 0x11, 0x04, 0xf1, 0xf9, 0x41,
-            0x9f, 0x93, 0x20, 0x5d,
+            228, 29, 48, 246, 158, 223, 147, 254, 101, 27, 52, 193, 90, 202, 190, 227, 232, 34,
+            229, 65, 216, 202, 100, 150, 89, 3, 25, 50, 17, 12, 231, 91,
         ]
     );
     assert_eq!(
         identity.composition_digest(),
         [
-            0x8e, 0x53, 0xd5, 0xef, 0x10, 0x3f, 0x55, 0x4b, 0x96, 0x02, 0xde, 0x63, 0x4c, 0xdc,
-            0xf2, 0xfc, 0x3c, 0xcf, 0x49, 0x37, 0x00, 0x00, 0x1e, 0x2b, 0xb8, 0x77, 0x56, 0x7d,
-            0xec, 0xd3, 0x13, 0x40,
+            90, 126, 185, 138, 212, 35, 180, 153, 119, 33, 109, 159, 31, 111, 237, 170, 122, 233,
+            176, 214, 169, 183, 233, 248, 85, 180, 30, 230, 162, 249, 90, 211,
         ]
     );
 }
@@ -143,9 +130,8 @@ fn component_set_has_exact_ten_component_closure_and_stable_order() {
     assert_eq!(
         components.root().bytes(),
         [
-            0x93, 0xc5, 0x0f, 0x43, 0x0c, 0xf8, 0x95, 0x0b, 0xb4, 0x0f, 0xc1, 0x80, 0xd3, 0x55,
-            0xad, 0xbc, 0x67, 0x19, 0xd8, 0xf5, 0x6a, 0xe4, 0x34, 0xda, 0x4f, 0x8a, 0xac, 0x30,
-            0x68, 0x50, 0x9b, 0x18,
+            46, 214, 208, 103, 251, 126, 224, 139, 82, 46, 87, 18, 14, 218, 229, 185, 96, 102, 77,
+            73, 186, 75, 241, 34, 141, 125, 72, 63, 65, 137, 130, 36,
         ]
     );
 

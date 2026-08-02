@@ -33,10 +33,6 @@ use crate::path::{
 use crate::progression::{AbilityTreeNodeDefinition, ServiceDefinition};
 use crate::rule::MechanicRuleDefinition;
 
-pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v3";
-pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
-pub const ACTIVITY_CONFIGURATION_REVISION: &str = "starclock-activity-config-v1";
-
 const EXPECTED_PROFILE_KEY: &str = "universe.profile.standard-main-world.v4.4";
 const EXPECTED_GAME_VERSION: &str = "4.4";
 const EXPECTED_SNAPSHOT_DATE: &str = "2026-07-22";
@@ -59,14 +55,12 @@ const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new
     0x38, 0x40, 0x8c, 0x20, 0x51, 0x05, 0xc4, 0x64, 0xf1, 0x18, 0x27, 0xe9, 0xe9, 0xae, 0x6a, 0x75,
 ]);
 
-/// Generated-row-free compatibility identity for one catalog composition.
+/// Generated-row-free identity for one catalog composition.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UniverseCatalogIdentity {
     game_version: Box<str>,
     snapshot_date: Box<str>,
     core_data_revision: Box<str>,
-    catalog_revision: Box<str>,
-    profile_revision: Box<str>,
     core_bundle: [u8; 32],
     build_catalog: [u8; 32],
     universe_bundle: UniverseBundleDigest,
@@ -91,14 +85,6 @@ impl UniverseCatalogIdentity {
     #[must_use]
     pub fn core_data_revision(&self) -> &str {
         &self.core_data_revision
-    }
-    #[must_use]
-    pub fn catalog_revision(&self) -> &str {
-        &self.catalog_revision
-    }
-    #[must_use]
-    pub fn profile_revision(&self) -> &str {
-        &self.profile_revision
     }
     #[must_use]
     pub const fn core_bundle_digest(&self) -> [u8; 32] {
@@ -187,9 +173,7 @@ impl UniverseCatalog {
         let build_digest = core.build_catalog().digest().bytes();
         let configuration = compose_configuration(
             core.combat_catalog().digest().bytes(),
-            core.combat_catalog().revision().as_str(),
             build_digest,
-            core.build_catalog().revision().as_str(),
             actual_digest,
             profile_digest,
         );
@@ -197,8 +181,6 @@ impl UniverseCatalog {
             game_version: profile.game_version.as_str().into(),
             snapshot_date: profile.snapshot_date.as_str().into(),
             core_data_revision: core.manifest().data_revision.as_str().into(),
-            catalog_revision: UNIVERSE_CATALOG_REVISION.into(),
-            profile_revision: STANDARD_UNIVERSE_PROFILE_REVISION.into(),
             core_bundle: core.combat_catalog().digest().bytes(),
             build_catalog: build_digest,
             universe_bundle: actual_digest,
@@ -552,17 +534,17 @@ fn validate_core(
         && manifest.numeric_policy_revision == EXPECTED_NUMERIC_REVISION
         && manifest.rng_algorithm_revision == EXPECTED_RNG_REVISION
         && manifest.state_hash_revision == EXPECTED_STATE_HASH_REVISION
-        && core.build_catalog().compatible_combat_digest().bytes() == EXPECTED_CORE_BUNDLE;
+        && core.build_catalog().combat_digest().bytes() == EXPECTED_CORE_BUNDLE;
     if valid {
         Ok(())
     } else {
         Err(error(
             UniverseCatalogLoadErrorKind::CoreCompatibility,
             format!(
-                "combat/build catalog identity is incompatible with Standard Universe v1: \
+                "combat/build catalog identity does not match Standard Universe: \
                  combat={:02x?}, build={:02x?}, state={}",
                 core.combat_catalog().digest().bytes(),
-                core.build_catalog().compatible_combat_digest().bytes(),
+                core.build_catalog().combat_digest().bytes(),
                 manifest.state_hash_revision,
             ),
         ))
@@ -628,7 +610,7 @@ fn validate_counts(
 fn profile_digest(
     profile: &crate::generated::universe_profile::UniverseProfile,
 ) -> UniverseProfileDigest {
-    let mut encoder = Encoder::new(b"starclock-standard-universe-profile-v1");
+    let mut encoder = Encoder::new(b"starclock-standard-universe-profile");
     encoder.u32(u32::try_from(profile.id).expect("validated positive profile ID"));
     for value in [
         &profile.stable_key,
@@ -647,29 +629,18 @@ fn profile_digest(
 
 fn compose_configuration(
     combat_digest: [u8; 32],
-    combat_revision: &str,
     build_digest: [u8; 32],
-    build_revision: &str,
     universe_digest: UniverseBundleDigest,
     profile_digest: UniverseProfileDigest,
 ) -> ActivityConfigurationDigest {
-    let mut encoder = Encoder::new(ACTIVITY_CONFIGURATION_REVISION.as_bytes());
-    for (label, revision, digest) in [
-        ("combat", combat_revision, combat_digest),
-        ("build", build_revision, build_digest),
-        (
-            "universe",
-            UNIVERSE_CATALOG_REVISION,
-            universe_digest.bytes(),
-        ),
-        (
-            "activity-profile",
-            STANDARD_UNIVERSE_PROFILE_REVISION,
-            profile_digest.bytes(),
-        ),
+    let mut encoder = Encoder::new(b"starclock-activity-config");
+    for (label, digest) in [
+        ("combat", combat_digest),
+        ("build", build_digest),
+        ("universe", universe_digest.bytes()),
+        ("activity-profile", profile_digest.bytes()),
     ] {
         encoder.text(label);
-        encoder.text(revision);
         encoder.optional_digest(Some(digest));
     }
     ActivityConfigurationDigest::new(encoder.finish())
@@ -694,10 +665,6 @@ mod tests {
         let core = starclock_data::catalog::load(CORE_BUNDLE).expect("core catalog");
         let catalog = UniverseCatalog::load(UNIVERSE_BUNDLE, core).expect("Universe catalog");
         assert_eq!(catalog.identity().game_version(), "4.4");
-        assert_eq!(
-            catalog.identity().catalog_revision(),
-            UNIVERSE_CATALOG_REVISION
-        );
         assert_eq!(
             catalog.identity().core_bundle_digest(),
             EXPECTED_CORE_BUNDLE

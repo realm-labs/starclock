@@ -9,7 +9,6 @@ use crate::{
     ActivityInstanceId, ActivityMasterSeed, AttemptId, NodeId, SectionId,
 };
 
-pub const ACTIVITY_RNG_REVISION: &str = "starclock-activity-rng-v2";
 const MAX_REJECTIONS: u32 = 1_000_000;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -84,8 +83,6 @@ impl ActivityRngContext {
     fn derive(self, label: ActivityRngLabel) -> [u8; 32] {
         let mut hash = Sha256::new();
         hash.update(b"SCAR");
-        hash.update(2_u32.to_le_bytes());
-        write_text(&mut hash, ACTIVITY_RNG_REVISION);
         hash.update(self.master.bytes());
         hash.update(self.definition_id.get().to_le_bytes());
         hash.update(self.definition_digest.bytes());
@@ -392,10 +389,6 @@ impl fmt::Display for ActivityRngError {
 
 impl std::error::Error for ActivityRngError {}
 
-fn write_text(hash: &mut Sha256, value: &str) {
-    hash.update((value.len() as u32).to_le_bytes());
-    hash.update(value.as_bytes());
-}
 fn write_optional_u32(hash: &mut Sha256, value: Option<u32>) {
     hash.update([u8::from(value.is_some())]);
     if let Some(value) = value {

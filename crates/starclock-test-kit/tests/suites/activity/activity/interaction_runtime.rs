@@ -189,13 +189,12 @@ fn definition() -> Arc<GraphActivityDefinition> {
     let registration = ActivityHandlerRegistration::new(
         ActivityHandlerId::new(1).unwrap(),
         "test.random-interaction",
-        "v1",
         [1; 32],
         "one-labeled-draw",
         "test",
         handler,
     );
-    let bundle = ActivityHandlerBundle::new("test", "v1", vec![], vec![registration]).unwrap();
+    let bundle = ActivityHandlerBundle::new("test", vec![], vec![registration]).unwrap();
     let registry = ActivityHandlerRegistry::compose(vec![bundle]).unwrap();
     let bindings = [
         (SUCCESS_OUTCOME, 0),
@@ -259,7 +258,6 @@ fn participants() -> ParticipantLock {
     let build = OpaqueParticipantBuild::new(
         CombatantSpecDigest::new([4; 32]).unwrap(),
         BuildDigest::new([5; 32]).unwrap(),
-        "test",
         ParticipantSourceKind::Synthetic,
     )
     .unwrap();

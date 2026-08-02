@@ -14,8 +14,6 @@ use crate::service_interaction::{
 };
 
 pub const STANDARD_UNIVERSE_HANDLER_BUNDLE_ID: &str = "starclock.mode.standard-universe";
-pub const STANDARD_UNIVERSE_HANDLER_BUNDLE_REVISION: &str =
-    "standard-universe-activity-handlers-v4";
 pub const STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID: u32 = 1;
 
 fn deferred_external_interaction(
@@ -32,14 +30,12 @@ fn deferred_external_interaction(
 pub fn activity_handler_bundle() -> ActivityHandlerBundle {
     ActivityHandlerBundle::new(
         STANDARD_UNIVERSE_HANDLER_BUNDLE_ID,
-        STANDARD_UNIVERSE_HANDLER_BUNDLE_REVISION,
         vec!["starclock.activity.core"],
         vec![
             ActivityHandlerRegistration::new(
                 ActivityHandlerId::new(STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID)
                     .expect("static handler ID is non-zero"),
                 "standard-universe.external-interaction",
-                "v1",
                 [0x51; 32],
                 "validated-content-id-no-rng",
                 "starclock.mode.standard-universe",
@@ -49,7 +45,6 @@ pub fn activity_handler_bundle() -> ActivityHandlerBundle {
                 ActivityHandlerId::new(OCCURRENCE_INTERACTION_HANDLER_ID)
                     .expect("static handler ID is non-zero"),
                 "standard-universe.occurrence-choice",
-                "v3",
                 [0x62; 32],
                 "canonical-choice-plan-labeled-activity-rng",
                 "starclock.mode.standard-universe",
@@ -59,7 +54,6 @@ pub fn activity_handler_bundle() -> ActivityHandlerBundle {
                 ActivityHandlerId::new(SERVICE_INTERACTION_HANDLER_ID)
                     .expect("static handler ID is non-zero"),
                 "standard-universe.service-selection",
-                "v2",
                 [0x73; 32],
                 "canonical-concrete-offer-no-untracked-rng",
                 "starclock.mode.standard-universe",
