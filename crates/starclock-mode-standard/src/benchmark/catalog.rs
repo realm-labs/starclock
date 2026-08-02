@@ -22,11 +22,10 @@ use starclock_combat::{
     },
 };
 
-use super::{BENCHMARK_CATALOG_REVISION, BENCHMARK_CONFIG_DIGEST};
+use super::BENCHMARK_CONFIG_DIGEST;
 
 pub(super) fn catalog() -> Arc<CombatCatalog> {
-    let mut builder =
-        CombatCatalogBuilder::new(BENCHMARK_CATALOG_REVISION, BENCHMARK_CONFIG_DIGEST);
+    let mut builder = CombatCatalogBuilder::new(BENCHMARK_CONFIG_DIGEST);
     let selector = SelectorId::new(1).expect("static ID");
     let program = ProgramId::new(1).expect("static ID");
     builder.add_selector(

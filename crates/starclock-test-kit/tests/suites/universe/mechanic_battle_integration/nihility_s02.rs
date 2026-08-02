@@ -495,7 +495,6 @@ pub(super) fn two_enemy_break_spec(
         })
         .collect::<Vec<_>>();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker.wrapping_add(7); 32]).unwrap(),
         original.encounter(),
         participants,

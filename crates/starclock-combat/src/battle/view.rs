@@ -1,5 +1,4 @@
 use crate::{
-    NUMERIC_POLICY_REVISION,
     actor::{
         model::{LifeState, PresenceState},
         store::{FormationEntry, LinkState, TeamState, TimelineActorState, UnitState},
@@ -11,15 +10,14 @@ use crate::{
         SpawnSequence, TimelineActorId, UnitDefinitionId, UnitId, WaveInstanceId,
     },
     numeric::domain::{ActionGauge, Hp, ShieldAmount, Speed},
-    rng::RNG_ALGORITHM_REVISION,
 };
 
 use super::{
     fault::BattleFault,
     model::BattlePhase,
     spec::{
-        AssemblyDigest, BattleSeed, BattleSpecDigest, CombatInputDigest, CombatantSpecDigest,
-        FormationIndex, ParticipantSource, TeamSide, UnitLevel,
+        AssemblyDigest, BattleSeed, CombatInputDigest, CombatantSpecDigest, FormationIndex,
+        ParticipantSource, TeamSide, UnitLevel,
     },
     state::BattleState,
 };
@@ -437,32 +435,17 @@ impl InterruptWindowView {
     }
 }
 
-/// Immutable compatibility identity included in canonical state later.
+/// Immutable identity included in canonical state.
 #[derive(Clone, Copy)]
 pub struct BattleIdentityView<'a> {
     state: &'a BattleState,
 }
 
 impl<'a> BattleIdentityView<'a> {
-    /// Returns the immutable catalog revision.
-    #[must_use]
-    pub fn catalog_revision(self) -> &'a str {
-        self.state.identity.catalog_revision.as_str()
-    }
     /// Returns the exact catalog digest.
     #[must_use]
     pub const fn catalog_digest(self) -> CatalogDigest {
         self.state.identity.catalog_digest
-    }
-    /// Returns the rules revision selected by the battle spec.
-    #[must_use]
-    pub fn rules_revision(self) -> &'a str {
-        &self.state.identity.rules_revision
-    }
-    /// Returns the exact battle-spec digest.
-    #[must_use]
-    pub const fn spec_digest(self) -> BattleSpecDigest {
-        BattleSpecDigest::from_assembly(self.state.identity.assembly_digest)
     }
     /// Returns the combat-owned canonical battle-input digest.
     #[must_use]
@@ -473,21 +456,6 @@ impl<'a> BattleIdentityView<'a> {
     #[must_use]
     pub const fn assembly_digest(self) -> AssemblyDigest {
         self.state.identity.assembly_digest
-    }
-    /// Returns the authoritative numeric compatibility revision.
-    #[must_use]
-    pub const fn numeric_policy(self) -> &'static str {
-        NUMERIC_POLICY_REVISION
-    }
-    /// Returns the authoritative RNG/mapping compatibility revision.
-    #[must_use]
-    pub const fn rng_algorithm(self) -> &'static str {
-        RNG_ALGORITHM_REVISION
-    }
-    /// Returns the canonical battle-state hash compatibility revision.
-    #[must_use]
-    pub const fn state_hash_policy(self) -> &'static str {
-        crate::STATE_HASH_REVISION
     }
     /// Returns the exact isolated battle seed.
     #[must_use]

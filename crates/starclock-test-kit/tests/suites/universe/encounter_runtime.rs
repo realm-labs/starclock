@@ -121,7 +121,6 @@ fn overlay(catalog: &UniverseCatalog, lock: &ParticipantLock) -> UniverseEncount
                         BattleBinding::new(
                             battle_spec(member.id().get()),
                             "universe-encounter",
-                            "universe-battle-spec-v1",
                             lock.digest(),
                         )
                         .unwrap(),
@@ -157,7 +156,6 @@ fn overlay(catalog: &UniverseCatalog, lock: &ParticipantLock) -> UniverseEncount
                     BattleBinding::new(
                         battle_spec(occurrence_member.get()),
                         "universe-occurrence-encounter",
-                        "universe-battle-spec-v1",
                         lock.digest(),
                     )
                     .unwrap(),
@@ -198,7 +196,6 @@ fn battle_spec(member: u32) -> BattleSpec {
         combatant(enemy, digest),
     ));
     BattleSpec::new(
-        "universe-test-rules-v1",
         AssemblyDigest::new(assembly_digest).unwrap(),
         EncounterId::new(member).unwrap(),
         participants,
@@ -238,8 +235,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         overlay.digest().bytes(),
         [
-            181, 137, 220, 203, 217, 141, 103, 82, 236, 78, 47, 2, 6, 122, 62, 77, 203, 14, 97, 71,
-            73, 177, 120, 204, 48, 196, 127, 38, 15, 212, 104, 165,
+            187, 231, 73, 238, 237, 50, 181, 57, 252, 78, 9, 26, 126, 125, 251, 54, 204, 209, 176,
+            191, 17, 158, 42, 34, 28, 214, 172, 107, 200, 201, 189, 8,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -390,8 +387,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            85, 127, 230, 176, 166, 111, 172, 194, 160, 98, 187, 230, 73, 169, 244, 161, 228, 242,
-            142, 23, 156, 251, 112, 158, 210, 49, 13, 47, 171, 30, 171, 38,
+            111, 68, 250, 47, 199, 138, 129, 127, 65, 4, 1, 158, 207, 12, 105, 75, 241, 220, 98,
+            162, 146, 240, 89, 168, 229, 245, 165, 218, 110, 126, 102, 233,
         ]
     );
     let reward = activity.view();
@@ -465,8 +462,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            222, 71, 35, 147, 36, 112, 178, 90, 200, 122, 139, 15, 56, 190, 209, 12, 33, 244, 94,
-            37, 96, 74, 25, 165, 108, 63, 197, 251, 40, 33, 57, 236,
+            108, 130, 255, 153, 64, 121, 222, 238, 105, 149, 166, 188, 206, 194, 215, 80, 245, 127,
+            61, 123, 84, 149, 126, 37, 174, 168, 231, 100, 63, 59, 135, 193,
         ]
     );
     let formation = activity.view();
@@ -658,12 +655,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 61);
+    assert_eq!(report.steps().len(), 19);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            13, 121, 23, 174, 9, 145, 49, 37, 237, 202, 50, 12, 199, 242, 72, 27, 83, 39, 67, 39,
-            9, 29, 236, 69, 78, 164, 0, 52, 196, 111, 169, 178,
+            118, 231, 105, 100, 169, 235, 89, 52, 253, 183, 45, 203, 80, 21, 203, 1, 254, 74, 38,
+            202, 135, 102, 208, 55, 186, 250, 218, 244, 9, 104, 181, 50,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -685,7 +682,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        5
+        2
     );
 }
 

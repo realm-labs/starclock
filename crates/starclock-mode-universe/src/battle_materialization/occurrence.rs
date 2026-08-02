@@ -19,9 +19,9 @@ use crate::{
 };
 
 use super::{
-    NORMAL_ENGAGEMENT_OPTION, UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
-    UniverseBattleMaterializationError, UniverseBattleRoster, battle_spec::member_spec,
-    materialization_digest::technique_variant_digest, validate_executable,
+    NORMAL_ENGAGEMENT_OPTION, UniverseBattleMaterializationError, UniverseBattleRoster,
+    battle_spec::member_spec, materialization_digest::technique_variant_digest,
+    validate_executable,
 };
 
 const OCCURRENCE_PROJECTION_ID: u32 = 0x7540_0003;
@@ -40,7 +40,6 @@ pub(super) fn extend_overlay(
     enemy_map: &BTreeMap<&str, EnemyDefinitionId>,
     data: &starclock_data::catalog::SimulationCatalog,
     combat_catalog: &Arc<CombatCatalog>,
-    revision: &str,
     digest: [u8; 32],
     contributions: &UniverseBattleContributionSet,
     technique: Option<&CompiledUniverseBattleTechnique>,
@@ -53,7 +52,6 @@ pub(super) fn extend_overlay(
             enemy_map,
             data,
             combat_catalog,
-            revision,
             digest,
             contributions,
         )?;
@@ -65,7 +63,6 @@ pub(super) fn extend_overlay(
             BattleBinding::new(
                 spec,
                 "standard-universe-occurrence-battle",
-                UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
                 roster.participant_lock(),
             )
             .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
@@ -77,7 +74,6 @@ pub(super) fn extend_overlay(
                 enemy_map,
                 data,
                 combat_catalog,
-                revision,
                 digest,
                 contributions,
             )?;
@@ -92,7 +88,6 @@ pub(super) fn extend_overlay(
                 BattleBinding::new(
                     technique_spec,
                     "standard-universe-occurrence-battle-technique",
-                    UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
                     roster.participant_lock(),
                 )
                 .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,

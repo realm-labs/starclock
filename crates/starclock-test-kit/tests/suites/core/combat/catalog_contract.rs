@@ -46,7 +46,7 @@ where
 }
 
 fn ai_catalog(states: Vec<AiStateDefinition>) -> Result<Arc<CombatCatalog>, CatalogBuildErrorKind> {
-    let mut builder = CombatCatalogBuilder::new("ai-contract-v1", [0xa1; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xa1; 32]);
     builder.add_selector(SelectorDefinition::new(id(1)));
     builder.add_program(ProgramDefinition::new(
         id(1),
@@ -218,7 +218,7 @@ fn ai_graphs_canonicalize_candidates_and_reject_unreachable_or_cyclic_states() {
 }
 
 fn complete_catalog(reverse_insertion: bool) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("catalog-contract-v1", [0x5a; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x5a; 32]);
 
     let mut units = vec![
         UnitDefinition::new(id(1), vec![id(1), id(2)], vec![id(1)]),
@@ -312,7 +312,6 @@ fn insertion_order_cannot_change_canonical_catalog_indexes() {
     let forward = complete_catalog(false);
     let reverse = complete_catalog(true);
 
-    assert_eq!(forward.revision().as_str(), "catalog-contract-v1");
     assert_eq!(forward.digest().bytes(), [0x5a; 32]);
     assert_eq!(forward.definition_count(), 17);
     assert_eq!(
@@ -355,12 +354,10 @@ fn insertion_order_cannot_change_canonical_catalog_indexes() {
 #[test]
 fn validated_catalog_can_be_composed_without_exposing_private_tables() {
     let base = complete_catalog(false);
-    let mut builder =
-        CombatCatalogBuilder::from_catalog(&base, "catalog-contract-composed-v1", [0x6b; 32]);
+    let mut builder = CombatCatalogBuilder::from_catalog(&base, [0x6b; 32]);
     builder.add_encounter(EncounterDefinition::new(id(2), vec![id(2)], vec![]));
     let composed = builder.build().expect("composed catalog validates again");
 
-    assert_eq!(composed.revision().as_str(), "catalog-contract-composed-v1");
     assert_eq!(composed.digest().bytes(), [0x6b; 32]);
     assert_eq!(composed.definition_count(), base.definition_count() + 1);
     assert_eq!(
@@ -374,8 +371,7 @@ fn validated_catalog_can_be_composed_without_exposing_private_tables() {
 #[test]
 fn source_effect_stack_slots_require_one_effect_owner() {
     let base = complete_catalog(false);
-    let mut builder =
-        CombatCatalogBuilder::from_catalog(&base, "orphan-effect-stack-v1", [0x6c; 32]);
+    let mut builder = CombatCatalogBuilder::from_catalog(&base, [0x6c; 32]);
     builder.add_modifier(ModifierDefinition {
         id: id(3),
         stat: StatKind::Atk,
@@ -399,7 +395,7 @@ fn source_effect_stack_slots_require_one_effect_owner() {
 
 #[test]
 fn duplicate_ids_are_rejected_per_definition_family() {
-    let mut builder = CombatCatalogBuilder::new("duplicate-v1", [1; 32]);
+    let mut builder = CombatCatalogBuilder::new([1; 32]);
     builder.add_selector(SelectorDefinition::new(id(7)));
     builder.add_selector(SelectorDefinition::new(id(7)));
 
@@ -417,7 +413,7 @@ fn executable_abilities_require_target_semantics_and_payable_ultimates() {
         ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
     )
     .unwrap();
-    let mut missing_targets = CombatCatalogBuilder::new("missing-targets-v1", [2; 32]);
+    let mut missing_targets = CombatCatalogBuilder::new([2; 32]);
     missing_targets.add_selector(SelectorDefinition::new(id(1)));
     missing_targets.add_program(ProgramDefinition::new(
         id(1),
@@ -433,7 +429,7 @@ fn executable_abilities_require_target_semantics_and_payable_ultimates() {
         CatalogBuildErrorKind::InvalidDefinition
     );
 
-    let mut free_ultimate = CombatCatalogBuilder::new("free-ultimate-v1", [3; 32]);
+    let mut free_ultimate = CombatCatalogBuilder::new([3; 32]);
     free_ultimate.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::All).unwrap(),
     ));
@@ -463,7 +459,7 @@ fn executable_abilities_require_target_semantics_and_payable_ultimates() {
 
 #[test]
 fn missing_typed_references_are_rejected() {
-    let mut builder = CombatCatalogBuilder::new("missing-v1", [2; 32]);
+    let mut builder = CombatCatalogBuilder::new([2; 32]);
     builder.add_program(ProgramDefinition::new(
         id(1),
         vec![id(9)],
@@ -478,7 +474,7 @@ fn missing_typed_references_are_rejected() {
 
 #[test]
 fn set_like_references_must_be_strictly_ordered_and_unique() {
-    let mut builder = CombatCatalogBuilder::new("canonical-v1", [3; 32]);
+    let mut builder = CombatCatalogBuilder::new([3; 32]);
     builder.add_unit(UnitDefinition::new(
         id(1),
         vec![id::<AbilityId>(2), id(1)],
@@ -491,7 +487,7 @@ fn set_like_references_must_be_strictly_ordered_and_unique() {
 
 #[test]
 fn effect_granted_abilities_require_existing_canonical_references() {
-    let mut missing = CombatCatalogBuilder::new("missing-effect-grant-v1", [0x31; 32]);
+    let mut missing = CombatCatalogBuilder::new([0x31; 32]);
     missing.add_effect(
         EffectDefinition::new(id(1), vec![], vec![])
             .with_granted_abilities(vec![id::<AbilityId>(9)]),
@@ -501,7 +497,7 @@ fn effect_granted_abilities_require_existing_canonical_references() {
         CatalogBuildErrorKind::MissingReference
     );
 
-    let mut unsorted = CombatCatalogBuilder::new("unsorted-effect-grant-v1", [0x32; 32]);
+    let mut unsorted = CombatCatalogBuilder::new([0x32; 32]);
     for raw in [1, 2] {
         unsorted.add_selector(SelectorDefinition::new(id(raw)));
         unsorted.add_program(ProgramDefinition::new(
@@ -525,7 +521,7 @@ fn effect_granted_abilities_require_existing_canonical_references() {
 
 #[test]
 fn program_cycles_report_a_canonical_closed_path() {
-    let mut builder = CombatCatalogBuilder::new("cycle-v1", [4; 32]);
+    let mut builder = CombatCatalogBuilder::new([4; 32]);
     builder.add_program(ProgramDefinition::new(
         id(2),
         vec![id(1)],
@@ -555,7 +551,7 @@ fn program_cycles_report_a_canonical_closed_path() {
 
 #[test]
 fn malformed_catalog_identity_is_rejected_before_graph_validation() {
-    let mut builder = CombatCatalogBuilder::new("", [0; 32]);
+    let mut builder = CombatCatalogBuilder::new([0; 32]);
     builder.add_effect(EffectDefinition::new(
         id::<EffectDefinitionId>(1),
         vec![id::<RuleId>(9)],
@@ -633,7 +629,7 @@ fn rule_selector(
 #[test]
 fn selector_rng_order_and_dependency_contracts_fail_closed() {
     let weight = ValueExpr::Literal(RuleValue::Integer(1));
-    let mut valid = CombatCatalogBuilder::new("selector-contract-v1", [0x91; 32]);
+    let mut valid = CombatCatalogBuilder::new([0x91; 32]);
     valid.add_selector(
         SelectorDefinition::new(id(1)).with_rule_units(rule_selector(
             RuleSelectorChoice::RngWeighted,
@@ -645,7 +641,7 @@ fn selector_rng_order_and_dependency_contracts_fail_closed() {
     );
     valid.build().unwrap();
 
-    let mut missing_weight = CombatCatalogBuilder::new("selector-contract-v1", [0x92; 32]);
+    let mut missing_weight = CombatCatalogBuilder::new([0x92; 32]);
     missing_weight.add_selector(
         SelectorDefinition::new(id(1)).with_rule_units(rule_selector(
             RuleSelectorChoice::RngWeighted,
@@ -660,7 +656,7 @@ fn selector_rng_order_and_dependency_contracts_fail_closed() {
         CatalogBuildErrorKind::InvalidDefinition
     );
 
-    let mut cycle = CombatCatalogBuilder::new("selector-contract-v1", [0x93; 32]);
+    let mut cycle = CombatCatalogBuilder::new([0x93; 32]);
     cycle.add_selector(
         SelectorDefinition::new(id(1)).with_rule_units(rule_selector(
             RuleSelectorChoice::All,

@@ -117,7 +117,7 @@ fn ability_parameter_leaf_reads_the_exact_resolved_ability_and_fails_closed() {
     let ability = definition(13);
     let program = definition(1);
     let selector = definition(1);
-    let mut builder = CombatCatalogBuilder::new("ability-parameter-v1", [0x28; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x28; 32]);
     builder.add_selector(SelectorDefinition::new(selector));
     builder.add_program(ProgramDefinition::new(
         program,
@@ -176,7 +176,7 @@ impl ResourceQueryReader for FixedSkillPoints {
 fn exact_event_points_filters_and_observed_values_fail_closed() {
     let program = definition(1);
     let selector = definition(1);
-    let mut builder = CombatCatalogBuilder::new("event-observation-v1", [0x29; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x29; 32]);
     builder.add_selector(SelectorDefinition::new(selector));
     builder.add_program(
         ProgramDefinition::new(program, vec![], vec![selector], vec![], vec![]).with_steps(vec![
@@ -258,7 +258,7 @@ fn finite_program_evaluation_preserves_selector_order_and_faults_on_budget() {
     let body = definition(2);
     let selector = definition(1);
     let rule = definition(1);
-    let mut builder = CombatCatalogBuilder::new("rule-ir-fixture-v1", [1; 32]);
+    let mut builder = CombatCatalogBuilder::new([1; 32]);
     builder.add_selector(SelectorDefinition::new(selector));
     builder.add_program(
         ProgramDefinition::new(root, vec![], vec![selector], vec![], vec![]).with_steps(vec![
@@ -341,7 +341,7 @@ fn catalog_rejects_mistyped_slots_and_mutating_replacement_programs() {
     let program = definition(1);
     let rule = definition(1);
     let slot = definition(1);
-    let mut builder = CombatCatalogBuilder::new("invalid-rule-v1", [2; 32]);
+    let mut builder = CombatCatalogBuilder::new([2; 32]);
     builder.add_program(
         ProgramDefinition::new(program, vec![], vec![], vec![], vec![]).with_steps(vec![
             ProgramStep::Operation(RuleOperationTemplate::SetSlot {
@@ -374,7 +374,7 @@ fn catalog_rejects_mistyped_slots_and_mutating_replacement_programs() {
 #[test]
 fn replacement_programs_return_typed_mutation_free_proposals() {
     let program = definition(1);
-    let mut builder = CombatCatalogBuilder::new("replacement-proposal-v1", [0x2a; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x2a; 32]);
     builder.add_program(
         ProgramDefinition::new(program, vec![], vec![], vec![], vec![]).with_steps(vec![
             ProgramStep::Operation(RuleOperationTemplate::ProposeReplacement {
@@ -400,9 +400,8 @@ fn replacement_programs_return_typed_mutation_free_proposals() {
 
 #[test]
 fn catalog_rejects_trigger_phases_without_a_runtime_observation_boundary() {
-    for (revision, point, phase, operation) in [
+    for (point, phase, operation) in [
         (
-            "unobserved-before-damage-v1",
             RuleEventPoint::DamageApplied,
             TriggerPhase::Before,
             RuleOperationTemplate::EmitRuleEvent {
@@ -411,7 +410,6 @@ fn catalog_rejects_trigger_phases_without_a_runtime_observation_boundary() {
             },
         ),
         (
-            "unbound-replacement-v1",
             RuleEventPoint::ActionDeclared,
             TriggerPhase::Replace,
             RuleOperationTemplate::ProposeReplacement {
@@ -421,7 +419,7 @@ fn catalog_rejects_trigger_phases_without_a_runtime_observation_boundary() {
         ),
     ] {
         let program = definition(1);
-        let mut builder = CombatCatalogBuilder::new(revision, [0x2b; 32]);
+        let mut builder = CombatCatalogBuilder::new([0x2b; 32]);
         builder.add_program(
             ProgramDefinition::new(program, vec![], vec![], vec![], vec![])
                 .with_steps(vec![ProgramStep::Operation(operation)]),
@@ -445,23 +443,18 @@ fn catalog_rejects_trigger_phases_without_a_runtime_observation_boundary() {
 
 #[test]
 fn catalog_rejects_unresolved_linked_and_countdown_emissions() {
-    for (revision, operation, selectors) in [
+    for (operation, selectors) in [
         (
-            "missing-linked-unit-v1",
             RuleOperationTemplate::Summon {
                 owner_selector: definition(1),
                 unit_definition: definition(9),
             },
             vec![definition(1)],
         ),
-        (
-            "missing-countdown-v1",
-            RuleOperationTemplate::CreateCountdown { code: 9 },
-            vec![],
-        ),
+        (RuleOperationTemplate::CreateCountdown { code: 9 }, vec![]),
     ] {
         let program = definition(1);
-        let mut builder = CombatCatalogBuilder::new(revision, [0x26; 32]);
+        let mut builder = CombatCatalogBuilder::new([0x26; 32]);
         builder.add_selector(SelectorDefinition::new(definition(1)));
         builder.add_program(
             ProgramDefinition::new(program, vec![], selectors, vec![], vec![])
@@ -482,23 +475,18 @@ fn catalog_rejects_unresolved_linked_and_countdown_emissions() {
 
 #[test]
 fn ability_owned_programs_reject_unresolved_lifecycle_emissions() {
-    for (revision, operation, selectors) in [
+    for (operation, selectors) in [
         (
-            "ability-missing-linked-unit-v1",
             RuleOperationTemplate::Summon {
                 owner_selector: definition(1),
                 unit_definition: definition(9),
             },
             vec![definition(1)],
         ),
-        (
-            "ability-missing-countdown-v1",
-            RuleOperationTemplate::CreateCountdown { code: 9 },
-            vec![],
-        ),
+        (RuleOperationTemplate::CreateCountdown { code: 9 }, vec![]),
     ] {
         let program = definition(1);
-        let mut builder = CombatCatalogBuilder::new(revision, [0x27; 32]);
+        let mut builder = CombatCatalogBuilder::new([0x27; 32]);
         builder.add_selector(SelectorDefinition::new(definition(1)));
         builder.add_program(
             ProgramDefinition::new(program, vec![], selectors, vec![], vec![])
@@ -520,7 +508,7 @@ fn ability_owned_programs_reject_unresolved_lifecycle_emissions() {
 
 #[test]
 fn trigger_index_uses_phase_priority_source_rule_and_trigger_order() {
-    let mut builder = CombatCatalogBuilder::new("trigger-index-v1", [3; 32]);
+    let mut builder = CombatCatalogBuilder::new([3; 32]);
     for raw in 1..=3 {
         let program = definition(raw);
         builder.add_program(

@@ -350,7 +350,6 @@ fn carried_spec(
         participants.push(participant);
     }
     starclock_combat::BattleSpec::new(
-        handoff.battle_spec().rules_revision(),
         handoff.identity().assembly_digest(),
         handoff.battle_spec().encounter(),
         participants,
@@ -811,17 +810,14 @@ fn enemy_controller_seed(handoff: &ActivityBattleHandoff) -> RngSeed {
     RngSeed::new(encoder.finish())
 }
 
-/// This v1 commitment hashes the complete deterministic input trace, every
+/// This commitment hashes the complete deterministic input trace, every
 /// resulting canonical state hash, every emitted event identity/cause and its
-/// typed family. The inputs plus frozen rules revision deterministically imply
-/// the full event payload. A payload-direct event codec is reserved as a
-/// separately versioned replay component.
+/// typed family. The inputs deterministically imply the full event payload.
 pub(crate) struct EventCommitment(Encoder);
 
 impl EventCommitment {
     pub(crate) fn new(catalog: &CombatCatalog, handoff: &ActivityBattleHandoff) -> Self {
         let mut encoder = Encoder::new(UNIVERSE_BATTLE_EVENT_COMMITMENT_REVISION.as_bytes());
-        encoder.text(catalog.revision().as_str());
         encoder.digest(catalog.digest().bytes());
         encoder.digest(handoff.identity().seed().bytes());
         encoder.digest(handoff.identity().assembly_digest().bytes());

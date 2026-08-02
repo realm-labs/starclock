@@ -93,7 +93,7 @@ Public domain types include catalog handles/build inputs, `BattleSpec`, `BattleR
 
 Definition identities and runtime identities are different domains and must not be interchangeable.
 
-Definition IDs include `UnitDefinitionId`, `AbilityId`, `EffectDefinitionId`, `RuleId`, `ProgramId`, `SelectorId`, `RuleBundleId`, `ModifierDefinitionId`, `EnemyDefinitionId`, and `EncounterId`. They are compiled from stable authored keys and remain meaningful across battle instances for the same catalog revision.
+Definition IDs include `UnitDefinitionId`, `AbilityId`, `EffectDefinitionId`, `RuleId`, `ProgramId`, `SelectorId`, `RuleBundleId`, `ModifierDefinitionId`, `EnemyDefinitionId`, and `EncounterId`. They are compiled from stable authored keys and remain meaningful across battle instances sharing the same exact catalog digest.
 
 Runtime IDs include:
 
@@ -113,7 +113,6 @@ The catalog stores validated domain definitions, conceptually:
 
 ```rust
 pub struct CombatCatalog {
-    revision: CatalogRevision,
     digest: CatalogDigest,
     units: DefinitionTable<UnitDefinitionId, UnitDefinition>,
     abilities: DefinitionTable<AbilityId, AbilityDefinition>,
@@ -137,14 +136,14 @@ pub struct CombatCatalog {
 
 `BattleSpec` is a complete immutable request to create one battle. It contains only validated domain values and IDs:
 
-- catalog/rules/numeric/RNG compatibility revisions;
+- exact catalog and battle-input digests;
 - encounter and variant IDs;
 - ordered team/formation entries and generic `ResolvedCombatantSpec` values with opaque combatant/source digests;
 - initial HP, Energy, Skill Point, Technique, and authored entry overrides;
 - encounter and activity/mode `RuleBundle` bindings applied outside individual resolved combatants;
 - clock, score-visible metric, persistence, and result-projection bindings;
 - seed-stream identity supplied by the activity or standalone scenario;
-- deterministic limits selected by the rules revision.
+- deterministic limits carried by the current rule inputs.
 
 The spec cannot contain callbacks or mutable activity references. `Battle::create` resolves every ID and validates composition before allocating runtime IDs. A battle captures the spec and catalog digests and cannot hot-reload either.
 
@@ -208,8 +207,9 @@ buffers. It may be initialized lazily and released at a decision boundary under
 memory pressure. It is private, non-authoritative, excluded from
 views/codecs/hashes and may be dropped/recreated without changing behavior. The
 exact fields remain private, but ownership does not move between modules without
-updating this contract. `BattleIdentity` includes the battle/spec/catalog digests and policy
-revisions required by replay verification. `MutationRevisions` supports cache
+updating this contract. `BattleIdentity` includes the catalog, combat-input and
+assembly digests plus the exact battle seed required by replay verification.
+`MutationRevisions` supports cache
 invalidation; caches themselves are non-authoritative and excluded from
 canonical state.
 

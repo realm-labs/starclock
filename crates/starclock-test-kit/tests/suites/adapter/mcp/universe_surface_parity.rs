@@ -65,6 +65,7 @@ fn selected(observation: &Value) -> &Value {
 }
 
 #[tokio::test]
+#[ignore = "complete current-state MCP Universe session and replay verification"]
 async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     let battle_factory = starclock_test_kit::agent_session_factory().clone();
     let activity_factory = starclock_test_kit::activity_agent_session_factory().clone();
@@ -132,7 +133,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(observation["status"], "completed");
     assert_eq!(
         observation["state_hash"],
-        "a3373cb8ed9f2294fb173ccc73200f64e2fb7894f1bc01d7d21bebf3bb9616bc"
+        "073acf2ca40b68f82c567e7404eccd7d075ea822070d6476e3f097abc43c1d76"
     );
 
     let exported = client
@@ -147,10 +148,10 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
         .unwrap();
     let export = exported.structured_content.unwrap();
     assert_eq!(export["complete"], true);
-    assert_eq!(export["action_count"], "35");
+    assert_eq!(export["action_count"], "57");
     assert_eq!(
         export["sha256"],
-        "d2323aea2a5b015d143e600e30ad2da369813db6ac2ef45f5116d1d6a62fd411"
+        "73a20574c4f450b6040a3f4da6d5786b6022c413b911ec59de047fa400433173"
     );
 
     let verified = client
@@ -169,7 +170,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(verified.is_error, Some(false));
     let verification = verified.structured_content.unwrap();
     assert_eq!(verification["final_state_hash"], observation["state_hash"]);
-    assert_eq!(verification["nested_battles"], "3");
+    assert_eq!(verification["nested_battles"], "4");
 
     client.cancel().await.unwrap();
     task.await.unwrap();

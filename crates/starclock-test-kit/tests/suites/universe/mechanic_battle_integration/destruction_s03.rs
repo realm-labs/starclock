@@ -308,7 +308,6 @@ pub(super) fn player_duel_spec(
     )
     .unwrap();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker; 32]).unwrap(),
         original.encounter(),
         vec![attacker, protected],
@@ -378,7 +377,6 @@ pub(super) fn enemy_duel_spec(
     )
     .unwrap();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker; 32]).unwrap(),
         original.encounter(),
         vec![protected, attacker],

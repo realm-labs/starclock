@@ -6,7 +6,7 @@ use std::sync::Arc;
 use crate::ProgramId;
 
 use super::{
-    CatalogDigest, CatalogRevision, CombatCatalog,
+    CatalogDigest, CombatCatalog,
     definition::{
         AbilityDefinition, AbilityParameterDefinition, EffectDefinition, EncounterDefinition,
         EnemyDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
@@ -126,7 +126,6 @@ impl std::error::Error for CatalogBuildError {}
 /// Public integration builder accepting only Starclock-owned domain definitions.
 #[derive(Debug)]
 pub struct CombatCatalogBuilder {
-    revision: String,
     digest: [u8; 32],
     units: Vec<UnitDefinition>,
     linked_units: Vec<crate::LinkedUnitCatalogDefinition>,
@@ -146,11 +145,10 @@ pub struct CombatCatalogBuilder {
 }
 
 impl CombatCatalogBuilder {
-    /// Starts a builder for an exact revision and configuration digest.
+    /// Starts a builder for an exact configuration digest.
     #[must_use]
-    pub fn new(revision: impl Into<String>, digest: [u8; 32]) -> Self {
+    pub fn new(digest: [u8; 32]) -> Self {
         Self {
-            revision: revision.into(),
             digest,
             units: Vec::new(),
             linked_units: Vec::new(),
@@ -229,13 +227,12 @@ impl CombatCatalogBuilder {
 
     /// Validates all inputs and returns an immutable catalog shared by battles.
     pub fn build(self) -> Result<Arc<CombatCatalog>, CatalogBuildError> {
-        validate_identity(&self.revision, &self.digest)?;
+        validate_identity(&self.digest)?;
         let modifiers =
             ModifierRegistry::new(self.modifier_groups, self.modifiers).map_err(|source| {
                 error(CatalogBuildErrorKind::InvalidDefinition, source.to_string())
             })?;
         let catalog = CombatCatalog {
-            revision: CatalogRevision(self.revision.into_boxed_str()),
             digest: CatalogDigest(self.digest),
             units: table(self.units, DefinitionKind::Unit)?,
             linked_units: table(self.linked_units, DefinitionKind::LinkedUnit)?,
@@ -280,15 +277,11 @@ where
     })
 }
 
-fn validate_identity(revision: &str, digest: &[u8; 32]) -> Result<(), CatalogBuildError> {
-    if revision.is_empty()
-        || revision.len() > 128
-        || !revision.bytes().all(|byte| byte.is_ascii_graphic())
-        || digest.iter().all(|byte| *byte == 0)
-    {
+fn validate_identity(digest: &[u8; 32]) -> Result<(), CatalogBuildError> {
+    if digest.iter().all(|byte| *byte == 0) {
         return Err(error(
             CatalogBuildErrorKind::InvalidCatalogIdentity,
-            "invalid catalog revision or zero digest",
+            "catalog digest is zero",
         ));
     }
     Ok(())

@@ -1,14 +1,12 @@
 use sha2::{Digest, Sha256};
 
 use crate::{
-    NUMERIC_POLICY_REVISION, STATE_HASH_REVISION,
     actor::store::{TimelineActorState, UnitState},
     battle::{
         spec::{ConcedePolicy, ParticipantSource, TeamSide},
         state::BattleState,
     },
     command::model::{Command, DecisionKind, DecisionOwner, DecisionPoint},
-    rng::RNG_ALGORITHM_REVISION,
 };
 
 use super::BattleStateHash;
@@ -108,15 +106,9 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     let mut e = Encoder(sink);
     e.raw(STATE_MAGIC);
     e.u16(STATE_CODEC_TAG);
-    e.text(state.identity.catalog_revision.as_str());
     e.raw(&state.identity.catalog_digest.bytes());
-    e.text(&state.identity.rules_revision);
-    e.text(crate::COMBAT_INPUT_CODEC_REVISION);
     e.raw(&state.identity.combat_input_digest.bytes());
     e.raw(&state.identity.assembly_digest.bytes());
-    e.text(NUMERIC_POLICY_REVISION);
-    e.text(RNG_ALGORITHM_REVISION);
-    e.text(STATE_HASH_REVISION);
     e.raw(&state.identity.seed.bytes());
     e.u8(state.phase as u8);
     match state.fault {

@@ -71,7 +71,6 @@ impl ActivityMasterSeed {
 pub struct BattleBinding {
     spec: BattleSpec,
     seed_stream_label: Box<str>,
-    battle_spec_policy_revision: Box<str>,
     participant_lock_digest: ParticipantLockDigest,
 }
 
@@ -79,21 +78,15 @@ impl BattleBinding {
     pub fn new(
         spec: BattleSpec,
         seed_stream_label: impl Into<Box<str>>,
-        battle_spec_policy_revision: impl Into<Box<str>>,
         participant_lock_digest: ParticipantLockDigest,
     ) -> Result<Self, BattleBindingError> {
         let label = seed_stream_label.into();
-        let revision = battle_spec_policy_revision.into();
         if !valid_ascii(&label, 120) {
             return Err(BattleBindingError::InvalidSeedStreamLabel);
-        }
-        if !valid_ascii(&revision, 80) {
-            return Err(BattleBindingError::InvalidPolicyRevision);
         }
         Ok(Self {
             spec,
             seed_stream_label: label,
-            battle_spec_policy_revision: revision,
             participant_lock_digest,
         })
     }
@@ -107,10 +100,6 @@ impl BattleBinding {
         &self.seed_stream_label
     }
     #[must_use]
-    pub fn battle_spec_policy_revision(&self) -> &str {
-        &self.battle_spec_policy_revision
-    }
-    #[must_use]
     pub const fn participant_lock_digest(&self) -> ParticipantLockDigest {
         self.participant_lock_digest
     }
@@ -122,7 +111,7 @@ impl BattleBinding {
         scope: ScopeIdentity,
         sequence: BattleSequence,
     ) -> BattleSeed {
-        let mut writer = CanonicalWriter::new(b"starclock-activity-battle-seed-v1");
+        let mut writer = CanonicalWriter::new(b"starclock-activity-battle-seed");
         writer.digest(master.bytes());
         writer.u32(identity.id().get());
         writer.digest(identity.definition_digest().bytes());
@@ -133,9 +122,7 @@ impl BattleBinding {
         writer.u32(scope.attempt().get());
         writer.u32(sequence.get());
         writer.text(&self.seed_stream_label);
-        writer.text(&self.battle_spec_policy_revision);
         writer.digest(self.participant_lock_digest.bytes());
-        writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
         writer.digest(self.spec.combat_input_digest().bytes());
         writer.digest(self.spec.assembly_digest().bytes());
         BattleSeed::new(writer.finish())
@@ -143,9 +130,7 @@ impl BattleBinding {
 
     pub(crate) fn encode(&self, writer: &mut CanonicalWriter) {
         writer.text(&self.seed_stream_label);
-        writer.text(&self.battle_spec_policy_revision);
         writer.digest(self.participant_lock_digest.bytes());
-        writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
         writer.digest(self.spec.combat_input_digest().bytes());
         writer.digest(self.spec.assembly_digest().bytes());
     }
@@ -269,7 +254,6 @@ fn valid_ascii(value: &str, maximum: usize) -> bool {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleBindingError {
     InvalidSeedStreamLabel,
-    InvalidPolicyRevision,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

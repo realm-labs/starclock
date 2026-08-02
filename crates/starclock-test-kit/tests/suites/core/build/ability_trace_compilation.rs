@@ -283,7 +283,7 @@ fn investments(reverse: bool, first_level: u8) -> Vec<AbilityInvestment> {
 }
 
 fn combat_catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("combat-build-b2-v1", [0xb2; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xb2; 32]);
     for raw in 1..=5 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),

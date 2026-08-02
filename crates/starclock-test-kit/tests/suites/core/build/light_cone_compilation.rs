@@ -339,7 +339,7 @@ fn build_builder() -> BuildCatalogBuilder {
 }
 
 fn combat_catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("combat-build-b4-v1", [0xb4; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xb4; 32]);
     for raw in 1..=6 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),

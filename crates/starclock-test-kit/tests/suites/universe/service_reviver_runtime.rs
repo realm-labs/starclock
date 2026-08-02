@@ -420,13 +420,7 @@ impl ReviverFixture {
                 vec![PreparedBattleVariant::new(
                     vec![],
                     TechniqueContributionDigest::new([0x73; 32]).unwrap(),
-                    BattleBinding::new(
-                        battle_spec(),
-                        "goal07-reviver-battle",
-                        "battle-spec-v1",
-                        lock,
-                    )
-                    .unwrap(),
+                    BattleBinding::new(battle_spec(), "goal07-reviver-battle", lock).unwrap(),
                 )],
             )
             .unwrap(),
@@ -727,7 +721,6 @@ fn alive_result(identity: starclock_activity::BattleResultIdentity) -> BattleRes
 
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
-        "rules-v1",
         AssemblyDigest::new([0x83; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![

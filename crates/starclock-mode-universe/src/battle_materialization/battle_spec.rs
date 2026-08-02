@@ -30,7 +30,6 @@ pub(super) fn member_spec(
     enemy_map: &BTreeMap<&str, EnemyDefinitionId>,
     data: &starclock_data::catalog::SimulationCatalog,
     catalog: &CombatCatalog,
-    revision: &str,
     root_digest: [u8; 32],
     contributions: &UniverseBattleContributionSet,
 ) -> Result<BattleSpec, UniverseBattleMaterializationError> {
@@ -53,7 +52,6 @@ pub(super) fn member_spec(
         }
     }
     BattleSpec::new(
-        revision,
         AssemblyDigest::new(spec_digest(
             root_digest,
             0,
@@ -78,7 +76,6 @@ pub(super) fn difficulty_spec(
     enemy_map: &BTreeMap<&str, EnemyDefinitionId>,
     data: &starclock_data::catalog::SimulationCatalog,
     catalog: &CombatCatalog,
-    revision: &str,
     root_digest: [u8; 32],
     contributions: &UniverseBattleContributionSet,
 ) -> Result<BattleSpec, UniverseBattleMaterializationError> {
@@ -97,7 +94,6 @@ pub(super) fn difficulty_spec(
         contributions,
     )?);
     BattleSpec::new(
-        revision,
         AssemblyDigest::new(spec_digest(
             root_digest,
             1,

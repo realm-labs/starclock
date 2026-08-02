@@ -980,7 +980,6 @@ fn derive_battle_seed(
     hash.update(path.attempt().expect("validated path").get().to_le_bytes());
     hash.update(pending.battle_sequence().get().to_le_bytes());
     hash.update(pending.participant_lock_digest().bytes());
-    hash.update(starclock_combat::COMBAT_INPUT_CODEC_REVISION.as_bytes());
     hash.update(pending.combat_input_digest().bytes());
     hash.update(pending.assembly_digest().bytes());
     hash.update(contract.bytes());
@@ -1022,7 +1021,6 @@ fn encode_result_identity(writer: &mut ActivityStateEncoder, identity: BattleRes
     writer.digest(identity.definition_digest().bytes());
     writer.digest(identity.config_digest().bytes());
     writer.digest(identity.participant_lock_digest().bytes());
-    writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
     writer.digest(identity.combat_input_digest().bytes());
     writer.digest(identity.assembly_digest().bytes());
     writer.digest(identity.seed().bytes());

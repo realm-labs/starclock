@@ -9,7 +9,6 @@ fn source_resistance_stage_is_applied_as_ordinary_damage_penetration() {
 
 fn damage(with_penetration: bool) -> i64 {
     let spec = BattleSpec::new(
-        "source-resistance-penetration-v1",
         AssemblyDigest::new([0x5b; 32]).unwrap(),
         definition(1),
         vec![

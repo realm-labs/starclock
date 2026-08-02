@@ -18,13 +18,10 @@ use starclock_combat::{
     },
 };
 
-use super::{SYNTHETIC_STANDARD_CATALOG_REVISION, SYNTHETIC_STANDARD_CONFIG_DIGEST};
+use super::SYNTHETIC_STANDARD_CONFIG_DIGEST;
 
 pub(super) fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new(
-        SYNTHETIC_STANDARD_CATALOG_REVISION,
-        SYNTHETIC_STANDARD_CONFIG_DIGEST,
-    );
+    let mut builder = CombatCatalogBuilder::new(SYNTHETIC_STANDARD_CONFIG_DIGEST);
     let player_selector = SelectorId::new(1).expect("static ID is non-zero");
     let enemy_selector = SelectorId::new(2).expect("static ID is non-zero");
     builder.add_selector(

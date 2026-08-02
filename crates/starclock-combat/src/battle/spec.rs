@@ -48,10 +48,6 @@ digest_type!(
     "Digest of one generic resolved combatant assembly."
 );
 digest_type!(
-    BattleSpecDigest,
-    "Legacy compatibility wrapper for a complete immutable battle request digest."
-);
-digest_type!(
     CombatInputDigest,
     "Combat-owned digest of one canonical immutable battle input."
 );
@@ -63,12 +59,6 @@ digest_type!(
 impl CombatInputDigest {
     pub(super) const fn from_computed(bytes: [u8; 32]) -> Self {
         Self(bytes)
-    }
-}
-
-impl BattleSpecDigest {
-    pub(super) const fn from_assembly(digest: AssemblyDigest) -> Self {
-        Self(digest.bytes())
     }
 }
 
@@ -813,7 +803,6 @@ impl TeamResourceSpec {
 /// Complete immutable request for constructing one isolated battle.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BattleSpec {
-    rules_revision: Box<str>,
     combat_input_digest: CombatInputDigest,
     assembly_digest: AssemblyDigest,
     encounter: EncounterId,
@@ -826,7 +815,6 @@ pub struct BattleSpec {
 impl BattleSpec {
     /// Validates and canonicalizes battle input, then computes its identity.
     pub fn new(
-        rules_revision: impl Into<Box<str>>,
         assembly_digest: AssemblyDigest,
         encounter: EncounterId,
         mut participants: Vec<ParticipantSpec>,
@@ -834,13 +822,6 @@ impl BattleSpec {
         enemy_resources: TeamResourceSpec,
         concede: ConcedePolicy,
     ) -> Result<Self, BattleSpecError> {
-        let rules_revision = rules_revision.into();
-        if rules_revision.is_empty()
-            || rules_revision.len() > 128
-            || !rules_revision.bytes().all(|byte| byte.is_ascii_graphic())
-        {
-            return Err(BattleSpecError::InvalidRulesRevision);
-        }
         if participants.is_empty() {
             return Err(BattleSpecError::EmptyParticipants);
         }
@@ -870,7 +851,6 @@ impl BattleSpec {
             return Err(BattleSpecError::MissingSide);
         }
         let combat_input_digest = super::spec_codec::combat_input_digest(
-            &rules_revision,
             encounter,
             &participants,
             &player_resources,
@@ -878,7 +858,6 @@ impl BattleSpec {
             concede,
         );
         Ok(Self {
-            rules_revision,
             combat_input_digest,
             assembly_digest,
             encounter,
@@ -889,11 +868,6 @@ impl BattleSpec {
         })
     }
 
-    /// Returns the rules compatibility revision.
-    #[must_use]
-    pub fn rules_revision(&self) -> &str {
-        &self.rules_revision
-    }
     /// Returns the combat-owned canonical input identity.
     #[must_use]
     pub const fn combat_input_digest(&self) -> CombatInputDigest {
@@ -932,8 +906,6 @@ impl BattleSpec {
 /// Local `BattleSpec` construction failure.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleSpecError {
-    /// Rules revisions are non-empty printable ASCII up to 128 bytes.
-    InvalidRulesRevision,
     /// At least one participant is required.
     EmptyParticipants,
     /// Initial construction exceeded its reviewed hard bound.

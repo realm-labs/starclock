@@ -286,7 +286,7 @@ fn build_spec(eidolon: u8, trace_selected: bool) -> CombatantBuildSpec {
 }
 
 fn combat_catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("combat-build-b3-v1", [0xe6; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xe6; 32]);
     for raw in 1..=7 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),

@@ -322,7 +322,7 @@ fn exact_spec(rank: u8) -> CombatantBuildSpec {
 }
 
 fn combat_catalog() -> Arc<CombatCatalog> {
-    let mut value = CombatCatalogBuilder::new("combat-build-b5-v1", [0xb5; 32]);
+    let mut value = CombatCatalogBuilder::new([0xb5; 32]);
     for raw in 1..=8 {
         value.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),

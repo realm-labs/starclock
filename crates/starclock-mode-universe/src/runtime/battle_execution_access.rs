@@ -46,7 +46,7 @@ impl StandardUniverseActivity {
             .graph
             .pending_battle()
             .ok_or(StandardUniverseBattleStartError::MissingPendingBattle)?
-            .battle_spec_digest();
+            .assembly_digest();
         let binding = self
             .overlay
             .binding_for_spec(digest.bytes())

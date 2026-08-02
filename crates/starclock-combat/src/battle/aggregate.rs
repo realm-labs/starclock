@@ -238,9 +238,7 @@ impl Battle {
         }
         let mut state = BattleState {
             identity: BattleIdentity {
-                catalog_revision: catalog.revision().clone(),
                 catalog_digest: catalog.digest(),
-                rules_revision: spec.rules_revision().into(),
                 combat_input_digest: spec.combat_input_digest(),
                 assembly_digest: spec.assembly_digest(),
                 seed,
@@ -468,7 +466,7 @@ mod tests {
     }
 
     fn fixture_catalog() -> Arc<CombatCatalog> {
-        let mut builder = CombatCatalogBuilder::new("transaction-test-v1", [0x41; 32]);
+        let mut builder = CombatCatalogBuilder::new([0x41; 32]);
         for raw in 1..=2 {
             let selector: SelectorId = definition(raw);
             let program: ProgramId = definition(raw);
@@ -525,7 +523,6 @@ mod tests {
 
     fn fixture_battle() -> Battle {
         let spec = BattleSpec::new(
-            "transaction-rules-v1",
             AssemblyDigest::new([0x51; 32]).unwrap(),
             definition(1),
             vec![

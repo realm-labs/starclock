@@ -1,11 +1,8 @@
 use sha2::{Digest, Sha256};
 
-use super::{
-    RNG_ALGORITHM_REVISION,
-    types::{RngError, RngSeed},
-};
+use super::types::{RngError, RngSeed};
 
-const DOMAIN: &[u8] = b"starclock-rng-stream-v1\0";
+const DOMAIN: &[u8] = b"starclock-rng-stream\0";
 const MAX_TEXT_BYTES: usize = 128;
 
 /// Validated canonical path for one independent deterministic RNG stream.
@@ -51,7 +48,6 @@ impl StreamPath {
     pub fn derive_seed(&self, master_seed: u64) -> RngSeed {
         let mut hasher = Sha256::new();
         hasher.update(DOMAIN);
-        write_text(&mut hasher, RNG_ALGORITHM_REVISION);
         hasher.update(master_seed.to_be_bytes());
         write_text(&mut hasher, &self.activity_profile_id);
         hasher.update(self.activity_instance_id.to_be_bytes());

@@ -267,7 +267,6 @@ impl BattleResultIdentity {
         writer.digest(self.configuration.definition_digest.bytes());
         writer.digest(self.configuration.config_digest.bytes());
         writer.digest(self.configuration.participant_lock_digest.bytes());
-        writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
         writer.digest(self.combat_input_digest.bytes());
         writer.digest(self.assembly_digest.bytes());
         writer.digest(self.seed.bytes());

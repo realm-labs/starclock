@@ -196,7 +196,6 @@ fn provider_shields(catalog: &Arc<UniverseCatalog>, level: u32, marker: u8) -> V
     .with_wave(original_player.wave())
     .unwrap();
     let spec = BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker.wrapping_add(11); 32]).unwrap(),
         original.encounter(),
         participants,
@@ -277,7 +276,6 @@ fn fixture_catalog(
     let ability = AbilityId::new(FIXTURE_ABILITY).unwrap();
     let mut builder = CombatCatalogBuilder::from_catalog(
         base,
-        "goal07-preservation-s02-fixture-v1",
         [marker; 32],
     );
     builder.add_selector(SelectorDefinition::new(action_selector).with_unit_targets(

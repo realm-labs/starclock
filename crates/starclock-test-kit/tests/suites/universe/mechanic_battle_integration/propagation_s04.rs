@@ -283,7 +283,6 @@ fn with_resonance_energy(
     ])
     .unwrap();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker; 32]).unwrap(),
         original.encounter(),
         original.participants().to_vec(),

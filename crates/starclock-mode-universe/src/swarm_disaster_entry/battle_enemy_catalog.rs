@@ -156,15 +156,7 @@ impl SwarmBattleCatalogComposition {
             return Err(reference("Swarm enemy composition closure drift"));
         }
         let digest = composition_digest(&bindings);
-        let mut builder = CombatCatalogBuilder::from_catalog(
-            base,
-            format!(
-                "{}+{}",
-                base.revision().as_str(),
-                SWARM_DISASTER_ENEMY_DEFINITION_REVISION
-            ),
-            digest,
-        );
+        let mut builder = CombatCatalogBuilder::from_catalog(base, digest);
         for alias in aliases {
             builder.add_enemy(alias);
         }

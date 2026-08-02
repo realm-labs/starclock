@@ -488,7 +488,6 @@ pub(super) fn load_with_mode(
     let encounters = crate::encounter_lower::convert(&config, mode, &identity_by_id, &combat)?;
     let standard = crate::standard_lower::convert(&config, mode, &identity_by_id, &encounters)?;
     let (combat_catalog, build_catalog) = crate::domain_catalog::compile(
-        &manifest.data_revision,
         config_digest,
         &identities,
         &combat,

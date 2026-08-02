@@ -52,7 +52,6 @@ const DEFAULT_PROGRAM_BASE: u32 = 1_600_000_000;
 const ABILITY_SELECTOR_BASE: u32 = 1_700_000_000;
 
 pub(super) fn compile(
-    revision: &str,
     digest: [u8; 32],
     identities: &[IdentityDefinition],
     combat: &CombatDefinitions,
@@ -60,15 +59,12 @@ pub(super) fn compile(
     encounters: &EncounterDefinitions,
     mode: LoadMode,
 ) -> Result<(Arc<CombatCatalog>, BuildCatalog), CatalogLoadError> {
-    let combat_catalog = compile_combat(
-        revision, digest, identities, combat, builds, encounters, mode,
-    )?;
+    let combat_catalog = compile_combat(digest, identities, combat, builds, encounters, mode)?;
     let build_catalog = compile_build(builds, &combat_catalog)?;
     Ok((combat_catalog, build_catalog))
 }
 
 fn compile_combat(
-    revision: &str,
     digest: [u8; 32],
     identities: &[IdentityDefinition],
     combat: &CombatDefinitions,
@@ -76,7 +72,7 @@ fn compile_combat(
     encounters: &EncounterDefinitions,
     mode: LoadMode,
 ) -> Result<Arc<CombatCatalog>, CatalogLoadError> {
-    let mut builder = CombatCatalogBuilder::new(revision, digest);
+    let mut builder = CombatCatalogBuilder::new(digest);
     let variant_ids = variant_map(builds)?;
     let ultimate_costs = builds
         .characters
@@ -1049,7 +1045,7 @@ mod tests {
     }
 
     fn combat_catalog(digest: [u8; 32]) -> Arc<CombatCatalog> {
-        let mut builder = CombatCatalogBuilder::new("data-domain-test", digest);
+        let mut builder = CombatCatalogBuilder::new(digest);
         builder.add_selector(SelectorDefinition::new(selector(1)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
         ));

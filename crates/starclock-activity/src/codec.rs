@@ -205,10 +205,6 @@ impl ActivityStateEncoder {
     pub(crate) fn digest(&mut self, value: [u8; 32]) {
         self.0.extend_from_slice(&value);
     }
-    pub(crate) fn text(&mut self, value: &str) {
-        self.u32(value.len() as u32);
-        self.0.extend_from_slice(value.as_bytes());
-    }
     pub(crate) fn finish(self) -> Box<[u8]> {
         self.0.into_boxed_slice()
     }

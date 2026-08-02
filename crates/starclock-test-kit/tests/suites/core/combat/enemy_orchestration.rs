@@ -79,7 +79,7 @@ fn phase(raw: u32, targetable: bool, carry: EnemyPhaseCarry) -> EnemyPhaseDefini
 }
 
 fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("enemy-orchestration-v1", [0xb9; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xb9; 32]);
     for (raw, relation) in [(1, TargetRelation::Opposing), (2, TargetRelation::Opposing)] {
         builder.add_selector(
             SelectorDefinition::new(id(raw)).with_unit_targets(
@@ -244,7 +244,6 @@ fn battle_with_player_ability(ability: u32) -> Battle {
         )
         .unwrap();
     let spec = BattleSpec::new(
-        "enemy-orchestration-rules-v1",
         AssemblyDigest::new([0x31; 32]).unwrap(),
         id(1),
         vec![

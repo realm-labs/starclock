@@ -369,7 +369,6 @@ fn clone_binding(
     BattleBinding::new(
         binding.battle_spec().clone(),
         binding.seed_stream_label(),
-        binding.battle_spec_policy_revision(),
         binding.participant_lock_digest(),
     )
 }

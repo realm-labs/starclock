@@ -60,7 +60,7 @@ fn action(operations: Vec<HitOperationDefinition>) -> AbilityActionDefinition {
 }
 
 fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("effect-resource-v1", [0xa5; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xa5; 32]);
     for (raw, relation) in [(1, TargetRelation::Opposing), (2, TargetRelation::Opposing)] {
         builder.add_selector(
             SelectorDefinition::new(definition(raw)).with_unit_targets(
@@ -235,7 +235,6 @@ fn combatant(form: u32, ability: u32, speed: i64, digest: u8) -> ResolvedCombata
 
 fn battle() -> Battle {
     let spec = BattleSpec::new(
-        "effect-resource-rules-v1",
         AssemblyDigest::new([0x41; 32]).unwrap(),
         definition(1),
         vec![

@@ -2,10 +2,7 @@ use starclock_agent_api::{action, error, observation, schema, session};
 
 #[test]
 fn facade_exposes_five_responsibility_modules_without_protocol_types() {
-    assert_eq!(
-        schema::RESPONSIBILITY,
-        "schema revisions and exact agent values"
-    );
+    assert_eq!(schema::RESPONSIBILITY, "exact agent values");
     assert_eq!(
         observation::RESPONSIBILITY,
         "owned visibility-controlled projections"

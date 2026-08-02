@@ -1,5 +1,5 @@
 use crate::{
-    catalog::{CatalogDigest, CatalogRevision},
+    catalog::CatalogDigest,
     id::{
         ActionId, CommandId, DecisionId, EffectInstanceId, EncounterId, EventId, HitId,
         OperationId, PhaseId, ShieldInstanceId, SpawnSequence, TimelineActorId, UnitId,
@@ -21,9 +21,7 @@ use super::{
 
 #[derive(Clone, Debug)]
 pub(crate) struct BattleIdentity {
-    pub(crate) catalog_revision: CatalogRevision,
     pub(crate) catalog_digest: CatalogDigest,
-    pub(crate) rules_revision: Box<str>,
     pub(crate) combat_input_digest: CombatInputDigest,
     pub(crate) assembly_digest: AssemblyDigest,
     pub(crate) seed: BattleSeed,

@@ -154,7 +154,7 @@ fn ability(
 }
 
 fn fixture_catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("linked-lifecycle-v1", [0x41; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x41; 32]);
     builder.add_selector(SelectorDefinition::new(definition(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
     ));
@@ -401,7 +401,6 @@ fn fixture_battle() -> Battle {
 
 fn fixture_battle_with_player_hp(player_hp: i64) -> Battle {
     let spec = BattleSpec::new(
-        "linked-lifecycle-rules-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![

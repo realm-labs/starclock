@@ -42,7 +42,7 @@ fn action(kind: AbilityKind, operations: Vec<HitOperationDefinition>) -> Ability
 }
 
 fn catalog(forced_action: ForcedNormalAction) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("forced-control-v1", [0x91; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x91; 32]);
     for raw in 1..=2 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
@@ -132,7 +132,6 @@ fn combatant(form: u32, ability: u32, speed: i64, digest: u8) -> ResolvedCombata
 #[test]
 fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
     let spec = BattleSpec::new(
-        "forced-control-rules-v1",
         AssemblyDigest::new([0x92; 32]).unwrap(),
         definition(1),
         vec![
@@ -221,7 +220,6 @@ fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
 #[test]
 fn taunt_replaces_the_turn_with_a_basic_attack_against_the_applier() {
     let spec = BattleSpec::new(
-        "forced-control-rules-v1",
         AssemblyDigest::new([0x94; 32]).unwrap(),
         definition(1),
         vec![

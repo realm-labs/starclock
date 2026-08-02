@@ -13,10 +13,9 @@ use starclock_combat::{
 use crate::battle_materialization::{UniverseBattleRoster, player_participants};
 
 use super::{
-    GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION,
+    GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION,
     GoldAndGearsBattleAssemblyContext, GoldAndGearsEncounterSelection, GoldAndGearsEntryError,
     GoldAndGearsRuntimeInstance,
-    battle_enemy_catalog::GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION,
 };
 
 #[test]
@@ -112,14 +111,6 @@ fn current_activity_snapshot_materializes_a_real_validated_battle() {
             .count(),
         expected_enemies
     );
-    assert_eq!(
-        GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION,
-        "gold-and-gears-enemy-definition-composition-v1"
-    );
-    assert!(first
-        .battle_spec()
-        .rules_revision()
-        .contains(GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION));
     assert_eq!(
         GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION,
         "gold-and-gears-battle-snapshot-v1"

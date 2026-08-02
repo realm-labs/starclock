@@ -300,7 +300,6 @@ fn fixture_action(
         .unwrap();
     }
     let spec = BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker.wrapping_add(11); 32]).unwrap(),
         original.encounter(),
         participants,
@@ -379,7 +378,6 @@ fn fixture_catalog(
     };
     let mut builder = CombatCatalogBuilder::from_catalog(
         base,
-        "goal07-preservation-s03-fixture-v1",
         [marker; 32],
     );
     builder.add_selector(

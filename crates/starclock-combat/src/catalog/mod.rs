@@ -28,18 +28,6 @@ use crate::{
     rule::model::{RuleEventKind, TriggerPhase},
 };
 
-/// Human-readable immutable catalog revision.
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct CatalogRevision(Box<str>);
-
-impl CatalogRevision {
-    /// Returns the validated revision string.
-    #[must_use]
-    pub fn as_str(&self) -> &str {
-        &self.0
-    }
-}
-
 /// Exact digest of the configuration input represented by this catalog.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct CatalogDigest([u8; 32]);
@@ -55,7 +43,6 @@ impl CatalogDigest {
 /// Immutable validated definitions shared by isolated battles.
 #[derive(Debug)]
 pub struct CombatCatalog {
-    revision: CatalogRevision,
     digest: CatalogDigest,
     units: DefinitionTable<UnitDefinitionId, UnitDefinition>,
     linked_units: DefinitionTable<UnitDefinitionId, crate::LinkedUnitCatalogDefinition>,
@@ -75,11 +62,6 @@ pub struct CombatCatalog {
 }
 
 impl CombatCatalog {
-    /// Returns the catalog revision.
-    #[must_use]
-    pub const fn revision(&self) -> &CatalogRevision {
-        &self.revision
-    }
     /// Returns the exact configuration digest.
     #[must_use]
     pub const fn digest(&self) -> CatalogDigest {

@@ -51,8 +51,8 @@ fn activity_trace_round_trips_with_nested_boundaries_and_diagnostics() {
     assert_eq!(
         digest.bytes(),
         [
-            6, 67, 36, 214, 88, 164, 164, 150, 112, 212, 152, 194, 122, 60, 112, 208, 202, 104,
-            195, 46, 114, 163, 56, 94, 46, 4, 110, 195, 252, 116, 46, 158,
+            177, 98, 213, 129, 171, 192, 254, 51, 129, 147, 162, 123, 47, 57, 218, 136, 117, 219,
+            231, 212, 25, 226, 150, 153, 132, 59, 236, 165, 104, 97, 222, 126,
         ]
     );
 }
@@ -263,13 +263,7 @@ fn activity_spec() -> ActivitySpec {
         ],
     )
     .unwrap();
-    let binding = BattleBinding::new(
-        battle_spec(),
-        "battle",
-        "battle-spec-policy-v1",
-        participants.digest(),
-    )
-    .unwrap();
+    let binding = BattleBinding::new(battle_spec(), "battle", participants.digest()).unwrap();
     ActivitySpec::new(
         ActivityDefinitionIdentity::new(
             id::<ActivityDefinitionId>(1),
@@ -339,7 +333,6 @@ fn successful_values() -> Vec<ProjectedValue> {
 
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
-        "combat-rules-v1",
         AssemblyDigest::new(SPEC_DIGEST).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![

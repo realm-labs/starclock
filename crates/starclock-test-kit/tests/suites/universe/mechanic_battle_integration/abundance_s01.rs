@@ -324,7 +324,6 @@ fn wounded_players(original: BattleSpec, current_hp: i64) -> BattleSpec {
         })
         .collect();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([0x97; 32]).unwrap(),
         original.encounter(),
         participants,

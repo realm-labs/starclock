@@ -162,12 +162,7 @@ impl GoldAndGearsRuntimeInstance {
             })
             .collect::<Vec<_>>();
         let digest = materialization_digest(self, selection, roster, &snapshot, &neural);
-        let revision = GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION.to_owned();
-        let mut builder = CombatCatalogBuilder::from_catalog(
-            self.battle_catalog.combat(),
-            revision.clone(),
-            digest,
-        );
+        let mut builder = CombatCatalogBuilder::from_catalog(self.battle_catalog.combat(), digest);
         add_shared_contributions(&mut builder, &snapshot);
         for attachment in path.iter().chain(&neural).chain(&conundrum) {
             builder.add_modifier_group(attachment.group.clone());
@@ -200,7 +195,6 @@ impl GoldAndGearsRuntimeInstance {
                 .map_err(|_| GoldAndGearsEntryError::InvalidEnemyBattleParticipants)?,
         );
         let battle_spec = BattleSpec::new(
-            revision,
             AssemblyDigest::new(digest).expect("SHA-256 digest is non-zero"),
             ENCOUNTER_ID,
             participants,

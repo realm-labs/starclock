@@ -97,7 +97,7 @@ fn id(raw: u32) -> UnitDefinitionId {
 }
 
 fn build_unit_catalog(entries: &[(u32, u16)]) -> Vec<u32> {
-    let mut builder = CombatCatalogBuilder::new("property-catalog-v1", [0x93; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x93; 32]);
     for (raw, _) in entries {
         builder.add_unit(UnitDefinition::new(id(*raw), vec![], vec![]));
     }

@@ -98,7 +98,7 @@ fn break_damage() -> BreakDamageDefinition {
 }
 
 fn catalog(expiring_grant: bool) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("assist-skill-v1", [0xa1; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xa1; 32]);
     for (raw, relation, pattern) in [
         (1, TargetRelation::Allied, TargetPattern::Single),
         (2, TargetRelation::Opposing, TargetPattern::All),
@@ -235,7 +235,6 @@ fn battle(assist_uses: u16, expiring_grant: bool) -> Battle {
         ])
         .unwrap();
     let spec = BattleSpec::new(
-        "assist-skill-rules-v1",
         AssemblyDigest::new([0xa2; 32]).unwrap(),
         id(1),
         vec![

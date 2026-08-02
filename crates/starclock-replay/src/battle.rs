@@ -181,7 +181,7 @@ fn validate_identity(
             definition_id,
             spec_digest,
         } if *definition_id == view.encounter().definition().get()
-            && spec_digest.bytes() == battle_identity.spec_digest().bytes() =>
+            && spec_digest.bytes() == battle_identity.assembly_digest().bytes() =>
         {
             Ok(())
         }

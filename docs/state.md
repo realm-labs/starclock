@@ -43,6 +43,9 @@ The Rust property/corruption corpus runs explicitly with
 Adapter corruption, concurrency and TCP load checks run with
 `cargo test -p starclock-test-kit --test adapter_suite -- --ignored`.
 
+Complete dynamic Universe replay reconstruction runs with
+`cargo test -p starclock-test-kit --test universe_suite dynamic_battle_assembly::dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence -- --exact --ignored`.
+
 Complete Agent API gameplay/replay checks run with
 `cargo test -p starclock-agent-api --lib public_offers_complete_real_battles_and_export_fresh_replay -- --ignored`.
 Complete CLI gameplay/replay and text/JSON parity checks run with
@@ -70,15 +73,22 @@ Removed from current runtime surfaces:
 - benchmark and seed-matrix schema/workload/executor revision fields;
 - textual component, controller and build revisions duplicated by exact digests;
 - Activity codec/RNG/scope/handler revisions duplicated by current structure and digests;
+- Combat catalog/rules/numeric/RNG/state-codec revisions and the duplicate
+  `BattleSpecDigest` wrapper;
 - empty deferred relic/planar build fields and their placeholder document.
 
-Combat and generated content modules still contain textual
-`*_REVISION` domain labels used
-inside digest construction. They are not compatibility branches, but they are
-redundant current-tree identity and remain cleanup debt. Replace them with the
-underlying canonical content/configuration digests; keep fixed binary layout
-sentinels as `*_TAG` values.
+Mode and generated content modules still contain textual `*_REVISION` domain
+labels used inside digest construction. They are not compatibility branches,
+but they are redundant current-tree identity and remain cleanup debt. Replace
+them with the underlying canonical content/configuration digests; keep fixed
+binary layout sentinels as `*_TAG` values.
 
 The current Sora native-handler table still authors `handler_version`, but the
 runtime registry no longer consumes it. Removing that generated column requires
 the workbook, schema, generated reader and bundle to change together.
+
+The generated configuration manifests still author rules, numeric, RNG,
+state-hash and battle-policy revision strings. Runtime combat no longer exposes
+or consumes those labels. Their remaining validators are generated-data cleanup
+and must be removed through the workbook/schema/export path rather than by
+editing generated Rust or bundles directly.

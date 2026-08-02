@@ -95,11 +95,8 @@ impl SwarmDisasterRuntimeInstance {
             let snapshot = self.compile_battle_snapshot(state, &selection)?;
             let disarray = disarray_modifiers(snapshot.disarray)?;
             let digest = materialization_digest(self, roster, &selection, &snapshot);
-            let mut builder = CombatCatalogBuilder::from_catalog(
-                self.battle_catalog.combat(),
-                SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION.to_owned(),
-                digest,
-            );
+            let mut builder =
+                CombatCatalogBuilder::from_catalog(self.battle_catalog.combat(), digest);
             add_shared_contributions(&mut builder, &snapshot);
             for attachment in &disarray {
                 builder.add_modifier_group(attachment.group.clone());
@@ -125,9 +122,7 @@ impl SwarmDisasterRuntimeInstance {
                 &disarray,
                 digest,
             )?);
-            let revision = SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION.to_owned();
             let battle_spec = BattleSpec::new(
-                revision,
                 AssemblyDigest::new(digest).expect("SHA-256 digest is non-zero"),
                 ENCOUNTER_ID,
                 participants,

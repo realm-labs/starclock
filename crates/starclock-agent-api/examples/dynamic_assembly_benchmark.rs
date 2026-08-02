@@ -155,7 +155,6 @@ fn measure_combat_input(
     let allocations = measure(|| {
         for _ in 0..COMBAT_INPUT_ITERATIONS {
             let rebuilt = BattleSpec::new(
-                template.rules_revision(),
                 template.assembly_digest(),
                 template.encounter(),
                 template.participants().to_vec(),

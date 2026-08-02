@@ -15,7 +15,6 @@ use crate::battle_materialization::UniverseBattleRoster;
 use super::{
     SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     battle_enemy_catalog::SWARM_DISASTER_ENEMY_DEFINITION_REVISION,
-    battle_materialization::SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION,
     battle_snapshot::SWARM_DISASTER_BATTLE_SNAPSHOT_REVISION,
 };
 
@@ -64,7 +63,6 @@ fn current_activity_materializes_a_real_construction_validated_battle() {
         digest_hex(instance.battle_catalog.summary().2),
         "df5dc26217f6cd07c1d7c1cde45ee03bc98791d0e35c7c0ce53ab0ebcd0b7db6"
     );
-    assert_eq!(first.rules_revision(), SWARM_DISASTER_BATTLE_MATERIALIZATION_REVISION);
     assert_eq!(
         first
             .participants()

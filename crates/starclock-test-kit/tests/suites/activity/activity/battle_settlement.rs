@@ -73,8 +73,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         handoff.identity().seed().bytes(),
         [
-            112, 76, 203, 31, 229, 77, 135, 189, 20, 154, 195, 3, 6, 63, 188, 173, 137, 115, 214,
-            250, 166, 68, 111, 29, 53, 249, 146, 196, 197, 153, 81, 150,
+            48, 212, 144, 233, 102, 63, 35, 28, 185, 219, 98, 241, 39, 221, 169, 210, 134, 151,
+            112, 23, 94, 63, 87, 1, 176, 177, 3, 34, 159, 138, 248, 211,
         ]
     );
     let awaiting = state.state_hash(setup.identity, &setup.graph, setup.instance, &setup.rng);
@@ -115,8 +115,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         settlement.state_hash().bytes(),
         [
-            56, 142, 134, 214, 222, 20, 165, 4, 26, 175, 72, 42, 171, 33, 156, 146, 12, 212, 132,
-            125, 101, 46, 90, 172, 6, 230, 71, 196, 141, 135, 42, 0,
+            128, 204, 131, 149, 205, 135, 154, 23, 26, 196, 175, 174, 91, 38, 18, 82, 34, 39, 63,
+            175, 229, 40, 81, 60, 21, 171, 222, 26, 138, 215, 82, 199,
         ]
     );
 }
@@ -493,7 +493,7 @@ impl Setup {
                 vec![PreparedBattleVariant::new(
                     vec![],
                     TechniqueContributionDigest::new([0x34; 32]).unwrap(),
-                    BattleBinding::new(battle_spec(), "battle", "battle-spec-v1", lock).unwrap(),
+                    BattleBinding::new(battle_spec(), "battle", lock).unwrap(),
                 )],
             )
             .unwrap(),
@@ -736,7 +736,6 @@ fn participant_lock() -> ParticipantLock {
 
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
-        "rules-v1",
         AssemblyDigest::new([0x33; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![

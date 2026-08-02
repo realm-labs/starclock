@@ -43,7 +43,7 @@ fn action(
 }
 
 fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("action-resource-v1", [0x71; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x71; 32]);
     for (raw, relation, pattern) in [
         (1, TargetRelation::SelfUnit, TargetPattern::Single),
         (2, TargetRelation::Opposing, TargetPattern::Blast),
@@ -172,7 +172,6 @@ fn battle_with_skill_points(skill_points: u16) -> Battle {
         ));
     }
     let spec = BattleSpec::new(
-        "action-resource-rules-v1",
         AssemblyDigest::new([0x61; 32]).unwrap(),
         definition(1),
         participants,
@@ -204,8 +203,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            242, 42, 4, 250, 62, 86, 193, 124, 35, 205, 9, 175, 8, 191, 231, 16, 243, 136, 130,
-            234, 161, 156, 232, 226, 187, 139, 174, 233, 101, 128, 6, 240,
+            153, 235, 234, 113, 5, 56, 254, 78, 69, 184, 125, 126, 16, 91, 60, 230, 188, 205, 244,
+            83, 67, 19, 53, 4, 179, 61, 123, 92, 99, 242, 174, 206,
         ]
     );
     assert!(matches!(
@@ -274,8 +273,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            54, 51, 255, 231, 105, 66, 110, 164, 52, 195, 105, 11, 1, 114, 185, 220, 184, 83, 0,
-            16, 153, 254, 243, 114, 218, 103, 11, 5, 163, 61, 113, 170,
+            204, 252, 221, 60, 210, 205, 104, 20, 45, 190, 36, 11, 32, 184, 123, 55, 20, 9, 229,
+            61, 143, 86, 228, 209, 248, 195, 16, 59, 101, 54, 228, 217,
         ]
     );
     assert!(matches!(
@@ -405,7 +404,7 @@ fn basic_gain_clamps_at_caps_and_reports_overflow() {
 }
 
 fn named_resource_catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("named-action-resource-v1", [0x91; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x91; 32]);
     for (raw, relation) in [
         (10, TargetRelation::SelfUnit),
         (11, TargetRelation::Opposing),
@@ -509,7 +508,6 @@ fn named_resource_battle() -> Battle {
         ),
     ];
     let spec = BattleSpec::new(
-        "named-action-resource-v1",
         AssemblyDigest::new([0xa3; 32]).unwrap(),
         definition(10),
         participants,
@@ -533,7 +531,7 @@ fn named_character_resource_costs_are_canonical_and_make_ultimates_payable() {
             .is_none()
     );
 
-    let mut builder = CombatCatalogBuilder::new("free-ultimate-v1", [0xb1; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xb1; 32]);
     builder.add_selector(SelectorDefinition::new(definition(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));

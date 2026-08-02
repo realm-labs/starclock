@@ -231,7 +231,6 @@ impl GoldAndGearsRuntimeInstance {
         let binding = BattleBinding::new(
             materialization.battle_spec().clone(),
             "gold-and-gears-battle",
-            GOLD_AND_GEARS_BATTLE_EXECUTION_REVISION,
             materialization.participant_lock(),
         )
         .map_err(|_| {

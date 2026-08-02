@@ -67,7 +67,7 @@ fn action(
 }
 
 fn catalog(shared_actor: bool) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("shared-elation-v1", [0xe1; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xe1; 32]);
     for (raw, relation, pattern) in [
         (1, TargetRelation::Allied, TargetPattern::Single),
         (2, TargetRelation::Opposing, TargetPattern::All),
@@ -215,7 +215,6 @@ fn run(shared_actor: bool) -> (Battle, starclock_combat::Resolution) {
         ])
         .unwrap();
     let spec = BattleSpec::new(
-        "shared-elation-rules-v1",
         AssemblyDigest::new([0xe2; 32]).unwrap(),
         id(1),
         vec![

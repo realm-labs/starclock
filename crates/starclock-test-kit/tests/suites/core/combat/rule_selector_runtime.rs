@@ -58,7 +58,7 @@ fn combatant(form: u32, ability: u32, digest: u8, with_rule: bool) -> ResolvedCo
 fn catalog(
     empty_policy: Option<RuleEmptyPoolPolicy>,
 ) -> Arc<starclock_combat::catalog::CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("selector-snapshot-v1", [0x81; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x81; 32]);
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
@@ -311,7 +311,6 @@ fn catalog(
 
 fn battle(empty_policy: Option<RuleEmptyPoolPolicy>) -> Battle {
     let spec = BattleSpec::new(
-        "selector-snapshot-v1",
         AssemblyDigest::new([0x82; 32]).unwrap(),
         id(1),
         vec![

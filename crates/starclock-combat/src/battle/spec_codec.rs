@@ -17,7 +17,6 @@ const INPUT_MAGIC: &[u8; 4] = b"SCBI";
 const INPUT_CODEC_TAG: u16 = 1;
 
 pub(super) fn combat_input_digest(
-    rules_revision: &str,
     encounter: crate::EncounterId,
     participants: &[ParticipantSpec],
     player_resources: &TeamResourceSpec,
@@ -27,8 +26,6 @@ pub(super) fn combat_input_digest(
     let mut encoder = Encoder(Sha256::new());
     encoder.raw(INPUT_MAGIC);
     encoder.u16(INPUT_CODEC_TAG);
-    encoder.text(crate::COMBAT_INPUT_CODEC_REVISION);
-    encoder.text(rules_revision);
     encoder.u32(encounter.get());
     encoder.length(participants.len());
     for participant in participants {
@@ -259,7 +256,6 @@ mod tests {
     }
 
     fn spec(
-        revision: &str,
         assembly: u8,
         player: ResolvedCombatantSpec,
         initial: Option<ParticipantInitialState>,
@@ -282,7 +278,6 @@ mod tests {
             ),
         };
         BattleSpec::new(
-            revision,
             AssemblyDigest::new([assembly; 32]).unwrap(),
             EncounterId::new(1).unwrap(),
             vec![
@@ -304,14 +299,12 @@ mod tests {
     #[test]
     fn assembly_provenance_does_not_override_combat_identity() {
         let left = spec(
-            "rules-v1",
             1,
             combatant(1, 1),
             None,
             TeamResourceSpec::new(3, 5).unwrap(),
         );
         let right = spec(
-            "rules-v1",
             2,
             combatant(1, 1),
             None,
@@ -333,7 +326,6 @@ mod tests {
             )
         };
         let forward = BattleSpec::new(
-            "rules-v1",
             assembly,
             EncounterId::new(1).unwrap(),
             vec![
@@ -356,7 +348,6 @@ mod tests {
         )
         .unwrap();
         let reverse = BattleSpec::new(
-            "rules-v1",
             assembly,
             EncounterId::new(1).unwrap(),
             forward.participants().iter().cloned().rev().collect(),
@@ -371,21 +362,12 @@ mod tests {
     #[test]
     fn every_top_level_input_family_changes_identity() {
         let baseline = spec(
-            "rules-v1",
-            1,
-            combatant(1, 1),
-            None,
-            TeamResourceSpec::new(3, 5).unwrap(),
-        );
-        let revision = spec(
-            "rules-v2",
             1,
             combatant(1, 1),
             None,
             TeamResourceSpec::new(3, 5).unwrap(),
         );
         let changed_combatant = spec(
-            "rules-v1",
             1,
             combatant(3, 3),
             None,
@@ -401,7 +383,6 @@ mod tests {
         )
         .unwrap();
         let carry = spec(
-            "rules-v1",
             1,
             combatant(1, 1),
             Some(carry),
@@ -417,7 +398,6 @@ mod tests {
         .with_stable_key("elation")
         .unwrap();
         let resources = spec(
-            "rules-v1",
             1,
             combatant(1, 1),
             None,
@@ -426,7 +406,7 @@ mod tests {
                 .with_keyed(vec![keyed])
                 .unwrap(),
         );
-        for changed in [&revision, &changed_combatant, &carry, &resources] {
+        for changed in [&changed_combatant, &carry, &resources] {
             assert_ne!(
                 baseline.combat_input_digest(),
                 changed.combat_input_digest()

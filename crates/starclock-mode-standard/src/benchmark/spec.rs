@@ -6,7 +6,7 @@ use starclock_combat::{
     rng::derive::StreamPath,
 };
 
-use super::{BENCHMARK_RULES_REVISION, BenchmarkScenario};
+use super::BenchmarkScenario;
 
 pub(super) fn battle_spec(scenario: BenchmarkScenario) -> BattleSpec {
     let (players, enemies, form, ability, encounter) = match scenario {
@@ -46,7 +46,6 @@ pub(super) fn battle_spec(scenario: BenchmarkScenario) -> BattleSpec {
         ])
         .expect("static keyed resource IDs are unique");
     BattleSpec::new(
-        BENCHMARK_RULES_REVISION,
         AssemblyDigest::new([scenario.code(); 32]).expect("scenario code is non-zero"),
         EncounterId::new(encounter).expect("static ID"),
         participants,

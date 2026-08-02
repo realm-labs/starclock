@@ -39,8 +39,8 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         initial_hash.bytes(),
         [
-            0, 119, 41, 170, 106, 61, 179, 159, 201, 158, 63, 118, 112, 123, 55, 194, 78, 177, 86,
-            25, 152, 196, 169, 222, 34, 184, 19, 28, 209, 72, 227, 186,
+            30, 0, 164, 71, 163, 129, 36, 203, 169, 194, 74, 234, 246, 213, 206, 55, 11, 27, 182,
+            181, 58, 165, 242, 229, 107, 27, 253, 81, 73, 137, 85, 99,
         ]
     );
     let started = activity
@@ -54,16 +54,16 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         handoff.seed().bytes(),
         [
-            104, 109, 232, 73, 73, 90, 114, 199, 98, 24, 70, 93, 200, 168, 174, 21, 201, 195, 168,
-            56, 75, 254, 8, 174, 144, 57, 231, 168, 88, 5, 74, 86,
+            148, 7, 126, 71, 147, 164, 57, 223, 53, 78, 146, 0, 9, 136, 249, 140, 195, 32, 16, 30,
+            98, 83, 240, 156, 173, 87, 167, 167, 8, 76, 184, 251,
         ]
     );
     assert_ne!(started.state_hash(), initial_hash);
     assert_eq!(
         started.state_hash().bytes(),
         [
-            161, 91, 241, 37, 206, 56, 60, 79, 141, 107, 231, 2, 44, 191, 13, 180, 173, 178, 77,
-            232, 115, 104, 82, 80, 54, 115, 168, 53, 15, 218, 55, 9,
+            30, 127, 87, 33, 41, 102, 38, 142, 84, 55, 140, 251, 83, 68, 175, 180, 153, 70, 39,
+            134, 203, 123, 66, 186, 71, 93, 96, 142, 240, 100, 161, 16,
         ]
     );
     assert_eq!(activity.phase(), ActivityPhase::AwaitingBattleResult);
@@ -85,8 +85,8 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         terminal.state_hash().bytes(),
         [
-            208, 83, 18, 84, 193, 228, 43, 196, 129, 39, 222, 104, 202, 74, 0, 161, 232, 28, 191,
-            247, 54, 250, 203, 85, 26, 166, 54, 141, 180, 52, 103, 81,
+            76, 242, 168, 37, 96, 251, 110, 42, 97, 53, 27, 82, 235, 189, 112, 144, 200, 67, 106,
+            64, 156, 242, 118, 186, 226, 85, 90, 74, 201, 54, 50, 172,
         ]
     );
     assert!(matches!(
@@ -324,13 +324,7 @@ fn activity_spec() -> ActivitySpec {
         ],
     )
     .unwrap();
-    let binding = BattleBinding::new(
-        battle_spec(),
-        "battle",
-        "battle-spec-policy-v1",
-        participants.digest(),
-    )
-    .unwrap();
+    let binding = BattleBinding::new(battle_spec(), "battle", participants.digest()).unwrap();
     let slots = vec![
         ActivitySlotDefinition::new(
             id::<ActivitySlotId>(1),
@@ -413,7 +407,6 @@ fn successful_values() -> Vec<ProjectedValue> {
 
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
-        "combat-rules-v1",
         AssemblyDigest::new(SPEC_DIGEST).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![

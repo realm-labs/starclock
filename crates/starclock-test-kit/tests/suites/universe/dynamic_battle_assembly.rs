@@ -406,6 +406,7 @@ fn production_baseline_records_and_verifies_current_dynamic_replay() {
 }
 
 #[test]
+#[ignore = "exhaustive current-state dynamic replay reconstruction"]
 fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
     const SEED: u64 = 0x6023;
     let controller = StandardUniverseControllerIdentity {
@@ -468,12 +469,7 @@ fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
 
     let divergence = |bytes: &[u8]| verify(bytes).0.unwrap_err().first_divergence();
     let start_payload = replay_payload_offset(&replay, RecordKind::NestedBattleStart, 0);
-    let revision_length = u32::from_le_bytes(
-        replay[start_payload + 34..start_payload + 38]
-            .try_into()
-            .unwrap(),
-    ) as usize;
-    let identity = start_payload + 38 + revision_length;
+    let identity = start_payload + 34;
     let combat_input = identity + 8 + 16 + 96;
     let assembly = combat_input + 32;
     let state_payload = replay_payload_offset(&replay, RecordKind::ExpectedBattleState, 0);

@@ -11,8 +11,8 @@ an exact `Command` value from the current `DecisionPoint`.
 maximum HP, Speed, canonical ability/rule-bundle/modifier bindings and an opaque
 digest. It contains no Trace, Eidolon, Light Cone, relic, inventory, account,
 Sora or generated-row type. `BattleSpec` binds those assemblies to player/enemy
-formation slots, the selected encounter, team Skill Point bounds, a rules/spec
-digest and an explicit concession policy.
+formation slots, the selected encounter, team Skill Point bounds, an exact
+identity digest and an explicit concession policy.
 
 Construction canonicalizes participants by `(side, formation_index)`, rejects
 duplicate or missing sides, and caps the initial player/enemy formation ranges
@@ -31,9 +31,9 @@ selected definition binding so construction never silently discards upstream
 combat facts.
 
 `BattleView` borrows the aggregate and exposes explicit stable-ID, formation,
-timeline, team, encounter and compatibility projections. It offers no mutable
-state/store reference. Compatibility identity includes catalog, rules and spec
-digests/revisions, the isolated battle seed and the fixed numeric/RNG revisions.
+timeline, team, encounter and identity projections. It offers no mutable
+state/store reference. Battle identity contains the exact catalog,
+combat-input and assembly digests plus the isolated battle seed.
 
 ## Command boundary
 

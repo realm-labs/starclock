@@ -603,9 +603,7 @@ impl UniverseBattleMaterializer {
                 .as_ref()
                 .map(CompiledUniverseBattleTechnique::digest),
         );
-        let revision = composition.revision();
-        let mut builder =
-            CombatCatalogBuilder::from_catalog(composition.combat_catalog(), revision, digest);
+        let mut builder = CombatCatalogBuilder::from_catalog(composition.combat_catalog(), digest);
         if let Some(technique) = &technique {
             let definition = composition
                 .combat_catalog()
@@ -705,7 +703,6 @@ impl UniverseBattleMaterializer {
                 &enemy_map,
                 universe.simulation_catalog(),
                 &combat_catalog,
-                revision,
                 digest,
                 contributions,
             )?;
@@ -714,13 +711,8 @@ impl UniverseBattleMaterializer {
                 Vec::new(),
                 TechniqueContributionDigest::new(contributions.digest())
                     .expect("contribution digest is non-zero"),
-                BattleBinding::new(
-                    spec,
-                    "standard-universe-battle",
-                    UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
-                    roster.participant_lock(),
-                )
-                .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
+                BattleBinding::new(spec, "standard-universe-battle", roster.participant_lock())
+                    .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
             )];
             if let (Some(technique), Some(technique_players)) =
                 (technique.as_ref(), technique_players.as_ref())
@@ -731,7 +723,6 @@ impl UniverseBattleMaterializer {
                     &enemy_map,
                     universe.simulation_catalog(),
                     &combat_catalog,
-                    revision,
                     digest,
                     contributions,
                 )?;
@@ -746,7 +737,6 @@ impl UniverseBattleMaterializer {
                     BattleBinding::new(
                         technique_spec,
                         "standard-universe-battle-technique",
-                        UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
                         roster.participant_lock(),
                     )
                     .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
@@ -780,7 +770,6 @@ impl UniverseBattleMaterializer {
             &enemy_map,
             universe.simulation_catalog(),
             &combat_catalog,
-            revision,
             digest,
             contributions,
             technique.as_ref(),
@@ -801,7 +790,6 @@ impl UniverseBattleMaterializer {
                 &enemy_map,
                 universe.simulation_catalog(),
                 &combat_catalog,
-                revision,
                 digest,
                 contributions,
             )?;

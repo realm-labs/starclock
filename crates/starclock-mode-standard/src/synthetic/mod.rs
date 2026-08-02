@@ -12,10 +12,6 @@ use starclock_combat::{
 
 /// Scenario key reserved for the Phase 3 deterministic vertical slice.
 pub const SYNTHETIC_STANDARD_SCENARIO_ID: &str = "synthetic-standard";
-/// Synthetic catalog identity; production Standard data lands in Phase 6.
-pub const SYNTHETIC_STANDARD_CATALOG_REVISION: &str = "synthetic-standard-catalog-v1";
-/// Rules identity bound into the synthetic battle and replay.
-pub const SYNTHETIC_STANDARD_RULES_REVISION: &str = "synthetic-standard-rules-v1";
 /// Configuration digest of the immutable synthetic definitions below.
 pub const SYNTHETIC_STANDARD_CONFIG_DIGEST: [u8; 32] = [0xa1; 32];
 /// Exact synthetic battle-spec digest.
@@ -69,12 +65,6 @@ impl SyntheticStandardBattle {
     #[must_use]
     pub const fn assembly_digest(&self) -> AssemblyDigest {
         self.spec.assembly_digest()
-    }
-
-    /// Returns the synthetic catalog revision.
-    #[must_use]
-    pub fn catalog_revision(&self) -> &str {
-        self.catalog.revision().as_str()
     }
 
     /// Returns the exact configuration digest represented by the catalog.

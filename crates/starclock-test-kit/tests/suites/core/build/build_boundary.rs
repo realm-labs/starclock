@@ -29,7 +29,7 @@ use starclock_combat::{
 
 #[test]
 fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
-    let combat = combat_catalog("combat-v1");
+    let combat = combat_catalog();
     let mut builder = build_builder(&combat);
     builder.add_character(character(2, 2));
     builder.add_character(character(1, 1));
@@ -69,7 +69,7 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
 
 #[test]
 fn catalog_rejects_duplicate_forms_and_cross_catalog_bindings() {
-    let combat = combat_catalog("combat-v1");
+    let combat = combat_catalog();
     let mut duplicates = build_builder(&combat);
     duplicates.add_character(character(1, 1));
     duplicates.add_character(character(1, 1));
@@ -86,7 +86,7 @@ fn catalog_rejects_duplicate_forms_and_cross_catalog_bindings() {
 
 #[test]
 fn invalid_builds_return_ordered_typed_validation_reports() {
-    let combat = combat_catalog("combat-v1");
+    let combat = combat_catalog();
     let catalog = build_catalog(&combat);
     let unknown = build_spec(form(3), 80);
     let error = LoadoutCompiler
@@ -116,9 +116,9 @@ fn invalid_builds_return_ordered_typed_validation_reports() {
 
 #[test]
 fn compile_rechecks_catalog_compatibility_without_mutating_either_catalog() {
-    let combat_v1 = combat_catalog("combat-v1");
+    let combat_v1 = combat_catalog();
     let catalog = build_catalog(&combat_v1);
-    let combat_v2 = combat_catalog_with_digest("combat-v2", 0x72);
+    let combat_v2 = combat_catalog_with_digest(0x72);
     let spec = build_spec(form(1), 80);
 
     let error = LoadoutCompiler
@@ -133,9 +133,9 @@ fn compile_rechecks_catalog_compatibility_without_mutating_either_catalog() {
     assert_eq!(catalog.character_ids().count(), 1);
     assert_eq!(combat_v1.unit_ids().count(), 2);
 
-    let same_revision_different_digest = combat_catalog_with_digest("combat-v1", 0x73);
+    let different_digest = combat_catalog_with_digest(0x73);
     let error = LoadoutCompiler
-        .compile(&catalog, &same_revision_different_digest, &spec)
+        .compile(&catalog, &different_digest, &spec)
         .unwrap_err();
     assert_eq!(error.kind(), BuildCompileErrorKind::IncompatibleCatalogs);
 }
@@ -186,12 +186,12 @@ fn build_spec(form: UnitDefinitionId, level: u8) -> CombatantBuildSpec {
     )
 }
 
-fn combat_catalog(revision: &str) -> Arc<CombatCatalog> {
-    combat_catalog_with_digest(revision, 0x71)
+fn combat_catalog() -> Arc<CombatCatalog> {
+    combat_catalog_with_digest(0x71)
 }
 
-fn combat_catalog_with_digest(revision: &str, digest: u8) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new(revision, [digest; 32]);
+fn combat_catalog_with_digest(digest: u8) -> Arc<CombatCatalog> {
+    let mut builder = CombatCatalogBuilder::new([digest; 32]);
     for raw in 1..=2 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),

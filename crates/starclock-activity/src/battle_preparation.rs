@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use sha2::{Digest, Sha256};
 use starclock_combat::{
-    AssemblyDigest, BattleSpec, BattleSpecDigest, CombatInputDigest, ParticipantSource, TeamSide,
+    AssemblyDigest, BattleSpec, CombatInputDigest, ParticipantSource, TeamSide,
 };
 
 use crate::{
@@ -401,11 +401,6 @@ impl PendingBattleSpec {
         self.binding.battle_spec()
     }
     #[must_use]
-    pub fn battle_spec_digest(&self) -> BattleSpecDigest {
-        BattleSpecDigest::new(self.binding.battle_spec().assembly_digest().bytes())
-            .expect("AssemblyDigest is non-zero")
-    }
-    #[must_use]
     pub fn combat_input_digest(&self) -> CombatInputDigest {
         self.binding.battle_spec().combat_input_digest()
     }
@@ -430,11 +425,6 @@ impl ActivityPendingBattleView {
     #[must_use]
     pub const fn battle_sequence(&self) -> BattleSequence {
         self.battle_sequence
-    }
-    #[must_use]
-    pub fn battle_spec_digest(&self) -> BattleSpecDigest {
-        BattleSpecDigest::new(self.assembly_digest.bytes())
-            .expect("assembly identities are non-zero")
     }
     #[must_use]
     pub const fn combat_input_digest(&self) -> CombatInputDigest {
@@ -705,7 +695,6 @@ impl ActivityAttemptState {
         }
         writer.bool(self.pending.is_some());
         if let Some(pending) = &self.pending {
-            writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
             writer.digest(pending.combat_input_digest().bytes());
             writer.digest(pending.assembly_digest().bytes());
             writer.digest(pending.contribution.bytes());
@@ -1029,11 +1018,9 @@ fn preparation_digest(
             hash.update(option.get().to_le_bytes());
         }
         hash.update(variant.contribution.bytes());
-        hash.update(starclock_combat::COMBAT_INPUT_CODEC_REVISION.as_bytes());
         hash.update(variant.binding.battle_spec().combat_input_digest().bytes());
         hash.update(variant.binding.battle_spec().assembly_digest().bytes());
         hash_text(&mut hash, variant.binding.seed_stream_label());
-        hash_text(&mut hash, variant.binding.battle_spec_policy_revision());
     }
     EncounterPreparationDigest::new(hash.finalize().into()).expect("SHA-256 output is non-zero")
 }

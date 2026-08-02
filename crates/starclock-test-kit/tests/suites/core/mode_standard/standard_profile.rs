@@ -255,13 +255,8 @@ fn activity_spec(
         .map(|team| participant_entry(u32::from(team) + 1, team))
         .collect();
     let participants = ParticipantLock::seal(policy, entries).unwrap();
-    let binding = BattleBinding::new(
-        battle_spec(),
-        "standard-battle",
-        "starclock.battle-spec.v1",
-        participants.digest(),
-    )
-    .unwrap();
+    let binding =
+        BattleBinding::new(battle_spec(), "standard-battle", participants.digest()).unwrap();
     ActivitySpec::new(
         ActivityDefinitionIdentity::new(
             activity_id(definition_id),
@@ -311,7 +306,6 @@ fn participant_entry(raw: u32, team: u8) -> ParticipantLockEntry {
 
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
-        "combat-rules-v1",
         AssemblyDigest::new([0x31; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![

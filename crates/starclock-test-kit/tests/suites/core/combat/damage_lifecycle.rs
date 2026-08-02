@@ -100,7 +100,7 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
 }
 
 fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("damage-lifecycle-v1", [0x91; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x91; 32]);
     builder.add_modifier_group(ModifierStackingGroup {
         id: definition(1),
         aggregation: ModifierAggregation::Sum,
@@ -522,7 +522,6 @@ fn battle_with_policy(
         );
     }
     let spec = BattleSpec::new(
-        "damage-lifecycle-rules-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         participants,
@@ -558,7 +557,6 @@ fn break_recovery_battle_with_enemy_hp(enemy_hp: i64) -> Battle {
         .with_toughness(EnemyRank::Normal, vec![], vec![layer])
         .unwrap();
     let spec = BattleSpec::new(
-        "break-recovery-rules-v1",
         AssemblyDigest::new([0x77; 32]).unwrap(),
         definition(1),
         vec![
@@ -639,7 +637,6 @@ fn scaling_hit_damage_resolves_the_actors_live_stat() {
     );
     let enemy = combatant(2, vec![3], 2_000, 1_000_000, 0x41);
     let spec = BattleSpec::new(
-        "scaling-hit-damage-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![
@@ -681,7 +678,6 @@ fn application_action_phase_hit_and_stack_snapshots_change_damage() {
     let player = combatant_with_formula_modifier();
     let enemy = combatant(2, vec![3], 2_000, 1_000_000, 0x41);
     let spec = BattleSpec::new(
-        "formula-modifier-damage-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![
@@ -900,8 +896,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            231, 224, 249, 35, 185, 114, 51, 149, 54, 197, 68, 192, 171, 83, 241, 64, 141, 133,
-            195, 133, 29, 216, 116, 68, 92, 134, 65, 92, 102, 227, 216, 23,
+            81, 32, 243, 161, 188, 191, 210, 170, 40, 68, 47, 63, 140, 231, 195, 173, 178, 219,
+            103, 50, 231, 174, 191, 105, 185, 87, 62, 87, 109, 68, 247, 35,
         ]
     );
     let damage = resolution
@@ -1017,8 +1013,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            141, 215, 20, 194, 190, 104, 194, 38, 74, 29, 246, 169, 178, 232, 170, 73, 17, 113,
-            194, 82, 193, 218, 127, 116, 11, 255, 169, 73, 138, 213, 193, 71,
+            193, 14, 208, 199, 21, 32, 98, 165, 22, 37, 24, 138, 230, 42, 92, 79, 194, 212, 167,
+            86, 56, 187, 253, 6, 118, 173, 46, 134, 106, 43, 140, 78,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -1050,8 +1046,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            205, 182, 123, 13, 56, 226, 89, 92, 77, 238, 19, 192, 155, 10, 169, 12, 213, 15, 216,
-            103, 234, 131, 117, 34, 208, 208, 109, 51, 49, 230, 70, 210,
+            179, 246, 114, 251, 24, 133, 59, 129, 179, 134, 76, 126, 241, 21, 129, 100, 96, 98,
+            240, 58, 91, 107, 30, 158, 96, 17, 212, 42, 116, 23, 213, 238,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -1093,8 +1089,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            54, 129, 113, 140, 157, 200, 72, 24, 54, 124, 26, 45, 42, 88, 75, 235, 190, 94, 134,
-            99, 15, 142, 163, 142, 163, 93, 173, 244, 39, 144, 17, 172,
+            248, 171, 26, 93, 67, 191, 255, 46, 80, 253, 12, 118, 130, 103, 53, 144, 86, 89, 31,
+            189, 144, 90, 227, 240, 198, 43, 77, 222, 113, 78, 165, 123,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1163,8 +1159,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            219, 195, 184, 160, 253, 198, 92, 107, 117, 153, 12, 84, 79, 114, 207, 131, 96, 31,
-            161, 82, 93, 35, 246, 125, 216, 28, 191, 174, 40, 121, 203, 179,
+            51, 56, 115, 190, 104, 36, 207, 243, 185, 141, 68, 118, 5, 176, 246, 48, 235, 187, 45,
+            37, 243, 60, 56, 58, 24, 232, 176, 34, 159, 98, 65, 252,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

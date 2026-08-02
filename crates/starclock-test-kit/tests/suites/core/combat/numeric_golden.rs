@@ -1,12 +1,9 @@
 use starclock_combat::{
-    DamageAmount, NUMERIC_POLICY_REVISION, NumericError, Probability, Ratio, Rounding, Scalar,
-    Speed, StatValue,
+    DamageAmount, NumericError, Probability, Ratio, Rounding, Scalar, Speed, StatValue,
 };
 
 #[test]
 fn fixed_i64_six_decimal_golden_vectors_are_platform_independent() {
-    assert_eq!(NUMERIC_POLICY_REVISION, "fixed-i64-6dp-v1");
-
     let products = [
         (2_000_000, 3_000_000, Rounding::Floor, 6_000_000),
         (1, 1, Rounding::Floor, 0),

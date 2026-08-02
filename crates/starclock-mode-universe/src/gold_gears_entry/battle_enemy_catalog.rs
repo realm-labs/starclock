@@ -13,9 +13,6 @@ use crate::{
 
 use super::GoldAndGearsEntryError;
 
-pub const GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION: &str =
-    "gold-and-gears-enemy-definition-composition-v1";
-
 const MODE_ENEMY_BASE: u32 = 0x7f40_0000;
 const EXPECTED_ENEMIES: usize = 90;
 const EXPECTED_MODE_OWNED: usize = 23;
@@ -217,15 +214,7 @@ impl GoldAndGearsBattleCatalogComposition {
             return Err(GoldAndGearsEntryError::InvalidBattleMaterialization);
         }
         let digest = composition_digest(&bindings);
-        let mut builder = CombatCatalogBuilder::from_catalog(
-            base,
-            format!(
-                "{}+{}",
-                base.revision().as_str(),
-                GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION
-            ),
-            digest,
-        );
+        let mut builder = CombatCatalogBuilder::from_catalog(base, digest);
         for alias in aliases {
             builder.add_enemy(alias);
         }

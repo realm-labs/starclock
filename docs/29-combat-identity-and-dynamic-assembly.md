@@ -5,25 +5,13 @@ one battle's executable input and the outer build/Activity/mode assembly, plus
 the Standard Universe boundary that constructs a fresh battle request from the
 current authoritative Activity snapshot.
 
-## Problem statement
+## Current boundary
 
-The Goal 05 runtime started with two weak boundaries:
-
-1. `BattleSpecDigest` is supplied by the caller even though it is described as
-   the exact battle request identity. `starclock-combat` validates references
-   but does not independently prove that the digest covers every visible input.
-2. `StandardUniverseRuntimeFactory` composes one battle materialization from
-   the entry-time empty inventory. Later Activity acquisitions are
-   authoritative, but the selected contributions are not projected into later
-   `BattleSpec` values.
-
-The first issue weakens server/replay identity. The second prevents otherwise
-executable acquired mechanics from affecting later battles. Neither requires
-Universe state inside the combat resolver.
-
-Goal 06 Phase 1 closed the first issue: `BattleSpec::new` now accepts only
-`AssemblyDigest` and computes `CombatInputDigest` internally. The dynamic
-assembly issue is the Phase 2 migration target.
+`BattleSpec::new` accepts an opaque `AssemblyDigest` and computes the exact
+`CombatInputDigest` internally from every combat-visible field. Standard
+Universe materializes each pending battle from the current authoritative
+Activity snapshot, so later acquisitions reach later battle inputs without
+placing Universe state inside the combat resolver.
 
 ## Identity domains
 
@@ -76,10 +64,9 @@ Battle canonical state binds both identities:
 
 ```text
 BattleIdentity
-  catalog revision + digest
-  combat-input codec revision + CombatInputDigest
+  CatalogDigest
+  CombatInputDigest
   AssemblyDigest
-  numeric/RNG/state-hash revisions
   BattleSeed
 ```
 
@@ -177,14 +164,14 @@ session/Activity state and cache scratch cannot be shared without isolation.
 The concrete Phase 2 lifetime and cache contract is recorded in
 `goal-06-battle-assembly-key-and-cache.md`.
 
-## Replay v3
+## Replay
 
-New production Activity recordings use component-addressed replay v3. Every
-nested battle records:
+Current Activity recordings use component-addressed replay. Every nested battle
+records:
 
 - ordered consumed component root;
 - `AssemblyDigest`;
-- combat-input codec revision and `CombatInputDigest`;
+- `CombatInputDigest`;
 - exact handoff/result identities;
 - accepted controller/command sequence;
 - emitted event payloads and state hashes.

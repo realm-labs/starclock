@@ -516,7 +516,6 @@ fn durable_spec_with_two_enemy_hp(
         })
         .collect::<Vec<_>>();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker.wrapping_add(3); 32]).unwrap(),
         original.encounter(),
         participants,
@@ -629,7 +628,6 @@ fn durable_spec_with_enemy_profile(
         original.resources(TeamSide::Player).clone()
     };
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker.wrapping_add(1); 32]).unwrap(),
         original.encounter(),
         participants,

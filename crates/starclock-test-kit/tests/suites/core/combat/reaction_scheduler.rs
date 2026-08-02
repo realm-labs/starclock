@@ -49,7 +49,7 @@ fn catalog(
     queued_kind: AbilityKind,
     invalidate_attacker: bool,
 ) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("reaction-scheduler-v1", [0xb6; 32]);
+    let mut builder = CombatCatalogBuilder::new([0xb6; 32]);
     for (raw, relation) in [
         (1, TargetRelation::Opposing),
         (2, TargetRelation::Opposing),
@@ -201,7 +201,6 @@ fn battle(
     invalidate_attacker: bool,
 ) -> Battle {
     let spec = BattleSpec::new(
-        "reaction-scheduler-rules-v1",
         AssemblyDigest::new([0xc6; 32]).unwrap(),
         definition(1),
         vec![

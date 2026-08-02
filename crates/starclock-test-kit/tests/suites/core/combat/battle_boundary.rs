@@ -42,7 +42,7 @@ fn catalog() -> Arc<CombatCatalog> {
 }
 
 fn catalog_with_executable_actions(executable: bool) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("battle-boundary-catalog-v1", [0x41; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x41; 32]);
     builder.add_selector(SelectorDefinition::new(definition(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
     ));
@@ -142,7 +142,6 @@ fn combatant_at_speed(
 
 fn spec_with(encounter: u32, player: ParticipantSpec, enemy: ParticipantSpec) -> BattleSpec {
     BattleSpec::new(
-        "synthetic-rules-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(encounter),
         vec![enemy, player],
@@ -222,19 +221,8 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
     assert_eq!(view.fault(), None);
     assert_eq!(view.committed_revision(), 0);
     assert_eq!(view.rng_draw_count(), 0);
-    assert_eq!(
-        view.identity().catalog_revision(),
-        "battle-boundary-catalog-v1"
-    );
     assert_eq!(view.identity().catalog_digest().bytes(), [0x41; 32]);
-    assert_eq!(view.identity().rules_revision(), "synthetic-rules-v1");
-    assert_eq!(view.identity().spec_digest().bytes(), [0x51; 32]);
-    assert_eq!(view.identity().numeric_policy(), "fixed-i64-6dp-v1");
-    assert_eq!(
-        view.identity().rng_algorithm(),
-        "chacha8-rand-0.10.2-intmap-v1"
-    );
-    assert_eq!(view.identity().state_hash_policy(), "sha256-v7");
+    assert_eq!(view.identity().assembly_digest().bytes(), [0x51; 32]);
     assert_eq!(view.identity().seed().bytes(), [0x71; 32]);
     assert_eq!(view.encounter().definition(), definition::<EncounterId>(1));
     assert_eq!(view.encounter().wave().get(), 1);
@@ -333,8 +321,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            118, 28, 221, 66, 198, 63, 155, 129, 192, 1, 50, 169, 204, 5, 169, 182, 145, 197, 116,
-            168, 231, 25, 217, 118, 23, 80, 4, 145, 98, 224, 201, 53,
+            245, 33, 59, 209, 137, 247, 122, 165, 224, 8, 227, 214, 18, 181, 239, 177, 190, 98,
+            217, 76, 156, 234, 128, 2, 12, 68, 121, 82, 253, 71, 142, 30,
         ]
     );
     let before = snapshot(&battle);
@@ -363,8 +351,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         started.state_hash().bytes(),
         [
-            98, 4, 180, 36, 255, 42, 247, 130, 197, 42, 212, 255, 150, 134, 86, 244, 200, 109, 9,
-            209, 42, 142, 114, 53, 209, 75, 167, 120, 109, 240, 37, 150,
+            99, 164, 121, 225, 174, 129, 163, 92, 218, 201, 96, 169, 223, 54, 80, 216, 211, 27,
+            104, 26, 142, 193, 54, 165, 122, 40, 224, 249, 245, 65, 202, 238,
         ]
     );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
@@ -437,8 +425,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         passed.state_hash().bytes(),
         [
-            172, 230, 10, 17, 101, 219, 34, 153, 108, 9, 24, 127, 11, 27, 171, 253, 138, 203, 213,
-            154, 43, 234, 236, 232, 139, 79, 191, 122, 95, 149, 151, 5,
+            159, 184, 71, 223, 2, 242, 12, 114, 101, 133, 75, 160, 251, 17, 89, 14, 184, 143, 181,
+            215, 218, 194, 117, 208, 158, 34, 189, 183, 216, 56, 93, 123,
         ]
     );
     let next = passed.next_decision().unwrap();
@@ -481,8 +469,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         ended.state_hash().bytes(),
         [
-            113, 99, 181, 72, 129, 32, 186, 89, 136, 216, 180, 69, 235, 154, 205, 222, 171, 51,
-            163, 149, 194, 112, 213, 238, 216, 177, 68, 244, 47, 236, 165, 128,
+            146, 34, 145, 43, 161, 112, 157, 44, 27, 105, 146, 240, 188, 64, 118, 38, 114, 31, 199,
+            82, 150, 114, 148, 194, 134, 150, 169, 220, 66, 138, 26, 245,
         ]
     );
     assert_eq!(ended.phase(), BattlePhase::Lost);
@@ -538,8 +526,8 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            126, 19, 165, 170, 110, 26, 170, 86, 182, 74, 187, 164, 94, 106, 31, 249, 208, 75, 94,
-            244, 29, 38, 54, 7, 248, 254, 173, 97, 90, 91, 58, 44,
+            20, 166, 46, 129, 28, 249, 250, 30, 220, 96, 224, 80, 255, 162, 123, 221, 120, 37, 78,
+            92, 162, 209, 120, 108, 169, 175, 25, 2, 204, 148, 42, 13,
         ]
     );
 
@@ -800,7 +788,6 @@ fn local_specs_reject_noncanonical_bindings_and_illegal_formations() {
     );
 
     let duplicate = BattleSpec::new(
-        "synthetic-rules-v1",
         AssemblyDigest::new([0x78; 32]).unwrap(),
         definition(1),
         vec![

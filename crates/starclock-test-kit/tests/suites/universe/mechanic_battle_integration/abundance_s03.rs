@@ -385,7 +385,6 @@ fn fixture_action(materialization: &UniverseBattleMaterialization, marker: u8) -
     .unwrap();
 
     let spec = BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker.wrapping_add(12); 32]).unwrap(),
         original.encounter(),
         participants,
@@ -445,7 +444,7 @@ fn fixture_catalog(
     let program = ProgramId::new(FIXTURE_PROGRAM).unwrap();
     let ability = AbilityId::new(FIXTURE_ABILITY).unwrap();
     let mut builder =
-        CombatCatalogBuilder::from_catalog(base, "goal07-abundance-s03-fixture-v1", [marker; 32]);
+        CombatCatalogBuilder::from_catalog(base, [marker; 32]);
     builder.add_selector(SelectorDefinition::new(action_selector).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
@@ -561,7 +560,6 @@ fn wounded_players(original: BattleSpec, current_hp: i64, marker: u8) -> BattleS
         })
         .collect();
     BattleSpec::new(
-        original.rules_revision(),
         AssemblyDigest::new([marker; 32]).unwrap(),
         original.encounter(),
         participants,

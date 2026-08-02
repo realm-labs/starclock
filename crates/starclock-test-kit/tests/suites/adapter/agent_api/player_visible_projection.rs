@@ -32,7 +32,7 @@ where
 }
 
 fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("agent-projection-fixture-v1", [0x41; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x41; 32]);
     for raw in 1..=2 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
             UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
@@ -94,7 +94,6 @@ fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
 
 fn fixture_battle() -> Battle {
     let spec = BattleSpec::new(
-        "agent-projection-rules-v1",
         AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![

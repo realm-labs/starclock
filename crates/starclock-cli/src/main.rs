@@ -412,8 +412,7 @@ fn standard_battle_run(
         standard::instantiate(scenario, Some(seed)).map_err(|_| CliError::UnknownScenario)?;
     let header_identity = (
         instantiated.encounter(),
-        starclock_combat::BattleSpecDigest::new(instantiated.assembly_digest().bytes())
-            .expect("AssemblyDigest is non-zero"),
+        instantiated.assembly_digest(),
         instantiated.master_seed(),
     );
     let mut trace = Vec::new();
@@ -612,7 +611,7 @@ fn replay_header(
 fn standard_replay_header(
     (encounter, spec_digest, master_seed): (
         starclock_combat::EncounterId,
-        starclock_combat::BattleSpecDigest,
+        starclock_combat::AssemblyDigest,
         u64,
     ),
     command_count: usize,

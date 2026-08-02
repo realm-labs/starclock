@@ -114,7 +114,7 @@ fn catalog_with_trigger(
     trigger_override: Option<TestTrigger>,
     rule_steps_override: Option<Vec<ProgramStep>>,
 ) -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("ability-program-v1", [0x43; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x43; 32]);
     let authored_effects = program.effects().to_vec();
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
@@ -732,7 +732,6 @@ fn battle(
     with_mechanics: bool,
 ) -> Battle {
     let spec = BattleSpec::new(
-        "ability-program-rules-v1",
         AssemblyDigest::new([0x44; 32]).unwrap(),
         id(1),
         vec![
@@ -776,7 +775,6 @@ fn battle(
 
 fn battle_with_two_enemies(catalog: Arc<CombatCatalog>) -> Battle {
     let spec = BattleSpec::new(
-        "ability-program-current-subject-v1",
         AssemblyDigest::new([0x71; 32]).unwrap(),
         id(1),
         vec![

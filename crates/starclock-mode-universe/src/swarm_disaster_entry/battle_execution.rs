@@ -329,7 +329,6 @@ fn start_materialization(
     let binding = BattleBinding::new(
         materialization.battle_spec.clone(),
         "swarm-disaster-battle",
-        SWARM_DISASTER_BATTLE_EXECUTION_REVISION,
         roster.participant_lock(),
     )
     .map_err(|_| invalid("invalid Swarm battle binding"))?;

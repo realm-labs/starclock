@@ -548,7 +548,6 @@ fn durable_spec(
     .with_wave(enemy.wave())
     .unwrap();
     starclock_combat::BattleSpec::new(
-        original.rules_revision(),
         original.assembly_digest(),
         original.encounter(),
         participants,

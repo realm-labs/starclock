@@ -39,7 +39,6 @@ pub(super) fn toughness_battle_with_mitigation(mitigated: bool) -> Battle {
             .unwrap();
     }
     let spec = BattleSpec::new(
-        "toughness-layer-rules-v1",
         AssemblyDigest::new([0x73; 32]).unwrap(),
         definition(1),
         vec![

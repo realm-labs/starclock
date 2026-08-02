@@ -8,10 +8,9 @@ use crate::{catalog::UniverseCatalog, encounter_content_runtime::EncounterConten
 
 use super::{
     DIFFICULTY_BINDING_COUNT, ENEMY_VARIANT_COUNT, EXACT_ENEMY_VARIANT_COUNT, MEMBER_COUNT,
-    MEMBER_ENEMY_SLOT_COUNT, UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
-    UniverseBattleMaterializationError, UniverseEnemyMaterialization, difficulty_encounter,
-    materialization_digest::catalog_composition_digest, materialize_enemies, member_encounter,
-    members,
+    MEMBER_ENEMY_SLOT_COUNT, UniverseBattleMaterializationError, UniverseEnemyMaterialization,
+    difficulty_encounter, materialization_digest::catalog_composition_digest, materialize_enemies,
+    member_encounter, members,
 };
 
 /// Definitions that depend only on the released catalog, never on one run.
@@ -24,7 +23,6 @@ pub struct UniverseBattleCatalogComposition {
     combat_catalog: Arc<CombatCatalog>,
     content: EncounterContentRuntimeCatalog,
     enemies: Box<[UniverseEnemyMaterialization]>,
-    revision: Box<str>,
     digest: [u8; 32],
 }
 
@@ -60,18 +58,8 @@ impl UniverseBattleCatalogComposition {
             }
         }
         let digest = catalog_composition_digest(universe, content.digest(), &enemies);
-        let revision = format!(
-            "{}+{}",
-            universe
-                .simulation_catalog()
-                .combat_catalog()
-                .revision()
-                .as_str(),
-            UNIVERSE_BATTLE_MATERIALIZATION_REVISION
-        );
         let mut builder = CombatCatalogBuilder::from_catalog(
             universe.simulation_catalog().combat_catalog(),
-            revision.clone(),
             digest,
         );
         for member in members(universe) {
@@ -103,7 +91,6 @@ impl UniverseBattleCatalogComposition {
             combat_catalog,
             content,
             enemies: enemies.into_boxed_slice(),
-            revision: revision.into_boxed_str(),
             digest,
         })
     }
@@ -121,11 +108,6 @@ impl UniverseBattleCatalogComposition {
     #[must_use]
     pub fn enemies(&self) -> &[UniverseEnemyMaterialization] {
         &self.enemies
-    }
-
-    #[must_use]
-    pub fn revision(&self) -> &str {
-        &self.revision
     }
 
     #[must_use]

@@ -62,7 +62,7 @@ where
 }
 
 fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("battle-property-catalog-v1", CATALOG_DIGEST);
+    let mut builder = CombatCatalogBuilder::new(CATALOG_DIGEST);
     let selector: SelectorId = definition(1);
     let program: ProgramId = definition(1);
     builder.add_selector(SelectorDefinition::new(selector).with_unit_targets(
@@ -122,7 +122,6 @@ fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
 
 fn battle() -> Battle {
     let spec = BattleSpec::new(
-        "battle-property-rules-v1",
         AssemblyDigest::new(SPEC_DIGEST).unwrap(),
         definition::<EncounterId>(1),
         vec![

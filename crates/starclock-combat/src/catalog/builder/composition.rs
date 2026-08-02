@@ -11,13 +11,8 @@ impl CombatCatalogBuilder {
     /// The resulting catalog is independently validated; the base catalog is
     /// never mutated and no private table representation crosses this boundary.
     #[must_use]
-    pub fn from_catalog(
-        base: &CombatCatalog,
-        revision: impl Into<String>,
-        digest: [u8; 32],
-    ) -> Self {
+    pub fn from_catalog(base: &CombatCatalog, digest: [u8; 32]) -> Self {
         Self {
-            revision: revision.into(),
             digest,
             units: base.units.values().cloned().collect(),
             linked_units: base.linked_units.values().cloned().collect(),

@@ -431,7 +431,7 @@ fn assert_trace(actual: &TransportTrace) {
         "46f1c2b1e35b5315529fe537fff119ccc65f2533853858745b4d79a7c82ef373",
         "e986ffa9de1e4f72d33048f0331f5036886afdf6febd5090f6acf0ff266145b6",
         "20e3a9bb5cefdf51cb1c05bf5b92092b236027a163c967755f1665d13ac77b86",
-        "eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178",
+        "c3a887357ed05ed76e51512f9813635cbd7bea223bde32ca10570b530ef44342",
     ];
     assert_eq!(
         Value::Array(actual.state_hashes.clone()),

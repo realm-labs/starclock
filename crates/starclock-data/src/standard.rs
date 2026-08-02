@@ -36,8 +36,6 @@ pub const CONFIG_DIGEST: [u8; 32] = [
     0xf5, 0xcb, 0x9e, 0xba, 0x2e, 0x5c, 0x52, 0x29, 0xbb, 0xf4, 0x71, 0xdf, 0xa6, 0x99, 0x1b, 0x99,
     0x79, 0x32, 0xd8, 0x2a, 0xdb, 0x3d, 0xe3, 0x9a, 0xfd, 0xa8, 0x2e, 0xa2, 0x6d, 0x0c, 0xb1, 0xc8,
 ];
-pub const CATALOG_REVISION: &str = "core-combat-v1-standard-v1";
-pub const RULES_REVISION: &str = "core-combat-rules-v1";
 
 pub const SCENARIOS: [(&str, u32, u32); 6] = [
     ("scenario.standard.basic-single-wave", 278, 89),
@@ -171,7 +169,7 @@ pub fn instantiate(
 }
 
 fn combat_catalog(data: &SimulationCatalog) -> Result<Arc<CombatCatalog>, &'static str> {
-    let mut builder = CombatCatalogBuilder::new(CATALOG_REVISION, CONFIG_DIGEST);
+    let mut builder = CombatCatalogBuilder::new(CONFIG_DIGEST);
     let player_selector = SelectorId::new(PLAYER_SELECTOR).expect("static selector ID");
     let enemy_selector = SelectorId::new(ENEMY_SELECTOR).expect("static selector ID");
     builder.add_selector(
@@ -400,7 +398,6 @@ fn battle_spec(
         }
     }
     BattleSpec::new(
-        RULES_REVISION,
         AssemblyDigest::new([u8::try_from(scenario_raw - 277).expect("scenario ordinal"); 32])
             .expect("nonzero spec digest"),
         encounter_id,
@@ -432,32 +429,32 @@ mod tests {
             (
                 SCENARIOS[0].0,
                 154,
-                "eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178",
+                "c3a887357ed05ed76e51512f9813635cbd7bea223bde32ca10570b530ef44342",
             ),
             (
                 SCENARIOS[1].0,
                 33,
-                "06d18777392f029c67f895fcff0dc6cbc32633cf562b3614a67425e8b02fd512",
+                "19067843678c8a095cbc4f1f69c7a9a6270b847240606a1be9f6fe20620bb5c6",
             ),
             (
                 SCENARIOS[2].0,
                 109,
-                "328b29f00aaa8c06a679bc3fc59f9ea7e5587807ef2fd1a2ed4295c796f41227",
+                "558b60771387770b389c7645ea280198304dda200f75d578d9b525c3805def30",
             ),
             (
                 SCENARIOS[3].0,
                 48,
-                "2cab1f6a0d3b7763cf59c6ce8b2b05ecf4c21e1d2d212275af693d13c7f36260",
+                "f3655371526d94f22361b11723e5db60a902b61789bc0f37efb4be132182108b",
             ),
             (
                 SCENARIOS[4].0,
                 314,
-                "91f8a8aafe068125c7e57100b159f763dd2fa6366e31ee245c45238bbb35ff90",
+                "dd8c895e6e22af5c51fb56d315f383ab15948d03a1dac1656800a3cdb3a2d676",
             ),
             (
                 SCENARIOS[5].0,
                 417,
-                "6da9c86593dbe3e2d004071108ba2f2ac959dc5a0d413a70fb9ce1faef05463b",
+                "4d2f3410f4d1b5021db5f7b2d7cd509dbae0344b528da739576204e8b496bc56",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

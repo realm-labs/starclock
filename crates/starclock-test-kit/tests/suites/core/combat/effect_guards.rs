@@ -66,7 +66,7 @@ fn permanent_guard() -> EffectRuntimeDefinition {
 }
 
 fn catalog() -> Arc<CombatCatalog> {
-    let mut builder = CombatCatalogBuilder::new("effect-guards-v1", [0x62; 32]);
+    let mut builder = CombatCatalogBuilder::new([0x62; 32]);
     for (raw, relation) in [(1, TargetRelation::SelfUnit), (2, TargetRelation::Opposing)] {
         builder.add_selector(
             SelectorDefinition::new(id(raw)).with_unit_targets(
@@ -180,7 +180,6 @@ fn combatant(form: u32, ability: u32, speed: i64, digest: u8) -> ResolvedCombata
 
 fn battle() -> Battle {
     let spec = BattleSpec::new(
-        "effect-guards-rules-v1",
         AssemblyDigest::new([0x72; 32]).unwrap(),
         id(1),
         vec![

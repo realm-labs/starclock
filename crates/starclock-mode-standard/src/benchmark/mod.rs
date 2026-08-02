@@ -10,10 +10,6 @@ use starclock_combat::{
     catalog::CombatCatalog,
 };
 
-/// Catalog revision shared by every isolated job.
-pub const BENCHMARK_CATALOG_REVISION: &str = "g01-phase4-benchmark-catalog-v1";
-/// Rules revision for the synthetic benchmark battles.
-pub const BENCHMARK_RULES_REVISION: &str = "g01-phase4-benchmark-rules-v1";
 /// Configuration digest of the fixed benchmark catalog.
 pub const BENCHMARK_CONFIG_DIGEST: [u8; 32] = [0xd2; 32];
 
@@ -39,12 +35,12 @@ impl BenchmarkScenario {
     #[must_use]
     pub const fn id(self) -> &'static str {
         match self {
-            Self::Ordinary => "ordinary-apply-v1",
-            Self::TriggerHeavyProxy => "trigger-heavy-proxy-v1",
-            Self::FullKernel => "full-kernel-apply-v1",
-            Self::HashSmall => "hash-small-v1",
-            Self::HashMedium => "hash-medium-v1",
-            Self::HashLarge => "hash-large-v1",
+            Self::Ordinary => "ordinary-apply",
+            Self::TriggerHeavyProxy => "trigger-heavy-proxy",
+            Self::FullKernel => "full-kernel-apply",
+            Self::HashSmall => "hash-small",
+            Self::HashMedium => "hash-medium",
+            Self::HashLarge => "hash-large",
         }
     }
 

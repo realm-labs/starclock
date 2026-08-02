@@ -5,13 +5,12 @@ use starclock_combat::{
     UnitDefinitionId, UnitLevel, rng::derive::StreamPath,
 };
 
-use super::{SYNTHETIC_STANDARD_RULES_REVISION, SYNTHETIC_STANDARD_SPEC_DIGEST};
+use super::SYNTHETIC_STANDARD_SPEC_DIGEST;
 
 pub(super) fn battle_spec() -> BattleSpec {
     let player = combatant(1, 1, 1_000, 200_000_000, 0xc1);
     let enemy = combatant(2, 2, 600, 50_000_000, 0xc2);
     BattleSpec::new(
-        SYNTHETIC_STANDARD_RULES_REVISION,
         AssemblyDigest::new(SYNTHETIC_STANDARD_SPEC_DIGEST).expect("static digest is non-zero"),
         EncounterId::new(1).expect("static ID"),
         vec![

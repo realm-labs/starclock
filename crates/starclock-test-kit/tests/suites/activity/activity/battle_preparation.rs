@@ -43,8 +43,8 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     assert_eq!(
         definition.digest().bytes(),
         [
-            57, 47, 129, 147, 125, 11, 169, 87, 236, 190, 247, 131, 39, 49, 35, 208, 170, 152, 131,
-            34, 190, 255, 255, 139, 139, 222, 12, 11, 98, 78, 123, 224,
+            233, 155, 145, 8, 175, 89, 129, 50, 161, 100, 221, 105, 197, 181, 245, 56, 72, 131,
+            188, 111, 187, 229, 176, 137, 247, 44, 201, 92, 210, 64, 74, 154,
         ]
     );
     assert_eq!(
@@ -92,7 +92,7 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     let pending = state.pending_battle().unwrap();
     assert_eq!(pending.techniques(), [option(11), option(12)]);
     assert_eq!(pending.remaining_technique_points(), 0);
-    assert_eq!(pending.battle_spec_digest().bytes(), [0x34; 32]);
+    assert_eq!(pending.assembly_digest().bytes(), [0x34; 32]);
     assert_eq!(
         pending.combat_input_digest(),
         pending.battle_spec().combat_input_digest()
@@ -107,13 +107,13 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     assert_eq!(
         pending_state_hash.bytes(),
         [
-            231, 127, 79, 111, 13, 190, 251, 68, 25, 42, 57, 58, 204, 113, 250, 215, 33, 222, 10,
-            103, 3, 28, 167, 148, 168, 110, 226, 88, 61, 24, 73, 0,
+            192, 163, 93, 170, 198, 131, 252, 203, 160, 66, 90, 100, 148, 143, 118, 113, 1, 206,
+            142, 55, 65, 224, 50, 106, 232, 23, 4, 42, 222, 134, 148, 219,
         ]
     );
     assert_eq!(
-        player.pending_battle().unwrap().battle_spec_digest(),
-        pending.battle_spec_digest()
+        player.pending_battle().unwrap().assembly_digest(),
+        pending.assembly_digest()
     );
     assert_eq!(
         player.pending_battle().unwrap().combat_input_digest(),
@@ -148,7 +148,7 @@ fn normal_engagement_uses_the_variant_for_the_exact_accumulated_sequence() {
     state.choose_preparation_option(option(10)).unwrap();
     let pending = state.pending_battle().unwrap();
     assert_eq!(pending.techniques(), [option(11)]);
-    assert_eq!(pending.battle_spec_digest().bytes(), [0x42; 32]);
+    assert_eq!(pending.assembly_digest().bytes(), [0x42; 32]);
 }
 
 #[test]
@@ -372,13 +372,7 @@ fn variant_with_player_digest(
     PreparedBattleVariant::new(
         sequence.iter().copied().map(option).collect(),
         TechniqueContributionDigest::new([digest.wrapping_add(1); 32]).unwrap(),
-        BattleBinding::new(
-            battle_spec(digest, first_player_digest),
-            "battle",
-            "battle-spec-v1",
-            lock,
-        )
-        .unwrap(),
+        BattleBinding::new(battle_spec(digest, first_player_digest), "battle", lock).unwrap(),
     )
 }
 
@@ -424,7 +418,6 @@ fn lock_entry(
 
 fn battle_spec(digest: u8, first_player_digest: u8) -> BattleSpec {
     BattleSpec::new(
-        "rules-v1",
         AssemblyDigest::new([digest; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![
