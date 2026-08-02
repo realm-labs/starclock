@@ -25,7 +25,9 @@ preserving the target's current HP when it is already below the authored floor.
 
 The closed hit-operation language now includes `ConsumeHp` and `Shield` beside
 damage and healing. Shield creation allocates a monotonic `ShieldInstanceId` and
-retains every instance in canonical ID order. The base concurrent policy uses
+retains every active instance in deterministic owner/ID order. Exhausted or
+explicitly removed instances leave authoritative state after their mutation
+event is emitted. The base concurrent policy uses
 the largest remaining shield as visible protection while every live instance
 absorbs the incoming amount simultaneously. The explicit additive policy
 consumes instances in ID order. A target cannot mix active policies without a

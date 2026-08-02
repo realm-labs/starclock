@@ -54,21 +54,21 @@ fn cli_runs_writes_replays_reproduces_bytes_and_detects_divergence() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            0xed, 0x42, 0xbf, 0x09, 0x4d, 0x43, 0xc9, 0xbc, 0x94, 0x2c, 0x11, 0x81, 0x3f, 0x0d,
-            0xd4, 0xa8, 0xaf, 0x08, 0xe5, 0x10, 0xb7, 0x8b, 0xb3, 0x99, 0xd4, 0xc4, 0x58, 0x7e,
-            0x11, 0xcd, 0xfd, 0xcc,
+            0x7b, 0x89, 0x1e, 0xdd, 0x88, 0xcc, 0x9a, 0x39, 0xa3, 0x66, 0x01, 0x72, 0x1a, 0x52,
+            0x65, 0x85, 0x36, 0x28, 0xe3, 0xe3, 0xa0, 0xd7, 0xdc, 0x45, 0x9a, 0xb8, 0x2f, 0x6d,
+            0x83, 0x3f, 0x68, 0x0d,
         ])
     );
     assert_eq!(
         String::from_utf8(first_run.stdout).unwrap().trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"battle-run\",\"scenario\":\"synthetic-standard-v1\",\"seed\":7,\"controller\":\"baseline\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"8292209d190c6e3d4ece3cb7b2b2cf3552e0064ea2d4e7be4d274d4360cda543\",\"replay_bytes\":533}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"battle-run\",\"scenario\":\"synthetic-standard-v1\",\"seed\":7,\"controller\":\"baseline\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"2f61f927be14e24df81813e49403e5367fdb51301c6e820a6e276676773e35e8\",\"replay_bytes\":533}"
     );
 
     let verified = output(&["replay", "verify", first.to_str().unwrap(), "--json"]);
     assert!(verified.status.success(), "{:?}", verified);
     assert_eq!(
         String::from_utf8(verified.stdout).unwrap().trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"8292209d190c6e3d4ece3cb7b2b2cf3552e0064ea2d4e7be4d274d4360cda543\"}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"2f61f927be14e24df81813e49403e5367fdb51301c6e820a6e276676773e35e8\"}"
     );
 
     let mut bytes = replay_bytes;
@@ -112,13 +112,13 @@ fn cli_runs_and_verifies_the_frozen_public_standard_scenario() {
     assert!(run.status.success(), "{:?}", run);
     assert_eq!(
         String::from_utf8(run.stdout).unwrap().trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"battle-run\",\"scenario\":\"scenario.standard-v1.basic-single-wave\",\"seed\":104729,\"controller\":\"baseline\",\"commands\":21,\"phase\":\"won\",\"state_hash\":\"71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e\",\"replay_bytes\":1945}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"battle-run\",\"scenario\":\"scenario.standard-v1.basic-single-wave\",\"seed\":104729,\"controller\":\"baseline\",\"commands\":21,\"phase\":\"won\",\"state_hash\":\"eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178\",\"replay_bytes\":1945}"
     );
     let verified = output(&["replay", "verify", replay.to_str().unwrap(), "--json"]);
     assert!(verified.status.success(), "{:?}", verified);
     assert_eq!(
         String::from_utf8(verified.stdout).unwrap().trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":21,\"phase\":\"won\",\"state_hash\":\"71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e\"}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"replay-verify\",\"entry\":\"battle\",\"commands\":21,\"phase\":\"won\",\"state_hash\":\"eb95d3eba8dbb2cd53258e5e174bbb8f6e744c557d4693a65951c4876d7b6178\"}"
     );
     fs::remove_file(replay).unwrap();
 }

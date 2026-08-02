@@ -97,12 +97,13 @@ impl<'a> BattleView<'a> {
             .iter()
             .map(|state| LinkView { state })
     }
-    /// Iterates retained shield instances in stable runtime-ID order.
+    /// Iterates active shield instances in stable runtime-ID order.
     pub fn shields_by_id(self) -> impl Iterator<Item = ShieldView<'a>> + 'a {
-        self.state
-            .shields
-            .iter_by_id()
-            .map(|state| ShieldView { state })
+        self.state.shields.iter_by_id().map(|entry| ShieldView {
+            state: entry.state,
+            owner: entry.owner,
+            policy: entry.policy,
+        })
     }
     /// Iterates retained base Break effects in stable instance order.
     pub fn break_effects_by_id(self) -> impl Iterator<Item = BreakEffectView<'a>> + 'a {
@@ -167,10 +168,12 @@ impl<'a> BattleView<'a> {
     }
 }
 
-/// Immutable projection of one separately retained shield instance.
+/// Immutable projection of one active shield instance.
 #[derive(Clone, Copy)]
 pub struct ShieldView<'a> {
     state: &'a crate::effect::shield::ShieldState,
+    owner: UnitId,
+    policy: crate::formula::shield::ShieldAbsorptionPolicy,
 }
 
 /// Immutable projection of one retained base Break effect.
@@ -338,7 +341,7 @@ impl ShieldView<'_> {
 
     #[must_use]
     pub const fn owner(self) -> UnitId {
-        self.state.owner
+        self.owner
     }
 
     #[must_use]
@@ -353,7 +356,7 @@ impl ShieldView<'_> {
 
     #[must_use]
     pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
-        self.state.policy
+        self.policy
     }
 }
 

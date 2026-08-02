@@ -283,7 +283,7 @@ pub struct HpConsumptionEventData {
     pub hp_after: crate::Hp,
 }
 
-/// One separately retained shield-instance mutation.
+/// One active shield-instance mutation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ShieldEventData {
     Applied {

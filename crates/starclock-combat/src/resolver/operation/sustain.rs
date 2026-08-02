@@ -49,14 +49,16 @@ pub(super) fn execute_shield(
         let shield = txn.allocate_shield();
         txn.state
             .shields
-            .insert(crate::effect::shield::ShieldState {
-                id: shield,
-                owner: target,
-                source_operation: operation.id,
-                source_effect: operation.source_effect,
-                remaining: calculation.finalized,
-                policy: operation.formula.policy(),
-            })
+            .insert(
+                target,
+                operation.formula.policy(),
+                crate::effect::shield::ShieldState {
+                    id: shield,
+                    source_operation: operation.id,
+                    source_effect: operation.source_effect,
+                    remaining: calculation.finalized,
+                },
+            )
             .map_err(|_| invariant_fault(4))?;
         txn.record_shield_change(
             crate::ShieldAmount::new(0).expect("zero shield amount is valid"),

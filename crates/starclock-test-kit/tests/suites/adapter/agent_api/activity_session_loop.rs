@@ -147,7 +147,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
     assert_eq!(replay.bytes().len(), 25_673);
     assert_eq!(
         replay.sha256().as_str(),
-        "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b"
+        "d2323aea2a5b015d143e600e30ad2da369813db6ac2ef45f5116d1d6a62fd411"
     );
     assert_eq!(
         replay.action_count().to_u64(),
@@ -160,7 +160,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
     assert_eq!(verified.nested_battles.as_str(), "3");
     assert_eq!(
         verified.final_state_hash.as_str(),
-        "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b"
+        "a3373cb8ed9f2294fb173ccc73200f64e2fb7894f1bc01d7d21bebf3bb9616bc"
     );
 
     let mut corrupt = replay.bytes().to_vec();
@@ -272,11 +272,11 @@ fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
     assert_eq!(results[0].0, 32);
     assert_eq!(
         results[0].1.as_str(),
-        "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b"
+        "a3373cb8ed9f2294fb173ccc73200f64e2fb7894f1bc01d7d21bebf3bb9616bc"
     );
     assert_eq!(
         results[0].2.as_str(),
-        "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b"
+        "d2323aea2a5b015d143e600e30ad2da369813db6ac2ef45f5116d1d6a62fd411"
     );
     assert_eq!(results[0].3, 25_673);
 }

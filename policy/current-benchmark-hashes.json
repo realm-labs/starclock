@@ -1,17 +1,17 @@
 {
   "schema_revision": "starclock.current-benchmark-hashes.v1",
-  "combat_state_revision": "SCBS-v5/sha256-v6",
+  "combat_state_revision": "SCBS-v6/sha256-v7",
   "workload_revision": "g01-phase4-full-kernel-v1",
   "final_hashes": {
-    "ordinary-apply-v1": "2a266992f1ad07859e422bb025460917df9178f7c623b57a78bfa623c5e97efc",
-    "trigger-heavy-proxy-v1": "255bda39f1c12bf1f1783365e485c7942343083bc1998a7a5adb2e58d419f22c",
-    "full-kernel-apply-v1": "a8138c75e7f84a4cc10a89d343a67465d4b090647730856917f50a25798aec49",
-    "invalid-rejection-v1": "212cd675b6cb41aa24dcbc4fd395b84351755446a879e874a3ced2f544d53eac",
-    "hash-small-v1": "fdd1da302d6008f46a685af552faf7774de51d2768f3a996c3f486d990b4e5b7",
-    "hash-medium-v1": "87c00a11c9c003cfb499c8629d36686435f272ed19792262baf2befb3fa4ec34",
-    "hash-large-v1": "187a234a3e765ff1ed9d469d14b30f08688113878de584f1b7f57f7263f79fa9",
-    "one-shot-replay-100-v1": "86d1c62fdcaf25ef86c24bc471ee211766e324d8fa0c78e2e030805ccb642509",
-    "one-shot-replay-500-v1": "4cb64c0aa313499241dacda1ee80115dd9e04cc74209f544d11a0237b7865fb0",
-    "concurrent-replay-shared-catalog-v1": "86d1c62fdcaf25ef86c24bc471ee211766e324d8fa0c78e2e030805ccb642509"
+    "ordinary-apply-v1": "343312b4e9d718bcd17a5ba5b488c84d28cbcd95abbfd495b289d675a5611cc3",
+    "trigger-heavy-proxy-v1": "933b1148dce34e3df092e52f2a4ac19c7db06e1516610953e4e98545bbb5c443",
+    "full-kernel-apply-v1": "f803cc591b1fdeb457629964e1f2fcbea0aed8eeccfaf26060f6448bdd5d9867",
+    "invalid-rejection-v1": "641e7507c1f48f98bb12c32d3af398d5f47fac52e05af6770b2f626d7ed1d2eb",
+    "hash-small-v1": "e12befd6f4460c37a8a0d4837ccd5e12a58a38c3f6ff7f8a21a8d91d9a33edc3",
+    "hash-medium-v1": "fe4e65ba666ef60b883d1891cd673935dfffedafa0b57d0042209529882ab8a0",
+    "hash-large-v1": "106595ebe14ad2321c9cd60842383b7e71713cc8c818a1e5a150ffefccc27d30",
+    "one-shot-replay-100-v1": "df23c600549e82fd938874a185a11f5ca03079879c1359cb09e3cf93176d8263",
+    "one-shot-replay-500-v1": "94def15723fa5f85d1558a9aa7c9e29eb8c0f90adfe3deeb281a273dbc66767f",
+    "concurrent-replay-shared-catalog-v1": "df23c600549e82fd938874a185a11f5ca03079879c1359cb09e3cf93176d8263"
   }
 }

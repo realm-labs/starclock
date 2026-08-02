@@ -117,7 +117,7 @@ fn gold_and_gears_human_diagnostics_match_the_json_run() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "universe completed mode=gold-and-gears seed=14001 profile=gold-gears.profile.v1 controller=baseline battle_executor=gold-and-gears-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3 actions=62 nested_battles=17 battle_commands=97 hash=aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455 replay_bytes=107359 replay_sha256=71ad733fb0c1a222d70cfd76f755bab65e23f1ca13ea81c3b612e74d0dc277ac"
+        "universe completed mode=gold-and-gears seed=14001 profile=gold-gears.profile.v1 controller=baseline battle_executor=gold-and-gears-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3 actions=62 nested_battles=17 battle_commands=97 hash=fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7 replay_bytes=107359 replay_sha256=2c9e042b81f871ee7ccb017a1533c76de4f1e25fd1874a9a957c98f2c456686c"
     );
 }
 
@@ -150,7 +150,7 @@ fn swarm_disaster_human_diagnostics_match_the_json_run() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "universe completed mode=swarm-disaster seed=20001 profile=swarm-disaster.profile.v1 controller=baseline battle_executor=swarm-disaster-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=a87894170e22188cb00078c339e806a6e3387f5e49baf7fd7782f6f0732c823c actions=48 nested_battles=12 battle_commands=68 hash=eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075 replay_bytes=81107 replay_sha256=d052a392d91dd93e9e8baf44b80940fb9a57111384b052332f6c21ad869a73a4"
+        "universe completed mode=swarm-disaster seed=20001 profile=swarm-disaster.profile.v1 controller=baseline battle_executor=swarm-disaster-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=a87894170e22188cb00078c339e806a6e3387f5e49baf7fd7782f6f0732c823c actions=48 nested_battles=12 battle_commands=68 hash=058921eb765ac41314587c791c68f3267cb6a376ef71add9ce01a901d5645840 replay_bytes=81107 replay_sha256=b9fe42104300b9ba9b4a2b41da42013ad386be76434ce1d8bf1cf6a1f465fe5d"
     );
 }
 
@@ -180,7 +180,7 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":1,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b\",\"replay_bytes\":25678}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":1,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"a3373cb8ed9f2294fb173ccc73200f64e2fb7894f1bc01d7d21bebf3bb9616bc\",\"replay_bytes\":25678}"
     );
 
     let replay_bytes = fs::read(&replay).unwrap();
@@ -196,8 +196,8 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            7, 246, 31, 139, 107, 155, 77, 87, 245, 102, 39, 127, 81, 207, 12, 253, 199, 186, 167,
-            147, 90, 157, 247, 114, 122, 207, 189, 170, 142, 83, 191, 137,
+            113, 100, 254, 179, 45, 201, 162, 124, 168, 208, 42, 73, 220, 198, 212, 109, 225, 9,
+            150, 187, 8, 92, 129, 106, 69, 102, 37, 255, 232, 199, 66, 66,
         ])
     );
 
@@ -205,7 +205,7 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(verified.status.success(), "{verified:?}");
     assert_eq!(
         text(verified.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b\"}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"a3373cb8ed9f2294fb173ccc73200f64e2fb7894f1bc01d7d21bebf3bb9616bc\"}"
     );
 
     let mut changed = replay_bytes;
@@ -244,7 +244,7 @@ fn gold_and_gears_run_round_trips_component_replay_and_detects_corruption() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"universe-run\",\"mode\":\"gold-and-gears\",\"seed\":14001,\"profile\":\"gold-gears.profile.v1\",\"area\":\"gold-gears.area.401\",\"path\":\"universe.path.abundance\",\"custom_dice\":\"gold-gears.custom-dice.101\",\"controller\":\"baseline\",\"battle_executor\":\"gold-and-gears-nested-battle-execution-v1\",\"fixture_accuracy\":\"SyntheticBalanceIndependentNotObservedNumericParity\",\"component_root\":\"e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3\",\"actions\":62,\"nested_battles\":17,\"battle_commands\":97,\"terminal\":\"completed\",\"state_hash\":\"aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455\",\"replay_bytes\":107359,\"replay_sha256\":\"71ad733fb0c1a222d70cfd76f755bab65e23f1ca13ea81c3b612e74d0dc277ac\"}"
+        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"universe-run\",\"mode\":\"gold-and-gears\",\"seed\":14001,\"profile\":\"gold-gears.profile.v1\",\"area\":\"gold-gears.area.401\",\"path\":\"universe.path.abundance\",\"custom_dice\":\"gold-gears.custom-dice.101\",\"controller\":\"baseline\",\"battle_executor\":\"gold-and-gears-nested-battle-execution-v1\",\"fixture_accuracy\":\"SyntheticBalanceIndependentNotObservedNumericParity\",\"component_root\":\"e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3\",\"actions\":62,\"nested_battles\":17,\"battle_commands\":97,\"terminal\":\"completed\",\"state_hash\":\"fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7\",\"replay_bytes\":107359,\"replay_sha256\":\"2c9e042b81f871ee7ccb017a1533c76de4f1e25fd1874a9a957c98f2c456686c\"}"
     );
 
     let replay_bytes = fs::read(&replay).unwrap();
@@ -259,7 +259,7 @@ fn gold_and_gears_run_round_trips_component_replay_and_detects_corruption() {
     assert!(verified.status.success(), "{verified:?}");
     assert_eq!(
         text(verified.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"replay-verify\",\"entry\":\"gold-and-gears\",\"actions\":62,\"nested_battles\":17,\"battle_commands\":97,\"terminal\":\"completed\",\"state_hash\":\"aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455\"}"
+        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"replay-verify\",\"entry\":\"gold-and-gears\",\"actions\":62,\"nested_battles\":17,\"battle_commands\":97,\"terminal\":\"completed\",\"state_hash\":\"fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7\"}"
     );
 
     let mut changed = replay_bytes;
@@ -298,7 +298,7 @@ fn swarm_disaster_run_round_trips_component_replay_and_detects_corruption() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"universe-run\",\"mode\":\"swarm-disaster\",\"seed\":20001,\"profile\":\"swarm-disaster.profile.v1\",\"area\":\"swarm-disaster.area.201\",\"path\":\"universe.path.preservation\",\"audience_die\":\"swarm-disaster.audience-die.1\",\"controller\":\"baseline\",\"battle_executor\":\"swarm-disaster-nested-battle-execution-v1\",\"fixture_accuracy\":\"SyntheticBalanceIndependentNotObservedNumericParity\",\"component_root\":\"a87894170e22188cb00078c339e806a6e3387f5e49baf7fd7782f6f0732c823c\",\"actions\":48,\"nested_battles\":12,\"battle_commands\":68,\"terminal\":\"completed\",\"state_hash\":\"eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075\",\"replay_bytes\":81107,\"replay_sha256\":\"d052a392d91dd93e9e8baf44b80940fb9a57111384b052332f6c21ad869a73a4\"}"
+        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"universe-run\",\"mode\":\"swarm-disaster\",\"seed\":20001,\"profile\":\"swarm-disaster.profile.v1\",\"area\":\"swarm-disaster.area.201\",\"path\":\"universe.path.preservation\",\"audience_die\":\"swarm-disaster.audience-die.1\",\"controller\":\"baseline\",\"battle_executor\":\"swarm-disaster-nested-battle-execution-v1\",\"fixture_accuracy\":\"SyntheticBalanceIndependentNotObservedNumericParity\",\"component_root\":\"a87894170e22188cb00078c339e806a6e3387f5e49baf7fd7782f6f0732c823c\",\"actions\":48,\"nested_battles\":12,\"battle_commands\":68,\"terminal\":\"completed\",\"state_hash\":\"058921eb765ac41314587c791c68f3267cb6a376ef71add9ce01a901d5645840\",\"replay_bytes\":81107,\"replay_sha256\":\"b9fe42104300b9ba9b4a2b41da42013ad386be76434ce1d8bf1cf6a1f465fe5d\"}"
     );
 
     let replay_bytes = fs::read(&replay).unwrap();
@@ -313,7 +313,7 @@ fn swarm_disaster_run_round_trips_component_replay_and_detects_corruption() {
     assert!(verified.status.success(), "{verified:?}");
     assert_eq!(
         text(verified.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"replay-verify\",\"entry\":\"swarm-disaster\",\"actions\":48,\"nested_battles\":12,\"battle_commands\":68,\"terminal\":\"completed\",\"state_hash\":\"eb870454531b7d109bd43cef38f5d320df85dbbb76ce9732c4eca022a4881075\"}"
+        "{\"schema_revision\":\"starclock-cli-swarm-disaster-v1\",\"kind\":\"replay-verify\",\"entry\":\"swarm-disaster\",\"actions\":48,\"nested_battles\":12,\"battle_commands\":68,\"terminal\":\"completed\",\"state_hash\":\"058921eb765ac41314587c791c68f3267cb6a376ef71add9ce01a901d5645840\"}"
     );
 
     let mut changed = replay_bytes;

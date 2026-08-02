@@ -8,10 +8,10 @@ use crate::{
 };
 
 const SEED: u64 = 14_001;
-const FINAL_STATE: &str = "aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455";
+const FINAL_STATE: &str = "fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7";
 const COMPONENT_ROOT: &str = "6d0153750e5bcecbfc06aff754cd5d9df81b42b37bbda108daa3290c24d81391";
 const REPLAY_BYTES: usize = 107_338;
-const REPLAY_SHA256: &str = "0677779aca24ac20f0a5bbd043112c82a63751d6b4306cff10df5c7e1535a16a";
+const REPLAY_SHA256: &str = "da7887876921a80334c5f21742e9d7748cf04c4d7959d1ac8ed3d14a7b7836e1";
 
 #[test]
 fn manifest_and_first_observation_are_bounded_and_mode_explicit() {

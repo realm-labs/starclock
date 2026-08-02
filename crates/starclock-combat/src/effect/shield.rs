@@ -1,3 +1,5 @@
+use std::collections::{BTreeMap, btree_map::Entry};
+
 use crate::{
     DamageAmount, NumericError, ShieldAmount, ShieldInstanceId, UnitId,
     formula::shield::{self, ShieldAbsorptionPolicy, ShieldInstance},
@@ -7,11 +9,9 @@ use crate::{
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct ShieldState {
     pub(crate) id: ShieldInstanceId,
-    pub(crate) owner: UnitId,
     pub(crate) source_operation: OperationId,
     pub(crate) source_effect: Option<crate::EffectDefinitionId>,
     pub(crate) remaining: ShieldAmount,
-    pub(crate) policy: ShieldAbsorptionPolicy,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -23,25 +23,36 @@ pub(crate) struct ShieldChange {
 
 #[derive(Clone, Debug, Default)]
 pub(crate) struct ShieldStore {
-    entries: Vec<ShieldState>,
+    by_owner: BTreeMap<UnitId, OwnerShields>,
+}
+
+#[derive(Clone, Debug)]
+struct OwnerShields {
+    policy: ShieldAbsorptionPolicy,
+    instances: Vec<ShieldState>,
+}
+
+#[derive(Clone, Copy)]
+pub(crate) struct ShieldStateRef<'a> {
+    pub(crate) owner: UnitId,
+    pub(crate) policy: ShieldAbsorptionPolicy,
+    pub(crate) state: &'a ShieldState,
 }
 
 impl ShieldStore {
     pub(crate) fn effective_remaining(&self, owner: UnitId) -> Result<ShieldAmount, NumericError> {
-        let mut entries = self
-            .entries
-            .iter()
-            .filter(|entry| entry.owner == owner && entry.remaining.get() > 0);
-        let Some(first) = entries.next() else {
+        let Some(shields) = self.by_owner.get(&owner) else {
             return ShieldAmount::new(0);
         };
-        let value = match first.policy {
-            ShieldAbsorptionPolicy::ConcurrentLargest => entries
-                .fold(first.remaining.get(), |value, entry| {
-                    value.max(entry.remaining.get())
-                }),
+        let value = match shields.policy {
+            ShieldAbsorptionPolicy::ConcurrentLargest => shields
+                .instances
+                .iter()
+                .map(|entry| entry.remaining.get())
+                .max()
+                .unwrap_or(0),
             ShieldAbsorptionPolicy::AdditiveByInstance => {
-                entries.try_fold(first.remaining.get(), |value, entry| {
+                shields.instances.iter().try_fold(0_i64, |value, entry| {
                     value
                         .checked_add(entry.remaining.get())
                         .ok_or(NumericError::Overflow)
@@ -51,30 +62,59 @@ impl ShieldStore {
         ShieldAmount::new(value)
     }
 
-    pub(crate) fn insert(&mut self, state: ShieldState) -> Result<(), NumericError> {
-        if state.remaining.get() == 0
-            || self
-                .entries
-                .last()
-                .is_some_and(|entry| entry.id >= state.id)
-            || self.entries.iter().any(|entry| {
-                entry.owner == state.owner
-                    && entry.remaining.get() > 0
-                    && entry.policy != state.policy
-            })
-        {
+    pub(crate) fn insert(
+        &mut self,
+        owner: UnitId,
+        policy: ShieldAbsorptionPolicy,
+        state: ShieldState,
+    ) -> Result<(), NumericError> {
+        if state.remaining.get() == 0 {
             return Err(NumericError::OutOfDomain);
         }
-        self.entries.push(state);
+        match self.by_owner.entry(owner) {
+            Entry::Vacant(entry) => {
+                entry.insert(OwnerShields {
+                    policy,
+                    instances: vec![state],
+                });
+            }
+            Entry::Occupied(mut entry) => {
+                let shields = entry.get_mut();
+                if shields.policy != policy
+                    || shields
+                        .instances
+                        .last()
+                        .is_some_and(|entry| entry.id >= state.id)
+                {
+                    return Err(NumericError::OutOfDomain);
+                }
+                shields.instances.push(state);
+            }
+        }
         Ok(())
     }
 
-    pub(crate) fn iter_by_id(&self) -> impl Iterator<Item = &ShieldState> {
-        self.entries.iter()
+    pub(crate) fn iter_by_id(&self) -> impl Iterator<Item = ShieldStateRef<'_>> {
+        let mut entries = self.canonical_entries().collect::<Vec<_>>();
+        entries.sort_unstable_by_key(|entry| entry.state.id);
+        entries.into_iter()
     }
 
-    pub(crate) fn canonical_entries(&self) -> &[ShieldState] {
-        &self.entries
+    pub(crate) fn len(&self) -> usize {
+        self.by_owner
+            .values()
+            .map(|shields| shields.instances.len())
+            .sum()
+    }
+
+    pub(crate) fn canonical_entries(&self) -> impl Iterator<Item = ShieldStateRef<'_>> {
+        self.by_owner.iter().flat_map(|(owner, shields)| {
+            shields.instances.iter().map(move |state| ShieldStateRef {
+                owner: *owner,
+                policy: shields.policy,
+                state,
+            })
+        })
     }
 
     pub(crate) fn absorb(
@@ -82,43 +122,34 @@ impl ShieldStore {
         owner: UnitId,
         incoming: DamageAmount,
     ) -> Result<(DamageAmount, Vec<ShieldChange>), NumericError> {
-        let policy = self
-            .entries
+        let Some(shields) = self.by_owner.get_mut(&owner) else {
+            return Ok((DamageAmount::new(0)?, Vec::new()));
+        };
+        let mut instances = shields
+            .instances
             .iter()
-            .find(|entry| entry.owner == owner && entry.remaining.get() > 0)
-            .map_or(ShieldAbsorptionPolicy::ConcurrentLargest, |entry| {
-                entry.policy
-            });
-        let indexes = self
-            .entries
-            .iter()
-            .enumerate()
-            .filter_map(|(index, entry)| {
-                (entry.owner == owner && entry.remaining.get() > 0).then_some(index)
+            .map(|state| ShieldInstance {
+                id: state.id,
+                remaining: state.remaining,
             })
             .collect::<Vec<_>>();
-        let mut instances = indexes
-            .iter()
-            .map(|index| {
-                let state = self.entries[*index];
-                ShieldInstance {
-                    id: state.id,
-                    remaining: state.remaining,
-                }
-            })
-            .collect::<Vec<_>>();
-        let result = shield::absorb(&mut instances, incoming, policy)?;
+        let result = shield::absorb(&mut instances, incoming, shields.policy)?;
         let mut changes = Vec::with_capacity(instances.len());
-        for (index, instance) in indexes.into_iter().zip(instances) {
-            let before = self.entries[index].remaining;
+        for (state, instance) in shields.instances.iter_mut().zip(instances) {
+            let before = state.remaining;
             if before != instance.remaining {
-                self.entries[index].remaining = instance.remaining;
+                state.remaining = instance.remaining;
                 changes.push(ShieldChange {
                     id: instance.id,
                     before,
                     after: instance.remaining,
                 });
             }
+        }
+        shields.instances.retain(|state| state.remaining.get() > 0);
+        let remove_owner = shields.instances.is_empty();
+        if remove_owner {
+            self.by_owner.remove(&owner);
         }
         Ok((result.absorbed, changes))
     }
@@ -128,18 +159,141 @@ impl ShieldStore {
         owner: UnitId,
         effect: crate::EffectDefinitionId,
     ) -> Vec<ShieldChange> {
+        let Some(shields) = self.by_owner.get_mut(&owner) else {
+            return Vec::new();
+        };
+        let zero = ShieldAmount::new(0).expect("zero shield amount is valid");
         let mut changes = Vec::new();
-        for entry in self.entries.iter_mut().filter(|entry| {
-            entry.owner == owner && entry.source_effect == Some(effect) && entry.remaining.get() > 0
-        }) {
-            let before = entry.remaining;
-            entry.remaining = ShieldAmount::new(0).expect("zero shield amount is valid");
-            changes.push(ShieldChange {
-                id: entry.id,
-                before,
-                after: entry.remaining,
-            });
+        shields.instances.retain(|state| {
+            if state.source_effect == Some(effect) {
+                changes.push(ShieldChange {
+                    id: state.id,
+                    before: state.remaining,
+                    after: zero,
+                });
+                false
+            } else {
+                true
+            }
+        });
+        let remove_owner = shields.instances.is_empty();
+        if remove_owner {
+            self.by_owner.remove(&owner);
         }
         changes
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn unit(raw: u64) -> UnitId {
+        UnitId::new(raw).unwrap()
+    }
+
+    fn shield(raw: u64, amount: i64) -> ShieldState {
+        ShieldState {
+            id: ShieldInstanceId::new(raw).unwrap(),
+            source_operation: OperationId::new(raw).unwrap(),
+            source_effect: None,
+            remaining: ShieldAmount::new(amount).unwrap(),
+        }
+    }
+
+    #[test]
+    fn exhausted_instances_are_removed_from_owner_buckets() {
+        let mut store = ShieldStore::default();
+        store
+            .insert(
+                unit(1),
+                ShieldAbsorptionPolicy::ConcurrentLargest,
+                shield(1, 30),
+            )
+            .unwrap();
+        store
+            .insert(
+                unit(1),
+                ShieldAbsorptionPolicy::ConcurrentLargest,
+                shield(2, 50),
+            )
+            .unwrap();
+
+        let (absorbed, changes) = store
+            .absorb(unit(1), DamageAmount::new(40).unwrap())
+            .unwrap();
+        assert_eq!(absorbed.get(), 40);
+        assert_eq!(changes.len(), 2);
+        assert_eq!(store.len(), 1);
+        assert_eq!(store.effective_remaining(unit(1)).unwrap().get(), 10);
+        assert_eq!(store.iter_by_id().next().unwrap().state.id.get(), 2);
+
+        store
+            .absorb(unit(1), DamageAmount::new(10).unwrap())
+            .unwrap();
+        assert_eq!(store.len(), 0);
+        assert_eq!(store.effective_remaining(unit(1)).unwrap().get(), 0);
+    }
+
+    #[test]
+    fn owner_buckets_share_one_policy_and_preserve_global_id_views() {
+        let mut store = ShieldStore::default();
+        store
+            .insert(
+                unit(2),
+                ShieldAbsorptionPolicy::ConcurrentLargest,
+                shield(1, 10),
+            )
+            .unwrap();
+        store
+            .insert(
+                unit(1),
+                ShieldAbsorptionPolicy::ConcurrentLargest,
+                shield(2, 20),
+            )
+            .unwrap();
+        assert_eq!(
+            store
+                .iter_by_id()
+                .map(|entry| entry.state.id.get())
+                .collect::<Vec<_>>(),
+            vec![1, 2]
+        );
+        assert_eq!(
+            store.insert(
+                unit(1),
+                ShieldAbsorptionPolicy::AdditiveByInstance,
+                shield(3, 30),
+            ),
+            Err(NumericError::OutOfDomain)
+        );
+    }
+
+    #[test]
+    fn effect_removal_deletes_only_matching_active_instances() {
+        let mut store = ShieldStore::default();
+        let removed_effect = crate::EffectDefinitionId::new(7).unwrap();
+        let retained_effect = crate::EffectDefinitionId::new(8).unwrap();
+        let mut removed = shield(1, 10);
+        removed.source_effect = Some(removed_effect);
+        let mut retained = shield(2, 20);
+        retained.source_effect = Some(retained_effect);
+        store
+            .insert(unit(1), ShieldAbsorptionPolicy::AdditiveByInstance, removed)
+            .unwrap();
+        store
+            .insert(
+                unit(1),
+                ShieldAbsorptionPolicy::AdditiveByInstance,
+                retained,
+            )
+            .unwrap();
+
+        let changes = store.remove_by_effect(unit(1), removed_effect);
+        assert_eq!(changes.len(), 1);
+        assert_eq!(changes[0].id.get(), 1);
+        assert_eq!(changes[0].after.get(), 0);
+        assert_eq!(store.len(), 1);
+        assert_eq!(store.effective_remaining(unit(1)).unwrap().get(), 20);
     }
 }

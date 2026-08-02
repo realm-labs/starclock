@@ -900,8 +900,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            196, 19, 252, 3, 183, 204, 249, 24, 159, 122, 217, 156, 106, 44, 170, 208, 161, 89, 55,
-            206, 17, 205, 80, 215, 132, 142, 96, 237, 97, 163, 12, 37,
+            231, 224, 249, 35, 185, 114, 51, 149, 54, 197, 68, 192, 171, 83, 241, 64, 141, 133,
+            195, 133, 29, 216, 116, 68, 92, 134, 65, 92, 102, 227, 216, 23,
         ]
     );
     let damage = resolution
@@ -1005,7 +1005,7 @@ fn hp_consumption_and_concurrent_shields_flow_through_authoritative_state() {
             .shields_by_id()
             .map(|shield| shield.remaining().get())
             .collect::<Vec<_>>(),
-        vec![0, 0]
+        Vec::<i64>::new()
     );
 }
 
@@ -1017,8 +1017,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            239, 118, 87, 124, 77, 41, 11, 100, 118, 108, 57, 120, 245, 237, 220, 113, 216, 241,
-            57, 162, 9, 164, 99, 227, 58, 210, 200, 67, 25, 234, 168, 210,
+            141, 215, 20, 194, 190, 104, 194, 38, 74, 29, 246, 169, 178, 232, 170, 73, 17, 113,
+            194, 82, 193, 218, 127, 116, 11, 255, 169, 73, 138, 213, 193, 71,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -1050,8 +1050,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            212, 141, 170, 92, 56, 174, 131, 181, 134, 71, 13, 62, 68, 109, 179, 15, 88, 90, 232,
-            75, 13, 112, 189, 227, 134, 183, 115, 70, 56, 235, 188, 92,
+            205, 182, 123, 13, 56, 226, 89, 92, 77, 238, 19, 192, 155, 10, 169, 12, 213, 15, 216,
+            103, 234, 131, 117, 34, 208, 208, 109, 51, 49, 230, 70, 210,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -1093,8 +1093,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            98, 128, 35, 199, 174, 8, 49, 89, 240, 100, 156, 180, 65, 96, 137, 231, 5, 218, 152,
-            199, 158, 180, 132, 170, 15, 99, 13, 127, 91, 112, 80, 254,
+            54, 129, 113, 140, 157, 200, 72, 24, 54, 124, 26, 45, 42, 88, 75, 235, 190, 94, 134,
+            99, 15, 142, 163, 142, 163, 93, 173, 244, 39, 144, 17, 172,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1163,8 +1163,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            113, 23, 152, 150, 180, 71, 216, 37, 132, 164, 239, 215, 191, 254, 175, 3, 138, 248,
-            195, 15, 15, 212, 206, 32, 249, 162, 58, 105, 233, 176, 148, 244,
+            219, 195, 184, 160, 253, 198, 92, 107, 117, 153, 12, 84, 79, 114, 207, 131, 96, 31,
+            161, 82, 93, 35, 246, 125, 216, 28, 191, 174, 40, 121, 203, 179,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

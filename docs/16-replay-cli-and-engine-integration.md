@@ -58,8 +58,8 @@ Replay and state hashing use a project-owned versioned codec:
 
 Normal `serde`, JSON, Rust's `Hash`, and dependency-defined binary encodings are
 not canonical. They may support debug output only. Current combat state hashing
-applies SHA-256 to `SCBS` version 3 and records
-`state_hash_revision = "sha256-v4"`; older revisions below describe historical
+applies SHA-256 to `SCBS` version 6 and records
+`state_hash_revision = "sha256-v7"`; older revisions below describe historical
 formats rather than the current emission contract.
 
 The codec exposes one canonical sink contract. State hashing streams into a
