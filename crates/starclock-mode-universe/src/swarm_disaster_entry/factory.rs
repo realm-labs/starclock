@@ -8,12 +8,13 @@ use crate::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance, audience,
-    audience_rule_runtime, boss_rule_runtime, communing, communing_rule_runtime, content_runtime,
-    countdown, curio_rule_runtime, dice_control, disarray_rule_runtime, encounter_rule_runtime,
-    encounter_runtime, face_effect, map_overlay, occurrence_rule_runtime, occurrence_runtime,
-    path_rule_runtime, path_runtime, pathstrider_progress, plane_transition, profile_rule_runtime,
-    progression_rule_runtime, runtime_coverage, semantic_fixture_runtime,
-    service_adventure_runtime, service_rule_runtime, state, topology_rule_runtime, trail,
+    audience_rule_runtime, battle_enemy_catalog, boss_rule_runtime, communing,
+    communing_rule_runtime, content_runtime, countdown, curio_rule_runtime, dice_control,
+    disarray_rule_runtime, encounter_rule_runtime, encounter_runtime, face_effect, map_overlay,
+    occurrence_rule_runtime, occurrence_runtime, path_rule_runtime, path_runtime,
+    pathstrider_progress, plane_transition, profile_rule_runtime, progression_rule_runtime,
+    runtime_coverage, semantic_fixture_runtime, service_adventure_runtime, service_rule_runtime,
+    state, topology_rule_runtime, trail,
     validate::{
         canonical_communing, canonical_progression, error, reference, validate_participants,
     },
@@ -124,6 +125,16 @@ impl SwarmDisasterRuntimeFactory {
         let content_runtime = Arc::new(content_runtime::ContentRuntimeCatalog::compile(
             content.inventory_runtime_input(),
         )?);
+        let battle_catalog = Arc::new(
+            battle_enemy_catalog::SwarmBattleCatalogComposition::compile(
+                &encounters,
+                content_runtime.standard(),
+                content_runtime
+                    .standard()
+                    .simulation_catalog()
+                    .combat_catalog(),
+            )?,
+        );
         let curio_rules = Arc::new(curio_rule_runtime::CurioRuleRuntimeCatalog::compile(
             mechanic_rule(&content, "curio-lifecycle")?,
         )?);
@@ -183,6 +194,7 @@ impl SwarmDisasterRuntimeFactory {
             progression_rules,
             profile_rule,
             topology_rules,
+            battle_catalog,
         })
     }
 
@@ -297,6 +309,7 @@ impl SwarmDisasterRuntimeFactory {
             progression_rules: Arc::clone(&self.progression_rules),
             profile_rule: Arc::clone(&self.profile_rule),
             topology_rules: Arc::clone(&self.topology_rules),
+            battle_catalog: Arc::clone(&self.battle_catalog),
         })
     }
 }

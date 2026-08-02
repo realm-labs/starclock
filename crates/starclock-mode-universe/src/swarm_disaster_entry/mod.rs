@@ -1,11 +1,16 @@
 //! Swarm Disaster entry validation and generic Activity-profile compilation.
 mod audience;
 mod audience_rule_runtime;
+mod battle_enemy_catalog;
+mod battle_materialization;
+mod battle_snapshot;
 mod boss_rule_runtime;
 mod communing;
 mod communing_rule_runtime;
 mod content_runtime;
+mod content_runtime_digest;
 mod countdown;
+mod curio_battle_bridge;
 mod curio_rule_runtime;
 mod dice_control;
 mod disarray_rule_runtime;
@@ -112,6 +117,7 @@ pub struct SwarmDisasterRuntimeFactory {
     progression_rules: Arc<progression_rule_runtime::ProgressionRuleRuntimeCatalog>,
     profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
     topology_rules: Arc<topology_rule_runtime::TopologyRuleRuntimeCatalog>,
+    battle_catalog: Arc<battle_enemy_catalog::SwarmBattleCatalogComposition>,
 }
 
 /// Entry-compiled immutable Activity profile before graph attachment.
@@ -152,6 +158,7 @@ pub struct SwarmDisasterRuntimeInstance {
     progression_rules: Arc<progression_rule_runtime::ProgressionRuleRuntimeCatalog>,
     profile_rule: Arc<profile_rule_runtime::ProfileRuleRuntimeCatalog>,
     topology_rules: Arc<topology_rule_runtime::TopologyRuleRuntimeCatalog>,
+    battle_catalog: Arc<battle_enemy_catalog::SwarmBattleCatalogComposition>,
 }
 
 #[cfg(test)]

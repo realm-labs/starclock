@@ -194,6 +194,20 @@ impl EncounterRuntimeCatalog {
             boss_pools: boss_pools.into_boxed_slice(),
         })
     }
+
+    pub(super) fn enemy_keys(&self) -> Box<[&str]> {
+        let mut keys = self
+            .groups
+            .iter()
+            .flat_map(|group| &group.members)
+            .flat_map(|member| &member.waves)
+            .flat_map(|wave| &wave.slots)
+            .map(|slot| slot.enemy_variant.as_ref())
+            .collect::<Vec<_>>();
+        keys.sort_unstable();
+        keys.dedup();
+        keys.into_boxed_slice()
+    }
 }
 
 impl CompiledEncounterRuntime {
@@ -398,7 +412,7 @@ impl SwarmDisasterRuntimeInstance {
     }
 }
 
-fn selection_digest(selection: &EncounterSelection) -> [u8; 32] {
+pub(super) fn selection_digest(selection: &EncounterSelection) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock.swarm-disaster.encounter-selection.v1");
     encoder.text(SWARM_DISASTER_ENCOUNTER_SELECTION_REVISION);
     encoder.text(SWARM_DISASTER_ENCOUNTER_DIFFICULTY_REVISION);

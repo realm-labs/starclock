@@ -1,4 +1,5 @@
 mod audience_tests;
+mod battle_materialization_tests;
 mod communing_tests;
 mod countdown_tests;
 mod dice_control_tests;

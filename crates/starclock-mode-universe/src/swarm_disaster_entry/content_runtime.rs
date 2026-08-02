@@ -1,5 +1,3 @@
-//! Shared Blessing links and Swarm-owned Curio lifecycle execution.
-
 use std::{collections::BTreeMap, sync::Arc};
 
 use serde::Deserialize;
@@ -10,12 +8,16 @@ use starclock_activity::{
 };
 
 use crate::{
+    ability_runtime::AbilityRuntimeCatalog,
+    battle_contribution::UniverseBattleContributionCompiler,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
-    digest::Encoder,
+    curio_runtime::CurioRuntimeCatalog,
     error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind},
-    id::BlessingId,
+    id::{BlessingId, CurioId},
     path::ExactParameter,
+    path_runtime::PathRuntimeCatalog,
+    run_runtime::RunRuntimeCatalog,
     swarm_disaster_content::inventory_access::{
         BlessingInput, BlessingLevelInput, CurioInput, CurioRuleInput, CurioStateInput,
         InventoryRuntimeInput,
@@ -23,7 +25,7 @@ use crate::{
 };
 
 use super::{
-    SwarmDisasterRuntimeInstance,
+    SwarmDisasterRuntimeInstance, content_runtime_digest,
     path_runtime::PendingContentKind,
     state::{BLESSING_INVENTORY, CONTENT, CURIO_INVENTORY, DEFERRED},
 };
@@ -42,39 +44,45 @@ const DEFERRED_SETTLEMENT_PROGRAM: u32 = 0x534C_0001;
 
 #[derive(Clone, Debug)]
 pub(super) struct ContentRuntimeCatalog {
-    standard: Arc<UniverseCatalog>,
-    blessings: Arc<BlessingRuntimeCatalog>,
+    pub(super) standard: Arc<UniverseCatalog>,
+    pub(super) blessings: Arc<BlessingRuntimeCatalog>,
+    pub(super) paths: Arc<PathRuntimeCatalog>,
+    pub(super) shared_curios: Arc<CurioRuntimeCatalog>,
+    pub(super) abilities: Arc<AbilityRuntimeCatalog>,
+    pub(super) run: Arc<RunRuntimeCatalog>,
+    pub(super) battle_contributions: Arc<UniverseBattleContributionCompiler>,
     reachable_blessings: Box<[ReachableBlessing]>,
     curios: Box<[RuntimeCurio]>,
     digest: [u8; 32],
 }
 
 #[derive(Clone, Debug)]
-struct ReachableBlessing {
-    id: BlessingId,
-    key: Box<str>,
-    shared_key: Box<str>,
-    path_key: Box<str>,
-    rarity: u8,
+pub(super) struct ReachableBlessing {
+    pub(super) id: BlessingId,
+    pub(super) key: Box<str>,
+    pub(super) shared_key: Box<str>,
+    pub(super) path_key: Box<str>,
+    pub(super) rarity: u8,
 }
 
 #[derive(Clone, Debug)]
-struct RuntimeCurio {
-    id: u32,
-    source_id: u32,
-    key: Box<str>,
-    category: CurioCategory,
-    initial_state: CurioState,
-    terminal_state: CurioState,
-    maximum_charges: Option<u8>,
-    decrement_event: Box<str>,
-    repair_after_battles: Option<u8>,
-    effect_program: Box<str>,
-    repair_target: Box<str>,
-    trigger_phase: Box<str>,
-    trigger: Box<str>,
-    replacement_policy: Box<str>,
-    replaces_all: bool,
+pub(super) struct RuntimeCurio {
+    pub(super) id: u32,
+    pub(super) source_id: u32,
+    pub(super) key: Box<str>,
+    pub(super) shared_curio: Option<CurioId>,
+    pub(super) category: CurioCategory,
+    pub(super) initial_state: CurioState,
+    pub(super) terminal_state: CurioState,
+    pub(super) maximum_charges: Option<u8>,
+    pub(super) decrement_event: Box<str>,
+    pub(super) repair_after_battles: Option<u8>,
+    pub(super) effect_program: Box<str>,
+    pub(super) repair_target: Box<str>,
+    pub(super) trigger_phase: Box<str>,
+    pub(super) trigger: Box<str>,
+    pub(super) replacement_policy: Box<str>,
+    pub(super) replaces_all: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -85,7 +93,7 @@ pub(super) enum CurioCategory {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-enum CurioState {
+pub(super) enum CurioState {
     Active = 1,
     Repairing = 2,
     Fixed = 3,
@@ -112,6 +120,26 @@ impl ContentRuntimeCatalog {
             BlessingRuntimeCatalog::compile(&standard)
                 .map_err(|_| invalid("invalid shared Blessing runtime"))?,
         );
+        let paths = Arc::new(
+            PathRuntimeCatalog::compile(&standard)
+                .map_err(|_| invalid("invalid shared Path runtime"))?,
+        );
+        let shared_curios = Arc::new(
+            CurioRuntimeCatalog::compile(&standard)
+                .map_err(|_| invalid("invalid shared Curio runtime"))?,
+        );
+        let abilities = Arc::new(
+            AbilityRuntimeCatalog::compile(&standard)
+                .map_err(|_| invalid("invalid shared Ability runtime"))?,
+        );
+        let run = Arc::new(
+            RunRuntimeCatalog::compile(&standard)
+                .map_err(|_| invalid("invalid shared run runtime"))?,
+        );
+        let battle_contributions = Arc::new(
+            UniverseBattleContributionCompiler::compile(Arc::clone(&standard))
+                .map_err(|_| invalid("invalid shared battle contribution runtime"))?,
+        );
         let reachable_blessings = compile_blessings(
             &standard,
             &blessings,
@@ -119,11 +147,21 @@ impl ContentRuntimeCatalog {
             &input.blessing_levels,
             &input,
         )?;
-        let curios = compile_curios(&input)?;
-        let digest = catalog_digest(&blessings, &reachable_blessings, &curios, &input);
+        let curios = compile_curios(&input, &standard)?;
+        let digest = content_runtime_digest::catalog_digest(
+            &blessings,
+            &reachable_blessings,
+            &curios,
+            &input,
+        );
         Ok(Self {
             standard,
             blessings,
+            paths,
+            shared_curios,
+            abilities,
+            run,
+            battle_contributions,
             reachable_blessings,
             curios,
             digest,
@@ -147,7 +185,7 @@ impl ContentRuntimeCatalog {
         )
     }
 
-    fn curio(&self, id: u32) -> Result<&RuntimeCurio, UniverseCatalogLoadError> {
+    pub(super) fn curio(&self, id: u32) -> Result<&RuntimeCurio, UniverseCatalogLoadError> {
         self.curios
             .binary_search_by_key(&id, |curio| curio.id)
             .ok()
@@ -371,9 +409,6 @@ impl SwarmDisasterRuntimeInstance {
         )
     }
 
-    /// Resolves all run-start content requests through canonical Swarm pools.
-    /// RNG draws and the generated settlement commit atomically: any invalid
-    /// or exhausted request leaves every stream and Activity value unchanged.
     pub fn compile_deferred_content_rewards(
         &self,
         state: &ActivityTransactionState,
@@ -679,6 +714,7 @@ fn compile_blessings(
 
 fn compile_curios(
     input: &InventoryRuntimeInput,
+    standard: &UniverseCatalog,
 ) -> Result<Box<[RuntimeCurio]>, UniverseCatalogLoadError> {
     let states = input
         .curio_states
@@ -701,6 +737,7 @@ fn compile_curios(
                 row,
                 states.get(&row.initial_state).copied(),
                 rules.get(&row.id).copied(),
+                standard,
             )
         })
         .collect::<Result<Vec<_>, _>>()?;
@@ -722,6 +759,11 @@ fn compile_curios(
             .count()
             != 6
         || output.iter().filter(|row| row.replaces_all).count() != 1
+        || output
+            .iter()
+            .filter(|row| row.shared_curio.is_some())
+            .count()
+            != 60
     {
         return Err(reference("Swarm Curio exact-once closure drift"));
     }
@@ -732,6 +774,7 @@ fn compile_curio(
     row: &CurioInput,
     state: Option<&CurioStateInput>,
     rule: Option<&CurioRuleInput>,
+    standard: &UniverseCatalog,
 ) -> Result<RuntimeCurio, UniverseCatalogLoadError> {
     let state = state.ok_or_else(|| reference("missing Swarm Curio initial state"))?;
     let rule = rule.ok_or_else(|| reference("missing Swarm Curio rule"))?;
@@ -750,6 +793,12 @@ fn compile_curio(
         .ok()
         .filter(|id| *id > 0)
         .ok_or_else(|| reference("invalid Swarm Curio mode-copy ID"))?;
+    let shared_key = row.key.replacen("swarm-disaster.", "universe.", 1);
+    let shared_curio = standard
+        .curios()
+        .iter()
+        .find(|candidate| candidate.stable_key() == shared_key)
+        .map(crate::curio::CurioDefinition::id);
     if state.curio != row.id
         || rule.state != state.id
         || state.key.is_empty()
@@ -780,6 +829,7 @@ fn compile_curio(
         id: mode_copy,
         source_id: row.id,
         key: row.key.clone(),
+        shared_curio,
         category,
         initial_state,
         terminal_state,
@@ -1133,50 +1183,6 @@ const fn state_key(id: u32) -> u64 {
 
 const fn counter_key(id: u32) -> u64 {
     CURIO_COUNTER_BASE + id as u64
-}
-
-fn catalog_digest(
-    blessings: &BlessingRuntimeCatalog,
-    reachable: &[ReachableBlessing],
-    curios: &[RuntimeCurio],
-    input: &InventoryRuntimeInput,
-) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.content-runtime.v1");
-    encoder.text(SWARM_DISASTER_CONTENT_RUNTIME_REVISION);
-    encoder.text(SWARM_DISASTER_OFFER_POLICY_ACCURACY);
-    encoder.digest(blessings.digest());
-    for row in reachable {
-        encoder.u32(row.id.get());
-        encoder.text(&row.key);
-        encoder.text(&row.shared_key);
-        encoder.text(&row.path_key);
-        encoder.u8(row.rarity);
-    }
-    for row in curios {
-        encoder.u32(row.id);
-        encoder.u32(row.source_id);
-        encoder.text(&row.key);
-        encoder.u8(row.category as u8);
-        encoder.u8(row.initial_state as u8);
-        encoder.u8(row.terminal_state as u8);
-        encoder.u8(row.maximum_charges.unwrap_or(0));
-        encoder.text(&row.decrement_event);
-        encoder.u8(row.repair_after_battles.unwrap_or(0));
-        encoder.text(&row.effect_program);
-        encoder.text(&row.repair_target);
-        encoder.text(&row.trigger_phase);
-        encoder.text(&row.trigger);
-        encoder.text(&row.replacement_policy);
-    }
-    for row in &input.pool_memberships {
-        encoder.u32(row.id);
-        encoder.text(&row.pool_key);
-        encoder.text(&row.member_kind);
-        encoder.text(&row.member_key);
-        encoder.text(&row.eligibility);
-        encoder.text(&row.weight_policy);
-    }
-    encoder.finish()
 }
 
 fn invalid(message: &'static str) -> UniverseCatalogLoadError {
