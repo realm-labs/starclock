@@ -94,6 +94,10 @@
       "command": ["node", "tools/goal14/verify-determinism-hardening.mjs", "."]
     },
     {
+      "name": "Goal 20 determinism hardening contract",
+      "command": ["node", "tools/goal20/verify-determinism-hardening.mjs", "."]
+    },
+    {
       "name": "Goal 14 performance and allocation budgets",
       "command": ["node", "tools/goal14/verify-performance.mjs", "."]
     },

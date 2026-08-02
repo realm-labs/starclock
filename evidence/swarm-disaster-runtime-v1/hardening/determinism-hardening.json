@@ -1,0 +1,133 @@
+{
+  "schema_revision": "starclock.goal20-determinism-hardening-evidence.v1",
+  "goal_id": "swarm-disaster-runtime-v1",
+  "batch": "G20-P8-B1",
+  "result": "cross-platform-native-contract-and-local-macos-arm64-vectors-frozen",
+  "native_gate": "node tools/goal20/run-native-ci.mjs --hardening",
+  "goldens": {
+    "records": 268,
+    "activity_actions": 48,
+    "battle_commands": 74,
+    "nested_battles": 12,
+    "replay_bytes": 88813,
+    "replay_sha256": "c627e93fb58e350e7dd2cc0c3d2651ecc1140b705142a5a79628908fb755b259",
+    "activity_command_sha256": "182e304fd896c6826a3728041205635ccb8c18777fe7d8cedda405028dc21c74",
+    "battle_command_sha256": "46c7b023c09f585f23c5e06bf0229d690927226b10d2fa3ad1cf33cda0cc9127",
+    "battle_event_state_sha256": "3eea401a501f1f70c30fbabaf655232544913861bee094c7439e45548559107b",
+    "activity_state_sha256": "91eda49f0fab401bb3ecbfe31ab60dbd094f09a18e96acf16251db1e61da2290",
+    "rng_domain_sha256": "bc22f82da8cfd2dbbfe1b1a9c28f39f93091e96e366e3c793e83836c43cdf235"
+  },
+  "corpora": {
+    "rng_domains": 8,
+    "draws_per_perturbation": 257,
+    "seed_property_cases": 64,
+    "corrupted_candidate_cases": 3,
+    "deterministic_fault_cases": 1,
+    "invalid_actions": 4096,
+    "malformed_replay_cases": 256,
+    "maximum_arbitrary_replay_bytes": 4096,
+    "inherited_cases_per_property": 256
+  },
+  "suites": [
+    {
+      "id": "swarm-replay-command-event-state-goldens",
+      "targets": [
+        {
+          "path": "crates/starclock-mode-universe/src/swarm_disaster_entry/replay_tests.rs",
+          "sha256": "9d24fdaf069811cca5f0a8a7ae5613d65bcc134b7641a7f189ce9d7e2ddd045a"
+        }
+      ]
+    },
+    {
+      "id": "swarm-rng-property-and-fault-hardening",
+      "targets": [
+        {
+          "path": "crates/starclock-mode-universe/src/swarm_disaster_entry/hardening_tests.rs",
+          "sha256": "1c761fb42670a9c8f3324a61ad619370ea843dba77b145ac5452cfc6f044e3a1"
+        }
+      ]
+    },
+    {
+      "id": "swarm-agent-rejection-and-malformed-replay-corpora",
+      "targets": [
+        {
+          "path": "crates/starclock-test-kit/tests/suites/exhaustive/agent_api/swarm_disaster_hardening.rs",
+          "sha256": "9e8c1fd2dcd01b1d2621d7b67ab5a31b2fbb2d7c62cd42aa315a43ee5df4b055"
+        }
+      ]
+    },
+    {
+      "id": "inherited-replay-codec-properties",
+      "targets": [
+        {
+          "path": "crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs",
+          "sha256": "57b7855cdb03feb8648ee05ba6cf94447bd639c0cfa86c8e9fb4ddbedf457f88"
+        },
+        {
+          "path": "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs",
+          "sha256": "b4d947facb93ccdcc8839303ab20c5425991136958cb35515eb0bc0d32373289"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "windows-x64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "swarm-replay-command-event-state-goldens",
+        "swarm-rng-property-and-fault-hardening",
+        "swarm-agent-rejection-and-malformed-replay-corpora",
+        "inherited-replay-codec-properties"
+      ]
+    },
+    {
+      "id": "linux-x64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "swarm-replay-command-event-state-goldens",
+        "swarm-rng-property-and-fault-hardening",
+        "swarm-agent-rejection-and-malformed-replay-corpora",
+        "inherited-replay-codec-properties"
+      ]
+    },
+    {
+      "id": "macos-arm64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "swarm-replay-command-event-state-goldens",
+        "swarm-rng-property-and-fault-hardening",
+        "swarm-agent-rejection-and-malformed-replay-corpora",
+        "inherited-replay-codec-properties"
+      ]
+    },
+    {
+      "id": "windows-arm64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    },
+    {
+      "id": "linux-arm64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    },
+    {
+      "id": "macos-x64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    }
+  ],
+  "evidence_boundary": {
+    "committed_report_is_contract_not_hosted_run_proof": true,
+    "hosted_native_execution_is_retained_as_ci_artifact": true,
+    "local_execution_profile": "macos-arm64-native",
+    "windows_and_linux_claim_requires_successful_hosted_run": true,
+    "compile_only_runtime_claims": 0,
+    "new_registry_packages": 0
+  },
+  "contract_sha256": {
+    "policy": "ab33c14ca620eec49f56d4246ac8898fb9805528453dde3bfc1803df9eac9d9b",
+    "workflow": "6dfcb4863aeb39ccb70ca6195c7330a98579ba987bd222983762bd5cec72f9da",
+    "native_runner": "80f95eac3c699eb57c703c38631b7b3e4e66b3466a0ab957e7ed9d0875fbf5fa"
+  }
+}

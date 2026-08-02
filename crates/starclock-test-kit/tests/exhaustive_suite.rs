@@ -12,3 +12,5 @@ mod gold_gears_hardening;
 mod replay_battle_property_contract;
 #[path = "suites/exhaustive/replay/property_contract.rs"]
 mod replay_property_contract;
+#[path = "suites/exhaustive/agent_api/swarm_disaster_hardening.rs"]
+mod swarm_disaster_hardening;
