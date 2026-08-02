@@ -22,7 +22,10 @@ for (const goal of policy.goals) {
   const status = snapshotText(goal, goal.status_path);
   const releasePolicy = JSON.parse(snapshotText(goal, goal.release_policy_path));
   const evidence = JSON.parse(snapshotText(goal, goal.release_evidence_path));
-  assert(/\| (?:State|Final state) \| `Complete`(?: —[^|]*)? \|/u.test(status),
+  const completeAtSnapshot = /\| (?:State|Final state) \| `Complete`(?: —[^|]*)? \|/u.test(status);
+  const pendingHostedRegistration = /\| State \| `ReleasePendingSnapshot` \|/u.test(status) &&
+    typeof goal.hosted_evidence_path === "string";
+  assert(completeAtSnapshot || pendingHostedRegistration,
     `${goal.goal_id}: completion snapshot is not Complete`);
   assert(releasePolicy.goal_id === goal.goal_id, `${goal.goal_id}: release policy goal differs`);
   assert(evidence.goal_id === goal.goal_id, `${goal.goal_id}: release evidence goal differs`);
@@ -33,6 +36,12 @@ for (const goal of policy.goals) {
     assert(evidence.result === expectedResult,
       `${goal.goal_id}: release evidence result differs`);
   }
+  if (pendingHostedRegistration) {
+    const hostedEvidence = JSON.parse(currentText(goal.hosted_evidence_path));
+    assert(hostedEvidence.completion_commit === goal.completion_commit &&
+      hostedEvidence.result === "pass" && hostedEvidence.run?.conclusion === "success",
+    `${goal.goal_id}: hosted completion evidence is invalid`);
+  }
 }
 
 console.log(`Immutable release snapshots verified (${policy.goals.length} goals; current source remains evolvable).`);
@@ -41,6 +50,12 @@ function snapshotText(goal, relative) {
   assert(typeof relative === "string" && relative.length > 0 && !path.isAbsolute(relative),
     `${goal.goal_id}: invalid snapshot path`);
   return captureGit(["show", `${goal.completion_commit}:${relative}`]);
+}
+
+function currentText(relative) {
+  assert(typeof relative === "string" && relative.length > 0 && !path.isAbsolute(relative),
+    `invalid current evidence path ${relative}`);
+  return fs.readFileSync(path.join(root, relative), "utf8");
 }
 
 function runGit(args) {
