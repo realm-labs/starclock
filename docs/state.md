@@ -123,6 +123,8 @@ Removed from current runtime surfaces:
   constants that were referenced only by self-asserting tests;
 - Gold and Gears Conundrum runtime, numeric-policy and combat-modifier
   revisions and the fixed modifier-set digest snapshot;
+- Gold and Gears baseline-controller, performance-matrix and battle-cache-key
+  hash-domain versions, plus fixed baseline digest snapshots;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

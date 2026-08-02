@@ -132,7 +132,7 @@ impl GoldAndGearsPerformanceFixture {
     }
 
     pub fn compile_frozen_matrix(&self) -> Result<[u8; 32], GoldAndGearsEntryError> {
-        let mut hash = Encoder::new(b"starclock.gold-and-gears.performance-matrix.v1");
+        let mut hash = Encoder::new(b"starclock.gold-and-gears.performance-matrix");
         for entry in MATRIX {
             let dice = self
                 .factory

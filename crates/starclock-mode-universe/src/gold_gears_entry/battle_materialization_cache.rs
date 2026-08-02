@@ -108,7 +108,7 @@ fn cache_key(
     roster: &UniverseBattleRoster,
     context: &GoldAndGearsBattleAssemblyContext,
 ) -> [u8; 32] {
-    let mut hash = Encoder::new(b"starclock.gold-and-gears.battle-cache-key.v1");
+    let mut hash = Encoder::new(b"starclock.gold-and-gears.battle-cache-key");
     hash.digest(state.bytes());
     hash.digest(roster.participant_lock().bytes());
     hash.text(selection.group());
