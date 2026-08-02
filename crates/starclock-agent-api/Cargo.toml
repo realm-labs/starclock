@@ -28,6 +28,11 @@ name = "g14_gold_gears_benchmark"
 path = "examples/g14_gold_gears_benchmark.rs"
 required-features = ["benchmark-harness"]
 
+[[example]]
+name = "g20_swarm_disaster_benchmark"
+path = "examples/g20_swarm_disaster_benchmark.rs"
+required-features = ["benchmark-harness"]
+
 [features]
 benchmark-harness = ["starclock-mode-universe/benchmark-harness"]
 

@@ -98,6 +98,14 @@
       "command": ["node", "tools/goal20/verify-determinism-hardening.mjs", "."]
     },
     {
+      "name": "Goal 20 performance and allocation budgets",
+      "command": ["node", "tools/goal20/verify-performance.mjs", "."]
+    },
+    {
+      "name": "Goal 20 performance batch evidence",
+      "command": ["node", "tools/goal20/verify-phase8-b2.mjs"]
+    },
+    {
       "name": "Goal 14 performance and allocation budgets",
       "command": ["node", "tools/goal14/verify-performance.mjs", "."]
     },

@@ -7,6 +7,8 @@ mod battle_enemy_catalog;
 mod battle_execution;
 mod battle_materialization;
 mod battle_snapshot;
+#[cfg(feature = "benchmark-harness")]
+pub mod benchmark;
 mod boss_rule_runtime;
 mod communing;
 mod communing_rule_runtime;
@@ -51,7 +53,6 @@ mod topology;
 mod topology_rule_runtime;
 mod trail;
 mod validate;
-
 use starclock_activity::{ActivityStateDefinition, ParticipantLock};
 use std::sync::Arc;
 

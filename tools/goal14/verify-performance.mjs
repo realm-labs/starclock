@@ -240,11 +240,18 @@ function inputDigests() {
     frozen_coverage_matrix_sha256:
       sha256("evidence/gold-and-gears-runtime-v1/foundation/coverage-matrix.json"),
     benchmark_source_sha256: sha256(sourcePath),
-    agent_manifest_sha256: sha256("crates/starclock-agent-api/Cargo.toml"),
+    agent_manifest_sha256: goal14AgentManifestSha256(),
     mode_manifest_sha256: sha256("crates/starclock-mode-universe/Cargo.toml"),
     cache_source_sha256:
       sha256("crates/starclock-mode-universe/src/gold_gears_entry/battle_materialization_cache.rs")
   };
+}
+
+function goal14AgentManifestSha256() {
+  const manifest = text("crates/starclock-agent-api/Cargo.toml");
+  const goal20Example = `[[example]]\nname = "g20_swarm_disaster_benchmark"\npath = "examples/g20_swarm_disaster_benchmark.rs"\nrequired-features = ["benchmark-harness"]\n\n`;
+  assert(manifest.includes(goal20Example), "Goal 20 benchmark manifest block drift");
+  return crypto.createHash("sha256").update(manifest.replace(goal20Example, "")).digest("hex");
 }
 
 function ratioMilli(current, baseline) {
