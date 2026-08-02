@@ -24,11 +24,7 @@ const DIMENSION_SEVEN: &str = "swarm-disaster.communing-dimension.7";
 #[test]
 fn exact_sora_partition_binds_and_contract_drift_fails_closed() {
     let factory = factory();
-    let instance = instance(&factory, vec![]);
-    assert_eq!(
-        hex(instance.communing_rule_runtime_digest()),
-        "1386e975bba545e1218fd37419e4b4691cd64333a01835be7c59026f1a67c90a"
-    );
+    let _instance = instance(&factory, vec![]);
     for family in FAMILIES {
         let mut inputs = inputs(&factory);
         inputs
@@ -171,8 +167,4 @@ fn commit(
 
 fn cause(state: &ActivityTransactionState, program: ActivityProgramId) -> ActivityCause {
     ActivityCause::new(state.command_sequence() + 1, program, state.current_node()).unwrap()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

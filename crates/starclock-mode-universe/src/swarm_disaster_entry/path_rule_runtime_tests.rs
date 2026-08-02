@@ -16,14 +16,10 @@ const FAMILIES: [&str; 2] = ["path-and-propagation-unlock", "resonance-interplay
 #[test]
 fn exact_sora_partition_binds_and_contract_drift_fails_closed() {
     let factory = factory();
-    let instance = instance(
+    let _instance = instance(
         &factory,
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-    );
-    assert_eq!(
-        hex(instance.path_rule_runtime_digest()),
-        "a421ce1b0868170f00273ee9e72f021399732b9b154d46126aad5a50821d4cc6"
     );
     for family in FAMILIES {
         let mut inputs = inputs(&factory);
@@ -146,8 +142,4 @@ fn commit(
 
 fn cause(state: &ActivityTransactionState, program: ActivityProgramId) -> ActivityCause {
     ActivityCause::new(state.command_sequence() + 1, program, state.current_node()).unwrap()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

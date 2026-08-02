@@ -11,11 +11,7 @@ use crate::swarm_disaster_entry::{SwarmDisasterRuntimeFactory, SwarmDisasterRunt
 #[test]
 fn exact_sora_rule_binds_and_contract_drift_fails_closed() {
     let factory = factory();
-    let instance = instance(&factory);
-    assert_eq!(
-        hex(instance.curio_rule_runtime_digest()),
-        "0bd76583f7474450226d1c979d70b51261253f3fb564a0e7bb705b92833100ac"
-    );
+    let _instance = instance(&factory);
 
     let mut input = factory
         .content
@@ -132,8 +128,4 @@ fn commit(
 
 fn cause(state: &ActivityTransactionState, program: ActivityProgramId) -> ActivityCause {
     ActivityCause::new(state.command_sequence() + 1, program, state.current_node()).unwrap()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

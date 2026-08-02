@@ -17,11 +17,7 @@ const FAMILIES: [&str; 3] = [
 #[test]
 fn exact_sora_partition_binds_and_contract_drift_fails_closed() {
     let factory = factory();
-    let instance = factory.compile_entry(entry()).unwrap();
-    assert_eq!(
-        hex(instance.disarray_rule_runtime_digest()),
-        "01ae0ca55d1fa4db3290c9fe2209f18219e7b3b76112b3faf5bb25fddc08cf12"
-    );
+    let _instance = factory.compile_entry(entry()).unwrap();
     for family in FAMILIES {
         let mut inputs = inputs(&factory);
         inputs
@@ -141,8 +137,4 @@ fn apply(
         ),
         ActivityTransactionOutcome::Committed(_)
     ));
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

@@ -105,6 +105,8 @@ Removed from current runtime surfaces:
 - Gold and Gears runtime-coverage, baseline-fixture and seeded-run revisions;
 - Swarm Disaster runtime-coverage digest, baseline-fixture revision and
   seeded-run revision;
+- twelve Swarm Disaster mechanic-rule runtime revisions and their exact digest
+  snapshots; current behavior remains covered by contract and execution tests;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

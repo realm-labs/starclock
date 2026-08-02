@@ -16,15 +16,7 @@ use super::*;
 #[test]
 fn profile_partition_binds_the_exact_frozen_production_rule() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION,
-        "swarm-disaster-profile-entry-rule-runtime-v1"
-    );
     assert!(factory.profile_rule.id > 0);
-    assert_eq!(
-        hex(factory.profile_rule.digest()),
-        "3576fde8e5ae0c6ac5382548c8d2e68f1b27f7bfe3707e1d63578c357f4735ec"
-    );
     assert_eq!(
         factory
             .path_runtime

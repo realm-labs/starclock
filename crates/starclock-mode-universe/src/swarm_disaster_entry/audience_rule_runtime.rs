@@ -16,8 +16,6 @@ use super::{
     audience::{AudienceRuntimeCatalog, CompiledAudienceRuntime},
 };
 
-const REVISION: &str = "swarm-disaster-audience-rule-runtime-v1";
-
 #[derive(Clone, Debug)]
 pub(super) struct AudienceRuleRuntimeCatalog {
     digest: [u8; 32],
@@ -301,8 +299,7 @@ fn validate_rule(
 }
 
 fn rule_digest(inputs: &[MechanicRuleRuntimeInput]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.audience-rule-runtime.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.audience-rule-runtime");
     for input in inputs {
         encoder.u32(input.id);
         encoder.text(&input.key);

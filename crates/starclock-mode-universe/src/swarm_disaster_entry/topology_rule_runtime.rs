@@ -16,8 +16,6 @@ use super::{
     topology::{self, CompiledTopology},
 };
 
-const REVISION: &str = "swarm-disaster-topology-rule-runtime-v1";
-
 #[derive(Clone, Debug)]
 pub(super) struct TopologyRuleRuntimeCatalog {
     digest: [u8; 32],
@@ -259,8 +257,7 @@ fn validate_rule(
 }
 
 fn rule_digest(inputs: &[MechanicRuleRuntimeInput]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.topology-rule-runtime.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.topology-rule-runtime");
     for input in inputs {
         encoder.u32(input.id);
         encoder.text(&input.key);

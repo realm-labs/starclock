@@ -10,8 +10,6 @@ use crate::{
 
 use super::{SwarmDisasterRuntimeInstance, plane_transition::PlaneTransitionRuntimeCatalog};
 
-const REVISION: &str = "swarm-disaster-boss-rule-runtime-v1";
-
 #[derive(Clone, Debug)]
 pub(super) struct BossRuleRuntimeCatalog {
     digest: [u8; 32],
@@ -146,8 +144,7 @@ fn validate_rule(
 }
 
 fn rule_digest(inputs: &[MechanicRuleRuntimeInput; 2]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.boss-rule-runtime.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.boss-rule-runtime");
     for input in inputs {
         encoder.u32(input.id);
         encoder.text(&input.key);

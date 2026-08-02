@@ -23,11 +23,7 @@ const FAMILIES: [&str; 3] = [
 #[test]
 fn exact_sora_partition_binds_and_contract_drift_fails_closed() {
     let factory = factory();
-    let instance = instance(&factory);
-    assert_eq!(
-        hex(instance.audience_rule_runtime_digest()),
-        "dc3d9dcdb8f387e2281e43cc81b405ec4e27f9861d9a9fc65a89e91ac1f54111"
-    );
+    let _instance = instance(&factory);
     for family in FAMILIES {
         let mut inputs = inputs(&factory);
         inputs
@@ -198,8 +194,4 @@ fn spawn_draws(rng: &ActivityRngStreams) -> u64 {
         .find(|snapshot| snapshot.label() == ActivityRngLabel::Spawn)
         .unwrap()
         .draw_count()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

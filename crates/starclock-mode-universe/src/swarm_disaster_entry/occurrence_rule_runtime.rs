@@ -10,8 +10,6 @@ use crate::{
 
 use super::{SwarmDisasterRuntimeInstance, occurrence_runtime::OccurrenceRuntimeCatalog};
 
-const REVISION: &str = "swarm-disaster-occurrence-rule-runtime-v1";
-
 #[derive(Clone, Debug)]
 pub(super) struct OccurrenceRuleRuntimeCatalog {
     digest: [u8; 32],
@@ -109,8 +107,7 @@ fn validate_rule(input: &MechanicRuleRuntimeInput) -> Result<(), UniverseCatalog
 }
 
 fn rule_digest(input: &MechanicRuleRuntimeInput) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.occurrence-rule-runtime.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.occurrence-rule-runtime");
     encoder.u32(input.id);
     encoder.text(&input.key);
     encoder.text(&input.family);

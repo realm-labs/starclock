@@ -18,9 +18,6 @@ use super::{
     state::{DEFERRED, ENTRY},
 };
 
-pub const SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION: &str =
-    "swarm-disaster-profile-entry-rule-runtime-v1";
-
 const PROFILE_RULE_PROGRAM_BASE: u32 = 0x5352_0000;
 const PROFILE_RULE_MARKER_BASE: u64 = 0x5344_7300_0000_0000;
 
@@ -261,8 +258,7 @@ fn slot(id: u32) -> ActivitySlotId {
 }
 
 fn rule_digest(input: &MechanicRuleRuntimeInput) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.profile-entry-rule-runtime.v1");
-    encoder.text(SWARM_DISASTER_PROFILE_RULE_RUNTIME_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.profile-entry-rule-runtime");
     encoder.u32(input.id);
     encoder.text(&input.key);
     encoder.text(&input.family);

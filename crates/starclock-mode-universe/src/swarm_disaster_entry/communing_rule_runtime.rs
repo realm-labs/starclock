@@ -11,8 +11,6 @@ use crate::{
 
 use super::SwarmDisasterRuntimeInstance;
 
-const REVISION: &str = "swarm-disaster-communing-rule-runtime-v1";
-
 #[derive(Clone, Debug)]
 pub(super) struct CommuningRuleRuntimeCatalog {
     digest: [u8; 32],
@@ -238,8 +236,7 @@ fn validate_rule(
 }
 
 fn rule_digest(inputs: &[MechanicRuleRuntimeInput]) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.communing-rule-runtime.v1");
-    encoder.text(REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.communing-rule-runtime");
     for input in inputs {
         encoder.u32(input.id);
         encoder.text(&input.key);
