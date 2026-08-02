@@ -103,6 +103,8 @@ Removed from current runtime surfaces:
 - Standard Universe battle assembly, contribution, materialization, snapshot
   and event-commitment revisions and their byte-for-byte digest snapshots;
 - Gold and Gears runtime-coverage, baseline-fixture and seeded-run revisions;
+- Swarm Disaster runtime-coverage digest, baseline-fixture revision and
+  seeded-run revision;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

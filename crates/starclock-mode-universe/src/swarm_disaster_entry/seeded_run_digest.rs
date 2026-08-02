@@ -6,7 +6,7 @@ use crate::digest::Encoder;
 
 use super::{
     encounter_runtime::EncounterRole,
-    seeded_run::{SWARM_DISASTER_SEEDED_RUN_REVISION, SwarmSeededRunStep, SwarmSeededStepKind},
+    seeded_run::{SwarmSeededRunStep, SwarmSeededStepKind},
 };
 
 pub(super) fn transcript_digest(
@@ -18,8 +18,7 @@ pub(super) fn transcript_digest(
     cross_plane_countdown_carried: bool,
     steps: &[SwarmSeededRunStep],
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster.seeded-run.v1");
-    encoder.text(SWARM_DISASTER_SEEDED_RUN_REVISION);
+    let mut encoder = Encoder::new(b"starclock.swarm-disaster.seeded-run");
     encoder.u64(seed);
     encoder.u8(terminal_code(terminal));
     encoder.digest(final_state_hash.bytes());

@@ -1,14 +1,10 @@
 //! Fail-closed production coverage for every frozen Swarm obligation.
 
 use crate::{
-    digest::Encoder,
     error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind},
     swarm_disaster_content::{SwarmDisasterContentCatalog, coverage_access::MechanicCoverageInput},
 };
 
-use super::SwarmDisasterRuntimeFactory;
-
-const REVISION: &str = "swarm-disaster-runtime-coverage-v1";
 const SOURCE_OBLIGATIONS: u32 = 6_963;
 const MECHANIC_RULES: usize = 23;
 const SEMANTIC_FIXTURES: usize = 23;
@@ -58,48 +54,31 @@ const SOURCE_CATEGORIES: [(&str, u32); 42] = [
 ];
 
 #[derive(Clone, Debug)]
-pub(super) struct RuntimeCoverageCatalog {
-    digest: [u8; 32],
-}
+pub(super) struct RuntimeCoverageCatalog;
 
 impl RuntimeCoverageCatalog {
     pub(super) fn compile(
         content: &SwarmDisasterContentCatalog,
         semantic_fixture_digest: [u8; 32],
     ) -> Result<Self, UniverseCatalogLoadError> {
-        let snapshot = coverage_snapshot(content, semantic_fixture_digest)?;
-        Ok(Self {
-            digest: coverage_digest(&snapshot),
-        })
-    }
-}
-
-impl SwarmDisasterRuntimeFactory {
-    /// Digest of the exact 6,963/23/23 production coverage snapshot.
-    #[must_use]
-    pub fn runtime_coverage_digest(&self) -> [u8; 32] {
-        self.runtime_coverage.digest
+        validate_coverage(&coverage_inputs(content), semantic_fixture_digest)?;
+        Ok(Self)
     }
 }
 
 #[derive(Clone, Debug)]
-struct CoverageSnapshot {
+struct CoverageInputs {
     categories: Box<[(Box<str>, u32)]>,
     rules: Box<[MechanicCoverageInput]>,
     fixture_ids: Box<[Box<str>]>,
-    semantic_fixture_digest: [u8; 32],
 }
 
-fn coverage_snapshot(
-    content: &SwarmDisasterContentCatalog,
-    semantic_fixture_digest: [u8; 32],
-) -> Result<CoverageSnapshot, UniverseCatalogLoadError> {
+fn coverage_inputs(content: &SwarmDisasterContentCatalog) -> CoverageInputs {
     let categories = content
         .source_coverage_categories()
         .map(|(key, count)| (key.into(), count))
         .collect::<Vec<_>>()
         .into_boxed_slice();
-    validate_categories(&categories)?;
     let mut rules = content.mechanic_coverage_inputs().into_vec();
     rules.sort_unstable_by(|left, right| left.key.cmp(&right.key));
     let mut fixture_ids = content
@@ -108,16 +87,33 @@ fn coverage_snapshot(
         .map(|input| input.key.clone())
         .collect::<Vec<_>>();
     fixture_ids.sort_unstable();
-    validate_rule_fixture_ids(&rules, &fixture_ids)?;
-    if semantic_fixture_digest == [0; 32] {
-        return Err(reference("semantic fixture execution digest is empty"));
-    }
-    Ok(CoverageSnapshot {
+    CoverageInputs {
         categories,
         rules: rules.into_boxed_slice(),
         fixture_ids: fixture_ids.into_boxed_slice(),
-        semantic_fixture_digest,
-    })
+    }
+}
+
+fn validate_coverage(
+    inputs: &CoverageInputs,
+    semantic_fixture_digest: [u8; 32],
+) -> Result<(), UniverseCatalogLoadError> {
+    validate_categories(&inputs.categories)?;
+    validate_rule_fixture_ids(&inputs.rules, &inputs.fixture_ids)?;
+    if semantic_fixture_digest == [0; 32] {
+        return Err(reference("semantic fixture execution digest is empty"));
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+fn coverage_snapshot(
+    content: &SwarmDisasterContentCatalog,
+    semantic_fixture_digest: [u8; 32],
+) -> Result<CoverageInputs, UniverseCatalogLoadError> {
+    let inputs = coverage_inputs(content);
+    validate_coverage(&inputs, semantic_fixture_digest)?;
+    Ok(inputs)
 }
 
 fn validate_categories(categories: &[(Box<str>, u32)]) -> Result<(), UniverseCatalogLoadError> {
@@ -155,31 +151,6 @@ fn validate_rule_fixture_ids(
         ));
     }
     Ok(())
-}
-
-fn coverage_digest(snapshot: &CoverageSnapshot) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.swarm-disaster-runtime-coverage.v1");
-    encoder.text(REVISION);
-    encoder.u32(SOURCE_OBLIGATIONS);
-    for (category, count) in &snapshot.categories {
-        encoder.text(category);
-        encoder.u32(*count);
-    }
-    encoder.u32(snapshot.rules.len() as u32);
-    for rule in &snapshot.rules {
-        encoder.text(&rule.key);
-        encoder.text(&rule.family);
-        for fixture in &rule.fixture_keys {
-            encoder.text(fixture);
-        }
-    }
-    encoder.u32(snapshot.fixture_ids.len() as u32);
-    for fixture in &snapshot.fixture_ids {
-        encoder.text(fixture);
-    }
-    encoder.digest(snapshot.semantic_fixture_digest);
-    encoder.u8(0);
-    encoder.finish()
 }
 
 fn reference(message: &'static str) -> UniverseCatalogLoadError {

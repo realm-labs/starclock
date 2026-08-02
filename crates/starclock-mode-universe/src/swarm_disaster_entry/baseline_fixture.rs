@@ -22,9 +22,6 @@ use super::{
     SwarmDisasterRuntimeInstance,
 };
 
-/// Version of the deterministic CLI/agent/MCP fixture.
-pub const SWARM_DISASTER_BASELINE_FIXTURE_REVISION: &str =
-    "swarm-disaster-synthetic-baseline-fixture-v1";
 /// Accuracy label that prevents the synthetic high-stat roster from claiming observed parity.
 pub const SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY: &str =
     "SyntheticBalanceIndependentNotObservedNumericParity";
@@ -268,8 +265,7 @@ fn synthetic_roster(
 }
 
 fn activity_identity(instance: &SwarmDisasterRuntimeInstance) -> ActivityDefinitionIdentity {
-    let mut definition = Encoder::new(b"starclock.swarm-disaster.baseline-activity-definition.v1");
-    definition.text(SWARM_DISASTER_BASELINE_FIXTURE_REVISION);
+    let mut definition = Encoder::new(b"starclock.swarm-disaster.baseline-activity-definition");
     definition.digest(instance.graph_definition().digest().bytes());
     definition.digest(instance.participants().digest().bytes());
     definition.digest(instance.battle_catalog.digest());

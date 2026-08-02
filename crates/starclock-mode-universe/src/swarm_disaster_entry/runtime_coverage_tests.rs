@@ -16,10 +16,6 @@ fn exact_6963_23_23_runtime_coverage_is_stable() {
     );
     assert_eq!(snapshot.rules.len(), 23);
     assert_eq!(snapshot.fixture_ids.len(), 23);
-    assert_eq!(
-        hex(factory.runtime_coverage_digest()),
-        "8aeb60d2c1b322f9dcf8f84bc45dc1901276633398cdb60a984ccc4846f0bff4"
-    );
 }
 
 #[test]
@@ -61,8 +57,4 @@ fn orphan_duplicate_or_mismatched_rule_fixture_ids_fail_closed() {
 
 fn factory() -> SwarmDisasterRuntimeFactory {
     SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
-}
-
-fn hex(bytes: [u8; 32]) -> String {
-    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

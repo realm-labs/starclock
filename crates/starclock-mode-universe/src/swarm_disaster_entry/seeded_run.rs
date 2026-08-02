@@ -22,7 +22,6 @@ use super::{
     replay_action::SwarmSeededRunAction,
 };
 
-pub(super) const SWARM_DISASTER_SEEDED_RUN_REVISION: &str = "swarm-disaster-seeded-run-v1";
 pub(super) const MAXIMUM_STEPS: usize = 256;
 pub(super) const PLANE_ONE_DECAY: &str = "swarm-disaster.boss-decay.1";
 pub(super) const PLANE_TWO_DECAY: &str = "swarm-disaster.boss-decay.25";

@@ -6,9 +6,7 @@ use starclock_activity::{
 
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
-    seeded_run::{
-        SWARM_DISASTER_SEEDED_RUN_REVISION, SwarmSeededBoundary, SwarmSeededRunRequest,
-    },
+    seeded_run::{SwarmSeededBoundary, SwarmSeededRunRequest},
 };
 
 struct MatrixRow {
@@ -79,10 +77,6 @@ static GOLDENS: &[(&str, u32, u32, i64, &str, &str)] = &[
 #[test]
 #[ignore = "exhaustive current-state seeded matrix"]
 fn frozen_matrix_completes_real_battles_and_verifies_from_fresh_factories() {
-    assert_eq!(
-        SWARM_DISASTER_SEEDED_RUN_REVISION,
-        "swarm-disaster-seeded-run-v1"
-    );
     assert_frozen_axes();
     let mut total_battles = 0_u32;
     for row in MATRIX {

@@ -158,10 +158,7 @@ impl SwarmDisasterRuntimeFactory {
         )?);
         let semantic_fixtures =
             Arc::new(semantic_fixture_runtime::SemanticFixtureRuntimeCatalog::compile(&content)?);
-        let runtime_coverage = Arc::new(runtime_coverage::RuntimeCoverageCatalog::compile(
-            &content,
-            semantic_fixtures.digest(),
-        )?);
+        runtime_coverage::RuntimeCoverageCatalog::compile(&content, semantic_fixtures.digest())?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -182,7 +179,6 @@ impl SwarmDisasterRuntimeFactory {
             service_adventure,
             service_rules,
             semantic_fixtures,
-            runtime_coverage,
             communing,
             communing_rules,
             content_runtime,
