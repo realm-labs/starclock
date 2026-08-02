@@ -21,8 +21,8 @@ use starclock_mode_universe::{
     entry::{CompiledActivity, StandardUniverseEntry, StandardUniverseProfile},
     id::{BlessingId, CurioId, ServiceId},
     service_interaction::{
-        SERVICE_INTERACTION_HANDLER_ID, SERVICE_INTERACTION_RUNTIME_REVISION,
-        ServiceInteractionError, ServiceInteractionSelection, ServicePurchaseContent,
+        SERVICE_INTERACTION_HANDLER_ID, ServiceInteractionError, ServiceInteractionSelection,
+        ServicePurchaseContent,
     },
 };
 
@@ -89,10 +89,6 @@ fn inventory_total(view: &ActivityPlayerView, inventory: ActivityInventoryId) ->
 fn all_service_families_compile_to_concrete_checked_payloads() {
     let compiled = compiled();
     let runtime = compiled.service_interaction_runtime();
-    assert_eq!(
-        SERVICE_INTERACTION_RUNTIME_REVISION,
-        "standard-universe-service-interaction-runtime-v6"
-    );
     assert_eq!(runtime.service_count(), 94);
     assert_ne!(runtime.digest(), [0; 32]);
 

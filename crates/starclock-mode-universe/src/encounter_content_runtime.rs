@@ -12,9 +12,6 @@ use crate::{
     path::ExactParameter,
 };
 
-pub const ENCOUNTER_CONTENT_RUNTIME_REVISION: &str =
-    "standard-universe-encounter-content-runtime-v1";
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WeightedEncounterGroup {
     group: EncounterGroupId,
@@ -290,7 +287,6 @@ fn catalog_digest(
     member_ids: &[crate::id::EncounterMemberId],
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-encounter-content-runtime-catalog-v1");
-    encoder.text(ENCOUNTER_CONTENT_RUNTIME_REVISION);
     encoder.digest(catalog.identity().definitions_digest().bytes());
     encoder.digest(catalog.identity().encounter_definitions_digest().bytes());
     encoder.u32(enemy_keys.len() as u32);

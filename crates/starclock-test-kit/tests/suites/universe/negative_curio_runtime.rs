@@ -6,9 +6,7 @@ use starclock_mode_universe::{
     curio_effect_runtime::{CurioEffect, CurioEnergyChange, CurioHpChange},
     curio_runtime::{CurioContribution, CurioRuntimeCatalog},
     id::CurioId,
-    negative_curio_runtime::{
-        NEGATIVE_CURIO_RUNTIME_REVISION, NegativeCurioEvent, NegativeCurioRuntimeCatalog,
-    },
+    negative_curio_runtime::{NegativeCurioEvent, NegativeCurioRuntimeCatalog},
     path_effect_runtime::{PathEffect, PathEffectStat, PathEffectTarget},
 };
 
@@ -65,21 +63,10 @@ fn contribution(key: &str, kind: CurioStateKind) -> CurioContribution {
 #[test]
 fn complete_negative_error_and_replacement_partition_compiles() {
     let runtime = runtime();
-    assert_eq!(
-        NEGATIVE_CURIO_RUNTIME_REVISION,
-        "standard-universe-negative-curio-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (42, 42));
     assert_eq!(
         (runtime.curio_count(), runtime.state_program_count()),
         (18, 24)
-    );
-    assert_eq!(
-        runtime.digest(),
-        [
-            220, 21, 157, 114, 190, 94, 238, 231, 155, 136, 214, 169, 142, 194, 123, 82, 193, 171,
-            205, 69, 164, 250, 220, 17, 50, 208, 149, 155, 134, 170, 8, 90,
-        ]
     );
 }
 

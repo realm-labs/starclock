@@ -12,7 +12,6 @@ use crate::{
     progression::{AbilityEffectClass, AbilityOperation, AbilityValueUnit},
 };
 
-pub const ABILITY_RUNTIME_REVISION: &str = "standard-universe-ability-runtime-v2";
 const SIX_DECIMAL_SCALE: i64 = 1_000_000;
 
 /// Generic execution boundary at which an Ability Tree projection is requested.
@@ -694,7 +693,6 @@ fn validate_shape(
 
 fn catalog_digest(effects: &[CompiledAbilityEffect]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-ability-runtime-catalog-v1");
-    encoder.text(ABILITY_RUNTIME_REVISION);
     encoder.u32(effects.len() as u32);
     for effect in effects {
         encoder.u32(effect.source.get());
@@ -714,7 +712,6 @@ fn projection_digest(
     applied: &[AppliedAbilityEffect],
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-ability-runtime-projection-v1");
-    encoder.text(ABILITY_RUNTIME_REVISION);
     encoder.u8(context.scope as u8);
     encoder.u8(context.boundary as u8);
     encoder.u8(context.chosen_path_blessings);

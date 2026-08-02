@@ -13,9 +13,7 @@ use starclock_activity::{
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     curio::CurioStateKind,
-    curio_runtime::{
-        CURIO_RUNTIME_REVISION, CurioRuntimeBindings, CurioRuntimeCatalog, CurioRuntimeDefinition,
-    },
+    curio_runtime::{CurioRuntimeBindings, CurioRuntimeCatalog, CurioRuntimeDefinition},
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../../config/generated/config.sora");
@@ -33,7 +31,6 @@ fn catalog() -> Arc<UniverseCatalog> {
 #[test]
 fn all_curios_compile_with_exact_lifecycle_denominators() {
     let runtime = CurioRuntimeCatalog::compile(&catalog()).expect("Curio runtime");
-    assert_eq!(CURIO_RUNTIME_REVISION, "standard-universe-curio-runtime-v1");
     assert_eq!(runtime.definitions().len(), 61);
     assert_eq!(
         runtime
@@ -76,13 +73,6 @@ fn all_curios_compile_with_exact_lifecycle_denominators() {
             .filter(|state| state.replacement_curio().is_some())
             .count(),
         0
-    );
-    assert_eq!(
-        runtime.digest(),
-        [
-            206, 64, 1, 181, 187, 116, 202, 62, 81, 3, 240, 136, 131, 128, 234, 142, 163, 94, 105,
-            199, 139, 23, 120, 145, 22, 101, 141, 179, 160, 206, 232, 223,
-        ]
     );
 }
 

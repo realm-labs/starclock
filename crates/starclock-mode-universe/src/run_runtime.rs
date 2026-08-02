@@ -15,7 +15,6 @@ use crate::{
     },
 };
 
-pub const RUN_RUNTIME_REVISION: &str = "standard-universe-run-runtime-v2";
 pub const MAX_COSMIC_FRAGMENTS: i64 = 4_294_967_295;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -351,7 +350,6 @@ fn catalog_digest(
     abilities: &[AbilityTreeRuleContribution],
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-run-runtime-catalog-v1");
-    encoder.text(RUN_RUNTIME_REVISION);
     encoder.u32(occurrences.len() as u32);
     for choice in occurrences {
         encoder.u32(choice.id.get());

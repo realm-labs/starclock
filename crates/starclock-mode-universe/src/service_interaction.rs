@@ -26,8 +26,6 @@ use crate::{
 };
 
 pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
-pub const SERVICE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-service-interaction-runtime-v6";
 
 const PAYLOAD_TAG: u8 = 6;
 const TAG_SET_FRAGMENTS: u8 = 1;
@@ -1138,7 +1136,6 @@ fn catalog_digest(
     curio_bindings: CurioActivityBindings,
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-standard-universe-service-interaction-v3");
-    encoder.text(SERVICE_INTERACTION_RUNTIME_REVISION);
     encoder.digest(services.digest());
     encoder.u32(bindings.cosmic_fragments.get());
     encoder.u32(bindings.service_uses.get());

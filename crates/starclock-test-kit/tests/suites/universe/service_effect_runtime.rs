@@ -6,8 +6,8 @@ use starclock_mode_universe::{
     progression::{ServiceKind, ServiceProfileOwner},
     run_runtime::RunRuntimeCatalog,
     service_effect_runtime::{
-        RespiteOfferKind, SERVICE_EFFECT_RUNTIME_REVISION, ServiceAction,
-        ServiceEffectRuntimeCatalog, TrailblazeBonusEffect, TrailblazeBonusTier,
+        RespiteOfferKind, ServiceAction, ServiceEffectRuntimeCatalog, TrailblazeBonusEffect,
+        TrailblazeBonusTier,
     },
 };
 
@@ -43,10 +43,6 @@ fn service(key: &str) -> ServiceId {
 fn complete_service_partition_compiles() {
     let runtime = runtime();
     assert_eq!(
-        SERVICE_EFFECT_RUNTIME_REVISION,
-        "standard-universe-service-effect-runtime-v2"
-    );
-    assert_eq!(
         (
             runtime.content_count(),
             runtime.rule_count(),
@@ -55,13 +51,6 @@ fn complete_service_partition_compiles() {
         (94, 94, 9)
     );
     assert_eq!(runtime.service_ids().count(), 94);
-    assert_eq!(
-        runtime.digest(),
-        [
-            121, 232, 229, 140, 133, 193, 178, 65, 109, 57, 62, 72, 105, 64, 5, 74, 69, 170, 255,
-            172, 0, 161, 242, 198, 144, 155, 195, 157, 182, 121, 193, 123,
-        ]
-    );
 }
 
 #[test]

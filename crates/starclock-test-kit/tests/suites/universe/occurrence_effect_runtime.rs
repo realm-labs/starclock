@@ -4,9 +4,7 @@ use starclock_mode_universe::{
     catalog::UniverseCatalog,
     id::OccurrenceChoiceId,
     occurrence::{AuthoredScalarUnit, OccurrenceOperation, OccurrenceTarget, RandomOutcomePolicy},
-    occurrence_effect_runtime::{
-        OCCURRENCE_EFFECT_RUNTIME_REVISION, OccurrenceEffectRuntimeCatalog,
-    },
+    occurrence_effect_runtime::OccurrenceEffectRuntimeCatalog,
     run_runtime::RunRuntimeCatalog,
 };
 
@@ -41,21 +39,10 @@ fn choice(key: &str) -> OccurrenceChoiceId {
 #[test]
 fn complete_occurrence_partition_compiles() {
     let runtime = runtime();
-    assert_eq!(
-        OCCURRENCE_EFFECT_RUNTIME_REVISION,
-        "standard-universe-occurrence-effect-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (447, 0));
     assert_eq!(
         (runtime.choice_count(), runtime.random_policy_count()),
         (321, 127)
-    );
-    assert_eq!(
-        runtime.digest(),
-        [
-            46, 176, 86, 42, 247, 30, 158, 99, 203, 93, 203, 112, 137, 203, 64, 139, 122, 159, 84,
-            109, 69, 238, 5, 163, 204, 32, 251, 172, 123, 79, 159, 135,
-        ]
     );
 }
 

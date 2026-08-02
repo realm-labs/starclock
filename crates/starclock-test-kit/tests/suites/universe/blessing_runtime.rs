@@ -10,9 +10,7 @@ use starclock_activity::{
     SectionId, SlotCarryPolicy,
 };
 use starclock_mode_universe::{
-    blessing_runtime::{
-        BLESSING_RUNTIME_REVISION, BlessingOfferEligibility, BlessingRuntimeCatalog,
-    },
+    blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
 };
 
@@ -32,10 +30,6 @@ fn catalog() -> Arc<UniverseCatalog> {
 fn all_blessings_compile_to_two_exact_typed_contributions() {
     let runtime = BlessingRuntimeCatalog::compile(&catalog()).expect("Blessing runtime");
     assert_eq!(runtime.definitions().len(), 162);
-    assert_eq!(
-        BLESSING_RUNTIME_REVISION,
-        "standard-universe-blessing-runtime-v1"
-    );
     assert!(runtime.definitions().iter().all(|definition| {
         (1..=3).contains(&definition.rarity())
             && definition.level(1).is_some()
@@ -44,13 +38,6 @@ fn all_blessings_compile_to_two_exact_typed_contributions() {
             && !definition.level(1).unwrap().rule_key().is_empty()
             && !definition.level(2).unwrap().source_binding_key().is_empty()
     }));
-    assert_eq!(
-        runtime.digest(),
-        [
-            230, 112, 214, 65, 157, 255, 188, 68, 26, 24, 170, 148, 101, 22, 70, 107, 202, 98, 242,
-            133, 5, 146, 27, 191, 150, 35, 63, 101, 131, 61, 54, 145,
-        ]
-    );
 
     let locked = BlessingOfferEligibility::explicit(vec![3], vec![]).unwrap();
     let locked_candidates = runtime.eligible(&locked).collect::<Vec<_>>();

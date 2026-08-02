@@ -12,8 +12,6 @@ use crate::{
     path::ExactParameter,
 };
 
-pub const BLESSING_RUNTIME_REVISION: &str = "standard-universe-blessing-runtime-v1";
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BlessingOfferEligibility {
     rarities: Box<[u8]>,
@@ -435,7 +433,6 @@ fn validate_rarities(rarities: &[u8]) -> Result<(), BlessingRuntimeError> {
 
 fn contribution_catalog_digest(definitions: &[BlessingRuntimeDefinition]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-blessing-runtime-catalog-v1");
-    encoder.text(BLESSING_RUNTIME_REVISION);
     encoder.u32(definitions.len() as u32);
     for definition in definitions {
         encoder.u32(definition.blessing.get());

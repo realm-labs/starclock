@@ -1,10 +1,9 @@
 use crate::{digest::Encoder, id::EncounterMemberId};
 
-use super::{CompiledOccurrenceProgram, OCCURRENCE_INTERACTION_RUNTIME_REVISION};
+use super::CompiledOccurrenceProgram;
 
 pub(super) fn runtime_catalog(programs: &[CompiledOccurrenceProgram]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-occurrence-interaction-runtime-v1");
-    encoder.text(OCCURRENCE_INTERACTION_RUNTIME_REVISION);
     encoder.u32(programs.len() as u32);
     for program in programs {
         encoder.u32(program.choice.get());

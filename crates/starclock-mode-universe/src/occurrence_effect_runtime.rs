@@ -8,9 +8,6 @@ use crate::{
     run_runtime::{OccurrenceRuntimeChoice, RunRuntimeCatalog},
 };
 
-pub const OCCURRENCE_EFFECT_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-effect-runtime-v1";
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 struct CompiledOccurrenceEffect {
     choice: OccurrenceChoiceId,
@@ -196,7 +193,6 @@ fn valid_percentage(value: crate::path::ExactParameter) -> bool {
 
 fn catalog_digest(programs: &[CompiledOccurrenceEffect]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-occurrence-effect-runtime-catalog-v1");
-    encoder.text(OCCURRENCE_EFFECT_RUNTIME_REVISION);
     encoder.u32(programs.len() as u32);
     for program in programs {
         encoder.u32(program.choice.get());

@@ -7,8 +7,6 @@ use crate::{
     run_runtime::{RunRuntimeCatalog, ServiceRuntimeDefinition},
 };
 
-pub const SERVICE_EFFECT_RUNTIME_REVISION: &str = "standard-universe-service-effect-runtime-v2";
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ServicePriceStep {
     use_index: u8,
@@ -495,7 +493,6 @@ fn parse_cost_schedule(value: &str) -> Result<Box<[ServicePriceStep]>, ServiceEf
 
 fn catalog_digest(programs: &[CompiledServiceEffect]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-service-effect-runtime-catalog-v1");
-    encoder.text(SERVICE_EFFECT_RUNTIME_REVISION);
     encoder.u32(programs.len() as u32);
     for program in programs {
         encoder.u32(program.service.get());

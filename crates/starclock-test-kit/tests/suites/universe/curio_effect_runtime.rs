@@ -3,8 +3,8 @@ use std::sync::{Arc, OnceLock};
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     curio_effect_runtime::{
-        CURIO_EFFECT_RUNTIME_REVISION, CurioBlessingGrantPool, CurioEffect, CurioEffectFacts,
-        CurioEffectRuntimeCatalog, CurioEvent,
+        CurioBlessingGrantPool, CurioEffect, CurioEffectFacts, CurioEffectRuntimeCatalog,
+        CurioEvent,
     },
     curio_runtime::CurioRuntimeCatalog,
     id::CurioId,
@@ -55,19 +55,8 @@ fn facts() -> CurioEffectFacts {
 #[test]
 fn complete_positive_neutral_special_partition_compiles() {
     let runtime = runtime();
-    assert_eq!(
-        CURIO_EFFECT_RUNTIME_REVISION,
-        "standard-universe-curio-effect-runtime-v1"
-    );
     assert_eq!((runtime.content_count(), runtime.rule_count()), (86, 86));
     assert_eq!(runtime.curio_ids().len(), 43);
-    assert_eq!(
-        runtime.digest(),
-        [
-            235, 45, 184, 107, 182, 197, 191, 108, 158, 105, 252, 9, 137, 62, 33, 202, 130, 219,
-            227, 56, 15, 84, 161, 35, 162, 95, 24, 226, 220, 161, 155, 205,
-        ]
-    );
 }
 
 #[test]

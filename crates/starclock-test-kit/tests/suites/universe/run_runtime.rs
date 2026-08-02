@@ -22,7 +22,7 @@ use starclock_mode_universe::{
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     occurrence::{AuthoredScalarUnit, OccurrenceOperation, OccurrenceTarget},
     occurrence_interaction::OCCURRENCE_INTERACTION_HANDLER_ID,
-    run_runtime::{CosmicFragments, MAX_COSMIC_FRAGMENTS, RUN_RUNTIME_REVISION, RunRuntimeCatalog},
+    run_runtime::{CosmicFragments, MAX_COSMIC_FRAGMENTS, RunRuntimeCatalog},
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../../config/generated/config.sora");
@@ -66,7 +66,6 @@ fn catalog() -> Arc<UniverseCatalog> {
 fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     let catalog = catalog();
     let runtime = RunRuntimeCatalog::compile(&catalog).expect("run runtime");
-    assert_eq!(RUN_RUNTIME_REVISION, "standard-universe-run-runtime-v2");
     assert_eq!(runtime.occurrence_choices().len(), 321);
     assert_eq!(runtime.services().len(), 94);
     assert_eq!(
@@ -101,13 +100,6 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .entries()
             .iter()
             .all(|entry| { !entry.stable_key().is_empty() && !entry.rule_key().is_empty() })
-    );
-    assert_eq!(
-        runtime.digest(),
-        [
-            33, 105, 179, 221, 104, 218, 184, 61, 119, 52, 223, 225, 103, 153, 19, 117, 220, 231,
-            206, 181, 5, 71, 203, 233, 0, 223, 170, 183, 47, 99, 222, 175,
-        ]
     );
     assert_eq!(
         abilities.digest(),

@@ -11,8 +11,6 @@ use crate::{
     },
 };
 
-pub const NEGATIVE_CURIO_RUNTIME_REVISION: &str = "standard-universe-negative-curio-runtime-v1";
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
 pub enum NegativeCurioEvent {
@@ -429,7 +427,6 @@ fn registry(effect: &str) -> Option<(NegativeCurioTemplate, usize)> {
 
 fn catalog_digest(programs: &[CompiledNegativeCurioProgram]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-negative-curio-runtime-catalog-v1");
-    encoder.text(NEGATIVE_CURIO_RUNTIME_REVISION);
     encoder.u32(programs.len() as u32);
     for program in programs {
         encoder.u32(program.curio.get());

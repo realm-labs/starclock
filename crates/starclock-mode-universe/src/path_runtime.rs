@@ -13,7 +13,6 @@ use crate::{
     path::{ExactParameter, ResonanceDefinition, ResonanceKind},
 };
 
-pub const PATH_RUNTIME_REVISION: &str = "standard-universe-path-runtime-v3";
 pub const FORMATION_SELECTION_THRESHOLDS: [u8; 3] = [6, 10, 14];
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -520,7 +519,6 @@ fn equals_optional(slot: ActivitySlotId, value: u64) -> ActivityCondition {
 
 fn catalog_digest(definitions: &[PathRuntimeDefinition]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-path-runtime-catalog-v1");
-    encoder.text(PATH_RUNTIME_REVISION);
     encoder.u32(definitions.len() as u32);
     for definition in definitions {
         encoder.u32(definition.passive.path.get());

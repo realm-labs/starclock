@@ -16,8 +16,6 @@ use crate::{
     path::ExactParameter,
 };
 
-pub const CURIO_RUNTIME_REVISION: &str = "standard-universe-curio-runtime-v1";
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CurioRuntimeBindings {
     pub inventory: ActivityInventoryId,
@@ -818,7 +816,6 @@ fn parse_curio(raw: u64) -> Result<CurioId, CurioRuntimeError> {
 
 fn catalog_digest(definitions: &[CurioRuntimeDefinition]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-curio-runtime-catalog-v1");
-    encoder.text(CURIO_RUNTIME_REVISION);
     encoder.u32(definitions.len() as u32);
     for definition in definitions {
         encoder.u32(definition.curio.get());

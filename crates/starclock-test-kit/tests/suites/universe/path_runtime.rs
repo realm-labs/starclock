@@ -11,8 +11,7 @@ use starclock_mode_universe::{
     catalog::UniverseCatalog,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     path_runtime::{
-        FORMATION_SELECTION_THRESHOLDS, PATH_RUNTIME_REVISION, PathRuntimeCatalog,
-        PathRuntimeError, ResonanceEnergy,
+        FORMATION_SELECTION_THRESHOLDS, PathRuntimeCatalog, PathRuntimeError, ResonanceEnergy,
     },
 };
 
@@ -64,15 +63,7 @@ fn all_paths_compile_resonance_thresholds_formations_and_exact_contributions() {
     let blessing_runtime = BlessingRuntimeCatalog::compile(&catalog).expect("Blessing runtime");
     let path_runtime = PathRuntimeCatalog::compile(&catalog).expect("Path runtime");
     assert_eq!(path_runtime.len(), 9);
-    assert_eq!(
-        path_runtime.digest(),
-        [
-            13, 115, 57, 7, 187, 91, 214, 215, 92, 177, 124, 81, 230, 59, 44, 97, 236, 115, 225,
-            233, 34, 176, 248, 207, 205, 186, 42, 34, 170, 234, 124, 226,
-        ]
-    );
     assert_eq!(FORMATION_SELECTION_THRESHOLDS, [6, 10, 14]);
-    assert_eq!(PATH_RUNTIME_REVISION, "standard-universe-path-runtime-v3");
 
     for path in catalog.paths() {
         let owned = path

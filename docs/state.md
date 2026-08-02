@@ -98,6 +98,8 @@ Removed from current runtime surfaces:
   digest inputs and byte-for-byte digest snapshots;
 - the Standard Universe entry revision and its hard-coded core catalog digest;
   composition now requires the current combat and build catalogs to agree;
+- the remaining Standard Universe path, blessing, ability, curio, occurrence,
+  service, encounter and run revision constants and duplicate digest inputs;
 - empty deferred relic/planar build fields and their placeholder document.
 
 Mode and generated content modules still contain textual `*_REVISION` domain

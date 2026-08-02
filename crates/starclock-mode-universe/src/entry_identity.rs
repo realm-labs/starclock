@@ -24,18 +24,6 @@ pub(super) fn compile_identity(
 ) -> Result<ActivityDefinitionIdentity, StandardUniverseCompileError> {
     let catalog_identity = catalog.identity();
     let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition");
-    encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
-    encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
-    encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
-    encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
-    encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);
-    encoder.text(crate::occurrence_effect_runtime::OCCURRENCE_EFFECT_RUNTIME_REVISION);
-    encoder.text(crate::occurrence_interaction::OCCURRENCE_INTERACTION_RUNTIME_REVISION);
-    encoder.text(crate::service_effect_runtime::SERVICE_EFFECT_RUNTIME_REVISION);
-    encoder.text(crate::service_interaction::SERVICE_INTERACTION_RUNTIME_REVISION);
-    encoder.text(crate::encounter_content_runtime::ENCOUNTER_CONTENT_RUNTIME_REVISION);
-    encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
-    encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
     encoder.digest(catalog_identity.definitions_digest().bytes());
     encoder.digest(catalog_identity.path_definitions_digest().bytes());

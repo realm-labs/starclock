@@ -5,8 +5,8 @@ use std::{
 
 use starclock_mode_universe::{
     ability_runtime::{
-        ABILITY_RUNTIME_REVISION, AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope,
-        AbilityRuntimeCatalog, AbilityTarget,
+        AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
+        AbilityTarget,
     },
     catalog::UniverseCatalog,
     progression::AbilityOperation,
@@ -67,10 +67,6 @@ fn all_ten_operations_and_fifty_effects_compile_to_a_closed_runtime() {
         )
         .collect::<BTreeSet<_>>();
 
-    assert_eq!(
-        ABILITY_RUNTIME_REVISION,
-        "standard-universe-ability-runtime-v2"
-    );
     assert_eq!(runtime.effect_count(), 50);
     assert_eq!(
         operations,
@@ -86,13 +82,6 @@ fn all_ten_operations_and_fifty_effects_compile_to_a_closed_runtime() {
             AbilityOperation::AddResource,
             AbilityOperation::SetRatio,
         ])
-    );
-    assert_eq!(
-        runtime.digest(),
-        [
-            58, 79, 164, 96, 60, 39, 124, 132, 167, 11, 198, 41, 180, 161, 41, 200, 157, 244, 20,
-            88, 53, 119, 219, 1, 217, 65, 201, 167, 214, 4, 218, 191,
-        ]
     );
 }
 

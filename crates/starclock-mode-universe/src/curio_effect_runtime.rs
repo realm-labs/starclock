@@ -10,8 +10,6 @@ use crate::{
     },
 };
 
-pub const CURIO_EFFECT_RUNTIME_REVISION: &str = "standard-universe-curio-effect-runtime-v1";
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
 pub enum CurioEvent {
@@ -747,7 +745,6 @@ fn registry(effect: &str) -> Option<(CurioTemplate, usize, Option<&'static str>)
 
 fn catalog_digest(programs: &[CompiledCurioProgram]) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-curio-effect-runtime-catalog-v1");
-    encoder.text(CURIO_EFFECT_RUNTIME_REVISION);
     encoder.u32(programs.len() as u32);
     for program in programs {
         encoder.u32(program.curio.get());
