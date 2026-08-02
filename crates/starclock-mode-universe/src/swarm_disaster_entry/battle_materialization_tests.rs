@@ -49,11 +49,11 @@ fn current_activity_materializes_a_real_construction_validated_battle() {
     let snapshot = instance.compile_battle_snapshot(&state, &selection).unwrap();
     assert_eq!(
         digest_hex(first.assembly_digest().bytes()),
-        "8ca070f188dedc8c84eab54b72d8f0dd4827518742ca9daee14725b52a99ccb5"
+        "5677f52d90820e113ad3a5d16dd9501d96187fa57f07a7d17dc4c4a4db4d434d"
     );
     assert_eq!(
         digest_hex(first.combat_input_digest().bytes()),
-        "fa2e2dea4ca41cce48a975250874a2c483b4b35daf993625e61ed2798bba7090"
+        "a286fbb3d39ab8067d1a87992a6cd8016da5b26ebd7329562c58069c5bda5c71"
     );
     assert_eq!(
         digest_hex(snapshot.digest),

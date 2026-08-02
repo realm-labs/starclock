@@ -171,15 +171,15 @@ fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
     );
     assert_eq!(
         hex(report.run().final_state_hash.bytes()),
-        "19e64ca3bfa2b877b9a854bace2d21a3f9f6b0e3123d7a4bdc31a21622ab3749"
+        "124b5c230eb6ec1bfabcc344acec5036b271b054b23e909cfdcf2faf8782fbaa"
     );
     assert_eq!(
         hex(report.run().transcript_digest),
-        "93e8cfb56430b076cecad5d56000aa58bc679536b997a9388a8498f239ef9ae3"
+        "d964331d225bf11b1cf069e9850a8f41297c579e486b47bd586c20fc9fd8d4bc"
     );
     assert_eq!(
         hex(report.decision_digest()),
-        "e7f706791b3ad9c5a9509256a1e86d453a6dd1950cb328824e9e96215411e546"
+        "334ebad76961c42570765825e9d15318e3aa2895bd088177c0f2290bf49ece04"
     );
 }
 

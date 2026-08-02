@@ -49,7 +49,7 @@ fn offers_are_canonical_exclude_owned_and_advance_only_reward_rng() {
     assert_eq!(selected.len(), 3);
     assert_eq!(
         selected.iter().map(|id| id.get()).collect::<Vec<_>>(),
-        vec![35, 36, 88]
+        vec![51, 130, 27]
     );
     assert_only_reward_advanced(&before, &rng.snapshots(), 3);
 
@@ -58,7 +58,7 @@ fn offers_are_canonical_exclude_owned_and_advance_only_reward_rng() {
     let before = rng.snapshots();
     let selected = instance.select_curios("Normal", &[], 2, &mut rng).unwrap();
     assert_eq!(selected.len(), 2);
-    assert_eq!(selected.as_ref(), &[1019, 1002]);
+    assert_eq!(selected.as_ref(), &[1006, 1114]);
     assert_only_reward_advanced(&before, &rng.snapshots(), 2);
     let before = rng.snapshots();
     assert!(

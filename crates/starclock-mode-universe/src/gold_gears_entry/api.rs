@@ -55,9 +55,6 @@ use crate::{
     gold_gears_unique::GoldAndGearsUniqueCatalog,
 };
 
-/// Entry-policy revision that resolves `G14-R01`.
-pub const GOLD_AND_GEARS_ENTRY_REVISION: &str = "gold-and-gears-entry-policy-v1";
-
 /// Versioned root-board and forward-edge topology construction policy.
 pub const GOLD_AND_GEARS_TOPOLOGY_REVISION: &str = "gold-and-gears-topology-policy-v1";
 

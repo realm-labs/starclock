@@ -146,7 +146,7 @@ fn occurrence_random_selection_is_labeled_canonical_and_fail_closed() {
     let selection = instance
         .select_occurrence_candidates(random, &[50, 10, 30], 2, &mut rng)
         .unwrap();
-    assert_eq!(selection.selected(), [10, 30]);
+    assert_eq!(selection.selected(), [30, 50]);
     assert!(
         selection
             .selected()
@@ -230,14 +230,14 @@ fn service_stocks_and_shop_offers_use_exact_pools_and_shop_rng() {
         .unwrap();
     assert_eq!(
         blessings.iter().map(|id| id.get()).collect::<Vec<_>>(),
-        [68, 11, 53]
+        [66, 157, 144]
     );
     assert_eq!(
         curios
             .iter()
             .map(|candidate| candidate.source_id())
             .collect::<Vec<_>>(),
-        [112, 122, 119]
+        [17, 123, 11]
     );
     assert_eq!(curios.len(), 3);
     assert!(curios.windows(2).all(|pair| pair[0].id() != pair[1].id()));
@@ -337,7 +337,7 @@ fn adventure_accepts_external_results_and_resolves_cumulative_rewards_atomically
             plan.blessing_offer().unwrap().get(),
             plan.curio_offer().unwrap().source_id(),
         ),
-        (121, 130, 205)
+        (103, 76, 102)
     );
 
     let unchanged = rng.snapshots();

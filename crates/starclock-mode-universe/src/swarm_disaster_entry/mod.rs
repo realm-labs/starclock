@@ -62,8 +62,6 @@ use crate::{
     swarm_disaster_unique::SwarmDisasterUniqueCatalog,
 };
 
-/// Entry compiler revision for deterministic Swarm Disaster profiles.
-pub const SWARM_DISASTER_ENTRY_REVISION: &str = "swarm-disaster-entry-profile-v1";
 /// Versioned deterministic root-board and forward-route construction policy.
 pub const SWARM_DISASTER_TOPOLOGY_REVISION: &str = "swarm-disaster-topology-policy-v1";
 pub const SWARM_DISASTER_PLANE_COMPLETION_REVISION: &str =
@@ -72,15 +70,10 @@ pub const SWARM_DISASTER_AUDIENCE_RUNTIME_REVISION: &str = "swarm-disaster-audie
 /// Versioned roll, reroll, cheat and abandon execution policy.
 pub const SWARM_DISASTER_DICE_CONTROL_REVISION: &str = "swarm-disaster-dice-control-v1";
 pub const SWARM_DISASTER_DICE_FACE_REVISION: &str = "swarm-disaster-dice-face-policy-v1";
-/// Versioned Communing choice, point, and Pathstrider cabinet policy.
-pub const SWARM_DISASTER_COMMUNING_REVISION: &str = "swarm-disaster-communing-runtime-v1";
 /// Versioned five-tier atomic Phase 3 resolution policy.
 pub const SWARM_DISASTER_SIMULTANEOUS_REVISION: &str = "swarm-disaster-simultaneous-resolution-v1";
 /// Versioned Communing Trail prerequisite and effect projection policy.
 pub const SWARM_DISASTER_TRAIL_REVISION: &str = "swarm-disaster-communing-trail-v1";
-/// Versioned Pathstrider progress, unlock and chapter availability policy.
-pub const SWARM_DISASTER_PATHSTRIDER_REVISION: &str = "swarm-disaster-pathstrider-progress-v1";
-
 /// Caller-owned controller identity included in the composed configuration root.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SwarmDisasterControllerIdentity<'a> {

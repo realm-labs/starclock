@@ -417,7 +417,7 @@ fn all_forty_neural_rules_execute_through_the_production_fixture() {
     assert_ne!(instance.dice_resolution_face(&state), Some(first.as_str()));
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "ba2c297bed0da6a587b80fc4a619619955aa3ff1ee9e37ab17d1ac4d7b3635ac"
+        "c5f089e8943e34e1471f66cabf4866cc6fc8b6451d0c808c22e734986f5b8fbf"
     );
 }
 

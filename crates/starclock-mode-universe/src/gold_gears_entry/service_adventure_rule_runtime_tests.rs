@@ -199,7 +199,7 @@ fn all_38_service_adventure_rules_execute_through_the_production_fixture() {
     assert_eq!(draws(&rng, ActivityRngLabel::Reward), 24);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "2a9189487f34eb445c9d3a3a2c99a26451d680f7fcc8d6d14f44183a43b020f4"
+        "a6d177617991b1317128e9527549e8df59fa0aa2a950e02a4ff968d14751b14e"
     );
 }
 

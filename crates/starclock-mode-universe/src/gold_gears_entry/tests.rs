@@ -387,14 +387,6 @@ fn locked_unknown_and_incompatible_loadouts_fail_closed() {
 }
 
 #[test]
-fn entry_revision_is_frozen() {
-    assert_eq!(
-        GOLD_AND_GEARS_ENTRY_REVISION,
-        "gold-and-gears-entry-policy-v1"
-    );
-}
-
-#[test]
 fn formal_entry_compiles_canonical_three_plane_activity_graph() {
     let factory = shared_factory();
     let instance = factory

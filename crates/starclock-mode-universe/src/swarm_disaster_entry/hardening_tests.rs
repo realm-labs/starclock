@@ -62,7 +62,7 @@ fn swarm_rng_domains_are_golden_and_do_not_shift_battle_or_unrelated_streams() {
     }
     assert_eq!(
         hex(digest.finalize().bytes()),
-        "bc22f82da8cfd2dbbfe1b1a9c28f39f93091e96e366e3c793e83836c43cdf235"
+        "75504a94c8176df92db96d669420667fba96c906545e6c21253e05845864e08e"
     );
 }
 

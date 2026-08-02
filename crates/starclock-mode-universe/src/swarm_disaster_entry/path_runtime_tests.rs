@@ -186,7 +186,7 @@ fn seeded_bonus_and_interplay_state_hash_is_stable() {
     commit(&instance, &mut state, interplays);
     assert_eq!(
         state_hash(&instance, &state, 0x2043_0001),
-        "5e64d13bd16061c0f15318f27d254200e342b86b82a79093c58898529466eb85"
+        "043f3b5b6e84a57bd320278db17ba3966ceb0e06ac21b6f9a3cd162e412f715d"
     );
 }
 

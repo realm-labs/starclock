@@ -7,8 +7,8 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_COMMUNING_REVISION, SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
-    SwarmDisasterRuntimeInstance, communing::CommuningRuntimeCatalog,
+    SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
+    communing::CommuningRuntimeCatalog,
 };
 
 const ROOT: &str = "swarm-disaster.pathstrider-cabinet.22";
@@ -19,10 +19,6 @@ const DIMENSION_SEVEN: &str = "swarm-disaster.communing-dimension.7";
 #[test]
 fn frozen_communing_catalog_retains_exact_denominators_and_order() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_COMMUNING_REVISION,
-        "swarm-disaster-communing-runtime-v1"
-    );
     assert_eq!(factory.communing.denominators(), (21, 7, 31, 55, 33, 34));
     let instance = instance(&factory, vec![], vec![]);
     assert_eq!(
@@ -253,7 +249,7 @@ fn stale_cabinet_program_rejects_atomically_and_seeded_hash_is_stable() {
     assert_eq!(state_bytes(&instance, &state, &rng), before);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "d4c657f0025dced86543ef0e96b370039eb2623d06787b7fd4d4f175b13c7c1a"
+        "b518927008b90f89303d5496c7374cc13701b030c7929ee3c6bf30db8f3bb788"
     );
 }
 

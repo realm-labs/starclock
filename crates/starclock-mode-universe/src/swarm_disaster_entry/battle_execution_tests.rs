@@ -63,12 +63,12 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
     assert_eq!(result.actual_digest(), result.claimed_digest());
     assert_eq!(
         digest_hex(result.actual_digest().bytes()),
-        "f3d50e3b93f0c3843d2cf4e8e7c8e5738345f3a5380f4429a9b170fe07b7e114"
+        "5c1058c4a7a3c649ac86d23376fba00b4dafc2a431a72e367fa6664c71386833"
     );
     assert_eq!(
         digest_hex(settlement.state_hash().bytes())
         ,
-        "ac280054cd810396dfd0221bf5c393d9d06bd72ce1b2893535ea47d2ab95702d"
+        "2167a9f7891e024aa3a7f0860c083b2dcbe69aafb8197b0eb6e039ed10fc85c8"
     );
     assert_eq!(report.outcome(), settlement.outcome());
     assert_eq!(
@@ -141,12 +141,12 @@ fn final_boss_choice_decay_and_completion_settle_atomically() {
     assert_eq!(report.outcome(), starclock_activity::BattleOutcome::Won);
     assert_eq!(
         digest_hex(settlement.result_digest().bytes()),
-        "efaade263232966758d503ba472558c2d9e9510833f6ebcf78f66221f99d4d56"
+        "fe3b85668b4494fea7f5c5a846ebb81fd6c86ddc1e82b7148897661dcf9256c8"
     );
     assert_eq!(
         digest_hex(settlement.state_hash().bytes())
         ,
-        "13faee90aabe2e0139068eafd65ec7e4af3bb40a0b4908a44c8153eaabc81e72"
+        "4f04a985ddf250992009b063ea9bf91726df0a7bb6d8caf2c60369ac1a551e98"
     );
     assert!(!settlement.events().is_empty());
     assert_eq!(

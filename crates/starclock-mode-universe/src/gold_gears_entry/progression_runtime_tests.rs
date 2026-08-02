@@ -283,15 +283,15 @@ fn extrapolation_is_stable_and_rejections_do_not_advance_rng() {
             .collect::<Vec<_>>(),
         vec![
             "gold-gears.resonance-extrapolation.1232001",
+            "gold-gears.resonance-extrapolation.1232101",
             "gold-gears.resonance-extrapolation.1232201",
-            "gold-gears.resonance-extrapolation.1232301",
         ]
     );
     assert_eq!(
         first.digest(),
         [
-            178, 199, 0, 38, 71, 88, 97, 102, 153, 129, 130, 40, 22, 139, 32, 213, 58, 37, 244, 69,
-            216, 87, 84, 49, 130, 194, 169, 210, 191, 206, 36, 40,
+            18, 239, 234, 255, 245, 81, 231, 4, 156, 61, 156, 59, 12, 249, 241, 219, 116, 174,
+            17, 159, 237, 230, 112, 66, 131, 121, 180, 48, 112, 65, 5, 28,
         ]
     );
 

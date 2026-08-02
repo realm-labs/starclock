@@ -181,7 +181,7 @@ fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
         )
         .unwrap();
     assert_eq!(report.run().terminal(), ActivityTerminalOutcome::Completed);
-    assert_eq!(report.run().battle_count(), 15);
+    assert_eq!(report.run().battle_count(), 17);
     assert_eq!(report.decisions().len(), 42);
     assert!(report.decisions().iter().all(|decision| matches!(
         decision.selected().family(),
@@ -189,15 +189,15 @@ fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
     )));
     assert_eq!(
         hex(report.run().final_state_hash().bytes()),
-        "e729a37d832dd1fea02976f12e59e3734c197d27240bdcc2c4047cb0d9cb0aeb"
+        "d94fca24b684da85f1e58b11418a7b4ffcedb6562fa46a84ab6e8bebfcf5374b"
     );
     assert_eq!(
         hex(report.run().transcript_digest()),
-        "bc82fe8b12a4e861f2195d46596f1352c8bc4dc368bf813202541e3518e74656"
+        "dd454cf1de5478bc4203937ebfe93ce06b312c048c80b3b668ecf12097f1c52b"
     );
     assert_eq!(
         hex(report.decision_digest()),
-        "c58eceddfb76c8a6f06a555f1b6f7d80a3c50a524e3c1317d423c7efc38753c1"
+        "6ccc3d62bcd0a929d06b1b9c2e3a5eb5905ac3799cd799da5f23dbafb20896e6"
     );
 }
 

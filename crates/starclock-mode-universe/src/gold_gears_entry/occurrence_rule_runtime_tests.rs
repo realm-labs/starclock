@@ -144,7 +144,7 @@ fn all_384_occurrence_rules_execute_through_the_production_fixture() {
     );
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "b973dc92aaf0dd568b028ba5923493f0b5352d8ae91ef864dce95d14cfbda615"
+        "3338085fd2681ed3055afc3b24a179119647aa895cac7a2282a5b182f4c1b166"
     );
 }
 

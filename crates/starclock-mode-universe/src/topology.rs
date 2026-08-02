@@ -57,7 +57,6 @@ use starclock_activity::{
     TerminalOutcome,
 };
 use std::{collections::BTreeSet, sync::Arc};
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v20";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 const PATH_NODE: u32 = 1;
 const TOPOLOGY_SELECTOR_NODE: u32 = 2;

@@ -384,7 +384,7 @@ fn curio_selection_uses_the_causal_stream_and_empty_offers_draw_nothing() {
             .iter()
             .map(|candidate| candidate.id().get())
             .collect::<Vec<_>>(),
-        vec![104, 110, 111]
+        vec![3205, 3209, 122]
     );
     let mut rng = activity_rng(&instance, 15);
     let before = rng.snapshots();
@@ -598,7 +598,7 @@ fn all_160_curio_rules_execute_through_the_production_fixture() {
     let rng = activity_rng(&instance, 14_505);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "61b32bed5729e03ce9f4066033926dab1d9490db6f84185e51d5c9a6a6719a6e"
+        "0fd7bbf9c4c132ce346b04781ec64648f824d496adc921773bbe0b710192db32"
     );
 }
 

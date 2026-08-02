@@ -54,7 +54,7 @@ fn shop_offers_use_only_shop_rng_and_fail_closed_for_wrong_service_kind() {
         .unwrap();
     assert_eq!(
         blessings.iter().map(|id| id.get()).collect::<Vec<_>>(),
-        [140, 34]
+        [66, 32]
     );
     assert_only_label_advanced(&before, &rng.snapshots(), ActivityRngLabel::Shop, 2);
 
@@ -67,7 +67,7 @@ fn shop_offers_use_only_shop_rng_and_fail_closed_for_wrong_service_kind() {
             &mut rng,
         )
         .unwrap();
-    assert_eq!(curios.as_ref(), &[1011, 1002]);
+    assert_eq!(curios.as_ref(), &[1003, 1026]);
     assert_only_label_advanced(&before, &rng.snapshots(), ActivityRngLabel::Shop, 2);
 
     let before = rng.snapshots();

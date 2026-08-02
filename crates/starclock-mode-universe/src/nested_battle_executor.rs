@@ -26,8 +26,6 @@ use crate::{
     },
 };
 
-pub const UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION: &str =
-    "standard-universe-nested-battle-executor-v1";
 pub const UNIVERSE_BATTLE_EVENT_COMMITMENT_REVISION: &str =
     "deterministic-battle-input-event-shape-v1";
 pub const DEFAULT_NESTED_BATTLE_COMMAND_BUDGET: u32 = 10_000;

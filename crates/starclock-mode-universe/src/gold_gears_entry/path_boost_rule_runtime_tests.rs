@@ -172,7 +172,7 @@ fn all_486_shared_blessing_rules_execute_through_the_released_runtime() {
     );
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "55e512c5900720ab7537f60befec3f47970f24339257d6a7e77461582c097422"
+        "f68cc10352f98866a48a26092390b40dc4f40aa89dc08948ce495aa9d124af88"
     );
 }
 

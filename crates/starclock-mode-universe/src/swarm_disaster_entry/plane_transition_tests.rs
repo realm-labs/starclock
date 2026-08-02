@@ -124,7 +124,7 @@ fn first_plane_completion_resets_section_and_carries_countdown_disarray() {
     )));
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "9e6ea211e98a5e4e90df543b1f10fcfee9142b1c01069181a56d59cc367d2420"
+        "2a9dd16e46bce22a68fe16a5b9c50a185066196516e1f01c2a48eacd8e513733"
     );
 }
 

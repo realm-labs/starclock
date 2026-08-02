@@ -171,7 +171,7 @@ fn current_activity_domain_is_the_only_runtime_room_join() {
         .unwrap();
     assert_eq!(
         hex(&digest),
-        "bf1f44de90b5a2a7a2aa58273e5e517634b28a79b56363434b4ec2559ca3ab27"
+        "2853366d71c5788f4cfdd0f22bd03039f024aed3f219ee684550fd9b1791f424"
     );
 
     commit(

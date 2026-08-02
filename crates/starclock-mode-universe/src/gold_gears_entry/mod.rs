@@ -50,8 +50,8 @@ mod state_layout;
 mod topology;
 mod validate;
 pub use api::{
-    GOLD_AND_GEARS_ENTRY_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry,
-    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry, GoldAndGearsRuntimeFactory,
+    GoldAndGearsRuntimeInstance,
 };
 pub(crate) use baseline_controller::{
     GoldAndGearsBaselineController, GoldAndGearsBaselineDecision, GoldAndGearsBaselineError,

@@ -48,11 +48,11 @@ fn current_activity_snapshot_materializes_a_real_validated_battle() {
     assert_eq!(first.digest(), second.digest());
     assert_eq!(
         digest_hex(first.digest()),
-        "372b470a2888d97620ff88255cead2d365d3954189878a149e08f4239ad855c3"
+        "99634743b9a239906eb1de2fd735880dc0cb8194549b9131b235e9a9bcd2ac6f"
     );
     assert_eq!(
         digest_hex(first.battle_spec().combat_input_digest().bytes()),
-        "cdb70e8ddf714eefcaf3d82cdfe01721ef3d45a810a40511e643c10ea9d7b676"
+        "e00510c36b77b220e10c6843007a7f72e1856addb352e98370a54ead68f31e3a"
     );
     assert_eq!(
         digest_hex(first.enemy_definition_digest()),

@@ -63,7 +63,7 @@ fn gold_rng_domains_are_golden_and_do_not_shift_battle_or_unrelated_streams() {
     }
     assert_eq!(
         hex(digest.finalize().bytes()),
-        "6d5db9ffa9bc5370250fc252109ee8b51e5e69dc1db11638a0019009a94d71f5"
+        "0a1479ff49785030f10d6c2bee5f0a8afd2ab87f6faf0718585c6bbd93ff09dd"
     );
 }
 

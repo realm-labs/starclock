@@ -30,10 +30,6 @@ pub const SWARM_DISASTER_BASELINE_FIXTURE_ACCURACY: &str =
     "SyntheticBalanceIndependentNotObservedNumericParity";
 /// Profile identity emitted by headless Swarm clients.
 pub const SWARM_DISASTER_BASELINE_PROFILE: &str = "swarm-disaster.profile.v1";
-/// Real nested-battle executor bound into headless diagnostics and replay actions.
-pub const SWARM_DISASTER_BASELINE_BATTLE_EXECUTION_REVISION: &str =
-    super::battle_execution::SWARM_DISASTER_BATTLE_EXECUTION_REVISION;
-
 const AREA: &str = "swarm-disaster.area.201";
 const PATH: &str = "universe.path.preservation";
 const AUDIENCE_DIE: &str = "swarm-disaster.audience-die.1";

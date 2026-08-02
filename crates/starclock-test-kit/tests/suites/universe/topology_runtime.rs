@@ -12,7 +12,7 @@ use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     entry::{CompiledActivity, StandardUniverseEntry, StandardUniverseProfile},
-    topology::{STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS, STANDARD_UNIVERSE_TOPOLOGY_REVISION},
+    topology::STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS,
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../../config/generated/config.sora");
@@ -152,10 +152,6 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
             198, 97, 105, 107, 133, 43, 196, 197, 255, 202, 149, 161, 93, 179, 195, 4, 165, 214,
             171, 154, 227, 11, 14, 121, 214, 145, 234, 2, 215, 74, 137, 80,
         ]
-    );
-    assert_eq!(
-        STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v20"
     );
 
     for hub in compiled.domain_hubs() {

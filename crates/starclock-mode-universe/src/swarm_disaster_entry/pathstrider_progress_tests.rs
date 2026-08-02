@@ -5,17 +5,13 @@ use starclock_activity::{
 };
 
 use super::{
-    SWARM_DISASTER_PATHSTRIDER_REVISION, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
+    SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     pathstrider_progress::PathstriderRuntimeCatalog,
 };
 
 #[test]
 fn frozen_pathstrider_catalog_retains_exact_enabled_and_fail_closed_denominators() {
     let factory = factory();
-    assert_eq!(
-        SWARM_DISASTER_PATHSTRIDER_REVISION,
-        "swarm-disaster-pathstrider-progress-v1"
-    );
     assert_eq!(factory.pathstrider.denominators(), (31, 15, 87, 15, 95));
     let instance = instance(&factory, all_points());
     assert_eq!(instance.pathstrider_finish_conditions().count(), 15);
@@ -230,7 +226,7 @@ fn chapter_availability_uses_current_plane_and_persistent_communing_points() {
     let rng = activity_rng(&instance, 0x2042_0001);
     assert_eq!(
         state_hash(&instance, &third, &rng),
-        "f7c9363e1513fb3b7f853980c1c7c89a06437533ee82dcd183b05fe1b49d5d79"
+        "b62c9b911b0fd3b96a0f7ea6f615c84a9b28b2a2bd279694381754b16323b5c4"
     );
 }
 
