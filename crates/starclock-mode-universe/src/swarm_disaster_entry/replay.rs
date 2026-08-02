@@ -25,6 +25,7 @@ use crate::battle_materialization::UniverseBattleRoster;
 
 use super::{
     SwarmDisasterRuntimeInstance,
+    incremental_run::SwarmDisasterIncrementalRun,
     replay_action::{ActionPayloadError, decode_action, encode_action},
     replay_battle::{compare_battle, encode_nested_state_v5},
     seeded_run::{SwarmRecordedExecution, SwarmSeededRunError, SwarmSeededRunRequest},
@@ -118,6 +119,22 @@ pub fn encode_complete_swarm_replay_v2(
     let request = baseline_request(seed, identity, activity_instance);
     let recorded = record_swarm_run(instance, request, roster)?;
     let header = swarm_header_v2(components, request, roster)?;
+    encode_swarm_replay(&header, &recorded)
+}
+
+/// Encodes one terminal incremental session through the canonical Swarm
+/// ReplayV2 encoder. Incomplete sessions fail closed.
+pub fn encode_incremental_swarm_replay_v2(
+    instance: &SwarmDisasterRuntimeInstance,
+    run: &SwarmDisasterIncrementalRun,
+    roster: &UniverseBattleRoster,
+    components: ConfigurationComponentSet,
+) -> Result<Vec<u8>, SwarmReplayError> {
+    let recorded = RecordedSwarmRun {
+        request: run.request(),
+        execution: run.recorded_execution(instance)?,
+    };
+    let header = swarm_header_v2(components, recorded.request, roster)?;
     encode_swarm_replay(&header, &recorded)
 }
 

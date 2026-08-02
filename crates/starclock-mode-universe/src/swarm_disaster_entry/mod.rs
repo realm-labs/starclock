@@ -23,6 +23,8 @@ mod entry;
 mod face_effect;
 mod face_operation;
 mod factory;
+#[doc(hidden)]
+pub mod incremental_run;
 mod instance;
 mod map_overlay;
 mod occurrence_rule_runtime;

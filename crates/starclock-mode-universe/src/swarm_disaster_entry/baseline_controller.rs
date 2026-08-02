@@ -55,7 +55,7 @@ pub(super) enum SwarmCommandFamily {
 }
 
 impl SwarmCommandFamily {
-    const fn decision_kind(self) -> ActivityDecisionKind {
+    pub(super) const fn decision_kind(self) -> ActivityDecisionKind {
         match self {
             Self::Route => ActivityDecisionKind::Route,
             Self::BossSelection => ActivityDecisionKind::Encounter,
@@ -152,9 +152,12 @@ impl SwarmOfferedCommand {
         }
     }
 
-    #[cfg(test)]
     pub(super) const fn id(&self) -> ActivityOptionId {
         self.id
+    }
+
+    pub(super) const fn authored_priority(&self) -> i32 {
+        self.authored_priority
     }
 
     pub(super) const fn action(&self) -> &SwarmOfferedAction {
@@ -411,14 +414,4 @@ pub(super) fn select_offered(
         decisions.push(selected);
     }
     Ok(command)
-}
-
-pub(super) fn next_decision_id(
-    state: &ActivityTransactionState,
-) -> Result<ActivityDecisionId, SwarmSeededRunError> {
-    state
-        .command_sequence()
-        .checked_add(1)
-        .and_then(ActivityDecisionId::new)
-        .ok_or(SwarmSeededRunError::StepBudgetExceeded)
 }

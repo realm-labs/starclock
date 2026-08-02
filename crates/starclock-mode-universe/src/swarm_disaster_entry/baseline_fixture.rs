@@ -76,6 +76,27 @@ impl SwarmDisasterBaselineFixture {
         &self.components
     }
 
+    /// Re-composes the exact fixture inputs for a caller-owned controller.
+    pub fn components_for_controller(
+        &self,
+        controller: SwarmDisasterControllerIdentity<'_>,
+    ) -> Result<ConfigurationComponentSet, SwarmDisasterBaselineFixtureError> {
+        let combat = self.instance.battle_catalog.combat();
+        swarm_disaster_component_set(
+            BUNDLE,
+            (combat.revision().as_str(), combat.digest().bytes()),
+            (
+                SWARM_DISASTER_BASELINE_BUILD_CATALOG_REVISION,
+                build_catalog_digest(&self.roster),
+            ),
+            self.activity_identity.definition_digest().bytes(),
+            self.instance.battle_catalog.digest(),
+            self.instance.graph_definition().digest().bytes(),
+            (controller.id, controller.revision, controller.digest),
+        )
+        .map_err(|_| SwarmDisasterBaselineFixtureError::Component)
+    }
+
     /// Fixed Formal difficulty-one area.
     #[must_use]
     pub const fn area(&self) -> &'static str {

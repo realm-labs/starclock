@@ -25,3 +25,5 @@ pub mod observation;
 pub mod schema;
 /// Authoritative ephemeral session and registry contracts.
 pub mod session;
+/// Swarm Disaster sessions over the shared Activity observation/action facade.
+pub mod swarm_disaster_activity_session;
