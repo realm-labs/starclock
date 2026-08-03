@@ -1,3 +1,5 @@
+use crate::catalog::action::SkillPointPaymentPolicy;
+use crate::catalog::action::TargetRelation;
 use crate::{
     action::model::{ActionOrigin, ActionPhasePlan, ActionPlan, HitPlan, OperationPlan},
     catalog::{CombatCatalog, action::AbilityKind},
@@ -88,7 +90,7 @@ pub(crate) struct QueuedActionContext {
     pub(crate) actor: UnitId,
     pub(crate) owner: UnitId,
     pub(crate) origin: ActionOrigin,
-    pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
+    pub(crate) payment: Option<SkillPointPaymentPolicy>,
 }
 
 pub(crate) fn lower_queued_action(
@@ -163,7 +165,7 @@ fn lower_action(
     context: ActionContext,
     ability: AbilityId,
     targets: TargetCommitment,
-    payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
+    payment: Option<SkillPointPaymentPolicy>,
 ) -> Option<ActionPlan> {
     let definition = catalog.ability(ability)?;
     let action = definition.action()?;
@@ -190,7 +192,7 @@ fn lower_action(
     let forced_basic_target_override = context.origin == ActionOrigin::Forced
         && action.kind() == AbilityKind::Basic
         && selector.pattern() == targets.selector.pattern()
-        && targets.selector.relation() == crate::catalog::action::TargetRelation::Allied;
+        && targets.selector.relation() == TargetRelation::Allied;
     ((selector == targets.selector || forced_basic_target_override)
         && action.invalidation() == targets.invalidation)
         .then_some(())?;
@@ -238,7 +240,7 @@ fn lower_action(
         resources: payment.map_or_else(
             || action.resources().clone(),
             |payment| match payment {
-                crate::catalog::action::SkillPointPaymentPolicy::Suppressed => {
+                SkillPointPaymentPolicy::Suppressed => {
                     action.resources().clone().with_costs_suppressed()
                 }
                 payment => action.resources().clone().with_skill_point_payment(payment),

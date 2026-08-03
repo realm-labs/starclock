@@ -6,17 +6,9 @@ mod curio_access;
 pub mod curio_commands;
 pub mod negative_curio_commands;
 
-use std::sync::Arc;
-
-use starclock_activity::{
-    ActivityDecisionId, ActivityExternalOutcomeId, ActivityInventoryId, ActivityOptionId,
-    ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock,
-    ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue, AttemptId, BattleSequence,
-    GraphActivity, GraphActivityCommandError, GraphActivityEncounterError,
-    GraphActivityPreparationResolution, GraphActivityResolution, GraphActivityStartError,
-    ParticipantLock,
-};
-
+use crate::battle_snapshot::StandardUniverseBattleSnapshotError;
+use crate::id::BlessingId;
+use crate::id::EncounterMemberId;
 use crate::{
     ability_runtime::{AbilityRuntimeCatalog, AbilityRuntimeError},
     abundance_runtime::AbundanceRuntimeCatalog,
@@ -58,6 +50,15 @@ use crate::{
     },
     topology::EncounterOptionBinding,
 };
+use starclock_activity::{
+    ActivityDecisionId, ActivityExternalOutcomeId, ActivityInventoryId, ActivityOptionId,
+    ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock,
+    ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue, AttemptId, BattleSequence,
+    GraphActivity, GraphActivityCommandError, GraphActivityEncounterError,
+    GraphActivityPreparationResolution, GraphActivityResolution, GraphActivityStartError,
+    ParticipantLock,
+};
+use std::sync::Arc;
 
 pub struct StandardUniverseActivity {
     graph: GraphActivity,
@@ -289,7 +290,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -348,7 +349,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -407,7 +408,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -465,7 +466,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -521,7 +522,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -577,7 +578,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -633,7 +634,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -689,7 +690,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -745,7 +746,7 @@ impl StandardUniverseActivity {
             let Ok(raw) = u32::try_from(*raw) else {
                 continue;
             };
-            let Some(id) = crate::id::BlessingId::new(raw) else {
+            let Some(id) = BlessingId::new(raw) else {
                 continue;
             };
             if !self
@@ -949,7 +950,7 @@ pub enum StandardUniverseStartError {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseEncounterError {
     UnknownEncounterOption,
-    MissingBattleOverlay(crate::id::EncounterMemberId),
+    MissingBattleOverlay(EncounterMemberId),
     InvalidScope,
     Activity(GraphActivityEncounterError),
 }
@@ -1069,7 +1070,7 @@ pub enum StandardUniverseBattleContributionError {
     Ability(RunRuntimeError),
     Projection(AbilityRuntimeError),
     Compile(UniverseBattleContributionError),
-    Snapshot(crate::battle_snapshot::StandardUniverseBattleSnapshotError),
+    Snapshot(StandardUniverseBattleSnapshotError),
 }
 
 pub(crate) fn start(

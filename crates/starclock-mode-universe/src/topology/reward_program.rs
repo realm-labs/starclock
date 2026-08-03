@@ -1,3 +1,4 @@
+use crate::curio_activity::domain::gossip_condition;
 use starclock_activity::{
     ActivityCondition, ActivityDecisionKind, ActivityEdgeId, ActivityExpression, ActivityOperation,
     ActivityOptionDefinition, ActivityProgramDefinition, ActivityProgramId, ActivitySlotId,
@@ -81,7 +82,7 @@ pub(super) fn reward_node_program_id(
             vec![ActivityOperation::Conditional {
                 condition: ActivityCondition::Any(
                     vec![
-                        crate::curio_activity::domain::gossip_condition(curio_bindings),
+                        gossip_condition(curio_bindings),
                         occurrence_battle_without_reward,
                     ]
                     .into_boxed_slice(),

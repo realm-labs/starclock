@@ -1,4 +1,6 @@
 use super::*;
+use crate::action::AgentActionKind;
+use crate::observation::MAX_EVENTS_PER_PAGE;
 use crate::observation::VisibilityPolicy;
 use starclock_data::standard::SCENARIOS;
 
@@ -135,7 +137,7 @@ fn external_action_settles_and_records_every_controller_boundary() {
     let token = session
         .offered_actions()
         .iter()
-        .find(|action| action.kind != crate::action::AgentActionKind::Concede)
+        .find(|action| action.kind != AgentActionKind::Concede)
         .unwrap()
         .token
         .clone();
@@ -174,7 +176,7 @@ fn response_loss_retry_returns_identical_bytes_without_a_second_commit() {
     let token = session
         .offered_actions()
         .iter()
-        .find(|action| action.kind != crate::action::AgentActionKind::Concede)
+        .find(|action| action.kind != AgentActionKind::Concede)
         .unwrap()
         .token
         .clone();
@@ -288,10 +290,7 @@ fn retained_events_page_exclusively_and_reject_expired_or_future_cursors() {
     let first_retained = session
         .observe(&EventCursor::parse("event_1").unwrap())
         .unwrap();
-    assert_eq!(
-        first_retained.events.len(),
-        crate::observation::MAX_EVENTS_PER_PAGE
-    );
+    assert_eq!(first_retained.events.len(), MAX_EVENTS_PER_PAGE);
     assert_eq!(first_retained.events[0].event_id.as_str(), "2");
     assert!(first_retained.events_truncated);
     assert_eq!(first_retained.event_cursor.as_str(), "event_257");
@@ -326,7 +325,7 @@ fn terminal_action_returns_terminal_observation_and_complete_trace() {
     while !session
         .offered_actions()
         .iter()
-        .any(|action| action.kind == crate::action::AgentActionKind::Concede)
+        .any(|action| action.kind == AgentActionKind::Concede)
     {
         let token = session.offered_actions()[0].token.clone();
         let request = play_request(&session, token, &format!("prepare_{preparation}"));
@@ -337,7 +336,7 @@ fn terminal_action_returns_terminal_observation_and_complete_trace() {
     let concede = session
         .offered_actions()
         .iter()
-        .find(|action| action.kind == crate::action::AgentActionKind::Concede)
+        .find(|action| action.kind == AgentActionKind::Concede)
         .unwrap()
         .token
         .clone();
@@ -365,7 +364,7 @@ fn canonical_replay_round_trips_from_a_fresh_battle() {
     let token = session
         .offered_actions()
         .iter()
-        .find(|action| action.kind != crate::action::AgentActionKind::Concede)
+        .find(|action| action.kind != AgentActionKind::Concede)
         .unwrap()
         .token
         .clone();

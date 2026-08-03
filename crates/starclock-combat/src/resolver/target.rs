@@ -1,6 +1,23 @@
 //! Transactional target revalidation and journaled repeated-hit draws.
 
+use crate::battle::state::BattleState;
+use crate::catalog::CombatCatalog;
+use crate::catalog::definition::SelectorDefinition;
+use crate::catalog::selector::RuleSelectorReference;
+use crate::catalog::selector::RuleUnitSelector;
+use crate::catalog::selector::{
+    RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+    RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorSide,
+};
+use crate::formula::model::CombatElement;
+use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
+use crate::modifier::resolve::StatResolver;
+use crate::rule::evaluate::{compare, compare_values, evaluate_value};
+use crate::rule::model::RuleEvaluationInput;
+use crate::rule::model::RuleValue;
 use crate::{
+    ActionGauge, EffectDefinitionId, FormationIndex, Hp, LifeState, PresenceState, SelectorId,
+    SourceDefinitionId, TeamSide, UnitId,
     battle::fault::BattleFault,
     catalog::action::TargetRelation,
     rng::types::DrawPurpose,
@@ -10,21 +27,21 @@ use crate::{
 use super::transaction::{Transaction, action_fault};
 
 pub(super) enum RuleSelectorResolution {
-    Selected(Box<[crate::UnitId]>),
+    Selected(Box<[UnitId]>),
     Skip,
     CancelRemaining,
 }
 
 pub(super) fn ordered_rule_selectors(
-    catalog: &crate::catalog::CombatCatalog,
-    requested: &[crate::SelectorId],
-) -> Result<Vec<crate::SelectorId>, BattleFault> {
+    catalog: &CombatCatalog,
+    requested: &[SelectorId],
+) -> Result<Vec<SelectorId>, BattleFault> {
     fn visit(
-        catalog: &crate::catalog::CombatCatalog,
-        id: crate::SelectorId,
-        visiting: &mut std::collections::BTreeSet<crate::SelectorId>,
-        visited: &mut std::collections::BTreeSet<crate::SelectorId>,
-        output: &mut Vec<crate::SelectorId>,
+        catalog: &CombatCatalog,
+        id: SelectorId,
+        visiting: &mut std::collections::BTreeSet<SelectorId>,
+        visited: &mut std::collections::BTreeSet<SelectorId>,
+        output: &mut Vec<SelectorId>,
     ) -> Result<(), BattleFault> {
         if visited.contains(&id) {
             return Ok(());
@@ -34,7 +51,7 @@ pub(super) fn ordered_rule_selectors(
         }
         let selector = catalog
             .selector(id)
-            .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+            .and_then(SelectorDefinition::rule_units)
             .ok_or_else(|| action_fault(134))?;
         for dependency in selector.dependencies() {
             visit(catalog, dependency, visiting, visited, output)?;
@@ -58,32 +75,23 @@ impl Transaction<'_> {
     #[allow(clippy::too_many_arguments)]
     pub(super) fn resolve_rule_selector(
         &mut self,
-        catalog: &crate::catalog::CombatCatalog,
-        selector: &crate::catalog::selector::RuleUnitSelector,
-        owner: crate::UnitId,
-        actor: crate::UnitId,
-        source: Option<crate::UnitId>,
-        applier: Option<crate::UnitId>,
-        primary: Option<crate::UnitId>,
-        current_subject: Option<crate::UnitId>,
-        event_order: &[crate::UnitId],
-        input: crate::rule::model::RuleEvaluationInput<'_>,
+        catalog: &CombatCatalog,
+        selector: &RuleUnitSelector,
+        owner: UnitId,
+        actor: UnitId,
+        source: Option<UnitId>,
+        applier: Option<UnitId>,
+        primary: Option<UnitId>,
+        current_subject: Option<UnitId>,
+        event_order: &[UnitId],
+        input: RuleEvaluationInput<'_>,
     ) -> Result<RuleSelectorResolution, BattleFault> {
-        use crate::catalog::selector::{
-            RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice, RuleSelectorOrdering,
-            RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorSide,
-        };
-        use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
-        use crate::rule::evaluate::{compare, compare_values, evaluate_value};
-        use crate::rule::model::RuleValue;
         let snapshot = self.selector_snapshot(
             selector.reference(),
             input.occurrence.event,
             input.cause.action,
         );
-        if selector.reference() != crate::catalog::selector::RuleSelectorReference::CurrentState
-            && snapshot.is_none()
-        {
+        if selector.reference() != RuleSelectorReference::CurrentState && snapshot.is_none() {
             return Err(action_fault(135));
         }
         let snapshot_bases = snapshot
@@ -99,12 +107,8 @@ impl Transaction<'_> {
             .zip(snapshot.as_deref())
             .zip(snapshot_shields.as_ref())
             .map(|((bases, snapshot), shields)| {
-                crate::modifier::resolve::StatResolver::new(
-                    catalog.modifier_registry(),
-                    bases,
-                    &snapshot.modifiers,
-                )
-                .with_shields(shields)
+                StatResolver::new(catalog.modifier_registry(), bases, &snapshot.modifiers)
+                    .with_shields(shields)
             });
         let mut input = input;
         if let Some(reader) = &snapshot_reader {
@@ -163,27 +167,21 @@ impl Transaction<'_> {
             selector_unit(self.state, snapshot, *id).is_some_and(|unit| {
                 let life = match selector.life() {
                     RuleLifePredicate::Any => true,
-                    RuleLifePredicate::Alive => unit.life == crate::LifeState::Alive,
-                    RuleLifePredicate::Downed => unit.life == crate::LifeState::Downed,
-                    RuleLifePredicate::Defeated => unit.life == crate::LifeState::Defeated,
+                    RuleLifePredicate::Alive => unit.life == LifeState::Alive,
+                    RuleLifePredicate::Downed => unit.life == LifeState::Downed,
+                    RuleLifePredicate::Defeated => unit.life == LifeState::Defeated,
                 };
                 let presence = match selector.presence() {
                     RulePresencePredicate::Any => true,
-                    RulePresencePredicate::Present => {
-                        unit.presence == crate::PresenceState::Present
-                    }
-                    RulePresencePredicate::Reserved => {
-                        unit.presence == crate::PresenceState::Reserved
-                    }
-                    RulePresencePredicate::Departed => {
-                        unit.presence == crate::PresenceState::Departed
-                    }
+                    RulePresencePredicate::Present => unit.presence == PresenceState::Present,
+                    RulePresencePredicate::Reserved => unit.presence == PresenceState::Reserved,
+                    RulePresencePredicate::Departed => unit.presence == PresenceState::Departed,
                     RulePresencePredicate::Untargetable => {
-                        unit.presence == crate::PresenceState::Untargetable
+                        unit.presence == PresenceState::Untargetable
                     }
-                    RulePresencePredicate::Linked => unit.presence == crate::PresenceState::Linked,
+                    RulePresencePredicate::Linked => unit.presence == PresenceState::Linked,
                     RulePresencePredicate::Transformed => {
-                        unit.presence == crate::PresenceState::Transformed
+                        unit.presence == PresenceState::Transformed
                     }
                 };
                 life && presence
@@ -386,11 +384,11 @@ impl Transaction<'_> {
 
     fn draw_rule_targets(
         &mut self,
-        selector: &crate::catalog::selector::RuleUnitSelector,
-        mut pool: Vec<crate::UnitId>,
+        selector: &RuleUnitSelector,
+        mut pool: Vec<UnitId>,
         mut weights: Option<Vec<u64>>,
         maximum: usize,
-    ) -> Result<Vec<crate::UnitId>, BattleFault> {
+    ) -> Result<Vec<UnitId>, BattleFault> {
         let purpose = selector
             .rng_purpose()
             .and_then(rule_draw_purpose)
@@ -434,21 +432,15 @@ impl Transaction<'_> {
 
     fn finish_rule_selector(
         &self,
-        selector: &crate::catalog::selector::RuleUnitSelector,
-        selected: Vec<crate::UnitId>,
+        selector: &RuleUnitSelector,
+        selected: Vec<UnitId>,
     ) -> Result<RuleSelectorResolution, BattleFault> {
         if selected.len() < usize::from(selector.minimum()) {
             match selector.empty_pool() {
-                crate::catalog::selector::RuleEmptyPoolPolicy::Fault => Err(action_fault(127)),
-                crate::catalog::selector::RuleEmptyPoolPolicy::NoOp => {
-                    Ok(RuleSelectorResolution::Selected(Box::new([])))
-                }
-                crate::catalog::selector::RuleEmptyPoolPolicy::Skip => {
-                    Ok(RuleSelectorResolution::Skip)
-                }
-                crate::catalog::selector::RuleEmptyPoolPolicy::CancelRemaining => {
-                    Ok(RuleSelectorResolution::CancelRemaining)
-                }
+                RuleEmptyPoolPolicy::Fault => Err(action_fault(127)),
+                RuleEmptyPoolPolicy::NoOp => Ok(RuleSelectorResolution::Selected(Box::new([]))),
+                RuleEmptyPoolPolicy::Skip => Ok(RuleSelectorResolution::Skip),
+                RuleEmptyPoolPolicy::CancelRemaining => Ok(RuleSelectorResolution::CancelRemaining),
             }
         } else {
             Ok(RuleSelectorResolution::Selected(
@@ -458,9 +450,9 @@ impl Transaction<'_> {
     }
     pub(super) fn resolve_hit_targets(
         &mut self,
-        actor: crate::UnitId,
+        actor: UnitId,
         commitment: &mut TargetCommitment,
-    ) -> Result<Box<[crate::UnitId]>, BattleFault> {
+    ) -> Result<Box<[UnitId]>, BattleFault> {
         let rng = &mut self.state.rng;
         let journal = &mut self.journal;
         select::resolve_for_hit(
@@ -485,9 +477,9 @@ impl Transaction<'_> {
 
     pub(super) fn draw_bounce_target(
         &mut self,
-        actor: crate::UnitId,
+        actor: UnitId,
         relation: TargetRelation,
-    ) -> Result<crate::UnitId, BattleFault> {
+    ) -> Result<UnitId, BattleFault> {
         let side = self
             .state
             .units
@@ -515,35 +507,31 @@ impl Transaction<'_> {
     }
 }
 
-fn rule_weight(value: crate::rule::model::RuleValue) -> Result<u64, BattleFault> {
+fn rule_weight(value: RuleValue) -> Result<u64, BattleFault> {
     match value {
-        crate::rule::model::RuleValue::Integer(value) => {
-            u64::try_from(value).map_err(|_| action_fault(131))
-        }
-        crate::rule::model::RuleValue::Scalar(value) => {
-            u64::try_from(value.scaled()).map_err(|_| action_fault(131))
-        }
+        RuleValue::Integer(value) => u64::try_from(value).map_err(|_| action_fault(131)),
+        RuleValue::Scalar(value) => u64::try_from(value.scaled()).map_err(|_| action_fault(131)),
         _ => Err(action_fault(132)),
     }
 }
 
 #[derive(Clone, Copy)]
 struct SelectorUnitFacts<'a> {
-    id: crate::UnitId,
-    side: crate::TeamSide,
-    formation: crate::FormationIndex,
-    life: crate::LifeState,
-    presence: crate::PresenceState,
-    current_hp: crate::Hp,
-    maximum_hp: crate::Hp,
-    gauge: Option<crate::ActionGauge>,
-    weaknesses: &'a [crate::formula::model::CombatElement],
+    id: UnitId,
+    side: TeamSide,
+    formation: FormationIndex,
+    life: LifeState,
+    presence: PresenceState,
+    current_hp: Hp,
+    maximum_hp: Hp,
+    gauge: Option<ActionGauge>,
+    weaknesses: &'a [CombatElement],
 }
 
 fn selector_unit<'a>(
-    state: &'a crate::battle::state::BattleState,
+    state: &'a BattleState,
     snapshot: Option<&'a super::selector_snapshot::RuleSelectorSnapshot>,
-    id: crate::UnitId,
+    id: UnitId,
 ) -> Option<SelectorUnitFacts<'a>> {
     if let Some(snapshot) = snapshot {
         let unit = snapshot.units.get(&id)?;
@@ -578,9 +566,9 @@ fn selector_unit<'a>(
 }
 
 fn selector_unit_ids(
-    state: &crate::battle::state::BattleState,
+    state: &BattleState,
     snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
-) -> Vec<crate::UnitId> {
+) -> Vec<UnitId> {
     snapshot.map_or_else(
         || state.units.iter_by_id().map(|unit| unit.id).collect(),
         |snapshot| snapshot.units.keys().copied().collect(),
@@ -588,10 +576,10 @@ fn selector_unit_ids(
 }
 
 fn selector_has_effect(
-    state: &crate::battle::state::BattleState,
+    state: &BattleState,
     snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
-    unit: crate::UnitId,
-    definition: crate::EffectDefinitionId,
+    unit: UnitId,
+    definition: EffectDefinitionId,
 ) -> bool {
     snapshot.map_or_else(
         || {
@@ -610,10 +598,10 @@ fn selector_has_effect(
 }
 
 fn selector_has_tag(
-    state: &crate::battle::state::BattleState,
+    state: &BattleState,
     snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
-    unit: crate::UnitId,
-    tag: crate::SourceDefinitionId,
+    unit: UnitId,
+    tag: SourceDefinitionId,
 ) -> bool {
     snapshot.map_or_else(
         || {
@@ -634,10 +622,10 @@ fn selector_has_tag(
 }
 
 fn selector_owner(
-    state: &crate::battle::state::BattleState,
+    state: &BattleState,
     snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
-    unit: crate::UnitId,
-) -> Option<crate::UnitId> {
+    unit: UnitId,
+) -> Option<UnitId> {
     snapshot.map_or_else(
         || {
             state

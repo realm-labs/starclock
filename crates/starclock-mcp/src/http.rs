@@ -1,5 +1,6 @@
 //! Bounded Streamable HTTP boundary for explicit loopback development.
 
+use crate::authorization::AuthorizationGrant;
 use std::{
     collections::HashSet,
     fmt,
@@ -452,7 +453,7 @@ fn rate_class_for_request(method: &Method, body: &[u8]) -> RateClass {
 
 fn rate_failure(
     guard: &HttpGuard,
-    grant: &crate::authorization::AuthorizationGrant,
+    grant: &AuthorizationGrant,
     class: RateClass,
 ) -> Option<Response<Body>> {
     guard
@@ -711,6 +712,7 @@ impl SessionIdSource for HttpBattleSessionIds {
 
 #[cfg(test)]
 mod tests {
+    use crate::rate_limit::READ_REQUESTS_PER_TENANT_PER_MINUTE;
     use std::sync::Arc;
 
     use axum::http::header::ACCEPT;
@@ -957,7 +959,7 @@ mod tests {
             Some(limiter.clone()),
             HttpOperations::new(),
         );
-        for _ in 0..crate::rate_limit::READ_REQUESTS_PER_TENANT_PER_MINUTE {
+        for _ in 0..READ_REQUESTS_PER_TENANT_PER_MINUTE {
             limiter.admit(&grant, RateClass::Read).unwrap();
         }
         let denied = rate_failure(&guard, &grant, RateClass::Read).unwrap();

@@ -1,5 +1,10 @@
 //! Production synchronous execution of an Activity battle handoff.
 
+use crate::battle_materialization::CYCLE_BLESSING_COUNT_METRIC_PREFIX;
+use crate::battle_materialization::DEFEATED_ENEMY_COUNT_METRIC;
+use crate::battle_materialization::FIXED_BLESSING_COUNT_METRIC_PREFIX;
+use crate::runtime::StandardUniverseActivity;
+use crate::runtime::StandardUniverseBattleStartError;
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -159,7 +164,7 @@ impl UniverseNestedBattleExecutor {
     /// Activity boundary and does not append a report.
     pub fn execute_pending_activity_battle(
         &mut self,
-        activity: &mut crate::runtime::StandardUniverseActivity,
+        activity: &mut StandardUniverseActivity,
     ) -> Result<SettledNestedBattle, ActivityNestedBattleExecutionError> {
         let catalog = self.compatibility_catalog.as_ref().ok_or(
             ActivityNestedBattleExecutionError::Execution(NestedBattleExecutionError::BattleBuild),
@@ -190,7 +195,7 @@ impl UniverseNestedBattleExecutor {
     /// with rollback on every post-start failure.
     pub fn execute_dynamic_pending_activity_battle(
         &mut self,
-        activity: &mut crate::runtime::StandardUniverseActivity,
+        activity: &mut StandardUniverseActivity,
         assembler: &StandardUniverseBattleAssembler,
     ) -> Result<SettledNestedBattle, ActivityNestedBattleExecutionError> {
         let start = assembler
@@ -290,7 +295,7 @@ impl SettledNestedBattle {
 
 #[derive(Debug)]
 pub enum ActivityNestedBattleExecutionError {
-    Start(crate::runtime::StandardUniverseBattleStartError),
+    Start(StandardUniverseBattleStartError),
     DynamicStart(StandardUniverseDynamicBattleError),
     Execution(NestedBattleExecutionError),
     Settlement(GraphActivityBattleError),
@@ -656,7 +661,7 @@ pub(crate) fn project_result(
                 ProjectedValue::ParticipantState(state)
             }
             ProjectionField::Metric { key, kind }
-                if key.as_ref() == crate::battle_materialization::DEFEATED_ENEMY_COUNT_METRIC
+                if key.as_ref() == DEFEATED_ENEMY_COUNT_METRIC
                     && *kind == MetricValueKind::BoundedInteger =>
             {
                 let defeated = view
@@ -676,13 +681,11 @@ pub(crate) fn project_result(
             ProjectionField::Metric { key, kind }
                 if *kind == MetricValueKind::BoundedInteger
                     && key
-                        .strip_prefix(
-                            crate::battle_materialization::FIXED_BLESSING_COUNT_METRIC_PREFIX,
-                        )
+                        .strip_prefix(FIXED_BLESSING_COUNT_METRIC_PREFIX)
                         .is_some() =>
             {
                 let count = key
-                    .strip_prefix(crate::battle_materialization::FIXED_BLESSING_COUNT_METRIC_PREFIX)
+                    .strip_prefix(FIXED_BLESSING_COUNT_METRIC_PREFIX)
                     .and_then(|value| value.parse::<i64>().ok())
                     .filter(|value| (1..=4).contains(value))
                     .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
@@ -694,9 +697,7 @@ pub(crate) fn project_result(
             ProjectionField::Metric { key, kind }
                 if *kind == MetricValueKind::BoundedInteger
                     && key
-                        .strip_prefix(
-                            crate::battle_materialization::CYCLE_BLESSING_COUNT_METRIC_PREFIX,
-                        )
+                        .strip_prefix(CYCLE_BLESSING_COUNT_METRIC_PREFIX)
                         .is_some() =>
             {
                 let (cycles, base, bonus) = parse_cycle_reward_metric(key)?;
@@ -739,7 +740,7 @@ fn cycle_reward_count(
 
 fn parse_cycle_reward_metric(key: &str) -> Result<(u8, u8, u8), NestedBattleExecutionError> {
     let value = key
-        .strip_prefix(crate::battle_materialization::CYCLE_BLESSING_COUNT_METRIC_PREFIX)
+        .strip_prefix(CYCLE_BLESSING_COUNT_METRIC_PREFIX)
         .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
     let mut parts = value.split('.');
     let cycles = parts

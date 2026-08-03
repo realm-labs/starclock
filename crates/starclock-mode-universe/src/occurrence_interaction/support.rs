@@ -1,4 +1,6 @@
 use super::*;
+use crate::curio_activity::GOSSIP_CURIO_CONTENT;
+use crate::path::ExactParameter;
 
 const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 
@@ -223,10 +225,7 @@ pub(super) fn outcome_pairs(
 }
 
 pub(super) fn default_scalar() -> AuthoredScalar {
-    AuthoredScalar::new(
-        crate::path::ExactParameter::new(1, 0),
-        AuthoredScalarUnit::Scalar,
-    )
+    AuthoredScalar::new(ExactParameter::new(1, 0), AuthoredScalarUnit::Scalar)
 }
 
 pub(super) fn lower_costs(
@@ -396,7 +395,7 @@ pub(super) fn fragment_delta(
                 ))),
                 Box::new(ActivityExpression::InventoryCount {
                     inventory: gain_inventory,
-                    content: crate::curio_activity::GOSSIP_CURIO_CONTENT,
+                    content: GOSSIP_CURIO_CONTENT,
                 }),
             )),
         ),

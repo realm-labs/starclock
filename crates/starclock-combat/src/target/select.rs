@@ -238,6 +238,10 @@ const fn opposite(side: TeamSide) -> TeamSide {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::Scalar;
+    use crate::Speed;
+    use crate::StatValue;
+    use crate::formula::toughness::EnemyRank;
     use crate::{
         Energy, Hp, PresenceState,
         actor::store::{FormationEntry, UnitState},
@@ -273,14 +277,14 @@ mod tests {
             presence: PresenceState::Present,
             current_hp: Hp::new(100).unwrap(),
             maximum_hp: Hp::new(100).unwrap(),
-            base_attack: crate::StatValue::from_scaled(0).unwrap(),
-            base_defense: crate::StatValue::from_scaled(0).unwrap(),
-            base_speed: crate::Speed::from_scaled(100_000_000).unwrap(),
-            base_effect_hit_rate: crate::Scalar::ZERO,
-            base_effect_resistance: crate::Scalar::ZERO,
+            base_attack: StatValue::from_scaled(0).unwrap(),
+            base_defense: StatValue::from_scaled(0).unwrap(),
+            base_speed: Speed::from_scaled(100_000_000).unwrap(),
+            base_effect_hit_rate: Scalar::ZERO,
+            base_effect_resistance: Scalar::ZERO,
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
-            rank: crate::formula::toughness::EnemyRank::Normal,
+            rank: EnemyRank::Normal,
             weaknesses: Vec::new(),
             permanent_weaknesses: Box::new([]),
             temporary_weaknesses: Vec::new(),

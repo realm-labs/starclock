@@ -1,3 +1,4 @@
+use crate::battle_materialization::UniverseBattleRoster;
 use starclock_activity::{ActivityInstanceId, ActivityTerminalOutcome};
 use starclock_replay::{
     codec::{CanonicalEncode, CanonicalSink, Encoder},
@@ -221,7 +222,7 @@ fn assert_divergence(
     bytes: &[u8],
     instance: &super::SwarmDisasterRuntimeInstance,
     request: SwarmSeededRunRequest,
-    roster: &crate::battle_materialization::UniverseBattleRoster,
+    roster: &UniverseBattleRoster,
     components: &ConfigurationComponentSet,
     expected: SwarmReplayDivergenceKind,
 ) {

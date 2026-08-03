@@ -1,4 +1,9 @@
-use crate::{NumericError, Ratio, RawToughness, SourceDefinitionId, formula::model::CombatElement};
+use crate::formula::toughness::BreakDamageDefinition;
+use crate::formula::toughness::ToughnessReductionContext;
+use crate::{
+    NumericError, Probability, Ratio, RawToughness, SourceDefinitionId,
+    formula::model::CombatElement,
+};
 
 /// Stable authored Toughness-layer family.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -184,8 +189,8 @@ pub struct ToughnessReductionDefinition {
     pub element: CombatElement,
     /// Allows this operation to route reduction without a matching weakness.
     pub ignores_weakness: bool,
-    pub reduction: crate::formula::toughness::ToughnessReductionContext,
-    pub break_damage: crate::formula::toughness::BreakDamageDefinition,
+    pub reduction: ToughnessReductionContext,
+    pub break_damage: BreakDamageDefinition,
     /// Final clamped result of 150% base chance, EHR, Effect RES and debuff RES.
-    pub break_effect_chance: crate::Probability,
+    pub break_effect_chance: Probability,
 }

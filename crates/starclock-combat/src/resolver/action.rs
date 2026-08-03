@@ -1,4 +1,28 @@
+use crate::action::lower::QueuedActionContext;
+use crate::action::lower::lower_queued_action;
+use crate::action::model::HitPlan;
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::AbilityKind;
+use crate::catalog::action::AbilityProgramTiming;
+use crate::catalog::action::HitCritPolicy;
+use crate::catalog::action::HitTargetGroup;
+use crate::catalog::action::OrdinaryDamageDefinition;
+use crate::catalog::action::ReactionBoundary;
+use crate::catalog::action::ScalingDamageDefinition;
+use crate::catalog::action::SkillPointPaymentPolicy;
+use crate::catalog::encounter::WaveTransitionPolicy;
+use crate::command::legal::ability_owner;
+use crate::formula::model::DamageClass;
+use crate::modifier::model::SnapshotPolicy;
+use crate::modifier::resolve::StatResolver;
+use crate::reaction::queue::QueuedAction;
+use crate::resource::check::can_pay_with_policy;
+use crate::rule::model::SlotResetPoint;
+use crate::target::model::TargetCommitment;
 use crate::{
+    ActionCancellationReason, ActionOrigin, ControlledAction, DiagnosticRecord, EffectTickPhase,
+    Energy, FaultBoundary, FaultKind, FaultPolicy, LifeState, Ratio, Rounding, Scalar,
+    SkillPointPayer, UnitId,
     action::model::ActionPlan,
     battle::fault::BattleFault,
     catalog::action::HitOperationDefinition,
@@ -26,13 +50,13 @@ use super::{
 const MAX_REACTIONS_PER_COMMAND: usize = 256;
 
 pub(super) fn drain_reactions(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
-    boundary: crate::catalog::action::ReactionBoundary,
+    boundary: ReactionBoundary,
     mut parent: EventId,
 ) -> Result<EventId, BattleFault> {
     while let Some(queued) = txn.reactions.pop_ready(boundary) {
-        txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionDequeued {
+        txn.record_diagnostic(|| DiagnosticRecord::ReactionDequeued {
             insertion: queued.order.insertion,
             actor: queued.actor,
             ability: queued.ability,
@@ -40,52 +64,34 @@ pub(super) fn drain_reactions(
         });
         if !txn.consume_reaction_budget(MAX_REACTIONS_PER_COMMAND) {
             return Err(BattleFault::new(
-                crate::FaultKind::BudgetExceeded,
-                crate::FaultBoundary::Command,
-                crate::FaultPolicy::Rollback,
+                FaultKind::BudgetExceeded,
+                FaultBoundary::Command,
+                FaultPolicy::Rollback,
                 0x3171,
                 Some(MAX_REACTIONS_PER_COMMAND as i64),
             ));
         }
         let Some(unit) = txn.state.units.get(queued.actor) else {
-            parent = cancel_queued(
-                txn,
-                &queued,
-                crate::ActionCancellationReason::ActorUnavailable,
-            );
+            parent = cancel_queued(txn, &queued, ActionCancellationReason::ActorUnavailable);
             continue;
         };
-        if unit.life != crate::LifeState::Alive || !unit.presence.is_active() {
-            parent = cancel_queued(
-                txn,
-                &queued,
-                crate::ActionCancellationReason::ActorUnavailable,
-            );
+        if unit.life != LifeState::Alive || !unit.presence.is_active() {
+            parent = cancel_queued(txn, &queued, ActionCancellationReason::ActorUnavailable);
             continue;
         }
-        if crate::command::legal::ability_owner(txn.state, catalog, queued.actor, queued.ability)
-            .is_none()
-        {
-            parent = cancel_queued(
-                txn,
-                &queued,
-                crate::ActionCancellationReason::AbilityUnavailable,
-            );
+        if ability_owner(txn.state, catalog, queued.actor, queued.ability).is_none() {
+            parent = cancel_queued(txn, &queued, ActionCancellationReason::AbilityUnavailable);
             continue;
         }
         if matches!(
             queued.origin,
-            crate::ActionOrigin::FollowUp | crate::ActionOrigin::Counter
+            ActionOrigin::FollowUp | ActionOrigin::Counter
         ) && txn
             .state
             .effects
-            .blocks(queued.actor, crate::ControlledAction::FollowUp)
+            .blocks(queued.actor, ControlledAction::FollowUp)
         {
-            parent = cancel_queued(
-                txn,
-                &queued,
-                crate::ActionCancellationReason::FollowUpBlocked,
-            );
+            parent = cancel_queued(txn, &queued, ActionCancellationReason::FollowUpBlocked);
             continue;
         }
         let Some(action) = catalog
@@ -95,31 +101,27 @@ pub(super) fn drain_reactions(
             parent = cancel_queued(
                 txn,
                 &queued,
-                crate::ActionCancellationReason::MissingActionDefinition,
+                ActionCancellationReason::MissingActionDefinition,
             );
             continue;
         };
         let payment = queued
             .payment
             .unwrap_or(action.resources().skill_point_payment());
-        if !crate::resource::check::can_pay_with_policy(
+        if !can_pay_with_policy(
             &txn.state.units,
             &txn.state.teams,
             queued.actor,
             action.resources(),
             payment,
         ) {
-            parent = cancel_queued(
-                txn,
-                &queued,
-                crate::ActionCancellationReason::ResourceUnavailable,
-            );
+            parent = cancel_queued(txn, &queued, ActionCancellationReason::ResourceUnavailable);
             continue;
         }
-        let mut plan = crate::action::lower::lower_queued_action(
+        let mut plan = lower_queued_action(
             catalog,
             txn,
-            crate::action::lower::QueuedActionContext {
+            QueuedActionContext {
                 actor: queued.actor,
                 owner: queued.owner,
                 origin: queued.origin,
@@ -132,13 +134,13 @@ pub(super) fn drain_reactions(
         let targets_accepted = txn
             .resolve_hit_targets(plan.actor, &mut plan.targets)
             .is_ok_and(|targets| !targets.is_empty());
-        txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionTargetsValidated {
+        txn.record_diagnostic(|| DiagnosticRecord::ReactionTargetsValidated {
             insertion: queued.order.insertion,
             targets: (&plan.targets).into(),
             accepted: targets_accepted,
         });
         if !targets_accepted {
-            parent = cancel_queued(txn, &queued, crate::ActionCancellationReason::TargetInvalid);
+            parent = cancel_queued(txn, &queued, ActionCancellationReason::TargetInvalid);
             continue;
         }
         parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
@@ -150,10 +152,10 @@ pub(super) fn drain_reactions(
 
 fn cancel_queued(
     txn: &mut Transaction<'_>,
-    queued: &crate::reaction::queue::QueuedAction,
-    reason: crate::ActionCancellationReason,
+    queued: &QueuedAction,
+    reason: ActionCancellationReason,
 ) -> EventId {
-    txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionCancelled {
+    txn.record_diagnostic(|| DiagnosticRecord::ReactionCancelled {
         insertion: queued.order.insertion,
         actor: queued.actor,
         ability: queued.ability,
@@ -173,7 +175,7 @@ fn cancel_queued(
 }
 
 pub(super) fn execute_action_plan(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     root: CommandId,
     command_parent: EventId,
@@ -182,13 +184,11 @@ pub(super) fn execute_action_plan(
     debug_assert_eq!(
         plan.normal_turn.is_some(),
         plan.origin.owns_timeline_turn()
-            || plan.origin == crate::ActionOrigin::Forced
+            || plan.origin == ActionOrigin::Forced
                 && catalog
                     .ability(plan.ability)
                     .and_then(|ability| ability.action())
-                    .is_some_and(|action| {
-                        action.kind() == crate::catalog::action::AbilityKind::Basic
-                    })
+                    .is_some_and(|action| { action.kind() == AbilityKind::Basic })
     );
     let _selector = plan.selector;
     let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(7))?;
@@ -217,26 +217,19 @@ pub(super) fn execute_action_plan(
         base.with_applier(plan.owner),
         parent,
         plan,
-        crate::catalog::action::AbilityProgramTiming::Entry,
+        AbilityProgramTiming::Entry,
         None,
         &mut HitOperationScratch::default(),
     )?;
     parent = apply_resource_costs(txn, base, parent, plan)?;
-    super::modifier_snapshot::refresh(
-        catalog,
-        txn,
-        crate::modifier::model::SnapshotPolicy::OnActionStart,
-    )?;
-    txn.reset_rule_slots(
-        crate::rule::model::SlotResetPoint::ActionStart,
-        Some(plan.actor),
-    );
+    super::modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnActionStart)?;
+    txn.reset_rule_slots(SlotResetPoint::ActionStart, Some(plan.actor));
     parent = super::effect_boundary::tick(
         catalog,
         txn,
         base.with_applier(plan.owner),
         parent,
-        crate::EffectTickPhase::ActionStart,
+        EffectTickPhase::ActionStart,
         plan.actor,
     )?;
     parent = txn.emit(
@@ -256,7 +249,7 @@ pub(super) fn execute_action_plan(
         base.with_applier(plan.owner),
         parent,
         plan,
-        crate::catalog::action::AbilityProgramTiming::BeforeHits,
+        AbilityProgramTiming::BeforeHits,
         None,
         &mut HitOperationScratch::default(),
     )?;
@@ -264,11 +257,7 @@ pub(super) fn execute_action_plan(
     let phases = plan.phases.clone();
     for phase in &phases {
         let phase_cause = base.with_phase(phase.id);
-        super::modifier_snapshot::refresh(
-            catalog,
-            txn,
-            crate::modifier::model::SnapshotPolicy::OnPhaseStart,
-        )?;
+        super::modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnPhaseStart)?;
         parent = txn.emit(
             phase_cause.with_parent(parent),
             BattleEventKind::Phase(PhaseEventData::Started {
@@ -278,20 +267,13 @@ pub(super) fn execute_action_plan(
         );
         parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
         for hit in &phase.hits {
-            txn.reset_rule_slots(
-                crate::rule::model::SlotResetPoint::HitStart,
-                Some(plan.actor),
-            );
+            txn.reset_rule_slots(SlotResetPoint::HitStart, Some(plan.actor));
             let mut operation_scratch = HitOperationScratch::default();
             debug_assert_eq!(hit.invalidation, plan.targets.invalidation);
             let selected = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
             let targets =
                 project_hit_targets(txn, plan.actor, &plan.targets, hit.target_group, selected)?;
-            super::modifier_snapshot::refresh(
-                catalog,
-                txn,
-                crate::modifier::model::SnapshotPolicy::OnHitStart,
-            )?;
+            super::modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnHitStart)?;
             let hit_cause = phase_cause
                 .with_hit(hit.id)
                 .with_primary_target(plan.targets.primary);
@@ -311,7 +293,7 @@ pub(super) fn execute_action_plan(
                 hit_cause.with_applier(plan.owner),
                 parent,
                 plan,
-                crate::catalog::action::AbilityProgramTiming::Hits,
+                AbilityProgramTiming::Hits,
                 Some(hit),
                 &mut operation_scratch,
             )?;
@@ -497,18 +479,13 @@ pub(super) fn execute_action_plan(
                 }),
             );
             parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
-            parent = drain_reactions(
-                catalog,
-                txn,
-                crate::catalog::action::ReactionBoundary::AfterHit,
-                parent,
-            )?;
+            parent = drain_reactions(catalog, txn, ReactionBoundary::AfterHit, parent)?;
             parent = super::settle::settle_wave_boundary(
                 catalog,
                 txn,
                 hit_cause,
                 parent,
-                crate::catalog::encounter::WaveTransitionPolicy::AfterHit,
+                WaveTransitionPolicy::AfterHit,
             )?;
         }
         parent = run_programs_at(
@@ -517,7 +494,7 @@ pub(super) fn execute_action_plan(
             phase_cause.with_applier(plan.owner),
             parent,
             plan,
-            crate::catalog::action::AbilityProgramTiming::AfterHits,
+            AbilityProgramTiming::AfterHits,
             None,
             &mut HitOperationScratch::default(),
         )?;
@@ -530,18 +507,13 @@ pub(super) fn execute_action_plan(
             }),
         );
         parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
-        parent = drain_reactions(
-            catalog,
-            txn,
-            crate::catalog::action::ReactionBoundary::AfterPhase,
-            parent,
-        )?;
+        parent = drain_reactions(catalog, txn, ReactionBoundary::AfterPhase, parent)?;
         parent = super::settle::settle_wave_boundary(
             catalog,
             txn,
             phase_cause,
             parent,
-            crate::catalog::encounter::WaveTransitionPolicy::AfterPhase,
+            WaveTransitionPolicy::AfterPhase,
         )?;
     }
     parent = run_programs_at(
@@ -550,12 +522,12 @@ pub(super) fn execute_action_plan(
         base.with_applier(plan.owner),
         parent,
         plan,
-        crate::catalog::action::AbilityProgramTiming::Resolved,
+        AbilityProgramTiming::Resolved,
         None,
         &mut HitOperationScratch::default(),
     )?;
     parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
-    if plan.origin == crate::ActionOrigin::Countdown
+    if plan.origin == ActionOrigin::Countdown
         && catalog
             .countdown_for_ability(plan.ability)
             .is_some_and(|definition| definition.definition().ends_transformation())
@@ -587,11 +559,11 @@ pub(super) fn execute_action_plan(
 }
 
 fn resolve_scaling_damage(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &Transaction<'_>,
-    actor: crate::UnitId,
-    definition: crate::catalog::action::ScalingDamageDefinition,
-) -> Result<crate::catalog::action::OrdinaryDamageDefinition, BattleFault> {
+    actor: UnitId,
+    definition: ScalingDamageDefinition,
+) -> Result<OrdinaryDamageDefinition, BattleFault> {
     use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
     use crate::rule::evaluate::StatQueryReader;
 
@@ -603,17 +575,13 @@ fn resolve_scaling_damage(
         .cloned()
         .collect::<Vec<_>>();
     let shields = super::stat_input::shield_values(txn);
-    let reader = crate::modifier::resolve::StatResolver::new(
-        catalog.modifier_registry(),
-        &bases,
-        &modifiers,
-    )
-    .with_shields(&shields);
+    let reader =
+        StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
     let purpose = match definition.class() {
-        crate::formula::model::DamageClass::Direct => FormulaPurpose::OrdinaryDamage,
-        crate::formula::model::DamageClass::Dot => FormulaPurpose::Dot,
-        crate::formula::model::DamageClass::Additional => FormulaPurpose::AdditionalDamage,
-        crate::formula::model::DamageClass::Elation => FormulaPurpose::ElationDamage,
+        DamageClass::Direct => FormulaPurpose::OrdinaryDamage,
+        DamageClass::Dot => FormulaPurpose::Dot,
+        DamageClass::Additional => FormulaPurpose::AdditionalDamage,
+        DamageClass::Elation => FormulaPurpose::ElationDamage,
     };
     let stat = reader
         .query_stat(
@@ -628,13 +596,13 @@ fn resolve_scaling_damage(
 
 #[allow(clippy::too_many_arguments)]
 fn run_programs_at(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     plan: &ActionPlan,
-    timing: crate::catalog::action::AbilityProgramTiming,
-    hit: Option<&crate::action::model::HitPlan>,
+    timing: AbilityProgramTiming,
+    hit: Option<&HitPlan>,
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
     for binding in plan
@@ -658,11 +626,9 @@ fn run_programs_at(
                 trigger: None,
                 hit: hit.map(|value| value.id),
                 primary: plan.targets.primary,
-                damage_share: hit.map_or(crate::Ratio::ONE, |value| value.damage_share),
-                toughness_share: hit.map_or(crate::Ratio::ONE, |value| value.toughness_share),
-                crit_policy: hit.map_or(crate::catalog::action::HitCritPolicy::Never, |value| {
-                    value.crit_policy
-                }),
+                damage_share: hit.map_or(Ratio::ONE, |value| value.damage_share),
+                toughness_share: hit.map_or(Ratio::ONE, |value| value.toughness_share),
+                crit_policy: hit.map_or(HitCritPolicy::Never, |value| value.crit_policy),
             },
             scratch,
         )?;
@@ -672,11 +638,11 @@ fn run_programs_at(
 
 fn project_hit_targets(
     txn: &mut Transaction<'_>,
-    actor: crate::UnitId,
-    commitment: &crate::target::model::TargetCommitment,
-    group: crate::catalog::action::HitTargetGroup,
-    selected: Box<[crate::UnitId]>,
-) -> Result<Box<[crate::UnitId]>, BattleFault> {
+    actor: UnitId,
+    commitment: &TargetCommitment,
+    group: HitTargetGroup,
+    selected: Box<[UnitId]>,
+) -> Result<Box<[UnitId]>, BattleFault> {
     use crate::catalog::action::HitTargetGroup;
     let targets = match group {
         HitTargetGroup::Primary => commitment
@@ -714,23 +680,16 @@ fn apply_resource_costs(
     if policy.skill_point_cost() > 0 {
         let attempted = policy.skill_point_cost();
         let (payer, before, after, effective) = match policy.skill_point_payment() {
-            crate::catalog::action::SkillPointPaymentPolicy::TeamSkillPoints => {
+            SkillPointPaymentPolicy::TeamSkillPoints => {
                 let before = txn.state.teams.get(side).skill_points;
                 let after = before
                     .checked_sub(attempted)
                     .ok_or_else(|| action_fault(21))?;
                 txn.set_skill_points(side, after);
-                (
-                    crate::SkillPointPayer::TeamSkillPoints,
-                    before,
-                    after,
-                    attempted,
-                )
+                (SkillPointPayer::TeamSkillPoints, before, after, attempted)
             }
-            crate::catalog::action::SkillPointPaymentPolicy::Suppressed => {
-                (crate::SkillPointPayer::Suppressed, 0, 0, 0)
-            }
-            crate::catalog::action::SkillPointPaymentPolicy::TeamResource(resource) => {
+            SkillPointPaymentPolicy::Suppressed => (SkillPointPayer::Suppressed, 0, 0, 0),
+            SkillPointPaymentPolicy::TeamResource(resource) => {
                 let before = txn
                     .state
                     .teams
@@ -743,7 +702,7 @@ fn apply_resource_costs(
                     .ok_or_else(|| action_fault(32))?;
                 txn.set_team_resource(side, resource, after)?;
                 (
-                    crate::SkillPointPayer::TeamResource(resource),
+                    SkillPointPayer::TeamResource(resource),
                     before,
                     after,
                     attempted,
@@ -763,14 +722,14 @@ fn apply_resource_costs(
             }),
         );
     }
-    if policy.energy_cost() > crate::Energy::ZERO {
+    if policy.energy_cost() > Energy::ZERO {
         let before = txn
             .state
             .units
             .get(plan.actor)
             .ok_or_else(|| action_fault(22))?
             .current_energy;
-        let after = crate::Energy::from_scaled(
+        let after = Energy::from_scaled(
             before
                 .scaled()
                 .checked_sub(policy.energy_cost().scaled())
@@ -784,7 +743,7 @@ fn apply_resource_costs(
                 unit: plan.actor,
                 before,
                 after,
-                overflow: crate::Energy::ZERO,
+                overflow: Energy::ZERO,
             }),
         );
     }
@@ -796,7 +755,7 @@ fn apply_resource_costs(
             .and_then(|unit| unit.resource(cost.stable_key()))
             .map(|resource| (resource.current, resource.maximum))
             .ok_or_else(|| action_fault(73))?;
-        let after = crate::Scalar::from_scaled(
+        let after = Scalar::from_scaled(
             before
                 .scaled()
                 .checked_sub(cost.amount().scaled())
@@ -847,7 +806,7 @@ fn apply_resource_costs(
 }
 
 fn apply_resource_gains(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -875,7 +834,7 @@ fn apply_resource_gains(
             BattleEventKind::Resource(ResourceEventData::SkillPoints {
                 side,
                 attempted: policy.skill_point_gain(),
-                payer: crate::SkillPointPayer::TeamSkillPoints,
+                payer: SkillPointPayer::TeamSkillPoints,
                 effective: after - before,
                 before,
                 after,
@@ -883,11 +842,11 @@ fn apply_resource_gains(
             }),
         );
     }
-    if policy.energy_gain() > crate::Energy::ZERO {
+    if policy.energy_gain() > Energy::ZERO {
         let rate = super::operation_formula::FormulaInputs::new(txn)?
             .energy_regeneration_rate(catalog, txn, cause, plan.actor)?;
-        let gain = crate::Scalar::from_scaled(policy.energy_gain().scaled())
-            .checked_mul(rate, crate::Rounding::NearestTiesEven)
+        let gain = Scalar::from_scaled(policy.energy_gain().scaled())
+            .checked_mul(rate, Rounding::NearestTiesEven)
             .map_err(|_| action_fault(77))?;
         if gain.scaled() < 0 {
             return Err(action_fault(78));
@@ -905,8 +864,8 @@ fn apply_resource_gains(
             .ok_or_else(|| action_fault(28))?;
         let after_scaled = uncapped.min(maximum.scaled());
         let overflow =
-            crate::Energy::from_scaled(uncapped - after_scaled).map_err(|_| action_fault(29))?;
-        let after = crate::Energy::from_scaled(after_scaled).map_err(|_| action_fault(30))?;
+            Energy::from_scaled(uncapped - after_scaled).map_err(|_| action_fault(29))?;
+        let after = Energy::from_scaled(after_scaled).map_err(|_| action_fault(30))?;
         txn.set_energy(plan.actor, after)?;
         parent = txn.emit(
             cause.with_parent(parent),

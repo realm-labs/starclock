@@ -1,5 +1,7 @@
 //! Exact isolated-bundle loading and composed catalog identity.
 
+use crate::generated::universe_profile::UniverseProfile;
+use crate::lowering::lower;
 use std::sync::Arc;
 
 use crate::curio::{CurioDefinition, CurioStateDefinition};
@@ -153,7 +155,7 @@ impl UniverseCatalog {
         let profile = only_profile(&transport)?;
         validate_profile(profile)?;
         let summary = validate_counts(&transport, profile)?;
-        let definitions = crate::lowering::lower(&transport)?;
+        let definitions = lower(&transport)?;
         let profile_digest = profile_digest(profile);
         let build_digest = core.build_catalog().digest().bytes();
         let configuration = compose_configuration(
@@ -466,9 +468,7 @@ fn decode(bytes: &[u8]) -> Result<SoraConfig, UniverseCatalogLoadError> {
     })
 }
 
-fn only_profile(
-    config: &SoraConfig,
-) -> Result<&crate::generated::universe_profile::UniverseProfile, UniverseCatalogLoadError> {
+fn only_profile(config: &SoraConfig) -> Result<&UniverseProfile, UniverseCatalogLoadError> {
     let mut rows = config.universe_profile().ordered_rows();
     let profile = rows.next().ok_or_else(|| {
         error(
@@ -485,9 +485,7 @@ fn only_profile(
     Ok(profile)
 }
 
-fn validate_profile(
-    profile: &crate::generated::universe_profile::UniverseProfile,
-) -> Result<(), UniverseCatalogLoadError> {
+fn validate_profile(profile: &UniverseProfile) -> Result<(), UniverseCatalogLoadError> {
     let valid = profile.id == 1
         && profile.stable_key == EXPECTED_PROFILE_KEY
         && profile.game_version == EXPECTED_GAME_VERSION
@@ -530,7 +528,7 @@ fn validate_core(
 
 fn validate_counts(
     config: &SoraConfig,
-    profile: &crate::generated::universe_profile::UniverseProfile,
+    profile: &UniverseProfile,
 ) -> Result<UniverseCatalogSummary, UniverseCatalogLoadError> {
     let coverage = config.universe_coverage();
     let content_records = coverage.ordered_rows().try_fold(0usize, |total, row| {
@@ -584,9 +582,7 @@ fn validate_counts(
     }
 }
 
-fn profile_digest(
-    profile: &crate::generated::universe_profile::UniverseProfile,
-) -> UniverseProfileDigest {
+fn profile_digest(profile: &UniverseProfile) -> UniverseProfileDigest {
     let mut encoder = Encoder::new(b"starclock-standard-universe-profile");
     encoder.u32(u32::try_from(profile.id).expect("validated positive profile ID"));
     for value in [

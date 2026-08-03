@@ -3,8 +3,26 @@
 //! Sessions compose deterministic Goal 01 libraries while operational identity,
 //! time, ownership, expiry, quotas and idempotency remain outside domain state.
 
-use std::collections::{BTreeMap, VecDeque};
+mod registry;
 
+use crate::observation::AgentBattlePhase;
+use crate::observation::MAX_EVENTS_PER_PAGE;
+use crate::{
+    action::{ActionBindingError, OfferedAction, OfferedActionSet},
+    error::{AgentError, AgentErrorCode},
+    observation::{
+        AgentBattleStatus, AgentEventPage, AgentEventSummary, AgentObservation, VisibilityPolicy,
+        project_event_summary, project_player_visible,
+    },
+    schema::{
+        ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId,
+    },
+};
+pub use registry::{
+    AgentSessionOwner, AgentSessionRegistry, IDLE_TTL_SECONDS, MAX_GLOBAL_SESSIONS,
+    MAX_SESSIONS_PER_PRINCIPAL, MAX_SESSIONS_PER_TENANT, MAXIMUM_LIFETIME_SECONDS,
+    OperationalClock, RegistryCreateSessionRequest, SessionIdSource,
+};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use starclock_ai::EnemyController;
@@ -23,25 +41,7 @@ use starclock_replay::{
     entry::ReplayEntry,
     format::{ReplayEnvironment, ReplayHeader, decode_replay},
 };
-
-use crate::{
-    action::{ActionBindingError, OfferedAction, OfferedActionSet},
-    error::{AgentError, AgentErrorCode},
-    observation::{
-        AgentBattleStatus, AgentEventPage, AgentEventSummary, AgentObservation, VisibilityPolicy,
-        project_event_summary, project_player_visible,
-    },
-    schema::{
-        ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId,
-    },
-};
-
-mod registry;
-pub use registry::{
-    AgentSessionOwner, AgentSessionRegistry, IDLE_TTL_SECONDS, MAX_GLOBAL_SESSIONS,
-    MAX_SESSIONS_PER_PRINCIPAL, MAX_SESSIONS_PER_TENANT, MAXIMUM_LIFETIME_SECONDS,
-    OperationalClock, RegistryCreateSessionRequest, SessionIdSource,
-};
+use std::collections::{BTreeMap, VecDeque};
 
 /// Human-readable responsibility marker used by architecture tests.
 pub const RESPONSIBILITY: &str = "ephemeral authoritative sessions and registry";
@@ -373,7 +373,7 @@ impl AgentReplayExport {
 pub struct AgentReplayVerification {
     pub command_count: AgentUInt,
     pub final_state_hash: AgentHash,
-    pub phase: crate::observation::AgentBattlePhase,
+    pub phase: AgentBattlePhase,
 }
 
 struct CachedActionResponse {
@@ -433,7 +433,7 @@ impl AgentReplayRecorder {
             .filter(|event| event.event_id.to_u64() > requested);
         let events = visible
             .by_ref()
-            .take(crate::observation::MAX_EVENTS_PER_PAGE)
+            .take(MAX_EVENTS_PER_PAGE)
             .cloned()
             .collect::<Vec<_>>();
         let truncated = visible.next().is_some();
@@ -961,12 +961,12 @@ fn build_replay_header(
     .map_err(|_| replay_header_error())
 }
 
-fn replay_phase(phase: BattlePhase) -> Result<crate::observation::AgentBattlePhase, AgentError> {
+fn replay_phase(phase: BattlePhase) -> Result<AgentBattlePhase, AgentError> {
     match phase {
-        BattlePhase::AwaitingCommand => Ok(crate::observation::AgentBattlePhase::AwaitingCommand),
-        BattlePhase::Won => Ok(crate::observation::AgentBattlePhase::Won),
-        BattlePhase::Lost => Ok(crate::observation::AgentBattlePhase::Lost),
-        BattlePhase::Faulted => Ok(crate::observation::AgentBattlePhase::Faulted),
+        BattlePhase::AwaitingCommand => Ok(AgentBattlePhase::AwaitingCommand),
+        BattlePhase::Won => Ok(AgentBattlePhase::Won),
+        BattlePhase::Lost => Ok(AgentBattlePhase::Lost),
+        BattlePhase::Faulted => Ok(AgentBattlePhase::Faulted),
         BattlePhase::Initializing | BattlePhase::Resolving => Err(agent_error(
             AgentErrorCode::ReplayDiverged,
             "The verified replay ended outside a stable external boundary.",

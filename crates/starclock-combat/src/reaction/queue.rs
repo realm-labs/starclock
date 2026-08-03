@@ -1,5 +1,6 @@
 //! Deterministic queued-action ordering independent from presentation timing.
 
+use crate::catalog::action::SkillPointPaymentPolicy;
 use crate::{
     AbilityId, ActionOrigin, CommandId, EventId, RuleId, RuleInstanceId, SourceDefinitionId,
     TriggerId, UnitId,
@@ -62,7 +63,7 @@ pub(crate) struct QueuedAction {
     pub(crate) ability: AbilityId,
     pub(crate) origin: ActionOrigin,
     pub(crate) targets: TargetCommitment,
-    pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
+    pub(crate) payment: Option<SkillPointPaymentPolicy>,
 }
 
 #[derive(Clone, Debug, Default)]

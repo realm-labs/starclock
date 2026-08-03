@@ -1,11 +1,18 @@
 use super::*;
+use crate::curio_activity::CurioActivityBindings;
+use crate::curio_activity::domain::cogwheel_condition;
+use crate::curio_activity::domain::cogwheel_domain_entry_settlement;
+use crate::curio_activity::domain::gold_coin_condition;
+use crate::curio_activity::domain::gold_coin_domain_entry_settlement;
+use crate::curio_activity::domain::perpetual_motion_condition;
+use crate::curio_activity::domain::perpetual_motion_domain_entry_settlement;
 
 pub(super) fn compile_route_program(
     hub: &DomainHubDefinition,
     hub_clear_slot: ActivitySlotId,
     topology_edges: &[(TopologyNodeId, TopologyNodeId, ActivityEdgeId)],
     exit_edges: &[(TopologyNodeId, ActivityEdgeId)],
-    curio_bindings: crate::curio_activity::CurioActivityBindings,
+    curio_bindings: CurioActivityBindings,
 ) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
     let cleared = ActivityCondition::Equal(
         ActivityExpression::CounterValue {
@@ -36,33 +43,21 @@ pub(super) fn compile_route_program(
             vec![ActivityOperation::Traverse(edge)]
         };
         let operations = if route.target.is_some() {
-            let with_perpetual =
-                crate::curio_activity::domain::perpetual_motion_domain_entry_settlement(
-                    curio_bindings,
-                    &finish,
-                );
+            let with_perpetual = perpetual_motion_domain_entry_settlement(curio_bindings, &finish);
             let perpetual_boundary = vec![ActivityOperation::Conditional {
-                condition: crate::curio_activity::domain::perpetual_motion_condition(
-                    curio_bindings,
-                ),
+                condition: perpetual_motion_condition(curio_bindings),
                 if_true: with_perpetual.into_boxed_slice(),
                 if_false: finish.into_boxed_slice(),
             }];
-            let with_gold = crate::curio_activity::domain::gold_coin_domain_entry_settlement(
-                curio_bindings,
-                &perpetual_boundary,
-            );
+            let with_gold = gold_coin_domain_entry_settlement(curio_bindings, &perpetual_boundary);
             let gold_boundary = vec![ActivityOperation::Conditional {
-                condition: crate::curio_activity::domain::gold_coin_condition(curio_bindings),
+                condition: gold_coin_condition(curio_bindings),
                 if_true: with_gold.into_boxed_slice(),
                 if_false: perpetual_boundary.into_boxed_slice(),
             }];
-            let with_cogwheel = crate::curio_activity::domain::cogwheel_domain_entry_settlement(
-                curio_bindings,
-                &gold_boundary,
-            );
+            let with_cogwheel = cogwheel_domain_entry_settlement(curio_bindings, &gold_boundary);
             vec![ActivityOperation::Conditional {
-                condition: crate::curio_activity::domain::cogwheel_condition(curio_bindings),
+                condition: cogwheel_condition(curio_bindings),
                 if_true: with_cogwheel.into_boxed_slice(),
                 if_false: gold_boundary.into_boxed_slice(),
             }]

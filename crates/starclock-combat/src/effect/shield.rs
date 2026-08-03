@@ -1,7 +1,7 @@
 use std::collections::{BTreeMap, btree_map::Entry};
 
 use crate::{
-    DamageAmount, NumericError, ShieldAmount, ShieldInstanceId, UnitId,
+    DamageAmount, EffectDefinitionId, NumericError, ShieldAmount, ShieldInstanceId, UnitId,
     formula::shield::{self, ShieldAbsorptionPolicy, ShieldInstance},
     id::OperationId,
 };
@@ -10,7 +10,7 @@ use crate::{
 pub(crate) struct ShieldState {
     pub(crate) id: ShieldInstanceId,
     pub(crate) source_operation: OperationId,
-    pub(crate) source_effect: Option<crate::EffectDefinitionId>,
+    pub(crate) source_effect: Option<EffectDefinitionId>,
     pub(crate) remaining: ShieldAmount,
 }
 
@@ -157,7 +157,7 @@ impl ShieldStore {
     pub(crate) fn remove_by_effect(
         &mut self,
         owner: UnitId,
-        effect: crate::EffectDefinitionId,
+        effect: EffectDefinitionId,
     ) -> Vec<ShieldChange> {
         let Some(shields) = self.by_owner.get_mut(&owner) else {
             return Vec::new();
@@ -187,6 +187,7 @@ impl ShieldStore {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::EffectDefinitionId;
 
     fn unit(raw: u64) -> UnitId {
         UnitId::new(raw).unwrap()
@@ -272,8 +273,8 @@ mod tests {
     #[test]
     fn effect_removal_deletes_only_matching_active_instances() {
         let mut store = ShieldStore::default();
-        let removed_effect = crate::EffectDefinitionId::new(7).unwrap();
-        let retained_effect = crate::EffectDefinitionId::new(8).unwrap();
+        let removed_effect = EffectDefinitionId::new(7).unwrap();
+        let retained_effect = EffectDefinitionId::new(8).unwrap();
         let mut removed = shield(1, 10);
         removed.source_effect = Some(removed_effect);
         let mut retained = shield(2, 20);

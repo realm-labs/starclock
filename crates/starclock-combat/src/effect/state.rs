@@ -2,7 +2,9 @@
 
 use std::collections::BTreeMap;
 
-use crate::{EffectDefinitionId, EffectInstanceId, OperationId, SourceDefinitionId, UnitId};
+use crate::{
+    EffectDefinitionId, EffectInstanceId, OperationId, Scalar, SourceDefinitionId, UnitId,
+};
 
 use super::model::{
     ControlledAction, DispelCategory, DotDefinition, DurationClock, EffectCategory,
@@ -29,7 +31,7 @@ pub(crate) struct EffectState {
     pub(crate) snapshot_policy: EffectSnapshotPolicy,
     pub(crate) teardown_policy: EffectTeardownPolicy,
     pub(crate) application_priority: i32,
-    pub(crate) magnitude: crate::Scalar,
+    pub(crate) magnitude: Scalar,
     pub(crate) tags: Box<[SourceDefinitionId]>,
     pub(crate) controlled_actions: Box<[ControlledAction]>,
     pub(crate) dot: Option<DotDefinition>,
@@ -291,6 +293,11 @@ impl EffectStore {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::Ratio;
+    use crate::Scalar;
+    use crate::catalog::action::OrdinaryDamageDefinition;
+    use crate::catalog::action::OrdinaryDamageMultipliers;
+    use crate::formula::model::CombatElement;
 
     fn effect(raw: u64) -> EffectInstanceId {
         EffectInstanceId::new(raw).unwrap()
@@ -331,7 +338,7 @@ mod tests {
             policy,
         )
         .unwrap()
-        .with_comparison(crate::Scalar::from_scaled(magnitude), 0);
+        .with_comparison(Scalar::from_scaled(magnitude), 0);
         if category == EffectCategory::Control {
             runtime = runtime
                 .with_control(vec![ControlledAction::NormalAction])
@@ -352,9 +359,9 @@ mod tests {
     }
 
     fn dot_candidate(instance: u64, source: u64, target: u64, tag: u32) -> EffectState {
-        let formula = crate::catalog::action::OrdinaryDamageDefinition::new(
-            crate::Scalar::checked_from_integer(10).unwrap(),
-            crate::catalog::action::OrdinaryDamageMultipliers::new([crate::Ratio::ONE; 9]).unwrap(),
+        let formula = OrdinaryDamageDefinition::new(
+            Scalar::checked_from_integer(10).unwrap(),
+            OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).unwrap(),
         )
         .unwrap();
         let runtime = EffectRuntimeDefinition::new(
@@ -371,7 +378,7 @@ mod tests {
         .unwrap()
         .with_dot(DotDefinition::new(
             formula,
-            crate::formula::model::CombatElement::Lightning,
+            CombatElement::Lightning,
             Some(SourceDefinitionId::new(tag).unwrap()),
         ))
         .unwrap();

@@ -1,5 +1,8 @@
 //! Executable encounter-selection, composition and overlay-closure contract.
 
+use crate::encounter::WeightedEncounterBinding;
+use crate::id::EncounterMemberId;
+use crate::occurrence_battle::compile as occurrence_battle_compile;
 use std::collections::BTreeSet;
 
 use crate::{
@@ -45,13 +48,13 @@ pub enum EncounterSelection {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EncounterContentRuntimeCatalog {
     enemy_variant_keys: Box<[Box<str>]>,
-    member_ids: Box<[crate::id::EncounterMemberId]>,
+    member_ids: Box<[EncounterMemberId]>,
     digest: [u8; 32],
 }
 
 impl EncounterContentRuntimeCatalog {
     pub fn compile(catalog: &UniverseCatalog) -> Result<Self, EncounterContentRuntimeError> {
-        let occurrence_battles = crate::occurrence_battle::compile(catalog)
+        let occurrence_battles = occurrence_battle_compile(catalog)
             .map_err(|_| EncounterContentRuntimeError::InvalidEncounterGroup)?;
         let mut member_ids = catalog
             .encounter_groups()
@@ -235,7 +238,7 @@ impl EncounterContentRuntimeCatalog {
 }
 
 fn weighted_groups(
-    bindings: &[crate::encounter::WeightedEncounterBinding],
+    bindings: &[WeightedEncounterBinding],
     condition_key: &str,
 ) -> Result<EncounterSelection, EncounterContentRuntimeError> {
     let values = bindings
@@ -284,7 +287,7 @@ fn validate_groups(
 fn catalog_digest(
     catalog: &UniverseCatalog,
     enemy_keys: &[Box<str>],
-    member_ids: &[crate::id::EncounterMemberId],
+    member_ids: &[EncounterMemberId],
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-encounter-content-runtime-catalog-v1");
     encoder.digest(catalog.identity().definitions_digest().bytes());

@@ -1,3 +1,7 @@
+use crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY;
+use crate::curio_activity::destroy_and_count_operations;
+use crate::curio_activity::event_key;
+use crate::id::PathId;
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityOperation, ActivityOptionDefinition,
     ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
@@ -84,7 +88,7 @@ impl StandardUniverseActivity {
             .map_err(StandardUniverseCurioCommandError::Curio)?
             .entries()
         {
-            let key = crate::curio_activity::event_key(contribution.curio(), CurioEvent::Acquired);
+            let key = event_key(contribution.curio(), CurioEvent::Acquired);
             let count = event_values
                 .iter()
                 .find(|(candidate, _)| *candidate == key)
@@ -167,7 +171,7 @@ impl StandardUniverseActivity {
         }
         let mut operations = vec![ActivityOperation::AddCounter {
             slot: self.curio_event_slot,
-            key: crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
+            key: DESTRUCTIBLE_DESTROYED_COUNT_KEY,
             delta: integer(1),
         }];
         for (curio, outcome) in lotteries {
@@ -264,7 +268,7 @@ impl StandardUniverseActivity {
             .ok_or(StandardUniverseCurioCommandError::NoDestructibleLottery)?;
         let mut operations = vec![ActivityOperation::AddCounter {
             slot: self.curio_event_slot,
-            key: crate::curio_activity::event_key(curio, CurioEvent::DestructibleDestroyed),
+            key: event_key(curio, CurioEvent::DestructibleDestroyed),
             delta: integer(1),
         }];
         match outcome {
@@ -309,7 +313,7 @@ impl StandardUniverseActivity {
                 ));
             }
             CurioDestructibleOutcome::Failure => {
-                operations.extend(crate::curio_activity::destroy_and_count_operations(
+                operations.extend(destroy_and_count_operations(
                     curio,
                     CurioActivityBindings {
                         inventory: self.curio_inventory,
@@ -425,7 +429,7 @@ impl StandardUniverseActivity {
                 (option, 1)
             })
             .collect::<Vec<_>>();
-        let acquired_key = crate::curio_activity::event_key(curio, CurioEvent::Acquired);
+        let acquired_key = event_key(curio, CurioEvent::Acquired);
         let prefix = [
             ActivityOperation::Require(ActivityCondition::Not(Box::new(
                 ActivityCondition::LessThan(
@@ -534,7 +538,7 @@ impl StandardUniverseActivity {
                 )
             })
             .collect::<Vec<_>>();
-        let acquired_key = crate::curio_activity::event_key(curio, CurioEvent::Acquired);
+        let acquired_key = event_key(curio, CurioEvent::Acquired);
         let prefix = [
             ActivityOperation::Require(ActivityCondition::Not(Box::new(
                 ActivityCondition::LessThan(
@@ -587,7 +591,7 @@ impl StandardUniverseActivity {
             .map_err(StandardUniverseCurioCommandError::Curio)?
             .entries()
         {
-            let key = crate::curio_activity::event_key(contribution.curio(), CurioEvent::Acquired);
+            let key = event_key(contribution.curio(), CurioEvent::Acquired);
             let count = event_values
                 .iter()
                 .find(|(candidate, _)| *candidate == key)
@@ -611,7 +615,7 @@ impl StandardUniverseActivity {
         Ok(pending.into_boxed_slice())
     }
 
-    fn selected_path(&self) -> Option<crate::id::PathId> {
+    fn selected_path(&self) -> Option<PathId> {
         self.view()
             .slots()
             .iter()
@@ -620,7 +624,7 @@ impl StandardUniverseActivity {
                 ActivityValue::OptionalId(Some(value)) => u32::try_from(*value).ok(),
                 _ => None,
             })
-            .and_then(crate::id::PathId::new)
+            .and_then(PathId::new)
     }
 }
 

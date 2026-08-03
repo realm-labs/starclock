@@ -1,5 +1,7 @@
 //! Compilation from validated data definitions into public combat/build catalogs.
 
+use crate::catalog::AbilityDefinition;
+use crate::catalog::HitPlanDefinition;
 use std::{
     collections::{BTreeMap, BTreeSet},
     sync::Arc,
@@ -440,10 +442,10 @@ impl CharacterDataDefinition {
 fn add_combat_ability(
     builder: &mut CombatCatalogBuilder,
     id: AbilityId,
-    source: &crate::catalog::AbilityDefinition,
+    source: &AbilityDefinition,
     program: ProgramId,
     ultimate_cost: Option<starclock_combat::Scalar>,
-    hit_plans: &[crate::catalog::HitPlanDefinition],
+    hit_plans: &[HitPlanDefinition],
     ability_parameters: &BTreeMap<AbilityId, BTreeMap<Box<str>, starclock_combat::Scalar>>,
 ) -> Result<(), CatalogLoadError> {
     let selector = ability_selector(source.id)?;
@@ -669,7 +671,7 @@ fn variant_id(family: AbilityId, level: u8) -> Result<AbilityId, CatalogLoadErro
     AbilityId::new(raw).ok_or_else(|| domain_fail("ability variant ID is zero"))
 }
 
-fn ability_program(ability: &crate::catalog::AbilityDefinition) -> ProgramId {
+fn ability_program(ability: &AbilityDefinition) -> ProgramId {
     ability
         .phases
         .iter()
@@ -754,7 +756,7 @@ fn ability_tags(tags: starclock_combat::catalog::action::AbilityTags) -> Vec<Abi
 }
 
 fn action_resources(
-    source: &crate::catalog::AbilityDefinition,
+    source: &AbilityDefinition,
     ultimate_cost: Option<starclock_combat::Scalar>,
 ) -> Result<ActionResourcePolicy, CatalogLoadError> {
     let mut sp_cost = 0_u16;
@@ -873,6 +875,8 @@ pub(super) fn source(
 
 #[cfg(test)]
 mod tests {
+    use crate::catalog::AbilityDefinition as CatalogAbilityDefinition;
+    use crate::catalog::AbilityResourceDefinition;
     use starclock_build::{
         ability::{AbilityInvestment, AbilityLevel},
         catalog::BuildCatalogBuilder,
@@ -937,7 +941,7 @@ mod tests {
 
     #[test]
     fn zero_energy_ultimate_lowers_action_started_character_resource_cost() {
-        let source = crate::catalog::AbilityDefinition {
+        let source = CatalogAbilityDefinition {
             id: ability(9),
             kind: 2,
             target_pattern: 0,
@@ -948,7 +952,7 @@ mod tests {
             entry_rule: None,
             phases: Box::new([]),
             hit_plan_bindings: Box::new([]),
-            resources: vec![crate::catalog::AbilityResourceDefinition {
+            resources: vec![AbilityResourceDefinition {
                 sequence: 1,
                 resource_kind: 3,
                 character_resource_key: Some("newbud".into()),

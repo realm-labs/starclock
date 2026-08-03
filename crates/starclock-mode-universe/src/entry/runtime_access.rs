@@ -1,5 +1,8 @@
 //! Read-only access to immutable runtime compilers owned by one compiled entry.
 
+use crate::runtime::ability_access::StandardUniverseRunCapabilities;
+use crate::runtime::ability_access::StandardUniverseRunCapabilityError;
+use crate::runtime::ability_access::capabilities_from_values;
 use std::sync::Arc;
 
 use starclock_activity::ActivitySlotId;
@@ -31,29 +34,22 @@ impl CompiledActivity {
 
     pub fn initial_run_capabilities(
         &self,
-    ) -> Result<
-        crate::runtime::ability_access::StandardUniverseRunCapabilities,
-        crate::runtime::ability_access::StandardUniverseRunCapabilityError,
-    > {
+    ) -> Result<StandardUniverseRunCapabilities, StandardUniverseRunCapabilityError> {
         let projection = self
             .state
             .slots()
             .iter()
             .find(|slot| slot.id() == self.ability_projection_slot())
             .map(|slot| slot.initial())
-            .ok_or(
-                crate::runtime::ability_access::StandardUniverseRunCapabilityError::MissingAbilityProjection,
-            )?;
+            .ok_or(StandardUniverseRunCapabilityError::MissingAbilityProjection)?;
         let formation_slots = self
             .state
             .slots()
             .iter()
             .find(|slot| slot.id() == self.formation_capability_slot())
             .map(|slot| slot.initial())
-            .ok_or(
-                crate::runtime::ability_access::StandardUniverseRunCapabilityError::MissingFormationCapability,
-            )?;
-        crate::runtime::ability_access::capabilities_from_values(projection, formation_slots)
+            .ok_or(StandardUniverseRunCapabilityError::MissingFormationCapability)?;
+        capabilities_from_values(projection, formation_slots)
     }
 
     #[must_use]

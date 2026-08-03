@@ -1,6 +1,9 @@
 //! Checked generic team-resource and typed rule-slot operations.
 
+use crate::catalog::action::TeamResourceChange;
+use crate::operation::ModifyTeamResourceOp;
 use crate::{
+    ResourceEventData,
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
     event::{
         cause::Cause,
@@ -16,7 +19,7 @@ pub(super) fn execute_modify_team_resource(
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
-    operation: crate::operation::ModifyTeamResourceOp,
+    operation: ModifyTeamResourceOp,
 ) -> Result<EventId, BattleFault> {
     let side = txn
         .state
@@ -33,7 +36,7 @@ pub(super) fn execute_modify_team_resource(
         .ok_or_else(|| invariant_fault(44))?
         .clone();
     let (attempted, after, overflow) = match operation.definition.change() {
-        crate::catalog::action::TeamResourceChange::Gain(amount) => {
+        TeamResourceChange::Gain(amount) => {
             let uncapped = u32::from(state.current) + u32::from(amount);
             let after = u16::try_from(uncapped.min(u32::from(state.maximum)))
                 .map_err(|_| invariant_fault(45))?;
@@ -43,7 +46,7 @@ pub(super) fn execute_modify_team_resource(
                 u16::try_from(uncapped - u32::from(after)).map_err(|_| invariant_fault(46))?,
             )
         }
-        crate::catalog::action::TeamResourceChange::Spend(amount) => (
+        TeamResourceChange::Spend(amount) => (
             amount,
             state
                 .current
@@ -51,7 +54,7 @@ pub(super) fn execute_modify_team_resource(
                 .ok_or_else(|| invariant_fault(47))?,
             0,
         ),
-        crate::catalog::action::TeamResourceChange::Set(value) => {
+        TeamResourceChange::Set(value) => {
             if value > state.maximum {
                 return Err(invariant_fault(48));
             }
@@ -61,7 +64,7 @@ pub(super) fn execute_modify_team_resource(
     txn.set_team_resource(side, resource, after)?;
     Ok(txn.emit(
         cause.with_parent(parent),
-        BattleEventKind::Resource(crate::ResourceEventData::TeamResource {
+        BattleEventKind::Resource(ResourceEventData::TeamResource {
             side,
             resource,
             attempted,

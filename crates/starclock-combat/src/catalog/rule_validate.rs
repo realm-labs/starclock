@@ -1,5 +1,10 @@
 //! Static validation for executable battle Rule IR.
 
+use crate::catalog::action::AbilityKind;
+use crate::rule::model::ResourceUpdateKind;
+use crate::rule::model::RuleEffectChancePolicy;
+use crate::rule::model::RuleEventKind;
+use crate::rule::model::RuleResourceKind;
 use std::collections::BTreeSet;
 
 use crate::{
@@ -371,7 +376,7 @@ fn validate_operation(
                 .and_then(|ability| ability.action())
                 .ok_or_else(|| format!("queued ability {} is not executable", ability.get()))?;
             let forced_skill = *forced_use
-                && action.kind() == crate::catalog::action::AbilityKind::Skill
+                && action.kind() == AbilityKind::Skill
                 && action.tags().supports_forced_skill();
             if action.kind().is_normal_turn() && !forced_skill {
                 return Err(format!(
@@ -494,8 +499,8 @@ fn validate_operation(
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
             if *scales_with_regeneration
-                && (!matches!(resource, crate::rule::model::RuleResourceKind::Energy)
-                    || *update != crate::rule::model::ResourceUpdateKind::Gain)
+                && (!matches!(resource, RuleResourceKind::Energy)
+                    || *update != ResourceUpdateKind::Gain)
             {
                 return Err("only gained Energy can scale with energy regeneration".into());
             }
@@ -519,7 +524,7 @@ fn validate_operation(
                 ));
             }
             match chance {
-                crate::rule::model::RuleEffectChancePolicy::Guaranteed => {
+                RuleEffectChancePolicy::Guaranteed => {
                     if base_chance.is_some() || rng_purpose.is_some() {
                         return Err("guaranteed effect cannot declare chance RNG".into());
                     }
@@ -562,7 +567,7 @@ fn validate_operation(
                 );
             }
             match chance {
-                crate::rule::model::RuleEffectChancePolicy::Guaranteed => {
+                RuleEffectChancePolicy::Guaranteed => {
                     if base_chance.is_some() || chance_rng_purpose.is_some() {
                         return Err("guaranteed effect cannot declare chance RNG".into());
                     }
@@ -610,7 +615,7 @@ fn validate_operation(
                 ));
             }
             match chance {
-                crate::rule::model::RuleEffectChancePolicy::Guaranteed => {
+                RuleEffectChancePolicy::Guaranteed => {
                     if base_chance.is_some() || chance_rng_purpose.is_some() {
                         return Err("guaranteed effect cannot declare chance RNG".into());
                     }
@@ -922,29 +927,27 @@ fn once_scope_constructible(trigger: &TriggerDef) -> bool {
         OnceScope::Event | OnceScope::Wave | OnceScope::Battle => true,
         OnceScope::Hit | OnceScope::TargetWithinHit => matches!(
             trigger.event,
-            crate::rule::model::RuleEventKind::Hit
-                | crate::rule::model::RuleEventKind::Damage
-                | crate::rule::model::RuleEventKind::Heal
+            RuleEventKind::Hit | RuleEventKind::Damage | RuleEventKind::Heal
         ),
         OnceScope::Ability | OnceScope::Action | OnceScope::TargetWithinAction => {
             trigger.filter.has_action == Some(true)
                 || matches!(
                     trigger.event,
-                    crate::rule::model::RuleEventKind::Action
-                        | crate::rule::model::RuleEventKind::Phase
-                        | crate::rule::model::RuleEventKind::Hit
-                        | crate::rule::model::RuleEventKind::Damage
-                        | crate::rule::model::RuleEventKind::Heal
+                    RuleEventKind::Action
+                        | RuleEventKind::Phase
+                        | RuleEventKind::Hit
+                        | RuleEventKind::Damage
+                        | RuleEventKind::Heal
                 )
         }
         OnceScope::Turn => matches!(
             trigger.event,
-            crate::rule::model::RuleEventKind::Turn
-                | crate::rule::model::RuleEventKind::Action
-                | crate::rule::model::RuleEventKind::Phase
-                | crate::rule::model::RuleEventKind::Hit
-                | crate::rule::model::RuleEventKind::Damage
-                | crate::rule::model::RuleEventKind::Heal
+            RuleEventKind::Turn
+                | RuleEventKind::Action
+                | RuleEventKind::Phase
+                | RuleEventKind::Hit
+                | RuleEventKind::Damage
+                | RuleEventKind::Heal
         ),
     }
 }

@@ -1,6 +1,6 @@
 //! Toughness, Break and Super Break fixed-point calculators.
 
-use crate::{DamageAmount, NumericError, Ratio, RawToughness, Rounding, Scalar};
+use crate::{DamageAmount, Hp, NumericError, Ratio, RawToughness, Rounding, Scalar, UnitLevel};
 
 use super::model::CombatElement;
 
@@ -10,7 +10,7 @@ const ROUNDING: Rounding = Rounding::NearestTiesEven;
 /// levels. Levels above 80 remain absent until their enemy-only values enter
 /// authoritative configuration.
 #[must_use]
-pub fn attacker_level_multiplier(level: crate::UnitLevel) -> Option<Scalar> {
+pub fn attacker_level_multiplier(level: UnitLevel) -> Option<Scalar> {
     const SCALED: [i64; 80] = [
         54_000_000,
         58_000_000,
@@ -334,7 +334,7 @@ pub struct BaseBreakEffect {
 pub fn base_break_effect(
     element: CombatElement,
     rank: EnemyRank,
-    target_max_hp: crate::Hp,
+    target_max_hp: Hp,
     level_multiplier: Scalar,
     maximum_toughness: RawToughness,
     break_effect: Ratio,

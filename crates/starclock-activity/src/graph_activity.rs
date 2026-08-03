@@ -1,27 +1,27 @@
 mod boundary;
 mod random_offer;
 
-use random_offer::restrict_random_offer;
-
-use std::sync::Arc;
-
+use crate::program::condition_type;
 use crate::{
     ActivityBattleHandoff, ActivityBattlePreparationRequest, ActivityBattleResultContract,
     ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
     ActivityBattleStartRequest, ActivityBootstrapSelection, ActivityCause, ActivityDebugView,
     ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression,
-    ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerInput, ActivityInstanceId,
-    ActivityInteractionBinding, ActivityInteractionBindings, ActivityMasterSeed, ActivityOperation,
-    ActivityOptionDefinition, ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView,
-    ActivityPreparationBoundary, ActivityPreparationView, ActivityProgramDefinition,
-    ActivityProgramId, ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies,
-    ActivityRngContext, ActivityRngStreams, ActivityStateDefinition, ActivityStateHash,
-    ActivityTransactionEvent, ActivityTransactionOutcome, ActivityTransactionState, ActivityValue,
+    ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerInput,
+    ActivityHandlerRegistry, ActivityInstanceId, ActivityInteractionBinding,
+    ActivityInteractionBindings, ActivityMasterSeed, ActivityOperation, ActivityOptionDefinition,
+    ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView, ActivityPreparationBoundary,
+    ActivityPreparationView, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngContext,
+    ActivityRngStreams, ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
+    ActivityTransactionOutcome, ActivityTransactionState, ActivityValue, BattleBinding,
     BattleResult, GraphActivityBattleError, GraphActivityCommandError,
     GraphActivityDefinitionError, GraphActivityEncounterError, GraphActivityRandomOfferError,
-    GraphActivityRuntimeError, GraphActivityStartError, NodeId, ParticipantLock, PendingBattleSpec,
-    SlotValueKind,
+    GraphActivityRuntimeError, GraphActivityStartError, MAX_ACTIVITY_PROGRAM_OPERATIONS, NodeId,
+    ParticipantLock, PendingBattleSpec, SlotValueKind, TechniqueContributionDigest,
 };
+use random_offer::restrict_random_offer;
+use std::sync::Arc;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphActivityNodeProgram {
@@ -168,19 +168,19 @@ impl GraphActivityDefinition {
             if offer
                 .maximum_options_reductions
                 .iter()
-                .any(|(condition, _)| crate::program::condition_type(condition, &state).is_err())
+                .any(|(condition, _)| condition_type(condition, &state).is_err())
             {
                 return Err(GraphActivityDefinitionError::InvalidRandomOffer);
             }
             if let Some(condition) = &offer.inactive_condition
-                && crate::program::condition_type(condition, &state).is_err()
+                && condition_type(condition, &state).is_err()
             {
                 return Err(GraphActivityDefinitionError::InvalidRandomOffer);
             }
             if offer
                 .conditional_weight_multipliers
                 .iter()
-                .any(|(condition, _, _)| crate::program::condition_type(condition, &state).is_err())
+                .any(|(condition, _, _)| condition_type(condition, &state).is_err())
             {
                 return Err(GraphActivityDefinitionError::InvalidRandomOffer);
             }
@@ -188,7 +188,7 @@ impl GraphActivityDefinition {
                 .conditional_candidate_filters
                 .iter()
                 .any(|(condition, options)| {
-                    crate::program::condition_type(condition, &state).is_err()
+                    condition_type(condition, &state).is_err()
                         || options.iter().any(|option| {
                             offer
                                 .weights
@@ -204,8 +204,7 @@ impl GraphActivityDefinition {
                     definition.id() == marker.slot
                         && definition.kind() == SlotValueKind::BoundedCounterMap
                 });
-                if !valid_slot || crate::program::condition_type(&marker.condition, &state).is_err()
-                {
+                if !valid_slot || condition_type(&marker.condition, &state).is_err() {
                     return Err(GraphActivityDefinitionError::InvalidRandomOffer);
                 }
             }
@@ -228,7 +227,7 @@ impl GraphActivityDefinition {
 
     pub fn with_interactions(
         mut self,
-        registry: crate::ActivityHandlerRegistry,
+        registry: ActivityHandlerRegistry,
         bindings: Vec<ActivityInteractionBinding>,
     ) -> Result<Self, GraphActivityDefinitionError> {
         self.interactions = Some(Arc::new(
@@ -596,7 +595,7 @@ impl GraphActivity {
             .expect("validated offered option exists in its source program");
         if selected_operations
             .checked_add(output.operations().len())
-            .is_none_or(|count| count > crate::MAX_ACTIVITY_PROGRAM_OPERATIONS)
+            .is_none_or(|count| count > MAX_ACTIVITY_PROGRAM_OPERATIONS)
         {
             return Err(GraphActivityCommandError::InteractionOperationLimit);
         }
@@ -795,8 +794,8 @@ impl GraphActivity {
     pub fn start_assembled_pending_battle(
         &mut self,
         expected_state_hash: ActivityStateHash,
-        binding: crate::BattleBinding,
-        contribution: crate::TechniqueContributionDigest,
+        binding: BattleBinding,
+        contribution: TechniqueContributionDigest,
         contract: Arc<ActivityBattleResultContract>,
     ) -> Result<ActivityBattleHandoff, ActivityBattleSettlementError> {
         if expected_state_hash != self.state_hash() {
@@ -1017,11 +1016,9 @@ impl GraphActivity {
     }
 }
 
-fn checkpoint_options(operations: &[crate::ActivityOperation]) -> Option<Vec<ActivityOptionId>> {
+fn checkpoint_options(operations: &[ActivityOperation]) -> Option<Vec<ActivityOptionId>> {
     operations.iter().find_map(|operation| match operation {
-        crate::ActivityOperation::Offer { kind, options }
-            if *kind == ActivityDecisionKind::Checkpoint =>
-        {
+        ActivityOperation::Offer { kind, options } if *kind == ActivityDecisionKind::Checkpoint => {
             Some(options.iter().map(ActivityOptionDefinition::id).collect())
         }
         _ => None,
@@ -1128,12 +1125,12 @@ impl GraphActivityResolution {
 }
 fn validate_edge_ownership(
     node: NodeId,
-    operations: &[crate::ActivityOperation],
+    operations: &[ActivityOperation],
     graph: &ActivityGraphDefinition,
 ) -> Result<(), GraphActivityDefinitionError> {
     for operation in operations {
         match operation {
-            crate::ActivityOperation::Traverse(edge) => {
+            ActivityOperation::Traverse(edge) => {
                 if !graph
                     .edges()
                     .iter()
@@ -1142,17 +1139,17 @@ fn validate_edge_ownership(
                     return Err(GraphActivityDefinitionError::InvalidProgramBinding(node));
                 }
             }
-            crate::ActivityOperation::Relocate(target) => {
+            ActivityOperation::Relocate(target) => {
                 if graph.node(*target).is_none() {
                     return Err(GraphActivityDefinitionError::InvalidProgramBinding(node));
                 }
             }
-            crate::ActivityOperation::Offer { options, .. } => {
+            ActivityOperation::Offer { options, .. } => {
                 for option in options.iter() {
                     validate_edge_ownership(node, option.operations(), graph)?;
                 }
             }
-            crate::ActivityOperation::Conditional {
+            ActivityOperation::Conditional {
                 if_true, if_false, ..
             } => {
                 validate_edge_ownership(node, if_true, graph)?;

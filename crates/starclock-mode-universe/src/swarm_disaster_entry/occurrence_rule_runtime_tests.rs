@@ -1,3 +1,4 @@
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityRngContext,
@@ -77,16 +78,16 @@ fn pool_and_outcome_draws_share_only_the_occurrence_stream() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::super::tests::released_entry(
+        .compile_entry(released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::super::tests::participants(super::super::tests::policy()),
+            participants(policy()),
         ))
         .unwrap()
 }

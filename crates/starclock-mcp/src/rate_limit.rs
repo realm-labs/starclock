@@ -192,6 +192,8 @@ const fn exceeded(retry_after_seconds: u64) -> RateLimitExceeded {
 
 #[cfg(test)]
 mod tests {
+    use crate::authorization::SUPPORTED_SCOPES;
+    use crate::authorization::SignatureVerificationError;
     use std::sync::atomic::{AtomicU64, Ordering};
 
     use super::*;
@@ -225,10 +227,10 @@ mod tests {
         fn verify_signature_and_decode(
             &self,
             bearer: &str,
-        ) -> Result<SignedTokenClaims, crate::authorization::SignatureVerificationError> {
+        ) -> Result<SignedTokenClaims, SignatureVerificationError> {
             let (tenant, principal) = bearer
                 .split_once(':')
-                .ok_or(crate::authorization::SignatureVerificationError::Invalid)?;
+                .ok_or(SignatureVerificationError::Invalid)?;
             SignedTokenClaims::new(
                 "https://issuer.example".into(),
                 vec!["http://127.0.0.1:39127/mcp".into()],
@@ -236,12 +238,9 @@ mod tests {
                 None,
                 tenant.into(),
                 principal.into(),
-                crate::authorization::SUPPORTED_SCOPES
-                    .iter()
-                    .map(ToString::to_string)
-                    .collect(),
+                SUPPORTED_SCOPES.iter().map(ToString::to_string).collect(),
             )
-            .map_err(|_| crate::authorization::SignatureVerificationError::Invalid)
+            .map_err(|_| SignatureVerificationError::Invalid)
         }
     }
 

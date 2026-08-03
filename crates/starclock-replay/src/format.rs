@@ -2,6 +2,10 @@
 //!
 //! The header binds the exact runtime components consumed by a replay.
 
+use crate::digest::BuildCatalogDigest;
+use crate::digest::CombatantBuildDigest;
+use crate::digest::DefinitionDigest;
+use crate::digest::EntrySpecDigest;
 use core::fmt;
 
 use crate::{
@@ -268,17 +272,14 @@ fn decode_entry(d: &mut Decoder<'_>) -> Result<ReplayEntry, ReplayError> {
     match d.u8()? {
         1 => Ok(ReplayEntry::Battle {
             definition_id: d.u32()?,
-            spec_digest: crate::digest::EntrySpecDigest::new(
-                d.take(32)?.try_into().expect("fixed length"),
-            ),
+            spec_digest: EntrySpecDigest::new(d.take(32)?.try_into().expect("fixed length")),
         }),
         2 => {
             let profile_id = Box::<str>::from(d.string(MAX_HEADER_TEXT_BYTES)?);
             let definition_id = d.u32()?;
             let definition_digest =
-                crate::digest::DefinitionDigest::new(d.take(32)?.try_into().expect("fixed length"));
-            let spec_digest =
-                crate::digest::EntrySpecDigest::new(d.take(32)?.try_into().expect("fixed length"));
+                DefinitionDigest::new(d.take(32)?.try_into().expect("fixed length"));
+            let spec_digest = EntrySpecDigest::new(d.take(32)?.try_into().expect("fixed length"));
             let builds = match d.u8()? {
                 0 => None,
                 1 => Some(decode_builds(d)?),
@@ -299,15 +300,14 @@ fn decode_entry(d: &mut Decoder<'_>) -> Result<ReplayEntry, ReplayError> {
 }
 
 fn decode_builds(d: &mut Decoder<'_>) -> Result<BuildBindings, ReplayError> {
-    let digest =
-        crate::digest::BuildCatalogDigest::new(d.take(32)?.try_into().expect("fixed length"));
+    let digest = BuildCatalogDigest::new(d.take(32)?.try_into().expect("fixed length"));
     let count = d.u32()?;
     if count > MAX_BUILD_BINDINGS {
         return Err(CodecError::LimitExceeded.into());
     }
     let mut combatants = Vec::with_capacity(count as usize);
     for _ in 0..count {
-        combatants.push(crate::digest::CombatantBuildDigest::new(
+        combatants.push(CombatantBuildDigest::new(
             d.take(32)?.try_into().expect("fixed length"),
         ));
     }

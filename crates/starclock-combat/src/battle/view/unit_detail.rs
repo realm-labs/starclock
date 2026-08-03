@@ -1,7 +1,8 @@
 //! Read-only projections of nested unit-owned runtime records.
 
 use crate::{
-    AbilityId, OperationId, PresenceState, TimelineActorId, UnitDefinitionId, UnitId,
+    AbilityId, OperationId, PresenceState, Scalar, TimelineActorId, TransformEndPolicy,
+    UnitDefinitionId, UnitId,
     actor::store::{CharacterResourceState, TransformationState},
     formula::model::CombatElement,
 };
@@ -18,15 +19,15 @@ impl<'a> CharacterResourceView<'a> {
         &self.state.stable_key
     }
     #[must_use]
-    pub const fn initial(self) -> crate::Scalar {
+    pub const fn initial(self) -> Scalar {
         self.state.initial
     }
     #[must_use]
-    pub const fn current(self) -> crate::Scalar {
+    pub const fn current(self) -> Scalar {
         self.state.current
     }
     #[must_use]
-    pub const fn maximum(self) -> crate::Scalar {
+    pub const fn maximum(self) -> Scalar {
         self.state.maximum
     }
 }
@@ -87,11 +88,11 @@ impl<'a> TransformationView<'a> {
         self.state.countdown_actor
     }
     #[must_use]
-    pub const fn defeat_policy(self) -> crate::TransformEndPolicy {
+    pub const fn defeat_policy(self) -> TransformEndPolicy {
         self.state.defeat
     }
     #[must_use]
-    pub const fn wave_policy(self) -> crate::TransformEndPolicy {
+    pub const fn wave_policy(self) -> TransformEndPolicy {
         self.state.wave
     }
 }

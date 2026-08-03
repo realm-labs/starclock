@@ -1,5 +1,12 @@
 //! Character build-row lowering into generated-type-free domain definitions.
 
+use crate::generated::build_patch::BuildPatch;
+use crate::generated::character_ability_slot::CharacterAbilitySlot;
+use crate::generated::combat_element::CombatElement;
+use crate::generated::combat_path::CombatPath;
+use crate::generated::trace_node_kind::TraceNodeKind;
+use crate::light_cone_lower::LightConeDataDefinition;
+use crate::light_cone_lower::convert as light_cone_lower_convert;
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{AbilityId, ModifierDefinitionId, RuleBundleId, Scalar, UnitDefinitionId};
@@ -15,7 +22,7 @@ use crate::{
 #[derive(Debug)]
 pub(super) struct BuildDefinitions {
     pub(super) characters: Box<[CharacterDataDefinition]>,
-    pub(super) light_cones: Box<[crate::light_cone_lower::LightConeDataDefinition]>,
+    pub(super) light_cones: Box<[LightConeDataDefinition]>,
 }
 
 /// Generated-row-free production character definition retained by the data catalog.
@@ -167,7 +174,7 @@ impl BuildDefinitions {
         }) || self
             .light_cones
             .iter()
-            .any(crate::light_cone_lower::LightConeDataDefinition::violates_invariants)
+            .any(LightConeDataDefinition::violates_invariants)
     }
 }
 
@@ -348,7 +355,7 @@ pub(super) fn convert(
         });
     }
     characters.sort_unstable_by_key(|character| character.id);
-    let light_cones = crate::light_cone_lower::convert(config, mode, identities, combat)?;
+    let light_cones = light_cone_lower_convert(config, mode, identities, combat)?;
     Ok(BuildDefinitions {
         characters: characters.into_boxed_slice(),
         light_cones: light_cones.into_boxed_slice(),
@@ -580,7 +587,7 @@ fn lower_eidolons(
 }
 
 fn lower_patches<'a>(
-    rows: impl Iterator<Item = (i32, &'a crate::generated::build_patch::BuildPatch)>,
+    rows: impl Iterator<Item = (i32, &'a BuildPatch)>,
     combat: &CombatDefinitions,
     label: &str,
 ) -> Result<Vec<DataBuildPatch>, CatalogLoadError> {
@@ -595,7 +602,7 @@ fn lower_patches<'a>(
     )?;
     rows.into_iter()
         .map(|(_, patch)| match patch {
-            crate::generated::build_patch::BuildPatch::AddRule { rule_identity_id } => {
+            BuildPatch::AddRule { rule_identity_id } => {
                 let raw = positive(*rule_identity_id, "BuildPatch.rule_identity_id")?;
                 let rule = RuleBundleId::new(raw).expect("positive rule bundle ID");
                 if combat
@@ -607,7 +614,7 @@ fn lower_patches<'a>(
                 }
                 Ok(DataBuildPatch::AddRule(rule))
             }
-            crate::generated::build_patch::BuildPatch::RemoveRule { rule_identity_id } => {
+            BuildPatch::RemoveRule { rule_identity_id } => {
                 let raw = positive(*rule_identity_id, "BuildPatch.rule_identity_id")?;
                 let rule = RuleBundleId::new(raw).expect("positive rule bundle ID");
                 if combat
@@ -619,7 +626,7 @@ fn lower_patches<'a>(
                 }
                 Ok(DataBuildPatch::RemoveRule(rule))
             }
-            crate::generated::build_patch::BuildPatch::AddModifier {
+            BuildPatch::AddModifier {
                 modifier_identity_id,
             } => {
                 let modifier = ModifierDefinitionId::new(positive(
@@ -632,7 +639,7 @@ fn lower_patches<'a>(
                 }
                 Ok(DataBuildPatch::AddModifier(modifier))
             }
-            crate::generated::build_patch::BuildPatch::AddAbility { ability_id } => {
+            BuildPatch::AddAbility { ability_id } => {
                 let ability = AbilityId::new(positive(*ability_id, "BuildPatch.ability_id")?)
                     .expect("positive ability ID");
                 if combat.ability_level_cap(ability).is_none() {
@@ -640,7 +647,7 @@ fn lower_patches<'a>(
                 }
                 Ok(DataBuildPatch::AddAbility(ability))
             }
-            crate::generated::build_patch::BuildPatch::ReplaceAbility {
+            BuildPatch::ReplaceAbility {
                 old_ability_id,
                 new_ability_id,
             } => {
@@ -656,7 +663,7 @@ fn lower_patches<'a>(
                 }
                 Ok(DataBuildPatch::ReplaceAbility { old, new })
             }
-            crate::generated::build_patch::BuildPatch::AdjustAbilityLevel {
+            BuildPatch::AdjustAbilityLevel {
                 ability_id,
                 bonus,
                 cap_delta,
@@ -707,7 +714,7 @@ fn validate_trace_graph(traces: &[TraceDefinition]) -> Result<(), CatalogLoadErr
     Ok(())
 }
 
-fn trace_kind(value: crate::generated::trace_node_kind::TraceNodeKind) -> u8 {
+fn trace_kind(value: TraceNodeKind) -> u8 {
     use crate::generated::trace_node_kind::TraceNodeKind as V;
     match value {
         V::MajorPassive => 0,
@@ -718,9 +725,7 @@ fn trace_kind(value: crate::generated::trace_node_kind::TraceNodeKind) -> u8 {
     }
 }
 
-fn character_ability_slot(
-    value: crate::generated::character_ability_slot::CharacterAbilitySlot,
-) -> u8 {
+fn character_ability_slot(value: CharacterAbilitySlot) -> u8 {
     use crate::generated::character_ability_slot::CharacterAbilitySlot as V;
     match value {
         V::Basic => 0,
@@ -735,7 +740,7 @@ fn character_ability_slot(
     }
 }
 
-fn combat_path(value: crate::generated::combat_path::CombatPath) -> u8 {
+fn combat_path(value: CombatPath) -> u8 {
     use crate::generated::combat_path::CombatPath as V;
     match value {
         V::Destruction => 0,
@@ -750,7 +755,7 @@ fn combat_path(value: crate::generated::combat_path::CombatPath) -> u8 {
     }
 }
 
-fn combat_element(value: crate::generated::combat_element::CombatElement) -> u8 {
+fn combat_element(value: CombatElement) -> u8 {
     use crate::generated::combat_element::CombatElement as V;
     match value {
         V::Physical => 0,

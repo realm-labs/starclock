@@ -1,5 +1,9 @@
 //! Pure build-validation and combat-boundary compilation pipeline.
 
+use crate::ability::AbilityLevelTable;
+use crate::catalog::CharacterBuildDefinition;
+use crate::catalog::CharacterStatRow;
+use crate::spec::EidolonLevel;
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
@@ -293,7 +297,7 @@ impl LoadoutCompiler {
 
 fn selected_sources(
     catalog: &BuildCatalog,
-    definition: &crate::catalog::CharacterBuildDefinition,
+    definition: &CharacterBuildDefinition,
     spec: &CombatantBuildSpec,
 ) -> Result<(Vec<RuleSource>, Vec<BuildSourceAttribution>), ()> {
     let mut selected = vec![(
@@ -312,7 +316,7 @@ fn selected_sources(
         }
     }
     for raw_rank in 1..=spec.eidolon().get() {
-        let rank = crate::spec::EidolonLevel::new(raw_rank).ok_or(())?;
+        let rank = EidolonLevel::new(raw_rank).ok_or(())?;
         let eidolon = definition.eidolons().rank(rank).ok_or(())?;
         selected.push((
             eidolon.source().clone(),
@@ -375,8 +379,8 @@ enum LightConeCompileError {
 
 fn apply_light_cone(
     catalog: &BuildCatalog,
-    character: &crate::catalog::CharacterBuildDefinition,
-    character_stats: &crate::catalog::CharacterStatRow,
+    character: &CharacterBuildDefinition,
+    character_stats: &CharacterStatRow,
     spec: &CombatantBuildSpec,
     workspace: &mut CompilationWorkspace,
 ) -> Result<ResolvedBaseStats, LightConeCompileError> {
@@ -409,7 +413,7 @@ fn apply_light_cone(
 }
 
 fn combine_base_stats(
-    character: &crate::catalog::CharacterStatRow,
+    character: &CharacterStatRow,
     cone: &LightConeStatRow,
 ) -> Result<ResolvedBaseStats, LightConeCompileError> {
     let maximum_hp = character
@@ -437,10 +441,7 @@ fn combine_base_stats(
     })
 }
 
-fn valid_ability_input(
-    tables: &[crate::ability::AbilityLevelTable],
-    investments: &[AbilityInvestment],
-) -> bool {
+fn valid_ability_input(tables: &[AbilityLevelTable], investments: &[AbilityInvestment]) -> bool {
     tables.len() == investments.len()
         && tables.iter().zip(investments).all(|(table, investment)| {
             table.family() == investment.family() && investment.invested() <= table.invested_cap()
@@ -455,7 +456,7 @@ struct CompilationWorkspace {
 }
 
 impl CompilationWorkspace {
-    fn new(definition: &crate::catalog::CharacterBuildDefinition) -> Self {
+    fn new(definition: &CharacterBuildDefinition) -> Self {
         let mut abilities = definition
             .abilities()
             .iter()
@@ -508,7 +509,7 @@ impl CompilationWorkspace {
 }
 
 fn apply_traces(
-    definition: &crate::catalog::CharacterBuildDefinition,
+    definition: &CharacterBuildDefinition,
     spec: &CombatantBuildSpec,
     workspace: &mut CompilationWorkspace,
 ) -> Result<(), ()> {
@@ -541,12 +542,12 @@ fn apply_traces(
 }
 
 fn apply_eidolons(
-    definition: &crate::catalog::CharacterBuildDefinition,
+    definition: &CharacterBuildDefinition,
     spec: &CombatantBuildSpec,
     workspace: &mut CompilationWorkspace,
 ) -> Result<(), ()> {
     for raw_rank in 1..=spec.eidolon().get() {
-        let rank = crate::spec::EidolonLevel::new(raw_rank).ok_or(())?;
+        let rank = EidolonLevel::new(raw_rank).ok_or(())?;
         let definition = definition.eidolons().rank(rank).ok_or(())?;
         for patch in definition.patches() {
             workspace.apply_patch(*patch, definition.source().definition())?;
@@ -556,7 +557,7 @@ fn apply_eidolons(
 }
 
 fn resolve_ability_levels(
-    definition: &crate::catalog::CharacterBuildDefinition,
+    definition: &CharacterBuildDefinition,
     investments: &[AbilityInvestment],
     workspace: &mut CompilationWorkspace,
 ) -> Result<(), ()> {

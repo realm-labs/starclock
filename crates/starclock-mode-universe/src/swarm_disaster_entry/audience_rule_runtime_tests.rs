@@ -1,3 +1,6 @@
+use crate::swarm_disaster_entry::dice_control::{CHEAT_CHARGE_KEY, REROLL_CHARGE_KEY};
+use crate::swarm_disaster_entry::state::RESOURCES;
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityExpression, ActivityInstanceId, ActivityMasterSeed,
@@ -99,16 +102,16 @@ fn roll_reroll_cheat_and_targeting_reuse_labeled_runtime_paths() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::super::tests::released_entry(
+        .compile_entry(released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::super::tests::participants(super::super::tests::policy()),
+            participants(policy()),
         ))
         .unwrap()
 }
@@ -134,13 +137,13 @@ fn grant_charges(
         ActivityProgramId::new(0x5320_ff10).unwrap(),
         vec![
             ActivityOperation::AddCounter {
-                slot: ActivitySlotId::new(super::super::state::RESOURCES).unwrap(),
-                key: super::super::dice_control::REROLL_CHARGE_KEY,
+                slot: ActivitySlotId::new(RESOURCES).unwrap(),
+                key: REROLL_CHARGE_KEY,
                 delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(rerolls)),
             },
             ActivityOperation::AddCounter {
-                slot: ActivitySlotId::new(super::super::state::RESOURCES).unwrap(),
-                key: super::super::dice_control::CHEAT_CHARGE_KEY,
+                slot: ActivitySlotId::new(RESOURCES).unwrap(),
+                key: CHEAT_CHARGE_KEY,
                 delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(cheats)),
             },
         ],

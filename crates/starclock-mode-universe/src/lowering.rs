@@ -1,5 +1,13 @@
 //! Strict lowering from private Sora transport rows into Universe definitions.
 
+use crate::curio_lowering::lower as curio_lowering_lower;
+use crate::encounter_digest::digest as encounter_digest_digest;
+use crate::encounter_lowering::lower as encounter_lowering_lower;
+use crate::occurrence_lowering::lower as occurrence_lowering_lower;
+use crate::path_lowering::lower as path_lowering_lower;
+use crate::progression_lowering::lower as progression_lowering_lower;
+use crate::rule_lowering::lower as rule_lowering_lower;
+use crate::run_digest::digest as run_digest_digest;
 use std::collections::{BTreeMap, BTreeSet};
 
 use serde::Deserialize;
@@ -39,20 +47,20 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
     let topologies = lower_topologies(config)?;
     let rooms = lower_rooms(config, &domains)?;
     let activity = lower_activity(config, profile.id(), &domains)?;
-    let path_definitions = crate::path_lowering::lower(config)?;
-    let curio_definitions = crate::curio_lowering::lower(config)?;
-    let occurrence_definitions = crate::occurrence_lowering::lower(config)?;
-    let progression_definitions = crate::progression_lowering::lower(config)?;
-    let encounter_definitions = crate::encounter_lowering::lower(config)?;
-    let mechanic_rules = crate::rule_lowering::lower(config)?;
-    let run_digest = crate::run_digest::digest(
+    let path_definitions = path_lowering_lower(config)?;
+    let curio_definitions = curio_lowering_lower(config)?;
+    let occurrence_definitions = occurrence_lowering_lower(config)?;
+    let progression_definitions = progression_lowering_lower(config)?;
+    let encounter_definitions = encounter_lowering_lower(config)?;
+    let mechanic_rules = rule_lowering_lower(config)?;
+    let run_digest = run_digest_digest(
         &occurrence_definitions.occurrences,
         &occurrence_definitions.variants,
         &occurrence_definitions.choices,
         &progression_definitions.services,
         &progression_definitions.ability_tree_nodes,
     );
-    let encounter_digest = crate::encounter_digest::digest(
+    let encounter_digest = encounter_digest_digest(
         &encounter_definitions.groups,
         &encounter_definitions.difficulty_enemies,
         &encounter_definitions.pools,

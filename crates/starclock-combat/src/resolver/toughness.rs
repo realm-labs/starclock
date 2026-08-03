@@ -1,8 +1,10 @@
 //! Transaction mutations owned by the generic Toughness subsystem.
 
+use crate::actor::store::TemporaryWeaknessState;
+use crate::effect::break_effect::BreakEffectState;
 use crate::{
-    EffectInstanceId, OperationId, RawToughness, UnitId, battle::fault::BattleFault,
-    formula::model::CombatElement,
+    EffectInstanceId, OperationId, Ratio, RawToughness, Rounding, Scalar, UnitId,
+    battle::fault::BattleFault, formula::model::CombatElement,
 };
 
 use super::{
@@ -34,14 +36,12 @@ impl Transaction<'_> {
                 existing.remaining_turns = turns;
                 existing.source_operation = source_operation;
             } else if state.permanent_weaknesses.binary_search(&element).is_err() {
-                state
-                    .temporary_weaknesses
-                    .push(crate::actor::store::TemporaryWeaknessState {
-                        element,
-                        applier,
-                        source_operation,
-                        remaining_turns: turns,
-                    });
+                state.temporary_weaknesses.push(TemporaryWeaknessState {
+                    element,
+                    applier,
+                    source_operation,
+                    remaining_turns: turns,
+                });
             }
         } else if state.permanent_weaknesses.binary_search(&element).is_err() {
             let index = state
@@ -151,7 +151,7 @@ impl Transaction<'_> {
     pub(super) fn recover_toughness(
         &mut self,
         unit: UnitId,
-        dynamic_ratio: crate::Ratio,
+        dynamic_ratio: Ratio,
     ) -> Result<Vec<(u32, RawToughness, RawToughness)>, BattleFault> {
         let changes = self
             .state
@@ -164,14 +164,14 @@ impl Transaction<'_> {
                 let scaled = layer
                     .spec
                     .recovery_ratio()
-                    .checked_mul(dynamic_ratio, crate::Rounding::NearestTiesEven)
+                    .checked_mul(dynamic_ratio, Rounding::NearestTiesEven)
                     .ok()?
                     .checked_apply(
-                        crate::Scalar::checked_from_integer(layer.spec.maximum().get()).ok()?,
-                        crate::Rounding::Floor,
+                        Scalar::checked_from_integer(layer.spec.maximum().get()).ok()?,
+                        Rounding::Floor,
                     )
                     .ok()?;
-                let recovered = RawToughness::from_scalar(scaled, crate::Rounding::Floor).ok()?;
+                let recovered = RawToughness::from_scalar(scaled, Rounding::Floor).ok()?;
                 let after = RawToughness::new(
                     layer
                         .current
@@ -189,10 +189,7 @@ impl Transaction<'_> {
         Ok(changes)
     }
 
-    pub(super) fn record_break_effect(
-        &mut self,
-        effect: crate::effect::break_effect::BreakEffectState,
-    ) {
+    pub(super) fn record_break_effect(&mut self, effect: BreakEffectState) {
         self.state.break_effects.insert(effect);
         self.journal.mutation(MutationField::BreakEffect, 0, 1);
     }

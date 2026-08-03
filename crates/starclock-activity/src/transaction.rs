@@ -1,7 +1,3 @@
-use std::collections::BTreeMap;
-
-use sha2::{Digest, Sha256};
-
 mod condition;
 mod decision;
 mod extension;
@@ -18,16 +14,19 @@ use self::support::{
 use crate::{
     ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity,
     ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInstanceId,
-    ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition, ActivityOptionId,
-    ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams, ActivitySlotId,
-    ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
-    ActivityValue, LogicalScopeInstance, NodeId, ParticipantId, SlotResetPoint,
+    ActivityInventoryId, ActivityModifierId, ActivityOperation, ActivityOptionDefinition,
+    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams,
+    ActivitySlotId, ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility,
+    ActivityTerminalOutcome, ActivityValue, BattleResultDigest, LogicalScopeInstance, NodeId,
+    ParticipantId, SlotResetPoint,
     battle_preparation::ActivityAttemptState,
     battle_settlement::{ActivityAwaitingBattle, ActivityCarryLedger, MetricSettlementPolicy},
     codec::ActivityStateEncoder,
     logical_scope::LogicalScopeRuntimeState,
     view::{ActivityDebugView, ActivityPlayerView, ActivitySlotView},
 };
+use sha2::{Digest, Sha256};
+use std::collections::BTreeMap;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ActivityCause {
@@ -177,7 +176,7 @@ pub struct ActivityTransactionState {
     pub(crate) attempt: Option<ActivityAttemptState>,
     pub(crate) awaiting_battle: Option<ActivityAwaitingBattle>,
     pub(crate) carry: ActivityCarryLedger,
-    pub(crate) completed_battles: Vec<crate::BattleResultDigest>,
+    pub(crate) completed_battles: Vec<BattleResultDigest>,
     pending: Option<PendingDecision>,
     terminal: Option<ActivityTerminalOutcome>,
 }
@@ -569,7 +568,7 @@ impl ActivityTransactionState {
         &mut self,
         program: &ActivityProgramDefinition,
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
         if self.pending.is_some() || self.terminal.is_some() {
             return ActivityTransactionOutcome::Rejected(
@@ -612,7 +611,7 @@ impl ActivityTransactionState {
         &mut self,
         program: &ActivityProgramDefinition,
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
         decision::replace_pending_with_program(self, program, cause, graph)
     }
@@ -621,7 +620,7 @@ impl ActivityTransactionState {
         &mut self,
         option: ActivityOptionId,
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
         self.apply_option_with_prefix(option, &[], cause, graph)
     }
@@ -629,18 +628,18 @@ impl ActivityTransactionState {
     pub(crate) fn apply_option_with_prefix(
         &mut self,
         option: ActivityOptionId,
-        prefix: &[crate::ActivityOperation],
+        prefix: &[ActivityOperation],
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
         decision::apply_option_with_prefix(self, option, prefix, cause, graph)
     }
 
     fn execute(
         &mut self,
-        operations: &[crate::ActivityOperation],
+        operations: &[ActivityOperation],
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
         events: &mut Vec<ActivityTransactionEvent>,
     ) -> Result<(), ExecutionFailure> {
         for operation in operations {
@@ -677,14 +676,13 @@ impl ActivityTransactionState {
 
     fn execute_one(
         &mut self,
-        operation: &crate::ActivityOperation,
+        operation: &ActivityOperation,
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
         events: &mut Vec<ActivityTransactionEvent>,
     ) -> Result<(), ExecutionFailure> {
-        use crate::ActivityOperation as Op;
         match operation {
-            Op::SetSlot { slot, value } => {
+            ActivityOperation::SetSlot { slot, value } => {
                 let value = self.evaluate(value)?;
                 self.set_slot(*slot, value)?;
                 push(
@@ -693,7 +691,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::SlotChanged(*slot),
                 );
             }
-            Op::AddToSlot { slot, delta } => {
+            ActivityOperation::AddToSlot { slot, delta } => {
                 let current = integer(
                     self.slots
                         .get(slot)
@@ -709,13 +707,13 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::SlotChanged(*slot),
                 );
             }
-            Op::AddCounter { slot, key, delta } => {
+            ActivityOperation::AddCounter { slot, key, delta } => {
                 self.add_counter(*slot, *key, integer(&self.evaluate(delta)?)?, cause, events)?
             }
-            Op::InsertOrderedId { slot, id } => {
+            ActivityOperation::InsertOrderedId { slot, id } => {
                 self.insert_ordered_id(*slot, *id, cause, events)?
             }
-            Op::AddInventory {
+            ActivityOperation::AddInventory {
                 inventory,
                 content,
                 count,
@@ -726,7 +724,7 @@ impl ActivityTransactionState {
                 cause,
                 events,
             )?,
-            Op::RemoveInventory {
+            ActivityOperation::RemoveInventory {
                 inventory,
                 content,
                 count,
@@ -739,13 +737,13 @@ impl ActivityTransactionState {
                 cause,
                 events,
             )?,
-            Op::AddModifier { modifier, stacks } => {
+            ActivityOperation::AddModifier { modifier, stacks } => {
                 self.change_modifier(*modifier, integer(&self.evaluate(stacks)?)?, cause, events)?
             }
-            Op::RemoveModifier { modifier } => {
+            ActivityOperation::RemoveModifier { modifier } => {
                 self.change_modifier(*modifier, i64::MIN, cause, events)?
             }
-            Op::RestoreParticipant {
+            ActivityOperation::RestoreParticipant {
                 participant,
                 hp_ratio,
             } => {
@@ -756,7 +754,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
                 );
             }
-            Op::HealParticipantMaximumHpRatio {
+            ActivityOperation::HealParticipantMaximumHpRatio {
                 participant,
                 hp_ratio,
             } => {
@@ -767,7 +765,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
                 );
             }
-            Op::LoseParticipantCurrentHpRatio {
+            ActivityOperation::LoseParticipantCurrentHpRatio {
                 participant,
                 hp_ratio,
                 minimum_hp,
@@ -784,7 +782,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
                 );
             }
-            Op::SetParticipantEnergy {
+            ActivityOperation::SetParticipantEnergy {
                 participant,
                 energy,
             } => {
@@ -795,7 +793,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
                 );
             }
-            Op::Traverse(edge) => {
+            ActivityOperation::Traverse(edge) => {
                 let (_, resets) = self.traverse_edge(*edge, graph)?;
                 for (slot, point) in resets {
                     push(
@@ -810,7 +808,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::EdgeTraversed(*edge),
                 );
             }
-            Op::Relocate(node) => {
+            ActivityOperation::Relocate(node) => {
                 let resets = self.relocate_node(*node, graph)?;
                 for (slot, point) in resets {
                     push(
@@ -825,7 +823,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::NodeRelocated(*node),
                 );
             }
-            Op::Offer { kind, options } => {
+            ActivityOperation::Offer { kind, options } => {
                 let mut enabled = Vec::new();
                 for option in options.iter() {
                     if self.condition(option.enabled())? {
@@ -849,7 +847,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::DecisionOffered(id),
                 );
             }
-            Op::Conditional {
+            ActivityOperation::Conditional {
                 condition,
                 if_true,
                 if_false,
@@ -861,7 +859,7 @@ impl ActivityTransactionState {
                 };
                 self.execute(branch, cause, graph, events)?;
             }
-            Op::Terminal(outcome) => {
+            ActivityOperation::Terminal(outcome) => {
                 self.terminal = Some(*outcome);
                 push(
                     events,
@@ -869,7 +867,7 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::Terminal(*outcome),
                 );
             }
-            Op::Require(condition) => {
+            ActivityOperation::Require(condition) => {
                 if !self.condition(condition)? {
                     return Err(ExecutionFailure::Rejected(
                         ActivityTransactionRejection::ConditionNotSatisfied,

@@ -1,9 +1,28 @@
 //! Authoritative dispatch from committed event facts into battle-owned Rule IR.
 
+use crate::action::model::ActionOrigin as ModelActionOrigin;
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::AbilityActionDefinition;
+use crate::catalog::action::AbilityKind;
+use crate::catalog::action::AbilityTag;
+use crate::catalog::action::HitCritPolicy;
+use crate::catalog::action::HitOperationDefinition;
+use crate::catalog::action::UnitTargetSelector;
+use crate::catalog::definition::AbilityDefinition;
+use crate::catalog::definition::SelectorDefinition;
 use crate::formula::model::{CombatElement, DamageClass};
+use crate::formula::toughness::EnemyRank;
+use crate::rule::evaluate::BattleQueryReader;
+use crate::rule::evaluate::ResourceQueryReader;
+use crate::rule::model::RuleToughnessEventKind;
 use crate::{
-    BattleEvent, BattleEventKind, BattleFault, EventId, RuleId, RuleInstanceId,
-    StateSlotDefinitionId, UnitId,
+    AbilityId, ActionEventData, ActionId, ActionOrigin, BattleEvent, BattleEventData,
+    BattleEventKind, BattleFault, BreakDamageKind, ControlledAction, DecisionEventData,
+    DurationClock, EffectCategory, EffectDefinitionId, EffectEventData, EffectRuntimeDefinition,
+    EffectRuntimeTemplate, EventId, FaultBoundary, FaultKind, FaultPolicy, HitEventData, LifeState,
+    PhaseEventData, PresenceState, Ratio, ResourceEventData, RuleId, RuleInstanceId, Scalar,
+    SelectorId, ShieldEventData, SourceDefinitionId, StateSlotDefinitionId, TeamSide,
+    ToughnessEventData, TurnEventData, UnitDefinitionId, UnitEventData, UnitId, WaveEventData,
     event::cause::CauseActor,
     modifier::resolve::StatResolver,
     operation::HitOperationScratch,
@@ -30,8 +49,8 @@ struct Candidate {
     owner: Option<UnitId>,
     slots: Box<[(StateSlotDefinitionId, RuleValue)]>,
     trigger: TriggerDef,
-    source: crate::SourceDefinitionId,
-    source_tags: Box<[crate::SourceDefinitionId]>,
+    source: SourceDefinitionId,
+    source_tags: Box<[SourceDefinitionId]>,
     order: (i16, u8, u8, u64, u32, u32, u64, u32),
 }
 
@@ -41,7 +60,7 @@ enum CandidateResolution {
 }
 
 pub(super) fn dispatch_pending_after_events(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     mut parent: EventId,
 ) -> Result<EventId, BattleFault> {
@@ -84,7 +103,7 @@ pub(super) fn dispatch_pending_after_events(
 }
 
 fn candidates(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &Transaction<'_>,
     event: RuleEventKind,
     phase: TriggerPhase,
@@ -152,7 +171,7 @@ fn candidates(
 }
 
 fn evaluate_candidate(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     event: &BattleEvent,
     event_kind: RuleEventKind,
@@ -202,7 +221,7 @@ fn evaluate_candidate(
         target: event_cause.primary_target(),
         ability: event_cause
             .source_definition()
-            .and_then(|source| crate::AbilityId::new(source.get())),
+            .and_then(|source| AbilityId::new(source.get())),
         action: event_cause.action(),
         turn_event: matches!(
             event_point,
@@ -212,7 +231,7 @@ fn evaluate_candidate(
         wave: txn.state.encounter.wave,
     };
     let event_order = event_target_order(event);
-    let mut resolved: Vec<(crate::SelectorId, Box<[crate::UnitId]>)> = Vec::new();
+    let mut resolved: Vec<(SelectorId, Box<[UnitId]>)> = Vec::new();
     for id in super::target::ordered_rule_selectors(catalog, program.selectors())? {
         let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
             continue;
@@ -296,12 +315,12 @@ fn evaluate_candidate(
     }
     let action = event_cause
         .action()
-        .or_else(|| crate::ActionId::new(candidate.instance.get()))
+        .or_else(|| ActionId::new(candidate.instance.get()))
         .expect("rule instance IDs are nonzero");
     let ability = event_cause
         .source_definition()
-        .and_then(|source| crate::AbilityId::new(source.get()))
-        .or_else(|| crate::AbilityId::new(candidate.rule.get()))
+        .and_then(|source| AbilityId::new(source.get()))
+        .or_else(|| AbilityId::new(candidate.rule.get()))
         .expect("rule IDs are nonzero");
     let context = AbilityProgramContext {
         program: candidate.trigger.program,
@@ -314,9 +333,9 @@ fn evaluate_candidate(
         trigger: Some(candidate.trigger.id),
         hit: event_cause.hit(),
         primary: event_cause.primary_target(),
-        damage_share: crate::Ratio::ONE,
-        toughness_share: crate::Ratio::ONE,
-        crit_policy: crate::catalog::action::HitCritPolicy::PerTarget,
+        damage_share: Ratio::ONE,
+        toughness_share: Ratio::ONE,
+        crit_policy: HitCritPolicy::PerTarget,
     };
     let mut operation_cause = event_cause
         .with_owner(owner)
@@ -350,11 +369,9 @@ fn actor_unit(txn: &Transaction<'_>, actor: Option<CauseActor>) -> Option<UnitId
 
 fn event_target_order(event: &BattleEvent) -> Vec<UnitId> {
     match event.kind() {
-        BattleEventKind::Hit(crate::HitEventData::Started { targets, .. })
-        | BattleEventKind::Hit(crate::HitEventData::Ended { targets, .. }) => targets.to_vec(),
-        BattleEventKind::Action(crate::ActionEventData::Resolved { targets, .. }) => {
-            targets.to_vec()
-        }
+        BattleEventKind::Hit(HitEventData::Started { targets, .. })
+        | BattleEventKind::Hit(HitEventData::Ended { targets, .. }) => targets.to_vec(),
+        BattleEventKind::Action(ActionEventData::Resolved { targets, .. }) => targets.to_vec(),
         BattleEventKind::Damage(data) => vec![data.target],
         BattleEventKind::Heal(data) => vec![data.target],
         BattleEventKind::HpConsumption(data) => vec![data.target],
@@ -369,88 +386,70 @@ fn event_target_order(event: &BattleEvent) -> Vec<UnitId> {
 
 fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
     let point = match event {
-        BattleEventKind::Battle(crate::BattleEventData::Started) => RuleEventPoint::BattleStarted,
-        BattleEventKind::Battle(crate::BattleEventData::Won) => RuleEventPoint::BattleWon,
-        BattleEventKind::Battle(crate::BattleEventData::Lost)
-        | BattleEventKind::Battle(crate::BattleEventData::Conceded { .. }) => {
-            RuleEventPoint::BattleLost
-        }
-        BattleEventKind::Decision(crate::DecisionEventData::Offered { .. }) => {
+        BattleEventKind::Battle(BattleEventData::Started) => RuleEventPoint::BattleStarted,
+        BattleEventKind::Battle(BattleEventData::Won) => RuleEventPoint::BattleWon,
+        BattleEventKind::Battle(BattleEventData::Lost)
+        | BattleEventKind::Battle(BattleEventData::Conceded { .. }) => RuleEventPoint::BattleLost,
+        BattleEventKind::Decision(DecisionEventData::Offered { .. }) => {
             RuleEventPoint::DecisionRequested
         }
-        BattleEventKind::Decision(crate::DecisionEventData::Closed { .. }) => return None,
-        BattleEventKind::Turn(crate::TurnEventData::Started {
-            origin: crate::ActionOrigin::ExtraTurn,
+        BattleEventKind::Decision(DecisionEventData::Closed { .. }) => return None,
+        BattleEventKind::Turn(TurnEventData::Started {
+            origin: ActionOrigin::ExtraTurn,
             ..
         })
-        | BattleEventKind::Turn(crate::TurnEventData::Ended {
-            origin: crate::ActionOrigin::ExtraTurn,
+        | BattleEventKind::Turn(TurnEventData::Ended {
+            origin: ActionOrigin::ExtraTurn,
             ..
         }) => return None,
-        BattleEventKind::Turn(crate::TurnEventData::Started { .. }) => RuleEventPoint::TurnStarted,
-        BattleEventKind::Turn(crate::TurnEventData::Ended { .. }) => RuleEventPoint::TurnEnded,
-        BattleEventKind::Turn(crate::TurnEventData::ExtraTurnGranted { .. }) => return None,
-        BattleEventKind::Turn(crate::TurnEventData::ActionGaugeChanged { .. }) => return None,
-        BattleEventKind::Action(crate::ActionEventData::Declared { .. }) => {
-            RuleEventPoint::ActionDeclared
-        }
-        BattleEventKind::Action(crate::ActionEventData::Started { .. }) => {
-            RuleEventPoint::ActionStarted
-        }
-        BattleEventKind::Action(crate::ActionEventData::Resolved { .. }) => {
-            RuleEventPoint::ActionResolved
-        }
-        BattleEventKind::Action(crate::ActionEventData::Queued { .. })
-        | BattleEventKind::Action(crate::ActionEventData::Cancelled { .. }) => return None,
-        BattleEventKind::Phase(crate::PhaseEventData::Started { .. }) => {
-            RuleEventPoint::PhaseStarted
-        }
-        BattleEventKind::Phase(crate::PhaseEventData::Ended { .. }) => RuleEventPoint::PhaseEnded,
-        BattleEventKind::Hit(crate::HitEventData::Started { .. }) => RuleEventPoint::HitStarted,
-        BattleEventKind::Hit(crate::HitEventData::Ended { .. }) => RuleEventPoint::HitEnded,
+        BattleEventKind::Turn(TurnEventData::Started { .. }) => RuleEventPoint::TurnStarted,
+        BattleEventKind::Turn(TurnEventData::Ended { .. }) => RuleEventPoint::TurnEnded,
+        BattleEventKind::Turn(TurnEventData::ExtraTurnGranted { .. }) => return None,
+        BattleEventKind::Turn(TurnEventData::ActionGaugeChanged { .. }) => return None,
+        BattleEventKind::Action(ActionEventData::Declared { .. }) => RuleEventPoint::ActionDeclared,
+        BattleEventKind::Action(ActionEventData::Started { .. }) => RuleEventPoint::ActionStarted,
+        BattleEventKind::Action(ActionEventData::Resolved { .. }) => RuleEventPoint::ActionResolved,
+        BattleEventKind::Action(ActionEventData::Queued { .. })
+        | BattleEventKind::Action(ActionEventData::Cancelled { .. }) => return None,
+        BattleEventKind::Phase(PhaseEventData::Started { .. }) => RuleEventPoint::PhaseStarted,
+        BattleEventKind::Phase(PhaseEventData::Ended { .. }) => RuleEventPoint::PhaseEnded,
+        BattleEventKind::Hit(HitEventData::Started { .. }) => RuleEventPoint::HitStarted,
+        BattleEventKind::Hit(HitEventData::Ended { .. }) => RuleEventPoint::HitEnded,
         BattleEventKind::Damage(_) | BattleEventKind::BreakDamage(_) => {
             RuleEventPoint::DamageApplied
         }
         BattleEventKind::HpConsumption(_) => RuleEventPoint::HpChanged,
         BattleEventKind::Heal(_) => RuleEventPoint::HealApplied,
         BattleEventKind::Shield(_) => RuleEventPoint::ShieldChanged,
-        BattleEventKind::Toughness(crate::ToughnessEventData::LayerDepleted {
+        BattleEventKind::Toughness(ToughnessEventData::LayerDepleted {
             changed_global_broken: true,
             ..
         }) => RuleEventPoint::WeaknessBroken,
         BattleEventKind::Toughness(_) => RuleEventPoint::ToughnessChanged,
-        BattleEventKind::Unit(crate::UnitEventData::Downed { .. }) => RuleEventPoint::UnitDowned,
-        BattleEventKind::Unit(crate::UnitEventData::Defeated { .. }) => {
-            RuleEventPoint::UnitDefeated
-        }
-        BattleEventKind::Unit(crate::UnitEventData::Summoned { .. }) => {
-            RuleEventPoint::UnitSummoned
-        }
-        BattleEventKind::Unit(crate::UnitEventData::Revived { .. }) => RuleEventPoint::UnitRevived,
-        BattleEventKind::Unit(crate::UnitEventData::Transformed { .. })
-        | BattleEventKind::Unit(crate::UnitEventData::TransformationEnded { .. }) => {
+        BattleEventKind::Unit(UnitEventData::Downed { .. }) => RuleEventPoint::UnitDowned,
+        BattleEventKind::Unit(UnitEventData::Defeated { .. }) => RuleEventPoint::UnitDefeated,
+        BattleEventKind::Unit(UnitEventData::Summoned { .. }) => RuleEventPoint::UnitSummoned,
+        BattleEventKind::Unit(UnitEventData::Revived { .. }) => RuleEventPoint::UnitRevived,
+        BattleEventKind::Unit(UnitEventData::Transformed { .. })
+        | BattleEventKind::Unit(UnitEventData::TransformationEnded { .. }) => {
             RuleEventPoint::UnitTransformed
         }
-        BattleEventKind::Unit(crate::UnitEventData::PresenceChanged { .. }) => {
+        BattleEventKind::Unit(UnitEventData::PresenceChanged { .. }) => {
             RuleEventPoint::PresenceChanged
         }
         BattleEventKind::Unit(_) => return None,
         BattleEventKind::EnemyPhase(_) => RuleEventPoint::EncounterTransition,
-        BattleEventKind::Wave(crate::WaveEventData::Started { .. }) => RuleEventPoint::WaveStarted,
-        BattleEventKind::Wave(crate::WaveEventData::Ended { .. }) => RuleEventPoint::WaveEnded,
+        BattleEventKind::Wave(WaveEventData::Started { .. }) => RuleEventPoint::WaveStarted,
+        BattleEventKind::Wave(WaveEventData::Ended { .. }) => RuleEventPoint::WaveEnded,
         BattleEventKind::Resource(_) => RuleEventPoint::ResourceChanged,
-        BattleEventKind::Effect(crate::EffectEventData::Applied { .. }) => {
-            RuleEventPoint::EffectApplied
-        }
-        BattleEventKind::Effect(crate::EffectEventData::Removed { .. }) => {
-            RuleEventPoint::EffectRemoved
-        }
-        BattleEventKind::Effect(crate::EffectEventData::Refreshed {
+        BattleEventKind::Effect(EffectEventData::Applied { .. }) => RuleEventPoint::EffectApplied,
+        BattleEventKind::Effect(EffectEventData::Removed { .. }) => RuleEventPoint::EffectRemoved,
+        BattleEventKind::Effect(EffectEventData::Refreshed {
             stacks_before,
             stacks_after,
             ..
         }) if stacks_before != stacks_after => RuleEventPoint::EffectStacksChanged,
-        BattleEventKind::Effect(crate::EffectEventData::Refreshed { .. }) => {
+        BattleEventKind::Effect(EffectEventData::Refreshed { .. }) => {
             RuleEventPoint::EffectRefreshed
         }
         BattleEventKind::Effect(_) => return None,
@@ -462,7 +461,7 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
 }
 
 fn event_facts(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &Transaction<'_>,
     event: &BattleEvent,
     point: RuleEventPoint,
@@ -470,21 +469,18 @@ fn event_facts(
     let cause = event.cause();
     let ability = cause
         .source_definition()
-        .and_then(|source| crate::AbilityId::new(source.get()))
+        .and_then(|source| AbilityId::new(source.get()))
         .and_then(|id| catalog.ability(id));
-    let action = ability.and_then(crate::catalog::definition::AbilityDefinition::action);
+    let action = ability.and_then(AbilityDefinition::action);
     let target_pattern = ability
         .and_then(|ability| catalog.selector(ability.selector()))
-        .and_then(crate::catalog::definition::SelectorDefinition::unit_targets)
-        .map(crate::catalog::action::UnitTargetSelector::pattern);
+        .and_then(SelectorDefinition::unit_targets)
+        .map(UnitTargetSelector::pattern);
     let mut facts = RuleEventFacts {
         point: Some(point),
         source_class: source_class(catalog, cause.source_definition()),
         action_kind: action.map(|action| {
-            if action
-                .tags()
-                .contains(crate::catalog::action::AbilityTag::PathResonance)
-            {
+            if action.tags().contains(AbilityTag::PathResonance) {
                 RuleActionKind::PathResonance
             } else {
                 lower_action_kind(action.kind())
@@ -502,15 +498,15 @@ fn event_facts(
     match event.kind() {
         BattleEventKind::Action(data) => {
             let (origin, tags) = match data {
-                crate::ActionEventData::Declared { origin, tags, .. }
-                | crate::ActionEventData::Started { origin, tags, .. }
-                | crate::ActionEventData::Resolved { origin, tags, .. } => (*origin, *tags),
-                crate::ActionEventData::Queued { origin, .. }
-                | crate::ActionEventData::Cancelled { origin, .. } => (*origin, facts.ability_tags),
+                ActionEventData::Declared { origin, tags, .. }
+                | ActionEventData::Started { origin, tags, .. }
+                | ActionEventData::Resolved { origin, tags, .. } => (*origin, *tags),
+                ActionEventData::Queued { origin, .. }
+                | ActionEventData::Cancelled { origin, .. } => (*origin, facts.ability_tags),
             };
             facts.action_kind = Some(action_kind_from_origin(origin, facts.action_kind));
             facts.ability_tags = tags;
-            if tags.contains(crate::catalog::action::AbilityTag::PathResonance) {
+            if tags.contains(AbilityTag::PathResonance) {
                 facts.action_kind = Some(RuleActionKind::PathResonance);
             }
             facts.element = action.and_then(action_element);
@@ -539,10 +535,8 @@ fn event_facts(
         }
         BattleEventKind::BreakDamage(data) => {
             facts.damage_class = Some(match data.kind {
-                crate::BreakDamageKind::Initial | crate::BreakDamageKind::Effect => {
-                    RuleDamageClass::Break
-                }
-                crate::BreakDamageKind::SuperBreak => RuleDamageClass::SuperBreak,
+                BreakDamageKind::Initial | BreakDamageKind::Effect => RuleDamageClass::Break,
+                BreakDamageKind::SuperBreak => RuleDamageClass::SuperBreak,
             });
             facts.element = Some(data.element);
             let amount = scalar_from_u64(data.applied.get());
@@ -571,31 +565,31 @@ fn event_facts(
         }
         BattleEventKind::Shield(data) => {
             facts.shield_change_amount = match data {
-                crate::ShieldEventData::Applied { amount, .. } => scalar_from_u64(amount.get()),
-                crate::ShieldEventData::Absorbed { before, after, .. } => {
+                ShieldEventData::Applied { amount, .. } => scalar_from_u64(amount.get()),
+                ShieldEventData::Absorbed { before, after, .. } => {
                     signed_scalar(after.get() - before.get())
                 }
-                crate::ShieldEventData::Removed { before, .. } => signed_scalar(-before.get()),
+                ShieldEventData::Removed { before, .. } => signed_scalar(-before.get()),
             };
         }
         BattleEventKind::Toughness(data) => {
             facts.element =
                 toughness_element(data).or_else(|| toughness_ancestry_element(txn, event));
             facts.toughness_kind = Some(toughness_kind(data));
-            if let crate::ToughnessEventData::Reduced { effective, .. } = data {
+            if let ToughnessEventData::Reduced { effective, .. } = data {
                 facts.toughness_reduction = Some(*effective);
             }
         }
         BattleEventKind::Effect(data) => {
             facts.effect_definition = match data {
-                crate::EffectEventData::Applied { definition, .. }
-                | crate::EffectEventData::Resisted { definition, .. } => Some(*definition),
-                crate::EffectEventData::Refreshed { effect, .. }
-                | crate::EffectEventData::Ticked { effect, .. }
-                | crate::EffectEventData::Detonated { effect, .. } => {
+                EffectEventData::Applied { definition, .. }
+                | EffectEventData::Resisted { definition, .. } => Some(*definition),
+                EffectEventData::Refreshed { effect, .. }
+                | EffectEventData::Ticked { effect, .. }
+                | EffectEventData::Detonated { effect, .. } => {
                     txn.state.effects.get(*effect).map(|state| state.definition)
                 }
-                crate::EffectEventData::Removed { definition, .. } => Some(*definition),
+                EffectEventData::Removed { definition, .. } => Some(*definition),
             };
             facts.effect_category = facts.effect_definition.and_then(|definition| {
                 catalog.effect(definition).and_then(|effect| {
@@ -609,24 +603,22 @@ fn event_facts(
                 catalog.effect(definition).and_then(|effect| {
                     effect
                         .runtime()
-                        .and_then(crate::EffectRuntimeDefinition::specific_resistance_stat)
+                        .and_then(EffectRuntimeDefinition::specific_resistance_stat)
                         .or_else(|| {
                             effect
                                 .runtime_template()
-                                .and_then(crate::EffectRuntimeTemplate::specific_resistance_stat)
+                                .and_then(EffectRuntimeTemplate::specific_resistance_stat)
                         })
                 })
             });
             facts.stack_count = match data {
-                crate::EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
-                crate::EffectEventData::Refreshed { stacks_after, .. } => {
-                    Some(i64::from(*stacks_after))
-                }
+                EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
+                EffectEventData::Refreshed { stacks_after, .. } => Some(i64::from(*stacks_after)),
                 _ => None,
             };
             facts.stack_delta = match data {
-                crate::EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
-                crate::EffectEventData::Refreshed {
+                EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
+                EffectEventData::Refreshed {
                     stacks_before,
                     stacks_after,
                     ..
@@ -635,7 +627,7 @@ fn event_facts(
             };
         }
         BattleEventKind::Resource(data) => match data {
-            crate::ResourceEventData::SkillPoints {
+            ResourceEventData::SkillPoints {
                 before,
                 after,
                 overflow,
@@ -645,18 +637,17 @@ fn event_facts(
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
                 facts.resource_overflow = signed_scalar(i64::from(*overflow));
             }
-            crate::ResourceEventData::Energy {
+            ResourceEventData::Energy {
                 before,
                 after,
                 overflow,
                 ..
             } => {
                 facts.resource = Some(RuleResourceKind::Energy);
-                facts.resource_delta =
-                    Some(crate::Scalar::from_scaled(after.scaled() - before.scaled()));
-                facts.resource_overflow = Some(crate::Scalar::from_scaled(overflow.scaled()));
+                facts.resource_delta = Some(Scalar::from_scaled(after.scaled() - before.scaled()));
+                facts.resource_overflow = Some(Scalar::from_scaled(overflow.scaled()));
             }
-            crate::ResourceEventData::CharacterResource {
+            ResourceEventData::CharacterResource {
                 resource,
                 before,
                 after,
@@ -664,9 +655,9 @@ fn event_facts(
             } => {
                 facts.resource = Some(RuleResourceKind::Character(resource.clone()));
                 facts.resource_delta = after.checked_sub(*before).ok();
-                facts.resource_overflow = Some(crate::Scalar::ZERO);
+                facts.resource_overflow = Some(Scalar::ZERO);
             }
-            crate::ResourceEventData::TeamResource {
+            ResourceEventData::TeamResource {
                 side,
                 resource,
                 before,
@@ -694,47 +685,39 @@ fn event_facts(
     facts
 }
 
-fn action_element(
-    action: &crate::catalog::action::AbilityActionDefinition,
-) -> Option<CombatElement> {
+fn action_element(action: &AbilityActionDefinition) -> Option<CombatElement> {
     action.hits().iter().find_map(|hit| {
         hit.operations()
             .iter()
             .find_map(|operation| match operation {
-                crate::catalog::action::HitOperationDefinition::ScalingDamage(definition) => {
-                    Some(definition.element())
-                }
+                HitOperationDefinition::ScalingDamage(definition) => Some(definition.element()),
                 _ => None,
             })
     })
 }
 
 fn source_class(
-    catalog: &crate::catalog::CombatCatalog,
-    source: Option<crate::SourceDefinitionId>,
+    catalog: &CombatCatalog,
+    source: Option<SourceDefinitionId>,
 ) -> Option<SourceClass> {
     let source = source?;
-    if crate::AbilityId::new(source.get()).is_some_and(|id| catalog.ability(id).is_some()) {
+    if AbilityId::new(source.get()).is_some_and(|id| catalog.ability(id).is_some()) {
         Some(SourceClass::Ability)
-    } else if crate::EffectDefinitionId::new(source.get())
-        .is_some_and(|id| catalog.effect(id).is_some())
-    {
+    } else if EffectDefinitionId::new(source.get()).is_some_and(|id| catalog.effect(id).is_some()) {
         Some(SourceClass::Effect)
-    } else if crate::RuleId::new(source.get()).is_some_and(|id| catalog.rule(id).is_some()) {
+    } else if RuleId::new(source.get()).is_some_and(|id| catalog.rule(id).is_some()) {
         catalog
-            .rule(crate::RuleId::new(source.get())?)
+            .rule(RuleId::new(source.get())?)
             .and_then(|rule| rule.runtime())
             .map(|runtime| runtime.source().class())
-    } else if crate::UnitDefinitionId::new(source.get())
-        .is_some_and(|id| catalog.unit(id).is_some())
-    {
+    } else if UnitDefinitionId::new(source.get()).is_some_and(|id| catalog.unit(id).is_some()) {
         Some(SourceClass::Unit)
     } else {
         None
     }
 }
 
-fn lower_action_kind(kind: crate::catalog::action::AbilityKind) -> RuleActionKind {
+fn lower_action_kind(kind: AbilityKind) -> RuleActionKind {
     use crate::catalog::action::AbilityKind as V;
     match kind {
         V::Basic => RuleActionKind::Basic,
@@ -750,7 +733,7 @@ fn lower_action_kind(kind: crate::catalog::action::AbilityKind) -> RuleActionKin
 }
 
 fn action_kind_from_origin(
-    origin: crate::action::model::ActionOrigin,
+    origin: ModelActionOrigin,
     fallback: Option<RuleActionKind>,
 ) -> RuleActionKind {
     use crate::action::model::ActionOrigin as V;
@@ -765,22 +748,22 @@ fn action_kind_from_origin(
     }
 }
 
-fn scalar_from_u64(value: i64) -> Option<crate::Scalar> {
-    crate::Scalar::checked_from_integer(value).ok()
+fn scalar_from_u64(value: i64) -> Option<Scalar> {
+    Scalar::checked_from_integer(value).ok()
 }
 
-fn signed_scalar(value: i64) -> Option<crate::Scalar> {
-    crate::Scalar::checked_from_integer(value).ok()
+fn signed_scalar(value: i64) -> Option<Scalar> {
+    Scalar::checked_from_integer(value).ok()
 }
 
-fn toughness_element(data: &crate::ToughnessEventData) -> Option<CombatElement> {
+fn toughness_element(data: &ToughnessEventData) -> Option<CombatElement> {
     match data {
-        crate::ToughnessEventData::WeaknessAdded { element, .. }
-        | crate::ToughnessEventData::WeaknessRemoved { element, .. }
-        | crate::ToughnessEventData::Reduced { element, .. }
-        | crate::ToughnessEventData::BaseEffectApplied { element, .. }
-        | crate::ToughnessEventData::BaseEffectResisted { element, .. }
-        | crate::ToughnessEventData::BaseEffectExpired { element, .. } => Some(*element),
+        ToughnessEventData::WeaknessAdded { element, .. }
+        | ToughnessEventData::WeaknessRemoved { element, .. }
+        | ToughnessEventData::Reduced { element, .. }
+        | ToughnessEventData::BaseEffectApplied { element, .. }
+        | ToughnessEventData::BaseEffectResisted { element, .. }
+        | ToughnessEventData::BaseEffectExpired { element, .. } => Some(*element),
         _ => None,
     }
 }
@@ -792,7 +775,7 @@ fn toughness_ancestry_element(txn: &Transaction<'_>, event: &BattleEvent) -> Opt
             .events
             .iter()
             .find(|candidate| Some(candidate.id()) == parent)?;
-        if let BattleEventKind::Toughness(crate::ToughnessEventData::Reduced { element, .. }) =
+        if let BattleEventKind::Toughness(ToughnessEventData::Reduced { element, .. }) =
             ancestor.kind()
         {
             return Some(*element);
@@ -802,7 +785,7 @@ fn toughness_ancestry_element(txn: &Transaction<'_>, event: &BattleEvent) -> Opt
     None
 }
 
-fn toughness_kind(data: &crate::ToughnessEventData) -> crate::rule::model::RuleToughnessEventKind {
+fn toughness_kind(data: &ToughnessEventData) -> RuleToughnessEventKind {
     use crate::{ToughnessEventData as Event, rule::model::RuleToughnessEventKind as Kind};
     match data {
         Event::WeaknessAdded { .. } => Kind::WeaknessAdded,
@@ -820,25 +803,25 @@ fn toughness_kind(data: &crate::ToughnessEventData) -> crate::rule::model::RuleT
 
 #[derive(Clone)]
 struct UnitQuerySnapshot {
-    side: crate::TeamSide,
-    life: crate::LifeState,
-    presence: crate::PresenceState,
-    energy: crate::Scalar,
-    maximum_energy: crate::Scalar,
-    hp: crate::Scalar,
-    shield: crate::Scalar,
-    resources: BTreeMap<Box<str>, crate::Scalar>,
+    side: TeamSide,
+    life: LifeState,
+    presence: PresenceState,
+    energy: Scalar,
+    maximum_energy: Scalar,
+    hp: Scalar,
+    shield: Scalar,
+    resources: BTreeMap<Box<str>, Scalar>,
     weaknesses: BTreeSet<CombatElement>,
     broken: bool,
-    rank: crate::formula::toughness::EnemyRank,
+    rank: EnemyRank,
 }
 
 pub(super) struct BattleQuerySnapshot {
     units: BTreeMap<UnitId, UnitQuerySnapshot>,
-    skill_points: [crate::Scalar; 2],
-    team_resources: [BTreeMap<Box<str>, crate::Scalar>; 2],
-    effects: BTreeMap<(UnitId, crate::EffectDefinitionId), i64>,
-    effect_category_stacks: BTreeMap<(UnitId, crate::EffectCategory), i64>,
+    skill_points: [Scalar; 2],
+    team_resources: [BTreeMap<Box<str>, Scalar>; 2],
+    effects: BTreeMap<(UnitId, EffectDefinitionId), i64>,
+    effect_category_stacks: BTreeMap<(UnitId, EffectCategory), i64>,
     frozen: BTreeSet<UnitId>,
 }
 
@@ -855,17 +838,17 @@ impl BattleQuerySnapshot {
                         side: unit.side,
                         life: unit.life,
                         presence: unit.presence,
-                        energy: crate::Scalar::from_scaled(unit.current_energy.scaled()),
-                        maximum_energy: crate::Scalar::from_scaled(unit.maximum_energy.scaled()),
-                        hp: crate::Scalar::checked_from_integer(unit.current_hp.get())
+                        energy: Scalar::from_scaled(unit.current_energy.scaled()),
+                        maximum_energy: Scalar::from_scaled(unit.maximum_energy.scaled()),
+                        hp: Scalar::checked_from_integer(unit.current_hp.get())
                             .expect("HP fits the authoritative scalar domain"),
                         shield: txn
                             .state
                             .shields
                             .effective_remaining(unit.id)
                             .ok()
-                            .and_then(|value| crate::Scalar::checked_from_integer(value.get()).ok())
-                            .unwrap_or(crate::Scalar::ZERO),
+                            .and_then(|value| Scalar::checked_from_integer(value.get()).ok())
+                            .unwrap_or(Scalar::ZERO),
                         resources: unit
                             .resources
                             .iter()
@@ -878,12 +861,12 @@ impl BattleQuerySnapshot {
                 )
             })
             .collect();
-        let mut skill_points = [crate::Scalar::ZERO; 2];
+        let mut skill_points = [Scalar::ZERO; 2];
         let mut team_resources = [BTreeMap::new(), BTreeMap::new()];
-        for side in [crate::TeamSide::Player, crate::TeamSide::Enemy] {
+        for side in [TeamSide::Player, TeamSide::Enemy] {
             let index = side.canonical_index();
             let team = txn.state.teams.get(side);
-            skill_points[index] = crate::Scalar::checked_from_integer(i64::from(team.skill_points))
+            skill_points[index] = Scalar::checked_from_integer(i64::from(team.skill_points))
                 .expect("u16 Skill Points fit Scalar");
             team_resources[index] = team
                 .keyed_resources
@@ -892,7 +875,7 @@ impl BattleQuerySnapshot {
                     resource.stable_key.as_ref().map(|key| {
                         (
                             key.clone(),
-                            crate::Scalar::checked_from_integer(i64::from(resource.current))
+                            Scalar::checked_from_integer(i64::from(resource.current))
                                 .expect("u16 team resource fits Scalar"),
                         )
                     })
@@ -916,11 +899,11 @@ impl BattleQuerySnapshot {
             .effects
             .iter_by_id()
             .filter(|effect| {
-                effect.category == crate::EffectCategory::Control
-                    && effect.duration_clock == crate::DurationClock::TargetTurnStart
+                effect.category == EffectCategory::Control
+                    && effect.duration_clock == DurationClock::TargetTurnStart
                     && effect
                         .controlled_actions
-                        .binary_search(&crate::ControlledAction::NormalAction)
+                        .binary_search(&ControlledAction::NormalAction)
                         .is_ok()
             })
             .map(|effect| effect.target)
@@ -943,7 +926,7 @@ impl BattleQuerySnapshot {
     }
 }
 
-impl crate::rule::evaluate::ResourceQueryReader for BattleQuerySnapshot {
+impl ResourceQueryReader for BattleQuerySnapshot {
     fn query_resource(&self, subject: UnitId, resource: &RuleResourceKind) -> Option<RuleValue> {
         let unit = self.units.get(&subject)?;
         let value = match resource {
@@ -958,14 +941,14 @@ impl crate::rule::evaluate::ResourceQueryReader for BattleQuerySnapshot {
     }
 }
 
-impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
-    fn life_presence(&self, subject: UnitId) -> Option<(crate::LifeState, crate::PresenceState)> {
+impl BattleQueryReader for BattleQuerySnapshot {
+    fn life_presence(&self, subject: UnitId) -> Option<(LifeState, PresenceState)> {
         self.units
             .get(&subject)
             .map(|unit| (unit.life, unit.presence))
     }
 
-    fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool {
+    fn has_effect(&self, subject: UnitId, effect: EffectDefinitionId) -> bool {
         self.effects.contains_key(&(subject, effect))
     }
 
@@ -983,33 +966,29 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
         self.units.get(&subject).is_some_and(|unit| unit.broken)
     }
 
-    fn enemy_rank(&self, subject: UnitId) -> Option<crate::formula::toughness::EnemyRank> {
+    fn enemy_rank(&self, subject: UnitId) -> Option<EnemyRank> {
         self.units.get(&subject).map(|unit| unit.rank)
     }
 
-    fn current_shield(&self, subject: UnitId) -> Option<crate::Scalar> {
+    fn current_shield(&self, subject: UnitId) -> Option<Scalar> {
         self.units.get(&subject).map(|unit| unit.shield)
     }
 
-    fn current_hp(&self, subject: UnitId) -> Option<crate::Scalar> {
+    fn current_hp(&self, subject: UnitId) -> Option<Scalar> {
         self.units.get(&subject).map(|unit| unit.hp)
     }
 
-    fn maximum_energy(&self, subject: UnitId) -> Option<crate::Scalar> {
+    fn maximum_energy(&self, subject: UnitId) -> Option<Scalar> {
         self.units.get(&subject).map(|unit| unit.maximum_energy)
     }
 
-    fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64> {
+    fn effect_stacks(&self, subject: UnitId, effect: EffectDefinitionId) -> Option<i64> {
         self.units
             .contains_key(&subject)
             .then(|| self.effects.get(&(subject, effect)).copied().unwrap_or(0))
     }
 
-    fn effect_category_stacks(
-        &self,
-        subject: UnitId,
-        category: crate::EffectCategory,
-    ) -> Option<i64> {
+    fn effect_category_stacks(&self, subject: UnitId, category: EffectCategory) -> Option<i64> {
         Some(
             self.effect_category_stacks
                 .get(&(subject, category))
@@ -1021,9 +1000,9 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
 fn rule_fault(context: u32, detail: i64) -> BattleFault {
     BattleFault::new(
-        crate::FaultKind::InvariantViolation,
-        crate::FaultBoundary::Command,
-        crate::FaultPolicy::Rollback,
+        FaultKind::InvariantViolation,
+        FaultBoundary::Command,
+        FaultPolicy::Rollback,
         0x33f0 + context,
         Some(detail),
     )

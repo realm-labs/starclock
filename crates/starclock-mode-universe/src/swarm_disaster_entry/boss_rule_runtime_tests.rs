@@ -1,3 +1,5 @@
+use crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput;
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::ActivityTransactionState;
 
 use crate::error::UniverseCatalogLoadErrorKind;
@@ -57,9 +59,7 @@ fn final_boss_inputs_reuse_decay_selection_and_explicit_choice_programs() {
     )));
 }
 
-fn inputs(
-    factory: &SwarmDisasterRuntimeFactory,
-) -> [crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput; 2] {
+fn inputs(factory: &SwarmDisasterRuntimeFactory) -> [MechanicRuleRuntimeInput; 2] {
     [
         factory
             .content
@@ -73,16 +73,16 @@ fn inputs(
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::super::tests::released_entry(
+        .compile_entry(released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::super::tests::participants(super::super::tests::policy()),
+            participants(policy()),
         ))
         .unwrap()
 }

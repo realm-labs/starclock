@@ -185,12 +185,13 @@ impl SimulationCatalog {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::catalog::load;
 
     const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 
     #[test]
     fn production_bundle_matches_the_frozen_goal_denominator() {
-        let catalog = crate::catalog::load(PRODUCTION_BUNDLE).unwrap();
+        let catalog = load(PRODUCTION_BUNDLE).unwrap();
         let report = catalog.goal_coverage();
         assert_eq!(report.required(), 283);
         assert_eq!(report.enabled(), 283);

@@ -1,4 +1,5 @@
 use crate::{
+    AbilityId, ActionOrigin,
     battle::spec::{FormationIndex, TeamSide},
     id::{SpawnSequence, TimelineActorId, UnitId},
 };
@@ -8,11 +9,11 @@ pub(crate) struct NormalTurnState {
     pub(crate) actor: TimelineActorId,
     pub(crate) owner: UnitId,
     pub(crate) unit: UnitId,
-    pub(crate) automatic: Option<(crate::AbilityId, crate::ActionOrigin)>,
+    pub(crate) automatic: Option<(AbilityId, ActionOrigin)>,
     pub(crate) side: TeamSide,
     pub(crate) formation: FormationIndex,
     pub(crate) spawn: SpawnSequence,
-    pub(crate) origin: crate::ActionOrigin,
+    pub(crate) origin: ActionOrigin,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]

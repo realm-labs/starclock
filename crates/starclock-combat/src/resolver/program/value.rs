@@ -1,6 +1,8 @@
 //! Typed Rule IR value conversion helpers used by program execution.
 
-use crate::{Ratio, Rounding, Scalar, battle::fault::BattleFault, rule::model::RuleValue};
+use crate::{
+    Probability, Ratio, Rounding, Scalar, battle::fault::BattleFault, rule::model::RuleValue,
+};
 
 use super::program_fault;
 
@@ -16,10 +18,8 @@ pub(in crate::resolver) fn ratio(value: RuleValue) -> Result<Ratio, BattleFault>
     Ok(Ratio::from_scaled(value.scaled()))
 }
 
-pub(in crate::resolver) fn probability(
-    value: RuleValue,
-) -> Result<crate::Probability, BattleFault> {
-    crate::Probability::from_ratio(ratio(value)?).map_err(|_| program_fault(41, 0))
+pub(in crate::resolver) fn probability(value: RuleValue) -> Result<Probability, BattleFault> {
+    Probability::from_ratio(ratio(value)?).map_err(|_| program_fault(41, 0))
 }
 
 pub(super) fn weakness_duration(value: RuleValue) -> Result<u8, BattleFault> {

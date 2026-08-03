@@ -1,3 +1,4 @@
+use crate::swarm_disaster_content::SwarmDisasterContentErrorKind;
 use crate::swarm_disaster_generated::{
     SoraConfig, swarm_disaster_adventure_outcome::SwarmDisasterAdventureOutcome,
     swarm_disaster_blessing::SwarmDisasterBlessing,
@@ -203,10 +204,7 @@ fn occurrence_choice(
         ordinal: positive(row.ordinal, &row.stable_key)?
             .try_into()
             .map_err(|_| {
-                super::error(
-                    crate::swarm_disaster_content::SwarmDisasterContentErrorKind::Identifier,
-                    &row.stable_key,
-                )
+                super::error(SwarmDisasterContentErrorKind::Identifier, &row.stable_key)
             })?,
         node_ordinal: nonnegative_u16(row.node_ordinal, &row.stable_key)?,
         option_ordinal: nonnegative_u16(row.option_ordinal, &row.stable_key)?,

@@ -1,5 +1,6 @@
 //! Minimum one-Battle Activity and ordinary Standard row lowering.
 
+use crate::encounter_lower::wave_transition;
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_activity::ActivityDefinitionId;
@@ -377,7 +378,7 @@ fn lower_profiles(
             ActivityDefinitionId::new(positive(row.activity_id, "StandardProfile.activity_id")?)
                 .expect("positive activity ID"),
             maximum_party_size,
-            crate::encounter_lower::wave_transition(row.default_wave_transition),
+            wave_transition(row.default_wave_transition),
         )
         .ok_or_else(|| domain_fail("invalid Standard profile"))?;
         profiles.push(profile);

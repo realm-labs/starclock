@@ -1,5 +1,6 @@
 //! Typed unit-selector plans used by authored Rule IR programs.
 
+use crate::rule::model::ConditionExpr;
 use crate::{
     EffectDefinitionId, SelectorId, SourceDefinitionId,
     formula::model::CombatElement,
@@ -322,10 +323,7 @@ fn value_dependencies(expression: &ValueExpr, output: &mut BTreeSet<SelectorId>)
     }
 }
 
-fn condition_dependencies(
-    condition: &crate::rule::model::ConditionExpr,
-    output: &mut BTreeSet<SelectorId>,
-) {
+fn condition_dependencies(condition: &ConditionExpr, output: &mut BTreeSet<SelectorId>) {
     use crate::rule::model::ConditionExpr;
     match condition {
         ConditionExpr::Not(value) => condition_dependencies(value, output),

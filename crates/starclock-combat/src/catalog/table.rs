@@ -6,8 +6,9 @@ use super::definition::{
 };
 use super::encounter::AiGraphDefinition;
 use crate::{
-    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ProgramId, RuleBundleId, RuleId,
-    SelectorId, UnitDefinitionId,
+    AbilityId, AiGraphId, CountdownCatalogDefinition, EffectDefinitionId, EncounterId,
+    EnemyDefinitionId, LinkedUnitCatalogDefinition, ProgramId, RuleBundleId, RuleId, SelectorId,
+    UnitDefinitionId,
 };
 
 pub(super) trait Identified<I> {
@@ -33,15 +34,15 @@ identified!(SelectorDefinition, SelectorId);
 identified!(RuleBundle, RuleBundleId);
 identified!(EnemyDefinition, EnemyDefinitionId);
 identified!(EncounterDefinition, EncounterId);
-identified!(AiGraphDefinition, crate::AiGraphId);
+identified!(AiGraphDefinition, AiGraphId);
 
-impl Identified<UnitDefinitionId> for crate::LinkedUnitCatalogDefinition {
+impl Identified<UnitDefinitionId> for LinkedUnitCatalogDefinition {
     fn id(&self) -> UnitDefinitionId {
         self.id()
     }
 }
 
-impl Identified<u32> for crate::CountdownCatalogDefinition {
+impl Identified<u32> for CountdownCatalogDefinition {
     fn id(&self) -> u32 {
         self.code()
     }

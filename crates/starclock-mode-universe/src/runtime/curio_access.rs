@@ -1,4 +1,13 @@
 use super::*;
+use crate::curio_activity::CAVITY_CRITICAL_STACK_KEY;
+use crate::curio_activity::CurioActivityBindings;
+use crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY;
+use crate::curio_activity::ROBE_FRAGMENT_SNAPSHOT_KEY;
+use crate::curio_activity::cavity_critical_stacks;
+use crate::curio_activity::destroyed_curio_count;
+use crate::curio_activity::destructible_destroyed_count;
+use crate::curio_activity::negative::FISSION_EXTRA_COPY_KEY;
+use crate::curio_activity::negative::fission_extra_copies;
 
 impl StandardUniverseActivity {
     pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {
@@ -24,18 +33,12 @@ impl StandardUniverseActivity {
             .iter()
             .find(|slot| slot.id() == self.curio_event_slot)
             .map(|slot| slot.value());
-        let destroyed = event_value
-            .and_then(crate::curio_activity::destroyed_curio_count)
-            .unwrap_or(0);
-        let cavity_stacks = event_value
-            .and_then(crate::curio_activity::cavity_critical_stacks)
-            .unwrap_or(0);
+        let destroyed = event_value.and_then(destroyed_curio_count).unwrap_or(0);
+        let cavity_stacks = event_value.and_then(cavity_critical_stacks).unwrap_or(0);
         let destructibles = event_value
-            .and_then(crate::curio_activity::destructible_destroyed_count)
+            .and_then(destructible_destroyed_count)
             .unwrap_or(0);
-        let fission_extra_copies = event_value
-            .and_then(crate::curio_activity::negative::fission_extra_copies)
-            .unwrap_or(0);
+        let fission_extra_copies = event_value.and_then(fission_extra_copies).unwrap_or(0);
         let fragments = view
             .slots()
             .iter()
@@ -50,10 +53,8 @@ impl StandardUniverseActivity {
             .map(|contributions| {
                 let mut contributions = contributions.with_destroyed_curios(destroyed);
                 if cavity_stacks != 0 {
-                    contributions = contributions.with_runtime_value(
-                        crate::curio_activity::CAVITY_CRITICAL_STACK_KEY,
-                        cavity_stacks,
-                    );
+                    contributions =
+                        contributions.with_runtime_value(CAVITY_CRITICAL_STACK_KEY, cavity_stacks);
                 }
                 if fragments != 0
                     && contributions
@@ -61,10 +62,8 @@ impl StandardUniverseActivity {
                         .iter()
                         .any(|entry| entry.state().source_effect_id() == "14")
                 {
-                    contributions = contributions.with_runtime_value(
-                        crate::curio_activity::ROBE_FRAGMENT_SNAPSHOT_KEY,
-                        fragments,
-                    );
+                    contributions =
+                        contributions.with_runtime_value(ROBE_FRAGMENT_SNAPSHOT_KEY, fragments);
                 }
                 if destructibles != 0
                     && contributions
@@ -73,13 +72,13 @@ impl StandardUniverseActivity {
                         .any(|entry| entry.state().source_effect_id() == "58")
                 {
                     contributions = contributions.with_runtime_value(
-                        crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
+                        DESTRUCTIBLE_DESTROYED_COUNT_KEY,
                         i64::from(destructibles),
                     );
                 }
                 if fission_extra_copies != 0 {
                     contributions = contributions.with_runtime_value(
-                        crate::curio_activity::negative::FISSION_EXTRA_COPY_KEY,
+                        FISSION_EXTRA_COPY_KEY,
                         i64::from(fission_extra_copies),
                     );
                 }
@@ -143,7 +142,7 @@ impl StandardUniverseActivity {
             event,
             &effects,
             facts.cosmic_fragments,
-            crate::curio_activity::CurioActivityBindings {
+            CurioActivityBindings {
                 inventory: self.curio_inventory,
                 state_slot: self.curio_state_slot,
                 charge_slot: self.curio_charge_slot,

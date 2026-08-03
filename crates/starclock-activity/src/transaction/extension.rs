@@ -1,4 +1,5 @@
 use super::*;
+use crate::ActivityGraphDefinition;
 
 impl ActivityTransactionState {
     /// Applies state-only extension work without consuming an already offered
@@ -8,7 +9,7 @@ impl ActivityTransactionState {
         &mut self,
         program: &ActivityProgramDefinition,
         cause: ActivityCause,
-        graph: &crate::ActivityGraphDefinition,
+        graph: &ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
         if self.terminal.is_some() {
             return ActivityTransactionOutcome::Rejected(

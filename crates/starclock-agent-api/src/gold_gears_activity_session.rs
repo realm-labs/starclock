@@ -1,5 +1,6 @@
 //! Gold and Gears sessions over the shared Activity agent vocabulary.
 
+use crate::schema::IdempotencyKey;
 use std::{collections::BTreeMap, sync::Arc};
 
 use serde::{Deserialize, Serialize};
@@ -173,7 +174,7 @@ pub struct GoldAndGearsActivityAgentSession {
     replay_header: ReplayHeader,
     run: GoldAndGearsIncrementalRun,
     offered: Option<GoldOfferedActionSet>,
-    idempotency: BTreeMap<crate::schema::IdempotencyKey, CachedGoldResponse>,
+    idempotency: BTreeMap<IdempotencyKey, CachedGoldResponse>,
     closed: bool,
 }
 

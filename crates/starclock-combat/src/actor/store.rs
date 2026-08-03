@@ -1,4 +1,9 @@
+use crate::battle::spec::TeamResourceWavePolicy;
+use crate::formula::model::CombatElement;
+use crate::formula::toughness::EnemyRank;
+use crate::toughness::state::ToughnessLayerState;
 use crate::{
+    AiGraphId, AiStateId, EnemyDefinitionId, EnemyPhaseId, OperationId, Scalar, SourceDefinitionId,
     battle::spec::{CombatantSpecDigest, FormationIndex, ParticipantSource, TeamSide, UnitLevel},
     id::{
         AbilityId, ModifierDefinitionId, RuleBundleId, SpawnSequence, TimelineActorId,
@@ -29,15 +34,15 @@ pub(crate) struct UnitState {
     pub(crate) base_attack: StatValue,
     pub(crate) base_defense: StatValue,
     pub(crate) base_speed: Speed,
-    pub(crate) base_effect_hit_rate: crate::Scalar,
-    pub(crate) base_effect_resistance: crate::Scalar,
+    pub(crate) base_effect_hit_rate: Scalar,
+    pub(crate) base_effect_resistance: Scalar,
     pub(crate) current_energy: Energy,
     pub(crate) maximum_energy: Energy,
-    pub(crate) rank: crate::formula::toughness::EnemyRank,
-    pub(crate) weaknesses: Vec<crate::formula::model::CombatElement>,
-    pub(crate) permanent_weaknesses: Box<[crate::formula::model::CombatElement]>,
+    pub(crate) rank: EnemyRank,
+    pub(crate) weaknesses: Vec<CombatElement>,
+    pub(crate) permanent_weaknesses: Box<[CombatElement]>,
     pub(crate) temporary_weaknesses: Vec<TemporaryWeaknessState>,
-    pub(crate) toughness_layers: Vec<crate::toughness::state::ToughnessLayerState>,
+    pub(crate) toughness_layers: Vec<ToughnessLayerState>,
     pub(crate) weakness_broken: bool,
     pub(crate) abilities: Box<[AbilityId]>,
     pub(crate) rule_bundles: Box<[RuleBundleId]>,
@@ -51,9 +56,9 @@ pub(crate) struct UnitState {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct CharacterResourceState {
     pub(crate) stable_key: Box<str>,
-    pub(crate) initial: crate::Scalar,
-    pub(crate) current: crate::Scalar,
-    pub(crate) maximum: crate::Scalar,
+    pub(crate) initial: Scalar,
+    pub(crate) current: Scalar,
+    pub(crate) maximum: Scalar,
 }
 
 impl UnitState {
@@ -75,16 +80,16 @@ impl UnitState {
 /// Authoritative enemy-orchestration cursor kept separate from generic unit form.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct EnemyRuntimeState {
-    pub(crate) definition: crate::EnemyDefinitionId,
-    pub(crate) graph: crate::AiGraphId,
-    pub(crate) state: crate::AiStateId,
+    pub(crate) definition: EnemyDefinitionId,
+    pub(crate) graph: AiGraphId,
+    pub(crate) state: AiStateId,
     pub(crate) turn_counter: u16,
-    pub(crate) phase: Option<crate::EnemyPhaseId>,
+    pub(crate) phase: Option<EnemyPhaseId>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct TransformationState {
-    pub(crate) source_operation: crate::OperationId,
+    pub(crate) source_operation: OperationId,
     pub(crate) original_form: UnitDefinitionId,
     pub(crate) original_abilities: Box<[AbilityId]>,
     pub(crate) original_presence: PresenceState,
@@ -95,9 +100,9 @@ pub(crate) struct TransformationState {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct TemporaryWeaknessState {
-    pub(crate) element: crate::formula::model::CombatElement,
+    pub(crate) element: CombatElement,
     pub(crate) applier: UnitId,
-    pub(crate) source_operation: crate::OperationId,
+    pub(crate) source_operation: OperationId,
     pub(crate) remaining_turns: u8,
 }
 
@@ -285,16 +290,16 @@ pub(crate) struct TeamState {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct KeyedTeamResourceState {
-    pub(crate) id: crate::SourceDefinitionId,
+    pub(crate) id: SourceDefinitionId,
     pub(crate) stable_key: Option<Box<str>>,
     pub(crate) initial: u16,
     pub(crate) current: u16,
     pub(crate) maximum: u16,
-    pub(crate) wave: crate::battle::spec::TeamResourceWavePolicy,
+    pub(crate) wave: TeamResourceWavePolicy,
 }
 
 impl TeamState {
-    pub(crate) fn keyed(&self, id: crate::SourceDefinitionId) -> Option<&KeyedTeamResourceState> {
+    pub(crate) fn keyed(&self, id: SourceDefinitionId) -> Option<&KeyedTeamResourceState> {
         self.keyed_resources
             .binary_search_by_key(&id, |entry| entry.id)
             .ok()
@@ -302,7 +307,7 @@ impl TeamState {
     }
     pub(crate) fn keyed_mut(
         &mut self,
-        id: crate::SourceDefinitionId,
+        id: SourceDefinitionId,
     ) -> Option<&mut KeyedTeamResourceState> {
         self.keyed_resources
             .binary_search_by_key(&id, |entry| entry.id)

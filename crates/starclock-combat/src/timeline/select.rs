@@ -1,6 +1,8 @@
 use core::cmp::Ordering;
 
 use crate::{
+    AbilityId, ActionOrigin, FormationIndex, LinkedEntityKind, SpawnSequence, Speed, TeamSide,
+    TimelineActorId, UnitId,
     actor::{
         model::LifeState,
         store::{TimelineActorStore, UnitStore},
@@ -13,7 +15,7 @@ use super::state::NormalTurnState;
 
 pub(crate) struct TimelineAdvance {
     pub(crate) turn: NormalTurnState,
-    pub(crate) gauges: Vec<(crate::TimelineActorId, ActionGauge)>,
+    pub(crate) gauges: Vec<(TimelineActorId, ActionGauge)>,
     pub(crate) elapsed_action_value_scaled: i64,
 }
 
@@ -29,13 +31,11 @@ pub(crate) fn plan_next_turn(
             let owner = units.get(actor.owner).ok_or_else(|| timeline_fault(5))?;
             let automatic = actor.automatic_ability.map(|ability| {
                 let origin = match actor.kind {
-                    Some(crate::LinkedEntityKind::Summon) => crate::ActionOrigin::SummonAction,
-                    Some(crate::LinkedEntityKind::Memosprite) => {
-                        crate::ActionOrigin::MemospriteAction
-                    }
-                    Some(crate::LinkedEntityKind::Countdown) => crate::ActionOrigin::Countdown,
-                    Some(crate::LinkedEntityKind::SharedActor) => crate::ActionOrigin::ExtraTurn,
-                    None => crate::ActionOrigin::NormalTurn,
+                    Some(LinkedEntityKind::Summon) => ActionOrigin::SummonAction,
+                    Some(LinkedEntityKind::Memosprite) => ActionOrigin::MemospriteAction,
+                    Some(LinkedEntityKind::Countdown) => ActionOrigin::Countdown,
+                    Some(LinkedEntityKind::SharedActor) => ActionOrigin::ExtraTurn,
+                    None => ActionOrigin::NormalTurn,
                 };
                 (ability, origin)
             });
@@ -94,22 +94,22 @@ pub(crate) fn plan_next_turn(
             spawn: selected.8,
             origin: selected
                 .3
-                .map_or(crate::ActionOrigin::NormalTurn, |(_, origin)| origin),
+                .map_or(ActionOrigin::NormalTurn, |(_, origin)| origin),
         },
         gauges,
     })
 }
 
 type Candidate = (
-    crate::TimelineActorId,
-    crate::UnitId,
-    crate::UnitId,
-    Option<(crate::AbilityId, crate::ActionOrigin)>,
+    TimelineActorId,
+    UnitId,
+    UnitId,
+    Option<(AbilityId, ActionOrigin)>,
     ActionGauge,
-    crate::Speed,
-    crate::TeamSide,
-    crate::FormationIndex,
-    crate::SpawnSequence,
+    Speed,
+    TeamSide,
+    FormationIndex,
+    SpawnSequence,
 );
 
 fn compare_candidate(left: &Candidate, right: &Candidate) -> Ordering {

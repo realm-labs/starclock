@@ -1,7 +1,15 @@
 //! Effect attachment and DoT operations.
 
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::OrdinaryDamageDefinition;
+use crate::catalog::definition::RuleDefinition;
+use crate::modifier::model::ActiveModifier;
+use crate::rule::model::RuleValue;
+use crate::rule::model::SourceClass;
 use crate::{
-    DamageAmount, DamageKind,
+    DamageAmount, DamageKind, DotDetonationSelection, EffectApplicationGuard, EffectDamageGuard,
+    EffectDefinitionId, EffectInstanceId, OperationId, Rounding, RuleSignalEventData,
+    TEAM_DEFEAT_GUARDED_SIGNAL, UnitId,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
@@ -18,12 +26,12 @@ use super::{
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_damage_guard(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    operation: crate::OperationId,
-    target: crate::UnitId,
+    operation: OperationId,
+    target: UnitId,
     calculated: DamageAmount,
 ) -> Result<(EventId, DamageAmount), BattleFault> {
     let shield = txn
@@ -35,12 +43,8 @@ pub(super) fn apply_damage_guard(
         return Ok((parent, calculated));
     }
     if shield.get() > 0
-        && let Some(effect) = find_damage_guard(
-            catalog,
-            txn,
-            target,
-            crate::EffectDamageGuard::ShieldOverflowOnce,
-        )
+        && let Some(effect) =
+            find_damage_guard(catalog, txn, target, EffectDamageGuard::ShieldOverflowOnce)
     {
         let removed = txn
             .state
@@ -83,7 +87,7 @@ pub(super) fn apply_damage_guard(
                 && has_damage_guard(
                     catalog,
                     effect.definition,
-                    crate::EffectDamageGuard::TeamDefeatOnce,
+                    EffectDamageGuard::TeamDefeatOnce,
                 )
         })
         .map(|effect| (effect.definition, effect.source_definition));
@@ -127,12 +131,10 @@ pub(super) fn apply_damage_guard(
     }
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(target)),
-        BattleEventKind::RuleSignal(crate::RuleSignalEventData {
+        BattleEventKind::RuleSignal(RuleSignalEventData {
             operation,
-            code: crate::TEAM_DEFEAT_GUARDED_SIGNAL,
-            value: Some(crate::rule::model::RuleValue::StableId(u64::from(
-                guard_definition.get(),
-            ))),
+            code: TEAM_DEFEAT_GUARDED_SIGNAL,
+            value: Some(RuleValue::StableId(u64::from(guard_definition.get()))),
         }),
     );
     let guarded_raw = shield
@@ -144,11 +146,11 @@ pub(super) fn apply_damage_guard(
 }
 
 fn find_damage_guard(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &Transaction<'_>,
-    target: crate::UnitId,
-    guard: crate::EffectDamageGuard,
-) -> Option<crate::EffectInstanceId> {
+    target: UnitId,
+    guard: EffectDamageGuard,
+) -> Option<EffectInstanceId> {
     txn.state.effects.iter_by_id().find_map(|effect| {
         (effect.target == target && has_damage_guard(catalog, effect.definition, guard))
             .then_some(effect.id)
@@ -156,9 +158,9 @@ fn find_damage_guard(
 }
 
 fn has_damage_guard(
-    catalog: &crate::catalog::CombatCatalog,
-    effect: crate::EffectDefinitionId,
-    guard: crate::EffectDamageGuard,
+    catalog: &CombatCatalog,
+    effect: EffectDefinitionId,
+    guard: EffectDamageGuard,
 ) -> bool {
     catalog.effect(effect).is_some_and(|definition| {
         definition
@@ -172,20 +174,20 @@ fn has_damage_guard(
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn consume_negative_effect_guard(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    operation: crate::OperationId,
-    target: crate::UnitId,
+    operation: OperationId,
+    target: UnitId,
 ) -> Result<(EventId, bool), BattleFault> {
     let guard = txn.state.effects.iter_by_id().find_map(|effect| {
         (effect.target == target
             && catalog.effect(effect.definition).is_some_and(|definition| {
                 definition.runtime().is_some_and(|runtime| {
-                    runtime.application_guard() == crate::EffectApplicationGuard::NegativeEffectOnce
+                    runtime.application_guard() == EffectApplicationGuard::NegativeEffectOnce
                 }) || definition.runtime_template().is_some_and(|runtime| {
-                    runtime.application_guard() == crate::EffectApplicationGuard::NegativeEffectOnce
+                    runtime.application_guard() == EffectApplicationGuard::NegativeEffectOnce
                 })
             }))
         .then_some((effect.id, effect.definition))
@@ -238,9 +240,9 @@ pub(super) fn consume_negative_effect_guard(
 }
 
 pub(super) fn instantiate_attachments(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
-    effect: crate::EffectInstanceId,
+    effect: EffectInstanceId,
 ) -> Result<(), BattleFault> {
     let state = txn
         .state
@@ -258,24 +260,20 @@ pub(super) fn instantiate_attachments(
         let instance = txn.allocate_modifier();
         txn.insert_modifier(
             catalog,
-            crate::modifier::model::ActiveModifier {
+            ActiveModifier {
                 instance,
                 definition: *modifier,
                 owner: state.applier,
                 subject: state.target,
                 source: state.source_definition,
-                source_class: crate::rule::model::SourceClass::Effect,
+                source_class: SourceClass::Effect,
                 insertion_sequence: instance.get(),
                 application_action: None,
                 source_effect: Some(effect),
                 slots: modifier_definition
                     .source_stack_slot
                     .map(|slot| {
-                        vec![(
-                            slot,
-                            crate::rule::model::RuleValue::Integer(i64::from(state.stacks)),
-                        )]
-                        .into_boxed_slice()
+                        vec![(slot, RuleValue::Integer(i64::from(state.stacks)))].into_boxed_slice()
                     })
                     .unwrap_or_default(),
                 captured_value: None,
@@ -286,7 +284,7 @@ pub(super) fn instantiate_attachments(
     for rule in definition.rules() {
         let runtime = catalog
             .rule(*rule)
-            .and_then(crate::catalog::definition::RuleDefinition::runtime)
+            .and_then(RuleDefinition::runtime)
             .ok_or_else(|| invariant_fault(40))?;
         let instance = txn.allocate_rule();
         if !txn
@@ -301,7 +299,7 @@ pub(super) fn instantiate_attachments(
 }
 
 pub(super) fn detonate_dots(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -313,7 +311,7 @@ pub(super) fn detonate_dots(
             .state
             .effects
             .dots_for(target, operation.definition.required_tag());
-        if let crate::DotDetonationSelection::RandomOne(purpose) = operation.definition.selection()
+        if let DotDetonationSelection::RandomOne(purpose) = operation.definition.selection()
             && effects.len() > 1
         {
             let index = txn
@@ -328,12 +326,9 @@ pub(super) fn detonate_dots(
                 .base_damage()
                 .checked_mul_integer(i64::from(effect.stacks))
                 .map_err(|_| numeric_fault(31, per_stack.base_damage().scaled()))?;
-            let formula = crate::catalog::action::OrdinaryDamageDefinition::new(
-                base,
-                per_stack.multipliers(),
-            )
-            .map_err(|_| numeric_fault(31, base.scaled()))?
-            .with_class(per_stack.class());
+            let formula = OrdinaryDamageDefinition::new(base, per_stack.multipliers())
+                .map_err(|_| numeric_fault(31, base.scaled()))?
+                .with_class(per_stack.class());
             let attributed = cause
                 .with_applier(effect.applier)
                 .with_source_definition(effect.source_definition);
@@ -350,9 +345,9 @@ pub(super) fn detonate_dots(
             let raw = operation
                 .definition
                 .fraction()
-                .checked_apply(calculation.raw, crate::Rounding::NearestTiesEven)
+                .checked_apply(calculation.raw, Rounding::NearestTiesEven)
                 .map_err(|_| numeric_fault(32, calculation.raw.scaled()))?;
-            let finalized = crate::DamageAmount::from_scalar(raw, crate::Rounding::Floor)
+            let finalized = DamageAmount::from_scalar(raw, Rounding::Floor)
                 .map_err(|_| numeric_fault(33, raw.scaled()))?;
             parent = super::operation::apply_ordinary_damage(
                 catalog,

@@ -1,5 +1,6 @@
 //! Generic authored effect semantics. Content identities remain catalog data.
 
+use crate::rng::types::DrawPurpose;
 use crate::{
     EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
     catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
@@ -180,6 +181,7 @@ impl DotDefinition {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rule::model::RuleValue;
 
     #[test]
     fn runtime_template_preserves_damage_guard() {
@@ -187,9 +189,7 @@ mod tests {
             EffectCategory::Buff,
             DispelCategory::NonDispellable,
             1,
-            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
-                2,
-            ))),
+            Some(ValueExpr::Literal(RuleValue::Integer(2))),
             DurationClock::OwnerTurnEnd,
             EffectTickPhase::TurnEnd,
             EffectStackPolicy::Replace,
@@ -221,9 +221,7 @@ mod tests {
             EffectCategory::Buff,
             DispelCategory::DispellableBuff,
             1,
-            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
-                1,
-            ))),
+            Some(ValueExpr::Literal(RuleValue::Integer(1))),
             DurationClock::TargetTurnEnd,
             EffectTickPhase::None,
             EffectStackPolicy::Refresh,
@@ -237,9 +235,7 @@ mod tests {
             EffectCategory::Control,
             DispelCategory::CleanseableControl,
             1,
-            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
-                2,
-            ))),
+            Some(ValueExpr::Literal(RuleValue::Integer(2))),
             DurationClock::TargetTurnEnd,
             EffectTickPhase::None,
             EffectStackPolicy::Refresh,
@@ -261,9 +257,7 @@ mod tests {
             EffectCategory::Control,
             DispelCategory::CleanseableControl,
             1,
-            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
-                1,
-            ))),
+            Some(ValueExpr::Literal(RuleValue::Integer(1))),
             DurationClock::TargetTurnStart,
             EffectTickPhase::TurnStart,
             EffectStackPolicy::Refresh,
@@ -793,7 +787,7 @@ impl EffectApplicationDefinition {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum DotDetonationSelection {
     All,
-    RandomOne(crate::rng::types::DrawPurpose),
+    RandomOne(DrawPurpose),
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

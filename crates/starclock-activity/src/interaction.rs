@@ -4,8 +4,8 @@ use std::sync::Arc;
 
 use crate::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerId,
-    ActivityHandlerRegistry, ActivityOptionId, ActivityRngLabel, GraphActivityNodeProgram,
-    MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES, NodeId,
+    ActivityHandlerRegistry, ActivityNodeKind, ActivityOperation, ActivityOptionId,
+    ActivityRngLabel, GraphActivityNodeProgram, MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES, NodeId,
 };
 
 pub const MAX_ACTIVITY_INTERACTION_BINDINGS: usize = 65_536;
@@ -213,7 +213,7 @@ fn validate_binding(
     let node = graph
         .node(binding.node)
         .ok_or(ActivityInteractionBindingError::MissingNode)?;
-    if node.kind() != crate::ActivityNodeKind::ExternalOutcome {
+    if node.kind() != ActivityNodeKind::ExternalOutcome {
         return Err(ActivityInteractionBindingError::WrongNodeKind);
     }
     let option = ActivityOptionId::new(binding.offered_outcome.get())
@@ -226,7 +226,7 @@ fn validate_binding(
             program.operations().iter().any(|operation| {
                 matches!(
                     operation,
-                    crate::ActivityOperation::Offer { kind, options }
+                    ActivityOperation::Offer { kind, options }
                         if *kind == ActivityDecisionKind::ExternalOutcome
                             && options.iter().any(|candidate| candidate.id() == option)
                 )

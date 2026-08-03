@@ -1,5 +1,7 @@
 //! Aggregate Standard Universe state into one immutable battle contribution set.
 
+use crate::id::RoomId;
+use crate::path_runtime::PathContributionSet;
 use crate::{
     ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     battle_contribution::UniverseBattleContributionSet,
@@ -50,7 +52,7 @@ impl StandardUniverseActivity {
                 _ => None,
             })
             .and_then(|value| u32::try_from(value).ok())
-            .and_then(crate::id::RoomId::new)
+            .and_then(RoomId::new)
             .ok_or(StandardUniverseBattleContributionError::ContextMismatch)?;
         let domain = self
             .encounter_options
@@ -91,7 +93,7 @@ impl StandardUniverseActivity {
     fn compile_battle_snapshot(
         &self,
         view: starclock_activity::ActivityPlayerView,
-        path: crate::path_runtime::PathContributionSet,
+        path: PathContributionSet,
         context: AbilityExecutionContext,
     ) -> Result<StandardUniverseBattleSnapshot, StandardUniverseBattleContributionError> {
         let blessings = self

@@ -1,7 +1,7 @@
 //! Rule-program bridges for timeline shifts and granted extra turns.
 
 use crate::{
-    Ratio,
+    ActionGaugeChangeKind, EventId, LifeState, Ratio, TurnEventData, UnitId,
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
     event::{cause::Cause, model::BattleEventKind},
 };
@@ -11,11 +11,11 @@ use super::transaction::Transaction;
 pub(super) fn shift_actions(
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
-    targets: Box<[crate::UnitId]>,
+    mut parent: EventId,
+    targets: Box<[UnitId]>,
     amount: Ratio,
     advance: bool,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     let scaled = amount
         .scaled()
         .checked_mul(10_000)
@@ -31,13 +31,13 @@ pub(super) fn shift_actions(
         let (_, after) = txn.unit_action_gauge(target)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Turn(crate::TurnEventData::ActionGaugeChanged {
+            BattleEventKind::Turn(TurnEventData::ActionGaugeChanged {
                 actor,
                 owner: target,
                 kind: if advance {
-                    crate::ActionGaugeChangeKind::Advance
+                    ActionGaugeChangeKind::Advance
                 } else {
-                    crate::ActionGaugeChangeKind::Delay
+                    ActionGaugeChangeKind::Delay
                 },
                 amount,
                 before,
@@ -51,12 +51,12 @@ pub(super) fn shift_actions(
 pub(super) fn grant_extra_turns(
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
-    actors: Box<[crate::UnitId]>,
-) -> Result<crate::EventId, BattleFault> {
+    mut parent: EventId,
+    actors: Box<[UnitId]>,
+) -> Result<EventId, BattleFault> {
     for actor in actors {
         let eligible = txn.state.units.get(actor).is_some_and(|unit| {
-            unit.life == crate::LifeState::Alive
+            unit.life == LifeState::Alive
                 && unit.presence.is_timeline_eligible()
                 && txn.state.actors.any_id_for_unit(actor).is_some()
         });
@@ -66,7 +66,7 @@ pub(super) fn grant_extra_turns(
         let insertion = txn.enqueue_extra_turn(actor)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(actor)),
-            BattleEventKind::Turn(crate::TurnEventData::ExtraTurnGranted {
+            BattleEventKind::Turn(TurnEventData::ExtraTurnGranted {
                 owner: actor,
                 insertion,
             }),

@@ -6,10 +6,14 @@ use super::encounter::{
     WaveSlotDefinition, WaveTransitionPolicy,
 };
 use super::selector::RuleUnitSelector;
+
+use crate::effect::model::EffectRuntimeDefinition;
+use crate::effect::model::EffectRuntimeTemplate;
+use crate::rule::model::RuleValue;
 use crate::rule::model::{BattleRuleDefinition, ProgramStep};
 use crate::{
-    AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId,
-    ProgramId, RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EncounterWaveId, EnemyDefinitionId,
+    ModifierDefinitionId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId, UnitDefinitionId,
 };
 
 /// Deterministic selector definition with an optional executable unit-target plan.
@@ -71,18 +75,14 @@ pub struct UnitDefinition {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CharacterResourceDefinition {
     stable_key: Box<str>,
-    initial: crate::Scalar,
-    maximum: crate::Scalar,
+    initial: Scalar,
+    maximum: Scalar,
 }
 
 impl CharacterResourceDefinition {
     /// Creates a non-negative bounded named resource.
     #[must_use]
-    pub fn new(
-        stable_key: impl Into<Box<str>>,
-        initial: crate::Scalar,
-        maximum: crate::Scalar,
-    ) -> Option<Self> {
+    pub fn new(stable_key: impl Into<Box<str>>, initial: Scalar, maximum: Scalar) -> Option<Self> {
         let stable_key = stable_key.into();
         if stable_key.trim().is_empty()
             || initial.scaled() < 0
@@ -104,12 +104,12 @@ impl CharacterResourceDefinition {
     }
     /// Returns the initial value.
     #[must_use]
-    pub const fn initial(&self) -> crate::Scalar {
+    pub const fn initial(&self) -> Scalar {
         self.initial
     }
     /// Returns the inclusive upper bound.
     #[must_use]
-    pub const fn maximum(&self) -> crate::Scalar {
+    pub const fn maximum(&self) -> Scalar {
         self.maximum
     }
 }
@@ -164,7 +164,7 @@ impl UnitDefinition {
 pub struct AbilityParameterDefinition {
     ability: AbilityId,
     stable_key: Box<str>,
-    value: crate::rule::model::RuleValue,
+    value: RuleValue,
 }
 
 impl AbilityParameterDefinition {
@@ -172,7 +172,7 @@ impl AbilityParameterDefinition {
     pub fn new(
         ability: AbilityId,
         stable_key: impl Into<Box<str>>,
-        value: crate::rule::model::RuleValue,
+        value: RuleValue,
     ) -> Option<Self> {
         let stable_key = stable_key.into();
         if stable_key.trim().is_empty() || stable_key.len() > 128 {
@@ -193,7 +193,7 @@ impl AbilityParameterDefinition {
         &self.stable_key
     }
     #[must_use]
-    pub const fn value(&self) -> &crate::rule::model::RuleValue {
+    pub const fn value(&self) -> &RuleValue {
         &self.value
     }
 }
@@ -278,8 +278,8 @@ pub struct EffectDefinition {
     rules: Box<[RuleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
     granted_abilities: Box<[AbilityId]>,
-    runtime: Option<crate::effect::model::EffectRuntimeDefinition>,
-    runtime_template: Option<crate::effect::model::EffectRuntimeTemplate>,
+    runtime: Option<EffectRuntimeDefinition>,
+    runtime_template: Option<EffectRuntimeTemplate>,
 }
 
 impl EffectDefinition {
@@ -301,16 +301,13 @@ impl EffectDefinition {
     }
     /// Attaches the validated generic runtime behavior.
     #[must_use]
-    pub fn with_runtime(mut self, runtime: crate::effect::model::EffectRuntimeDefinition) -> Self {
+    pub fn with_runtime(mut self, runtime: EffectRuntimeDefinition) -> Self {
         self.runtime = Some(runtime);
         self
     }
     /// Attaches expression-backed runtime behavior resolved for each application target.
     #[must_use]
-    pub fn with_runtime_template(
-        mut self,
-        runtime: crate::effect::model::EffectRuntimeTemplate,
-    ) -> Self {
+    pub fn with_runtime_template(mut self, runtime: EffectRuntimeTemplate) -> Self {
         self.runtime_template = Some(runtime);
         self
     }
@@ -342,12 +339,12 @@ impl EffectDefinition {
     }
     /// Returns executable effect semantics when authored.
     #[must_use]
-    pub const fn runtime(&self) -> Option<&crate::effect::model::EffectRuntimeDefinition> {
+    pub const fn runtime(&self) -> Option<&EffectRuntimeDefinition> {
         self.runtime.as_ref()
     }
     /// Returns expression-backed effect semantics when authored.
     #[must_use]
-    pub const fn runtime_template(&self) -> Option<&crate::effect::model::EffectRuntimeTemplate> {
+    pub const fn runtime_template(&self) -> Option<&EffectRuntimeTemplate> {
         self.runtime_template.as_ref()
     }
 }
@@ -635,7 +632,7 @@ impl EncounterDefinition {
                 })
                 .collect();
             EncounterWaveDefinition::new(
-                crate::EncounterWaveId::new(id.get()).expect("encounter ID is non-zero"),
+                EncounterWaveId::new(id.get()).expect("encounter ID is non-zero"),
                 1,
                 None,
                 None,
@@ -680,7 +677,7 @@ impl EncounterDefinition {
                     })
                     .collect::<Option<Vec<_>>>()?;
                 EncounterWaveDefinition::new(
-                    crate::EncounterWaveId::new(u32::try_from(wave_index + 1).ok()?)?,
+                    EncounterWaveId::new(u32::try_from(wave_index + 1).ok()?)?,
                     u16::try_from(wave_index + 1).ok()?,
                     None,
                     None,

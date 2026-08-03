@@ -1,15 +1,5 @@
 //! Owned, quota-bounded Activity session registry.
 
-use std::{
-    collections::{BTreeMap, VecDeque},
-    sync::{
-        Arc, Mutex, MutexGuard,
-        atomic::{AtomicU64, Ordering},
-    },
-};
-
-use serde::{Deserialize, Serialize};
-
 mod gold;
 mod swarm;
 
@@ -32,6 +22,14 @@ use crate::{
     swarm_disaster_activity_session::{
         AgentSwarmDisasterManifest, CreateSwarmDisasterActivitySessionRequest,
         SwarmDisasterActivityAgentSession, SwarmDisasterActivityAgentSessionFactory,
+    },
+};
+use serde::{Deserialize, Serialize};
+use std::{
+    collections::{BTreeMap, VecDeque},
+    sync::{
+        Arc, Mutex, MutexGuard,
+        atomic::{AtomicU64, Ordering},
     },
 };
 
@@ -592,6 +590,10 @@ fn gold_not_configured() -> AgentError {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::activity_session::production_factory_for_tests;
+    use crate::gold_gears_activity_session::production_factory_for_tests as gold_gears_activity_session_production_factory_for_tests;
+    use crate::schema::IdempotencyKey;
+    use crate::swarm_disaster_activity_session::production_factory_for_tests as swarm_disaster_activity_session_production_factory_for_tests;
     use std::{
         sync::{
             Barrier,
@@ -619,7 +621,7 @@ mod tests {
         let ids = Arc::new(Ids(AtomicUsize::new(1)));
         (
             ActivityAgentSessionRegistry::with_limits(
-                crate::activity_session::production_factory_for_tests(),
+                production_factory_for_tests(),
                 None,
                 None,
                 Arc::new(Clock(AtomicU64::new(0))),
@@ -633,9 +635,9 @@ mod tests {
         let ids = Arc::new(Ids(AtomicUsize::new(1)));
         (
             ActivityAgentSessionRegistry::with_limits(
-                crate::activity_session::production_factory_for_tests(),
-                Some(crate::gold_gears_activity_session::production_factory_for_tests()),
-                Some(crate::swarm_disaster_activity_session::production_factory_for_tests()),
+                production_factory_for_tests(),
+                Some(gold_gears_activity_session_production_factory_for_tests()),
+                Some(swarm_disaster_activity_session_production_factory_for_tests()),
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -758,7 +760,7 @@ mod tests {
             boundary_id: observation.boundary_id.clone().unwrap(),
             expected_state_hash: observation.state_hash.clone(),
             action_token: action.token.clone(),
-            idempotency_key: crate::schema::IdempotencyKey::parse("registry_race_1").unwrap(),
+            idempotency_key: IdempotencyKey::parse("registry_race_1").unwrap(),
         };
         let barrier = Arc::new(Barrier::new(3));
         let mut handles = Vec::new();

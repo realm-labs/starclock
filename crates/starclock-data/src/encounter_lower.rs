@@ -1,5 +1,6 @@
 //! Enemy AI, mechanically distinct enemy, and encounter row lowering.
 
+use crate::rule_lower::lower_condition;
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
@@ -458,7 +459,7 @@ fn lower_ai_candidate(
     Ok(AiCandidateDefinition::new(
         AiCandidateId::new(positive(row.id, "AiCandidate.id")?).expect("positive candidate ID"),
         ability_id(row.ability_id, "AiCandidate.ability_id")?,
-        crate::rule_lower::lower_condition(config, row.condition_id, &mut BTreeSet::new())?,
+        lower_condition(config, row.condition_id, &mut BTreeSet::new())?,
         SelectorId::new(positive(
             row.target_selector_id,
             "AiCandidate.target_selector_id",
@@ -511,7 +512,7 @@ fn lower_ai_transition(
     Ok(AiTransitionDefinition::new(
         AiTransitionId::new(positive(row.id, "AiTransition.id")?).expect("positive transition ID"),
         ai_state_id(row.target_state_id, "AiTransition.target_state_id")?,
-        crate::rule_lower::lower_condition(config, row.condition_id, &mut BTreeSet::new())?,
+        lower_condition(config, row.condition_id, &mut BTreeSet::new())?,
         row.priority,
         timing,
     ))
@@ -801,8 +802,8 @@ fn lower_phase(
     Ok(EnemyPhaseDefinition::new(
         EnemyPhaseId::new(positive(row.id, "EnemyPhase.id")?).expect("positive phase ID"),
         positive_u16(row.sequence, "EnemyPhase.sequence")?,
-        crate::rule_lower::lower_condition(config, row.entry_condition_id, &mut BTreeSet::new())?,
-        crate::rule_lower::lower_condition(config, row.exit_condition_id, &mut BTreeSet::new())?,
+        lower_condition(config, row.entry_condition_id, &mut BTreeSet::new())?,
+        lower_condition(config, row.exit_condition_id, &mut BTreeSet::new())?,
         row.replacement_priority,
         AiGraphId::new(positive(row.ai_graph_id, "EnemyPhase.ai_graph_id")?)
             .expect("positive AI graph ID"),

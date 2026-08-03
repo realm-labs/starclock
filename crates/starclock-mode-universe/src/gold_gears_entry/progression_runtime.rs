@@ -1,5 +1,6 @@
 //! Trailblaze Bonus, Path boost, Resonance and Extrapolation runtime.
 
+use crate::gold_gears_unique::PathDefinition;
 use std::collections::BTreeMap;
 
 use serde::Deserialize;
@@ -748,7 +749,7 @@ fn compile_bonus_plan(
 
 fn decode_path(
     catalog: &GoldAndGearsUniqueCatalog,
-    path: &crate::gold_gears_unique::PathDefinition,
+    path: &PathDefinition,
 ) -> Result<RuntimePath, GoldAndGearsEntryError> {
     let boost = catalog
         .path_boosts

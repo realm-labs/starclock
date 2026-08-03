@@ -1,5 +1,6 @@
 //! Released shared-content links consumed by the Gold and Gears profile.
 
+use crate::gold_gears_unique::GoldAndGearsUniqueCatalog;
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -87,7 +88,7 @@ pub(super) struct GoldAndGearsContentRuntimeCatalog {
 impl GoldAndGearsContentRuntimeCatalog {
     pub(super) fn compile(
         content: &GoldAndGearsContentCatalog,
-        unique: &crate::gold_gears_unique::GoldAndGearsUniqueCatalog,
+        unique: &GoldAndGearsUniqueCatalog,
         progression: &ProgressionRuntimeCatalog,
     ) -> Result<Self, GoldAndGearsEntryError> {
         let core = starclock_data::catalog::load(CORE_BUNDLE)

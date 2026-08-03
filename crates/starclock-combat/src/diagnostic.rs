@@ -4,6 +4,9 @@
 //! from a stable [`crate::BattleView`]. They never participate in battle state,
 //! replay identity, event ordering, RNG, or canonical hashing.
 
+use crate::reaction::queue::ReactionOrder;
+use crate::reaction::queue::ReactionTier;
+use crate::target::model::TargetCommitment;
 use crate::{
     AbilityId, ActionOrigin, BattleStateHash, CommandId, EventId, FormationIndex, RuleId,
     RuleInstanceId, SourceDefinitionId, SpawnSequence, TriggerId, UnitId,
@@ -182,19 +185,19 @@ pub enum ActionCancellationReason {
     TargetInvalid,
 }
 
-impl From<crate::reaction::queue::ReactionTier> for ReactionTierDiagnostic {
-    fn from(value: crate::reaction::queue::ReactionTier) -> Self {
+impl From<ReactionTier> for ReactionTierDiagnostic {
+    fn from(value: ReactionTier) -> Self {
         match value {
-            crate::reaction::queue::ReactionTier::ForcedFollowUp => Self::ForcedFollowUp,
-            crate::reaction::queue::ReactionTier::Ultimate => Self::Ultimate,
-            crate::reaction::queue::ReactionTier::ExtraAction => Self::ExtraAction,
-            crate::reaction::queue::ReactionTier::ExtraTurnAction => Self::ExtraTurnAction,
+            ReactionTier::ForcedFollowUp => Self::ForcedFollowUp,
+            ReactionTier::Ultimate => Self::Ultimate,
+            ReactionTier::ExtraAction => Self::ExtraAction,
+            ReactionTier::ExtraTurnAction => Self::ExtraTurnAction,
         }
     }
 }
 
-impl From<crate::reaction::queue::ReactionOrder> for ReactionOrderDiagnostic {
-    fn from(value: crate::reaction::queue::ReactionOrder) -> Self {
+impl From<ReactionOrder> for ReactionOrderDiagnostic {
+    fn from(value: ReactionOrder) -> Self {
         Self {
             boundary: value.boundary,
             tier: value.tier.into(),
@@ -213,8 +216,8 @@ impl From<crate::reaction::queue::ReactionOrder> for ReactionOrderDiagnostic {
     }
 }
 
-impl From<&crate::target::model::TargetCommitment> for CommittedTargetsDiagnostic {
-    fn from(value: &crate::target::model::TargetCommitment) -> Self {
+impl From<&TargetCommitment> for CommittedTargetsDiagnostic {
+    fn from(value: &TargetCommitment) -> Self {
         Self {
             selector: value.selector,
             invalidation: value.invalidation,

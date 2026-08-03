@@ -1,6 +1,11 @@
+use crate::formula::shield::ShieldAbsorptionPolicy;
+use crate::formula::toughness::EnemyRank;
+use crate::rule::model::RuleValue;
+use crate::timeline::state::NormalTurnState;
 use sha2::{Digest, Sha256};
 
 use crate::{
+    AbilityId, BreakCreditPolicy, DecisionId, LinkedEntity, ToughnessWeaknessPolicy, UnitId,
     actor::store::{TimelineActorState, UnitState},
     battle::{
         spec::{ConcedePolicy, ParticipantSource, TeamSide},
@@ -133,11 +138,11 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     for link in state.links.canonical_entries() {
         e.u64(link.owner.get());
         match link.entity {
-            crate::LinkedEntity::Unit(unit) => {
+            LinkedEntity::Unit(unit) => {
                 e.u8(0);
                 e.u64(unit.get());
             }
-            crate::LinkedEntity::TimelineActor(actor) => {
+            LinkedEntity::TimelineActor(actor) => {
                 e.u8(1);
                 e.u64(actor.get());
             }
@@ -190,8 +195,8 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         }
         e.i64(shield.state.remaining.get());
         e.u8(match shield.policy {
-            crate::formula::shield::ShieldAbsorptionPolicy::ConcurrentLargest => 0,
-            crate::formula::shield::ShieldAbsorptionPolicy::AdditiveByInstance => 1,
+            ShieldAbsorptionPolicy::ConcurrentLargest => 0,
+            ShieldAbsorptionPolicy::AdditiveByInstance => 1,
         });
     }
     e.length(state.break_effects.canonical_entries().len());
@@ -382,7 +387,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     e.u64(state.committed_revision);
 }
 
-fn encode_rule_value<S: Sink>(e: &mut Encoder<'_, S>, value: &crate::rule::model::RuleValue) {
+fn encode_rule_value<S: Sink>(e: &mut Encoder<'_, S>, value: &RuleValue) {
     use crate::rule::model::RuleValue as V;
     match value {
         V::Integer(value) => {
@@ -445,7 +450,7 @@ fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
     }
 }
 
-fn encode_turn<S: Sink>(e: &mut Encoder<'_, S>, turn: crate::timeline::state::NormalTurnState) {
+fn encode_turn<S: Sink>(e: &mut Encoder<'_, S>, turn: NormalTurnState) {
     e.u64(turn.actor.get());
     e.u64(turn.owner.get());
     e.u64(turn.unit.get());
@@ -508,8 +513,8 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.i64(unit.current_energy.scaled());
     e.i64(unit.maximum_energy.scaled());
     e.u8(match unit.rank {
-        crate::formula::toughness::EnemyRank::Normal => 0,
-        crate::formula::toughness::EnemyRank::EliteOrBoss => 1,
+        EnemyRank::Normal => 0,
+        EnemyRank::EliteOrBoss => 1,
     });
     e.length(unit.weaknesses.len());
     for weakness in &unit.weaknesses {
@@ -537,9 +542,9 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
         e.u8(u8::from(spec.active()));
         e.u8(u8::from(spec.locked()));
         match spec.weakness_policy() {
-            crate::ToughnessWeaknessPolicy::MatchingOnly => e.u8(0),
-            crate::ToughnessWeaknessPolicy::AnyElement => e.u8(1),
-            crate::ToughnessWeaknessPolicy::OffWeakness(value) => {
+            ToughnessWeaknessPolicy::MatchingOnly => e.u8(0),
+            ToughnessWeaknessPolicy::AnyElement => e.u8(1),
+            ToughnessWeaknessPolicy::OffWeakness(value) => {
                 e.u8(2);
                 e.i64(value.scaled());
             }
@@ -557,8 +562,8 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
             }
         }
         match spec.break_credit() {
-            crate::BreakCreditPolicy::HitApplier => e.u8(0),
-            crate::BreakCreditPolicy::LayerProvider(source) => {
+            BreakCreditPolicy::HitApplier => e.u8(0),
+            BreakCreditPolicy::LayerProvider(source) => {
                 e.u8(1);
                 e.u32(source.get());
             }
@@ -731,10 +736,10 @@ fn encode_command<S: Sink>(e: &mut Encoder<'_, S>, command: &Command) {
 
 fn encode_action_command<S: Sink>(
     e: &mut Encoder<'_, S>,
-    decision: crate::DecisionId,
-    actor: crate::UnitId,
-    ability: crate::AbilityId,
-    primary_target: Option<crate::UnitId>,
+    decision: DecisionId,
+    actor: UnitId,
+    ability: AbilityId,
+    primary_target: Option<UnitId>,
 ) {
     e.u64(decision.get());
     e.u64(actor.get());

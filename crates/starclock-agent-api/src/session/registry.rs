@@ -500,6 +500,7 @@ fn adapter_error(message: &'static str) -> AgentError {
 
 #[cfg(test)]
 mod tests {
+    use crate::session::production_factory_for_tests;
     use std::{
         sync::{
             Barrier,
@@ -560,7 +561,7 @@ mod tests {
     }
 
     fn registry(clock: Arc<ManualClock>, ids: Arc<CountingIds>) -> AgentSessionRegistry {
-        AgentSessionRegistry::new(crate::session::production_factory_for_tests(), clock, ids)
+        AgentSessionRegistry::new(production_factory_for_tests(), clock, ids)
     }
 
     fn play_request(observation: &AgentObservation, idempotency_key: &str) -> PlayActionRequest {
@@ -667,7 +668,7 @@ mod tests {
         let clock = Arc::new(ManualClock::default());
         let ids = Arc::new(CountingIds::default());
         let registry = AgentSessionRegistry::with_limits(
-            crate::session::production_factory_for_tests(),
+            production_factory_for_tests(),
             clock,
             ids.clone(),
             RegistryLimits {
@@ -703,7 +704,7 @@ mod tests {
     fn tenant_and_global_quotas_are_independent_and_close_releases_capacity() {
         let ids = Arc::new(CountingIds::default());
         let registry = AgentSessionRegistry::with_limits(
-            crate::session::production_factory_for_tests(),
+            production_factory_for_tests(),
             Arc::new(ManualClock::default()),
             ids.clone(),
             RegistryLimits {

@@ -1,5 +1,11 @@
 //! Nested battle handoff and settlement accessors for the runtime facade.
 
+use crate::curio_activity::destroy_and_count_operations;
+use crate::curio_effect_runtime::CurioEffectRuntimeCatalog;
+use crate::id::CurioId;
+use crate::id::EncounterMemberId;
+use crate::id::RoomId;
+use crate::negative_curio_runtime::NegativeCurioEvent;
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -92,10 +98,7 @@ impl StandardUniverseActivity {
             let fragment_debt = contributions.entries().iter().find_map(|contribution| {
                 let effects = self
                     .negative_curio_runtime
-                    .execute(
-                        contribution,
-                        crate::negative_curio_runtime::NegativeCurioEvent::BattleWon,
-                    )
+                    .execute(contribution, NegativeCurioEvent::BattleWon)
                     .ok()?;
                 effects.iter().find_map(|effect| match effect.effect() {
                     CurioEffect::SuppressBattleFragmentsThenDoubleCurrent { triggers } => {
@@ -113,7 +116,7 @@ impl StandardUniverseActivity {
                     key: event_key(curio, CurioEvent::RunDefeated),
                     delta: integer(1),
                 });
-                operations.extend(crate::curio_activity::destroy_and_count_operations(
+                operations.extend(destroy_and_count_operations(
                     curio,
                     self.curio_activity_bindings(),
                 ));
@@ -275,7 +278,7 @@ impl StandardUniverseActivity {
                     if !destroys_once {
                         return Err(invalid_boundary());
                     }
-                    operations.extend(crate::curio_activity::destroy_and_count_operations(
+                    operations.extend(destroy_and_count_operations(
                         contribution.curio(),
                         self.curio_activity_bindings(),
                     ));
@@ -299,7 +302,7 @@ impl StandardUniverseActivity {
                             self.cosmic_fragments_slot,
                         ),
                     });
-                    operations.extend(crate::curio_activity::destroy_and_count_operations(
+                    operations.extend(destroy_and_count_operations(
                         curio,
                         self.curio_activity_bindings(),
                     ));
@@ -329,7 +332,7 @@ impl StandardUniverseActivity {
     fn non_final_defeat_laurel(
         &self,
         result: &BattleResult,
-    ) -> Result<Option<crate::id::CurioId>, GraphActivityBattleError> {
+    ) -> Result<Option<CurioId>, GraphActivityBattleError> {
         if result.actual_digest() != result.claimed_digest()
             || !result
                 .values()
@@ -375,7 +378,7 @@ impl StandardUniverseActivity {
                 _ => None,
             })
             .and_then(|value| u32::try_from(value).ok())
-            .and_then(crate::id::EncounterMemberId::new)
+            .and_then(EncounterMemberId::new)
             .ok_or_else(invalid_boundary)?;
         let room = self
             .graph
@@ -388,7 +391,7 @@ impl StandardUniverseActivity {
                 _ => None,
             })
             .and_then(|value| u32::try_from(value).ok())
-            .and_then(crate::id::RoomId::new)
+            .and_then(RoomId::new)
             .ok_or_else(invalid_boundary)?;
         self.encounter_options
             .iter()
@@ -442,8 +445,8 @@ const fn invalid_boundary() -> GraphActivityBattleError {
 }
 
 fn optional_curio_effects(
-    runtime: &crate::curio_effect_runtime::CurioEffectRuntimeCatalog,
-    curio: crate::id::CurioId,
+    runtime: &CurioEffectRuntimeCatalog,
+    curio: CurioId,
     event: CurioEvent,
     facts: CurioEffectFacts,
 ) -> Result<Box<[AppliedCurioEffect]>, CurioEffectRuntimeError> {

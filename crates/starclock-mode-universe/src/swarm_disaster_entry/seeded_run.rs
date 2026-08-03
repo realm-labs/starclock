@@ -1,5 +1,6 @@
 //! Deterministic complete-run execution for the frozen Goal 20 matrix.
 
+use crate::error::UniverseCatalogLoadError;
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionIdentity, ActivityInstanceId,
     ActivityProgramDefinition, ActivityRngStreams, ActivityStateHash, ActivityTerminalOutcome,
@@ -102,7 +103,7 @@ pub(super) struct SwarmRecordedExecution {
 }
 
 pub(super) enum SwarmSeededRunError {
-    Catalog(crate::error::UniverseCatalogLoadError),
+    Catalog(UniverseCatalogLoadError),
     Controller(SwarmBaselineError),
     ProgramRejected,
     MissingRoute(NodeId),
@@ -146,8 +147,8 @@ impl core::fmt::Debug for SwarmSeededRunError {
     }
 }
 
-impl From<crate::error::UniverseCatalogLoadError> for SwarmSeededRunError {
-    fn from(error: crate::error::UniverseCatalogLoadError) -> Self {
+impl From<UniverseCatalogLoadError> for SwarmSeededRunError {
+    fn from(error: UniverseCatalogLoadError) -> Self {
         Self::Catalog(error)
     }
 }

@@ -1,3 +1,5 @@
+use crate::{AbilityId, UnitId};
+
 use crate::battle::{model::BattlePhase, state::BattleState};
 
 use super::model::{Command, CommandError, CommandErrorKind};
@@ -6,14 +8,14 @@ pub(crate) enum ValidatedCommand {
     StartBattle,
     PassInterruptWindow,
     UseAbility {
-        actor: crate::UnitId,
-        ability: crate::AbilityId,
-        primary_target: Option<crate::UnitId>,
+        actor: UnitId,
+        ability: AbilityId,
+        primary_target: Option<UnitId>,
     },
     UseInterrupt {
-        actor: crate::UnitId,
-        ability: crate::AbilityId,
-        primary_target: Option<crate::UnitId>,
+        actor: UnitId,
+        ability: AbilityId,
+        primary_target: Option<UnitId>,
     },
     Concede,
 }

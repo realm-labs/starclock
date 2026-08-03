@@ -1,5 +1,7 @@
 //! Linked-unit and countdown lowering from generated Sora rows.
 
+use crate::generated::countdown_definition::CountdownDefinition as CountdownDefinitionCountdownDefinition;
+use crate::generated::linked_unit_definition::LinkedUnitDefinition as LinkedUnitDefinitionLinkedUnitDefinition;
 use std::collections::BTreeMap;
 
 use starclock_combat::{
@@ -44,7 +46,7 @@ pub(super) fn lower(
 }
 
 fn lower_linked(
-    row: &crate::generated::linked_unit_definition::LinkedUnitDefinition,
+    row: &LinkedUnitDefinitionLinkedUnitDefinition,
     identities: &BTreeMap<u32, &IdentityDefinition>,
     mode: LoadMode,
 ) -> Result<LinkedUnitCatalogDefinition, CatalogLoadError> {
@@ -116,7 +118,7 @@ fn lower_linked(
 }
 
 fn lower_countdown(
-    row: &crate::generated::countdown_definition::CountdownDefinition,
+    row: &CountdownDefinitionCountdownDefinition,
 ) -> Result<CountdownCatalogDefinition, CatalogLoadError> {
     let code = positive(row.code, "CountdownDefinition.code")?;
     let ability = AbilityId::new(positive(row.ability_id, "CountdownDefinition.ability_id")?)

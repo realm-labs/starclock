@@ -1,5 +1,7 @@
 //! Replayable Activity commands for negative Curio lifecycle effects.
 
+use crate::blessing_runtime::BlessingRuntimeDefinition;
+use crate::curio_activity::negative::fission_extra_copies;
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityOperation, ActivityOptionDefinition,
     ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
@@ -361,9 +363,9 @@ impl StandardUniverseActivity {
             })
             .ok_or(StandardUniverseNegativeCurioCommandError::EffectMismatch)?;
         let pending_key = event_key(curio, CurioEvent::BattleWon);
-        let extra = crate::curio_activity::negative::fission_extra_copies(
-            &ActivityValue::BoundedCounterMap(self.curio_event_values()?),
-        )
+        let extra = fission_extra_copies(&ActivityValue::BoundedCounterMap(
+            self.curio_event_values()?,
+        ))
         .ok_or(StandardUniverseNegativeCurioCommandError::InvalidEventState)?;
         let mut operations = vec![
             ActivityOperation::Require(ActivityCondition::LessThan(
@@ -427,10 +429,7 @@ impl StandardUniverseActivity {
     fn blessing_definition(
         &self,
         id: BlessingId,
-    ) -> Result<
-        &crate::blessing_runtime::BlessingRuntimeDefinition,
-        StandardUniverseNegativeCurioCommandError,
-    > {
+    ) -> Result<&BlessingRuntimeDefinition, StandardUniverseNegativeCurioCommandError> {
         self.blessing_runtime
             .definitions()
             .iter()
@@ -532,6 +531,8 @@ pub enum StandardUniverseNegativeCurioCommandError {
 
 #[cfg(test)]
 mod tests {
+    use crate::curio_activity::destroy_and_count_operations;
+    use crate::id::PathId;
     use std::sync::OnceLock;
 
     use starclock_activity::{
@@ -779,14 +780,14 @@ mod tests {
         let bindings = activity.curio_activity_bindings();
         let operations = curios
             .iter()
-            .flat_map(|id| crate::curio_activity::destroy_and_count_operations(*id, bindings))
+            .flat_map(|id| destroy_and_count_operations(*id, bindings))
             .collect::<Vec<_>>();
         apply(activity, operations);
     }
 
     fn acquire_blessings(
         activity: &mut StandardUniverseActivity,
-        blessings: &[((BlessingId, crate::id::PathId), u32)],
+        blessings: &[((BlessingId, PathId), u32)],
     ) {
         let operations = blessings
             .iter()

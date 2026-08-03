@@ -1,5 +1,6 @@
 //! Strict lowering for Curio definitions and lifecycle states.
 
+use crate::definition::LocalizedText;
 use std::collections::{BTreeMap, BTreeSet};
 
 use crate::curio::{CurioDefinition, CurioDefinitions, CurioStateDefinition, CurioStateKind};
@@ -294,7 +295,7 @@ fn digest(
     UniverseCurioDefinitionsDigest::new(encoder.finish())
 }
 
-fn encode_text(encoder: &mut Encoder, text: &crate::definition::LocalizedText) {
+fn encode_text(encoder: &mut Encoder, text: &LocalizedText) {
     encoder.text(text.name_en());
     encoder.text(text.name_zh_cn());
     encoder.text(text.summary_en());

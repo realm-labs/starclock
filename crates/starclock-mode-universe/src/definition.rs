@@ -1,16 +1,29 @@
 //! Generated-row-free immutable Standard Universe definitions.
 
+use crate::curio::CurioDefinition;
+use crate::curio::CurioStateDefinition;
 use crate::digest::{
     UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest, UniverseEncounterDefinitionsDigest,
     UniversePathDefinitionsDigest, UniverseRunDefinitionsDigest,
 };
+use crate::encounter::ContentPoolDefinition;
+use crate::encounter::DifficultyEnemyBinding;
+use crate::encounter::EncounterGroupDefinition;
+use crate::encounter::EncounterPoolDefinition;
+use crate::encounter::RoomContentBinding;
 use crate::id::{
     ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
     UniverseProfileId, WorldId,
 };
+use crate::occurrence::OccurrenceChoiceDefinition;
+use crate::occurrence::OccurrenceDefinition;
+use crate::occurrence::OccurrenceVariantDefinition;
 use crate::path::{
     BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
 };
+use crate::progression::AbilityTreeNodeDefinition;
+use crate::progression::ServiceDefinition;
+use crate::rule::MechanicRuleDefinition;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalizedText {
@@ -652,17 +665,17 @@ pub(crate) struct UniverseDefinitions {
     pub(crate) blessings: Box<[BlessingDefinition]>,
     pub(crate) blessing_levels: Box<[BlessingLevelDefinition]>,
     pub(crate) resonances: Box<[ResonanceDefinition]>,
-    pub(crate) curios: Box<[crate::curio::CurioDefinition]>,
-    pub(crate) curio_states: Box<[crate::curio::CurioStateDefinition]>,
-    pub(crate) occurrences: Box<[crate::occurrence::OccurrenceDefinition]>,
-    pub(crate) occurrence_variants: Box<[crate::occurrence::OccurrenceVariantDefinition]>,
-    pub(crate) occurrence_choices: Box<[crate::occurrence::OccurrenceChoiceDefinition]>,
-    pub(crate) services: Box<[crate::progression::ServiceDefinition]>,
-    pub(crate) ability_tree_nodes: Box<[crate::progression::AbilityTreeNodeDefinition]>,
-    pub(crate) encounter_groups: Box<[crate::encounter::EncounterGroupDefinition]>,
-    pub(crate) difficulty_enemies: Box<[crate::encounter::DifficultyEnemyBinding]>,
-    pub(crate) encounter_pools: Box<[crate::encounter::EncounterPoolDefinition]>,
-    pub(crate) room_content: Box<[crate::encounter::RoomContentBinding]>,
-    pub(crate) content_pools: Box<[crate::encounter::ContentPoolDefinition]>,
-    pub(crate) mechanic_rules: Box<[crate::rule::MechanicRuleDefinition]>,
+    pub(crate) curios: Box<[CurioDefinition]>,
+    pub(crate) curio_states: Box<[CurioStateDefinition]>,
+    pub(crate) occurrences: Box<[OccurrenceDefinition]>,
+    pub(crate) occurrence_variants: Box<[OccurrenceVariantDefinition]>,
+    pub(crate) occurrence_choices: Box<[OccurrenceChoiceDefinition]>,
+    pub(crate) services: Box<[ServiceDefinition]>,
+    pub(crate) ability_tree_nodes: Box<[AbilityTreeNodeDefinition]>,
+    pub(crate) encounter_groups: Box<[EncounterGroupDefinition]>,
+    pub(crate) difficulty_enemies: Box<[DifficultyEnemyBinding]>,
+    pub(crate) encounter_pools: Box<[EncounterPoolDefinition]>,
+    pub(crate) room_content: Box<[RoomContentBinding]>,
+    pub(crate) content_pools: Box<[ContentPoolDefinition]>,
+    pub(crate) mechanic_rules: Box<[MechanicRuleDefinition]>,
 }

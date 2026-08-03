@@ -1,3 +1,4 @@
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy};
 use starclock_activity::{
     ActivityCause, ActivityProgramDefinition, ActivityProgramId, ActivityTransactionOutcome,
     ActivityTransactionState,
@@ -116,7 +117,7 @@ fn dimension_adjustments_clamp_in_order_and_unlock_cabinet_edges_once() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(
@@ -129,7 +130,7 @@ fn instance(
                 "swarm-disaster.area.201",
                 "universe.path.destruction",
                 "swarm-disaster.audience-die.6",
-                super::super::tests::participants(super::super::tests::policy()),
+                participants(policy()),
             )
             .with_progression(points, vec![], None),
         )

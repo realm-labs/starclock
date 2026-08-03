@@ -1,5 +1,6 @@
 //! Light Cone Excel rows to generated-type-free build definitions.
 
+use crate::domain_catalog::source;
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_build::{
@@ -102,7 +103,7 @@ impl LightConeDataDefinition {
             .collect::<Result<Vec<_>, CatalogLoadError>>()?;
         Ok(LightConeDefinition::new(
             self.id,
-            crate::domain_catalog::source(
+            source(
                 self.id.get(),
                 starclock_combat::rule::model::SourceClass::Equipment,
                 digest,

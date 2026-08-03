@@ -1,3 +1,4 @@
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::{
     ActivityCause, ActivityProgramDefinition, ActivityProgramId, ActivityTransactionOutcome,
     ActivityTransactionState,
@@ -97,7 +98,7 @@ fn pathstrider_progress_routes_nondecreasing_unlocks_exactly_once() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(
@@ -109,11 +110,11 @@ fn instance(
         .collect();
     factory
         .compile_entry(
-            super::super::tests::released_entry(
+            released_entry(
                 "swarm-disaster.area.201",
                 "universe.path.destruction",
                 "swarm-disaster.audience-die.6",
-                super::super::tests::participants(super::super::tests::policy()),
+                participants(policy()),
             )
             .with_progression(points, progression, None),
         )

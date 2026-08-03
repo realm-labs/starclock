@@ -1,5 +1,6 @@
 //! Standard Universe trace capture and action payload codec.
 
+use crate::baseline_runner::NestedBattleExecutionError;
 use starclock_activity::{
     ActivityDecisionId, ActivityDecisionKind, ActivityOptionId, ActivityStateHash, BattleResult,
 };
@@ -182,7 +183,7 @@ impl<E: NestedBattleExecutor> NestedBattleExecutor for CapturingExecutor<'_, E> 
     fn execute(
         &mut self,
         handoff: &starclock_activity::ActivityBattleHandoff,
-    ) -> Result<BattleResult, crate::baseline_runner::NestedBattleExecutionError> {
+    ) -> Result<BattleResult, NestedBattleExecutionError> {
         let result = self.inner.execute(handoff)?;
         self.results.push(result.clone());
         Ok(result)

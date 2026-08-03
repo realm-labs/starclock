@@ -3,8 +3,8 @@
 use std::collections::BTreeSet;
 
 use crate::{
-    ActionId, ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, SelectorId,
-    SourceDefinitionId, StateSlotDefinitionId, UnitId,
+    ActionId, EffectInstanceId, ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId,
+    Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, UnitId,
     rule::model::{RuleValue, SourceClass, ValueExpr},
 };
 
@@ -199,8 +199,8 @@ pub struct ModifierDefinition {
     pub value: ValueExpr,
     pub stacking_group: ModifierStackingGroupId,
     pub priority: i32,
-    pub floor: Option<crate::Scalar>,
-    pub cap: Option<crate::Scalar>,
+    pub floor: Option<Scalar>,
+    pub cap: Option<Scalar>,
     pub cap_stage: FormulaStage,
     pub snapshot: SnapshotPolicy,
     /// Optional slot populated from the current source-effect stack count.
@@ -218,10 +218,10 @@ pub struct ActiveModifier {
     pub source_class: SourceClass,
     pub insertion_sequence: u64,
     pub application_action: Option<ActionId>,
-    pub source_effect: Option<crate::EffectInstanceId>,
+    pub source_effect: Option<EffectInstanceId>,
     pub slots: Box<[(StateSlotDefinitionId, RuleValue)]>,
-    pub captured_value: Option<crate::Scalar>,
-    pub captured_stats: Box<[(StatQuery, crate::Scalar)]>,
+    pub captured_value: Option<Scalar>,
+    pub captured_stats: Box<[(StatQuery, Scalar)]>,
 }
 
 impl ActiveModifier {

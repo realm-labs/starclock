@@ -1,3 +1,4 @@
+use crate::gold_gears_unique::DiceDefinition;
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityExpression, ActivityInstanceId, ActivityMasterSeed,
@@ -256,7 +257,7 @@ fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
 fn dice<'a>(
     factory: &'a GoldAndGearsRuntimeFactory,
     source: &str,
-) -> &'a crate::gold_gears_unique::DiceDefinition {
+) -> &'a DiceDefinition {
     factory
         .unique
         .dice

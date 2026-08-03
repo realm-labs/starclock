@@ -1,5 +1,6 @@
 //! Service interaction bindings used by the spatial-free topology compiler.
 
+use crate::id::ServiceId;
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityRngLabel, ActivitySlotId, ActivityValue,
     ParticipantId, ParticipantLock,
@@ -30,7 +31,7 @@ pub(super) struct RoomServiceBinding {
 }
 
 struct ServiceSelectionSpec {
-    service: crate::id::ServiceId,
+    service: ServiceId,
     selection: ServiceInteractionSelection,
     source_content_id: Box<str>,
     required_ability: Option<AbilityTarget>,
@@ -196,7 +197,7 @@ pub(super) fn trailblaze_bonus_condition(
 fn service_id(
     catalog: &UniverseCatalog,
     stable_key: &str,
-) -> Result<crate::id::ServiceId, UniverseTopologyCompileError> {
+) -> Result<ServiceId, UniverseTopologyCompileError> {
     catalog
         .services()
         .iter()

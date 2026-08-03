@@ -1,34 +1,20 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
 mod runtime_access;
 pub(crate) mod state_layout;
-use starclock_activity::{
-    ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
-    ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
-    ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityValue,
-    GraphActivity, GraphActivityDefinition, GraphActivityResolution, GraphActivityStartError,
-    LoadoutLockScope, ParticipantLock, ParticipantLockDigest, ParticipantPolicy,
-    ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
-};
-use state_layout::{
-    ABILITY_PROJECTION_SLOT, ABILITY_PROJECTION_SOURCE, ABILITY_TREE_SLOT, ABILITY_TREE_SOURCE,
-    BLESSING_INVENTORY, BLESSING_INVENTORY_SOURCE, BLESSING_OFFER_MARKER_SLOT,
-    BLESSING_OFFER_MARKER_SOURCE, BLESSING_REROLL_SLOT, BLESSING_REROLL_SOURCE,
-    COSMIC_FRAGMENTS_SLOT, COSMIC_FRAGMENTS_SOURCE, CURIO_CHARGE_SLOT, CURIO_CHARGE_SOURCE,
-    CURIO_EVENT_SLOT, CURIO_EVENT_SOURCE, CURIO_INVENTORY, CURIO_INVENTORY_SOURCE,
-    CURIO_STATE_SLOT, CURIO_STATE_SOURCE, DIFFICULTY_SLOT, DIFFICULTY_SOURCE,
-    ENCOUNTER_MEMBER_SLOT, ENCOUNTER_MEMBER_SOURCE, EXTERNAL_OUTCOME_SLOT, EXTERNAL_OUTCOME_SOURCE,
-    FORMATION_CAPABILITY_SLOT, FORMATION_CAPABILITY_SOURCE, FORMATION_INVENTORY,
-    FORMATION_INVENTORY_SOURCE, HUB_CLEAR_SLOT, HUB_CLEAR_SOURCE, OCCURRENCE_BATTLE_ACTIVE_SLOT,
-    OCCURRENCE_BATTLE_ACTIVE_SOURCE, OCCURRENCE_BATTLE_REWARD_COUNT_SLOT,
-    OCCURRENCE_BATTLE_REWARD_COUNT_SOURCE, OCCURRENCE_EFFECT_SLOT, OCCURRENCE_EFFECT_SOURCE,
-    OCCURRENCE_INTERACTION_STATE_SLOT, OCCURRENCE_INTERACTION_STATE_SOURCE,
-    PATH_BLESSING_COUNT_SLOT, PATH_BLESSING_COUNT_SOURCE, PATH_SLOT, PATH_SOURCE, ROOM_SLOT,
-    ROOM_SOURCE, SERVICE_EFFECT_SLOT, SERVICE_EFFECT_SOURCE, SERVICE_USE_SLOT, SERVICE_USE_SOURCE,
-    TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE, TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT,
-    WORLD_SOURCE,
-};
-use std::sync::{Arc, OnceLock};
 
+use crate::id::TopologyId;
+use crate::run_runtime::MAX_COSMIC_FRAGMENTS;
+use crate::runtime::StandardUniverseRuntimeContext;
+use crate::runtime::StandardUniverseStartError;
+use crate::runtime::StandardUniverseStartResolution;
+use crate::runtime::start as runtime_start;
+use crate::topology::AbstractInteractionBinding;
+use crate::topology::CompiledUniverseTopology;
+use crate::topology::DomainHubDefinition;
+use crate::topology::EncounterOptionBinding;
+use crate::topology::UniverseTopologyCompileError;
+use crate::topology::compile as topology_compile;
+use crate::topology::rebind;
 use crate::{
     ability_runtime::{
         AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
@@ -61,6 +47,33 @@ use crate::{
     service_effect_runtime::ServiceEffectRuntimeCatalog,
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
+use starclock_activity::{
+    ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
+    ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
+    ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityValue,
+    GraphActivity, GraphActivityDefinition, GraphActivityResolution, GraphActivityStartError,
+    LoadoutLockScope, ParticipantLock, ParticipantLockDigest, ParticipantPolicy,
+    ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
+};
+use state_layout::{
+    ABILITY_PROJECTION_SLOT, ABILITY_PROJECTION_SOURCE, ABILITY_TREE_SLOT, ABILITY_TREE_SOURCE,
+    BLESSING_INVENTORY, BLESSING_INVENTORY_SOURCE, BLESSING_OFFER_MARKER_SLOT,
+    BLESSING_OFFER_MARKER_SOURCE, BLESSING_REROLL_SLOT, BLESSING_REROLL_SOURCE,
+    COSMIC_FRAGMENTS_SLOT, COSMIC_FRAGMENTS_SOURCE, CURIO_CHARGE_SLOT, CURIO_CHARGE_SOURCE,
+    CURIO_EVENT_SLOT, CURIO_EVENT_SOURCE, CURIO_INVENTORY, CURIO_INVENTORY_SOURCE,
+    CURIO_STATE_SLOT, CURIO_STATE_SOURCE, DIFFICULTY_SLOT, DIFFICULTY_SOURCE,
+    ENCOUNTER_MEMBER_SLOT, ENCOUNTER_MEMBER_SOURCE, EXTERNAL_OUTCOME_SLOT, EXTERNAL_OUTCOME_SOURCE,
+    FORMATION_CAPABILITY_SLOT, FORMATION_CAPABILITY_SOURCE, FORMATION_INVENTORY,
+    FORMATION_INVENTORY_SOURCE, HUB_CLEAR_SLOT, HUB_CLEAR_SOURCE, OCCURRENCE_BATTLE_ACTIVE_SLOT,
+    OCCURRENCE_BATTLE_ACTIVE_SOURCE, OCCURRENCE_BATTLE_REWARD_COUNT_SLOT,
+    OCCURRENCE_BATTLE_REWARD_COUNT_SOURCE, OCCURRENCE_EFFECT_SLOT, OCCURRENCE_EFFECT_SOURCE,
+    OCCURRENCE_INTERACTION_STATE_SLOT, OCCURRENCE_INTERACTION_STATE_SOURCE,
+    PATH_BLESSING_COUNT_SLOT, PATH_BLESSING_COUNT_SOURCE, PATH_SLOT, PATH_SOURCE, ROOM_SLOT,
+    ROOM_SOURCE, SERVICE_EFFECT_SLOT, SERVICE_EFFECT_SOURCE, SERVICE_USE_SLOT, SERVICE_USE_SOURCE,
+    TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE, TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT,
+    WORLD_SOURCE,
+};
+use std::sync::{Arc, OnceLock};
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -134,7 +147,7 @@ pub struct StandardUniverseProfile {
 #[derive(Clone, Debug)]
 struct ParticipantTopologyTemplate {
     participant_lock: ParticipantLockDigest,
-    topology: crate::topology::CompiledUniverseTopology,
+    topology: CompiledUniverseTopology,
 }
 
 impl StandardUniverseProfile {
@@ -309,7 +322,7 @@ impl StandardUniverseProfile {
                 .ok_or(StandardUniverseCompileError::InvalidRunRuntime)?,
         )
         .checked_add(initial_cosmic_fragment_bonus)
-        .filter(|value| *value <= crate::run_runtime::MAX_COSMIC_FRAGMENTS)
+        .filter(|value| *value <= MAX_COSMIC_FRAGMENTS)
         .ok_or(StandardUniverseCompileError::InvalidRunRuntime)?;
         let service_interaction_runtime = Arc::new(
             ServiceInteractionRuntimeCatalog::compile(
@@ -371,7 +384,7 @@ impl StandardUniverseProfile {
             .get()
             .filter(|template| template.participant_lock == participant_digest)
         {
-            crate::topology::rebind(
+            rebind(
                 &template.topology,
                 identity,
                 state.clone(),
@@ -379,7 +392,7 @@ impl StandardUniverseProfile {
             )
             .map_err(StandardUniverseCompileError::Topology)?
         } else {
-            let compiled = crate::topology::compile(
+            let compiled = topology_compile(
                 &self.catalog,
                 blessing_runtime.as_ref(),
                 path_runtime.as_ref(),
@@ -470,10 +483,10 @@ pub struct CompiledActivity {
     path_options: Box<[PathId]>,
     state: ActivityStateDefinition,
     runtime: Arc<GraphActivityDefinition>,
-    hubs: Arc<[crate::topology::DomainHubDefinition]>,
-    topology_candidates: Arc<[crate::id::TopologyId]>,
-    encounter_options: Arc<[crate::topology::EncounterOptionBinding]>,
-    interactions: Arc<[crate::topology::AbstractInteractionBinding]>,
+    hubs: Arc<[DomainHubDefinition]>,
+    topology_candidates: Arc<[TopologyId]>,
+    encounter_options: Arc<[EncounterOptionBinding]>,
+    interactions: Arc<[AbstractInteractionBinding]>,
     encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
@@ -547,22 +560,22 @@ impl CompiledActivity {
     }
 
     #[must_use]
-    pub fn domain_hubs(&self) -> &[crate::topology::DomainHubDefinition] {
+    pub fn domain_hubs(&self) -> &[DomainHubDefinition] {
         &self.hubs
     }
 
     #[must_use]
-    pub fn topology_candidates(&self) -> &[crate::id::TopologyId] {
+    pub fn topology_candidates(&self) -> &[TopologyId] {
         &self.topology_candidates
     }
 
     #[must_use]
-    pub fn encounter_options(&self) -> &[crate::topology::EncounterOptionBinding] {
+    pub fn encounter_options(&self) -> &[EncounterOptionBinding] {
         &self.encounter_options
     }
 
     #[must_use]
-    pub fn abstract_interactions(&self) -> &[crate::topology::AbstractInteractionBinding] {
+    pub fn abstract_interactions(&self) -> &[AbstractInteractionBinding] {
         &self.interactions
     }
 
@@ -583,14 +596,12 @@ impl CompiledActivity {
         &self,
         instance: ActivityInstanceId,
         master_seed: ActivityMasterSeed,
-    ) -> Result<
-        crate::runtime::StandardUniverseStartResolution,
-        crate::runtime::StandardUniverseStartError,
-    > {
-        crate::runtime::start(
+    ) -> Result<StandardUniverseStartResolution, StandardUniverseStartError> {
+        runtime_start(
             GraphActivity::start(Arc::clone(&self.runtime), instance, master_seed),
-            self.encounter_overlay.as_ref().map(|overlay| {
-                crate::runtime::StandardUniverseRuntimeContext {
+            self.encounter_overlay
+                .as_ref()
+                .map(|overlay| StandardUniverseRuntimeContext {
                     participants: Arc::clone(&self.participants),
                     encounter_options: Arc::clone(&self.encounter_options),
                     overlay: Arc::clone(overlay),
@@ -629,8 +640,7 @@ impl CompiledActivity {
                     selected_encounter_member_slot: self.selected_encounter_member_slot(),
                     formation_capability_slot: self.formation_capability_slot(),
                     technique_points_slot: self.technique_points_slot(),
-                }
-            }),
+                }),
         )
     }
 
@@ -915,7 +925,7 @@ fn compile_state(
             COSMIC_FRAGMENTS_SLOT,
             initial_cosmic_fragments,
             0,
-            crate::run_runtime::MAX_COSMIC_FRAGMENTS,
+            MAX_COSMIC_FRAGMENTS,
             COSMIC_FRAGMENTS_SOURCE,
             ActivityStateVisibility::Player,
         )?,
@@ -1186,7 +1196,7 @@ pub enum StandardUniverseCompileError {
     InvalidBattleContributionRuntime,
     InvalidEncounterContentRuntime,
     EncounterOverlayParticipantMismatch,
-    Topology(crate::topology::UniverseTopologyCompileError),
+    Topology(UniverseTopologyCompileError),
 }
 
 impl core::fmt::Display for StandardUniverseCompileError {

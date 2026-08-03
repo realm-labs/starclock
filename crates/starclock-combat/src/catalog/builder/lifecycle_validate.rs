@@ -1,12 +1,16 @@
 //! Cross-reference checks for lifecycle operations and linked combatants.
 
-use crate::{ProgramId, rule::model::RuleOperationTemplate};
+use crate::catalog::action::AbilityKind;
+use crate::catalog::definition::AbilityDefinition;
+use crate::{
+    LinkedEntityKind, LinkedUnitDefinition, ProgramId, rule::model::RuleOperationTemplate,
+};
 
 use super::{CatalogBuildError, CombatCatalog, DefinitionKind, require};
 
 pub(super) fn valid_linked_definition(
     catalog: &CombatCatalog,
-    linked: &crate::LinkedUnitDefinition,
+    linked: &LinkedUnitDefinition,
 ) -> bool {
     let combatant = linked.combatant();
     catalog.units.get(combatant.form()).is_some()
@@ -26,17 +30,12 @@ pub(super) fn valid_linked_definition(
             catalog
                 .abilities
                 .get(ability)
-                .and_then(crate::catalog::definition::AbilityDefinition::action)
+                .and_then(AbilityDefinition::action)
                 .is_some_and(|action| {
                     matches!(
                         (linked.kind(), action.kind()),
-                        (
-                            crate::LinkedEntityKind::Summon,
-                            crate::catalog::action::AbilityKind::Summon
-                        ) | (
-                            crate::LinkedEntityKind::Memosprite,
-                            crate::catalog::action::AbilityKind::Memosprite
-                        )
+                        (LinkedEntityKind::Summon, AbilityKind::Summon)
+                            | (LinkedEntityKind::Memosprite, AbilityKind::Memosprite)
                     )
                 })
         })
@@ -68,7 +67,7 @@ pub(super) fn validate_program_operation(
             catalog
                 .abilities
                 .get(*ability)
-                .and_then(crate::catalog::definition::AbilityDefinition::action)
+                .and_then(AbilityDefinition::action)
                 .is_some(),
             DefinitionKind::Program,
             program.get(),

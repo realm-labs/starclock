@@ -1,3 +1,4 @@
+use crate::battle_materialization::UniverseBattleRoster;
 use std::collections::BTreeSet;
 
 use starclock_activity::{
@@ -107,7 +108,7 @@ fn runtime(
     row: &MatrixRow,
 ) -> (
     super::SwarmDisasterRuntimeInstance,
-    crate::battle_materialization::UniverseBattleRoster,
+    UniverseBattleRoster,
 ) {
     let factory = SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap();
     let mut progression = factory
@@ -149,7 +150,7 @@ fn runtime(
 
 pub(super) fn representative_runtime() -> (
     super::SwarmDisasterRuntimeInstance,
-    crate::battle_materialization::UniverseBattleRoster,
+    UniverseBattleRoster,
 ) {
     runtime(&MATRIX[0])
 }
@@ -163,7 +164,7 @@ fn compiled(
     entry: SwarmDisasterEntry,
 ) -> (
     super::SwarmDisasterRuntimeInstance,
-    crate::battle_materialization::UniverseBattleRoster,
+    UniverseBattleRoster,
 ) {
     let instance = factory.compile_entry(entry).unwrap();
     let roster = super::battle_materialization_tests::seeded_matrix_roster(&instance);

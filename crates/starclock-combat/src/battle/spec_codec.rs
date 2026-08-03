@@ -3,6 +3,7 @@
 use sha2::{Digest, Sha256};
 
 use crate::{
+    EncounterId,
     formula::toughness::EnemyRank,
     rule::model::{RuleSource, SourceClass},
     toughness::model::{BreakCreditPolicy, ToughnessWeaknessPolicy},
@@ -16,7 +17,7 @@ use super::spec::{
 const INPUT_MAGIC: &[u8; 4] = b"SCBI";
 
 pub(super) fn combat_input_digest(
-    encounter: crate::EncounterId,
+    encounter: EncounterId,
     participants: &[ParticipantSpec],
     player_resources: &TeamResourceSpec,
     enemy_resources: &TeamResourceSpec,
@@ -230,6 +231,12 @@ const fn source_class_tag(class: SourceClass) -> u8 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::EnemyDefinitionId;
+    use crate::Energy;
+    use crate::KeyedTeamResourceSpec;
+    use crate::LifeState;
+    use crate::PresenceState;
+    use crate::SourceDefinitionId;
     use crate::{
         AbilityId, AssemblyDigest, BattleSpec, CombatantSpecDigest, EncounterId, FormationIndex,
         Hp, ParticipantInitialState, ResolvedDefinitionBindings, Speed, TeamResourceWavePolicy,
@@ -283,7 +290,7 @@ mod tests {
                 ParticipantSpec::new(
                     TeamSide::Enemy,
                     FormationIndex::new(0).unwrap(),
-                    ParticipantSource::EncounterEnemy(crate::EnemyDefinitionId::new(1).unwrap()),
+                    ParticipantSource::EncounterEnemy(EnemyDefinitionId::new(1).unwrap()),
                     combatant(2, 2),
                 ),
             ],
@@ -336,7 +343,7 @@ mod tests {
                 participant(
                     TeamSide::Enemy,
                     0,
-                    ParticipantSource::EncounterEnemy(crate::EnemyDefinitionId::new(1).unwrap()),
+                    ParticipantSource::EncounterEnemy(EnemyDefinitionId::new(1).unwrap()),
                     combatant(2, 2),
                 ),
             ],
@@ -374,10 +381,10 @@ mod tests {
         let carry = ParticipantInitialState::new(
             Hp::new(500).unwrap(),
             Hp::new(1_000).unwrap(),
-            crate::Energy::ZERO,
-            crate::Energy::ZERO,
-            crate::LifeState::Alive,
-            crate::PresenceState::Present,
+            Energy::ZERO,
+            Energy::ZERO,
+            LifeState::Alive,
+            PresenceState::Present,
         )
         .unwrap();
         let carry = spec(
@@ -386,8 +393,8 @@ mod tests {
             Some(carry),
             TeamResourceSpec::new(3, 5).unwrap(),
         );
-        let keyed = crate::KeyedTeamResourceSpec::new(
-            crate::SourceDefinitionId::new(1).unwrap(),
+        let keyed = KeyedTeamResourceSpec::new(
+            SourceDefinitionId::new(1).unwrap(),
             1,
             2,
             TeamResourceWavePolicy::Persist,

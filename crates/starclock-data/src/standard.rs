@@ -1,5 +1,9 @@
 //! Current production Standard scenario catalog and battle instantiation.
 
+use crate::CharacterDataDefinition;
+use crate::catalog::CatalogManifest;
+use crate::catalog::CatalogSummary;
+use crate::catalog::load as catalog_load;
 use std::{collections::BTreeSet, sync::Arc};
 
 use crate::catalog::SimulationCatalog;
@@ -63,7 +67,7 @@ pub struct StandardCatalog {
 impl StandardCatalog {
     /// Loads and validates the embedded production bundle once.
     pub fn load() -> Result<Self, &'static str> {
-        let data = crate::catalog::load(PRODUCTION_BUNDLE)
+        let data = catalog_load(PRODUCTION_BUNDLE)
             .map_err(|_| "production Standard catalog failed to load")?;
         let combat = combat_catalog(&data)?;
         Ok(Self { data, combat })
@@ -71,19 +75,19 @@ impl StandardCatalog {
 
     /// Returns generated-row-free compatibility metadata for bounded adapters.
     #[must_use]
-    pub fn manifest(&self) -> &crate::catalog::CatalogManifest {
+    pub fn manifest(&self) -> &CatalogManifest {
         self.data.manifest()
     }
 
     /// Returns only aggregate counts from the validated production catalog.
     #[must_use]
-    pub fn summary(&self) -> crate::catalog::CatalogSummary {
+    pub fn summary(&self) -> CatalogSummary {
         self.data.summary()
     }
 
     /// Looks up one generated-row-free character definition by exact form ID.
     #[must_use]
-    pub fn character(&self, id: UnitDefinitionId) -> Option<&crate::CharacterDataDefinition> {
+    pub fn character(&self, id: UnitDefinitionId) -> Option<&CharacterDataDefinition> {
         self.data.character(id)
     }
 

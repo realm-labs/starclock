@@ -1,5 +1,6 @@
 //! Runtime Path selection, Resonance availability and Formation contributions.
 
+use crate::id::BlessingId;
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityInventoryId, ActivityOperation,
     ActivityOptionDefinition, ActivityOptionId, ActivitySlotId, ActivityValue,
@@ -224,7 +225,7 @@ impl ResonanceActionState {
 #[derive(Clone, Debug, Eq, PartialEq)]
 struct PathRuntimeDefinition {
     passive: PathPassiveContribution,
-    blessings: Box<[crate::id::BlessingId]>,
+    blessings: Box<[BlessingId]>,
     resonance: ResonanceRuleContribution,
     formations: [ResonanceRuleContribution; 3],
 }

@@ -1,5 +1,8 @@
 //! Immutable effective-level ability-parameter access.
 
+use crate::rule::evaluate::AbilityParameterReader;
+use crate::rule::evaluate::ProgramLookup;
+use crate::rule::model::ProgramStep;
 use std::collections::BTreeMap;
 
 use super::{CombatCatalog, definition::ProgramDefinition};
@@ -36,14 +39,14 @@ impl CombatCatalog {
     }
 }
 
-impl crate::rule::evaluate::AbilityParameterReader for CombatCatalog {
+impl AbilityParameterReader for CombatCatalog {
     fn ability_parameter(&self, ability: AbilityId, key: &str) -> Option<RuleValue> {
         self.ability_parameter(ability, key).cloned()
     }
 }
 
-impl crate::rule::evaluate::ProgramLookup for CombatCatalog {
-    fn program_steps(&self, id: ProgramId) -> Option<&[crate::rule::model::ProgramStep]> {
+impl ProgramLookup for CombatCatalog {
+    fn program_steps(&self, id: ProgramId) -> Option<&[ProgramStep]> {
         self.program(id).map(ProgramDefinition::steps)
     }
 }

@@ -1,5 +1,8 @@
 //! Generated Sora operation/program rows to typed Rule IR proposals.
 
+use crate::modifier_lower::expression;
+use crate::native_handler_lower::handler_id;
+use crate::rule_lower::lower_condition;
 use std::collections::BTreeSet;
 
 use starclock_combat::{
@@ -89,11 +92,7 @@ pub(super) fn convert(
                         then_program_id,
                         else_program_id,
                     } => Ok(ProgramStep::If {
-                        condition: crate::rule_lower::lower_condition(
-                            config,
-                            *condition_id,
-                            &mut BTreeSet::new(),
-                        )?,
+                        condition: lower_condition(config, *condition_id, &mut BTreeSet::new())?,
                         then_program: program_id(*then_program_id)?,
                         else_program: else_program_id.map(program_id).transpose()?,
                     }),
@@ -234,7 +233,7 @@ fn lower_operation(
             .ok_or_else(|| domain_fail(format!("operation {} lacks a target selector", row.id)))
             .and_then(selector_id)
     };
-    let expression = |id| crate::modifier_lower::expression(config, id, &mut BTreeSet::new());
+    let expression = |id| expression(config, id, &mut BTreeSet::new());
     use operation_payload::OperationPayload as Payload;
     Ok(match &row.payload {
         Payload::Damage {
@@ -524,7 +523,7 @@ fn lower_operation(
             }
         }
         Payload::InvokeNativeHandler { native_handler_id } => {
-            let handler = crate::native_handler_lower::handler_id(*native_handler_id)?;
+            let handler = handler_id(*native_handler_id)?;
             if !native_handlers.contains(&handler) {
                 return Err(domain_fail(format!(
                     "operation {} invokes an unregistered native handler {}",

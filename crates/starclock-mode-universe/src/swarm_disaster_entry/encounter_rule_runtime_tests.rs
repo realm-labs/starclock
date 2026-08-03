@@ -1,4 +1,6 @@
 use crate::error::UniverseCatalogLoadErrorKind;
+use crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput;
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 
 use super::EncounterRuleRuntimeCatalog;
 use crate::swarm_disaster_entry::{SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance};
@@ -46,9 +48,7 @@ fn all_formal_difficulties_share_one_immutable_encounter_contract() {
     }
 }
 
-fn input(
-    factory: &SwarmDisasterRuntimeFactory,
-) -> crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput {
+fn input(factory: &SwarmDisasterRuntimeFactory) -> MechanicRuleRuntimeInput {
     factory
         .content
         .mechanic_rule_runtime_input("encounter-selection")
@@ -56,16 +56,16 @@ fn input(
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(factory: &SwarmDisasterRuntimeFactory, area: &str) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::super::tests::released_entry(
+        .compile_entry(released_entry(
             area,
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::super::tests::participants(super::super::tests::policy()),
+            participants(policy()),
         ))
         .unwrap()
 }

@@ -1,7 +1,19 @@
 //! Cause-relative lowering into the deterministic reaction queue.
 
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::ReactionBoundary;
+use crate::catalog::action::SkillPointPaymentPolicy;
+use crate::catalog::action::TargetPattern;
+use crate::catalog::action::TargetRelation;
+use crate::operation::QueueRuleActionOp;
+use crate::reaction::queue::QueuedAction;
+use crate::reaction::queue::ReactionOrder;
+use crate::reaction::queue::ReactionTier;
+use crate::target::model::TargetCommitment;
+use crate::target::select::commit;
 use crate::{
-    BattleEventKind, EventId,
+    AbilityId, ActionEventData, ActionOrigin, BattleEventKind, DiagnosticRecord, EventId,
+    LinkedEntity, RuleId, RuleInstanceId, SourceDefinitionId, TriggerId, UnitId,
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
     catalog::action::{QueuedActor, QueuedOwner, QueuedTarget},
     event::cause::{Cause, CauseActor},
@@ -11,7 +23,7 @@ use crate::{
 use super::transaction::Transaction;
 
 pub(super) fn execute_queue_action(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
@@ -42,7 +54,7 @@ pub(super) fn execute_queue_action(
                     if !link.active || link.kind != kind {
                         return None;
                     }
-                    let crate::LinkedEntity::Unit(unit) = link.entity else {
+                    let LinkedEntity::Unit(unit) = link.entity else {
                         return None;
                     };
                     txn.state
@@ -83,7 +95,7 @@ pub(super) fn execute_queue_action(
         .selector(ability.selector())
         .and_then(|selector| selector.unit_targets())
         .ok_or_else(|| invariant_fault(54))?;
-    let targets = crate::target::select::commit(
+    let targets = commit(
         &txn.state.units,
         &txn.state.formations,
         actor,
@@ -102,8 +114,7 @@ pub(super) fn execute_queue_action(
         definition.origin(),
         definition.boundary(),
         definition.priority(),
-        crate::SourceDefinitionId::new(definition.ability().get())
-            .ok_or_else(|| invariant_fault(57))?,
+        SourceDefinitionId::new(definition.ability().get()).ok_or_else(|| invariant_fault(57))?,
         None,
         None,
         None,
@@ -113,11 +124,11 @@ pub(super) fn execute_queue_action(
 }
 
 pub(super) fn execute_queue_rule_action(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    operation: crate::operation::QueueRuleActionOp,
+    operation: QueueRuleActionOp,
 ) -> Result<EventId, BattleFault> {
     let ability = catalog
         .ability(operation.ability)
@@ -129,15 +140,10 @@ pub(super) fn execute_queue_rule_action(
         .ok_or_else(|| invariant_fault(65))?;
     for actor in operation.actors {
         let primary = match (selector.relation(), selector.pattern()) {
-            (crate::catalog::action::TargetRelation::SelfUnit, _)
-            | (_, crate::catalog::action::TargetPattern::All) => None,
-            (
-                _,
-                crate::catalog::action::TargetPattern::Single
-                | crate::catalog::action::TargetPattern::Blast,
-            ) => operation.targets.first().copied(),
+            (TargetRelation::SelfUnit, _) | (_, TargetPattern::All) => None,
+            (_, TargetPattern::Single | TargetPattern::Blast) => operation.targets.first().copied(),
         };
-        let targets = crate::target::select::commit(
+        let targets = commit(
             &txn.state.units,
             &txn.state.formations,
             actor,
@@ -175,18 +181,18 @@ fn enqueue(
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
-    actor: crate::UnitId,
-    owner: crate::UnitId,
-    ability: crate::AbilityId,
-    origin: crate::ActionOrigin,
-    boundary: crate::catalog::action::ReactionBoundary,
+    actor: UnitId,
+    owner: UnitId,
+    ability: AbilityId,
+    origin: ActionOrigin,
+    boundary: ReactionBoundary,
     priority: i16,
-    source: crate::SourceDefinitionId,
-    rule: Option<crate::RuleId>,
-    instance: Option<crate::RuleInstanceId>,
-    trigger: Option<crate::TriggerId>,
-    targets: crate::target::model::TargetCommitment,
-    payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
+    source: SourceDefinitionId,
+    rule: Option<RuleId>,
+    instance: Option<RuleInstanceId>,
+    trigger: Option<TriggerId>,
+    targets: TargetCommitment,
+    payment: Option<SkillPointPaymentPolicy>,
 ) -> Result<EventId, BattleFault> {
     let (side, formation, spawn) = txn
         .state
@@ -197,7 +203,7 @@ fn enqueue(
     let insertion = txn.allocate_reaction();
     let queued = txn.emit(
         cause.with_parent(parent),
-        BattleEventKind::Action(crate::ActionEventData::Queued {
+        BattleEventKind::Action(ActionEventData::Queued {
             insertion,
             actor,
             ability,
@@ -205,9 +211,9 @@ fn enqueue(
             boundary,
         }),
     );
-    let order = crate::reaction::queue::ReactionOrder {
+    let order = ReactionOrder {
         boundary,
-        tier: crate::reaction::queue::ReactionTier::for_origin(origin),
+        tier: ReactionTier::for_origin(origin),
         priority,
         side,
         formation,
@@ -220,7 +226,7 @@ fn enqueue(
         ability,
         insertion,
     };
-    txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionQueued {
+    txn.record_diagnostic(|| DiagnosticRecord::ReactionQueued {
         event: queued,
         actor,
         owner,
@@ -229,7 +235,7 @@ fn enqueue(
         order: order.into(),
         targets: (&targets).into(),
     });
-    txn.reactions.push(crate::reaction::queue::QueuedAction {
+    txn.reactions.push(QueuedAction {
         order,
         root: cause.root_command(),
         parent: queued,

@@ -1,6 +1,18 @@
 //! Stable compact encodings used by converted combat definitions.
 
-pub(super) fn ability_resource_kind(value: crate::generated::resource_kind::ResourceKind) -> u8 {
+use crate::catalog::CatalogLoadError;
+use crate::generated::ability_kind::AbilityKind;
+use crate::generated::crit_policy::CritPolicy;
+use crate::generated::hit_damage_class::HitDamageClass;
+use crate::generated::hit_element::HitElement;
+use crate::generated::hit_scaling_stat::HitScalingStat;
+use crate::generated::hit_target_group::HitTargetGroup;
+use crate::generated::resource_delta_kind::ResourceDeltaKind;
+use crate::generated::resource_kind::ResourceKind;
+use crate::generated::resource_timing::ResourceTiming;
+use crate::generated::retarget_policy::RetargetPolicy;
+use crate::generated::target_pattern::TargetPattern;
+pub(super) fn ability_resource_kind(value: ResourceKind) -> u8 {
     use crate::generated::resource_kind::ResourceKind as V;
     match value {
         V::Energy => 0,
@@ -11,9 +23,7 @@ pub(super) fn ability_resource_kind(value: crate::generated::resource_kind::Reso
     }
 }
 
-pub(super) fn resource_delta_kind(
-    value: crate::generated::resource_delta_kind::ResourceDeltaKind,
-) -> u8 {
+pub(super) fn resource_delta_kind(value: ResourceDeltaKind) -> u8 {
     use crate::generated::resource_delta_kind::ResourceDeltaKind as V;
     match value {
         V::Spend => 0,
@@ -22,7 +32,7 @@ pub(super) fn resource_delta_kind(
     }
 }
 
-pub(super) fn resource_timing(value: crate::generated::resource_timing::ResourceTiming) -> u8 {
+pub(super) fn resource_timing(value: ResourceTiming) -> u8 {
     use crate::generated::resource_timing::ResourceTiming as V;
     match value {
         V::CommandAccepted => 0,
@@ -33,7 +43,7 @@ pub(super) fn resource_timing(value: crate::generated::resource_timing::Resource
     }
 }
 
-pub(super) fn ability_kind(value: crate::generated::ability_kind::AbilityKind) -> u8 {
+pub(super) fn ability_kind(value: AbilityKind) -> u8 {
     use crate::generated::ability_kind::AbilityKind as V;
     match value {
         V::Basic => 0,
@@ -53,7 +63,7 @@ pub(super) fn ability_kind(value: crate::generated::ability_kind::AbilityKind) -
     }
 }
 
-pub(super) fn target_pattern(value: crate::generated::target_pattern::TargetPattern) -> u8 {
+pub(super) fn target_pattern(value: TargetPattern) -> u8 {
     use crate::generated::target_pattern::TargetPattern as V;
     match value {
         V::SingleTarget => 0,
@@ -67,7 +77,7 @@ pub(super) fn target_pattern(value: crate::generated::target_pattern::TargetPatt
     }
 }
 
-pub(super) fn retarget_policy(value: crate::generated::retarget_policy::RetargetPolicy) -> u8 {
+pub(super) fn retarget_policy(value: RetargetPolicy) -> u8 {
     use crate::generated::retarget_policy::RetargetPolicy as V;
     match value {
         V::Locked => 0,
@@ -77,7 +87,7 @@ pub(super) fn retarget_policy(value: crate::generated::retarget_policy::Retarget
     }
 }
 
-pub(super) fn hit_target_group(value: crate::generated::hit_target_group::HitTargetGroup) -> u8 {
+pub(super) fn hit_target_group(value: HitTargetGroup) -> u8 {
     use crate::generated::hit_target_group::HitTargetGroup as V;
     match value {
         V::Primary => 0,
@@ -89,7 +99,7 @@ pub(super) fn hit_target_group(value: crate::generated::hit_target_group::HitTar
     }
 }
 
-pub(super) fn crit_policy(value: crate::generated::crit_policy::CritPolicy) -> u8 {
+pub(super) fn crit_policy(value: CritPolicy) -> u8 {
     use crate::generated::crit_policy::CritPolicy as V;
     match value {
         V::PerTarget => 0,
@@ -99,7 +109,7 @@ pub(super) fn crit_policy(value: crate::generated::crit_policy::CritPolicy) -> u
 }
 
 pub(super) fn hit_scaling_stat(
-    value: crate::generated::hit_scaling_stat::HitScalingStat,
+    value: HitScalingStat,
 ) -> starclock_combat::modifier::model::StatKind {
     use crate::generated::hit_scaling_stat::HitScalingStat as V;
     use starclock_combat::modifier::model::StatKind as O;
@@ -111,8 +121,8 @@ pub(super) fn hit_scaling_stat(
 }
 
 pub(super) fn hit_damage_class(
-    value: crate::generated::hit_damage_class::HitDamageClass,
-) -> Result<starclock_combat::formula::model::DamageClass, crate::catalog::CatalogLoadError> {
+    value: HitDamageClass,
+) -> Result<starclock_combat::formula::model::DamageClass, CatalogLoadError> {
     use crate::generated::hit_damage_class::HitDamageClass as V;
     use starclock_combat::formula::model::DamageClass as O;
     match value {
@@ -123,9 +133,7 @@ pub(super) fn hit_damage_class(
     }
 }
 
-pub(super) fn hit_element(
-    value: crate::generated::hit_element::HitElement,
-) -> starclock_combat::formula::model::CombatElement {
+pub(super) fn hit_element(value: HitElement) -> starclock_combat::formula::model::CombatElement {
     use crate::generated::hit_element::HitElement as V;
     use starclock_combat::formula::model::CombatElement as O;
     match value {

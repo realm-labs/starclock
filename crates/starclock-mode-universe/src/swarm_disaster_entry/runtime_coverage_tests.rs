@@ -1,5 +1,6 @@
 use super::{SOURCE_CATEGORIES, coverage_snapshot, validate_categories, validate_rule_fixture_ids};
 use crate::swarm_disaster_entry::SwarmDisasterRuntimeFactory;
+use crate::swarm_disaster_entry::tests::BUNDLE;
 
 #[test]
 fn exact_6963_23_23_runtime_coverage_is_stable() {
@@ -56,5 +57,5 @@ fn orphan_duplicate_or_mismatched_rule_fixture_ids_fail_closed() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }

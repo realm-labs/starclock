@@ -1,5 +1,6 @@
 //! Pathstrider external progress, DLC unlock flags and chapter availability.
 
+use crate::swarm_disaster_unique::runtime_access::SwarmPathstriderFinishRuntimeInput;
 use std::collections::{BTreeMap, BTreeSet};
 
 use serde::Deserialize;
@@ -479,7 +480,7 @@ fn compile_finishes(
 }
 
 fn validate_enabled_finish(
-    finish: &crate::swarm_disaster_unique::runtime_access::SwarmPathstriderFinishRuntimeInput,
+    finish: &SwarmPathstriderFinishRuntimeInput,
     parameters: &FinishParameters,
     target: u32,
 ) -> Result<(), UniverseCatalogLoadError> {

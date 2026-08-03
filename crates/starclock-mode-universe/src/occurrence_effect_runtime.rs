@@ -1,5 +1,6 @@
 //! Closed typed execution plans for every Standard Universe Occurrence choice.
 
+use crate::path::ExactParameter;
 use crate::{
     catalog::UniverseCatalog,
     digest::Encoder,
@@ -184,7 +185,7 @@ fn compile_choice(
     })
 }
 
-fn valid_percentage(value: crate::path::ExactParameter) -> bool {
+fn valid_percentage(value: ExactParameter) -> bool {
     let Some(maximum) = 100_i64.checked_mul(10_i64.pow(u32::from(value.scale()))) else {
         return false;
     };

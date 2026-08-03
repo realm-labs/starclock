@@ -1,4 +1,45 @@
+mod team_resource;
+mod timeline_detail;
+mod unit_detail;
+
+use super::{
+    fault::BattleFault,
+    model::BattlePhase,
+    spec::{
+        AssemblyDigest, BattleSeed, CombatInputDigest, CombatantSpecDigest, FormationIndex,
+        ParticipantSource, TeamSide, UnitLevel,
+    },
+    state::BattleState,
+};
+
+use crate::ModifierDefinitionId as CrateModifierDefinitionId;
+
+use crate::Speed as CrateSpeed;
+
+use crate::effect::break_effect::BreakEffectState;
+use crate::effect::shield::ShieldState;
+use crate::effect::state::EffectState;
+use crate::formula::model::CombatElement;
+use crate::formula::shield::ShieldAbsorptionPolicy;
+use crate::formula::toughness::BaseBreakEffect;
+use crate::formula::toughness::BreakDamageDefinition;
+use crate::formula::toughness::EnemyRank;
+use crate::modifier::model::ActiveModifier;
+use crate::modifier::model::StatQuery;
+use crate::rule::model::OnceKey;
+use crate::rule::model::RuleValue;
+use crate::rule::model::SourceClass;
+use crate::rule::state::RuleInstanceState;
+use crate::timeline::state::InterruptWindowKind;
+use crate::timeline::state::NormalTurnState;
+use crate::toughness::state::ToughnessLayerState;
 use crate::{
+    ActionId, ActionOrigin, AiGraphId, AiStateId, ControlledAction, DispelCategory, DotDefinition,
+    DurationClock, EffectCategory, EffectDefinitionId, EffectInstanceId, EffectSnapshotPolicy,
+    EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, EnemyDefinitionId, EnemyPhaseId,
+    Energy, LinkedEntity, LinkedEntityKind, ModifierInstanceId, OperationId, OwnerLinkPolicy,
+    RawToughness, RuleId, RuleInstanceId, Scalar, SourceDefinitionId, StatValue,
+    StateSlotDefinitionId, ToughnessLayerKind, ToughnessLayerSpec, WaveLinkPolicy,
     actor::{
         model::{LifeState, PresenceState},
         store::{FormationEntry, LinkState, TeamState, TimelineActorState, UnitState},
@@ -11,22 +52,8 @@ use crate::{
     },
     numeric::domain::{ActionGauge, Hp, ShieldAmount, Speed},
 };
-
-use super::{
-    fault::BattleFault,
-    model::BattlePhase,
-    spec::{
-        AssemblyDigest, BattleSeed, CombatInputDigest, CombatantSpecDigest, FormationIndex,
-        ParticipantSource, TeamSide, UnitLevel,
-    },
-    state::BattleState,
-};
-
-mod team_resource;
 pub use team_resource::TeamResourceView;
-mod timeline_detail;
 pub use timeline_detail::{PendingExtraTurnView, SequenceCursorsView};
-mod unit_detail;
 pub use unit_detail::{CharacterResourceView, TemporaryWeaknessView, TransformationView};
 
 /// Borrowed immutable projection of one authoritative battle state.
@@ -136,9 +163,9 @@ impl<'a> BattleView<'a> {
     #[must_use]
     pub fn strongest_effect(
         self,
-        definition: crate::EffectDefinitionId,
+        definition: EffectDefinitionId,
         target: UnitId,
-    ) -> Option<crate::EffectInstanceId> {
+    ) -> Option<EffectInstanceId> {
         self.state.effects.active_strongest(definition, target)
     }
     /// Iterates battle-bound rule instances in stable runtime order.
@@ -203,36 +230,36 @@ impl<'a> BattleView<'a> {
 /// Immutable projection of one active shield instance.
 #[derive(Clone, Copy)]
 pub struct ShieldView<'a> {
-    state: &'a crate::effect::shield::ShieldState,
+    state: &'a ShieldState,
     owner: UnitId,
-    policy: crate::formula::shield::ShieldAbsorptionPolicy,
+    policy: ShieldAbsorptionPolicy,
 }
 
 /// Immutable projection of one retained base Break effect.
 #[derive(Clone, Copy)]
 pub struct BreakEffectView<'a> {
-    state: &'a crate::effect::break_effect::BreakEffectState,
+    state: &'a BreakEffectState,
 }
 
 /// Immutable projection of one retained generic effect instance.
 #[derive(Clone, Copy)]
 pub struct EffectView<'a> {
-    state: &'a crate::effect::state::EffectState,
+    state: &'a EffectState,
 }
 
 /// Immutable projection of one battle-owned modifier instance.
 #[derive(Clone, Copy)]
 pub struct ModifierInstanceView<'a> {
-    state: &'a crate::modifier::model::ActiveModifier,
+    state: &'a ActiveModifier,
 }
 
 impl<'a> ModifierInstanceView<'a> {
     #[must_use]
-    pub const fn id(self) -> crate::ModifierInstanceId {
+    pub const fn id(self) -> ModifierInstanceId {
         self.state.instance
     }
     #[must_use]
-    pub const fn definition(self) -> crate::ModifierDefinitionId {
+    pub const fn definition(self) -> CrateModifierDefinitionId {
         self.state.definition
     }
     #[must_use]
@@ -244,16 +271,16 @@ impl<'a> ModifierInstanceView<'a> {
         self.state.subject
     }
     #[must_use]
-    pub const fn source(self) -> crate::SourceDefinitionId {
+    pub const fn source(self) -> SourceDefinitionId {
         self.state.source
     }
     #[must_use]
-    pub const fn source_class(self) -> crate::rule::model::SourceClass {
+    pub const fn source_class(self) -> SourceClass {
         self.state.source_class
     }
     /// Returns the effect instance that owns this modifier attachment, if any.
     #[must_use]
-    pub const fn source_effect(self) -> Option<crate::EffectInstanceId> {
+    pub const fn source_effect(self) -> Option<EffectInstanceId> {
         self.state.source_effect
     }
     #[must_use]
@@ -261,26 +288,17 @@ impl<'a> ModifierInstanceView<'a> {
         self.state.insertion_sequence
     }
     #[must_use]
-    pub const fn application_action(self) -> Option<crate::ActionId> {
+    pub const fn application_action(self) -> Option<ActionId> {
         self.state.application_action
     }
-    pub fn slots(
-        self,
-    ) -> impl Iterator<
-        Item = (
-            crate::StateSlotDefinitionId,
-            &'a crate::rule::model::RuleValue,
-        ),
-    > {
+    pub fn slots(self) -> impl Iterator<Item = (StateSlotDefinitionId, &'a RuleValue)> {
         self.state.slots.iter().map(|(slot, value)| (*slot, value))
     }
     #[must_use]
-    pub const fn captured_value(self) -> Option<crate::Scalar> {
+    pub const fn captured_value(self) -> Option<Scalar> {
         self.state.captured_value
     }
-    pub fn captured_stats(
-        self,
-    ) -> impl Iterator<Item = (&'a crate::modifier::model::StatQuery, crate::Scalar)> {
+    pub fn captured_stats(self) -> impl Iterator<Item = (&'a StatQuery, Scalar)> {
         self.state
             .captured_stats
             .iter()
@@ -290,15 +308,15 @@ impl<'a> ModifierInstanceView<'a> {
 
 impl<'a> EffectView<'a> {
     #[must_use]
-    pub const fn id(self) -> crate::EffectInstanceId {
+    pub const fn id(self) -> EffectInstanceId {
         self.state.id
     }
     #[must_use]
-    pub const fn definition(self) -> crate::EffectDefinitionId {
+    pub const fn definition(self) -> EffectDefinitionId {
         self.state.definition
     }
     #[must_use]
-    pub const fn source_definition(self) -> crate::SourceDefinitionId {
+    pub const fn source_definition(self) -> SourceDefinitionId {
         self.state.source_definition
     }
     #[must_use]
@@ -310,7 +328,7 @@ impl<'a> EffectView<'a> {
         self.state.target
     }
     #[must_use]
-    pub const fn category(self) -> crate::EffectCategory {
+    pub const fn category(self) -> EffectCategory {
         self.state.category
     }
     #[must_use]
@@ -322,19 +340,19 @@ impl<'a> EffectView<'a> {
         self.state.remaining
     }
     #[must_use]
-    pub const fn duration_clock(self) -> crate::DurationClock {
+    pub const fn duration_clock(self) -> DurationClock {
         self.state.duration_clock
     }
     #[must_use]
-    pub const fn snapshot_policy(self) -> crate::EffectSnapshotPolicy {
+    pub const fn snapshot_policy(self) -> EffectSnapshotPolicy {
         self.state.snapshot_policy
     }
     #[must_use]
-    pub const fn source_operation(self) -> crate::OperationId {
+    pub const fn source_operation(self) -> OperationId {
         self.state.source_operation
     }
     #[must_use]
-    pub const fn dispel(self) -> crate::DispelCategory {
+    pub const fn dispel(self) -> DispelCategory {
         self.state.dispel
     }
     #[must_use]
@@ -342,15 +360,15 @@ impl<'a> EffectView<'a> {
         self.state.stack_limit
     }
     #[must_use]
-    pub const fn tick_phase(self) -> crate::EffectTickPhase {
+    pub const fn tick_phase(self) -> EffectTickPhase {
         self.state.tick_phase
     }
     #[must_use]
-    pub const fn stack_policy(self) -> crate::EffectStackPolicy {
+    pub const fn stack_policy(self) -> EffectStackPolicy {
         self.state.stack_policy
     }
     #[must_use]
-    pub const fn teardown_policy(self) -> crate::EffectTeardownPolicy {
+    pub const fn teardown_policy(self) -> EffectTeardownPolicy {
         self.state.teardown_policy
     }
     #[must_use]
@@ -358,19 +376,19 @@ impl<'a> EffectView<'a> {
         self.state.application_priority
     }
     #[must_use]
-    pub const fn magnitude(self) -> crate::Scalar {
+    pub const fn magnitude(self) -> Scalar {
         self.state.magnitude
     }
     #[must_use]
-    pub fn tags(self) -> &'a [crate::SourceDefinitionId] {
+    pub fn tags(self) -> &'a [SourceDefinitionId] {
         &self.state.tags
     }
     #[must_use]
-    pub fn controlled_actions(self) -> &'a [crate::ControlledAction] {
+    pub fn controlled_actions(self) -> &'a [ControlledAction] {
         &self.state.controlled_actions
     }
     #[must_use]
-    pub const fn dot(self) -> Option<crate::DotDefinition> {
+    pub const fn dot(self) -> Option<DotDefinition> {
         self.state.dot
     }
     #[must_use]
@@ -381,16 +399,16 @@ impl<'a> EffectView<'a> {
 
 #[derive(Clone, Copy)]
 pub struct RuleInstanceView<'a> {
-    state: &'a crate::rule::state::RuleInstanceState,
+    state: &'a RuleInstanceState,
 }
 
 impl<'a> RuleInstanceView<'a> {
     #[must_use]
-    pub const fn id(self) -> crate::RuleInstanceId {
+    pub const fn id(self) -> RuleInstanceId {
         self.state.id
     }
     #[must_use]
-    pub const fn rule(self) -> crate::RuleId {
+    pub const fn rule(self) -> RuleId {
         self.state.rule
     }
     #[must_use]
@@ -398,30 +416,23 @@ impl<'a> RuleInstanceView<'a> {
         self.state.owner
     }
     #[must_use]
-    pub const fn source_effect(self) -> Option<crate::EffectInstanceId> {
+    pub const fn source_effect(self) -> Option<EffectInstanceId> {
         self.state.source_effect
     }
-    pub fn slots(
-        self,
-    ) -> impl Iterator<
-        Item = (
-            crate::StateSlotDefinitionId,
-            &'a crate::rule::model::RuleValue,
-        ),
-    > + 'a {
+    pub fn slots(self) -> impl Iterator<Item = (StateSlotDefinitionId, &'a RuleValue)> + 'a {
         self.state
             .slots
             .iter()
             .map(|(definition, value)| (definition.id(), value))
     }
-    pub fn once_keys(self) -> impl Iterator<Item = crate::rule::model::OnceKey> + 'a {
+    pub fn once_keys(self) -> impl Iterator<Item = OnceKey> + 'a {
         self.state.ledger.canonical_keys().copied()
     }
 }
 
 impl BreakEffectView<'_> {
     #[must_use]
-    pub const fn id(self) -> crate::EffectInstanceId {
+    pub const fn id(self) -> EffectInstanceId {
         self.state.id
     }
     #[must_use]
@@ -433,11 +444,11 @@ impl BreakEffectView<'_> {
         self.state.applier
     }
     #[must_use]
-    pub const fn source_definition(self) -> crate::SourceDefinitionId {
+    pub const fn source_definition(self) -> SourceDefinitionId {
         self.state.source_definition
     }
     #[must_use]
-    pub const fn element(self) -> crate::formula::model::CombatElement {
+    pub const fn element(self) -> CombatElement {
         self.state.plan.element
     }
     #[must_use]
@@ -449,19 +460,19 @@ impl BreakEffectView<'_> {
         self.state.stacks
     }
     #[must_use]
-    pub const fn source_operation(self) -> crate::OperationId {
+    pub const fn source_operation(self) -> OperationId {
         self.state.source_operation
     }
     #[must_use]
-    pub const fn plan(self) -> crate::formula::toughness::BaseBreakEffect {
+    pub const fn plan(self) -> BaseBreakEffect {
         self.state.plan
     }
     #[must_use]
-    pub const fn damage(self) -> crate::formula::toughness::BreakDamageDefinition {
+    pub const fn damage(self) -> BreakDamageDefinition {
         self.state.damage
     }
     #[must_use]
-    pub const fn speed_before(self) -> Option<crate::Speed> {
+    pub const fn speed_before(self) -> Option<CrateSpeed> {
         self.state.speed_before
     }
 }
@@ -478,7 +489,7 @@ impl ShieldView<'_> {
     }
 
     #[must_use]
-    pub const fn source_operation(self) -> crate::OperationId {
+    pub const fn source_operation(self) -> OperationId {
         self.state.source_operation
     }
 
@@ -488,12 +499,12 @@ impl ShieldView<'_> {
     }
 
     #[must_use]
-    pub const fn source_effect(self) -> Option<crate::EffectDefinitionId> {
+    pub const fn source_effect(self) -> Option<EffectDefinitionId> {
         self.state.source_effect
     }
 
     #[must_use]
-    pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
+    pub const fn policy(self) -> ShieldAbsorptionPolicy {
         self.policy
     }
 }
@@ -504,11 +515,11 @@ pub struct ActiveTurnView {
     actor: TimelineActorId,
     owner: UnitId,
     unit: UnitId,
-    automatic: Option<(AbilityId, crate::ActionOrigin)>,
+    automatic: Option<(AbilityId, ActionOrigin)>,
     side: TeamSide,
     formation: FormationIndex,
     spawn: SpawnSequence,
-    origin: crate::ActionOrigin,
+    origin: ActionOrigin,
 }
 
 impl ActiveTurnView {
@@ -529,7 +540,7 @@ impl ActiveTurnView {
     }
     /// Returns the automatic action bound to this turn, when present.
     #[must_use]
-    pub const fn automatic(self) -> Option<(AbilityId, crate::ActionOrigin)> {
+    pub const fn automatic(self) -> Option<(AbilityId, ActionOrigin)> {
         self.automatic
     }
     /// Returns the formation side that owns the selected turn.
@@ -549,13 +560,13 @@ impl ActiveTurnView {
     }
     /// Returns whether this is a timeline turn or a granted extra turn.
     #[must_use]
-    pub const fn origin(self) -> crate::ActionOrigin {
+    pub const fn origin(self) -> ActionOrigin {
         self.origin
     }
 }
 
-impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
-    fn from(turn: crate::timeline::state::NormalTurnState) -> Self {
+impl From<NormalTurnState> for ActiveTurnView {
+    fn from(turn: NormalTurnState) -> Self {
         Self {
             actor: turn.actor,
             owner: turn.owner,
@@ -572,14 +583,14 @@ impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
 /// Immutable interrupt-window state; pending entries remain resolver-private.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct InterruptWindowView {
-    kind: crate::timeline::state::InterruptWindowKind,
+    kind: InterruptWindowKind,
     turn: ActiveTurnView,
 }
 
 impl InterruptWindowView {
     /// Returns the stable interrupt boundary kind.
     #[must_use]
-    pub const fn kind(self) -> crate::timeline::state::InterruptWindowKind {
+    pub const fn kind(self) -> InterruptWindowKind {
         self.kind
     }
     /// Returns the normal turn suspended at this interrupt boundary.
@@ -687,47 +698,47 @@ impl<'a> UnitView<'a> {
     }
     /// Returns the immutable authored base ATK retained for staged queries.
     #[must_use]
-    pub const fn base_attack(self) -> crate::StatValue {
+    pub const fn base_attack(self) -> StatValue {
         self.state.base_attack
     }
     /// Returns the immutable authored base DEF retained for staged queries.
     #[must_use]
-    pub const fn base_defense(self) -> crate::StatValue {
+    pub const fn base_defense(self) -> StatValue {
         self.state.base_defense
     }
     /// Returns the immutable authored base SPD retained for staged queries.
     #[must_use]
-    pub const fn base_speed(self) -> crate::Speed {
+    pub const fn base_speed(self) -> CrateSpeed {
         self.state.base_speed
     }
     /// Returns the immutable authored base Effect Hit Rate.
     #[must_use]
-    pub const fn base_effect_hit_rate(self) -> crate::Scalar {
+    pub const fn base_effect_hit_rate(self) -> Scalar {
         self.state.base_effect_hit_rate
     }
     /// Returns the immutable authored base Effect Resistance.
     #[must_use]
-    pub const fn base_effect_resistance(self) -> crate::Scalar {
+    pub const fn base_effect_resistance(self) -> Scalar {
         self.state.base_effect_resistance
     }
     /// Returns current personal Energy.
     #[must_use]
-    pub const fn current_energy(self) -> crate::Energy {
+    pub const fn current_energy(self) -> Energy {
         self.state.current_energy
     }
     /// Returns maximum personal Energy.
     #[must_use]
-    pub const fn maximum_energy(self) -> crate::Energy {
+    pub const fn maximum_energy(self) -> Energy {
         self.state.maximum_energy
     }
     /// Returns the authored encounter rank used by Break formulas and rules.
     #[must_use]
-    pub const fn rank(self) -> crate::formula::toughness::EnemyRank {
+    pub const fn rank(self) -> EnemyRank {
         self.state.rank
     }
     /// Returns a named form-scoped resource and its cap.
     #[must_use]
-    pub fn character_resource(self, stable_key: &str) -> Option<(crate::Scalar, crate::Scalar)> {
+    pub fn character_resource(self, stable_key: &str) -> Option<(Scalar, Scalar)> {
         self.state
             .resource(stable_key)
             .map(|resource| (resource.current, resource.maximum))
@@ -767,7 +778,7 @@ impl<'a> UnitView<'a> {
     }
     /// Returns the bound enemy definition for authored hostile occurrences.
     #[must_use]
-    pub const fn enemy_definition(self) -> Option<crate::EnemyDefinitionId> {
+    pub const fn enemy_definition(self) -> Option<EnemyDefinitionId> {
         match self.state.enemy {
             None => None,
             Some(enemy) => Some(enemy.definition),
@@ -775,7 +786,7 @@ impl<'a> UnitView<'a> {
     }
     /// Returns the authoritative AI graph/state cursor for an executable enemy.
     #[must_use]
-    pub const fn enemy_ai_state(self) -> Option<(crate::AiGraphId, crate::AiStateId, u16)> {
+    pub const fn enemy_ai_state(self) -> Option<(AiGraphId, AiStateId, u16)> {
         match self.state.enemy {
             None => None,
             Some(enemy) => Some((enemy.graph, enemy.state, enemy.turn_counter)),
@@ -783,7 +794,7 @@ impl<'a> UnitView<'a> {
     }
     /// Returns the current authored boss phase, when one is active.
     #[must_use]
-    pub const fn enemy_phase(self) -> Option<crate::EnemyPhaseId> {
+    pub const fn enemy_phase(self) -> Option<EnemyPhaseId> {
         match self.state.enemy {
             None => None,
             Some(enemy) => enemy.phase,
@@ -801,12 +812,12 @@ impl<'a> UnitView<'a> {
     }
     /// Returns active elemental weaknesses in canonical element order.
     #[must_use]
-    pub fn weaknesses(self) -> &'a [crate::formula::model::CombatElement] {
+    pub fn weaknesses(self) -> &'a [CombatElement] {
         &self.state.weaknesses
     }
     /// Returns the immutable authored weakness baseline.
     #[must_use]
-    pub fn permanent_weaknesses(self) -> &'a [crate::formula::model::CombatElement] {
+    pub fn permanent_weaknesses(self) -> &'a [CombatElement] {
         &self.state.permanent_weaknesses
     }
     /// Iterates temporary weakness contributions in canonical insertion order.
@@ -843,13 +854,13 @@ impl<'a> UnitView<'a> {
 /// Immutable ordered Toughness-layer projection.
 #[derive(Clone, Copy)]
 pub struct ToughnessLayerView<'a> {
-    state: &'a crate::toughness::state::ToughnessLayerState,
+    state: &'a ToughnessLayerState,
 }
 
 impl<'a> ToughnessLayerView<'a> {
     /// Returns the complete immutable authored layer policy.
     #[must_use]
-    pub const fn spec(self) -> &'a crate::ToughnessLayerSpec {
+    pub const fn spec(self) -> &'a ToughnessLayerSpec {
         &self.state.spec
     }
     #[must_use]
@@ -857,15 +868,15 @@ impl<'a> ToughnessLayerView<'a> {
         self.state.spec.key()
     }
     #[must_use]
-    pub const fn kind(self) -> crate::ToughnessLayerKind {
+    pub const fn kind(self) -> ToughnessLayerKind {
         self.state.spec.kind()
     }
     #[must_use]
-    pub const fn current(self) -> crate::RawToughness {
+    pub const fn current(self) -> RawToughness {
         self.state.current
     }
     #[must_use]
-    pub const fn maximum(self) -> crate::RawToughness {
+    pub const fn maximum(self) -> RawToughness {
         self.state.spec.maximum()
     }
     #[must_use]
@@ -938,7 +949,7 @@ impl TimelineActorView<'_> {
     }
     /// Returns the linked semantic role; ordinary unit actors have no role tag.
     #[must_use]
-    pub const fn linked_kind(self) -> Option<crate::LinkedEntityKind> {
+    pub const fn linked_kind(self) -> Option<LinkedEntityKind> {
         self.state.kind
     }
     /// Returns the automatically executed ability, if any.
@@ -975,23 +986,23 @@ impl LinkView<'_> {
         self.state.owner
     }
     #[must_use]
-    pub const fn entity(self) -> crate::LinkedEntity {
+    pub const fn entity(self) -> LinkedEntity {
         self.state.entity
     }
     #[must_use]
-    pub const fn kind(self) -> crate::LinkedEntityKind {
+    pub const fn kind(self) -> LinkedEntityKind {
         self.state.kind
     }
     #[must_use]
-    pub const fn owner_defeat_policy(self) -> crate::OwnerLinkPolicy {
+    pub const fn owner_defeat_policy(self) -> OwnerLinkPolicy {
         self.state.owner_defeat
     }
     #[must_use]
-    pub const fn owner_departure_policy(self) -> crate::OwnerLinkPolicy {
+    pub const fn owner_departure_policy(self) -> OwnerLinkPolicy {
         self.state.owner_departure
     }
     #[must_use]
-    pub const fn wave_policy(self) -> crate::WaveLinkPolicy {
+    pub const fn wave_policy(self) -> WaveLinkPolicy {
         self.state.wave
     }
     #[must_use]
@@ -1024,7 +1035,7 @@ impl<'a> TeamView<'a> {
     }
     /// Returns a generic team resource and its cap by stable semantic identity.
     #[must_use]
-    pub fn keyed_resource(self, id: crate::SourceDefinitionId) -> Option<(u16, u16)> {
+    pub fn keyed_resource(self, id: SourceDefinitionId) -> Option<(u16, u16)> {
         self.state
             .keyed(id)
             .map(|resource| (resource.current, resource.maximum))

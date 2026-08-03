@@ -1,3 +1,5 @@
+use crate::{Rounding, Scalar};
+
 use core::cmp::Ordering;
 
 use super::{
@@ -9,8 +11,8 @@ use crate::rule::evaluate::helpers::{numeric_error, type_error};
 pub(super) enum Arithmetic {
     Add,
     Subtract,
-    Multiply(crate::Rounding),
-    Divide(crate::Rounding),
+    Multiply(Rounding),
+    Divide(Rounding),
 }
 
 pub(super) fn arithmetic(
@@ -70,17 +72,15 @@ pub(super) fn extremum(
 pub(super) fn convert(
     value: RuleValue,
     target: RuleValueKind,
-    rounding: crate::Rounding,
+    rounding: Rounding,
 ) -> Result<RuleValue, RuleEvaluationError> {
     if value.kind() == target {
         return Ok(value);
     }
     match (value, target) {
-        (RuleValue::Integer(value), RuleValueKind::Scalar) => {
-            crate::Scalar::checked_from_integer(value)
-                .map(RuleValue::Scalar)
-                .map_err(|_| numeric_error(0x120))
-        }
+        (RuleValue::Integer(value), RuleValueKind::Scalar) => Scalar::checked_from_integer(value)
+            .map(RuleValue::Scalar)
+            .map_err(|_| numeric_error(0x120)),
         (RuleValue::Scalar(value), RuleValueKind::Integer) => value
             .rounded_integer(rounding)
             .map(RuleValue::Integer)

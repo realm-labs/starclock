@@ -1,8 +1,17 @@
 //! Runtime modifier snapshot capture at explicit lifecycle boundaries.
 
+use crate::battle::state::BattleState;
+use crate::catalog::CombatCatalog;
+use crate::formula::toughness::attacker_level_multiplier;
+use crate::modifier::model::ModifierDefinition;
+use crate::modifier::model::ModifierQueryContext;
+use crate::modifier::model::StatKind;
+use crate::modifier::resolve::StatResolver;
+use crate::rule::model::RuleValue;
 use std::collections::BTreeSet;
 
 use crate::{
+    EffectInstanceId, NumericError, Scalar, UnitId,
     battle::fault::BattleFault,
     modifier::model::{ActiveModifier, SnapshotPolicy, StatQuery, StatQuerySubject},
     rule::model::{ConditionExpr, ValueExpr},
@@ -14,8 +23,8 @@ use super::{
 };
 
 pub(crate) fn initialize_battle(
-    catalog: &crate::catalog::CombatCatalog,
-    state: &mut crate::battle::state::BattleState,
+    catalog: &CombatCatalog,
+    state: &mut BattleState,
 ) -> Result<(), u32> {
     let bases = stat_bases(state).map_err(|_| 0_u32)?;
     let shields = state_shield_values(state);
@@ -39,12 +48,8 @@ pub(crate) fn initialize_battle(
             .filter(|candidate| candidate.instance != source.instance)
             .cloned()
             .collect::<Vec<_>>();
-        let resolver = crate::modifier::resolve::StatResolver::new(
-            catalog.modifier_registry(),
-            &bases,
-            &peers,
-        )
-        .with_shields(&shields);
+        let resolver =
+            StatResolver::new(catalog.modifier_registry(), &bases, &peers).with_shields(&shields);
         let mut captured_value = None;
         let mut captured_stats = None;
         match definition.snapshot {
@@ -81,7 +86,7 @@ pub(crate) fn initialize_battle(
 }
 
 pub(super) fn initialize(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     instance: &mut ActiveModifier,
 ) -> Result<(), BattleFault> {
@@ -97,8 +102,7 @@ pub(super) fn initialize(
         .cloned()
         .collect::<Vec<_>>();
     let resolver =
-        crate::modifier::resolve::StatResolver::new(catalog.modifier_registry(), &bases, &active)
-            .with_shields(&shields);
+        StatResolver::new(catalog.modifier_registry(), &bases, &active).with_shields(&shields);
     match definition.snapshot {
         SnapshotPolicy::OnApplication | SnapshotPolicy::RecomputeOnStackChange => {
             instance.captured_value = Some(
@@ -122,7 +126,7 @@ pub(super) fn initialize(
 }
 
 pub(super) fn refresh(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     boundary: SnapshotPolicy,
 ) -> Result<(), BattleFault> {
@@ -139,8 +143,7 @@ pub(super) fn refresh(
         .cloned()
         .collect::<Vec<_>>();
     let resolver =
-        crate::modifier::resolve::StatResolver::new(catalog.modifier_registry(), &bases, &active)
-            .with_shields(&shields);
+        StatResolver::new(catalog.modifier_registry(), &bases, &active).with_shields(&shields);
     let mut updates = Vec::new();
     for instance in &active {
         let definition = catalog
@@ -174,9 +177,9 @@ pub(super) fn refresh(
 }
 
 pub(super) fn refresh_effect_stacks(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
-    effect: crate::EffectInstanceId,
+    effect: EffectInstanceId,
     stacks: u16,
 ) -> Result<(), BattleFault> {
     let bindings = txn
@@ -197,7 +200,7 @@ pub(super) fn refresh_effect_stacks(
             .modifiers
             .get_mut(*instance)
             .ok_or_else(|| action_fault(141))?;
-        let value = crate::rule::model::RuleValue::Integer(i64::from(stacks));
+        let value = RuleValue::Integer(i64::from(stacks));
         let before = modifier
             .slots
             .binary_search_by_key(slot, |entry| entry.0)
@@ -240,12 +243,8 @@ pub(super) fn refresh_effect_stacks(
             .filter(|candidate| candidate.instance != instance)
             .cloned()
             .collect::<Vec<_>>();
-        let resolver = crate::modifier::resolve::StatResolver::new(
-            catalog.modifier_registry(),
-            &bases,
-            &peers,
-        )
-        .with_shields(&shields);
+        let resolver =
+            StatResolver::new(catalog.modifier_registry(), &bases, &peers).with_shields(&shields);
         let value = resolver
             .capture_value(current, definition)
             .map_err(|_| action_fault(145))?;
@@ -259,10 +258,10 @@ pub(super) fn refresh_effect_stacks(
 }
 
 fn capture_stats(
-    resolver: &crate::modifier::resolve::StatResolver<'_>,
+    resolver: &StatResolver<'_>,
     instance: &ActiveModifier,
-    definition: &crate::modifier::model::ModifierDefinition,
-) -> Result<Vec<(StatQuery, crate::Scalar)>, BattleFault> {
+    definition: &ModifierDefinition,
+) -> Result<Vec<(StatQuery, Scalar)>, BattleFault> {
     let mut queries = BTreeSet::new();
     collect_value_queries(
         &definition.value,
@@ -274,10 +273,7 @@ fn capture_stats(
         .into_iter()
         .map(|query| {
             resolver
-                .query(
-                    query,
-                    &crate::modifier::model::ModifierQueryContext::default(),
-                )
+                .query(query, &ModifierQueryContext::default())
                 .map(|value| (query, value))
                 .map_err(|_| action_fault(140))
         })
@@ -402,7 +398,7 @@ const fn captures_subject(policy: SnapshotPolicy, subject: StatQuerySubject) -> 
     }
 }
 
-const fn concrete_subject(instance: &ActiveModifier, subject: StatQuerySubject) -> crate::UnitId {
+const fn concrete_subject(instance: &ActiveModifier, subject: StatQuerySubject) -> UnitId {
     use StatQuerySubject::{Actor, Applier, CurrentTarget, EventTarget, Owner};
 
     match subject {
@@ -412,11 +408,8 @@ const fn concrete_subject(instance: &ActiveModifier, subject: StatQuerySubject) 
 }
 
 fn stat_bases(
-    state: &crate::battle::state::BattleState,
-) -> Result<
-    std::collections::BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), crate::Scalar>,
-    crate::NumericError,
-> {
+    state: &BattleState,
+) -> Result<std::collections::BTreeMap<(UnitId, StatKind), Scalar>, NumericError> {
     use crate::modifier::model::StatKind::{
         Atk, BreakBaseDamage, DebuffDurationMultiplier, Def, DotDurationAddition, EffectHitRate,
         EffectResistance, EnergyRegenerationRate, FreezeResistance, Hp, Spd, ToughnessDamage,
@@ -427,38 +420,36 @@ fn stat_bases(
     for unit in state.units.iter_by_id() {
         bases.insert(
             (unit.id, Hp),
-            crate::Scalar::checked_from_integer(unit.maximum_hp.get())?,
+            Scalar::checked_from_integer(unit.maximum_hp.get())?,
         );
         bases.insert(
             (unit.id, Atk),
-            crate::Scalar::from_scaled(unit.base_attack.scaled()),
+            Scalar::from_scaled(unit.base_attack.scaled()),
         );
         bases.insert(
             (unit.id, Def),
-            crate::Scalar::from_scaled(unit.base_defense.scaled()),
+            Scalar::from_scaled(unit.base_defense.scaled()),
         );
         bases.insert(
             (unit.id, Spd),
-            crate::Scalar::from_scaled(unit.base_speed.scaled()),
+            Scalar::from_scaled(unit.base_speed.scaled()),
         );
         bases.insert((unit.id, EffectHitRate), unit.base_effect_hit_rate);
         bases.insert((unit.id, EffectResistance), unit.base_effect_resistance);
-        bases.insert((unit.id, FreezeResistance), crate::Scalar::ZERO);
-        bases.insert((unit.id, EnergyRegenerationRate), crate::Scalar::ONE);
-        bases.insert((unit.id, ToughnessDamage), crate::Scalar::ZERO);
-        bases.insert((unit.id, ToughnessRecovery), crate::Scalar::ONE);
-        if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
+        bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
+        bases.insert((unit.id, EnergyRegenerationRate), Scalar::ONE);
+        bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
+        bases.insert((unit.id, ToughnessRecovery), Scalar::ONE);
+        if let Some(value) = attacker_level_multiplier(unit.level) {
             bases.insert((unit.id, BreakBaseDamage), value);
         }
-        bases.insert((unit.id, DotDurationAddition), crate::Scalar::ZERO);
-        bases.insert((unit.id, DebuffDurationMultiplier), crate::Scalar::ONE);
+        bases.insert((unit.id, DotDurationAddition), Scalar::ZERO);
+        bases.insert((unit.id, DebuffDurationMultiplier), Scalar::ONE);
     }
     Ok(bases)
 }
 
-fn state_shield_values(
-    state: &crate::battle::state::BattleState,
-) -> std::collections::BTreeMap<crate::UnitId, crate::Scalar> {
+fn state_shield_values(state: &BattleState) -> std::collections::BTreeMap<UnitId, Scalar> {
     state
         .units
         .iter_by_id()
@@ -467,8 +458,8 @@ fn state_shield_values(
                 .shields
                 .effective_remaining(unit.id)
                 .ok()
-                .and_then(|value| crate::Scalar::checked_from_integer(value.get()).ok())
-                .unwrap_or(crate::Scalar::ZERO);
+                .and_then(|value| Scalar::checked_from_integer(value.get()).ok())
+                .unwrap_or(Scalar::ZERO);
             (unit.id, value)
         })
         .collect()

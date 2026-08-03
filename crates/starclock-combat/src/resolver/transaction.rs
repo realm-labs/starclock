@@ -1,4 +1,34 @@
+mod scratch;
+
+use super::{
+    action::{drain_reactions, execute_action_plan},
+    journal::{AllocationKind, MutationField, MutationJournal, phase_code},
+    settle::{ActionBoundary, settle_after_action},
+};
+
+use crate::EffectInstanceId as CrateEffectInstanceId;
+
+use crate::SourceDefinitionId as CrateSourceDefinitionId;
+
+use crate::action::lower::TimelineActionContext;
+use crate::action::model::ActionPlan;
+use crate::actor::store::EnemyRuntimeState;
+use crate::actor::store::FormationEntry;
+use crate::actor::store::LinkState;
+use crate::actor::store::TimelineActorState;
+use crate::actor::store::TransformationState;
+use crate::actor::store::UnitState;
+use crate::battle::spec::TeamSide as SpecTeamSide;
+use crate::catalog::action::ReactionBoundary;
+use crate::modifier::model::ActiveModifier;
+use crate::reaction::queue::ReactionQueue;
+use crate::rule::model::OnceScope;
+use crate::rule::model::SlotResetPoint;
+use crate::target::model::TargetCommitment;
 use crate::{
+    AbilityId, ActionOrigin, BattleDiagnostics, DiagnosticRecord, Energy, Hp, LifeState,
+    LinkedEntity, ModifierInstanceId, PresenceState, Probability, RuleInstanceId, Scalar,
+    SpawnSequence, Speed, TeamSide, UnitDefinitionId, UnitId,
     action::lower::{ActionIdentityAllocator, lower_interrupt_action, lower_normal_action},
     battle::{
         fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
@@ -24,16 +54,8 @@ use crate::{
     target::select,
     timeline::state::{InterruptWindowState, NormalTurnState},
 };
-use std::{collections::BTreeMap, sync::Arc};
-
-mod scratch;
 pub(crate) use scratch::ResolutionScratch;
-
-use super::{
-    action::{drain_reactions, execute_action_plan},
-    journal::{AllocationKind, MutationField, MutationJournal, phase_code},
-    settle::{ActionBoundary, settle_after_action},
-};
+use std::{collections::BTreeMap, sync::Arc};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum FaultInjectionPoint {
@@ -59,7 +81,7 @@ pub(crate) fn resolve_prepared(
     scratch: &mut ResolutionScratch,
     command: ValidatedCommand,
     injection: Option<FaultInjection>,
-    diagnostics: Option<&mut crate::BattleDiagnostics>,
+    diagnostics: Option<&mut BattleDiagnostics>,
 ) -> TransactionOutput {
     let (mut events, root_command, failure, mut timeline_elapsed_scaled) = {
         let mut txn = Transaction::new(
@@ -184,7 +206,7 @@ fn execute(
             let mut plan = lower_normal_action(
                 catalog,
                 txn,
-                crate::action::lower::TimelineActionContext {
+                TimelineActionContext {
                     actor,
                     owner,
                     timeline_actor: turn.actor,
@@ -202,13 +224,9 @@ fn execute(
                 boundary_cause,
                 action_resolved,
             )?;
-            let action_resolved = drain_reactions(
-                catalog,
-                txn,
-                crate::catalog::action::ReactionBoundary::AfterAction,
-                action_resolved,
-            )?;
-            if turn.origin == crate::ActionOrigin::NormalTurn {
+            let action_resolved =
+                drain_reactions(catalog, txn, ReactionBoundary::AfterAction, action_resolved)?;
+            if turn.origin == ActionOrigin::NormalTurn {
                 txn.set_actor_gauge(
                     turn.actor,
                     ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
@@ -222,7 +240,7 @@ fn execute(
                     origin: turn.origin,
                 }),
             );
-            let ended = if turn.origin == crate::ActionOrigin::NormalTurn {
+            let ended = if turn.origin == ActionOrigin::NormalTurn {
                 let ended = super::operation::settle_effects_at_turn_end(
                     catalog,
                     txn,
@@ -230,10 +248,7 @@ fn execute(
                     ended,
                     turn.owner,
                 )?;
-                txn.reset_rule_slots(
-                    crate::rule::model::SlotResetPoint::TurnEnd,
-                    Some(turn.owner),
-                );
+                txn.reset_rule_slots(SlotResetPoint::TurnEnd, Some(turn.owner));
                 ended
             } else {
                 ended
@@ -243,12 +258,8 @@ fn execute(
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, ended)?
             {
-                let parent = drain_reactions(
-                    catalog,
-                    txn,
-                    crate::catalog::action::ReactionBoundary::BeforeTimeline,
-                    parent,
-                )?;
+                let parent =
+                    drain_reactions(catalog, txn, ReactionBoundary::BeforeTimeline, parent)?;
                 if let ActionBoundary::Continue(parent) =
                     settle_after_action(catalog, txn, boundary_cause, parent)?
                 {
@@ -278,12 +289,7 @@ fn execute(
                 boundary_cause,
                 resolved,
             )?;
-            let resolved = drain_reactions(
-                catalog,
-                txn,
-                crate::catalog::action::ReactionBoundary::AfterAction,
-                resolved,
-            )?;
+            let resolved = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, resolved)?;
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, resolved)?
             {
@@ -298,7 +304,7 @@ fn execute(
             txn.emit(
                 Cause::root(root).with_parent(closed),
                 BattleEventKind::Battle(BattleEventData::Conceded {
-                    side: crate::battle::spec::TeamSide::Player,
+                    side: SpecTeamSide::Player,
                 }),
             );
         }
@@ -311,10 +317,7 @@ fn execute(
     Ok(())
 }
 
-pub(super) fn action_cause(
-    root: CommandId,
-    plan: &crate::action::model::ActionPlan,
-) -> Result<Cause, BattleFault> {
+pub(super) fn action_cause(root: CommandId, plan: &ActionPlan) -> Result<Cause, BattleFault> {
     let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(42))?;
     Ok(Cause::for_action(
         root,
@@ -330,10 +333,10 @@ pub(super) fn action_cause(
 pub(super) fn commit_targets(
     catalog: &CombatCatalog,
     txn: &Transaction<'_>,
-    actor: crate::UnitId,
-    ability: crate::AbilityId,
-    primary: Option<crate::UnitId>,
-) -> Result<crate::target::model::TargetCommitment, BattleFault> {
+    actor: UnitId,
+    ability: AbilityId,
+    primary: Option<UnitId>,
+) -> Result<TargetCommitment, BattleFault> {
     let definition = catalog.ability(ability).ok_or_else(|| action_fault(14))?;
     let action = definition.action().ok_or_else(|| action_fault(15))?;
     let selector = catalog
@@ -403,11 +406,11 @@ pub(super) struct Transaction<'a> {
     pub(super) selector_action_snapshots:
         BTreeMap<ActionId, Arc<super::selector_snapshot::RuleSelectorSnapshot>>,
     pub(super) capture_selector_snapshots: bool,
-    pub(super) reactions: crate::reaction::queue::ReactionQueue,
+    pub(super) reactions: ReactionQueue,
     resolved_reactions: usize,
     next_reaction: u64,
     pub(super) timeline_elapsed_scaled: i64,
-    diagnostics: Option<&'a mut crate::BattleDiagnostics>,
+    diagnostics: Option<&'a mut BattleDiagnostics>,
 }
 
 impl<'a> Transaction<'a> {
@@ -415,7 +418,7 @@ impl<'a> Transaction<'a> {
         state: &'a mut BattleState,
         journal: &'a mut MutationJournal,
         capture_selector_snapshots: bool,
-        diagnostics: Option<&'a mut crate::BattleDiagnostics>,
+        diagnostics: Option<&'a mut BattleDiagnostics>,
     ) -> Self {
         Self {
             state,
@@ -425,7 +428,7 @@ impl<'a> Transaction<'a> {
             selector_event_snapshots: BTreeMap::new(),
             selector_action_snapshots: BTreeMap::new(),
             capture_selector_snapshots,
-            reactions: crate::reaction::queue::ReactionQueue::default(),
+            reactions: ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
             timeline_elapsed_scaled: 0,
@@ -446,7 +449,7 @@ impl<'a> Transaction<'a> {
             selector_event_snapshots: BTreeMap::new(),
             selector_action_snapshots: BTreeMap::new(),
             capture_selector_snapshots: false,
-            reactions: crate::reaction::queue::ReactionQueue::default(),
+            reactions: ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
             timeline_elapsed_scaled: 0,
@@ -454,7 +457,7 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    pub(super) fn record_diagnostic(&mut self, record: impl FnOnce() -> crate::DiagnosticRecord) {
+    pub(super) fn record_diagnostic(&mut self, record: impl FnOnce() -> DiagnosticRecord) {
         if let Some(diagnostics) = self.diagnostics.as_deref_mut() {
             diagnostics.record(record);
         }
@@ -549,7 +552,7 @@ impl<'a> Transaction<'a> {
         insertion
     }
 
-    pub(super) fn allocate_unit(&mut self) -> crate::UnitId {
+    pub(super) fn allocate_unit(&mut self) -> UnitId {
         let id = self.state.sequences.unit();
         self.journal.allocation(AllocationKind::Unit, id.get());
         id
@@ -561,19 +564,19 @@ impl<'a> Transaction<'a> {
         id
     }
 
-    pub(super) fn allocate_spawn(&mut self) -> crate::SpawnSequence {
+    pub(super) fn allocate_spawn(&mut self) -> SpawnSequence {
         let id = self.state.sequences.spawn();
         self.journal.allocation(AllocationKind::Spawn, id.get());
         id
     }
 
-    pub(super) fn allocate_rule(&mut self) -> crate::RuleInstanceId {
+    pub(super) fn allocate_rule(&mut self) -> RuleInstanceId {
         let id = self.state.sequences.rule();
         self.journal.allocation(AllocationKind::Rule, id.get());
         id
     }
 
-    pub(super) fn allocate_modifier(&mut self) -> crate::ModifierInstanceId {
+    pub(super) fn allocate_modifier(&mut self) -> ModifierInstanceId {
         let id = self.state.sequences.modifier();
         self.journal.allocation(AllocationKind::Modifier, id.get());
         id
@@ -722,13 +725,13 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn insert_unit(&mut self, state: crate::actor::store::UnitState) {
+    pub(super) fn insert_unit(&mut self, state: UnitState) {
         let id = state.id;
         self.state.units.insert(state);
         self.journal.mutation(MutationField::UnitStore, 0, id.get());
     }
 
-    pub(super) fn insert_actor(&mut self, state: crate::actor::store::TimelineActorState) {
+    pub(super) fn insert_actor(&mut self, state: TimelineActorState) {
         let id = state.id;
         self.state.actors.insert(state);
         self.journal
@@ -738,7 +741,7 @@ impl<'a> Transaction<'a> {
     pub(super) fn insert_modifier(
         &mut self,
         catalog: &CombatCatalog,
-        mut state: crate::modifier::model::ActiveModifier,
+        mut state: ActiveModifier,
     ) -> Result<(), BattleFault> {
         super::modifier_snapshot::initialize(catalog, self, &mut state)?;
         let id = state.instance;
@@ -750,7 +753,7 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn remove_effect_attachments(&mut self, effect: crate::EffectInstanceId) {
+    pub(super) fn remove_effect_attachments(&mut self, effect: CrateEffectInstanceId) {
         for modifier in self.state.modifiers.remove_by_effect(effect) {
             self.journal
                 .mutation(MutationField::EffectAttachment, modifier.get(), 0);
@@ -760,19 +763,16 @@ impl<'a> Transaction<'a> {
                 .mutation(MutationField::EffectAttachment, rule.get(), 0);
         }
     }
-    pub(super) fn insert_formation(&mut self, entry: crate::actor::store::FormationEntry) {
+    pub(super) fn insert_formation(&mut self, entry: FormationEntry) {
         self.state.formations.push(entry);
         self.journal
             .mutation(MutationField::Formation, 0, entry.unit.get());
     }
 
-    pub(super) fn insert_link(
-        &mut self,
-        state: crate::actor::store::LinkState,
-    ) -> Result<(), BattleFault> {
+    pub(super) fn insert_link(&mut self, state: LinkState) -> Result<(), BattleFault> {
         let code = match state.entity {
-            crate::LinkedEntity::Unit(unit) => unit.get(),
-            crate::LinkedEntity::TimelineActor(actor) => actor.get() | (1_u64 << 63),
+            LinkedEntity::Unit(unit) => unit.get(),
+            LinkedEntity::TimelineActor(actor) => actor.get() | (1_u64 << 63),
         };
         if !self.state.links.insert(state) {
             return Err(action_fault(75));
@@ -783,7 +783,7 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_link_active(
         &mut self,
-        entity: crate::LinkedEntity,
+        entity: LinkedEntity,
         active: bool,
     ) -> Result<(), BattleFault> {
         let link = self
@@ -802,11 +802,11 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_unit_definition(
         &mut self,
-        unit: crate::UnitId,
-        form: crate::UnitDefinitionId,
-        abilities: Box<[crate::AbilityId]>,
-        presence: crate::PresenceState,
-        transformation: Option<crate::actor::store::TransformationState>,
+        unit: UnitId,
+        form: UnitDefinitionId,
+        abilities: Box<[AbilityId]>,
+        presence: PresenceState,
+        transformation: Option<TransformationState>,
     ) -> Result<(), BattleFault> {
         let state = self
             .state
@@ -855,8 +855,8 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_enemy_runtime(
         &mut self,
-        unit: crate::UnitId,
-        enemy: crate::actor::store::EnemyRuntimeState,
+        unit: UnitId,
+        enemy: EnemyRuntimeState,
     ) -> Result<(), BattleFault> {
         let state = self
             .state
@@ -874,7 +874,7 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn unit_speed(&self, owner: crate::UnitId) -> Result<crate::Speed, BattleFault> {
+    pub(super) fn unit_speed(&self, owner: UnitId) -> Result<Speed, BattleFault> {
         let actor = self
             .state
             .actors
@@ -889,8 +889,8 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_unit_speed(
         &mut self,
-        owner: crate::UnitId,
-        speed: crate::Speed,
+        owner: UnitId,
+        speed: Speed,
     ) -> Result<(), BattleFault> {
         let actor = self
             .state
@@ -916,7 +916,7 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn roll_probability(
         &mut self,
-        probability: crate::Probability,
+        probability: Probability,
         purpose: DrawPurpose,
     ) -> Result<bool, BattleFault> {
         let threshold = probability.millionths();
@@ -931,7 +931,7 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn roll_shared_probability(
         &mut self,
-        probability: crate::Probability,
+        probability: Probability,
         purpose: DrawPurpose,
         shared_draw: &mut Option<u32>,
     ) -> Result<bool, BattleFault> {
@@ -966,7 +966,7 @@ impl<'a> Transaction<'a> {
         u32::try_from(draw.value()).map_err(|_| action_fault(51))
     }
 
-    pub(super) fn set_skill_points(&mut self, side: crate::TeamSide, value: u16) {
+    pub(super) fn set_skill_points(&mut self, side: TeamSide, value: u16) {
         let state = self.state.teams.get_mut(side);
         let before = state.skill_points;
         if before != value {
@@ -981,8 +981,8 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_team_resource(
         &mut self,
-        side: crate::TeamSide,
-        resource: crate::SourceDefinitionId,
+        side: TeamSide,
+        resource: CrateSourceDefinitionId,
         value: u16,
     ) -> Result<(), BattleFault> {
         let state = self
@@ -1008,9 +1008,9 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_character_resource(
         &mut self,
-        unit: crate::UnitId,
+        unit: UnitId,
         stable_key: &str,
-        value: crate::Scalar,
+        value: Scalar,
     ) -> Result<(), BattleFault> {
         let state = self
             .state
@@ -1033,11 +1033,7 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn set_energy(
-        &mut self,
-        unit: crate::UnitId,
-        value: crate::Energy,
-    ) -> Result<(), BattleFault> {
+    pub(super) fn set_energy(&mut self, unit: UnitId, value: Energy) -> Result<(), BattleFault> {
         let state = self
             .state
             .units
@@ -1055,11 +1051,7 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn set_hp(
-        &mut self,
-        unit: crate::UnitId,
-        value: crate::Hp,
-    ) -> Result<(), BattleFault> {
+    pub(super) fn set_hp(&mut self, unit: UnitId, value: Hp) -> Result<(), BattleFault> {
         let state = self
             .state
             .units
@@ -1077,11 +1069,7 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn set_life(
-        &mut self,
-        unit: crate::UnitId,
-        value: crate::LifeState,
-    ) -> Result<(), BattleFault> {
+    pub(super) fn set_life(&mut self, unit: UnitId, value: LifeState) -> Result<(), BattleFault> {
         let state = self
             .state
             .units
@@ -1098,8 +1086,8 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn set_presence(
         &mut self,
-        unit: crate::UnitId,
-        value: crate::PresenceState,
+        unit: UnitId,
+        value: PresenceState,
     ) -> Result<(), BattleFault> {
         let state = self
             .state
@@ -1145,17 +1133,10 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
-    pub(super) fn reset_rule_slots(
-        &mut self,
-        boundary: crate::rule::model::SlotResetPoint,
-        owner: Option<crate::UnitId>,
-    ) {
+    pub(super) fn reset_rule_slots(&mut self, boundary: SlotResetPoint, owner: Option<UnitId>) {
         let mut count = self.state.rules.reset(boundary, owner);
-        if boundary == crate::rule::model::SlotResetPoint::TurnStart {
-            count += self
-                .state
-                .rules
-                .reset_once_scope(crate::rule::model::OnceScope::Turn);
+        if boundary == SlotResetPoint::TurnStart {
+            count += self.state.rules.reset_once_scope(OnceScope::Turn);
         }
         if count > 0 {
             self.journal

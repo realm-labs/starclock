@@ -1,5 +1,7 @@
 //! Generic Curio ownership, lifecycle and scoped-contribution runtime.
 
+use crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY;
+use crate::curio_activity::EIDOLON_RESONANCE_LEVELS_KEY;
 use std::collections::BTreeMap;
 
 use starclock_activity::{
@@ -139,13 +141,13 @@ impl CurioContributionSet {
     }
     #[must_use]
     pub fn destructibles_destroyed(&self) -> u32 {
-        self.runtime_value(crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY)
+        self.runtime_value(DESTRUCTIBLE_DESTROYED_COUNT_KEY)
             .and_then(|value| u32::try_from(value).ok())
             .unwrap_or(0)
     }
     #[must_use]
     pub fn eidolon_resonance_levels(&self) -> u8 {
-        self.runtime_value(crate::curio_activity::EIDOLON_RESONANCE_LEVELS_KEY)
+        self.runtime_value(EIDOLON_RESONANCE_LEVELS_KEY)
             .and_then(|value| u8::try_from(value).ok())
             .or_else(|| {
                 let parameter = self
@@ -192,18 +194,12 @@ impl CurioContributionSet {
     /// Captures the run-wide destructible count at a battle boundary.
     #[must_use]
     pub fn with_destructibles_destroyed(self, count: u32) -> Self {
-        self.with_runtime_value(
-            crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
-            i64::from(count),
-        )
+        self.with_runtime_value(DESTRUCTIBLE_DESTROYED_COUNT_KEY, i64::from(count))
     }
 
     #[must_use]
     pub fn with_eidolon_resonance_levels(self, levels: u8) -> Self {
-        self.with_runtime_value(
-            crate::curio_activity::EIDOLON_RESONANCE_LEVELS_KEY,
-            i64::from(levels),
-        )
+        self.with_runtime_value(EIDOLON_RESONANCE_LEVELS_KEY, i64::from(levels))
     }
 
     /// Captures one Activity-owned scalar at the immutable battle boundary.

@@ -1,15 +1,8 @@
 //! Canonical lowering of concrete Standard Universe service selections.
 mod codec;
 
-use starclock_activity::{
-    ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerInput,
-    ActivityHandlerOutput, ActivityInventoryId, ActivityOperation, ActivitySlotId, ActivityValue,
-    ParticipantId,
-};
-use starclock_combat::Ratio;
-
-use codec::{Decoder, invalid_payload, invalid_state, inventory, slot};
-
+use crate::id::CurioStateId;
+use crate::service_effect_runtime::RespiteOffer;
 use crate::{
     ability_runtime::AbilityTarget,
     catalog::UniverseCatalog,
@@ -24,6 +17,13 @@ use crate::{
         TrailblazeBonusEffect, TrailblazeBonusTier,
     },
 };
+use codec::{Decoder, invalid_payload, invalid_state, inventory, slot};
+use starclock_activity::{
+    ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerInput,
+    ActivityHandlerOutput, ActivityInventoryId, ActivityOperation, ActivitySlotId, ActivityValue,
+    ParticipantId,
+};
+use starclock_combat::Ratio;
 
 pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
 
@@ -1096,7 +1096,7 @@ fn decode_curio_record(
 ) -> Result<CurioActivityRecord, ActivityHandlerFault> {
     let record = CurioActivityRecord::new(
         CurioId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
-        crate::id::CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
+        CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
         decoder.u8()?,
         match decoder.i64()? {
             0 => None,
@@ -1117,7 +1117,7 @@ fn validate_external_offer(cost: u32, digest: [u8; 32]) -> Result<(), ServiceInt
 }
 
 fn respite_cost(
-    offers: &[crate::service_effect_runtime::RespiteOffer],
+    offers: &[RespiteOffer],
     kind: RespiteOfferKind,
 ) -> Result<u32, ServiceInteractionError> {
     offers

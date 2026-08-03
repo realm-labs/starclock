@@ -1,7 +1,40 @@
 //! Transactional bridge from mutation-free Rule IR emissions to resolver operations.
 
+mod emission;
+pub(super) mod fault;
+mod random_damage;
+mod random_grouped_effect;
+mod resource;
+mod value;
+
+use super::{operation::execute_operation, transaction::Transaction};
+
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::AbilityActionDefinition;
+use crate::catalog::action::HpConsumptionDefinition;
+use crate::catalog::action::ShieldDefinition;
+use crate::catalog::action::SkillPointPaymentPolicy;
+use crate::catalog::action::WeaknessApplicationDefinition;
+use crate::catalog::definition::AbilityDefinition;
+use crate::formula::model::CombatElement;
+use crate::formula::model::DamageClass;
+use crate::formula::shield::ShieldAbsorptionPolicy;
+use crate::formula::toughness::BreakDamageDefinition;
+use crate::formula::toughness::SuperBreakDefinition;
+use crate::formula::toughness::ToughnessReductionContext;
+use crate::formula::toughness::attacker_level_multiplier;
+use crate::modifier::model::StatKind;
+use crate::modifier::resolve::StatResolver;
+use crate::operation::AddWeaknessFromAlliedElementsOp;
+use crate::rule::model::RuleDotSelection;
+use crate::rule::model::RuleEventFacts;
+use crate::rule::model::RuleEventKind;
+use crate::rule::model::RuleEventPoint;
 use crate::{
-    Ratio, Rounding, Scalar,
+    AbilityId, ActionId, ActionOrigin, DotDetonationDefinition, DotDetonationSelection,
+    EffectRemovalDefinition, EventId, HitId, Hp, Probability, ProgramId, Ratio, RawToughness,
+    Rounding, RuleId, RuleInstanceId, RuleSignalEventData, Scalar, SelectorId, TeamSide,
+    ToughnessReductionDefinition, TransformEndPolicy, TransformationDefinition, TriggerId, UnitId,
     battle::fault::BattleFault,
     catalog::action::{HitCritPolicy, OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     event::{
@@ -23,16 +56,7 @@ use crate::{
         },
     },
 };
-
-use super::{operation::execute_operation, transaction::Transaction};
-use std::collections::BTreeMap;
-mod emission;
 pub(super) use emission::actor_basic_element;
-pub(super) mod fault;
-mod random_damage;
-mod random_grouped_effect;
-mod resource;
-mod value;
 pub(super) use emission::emission_targets;
 use emission::{emission_current_target, healing_operation, slot_operation};
 use fault::emission_code;
@@ -40,33 +64,34 @@ pub(super) use fault::program_fault;
 use random_damage::execute_random_repeated_damage;
 use random_grouped_effect::execute_random_grouped_effect;
 use resource::modify_resource;
+use std::collections::BTreeMap;
 pub(super) use value::{non_negative_scalar, probability, ratio};
 use value::{scale, weakness_duration};
 
 pub(super) struct AbilityProgramContext {
-    pub(super) program: crate::ProgramId,
-    pub(super) owner: crate::UnitId,
-    pub(super) actor: crate::UnitId,
-    pub(super) ability: crate::AbilityId,
-    pub(super) action: crate::ActionId,
-    pub(super) rule: Option<crate::RuleId>,
-    pub(super) rule_instance: Option<crate::RuleInstanceId>,
-    pub(super) trigger: Option<crate::TriggerId>,
-    pub(super) hit: Option<crate::HitId>,
-    pub(super) primary: Option<crate::UnitId>,
+    pub(super) program: ProgramId,
+    pub(super) owner: UnitId,
+    pub(super) actor: UnitId,
+    pub(super) ability: AbilityId,
+    pub(super) action: ActionId,
+    pub(super) rule: Option<RuleId>,
+    pub(super) rule_instance: Option<RuleInstanceId>,
+    pub(super) trigger: Option<TriggerId>,
+    pub(super) hit: Option<HitId>,
+    pub(super) primary: Option<UnitId>,
     pub(super) damage_share: Ratio,
     pub(super) toughness_share: Ratio,
     pub(super) crit_policy: HitCritPolicy,
 }
 
 pub(super) fn execute_ability_program(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    parent: crate::EventId,
+    parent: EventId,
     context: AbilityProgramContext,
     scratch: &mut HitOperationScratch,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     execute_program(
         catalog,
         txn,
@@ -74,24 +99,24 @@ pub(super) fn execute_ability_program(
         parent,
         context,
         scratch,
-        crate::rule::model::RuleEventKind::Phase,
-        crate::rule::model::RuleEventPoint::PhaseStarted,
+        RuleEventKind::Phase,
+        RuleEventPoint::PhaseStarted,
     )
 }
 
 pub(super) fn execute_boundary_program(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    parent: crate::EventId,
-    program: crate::ProgramId,
-    owner: crate::UnitId,
-    event_kind: crate::rule::model::RuleEventKind,
-) -> Result<crate::EventId, BattleFault> {
+    parent: EventId,
+    program: ProgramId,
+    owner: UnitId,
+    event_kind: RuleEventKind,
+) -> Result<EventId, BattleFault> {
     let action = cause.action().ok_or_else(|| program_fault(2, 0))?;
     let ability = cause
         .source_definition()
-        .and_then(|source| crate::AbilityId::new(source.get()))
+        .and_then(|source| AbilityId::new(source.get()))
         .ok_or_else(|| program_fault(3, 0))?;
     execute_program(
         catalog,
@@ -115,21 +140,21 @@ pub(super) fn execute_boundary_program(
         },
         &mut HitOperationScratch::default(),
         event_kind,
-        crate::rule::model::RuleEventPoint::EncounterTransition,
+        RuleEventPoint::EncounterTransition,
     )
 }
 
 #[allow(clippy::too_many_arguments)]
 fn execute_program(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    parent: crate::EventId,
+    parent: EventId,
     context: AbilityProgramContext,
     scratch: &mut HitOperationScratch,
-    event_kind: crate::rule::model::RuleEventKind,
-    event_point: crate::rule::model::RuleEventPoint,
-) -> Result<crate::EventId, BattleFault> {
+    event_kind: RuleEventKind,
+    event_point: RuleEventPoint,
+) -> Result<EventId, BattleFault> {
     let bases = stat_bases(txn)?;
     let modifiers = txn
         .state
@@ -138,20 +163,16 @@ fn execute_program(
         .cloned()
         .collect::<Vec<_>>();
     let shields = super::stat_input::shield_values(txn);
-    let stat_reader = crate::modifier::resolve::StatResolver::new(
-        catalog.modifier_registry(),
-        &bases,
-        &modifiers,
-    )
-    .with_shields(&shields);
+    let stat_reader =
+        StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
     let battle_queries = super::rule::BattleQuerySnapshot::new(txn);
-    let event_facts = crate::rule::model::RuleEventFacts {
+    let event_facts = RuleEventFacts {
         point: Some(event_point),
         has_parent: true,
         has_action: true,
         has_phase: true,
         has_hit: context.hit.is_some(),
-        ..crate::rule::model::RuleEventFacts::default()
+        ..RuleEventFacts::default()
     };
     let rule_cause = RuleCause {
         parent_event: cause.parent_event(),
@@ -166,8 +187,7 @@ fn execute_program(
         source: cause.source_definition(),
     };
     let occurrence = RuleOccurrence {
-        rule_instance: crate::RuleInstanceId::new(context.action.get())
-            .expect("action IDs are nonzero"),
+        rule_instance: RuleInstanceId::new(context.action.get()).expect("action IDs are nonzero"),
         event: parent,
         hit: context.hit,
         target: context.primary,
@@ -180,7 +200,7 @@ fn execute_program(
         .program(context.program)
         .ok_or_else(|| program_fault(1, i64::from(context.program.get())))?;
     let event_order = context.primary.into_iter().collect::<Vec<_>>();
-    let mut owned: Vec<(crate::SelectorId, Box<[crate::UnitId]>)> = Vec::new();
+    let mut owned: Vec<(SelectorId, Box<[UnitId]>)> = Vec::new();
     for id in super::target::ordered_rule_selectors(catalog, program.selectors())? {
         let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
             continue;
@@ -259,7 +279,7 @@ fn execute_program(
 
 pub(super) fn stat_bases(
     txn: &Transaction<'_>,
-) -> Result<BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), Scalar>, BattleFault> {
+) -> Result<BTreeMap<(UnitId, StatKind), Scalar>, BattleFault> {
     use crate::modifier::model::StatKind::{
         Atk, BreakBaseDamage, CritDamage, CritRate, DebuffDurationMultiplier, Def,
         DotDurationAddition, EffectHitRate, EffectResistance, EnergyRegenerationRate,
@@ -285,7 +305,7 @@ pub(super) fn stat_bases(
             (unit.id, Spd),
             Scalar::from_scaled(unit.base_speed.scaled()),
         );
-        let player = unit.side == crate::TeamSide::Player;
+        let player = unit.side == TeamSide::Player;
         bases.insert(
             (unit.id, CritRate),
             Scalar::from_scaled(if player { 50_000 } else { 0 }),
@@ -300,7 +320,7 @@ pub(super) fn stat_bases(
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
         bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
         bases.insert((unit.id, ToughnessRecovery), Scalar::ONE);
-        if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
+        if let Some(value) = attacker_level_multiplier(unit.level) {
             bases.insert((unit.id, BreakBaseDamage), value);
         }
         bases.insert((unit.id, DotDurationAddition), Scalar::ZERO);
@@ -311,16 +331,16 @@ pub(super) fn stat_bases(
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn execute_emissions(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
+    mut parent: EventId,
     context: &AbilityProgramContext,
     input: RuleEvaluationInput<'_>,
     emissions: Vec<RuleEmission>,
     scratch: &mut HitOperationScratch,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-) -> Result<crate::EventId, BattleFault> {
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+) -> Result<EventId, BattleFault> {
     let mut toughness_element = None;
     for emission in emissions {
         parent = execute_emission(
@@ -341,17 +361,17 @@ pub(super) fn execute_emissions(
 
 #[allow(clippy::too_many_arguments)]
 fn execute_emission(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    parent: crate::EventId,
+    parent: EventId,
     context: &AbilityProgramContext,
     input: RuleEvaluationInput<'_>,
     emission: RuleEmission,
     scratch: &mut HitOperationScratch,
-    toughness_element: &mut Option<crate::formula::model::CombatElement>,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-) -> Result<crate::EventId, BattleFault> {
+    toughness_element: &mut Option<CombatElement>,
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+) -> Result<EventId, BattleFault> {
     let current_target = emission_current_target(&emission);
     let emission = match emission {
         RuleEmission::RandomRepeatedDamage {
@@ -426,343 +446,304 @@ fn execute_emission(
         emission => emission,
     };
     let operation_id = txn.allocate_operation();
-    let request = match emission {
-        RuleEmission::SetSlot { slot, value, .. } => Operation::ModifyStateSlot(slot_operation(
-            context,
-            operation_id,
-            slot,
-            StateSlotUpdateKind::Set,
-            value,
-        )?),
-        RuleEmission::AddSlot { slot, value, .. } => Operation::ModifyStateSlot(slot_operation(
-            context,
-            operation_id,
-            slot,
-            StateSlotUpdateKind::Add,
-            value,
-        )?),
-        RuleEmission::Damage {
-            selector,
-            amount,
-            class,
-            element,
-            can_crit,
-            can_defeat,
-            ..
-        } => {
-            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
-            let formula = OrdinaryDamageDefinition::new(
+    let request =
+        match emission {
+            RuleEmission::SetSlot { slot, value, .. } => Operation::ModifyStateSlot(
+                slot_operation(context, operation_id, slot, StateSlotUpdateKind::Set, value)?,
+            ),
+            RuleEmission::AddSlot { slot, value, .. } => Operation::ModifyStateSlot(
+                slot_operation(context, operation_id, slot, StateSlotUpdateKind::Add, value)?,
+            ),
+            RuleEmission::Damage {
+                selector,
                 amount,
-                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
-                    .expect("neutral multipliers are valid"),
-            )
-            .map_err(|_| program_fault(2, amount.scaled()))?
-            .with_class(class);
-            Operation::Damage(DamageOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-                element: Some(element),
-                crit_policy: if can_crit {
-                    context.crit_policy
-                } else {
-                    HitCritPolicy::Never
-                },
-                apply_source_modifiers: true,
-                ultimate_semantics: false,
-                minimum_hp: i64::from(!can_defeat),
-            })
-        }
-        RuleEmission::DamageFromActorBasicElement {
-            selector,
-            amount,
-            class,
-            can_crit,
-            can_defeat,
-            ..
-        } => {
-            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
-            let formula = OrdinaryDamageDefinition::new(
-                amount,
-                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
-                    .expect("neutral multipliers are valid"),
-            )
-            .map_err(|_| program_fault(83, amount.scaled()))?
-            .with_class(class);
-            Operation::Damage(DamageOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-                element: Some(actor_basic_element(catalog, txn, context.actor)?),
-                crit_policy: if can_crit {
-                    context.crit_policy
-                } else {
-                    HitCritPolicy::Never
-                },
-                apply_source_modifiers: true,
-                ultimate_semantics: false,
-                minimum_hp: i64::from(!can_defeat),
-            })
-        }
-        RuleEmission::UltimateDamageFromActorBasicElement {
-            selector,
-            amount,
-            class,
-            can_crit,
-            can_defeat,
-            ..
-        } => {
-            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
-            let formula = OrdinaryDamageDefinition::new(
-                amount,
-                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
-                    .expect("neutral multipliers are valid"),
-            )
-            .map_err(|_| program_fault(83, amount.scaled()))?
-            .with_class(class);
-            Operation::Damage(DamageOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-                element: Some(actor_basic_element(catalog, txn, context.actor)?),
-                crit_policy: if can_crit {
-                    context.crit_policy
-                } else {
-                    HitCritPolicy::Never
-                },
-                apply_source_modifiers: true,
-                ultimate_semantics: true,
-                minimum_hp: i64::from(!can_defeat),
-            })
-        }
-        RuleEmission::UnboostedDamage {
-            selector,
-            amount,
-            class,
-            element,
-            can_defeat,
-            ..
-        } => {
-            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
-            let formula = OrdinaryDamageDefinition::new(
-                amount,
-                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
-                    .expect("neutral multipliers are valid"),
-            )
-            .map_err(|_| program_fault(79, amount.scaled()))?
-            .with_class(class);
-            Operation::Damage(DamageOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-                element: Some(element),
-                crit_policy: HitCritPolicy::Never,
-                apply_source_modifiers: false,
-                ultimate_semantics: false,
-                minimum_hp: i64::from(!can_defeat),
-            })
-        }
-        RuleEmission::TrueDamage {
-            selector, amount, ..
-        } => {
-            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
-            let formula = OrdinaryDamageDefinition::new(
-                amount,
-                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
-                    .expect("neutral multipliers are valid"),
-            )
-            .map_err(|_| program_fault(58, amount.scaled()))?
-            .with_class(crate::formula::model::DamageClass::Additional);
-            Operation::Damage(DamageOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-                element: None,
-                crit_policy: HitCritPolicy::Never,
-                apply_source_modifiers: false,
-                ultimate_semantics: false,
-                minimum_hp: 0,
-            })
-        }
-        RuleEmission::Heal {
-            selector,
-            amount,
-            apply_formula_modifiers,
-            ..
-        } => healing_operation(
-            catalog,
-            resolved,
-            operation_id,
-            selector,
-            amount,
-            current_target,
-            apply_formula_modifiers,
-        )?,
-        RuleEmission::Shield {
-            selector,
-            amount,
-            effect,
-            ..
-        } => {
-            if catalog.effect(effect).is_none() {
-                return Err(program_fault(59, i64::from(effect.get())));
-            }
-            let amount = non_negative_scalar(amount)?;
-            if amount == crate::Scalar::ZERO {
-                return Ok(parent);
-            }
-            let formula = crate::catalog::action::ShieldDefinition::new(
-                amount,
-                Ratio::ZERO,
-                crate::formula::shield::ShieldAbsorptionPolicy::ConcurrentLargest,
-            )
-            .map_err(|_| program_fault(60, amount.scaled()))?;
-            Operation::Shield(ShieldOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-                source_effect: Some(effect),
-            })
-        }
-        RuleEmission::RemoveShield {
-            selector, effect, ..
-        } => Operation::RemoveShields(RemoveShieldsOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            effect,
-        }),
-        RuleEmission::ConsumeHp {
-            selector,
-            amount,
-            floor,
-            ..
-        } => {
-            let requested = crate::Hp::from_scalar(non_negative_scalar(amount)?, Rounding::Floor)
-                .map_err(|_| program_fault(4, 0))?;
-            let floor = crate::Hp::from_scalar(non_negative_scalar(floor)?, Rounding::Floor)
-                .map_err(|_| program_fault(5, 0))?;
-            Operation::ConsumeHp(ConsumeHpOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                definition: crate::catalog::action::HpConsumptionDefinition::new(requested, floor),
-            })
-        }
-        RuleEmission::AddWeakness {
-            selector,
-            element,
-            duration_turns,
-            ..
-        } => Operation::AddWeakness(AddWeaknessOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            definition: match duration_turns {
-                None => crate::catalog::action::WeaknessApplicationDefinition::permanent(element),
-                Some(value) => crate::catalog::action::WeaknessApplicationDefinition::timed(
-                    element,
-                    weakness_duration(value)?,
+                class,
+                element,
+                can_crit,
+                can_defeat,
+                ..
+            } => {
+                let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+                let formula = OrdinaryDamageDefinition::new(
+                    amount,
+                    OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                        .expect("neutral multipliers are valid"),
                 )
-                .ok_or_else(|| program_fault(67, 0))?,
-            },
-        }),
-        RuleEmission::AddWeaknessFromAlliedElements {
-            selector,
-            count,
-            duration_turns,
-            ..
-        } => Operation::AddWeaknessFromAlliedElements(
-            crate::operation::AddWeaknessFromAlliedElementsOp {
+                .map_err(|_| program_fault(2, amount.scaled()))?
+                .with_class(class);
+                Operation::Damage(DamageOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    element: Some(element),
+                    crit_policy: if can_crit {
+                        context.crit_policy
+                    } else {
+                        HitCritPolicy::Never
+                    },
+                    apply_source_modifiers: true,
+                    ultimate_semantics: false,
+                    minimum_hp: i64::from(!can_defeat),
+                })
+            }
+            RuleEmission::DamageFromActorBasicElement {
+                selector,
+                amount,
+                class,
+                can_crit,
+                can_defeat,
+                ..
+            } => {
+                let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+                let formula = OrdinaryDamageDefinition::new(
+                    amount,
+                    OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                        .expect("neutral multipliers are valid"),
+                )
+                .map_err(|_| program_fault(83, amount.scaled()))?
+                .with_class(class);
+                Operation::Damage(DamageOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    element: Some(actor_basic_element(catalog, txn, context.actor)?),
+                    crit_policy: if can_crit {
+                        context.crit_policy
+                    } else {
+                        HitCritPolicy::Never
+                    },
+                    apply_source_modifiers: true,
+                    ultimate_semantics: false,
+                    minimum_hp: i64::from(!can_defeat),
+                })
+            }
+            RuleEmission::UltimateDamageFromActorBasicElement {
+                selector,
+                amount,
+                class,
+                can_crit,
+                can_defeat,
+                ..
+            } => {
+                let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+                let formula = OrdinaryDamageDefinition::new(
+                    amount,
+                    OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                        .expect("neutral multipliers are valid"),
+                )
+                .map_err(|_| program_fault(83, amount.scaled()))?
+                .with_class(class);
+                Operation::Damage(DamageOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    element: Some(actor_basic_element(catalog, txn, context.actor)?),
+                    crit_policy: if can_crit {
+                        context.crit_policy
+                    } else {
+                        HitCritPolicy::Never
+                    },
+                    apply_source_modifiers: true,
+                    ultimate_semantics: true,
+                    minimum_hp: i64::from(!can_defeat),
+                })
+            }
+            RuleEmission::UnboostedDamage {
+                selector,
+                amount,
+                class,
+                element,
+                can_defeat,
+                ..
+            } => {
+                let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+                let formula = OrdinaryDamageDefinition::new(
+                    amount,
+                    OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                        .expect("neutral multipliers are valid"),
+                )
+                .map_err(|_| program_fault(79, amount.scaled()))?
+                .with_class(class);
+                Operation::Damage(DamageOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    element: Some(element),
+                    crit_policy: HitCritPolicy::Never,
+                    apply_source_modifiers: false,
+                    ultimate_semantics: false,
+                    minimum_hp: i64::from(!can_defeat),
+                })
+            }
+            RuleEmission::TrueDamage {
+                selector, amount, ..
+            } => {
+                let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+                let formula = OrdinaryDamageDefinition::new(
+                    amount,
+                    OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                        .expect("neutral multipliers are valid"),
+                )
+                .map_err(|_| program_fault(58, amount.scaled()))?
+                .with_class(DamageClass::Additional);
+                Operation::Damage(DamageOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    element: None,
+                    crit_policy: HitCritPolicy::Never,
+                    apply_source_modifiers: false,
+                    ultimate_semantics: false,
+                    minimum_hp: 0,
+                })
+            }
+            RuleEmission::Heal {
+                selector,
+                amount,
+                apply_formula_modifiers,
+                ..
+            } => healing_operation(
+                catalog,
+                resolved,
+                operation_id,
+                selector,
+                amount,
+                current_target,
+                apply_formula_modifiers,
+            )?,
+            RuleEmission::Shield {
+                selector,
+                amount,
+                effect,
+                ..
+            } => {
+                if catalog.effect(effect).is_none() {
+                    return Err(program_fault(59, i64::from(effect.get())));
+                }
+                let amount = non_negative_scalar(amount)?;
+                if amount == Scalar::ZERO {
+                    return Ok(parent);
+                }
+                let formula = ShieldDefinition::new(
+                    amount,
+                    Ratio::ZERO,
+                    ShieldAbsorptionPolicy::ConcurrentLargest,
+                )
+                .map_err(|_| program_fault(60, amount.scaled()))?;
+                Operation::Shield(ShieldOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    source_effect: Some(effect),
+                })
+            }
+            RuleEmission::RemoveShield {
+                selector, effect, ..
+            } => Operation::RemoveShields(RemoveShieldsOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                effect,
+            }),
+            RuleEmission::ConsumeHp {
+                selector,
+                amount,
+                floor,
+                ..
+            } => {
+                let requested = Hp::from_scalar(non_negative_scalar(amount)?, Rounding::Floor)
+                    .map_err(|_| program_fault(4, 0))?;
+                let floor = Hp::from_scalar(non_negative_scalar(floor)?, Rounding::Floor)
+                    .map_err(|_| program_fault(5, 0))?;
+                Operation::ConsumeHp(ConsumeHpOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    definition: HpConsumptionDefinition::new(requested, floor),
+                })
+            }
+            RuleEmission::AddWeakness {
+                selector,
+                element,
+                duration_turns,
+                ..
+            } => Operation::AddWeakness(AddWeaknessOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                definition: match duration_turns {
+                    None => WeaknessApplicationDefinition::permanent(element),
+                    Some(value) => {
+                        WeaknessApplicationDefinition::timed(element, weakness_duration(value)?)
+                            .ok_or_else(|| program_fault(67, 0))?
+                    }
+                },
+            }),
+            RuleEmission::AddWeaknessFromAlliedElements {
+                selector,
+                count,
+                duration_turns,
+                ..
+            } => Operation::AddWeaknessFromAlliedElements(AddWeaknessFromAlliedElementsOp {
                 id: operation_id,
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 count,
                 duration_turns,
-            },
-        ),
-        RuleEmission::ReduceToughness {
-            selector,
-            amount,
-            element,
-            ..
-        } => {
-            *toughness_element = Some(element);
-            let amount = scale(non_negative_scalar(amount)?, context.toughness_share)?;
-            let base = crate::RawToughness::from_scalar(amount, Rounding::Floor)
-                .map_err(|_| program_fault(6, amount.scaled()))?;
-            Operation::ReduceToughness(ReduceToughnessOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                definition: toughness_reduction(element, base),
-            })
-        }
-        RuleEmission::Break {
-            selector, element, ..
-        } => {
-            *toughness_element = Some(element);
-            Operation::ForceBreak(ForceBreakOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
+            }),
+            RuleEmission::ReduceToughness {
+                selector,
+                amount,
                 element,
-            })
-        }
-        RuleEmission::SuperBreak {
-            selector,
-            multiplier,
-            ..
-        } => {
-            let multiplier = ratio(multiplier)?;
-            let element = toughness_element
-                .or(input.event_facts.element)
-                .ok_or_else(|| program_fault(43, 0))?;
-            let targets = emission_targets(catalog, resolved, selector, current_target)?;
-            super::program_break::seed_observed_reduction(
-                scratch,
-                input.cause.target,
-                input.event_facts.toughness_reduction,
-                &targets,
-            );
-            Operation::SuperBreak(SuperBreakOp {
-                id: operation_id,
-                targets,
-                definition: super_break(context, multiplier, element),
-            })
-        }
-        RuleEmission::ApplyEffect {
-            selector,
-            effect,
-            stacks,
-            chance,
-            base_chance,
-            rng_purpose,
-            ..
-        } => super::program_effect::apply_effect_operation(
-            catalog,
-            input,
-            operation_id,
-            resolved,
-            selector,
-            current_target,
-            effect,
-            stacks,
-            chance,
-            base_chance,
-            rng_purpose,
-        )?,
-        RuleEmission::ApplyRandomEffect {
-            selector,
-            effects,
-            stacks,
-            choice_rng_purpose,
-            chance,
-            base_chance,
-            chance_rng_purpose,
-            ..
-        } => {
-            let index = txn
-                .choose_index(choice_rng_purpose, effects.len())?
-                .ok_or_else(|| program_fault(68, 0))?;
-            let effect = *effects
-                .get(index)
-                .ok_or_else(|| program_fault(68, i64::try_from(index).unwrap_or(i64::MAX)))?;
-            super::program_effect::apply_effect_operation(
+                ..
+            } => {
+                *toughness_element = Some(element);
+                let amount = scale(non_negative_scalar(amount)?, context.toughness_share)?;
+                let base = RawToughness::from_scalar(amount, Rounding::Floor)
+                    .map_err(|_| program_fault(6, amount.scaled()))?;
+                Operation::ReduceToughness(ReduceToughnessOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    definition: toughness_reduction(element, base),
+                })
+            }
+            RuleEmission::Break {
+                selector, element, ..
+            } => {
+                *toughness_element = Some(element);
+                Operation::ForceBreak(ForceBreakOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    element,
+                })
+            }
+            RuleEmission::SuperBreak {
+                selector,
+                multiplier,
+                ..
+            } => {
+                let multiplier = ratio(multiplier)?;
+                let element = toughness_element
+                    .or(input.event_facts.element)
+                    .ok_or_else(|| program_fault(43, 0))?;
+                let targets = emission_targets(catalog, resolved, selector, current_target)?;
+                super::program_break::seed_observed_reduction(
+                    scratch,
+                    input.cause.target,
+                    input.event_facts.toughness_reduction,
+                    &targets,
+                );
+                Operation::SuperBreak(SuperBreakOp {
+                    id: operation_id,
+                    targets,
+                    definition: super_break(context, multiplier, element),
+                })
+            }
+            RuleEmission::ApplyEffect {
+                selector,
+                effect,
+                stacks,
+                chance,
+                base_chance,
+                rng_purpose,
+                ..
+            } => super::program_effect::apply_effect_operation(
                 catalog,
                 input,
                 operation_id,
@@ -773,249 +754,282 @@ fn execute_emission(
                 stacks,
                 chance,
                 base_chance,
+                rng_purpose,
+            )?,
+            RuleEmission::ApplyRandomEffect {
+                selector,
+                effects,
+                stacks,
+                choice_rng_purpose,
+                chance,
+                base_chance,
                 chance_rng_purpose,
-            )?
-        }
-        RuleEmission::AdjustEffectStacks {
-            selector,
-            effect,
-            delta,
-            ..
-        } => {
-            return super::program_effect::adjust_effect_stacks(
-                catalog,
-                txn,
-                cause,
-                parent,
-                operation_id,
-                emission_targets(catalog, resolved, selector, current_target)?,
+                ..
+            } => {
+                let index = txn
+                    .choose_index(choice_rng_purpose, effects.len())?
+                    .ok_or_else(|| program_fault(68, 0))?;
+                let effect = *effects
+                    .get(index)
+                    .ok_or_else(|| program_fault(68, i64::try_from(index).unwrap_or(i64::MAX)))?;
+                super::program_effect::apply_effect_operation(
+                    catalog,
+                    input,
+                    operation_id,
+                    resolved,
+                    selector,
+                    current_target,
+                    effect,
+                    stacks,
+                    chance,
+                    base_chance,
+                    chance_rng_purpose,
+                )?
+            }
+            RuleEmission::AdjustEffectStacks {
+                selector,
                 effect,
                 delta,
-            );
-        }
-        RuleEmission::RemoveEffect {
-            selector, effect, ..
-        } => Operation::RemoveEffects(RemoveEffectsOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            definition: crate::EffectRemovalDefinition::exact(effect, u16::MAX)
-                .expect("nonzero maximum is valid"),
-        }),
-        RuleEmission::Cleanse {
-            selector,
-            maximum,
-            order,
-            ..
-        } => Operation::RemoveEffects(RemoveEffectsOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            definition: crate::EffectRemovalDefinition::negative(maximum)
-                .ok_or_else(|| program_fault(61, i64::from(maximum)))?
-                .with_order(order),
-        }),
-        RuleEmission::DetonateDot {
-            selector,
-            fraction,
-            required_tag,
-            selection,
-            ..
-        } => Operation::DetonateDots(DetonateDotsOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            definition: crate::DotDetonationDefinition::new(ratio(fraction)?, required_tag)
-                .ok_or_else(|| program_fault(9, 0))?
-                .with_selection(match selection {
-                    crate::rule::model::RuleDotSelection::All => crate::DotDetonationSelection::All,
-                    crate::rule::model::RuleDotSelection::RandomOne(purpose) => {
-                        crate::DotDetonationSelection::RandomOne(purpose)
-                    }
-                }),
-        }),
-        RuleEmission::AdvanceAction {
-            selector, amount, ..
-        } => {
-            return shift_action(
-                txn,
-                cause,
-                parent,
-                emission_targets(catalog, resolved, selector, current_target)?,
-                amount,
-                true,
-            );
-        }
-        RuleEmission::DelayAction {
-            selector, amount, ..
-        } => {
-            return shift_action(
-                txn,
-                cause,
-                parent,
-                emission_targets(catalog, resolved, selector, current_target)?,
-                amount,
-                false,
-            );
-        }
-        RuleEmission::ModifyStateSlot {
-            slot,
-            update,
-            value,
-            ..
-        } => {
-            Operation::ModifyStateSlot(slot_operation(context, operation_id, slot, update, value)?)
-        }
-        RuleEmission::QueueAction {
-            actor_selector,
-            target_selector,
-            ability,
-            priority,
-            forced_use,
-            boundary,
-            owner,
-            payment,
-            ..
-        } => {
-            let attribution = match (context.rule, context.rule_instance, context.trigger) {
-                (Some(rule), Some(instance), Some(trigger)) => {
-                    (Some(rule), Some(instance), Some(trigger))
-                }
-                (None, None, None) => (None, None, None),
-                (None, _, _) => return Err(program_fault(45, 0)),
-                (_, None, _) => return Err(program_fault(46, 0)),
-                (_, _, None) => return Err(program_fault(47, 0)),
-            };
-            Operation::QueueRuleAction(QueueRuleActionOp {
+                ..
+            } => {
+                return super::program_effect::adjust_effect_stacks(
+                    catalog,
+                    txn,
+                    cause,
+                    parent,
+                    operation_id,
+                    emission_targets(catalog, resolved, selector, current_target)?,
+                    effect,
+                    delta,
+                );
+            }
+            RuleEmission::RemoveEffect {
+                selector, effect, ..
+            } => Operation::RemoveEffects(RemoveEffectsOp {
                 id: operation_id,
-                actors: emission_targets(catalog, resolved, actor_selector, current_target)?,
-                targets: emission_targets(catalog, resolved, target_selector, current_target)?,
-                owner: queue_owner(cause, context, owner)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                definition: EffectRemovalDefinition::exact(effect, u16::MAX)
+                    .expect("nonzero maximum is valid"),
+            }),
+            RuleEmission::Cleanse {
+                selector,
+                maximum,
+                order,
+                ..
+            } => Operation::RemoveEffects(RemoveEffectsOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                definition: EffectRemovalDefinition::negative(maximum)
+                    .ok_or_else(|| program_fault(61, i64::from(maximum)))?
+                    .with_order(order),
+            }),
+            RuleEmission::DetonateDot {
+                selector,
+                fraction,
+                required_tag,
+                selection,
+                ..
+            } => Operation::DetonateDots(DetonateDotsOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                definition: DotDetonationDefinition::new(ratio(fraction)?, required_tag)
+                    .ok_or_else(|| program_fault(9, 0))?
+                    .with_selection(match selection {
+                        RuleDotSelection::All => DotDetonationSelection::All,
+                        RuleDotSelection::RandomOne(purpose) => {
+                            DotDetonationSelection::RandomOne(purpose)
+                        }
+                    }),
+            }),
+            RuleEmission::AdvanceAction {
+                selector, amount, ..
+            } => {
+                return shift_action(
+                    txn,
+                    cause,
+                    parent,
+                    emission_targets(catalog, resolved, selector, current_target)?,
+                    amount,
+                    true,
+                );
+            }
+            RuleEmission::DelayAction {
+                selector, amount, ..
+            } => {
+                return shift_action(
+                    txn,
+                    cause,
+                    parent,
+                    emission_targets(catalog, resolved, selector, current_target)?,
+                    amount,
+                    false,
+                );
+            }
+            RuleEmission::ModifyStateSlot {
+                slot,
+                update,
+                value,
+                ..
+            } => Operation::ModifyStateSlot(slot_operation(
+                context,
+                operation_id,
+                slot,
+                update,
+                value,
+            )?),
+            RuleEmission::QueueAction {
+                actor_selector,
+                target_selector,
                 ability,
-                origin: queue_origin(catalog, ability, forced_use)?,
-                priority: priority.get(),
+                priority,
+                forced_use,
                 boundary,
-                payment: queue_payment(txn, context.owner, payment)?,
-                source: cause
-                    .source_definition()
-                    .ok_or_else(|| program_fault(48, 0))?,
-                rule: attribution.0,
-                instance: attribution.1,
-                trigger: attribution.2,
-            })
-        }
-        RuleEmission::GrantExtraTurn { actor_selector, .. } => {
-            let actors = emission_targets(catalog, resolved, actor_selector, current_target)?;
-            return super::program_timeline::grant_extra_turns(txn, cause, parent, actors);
-        }
-        RuleEmission::ModifyResource {
-            selector,
-            resource,
-            update,
-            amount,
-            scales_with_regeneration,
-            rounding,
-            ..
-        } => {
-            return modify_resource(
-                catalog,
-                txn,
-                cause,
-                parent,
-                emission_targets(catalog, resolved, selector, current_target)?,
+                owner,
+                payment,
+                ..
+            } => {
+                let attribution = match (context.rule, context.rule_instance, context.trigger) {
+                    (Some(rule), Some(instance), Some(trigger)) => {
+                        (Some(rule), Some(instance), Some(trigger))
+                    }
+                    (None, None, None) => (None, None, None),
+                    (None, _, _) => return Err(program_fault(45, 0)),
+                    (_, None, _) => return Err(program_fault(46, 0)),
+                    (_, _, None) => return Err(program_fault(47, 0)),
+                };
+                Operation::QueueRuleAction(QueueRuleActionOp {
+                    id: operation_id,
+                    actors: emission_targets(catalog, resolved, actor_selector, current_target)?,
+                    targets: emission_targets(catalog, resolved, target_selector, current_target)?,
+                    owner: queue_owner(cause, context, owner)?,
+                    ability,
+                    origin: queue_origin(catalog, ability, forced_use)?,
+                    priority: priority.get(),
+                    boundary,
+                    payment: queue_payment(txn, context.owner, payment)?,
+                    source: cause
+                        .source_definition()
+                        .ok_or_else(|| program_fault(48, 0))?,
+                    rule: attribution.0,
+                    instance: attribution.1,
+                    trigger: attribution.2,
+                })
+            }
+            RuleEmission::GrantExtraTurn { actor_selector, .. } => {
+                let actors = emission_targets(catalog, resolved, actor_selector, current_target)?;
+                return super::program_timeline::grant_extra_turns(txn, cause, parent, actors);
+            }
+            RuleEmission::ModifyResource {
+                selector,
                 resource,
                 update,
                 amount,
                 scales_with_regeneration,
                 rounding,
-            );
-        }
-        RuleEmission::ChangePresence {
-            selector, presence, ..
-        } => Operation::ChangePresence(ChangePresenceOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            presence,
-        }),
-        RuleEmission::Despawn { selector, .. } => Operation::DespawnLinked(UnitLifecycleOp {
-            id: operation_id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-        }),
-        RuleEmission::Summon {
-            owner_selector,
-            unit_definition,
-            ..
-        } => Operation::SummonLinked(SummonLinkedOp {
-            id: operation_id,
-            owners: emission_targets(catalog, resolved, owner_selector, current_target)?,
-            definition: catalog
-                .linked_unit(unit_definition)
-                .ok_or_else(|| program_fault(49, i64::from(unit_definition.get())))?
-                .definition()
-                .clone(),
-        }),
-        RuleEmission::Transform {
-            selector,
-            replacement_definition,
-            ..
-        } => {
-            let replacement = catalog
-                .unit(replacement_definition)
-                .ok_or_else(|| program_fault(10, i64::from(replacement_definition.get())))?;
-            let definition = crate::TransformationDefinition::new(
-                replacement_definition,
-                replacement.abilities().to_vec(),
-                None,
-                crate::TransformEndPolicy::End,
-                crate::TransformEndPolicy::End,
-            )
-            .ok_or_else(|| program_fault(11, i64::from(replacement_definition.get())))?;
-            Operation::Transform(TransformOp {
+                ..
+            } => {
+                return modify_resource(
+                    catalog,
+                    txn,
+                    cause,
+                    parent,
+                    emission_targets(catalog, resolved, selector, current_target)?,
+                    resource,
+                    update,
+                    amount,
+                    scales_with_regeneration,
+                    rounding,
+                );
+            }
+            RuleEmission::ChangePresence {
+                selector, presence, ..
+            } => Operation::ChangePresence(ChangePresenceOp {
                 id: operation_id,
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
-                definition,
-            })
-        }
-        RuleEmission::ReplaceAbility {
-            selector,
-            old_ability,
-            new_ability,
-            ..
-        } => {
-            return replace_ability(
-                catalog,
-                txn,
-                emission_targets(catalog, resolved, selector, current_target)?,
+                presence,
+            }),
+            RuleEmission::Despawn { selector, .. } => Operation::DespawnLinked(UnitLifecycleOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+            }),
+            RuleEmission::Summon {
+                owner_selector,
+                unit_definition,
+                ..
+            } => Operation::SummonLinked(SummonLinkedOp {
+                id: operation_id,
+                owners: emission_targets(catalog, resolved, owner_selector, current_target)?,
+                definition: catalog
+                    .linked_unit(unit_definition)
+                    .ok_or_else(|| program_fault(49, i64::from(unit_definition.get())))?
+                    .definition()
+                    .clone(),
+            }),
+            RuleEmission::Transform {
+                selector,
+                replacement_definition,
+                ..
+            } => {
+                let replacement = catalog
+                    .unit(replacement_definition)
+                    .ok_or_else(|| program_fault(10, i64::from(replacement_definition.get())))?;
+                let definition = TransformationDefinition::new(
+                    replacement_definition,
+                    replacement.abilities().to_vec(),
+                    None,
+                    TransformEndPolicy::End,
+                    TransformEndPolicy::End,
+                )
+                .ok_or_else(|| program_fault(11, i64::from(replacement_definition.get())))?;
+                Operation::Transform(TransformOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    definition,
+                })
+            }
+            RuleEmission::ReplaceAbility {
+                selector,
                 old_ability,
                 new_ability,
-                parent,
-            );
-        }
-        RuleEmission::CreateCountdown { code, .. } => {
-            Operation::CreateCountdown(CreateCountdownOp {
-                id: operation_id,
-                owner: context.owner,
-                definition: catalog
-                    .countdown(code)
-                    .ok_or_else(|| program_fault(50, i64::from(code)))?
-                    .definition(),
-            })
-        }
-        RuleEmission::Informational {
-            code,
-            value,
-            current_target,
-        } => {
-            let cause =
-                current_target.map_or(cause, |target| cause.with_primary_target(Some(target)));
-            return Ok(txn.emit(
-                cause.with_parent(parent),
-                BattleEventKind::RuleSignal(crate::RuleSignalEventData {
-                    operation: operation_id,
-                    code,
-                    value,
-                }),
-            ));
-        }
-        unsupported => return Err(program_fault(12, emission_code(&unsupported))),
-    };
+                ..
+            } => {
+                return replace_ability(
+                    catalog,
+                    txn,
+                    emission_targets(catalog, resolved, selector, current_target)?,
+                    old_ability,
+                    new_ability,
+                    parent,
+                );
+            }
+            RuleEmission::CreateCountdown { code, .. } => {
+                Operation::CreateCountdown(CreateCountdownOp {
+                    id: operation_id,
+                    owner: context.owner,
+                    definition: catalog
+                        .countdown(code)
+                        .ok_or_else(|| program_fault(50, i64::from(code)))?
+                        .definition(),
+                })
+            }
+            RuleEmission::Informational {
+                code,
+                value,
+                current_target,
+            } => {
+                let cause =
+                    current_target.map_or(cause, |target| cause.with_primary_target(Some(target)));
+                return Ok(txn.emit(
+                    cause.with_parent(parent),
+                    BattleEventKind::RuleSignal(RuleSignalEventData {
+                        operation: operation_id,
+                        code,
+                        value,
+                    }),
+                ));
+            }
+            unsupported => return Err(program_fault(12, emission_code(&unsupported))),
+        };
     execute_operation(catalog, txn, cause, parent, request, scratch)
 }
 
@@ -1023,7 +1037,7 @@ fn queue_owner(
     cause: Cause,
     context: &AbilityProgramContext,
     owner: RuleActionOwner,
-) -> Result<crate::UnitId, BattleFault> {
+) -> Result<UnitId, BattleFault> {
     match owner {
         RuleActionOwner::Actor => Some(context.actor),
         RuleActionOwner::CauseOwner => cause.owner(),
@@ -1034,17 +1048,15 @@ fn queue_owner(
 
 fn queue_payment(
     txn: &Transaction<'_>,
-    owner: crate::UnitId,
+    owner: UnitId,
     payment: Option<RuleActionPaymentPolicy>,
-) -> Result<Option<crate::catalog::action::SkillPointPaymentPolicy>, BattleFault> {
+) -> Result<Option<SkillPointPaymentPolicy>, BattleFault> {
     payment
         .map(|payment| match payment {
             RuleActionPaymentPolicy::TeamSkillPoints => {
-                Ok(crate::catalog::action::SkillPointPaymentPolicy::TeamSkillPoints)
+                Ok(SkillPointPaymentPolicy::TeamSkillPoints)
             }
-            RuleActionPaymentPolicy::Suppressed => {
-                Ok(crate::catalog::action::SkillPointPaymentPolicy::Suppressed)
-            }
+            RuleActionPaymentPolicy::Suppressed => Ok(SkillPointPaymentPolicy::Suppressed),
             RuleActionPaymentPolicy::TeamResource(stable_key) => {
                 let side = txn
                     .state
@@ -1059,24 +1071,24 @@ fn queue_payment(
                     .keyed_by_name(&stable_key)
                     .ok_or_else(|| program_fault(55, 1))?
                     .id;
-                Ok(crate::catalog::action::SkillPointPaymentPolicy::TeamResource(id))
+                Ok(SkillPointPaymentPolicy::TeamResource(id))
             }
         })
         .transpose()
 }
 
 fn queue_origin(
-    catalog: &crate::catalog::CombatCatalog,
-    ability: crate::AbilityId,
+    catalog: &CombatCatalog,
+    ability: AbilityId,
     forced: bool,
-) -> Result<crate::ActionOrigin, BattleFault> {
+) -> Result<ActionOrigin, BattleFault> {
     if forced {
-        return Ok(crate::ActionOrigin::Forced);
+        return Ok(ActionOrigin::Forced);
     }
     let kind = catalog
         .ability(ability)
-        .and_then(crate::catalog::definition::AbilityDefinition::action)
-        .map(crate::catalog::action::AbilityActionDefinition::kind)
+        .and_then(AbilityDefinition::action)
+        .map(AbilityActionDefinition::kind)
         .ok_or_else(|| program_fault(56, i64::from(ability.get())))?;
     use crate::{ActionOrigin as O, catalog::action::AbilityKind as K};
     match kind {
@@ -1097,22 +1109,22 @@ fn queue_origin(
 fn shift_action(
     txn: &mut Transaction<'_>,
     cause: Cause,
-    parent: crate::EventId,
-    targets: Box<[crate::UnitId]>,
+    parent: EventId,
+    targets: Box<[UnitId]>,
     amount: RuleValue,
     advance: bool,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     super::program_timeline::shift_actions(txn, cause, parent, targets, ratio(amount)?, advance)
 }
 
 fn replace_ability(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
-    targets: Box<[crate::UnitId]>,
-    old: crate::AbilityId,
-    new: crate::AbilityId,
-    parent: crate::EventId,
-) -> Result<crate::EventId, BattleFault> {
+    targets: Box<[UnitId]>,
+    old: AbilityId,
+    new: AbilityId,
+    parent: EventId,
+) -> Result<EventId, BattleFault> {
     if catalog.ability(new).is_none() {
         return Err(program_fault(29, i64::from(new.get())));
     }
@@ -1140,23 +1152,20 @@ fn replace_ability(
     Ok(parent)
 }
 
-fn toughness_reduction(
-    element: crate::formula::model::CombatElement,
-    base: crate::RawToughness,
-) -> crate::ToughnessReductionDefinition {
-    crate::ToughnessReductionDefinition {
+fn toughness_reduction(element: CombatElement, base: RawToughness) -> ToughnessReductionDefinition {
+    ToughnessReductionDefinition {
         element,
         ignores_weakness: false,
-        reduction: crate::formula::toughness::ToughnessReductionContext {
+        reduction: ToughnessReductionContext {
             base,
-            additive: crate::RawToughness::new(0).expect("zero is valid"),
+            additive: RawToughness::new(0).expect("zero is valid"),
             reduction_increase: Ratio::ZERO,
             weakness_break_efficiency: Ratio::ZERO,
             weakness_break_efficiency_cap: Ratio::from_scaled(3_000_000),
             toughness_vulnerability: Ratio::ZERO,
             ability_multiplier: Ratio::ONE,
         },
-        break_damage: crate::formula::toughness::BreakDamageDefinition {
+        break_damage: BreakDamageDefinition {
             attacker_level_multiplier: Scalar::ONE,
             ability_multiplier: Ratio::ONE,
             break_effect: Ratio::ZERO,
@@ -1167,16 +1176,16 @@ fn toughness_reduction(
             mitigation_multiplier: Ratio::ONE,
             unbroken_multiplier: Ratio::ONE,
         },
-        break_effect_chance: crate::Probability::ONE,
+        break_effect_chance: Probability::ONE,
     }
 }
 
 fn super_break(
     _context: &AbilityProgramContext,
     multiplier: Ratio,
-    element: crate::formula::model::CombatElement,
-) -> crate::formula::toughness::SuperBreakDefinition {
-    crate::formula::toughness::SuperBreakDefinition {
+    element: CombatElement,
+) -> SuperBreakDefinition {
+    SuperBreakDefinition {
         element,
         attacker_level_multiplier: Scalar::ONE,
         ability_multiplier: multiplier,

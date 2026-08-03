@@ -1,8 +1,13 @@
 //! Rule-selector cross-reference, ordering and snapshot-safety validation.
 
+use crate::catalog::definition::SelectorDefinition;
+use crate::catalog::selector::RuleSelectorReference;
+use crate::catalog::selector::RuleUnitSelector;
+use crate::rule::model::ConditionExpr;
+use crate::rule::model::ValueExpr;
 use std::collections::BTreeSet;
 
-use crate::{SelectorId, catalog::CombatCatalog};
+use crate::{EffectCategory, SelectorId, catalog::CombatCatalog};
 
 use super::{CatalogBuildError, CatalogBuildErrorKind, error};
 
@@ -15,7 +20,7 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         let Some(selector) = catalog
             .selectors
             .get(id)
-            .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+            .and_then(SelectorDefinition::rule_units)
         else {
             continue;
         };
@@ -48,7 +53,7 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 format!("selector {} has an invalid RNG/order contract", id.get()),
             ));
         }
-        if selector.reference() != crate::catalog::selector::RuleSelectorReference::CurrentState
+        if selector.reference() != RuleSelectorReference::CurrentState
             && (selector
                 .weight()
                 .is_some_and(|expression| !historical_value_safe(expression))
@@ -73,7 +78,7 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             if catalog
                 .selectors
                 .get(dependency)
-                .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+                .and_then(SelectorDefinition::rule_units)
                 .is_none()
             {
                 return Err(error(
@@ -96,7 +101,7 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
 fn validate_predicates(
     catalog: &CombatCatalog,
     id: SelectorId,
-    selector: &crate::catalog::selector::RuleUnitSelector,
+    selector: &RuleUnitSelector,
 ) -> Result<(), CatalogBuildError> {
     use crate::catalog::selector::RuleSelectorPredicate;
 
@@ -124,7 +129,7 @@ fn validate_predicates(
                                 .runtime_template()
                                 .map(|runtime| runtime.category())
                         })
-                        != Some(crate::EffectCategory::Mark)
+                        != Some(EffectCategory::Mark)
                 }) =>
             {
                 return Err(error(
@@ -140,7 +145,7 @@ fn validate_predicates(
                 if catalog
                     .selectors
                     .get(*owner)
-                    .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+                    .and_then(SelectorDefinition::rule_units)
                     .is_none() =>
             {
                 return Err(error(
@@ -158,7 +163,7 @@ fn validate_predicates(
     Ok(())
 }
 
-fn historical_value_safe(expression: &crate::rule::model::ValueExpr) -> bool {
+fn historical_value_safe(expression: &ValueExpr) -> bool {
     use crate::rule::model::ValueExpr;
 
     match expression {
@@ -213,7 +218,7 @@ fn historical_value_safe(expression: &crate::rule::model::ValueExpr) -> bool {
     }
 }
 
-fn historical_condition_safe(condition: &crate::rule::model::ConditionExpr) -> bool {
+fn historical_condition_safe(condition: &ConditionExpr) -> bool {
     use crate::rule::model::ConditionExpr;
 
     match condition {
@@ -256,7 +261,7 @@ fn validate_dependencies(
     if let Some(selector) = catalog
         .selectors
         .get(id)
-        .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+        .and_then(SelectorDefinition::rule_units)
     {
         for dependency in selector.dependencies() {
             validate_dependencies(catalog, dependency, visiting, visited)?;

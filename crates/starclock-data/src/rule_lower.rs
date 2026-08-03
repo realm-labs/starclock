@@ -1,5 +1,8 @@
 //! Generated Sora rule/state-slot rows to executable battle Rule IR.
 
+use crate::effect_lower::lower_element;
+use crate::modifier_lower::expression;
+use crate::native_handler_lower::handler_id;
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
@@ -58,10 +61,7 @@ fn lower_rule(
             row.id
         )));
     }
-    let native_handler = row
-        .native_handler_id
-        .map(crate::native_handler_lower::handler_id)
-        .transpose()?;
+    let native_handler = row.native_handler_id.map(handler_id).transpose()?;
     if native_handler.is_some_and(|handler| !native_handlers.contains(&handler)) {
         return Err(domain_fail(format!(
             "rule {} requires an unregistered native handler",
@@ -175,7 +175,7 @@ fn lower_trigger(
                 .as_deref()
                 .map(lower_ability_tag)
                 .transpose()?,
-            element: filter.element.map(crate::effect_lower::lower_element),
+            element: filter.element.map(lower_element),
             damage_class: filter.damage_class.map(lower_damage_class).transpose()?,
             resource: lower_filter_resource(
                 filter.resource_kind,
@@ -430,13 +430,13 @@ pub(super) fn lower_condition(
             comparison,
             right_expression_id,
         } => ConditionExpr::Compare {
-            lhs: Box::new(crate::modifier_lower::expression(
+            lhs: Box::new(expression(
                 config,
                 *left_expression_id,
                 &mut BTreeSet::new(),
             )?),
             operator: lower_comparison(*comparison),
-            rhs: Box::new(crate::modifier_lower::expression(
+            rhs: Box::new(expression(
                 config,
                 *right_expression_id,
                 &mut BTreeSet::new(),
@@ -475,26 +475,26 @@ pub(super) fn lower_condition(
         } => ConditionExpr::All(
             vec![
                 ConditionExpr::Compare {
-                    lhs: Box::new(crate::modifier_lower::expression(
+                    lhs: Box::new(expression(
                         config,
                         *resource_expression_id,
                         &mut BTreeSet::new(),
                     )?),
                     operator: Comparison::GreaterOrEqual,
-                    rhs: Box::new(crate::modifier_lower::expression(
+                    rhs: Box::new(expression(
                         config,
                         *minimum_expression_id,
                         &mut BTreeSet::new(),
                     )?),
                 },
                 ConditionExpr::Compare {
-                    lhs: Box::new(crate::modifier_lower::expression(
+                    lhs: Box::new(expression(
                         config,
                         *resource_expression_id,
                         &mut BTreeSet::new(),
                     )?),
                     operator: Comparison::LessOrEqual,
-                    rhs: Box::new(crate::modifier_lower::expression(
+                    rhs: Box::new(expression(
                         config,
                         *maximum_expression_id,
                         &mut BTreeSet::new(),
@@ -519,7 +519,7 @@ pub(super) fn lower_condition(
             element,
         } => ConditionExpr::HasWeakness {
             selector: selector(*selector_id)?,
-            element: crate::effect_lower::lower_element(*element),
+            element: lower_element(*element),
         },
         V::IsBroken { selector_id } => ConditionExpr::IsBroken(selector(*selector_id)?),
         V::SelectorCardinality {
@@ -552,7 +552,7 @@ pub(super) fn lower_condition(
                 *property,
             ))),
             operator: lower_comparison(*comparison),
-            rhs: Box::new(crate::modifier_lower::expression(
+            rhs: Box::new(expression(
                 config,
                 *expected_expression_id,
                 &mut BTreeSet::new(),
@@ -693,7 +693,7 @@ fn literal(
     expression_id: i32,
     role: &str,
 ) -> Result<RuleValue, CatalogLoadError> {
-    match crate::modifier_lower::expression(config, expression_id, &mut BTreeSet::new())? {
+    match expression(config, expression_id, &mut BTreeSet::new())? {
         ValueExpr::Literal(value) => Ok(value),
         _ => Err(domain_fail(format!(
             "state-slot {role} expression {expression_id} is contextual"

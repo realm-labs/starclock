@@ -1,12 +1,11 @@
 //! Shared immutable inputs for staged stat and formula queries.
 
+use crate::{Scalar, UnitId};
 use std::collections::BTreeMap;
-
-use crate::Scalar;
 
 use super::transaction::Transaction;
 
-pub(super) fn shield_values(txn: &Transaction<'_>) -> BTreeMap<crate::UnitId, Scalar> {
+pub(super) fn shield_values(txn: &Transaction<'_>) -> BTreeMap<UnitId, Scalar> {
     txn.state
         .units
         .iter_by_id()

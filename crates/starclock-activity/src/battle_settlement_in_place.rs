@@ -6,7 +6,7 @@ use crate::{
     ActivityDefinitionIdentity, ActivityGraphDefinition, ActivityInstanceId,
     ActivityProgramBindingError, ActivityProgramDefinition, ActivityRngStreams, ActivityStateHash,
     ActivityTerminalOutcome, ActivityTransactionEvent, ActivityTransactionOutcome,
-    ActivityTransactionRejection, BattleOutcome, BattleResultDigest,
+    ActivityTransactionRejection, ActivityTransactionState, BattleOutcome, BattleResultDigest,
     battle_settlement::{
         MAX_COMPLETED_ACTIVITY_BATTLES, apply_carry, metric_value, validate_participant_results,
     },
@@ -51,7 +51,7 @@ pub enum ActivityBattleInPlaceSettlementError {
     Rejected(ActivityTransactionRejection),
 }
 
-impl crate::ActivityTransactionState {
+impl ActivityTransactionState {
     /// Verifies and settles a nested result without consuming a graph edge,
     /// then atomically applies one optional post-battle program.
     ///

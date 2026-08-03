@@ -1,3 +1,4 @@
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::{
     ActivityCause, ActivityProgramDefinition, ActivityProgramId, ActivityTransactionOutcome,
     ActivityTransactionState,
@@ -96,7 +97,7 @@ fn interplays_activate_in_stable_order_once_and_reject_stale_programs() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
 fn instance(
@@ -105,11 +106,11 @@ fn instance(
     die: &str,
 ) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::super::tests::released_entry(
+        .compile_entry(released_entry(
             "swarm-disaster.area.201",
             path,
             die,
-            super::super::tests::participants(super::super::tests::policy()),
+            participants(policy()),
         ))
         .unwrap()
 }

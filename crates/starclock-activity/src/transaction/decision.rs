@@ -1,4 +1,5 @@
 use super::*;
+use crate::ActivityOperation;
 
 pub(super) fn replace_pending_with_program(
     state: &mut ActivityTransactionState,
@@ -46,7 +47,7 @@ pub(super) fn replace_pending_with_program(
 pub(super) fn apply_option_with_prefix(
     state: &mut ActivityTransactionState,
     option: ActivityOptionId,
-    prefix: &[crate::ActivityOperation],
+    prefix: &[ActivityOperation],
     cause: ActivityCause,
     graph: &ActivityGraphDefinition,
 ) -> ActivityTransactionOutcome {

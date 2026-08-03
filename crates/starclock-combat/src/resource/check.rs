@@ -1,5 +1,6 @@
+use crate::catalog::action::SkillPointPaymentPolicy;
 use crate::{
-    UnitId,
+    LifeState, UnitId,
     actor::store::{TeamStateStore, UnitStore},
     catalog::action::ActionResourcePolicy,
 };
@@ -18,21 +19,20 @@ pub(crate) fn can_pay_with_policy(
     teams: &TeamStateStore,
     actor: UnitId,
     policy: &ActionResourcePolicy,
-    payment: crate::catalog::action::SkillPointPaymentPolicy,
+    payment: SkillPointPaymentPolicy,
 ) -> bool {
     units.get(actor).is_some_and(|unit| {
         let payable_sp = match payment {
-            crate::catalog::action::SkillPointPaymentPolicy::TeamSkillPoints => {
+            SkillPointPaymentPolicy::TeamSkillPoints => {
                 teams.get(unit.side).skill_points >= policy.skill_point_cost()
             }
-            crate::catalog::action::SkillPointPaymentPolicy::Suppressed => true,
-            crate::catalog::action::SkillPointPaymentPolicy::TeamResource(resource) => teams
+            SkillPointPaymentPolicy::Suppressed => true,
+            SkillPointPaymentPolicy::TeamResource(resource) => teams
                 .get(unit.side)
                 .keyed(resource)
                 .is_some_and(|state| state.current >= policy.skill_point_cost()),
         };
-        let suppresses_costs =
-            payment == crate::catalog::action::SkillPointPaymentPolicy::Suppressed;
+        let suppresses_costs = payment == SkillPointPaymentPolicy::Suppressed;
         let payable_character_resources = suppresses_costs
             || policy.character_resource_costs().iter().all(|cost| {
                 unit.resource(cost.stable_key())
@@ -45,7 +45,7 @@ pub(crate) fn can_pay_with_policy(
                     .keyed_by_name(cost.stable_key())
                     .is_some_and(|state| state.current >= cost.amount())
             });
-        unit.life == crate::LifeState::Alive
+        unit.life == LifeState::Alive
             && unit.presence.is_active()
             && payable_sp
             && (suppresses_costs || unit.current_energy >= policy.energy_cost())

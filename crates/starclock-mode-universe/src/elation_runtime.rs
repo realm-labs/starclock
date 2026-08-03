@@ -1,5 +1,7 @@
 //! Closed executor for the released Standard Universe Elation partition.
 
+use crate::path_effect_runtime::PathEffectDamageKind;
+use crate::path_effect_runtime::PathEffectElement;
 use crate::{
     catalog::UniverseCatalog,
     digest::Encoder,
@@ -307,8 +309,8 @@ fn execute(
                 .actor_base_attack
                 .checked_multiply_ratio(p[0])?
                 .checked_multiply_count(facts.follow_up_targets_hit)?,
-            kind: crate::path_effect_runtime::PathEffectDamageKind::PathAdditional,
-            element: crate::path_effect_runtime::PathEffectElement::InheritActor,
+            kind: PathEffectDamageKind::PathAdditional,
+            element: PathEffectElement::InheritActor,
             can_defeat: true,
             force_critical: false,
             critical_damage_ratio: PathEffectValue::ZERO,

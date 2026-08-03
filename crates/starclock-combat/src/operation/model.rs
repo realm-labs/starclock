@@ -1,5 +1,19 @@
+use crate::catalog::action::HitCritPolicy;
+use crate::catalog::action::QueueActionDefinition;
+use crate::catalog::action::ReactionBoundary;
+use crate::catalog::action::SkillPointPaymentPolicy;
+use crate::catalog::action::TeamResourceChangeDefinition;
+use crate::catalog::action::WeaknessApplicationDefinition;
+use crate::formula::model::CombatElement;
+use crate::formula::toughness::SuperBreakDefinition;
+use crate::rng::types::DrawPurpose;
+use crate::rule::model::RuleSlotMutationDefinition;
 use crate::{
-    UnitId,
+    AbilityId, ActionOrigin, CountdownDefinition, DotDetonationDefinition,
+    EffectApplicationDefinition, EffectChancePolicy, EffectDefinitionId, EffectRemovalDefinition,
+    EffectRuntimeDefinition, EnemyPhaseId, LinkedUnitDefinition, PresenceState, RawToughness,
+    ReviveDefinition, RuleId, RuleInstanceId, SourceDefinitionId, ToughnessReductionDefinition,
+    TransformationDefinition, TriggerId, UnitId,
     catalog::action::{
         HealingDefinition, HpConsumptionDefinition, OrdinaryDamageDefinition, ShieldDefinition,
     },
@@ -74,7 +88,7 @@ impl Operation {
 pub(crate) struct EnemyPhaseOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) phase: crate::EnemyPhaseId,
+    pub(crate) phase: EnemyPhaseId,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -86,35 +100,35 @@ pub(crate) struct EncounterLifecycleOp {
 pub(crate) struct SummonLinkedOp {
     pub(crate) id: OperationId,
     pub(crate) owners: Box<[UnitId]>,
-    pub(crate) definition: crate::LinkedUnitDefinition,
+    pub(crate) definition: LinkedUnitDefinition,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct CreateCountdownOp {
     pub(crate) id: OperationId,
     pub(crate) owner: UnitId,
-    pub(crate) definition: crate::CountdownDefinition,
+    pub(crate) definition: CountdownDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ChangePresenceOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) presence: crate::PresenceState,
+    pub(crate) presence: PresenceState,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct TransformOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::TransformationDefinition,
+    pub(crate) definition: TransformationDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ReviveOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::ReviveDefinition,
+    pub(crate) definition: ReviveDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -126,7 +140,7 @@ pub(crate) struct UnitLifecycleOp {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct QueueActionOp {
     pub(crate) id: OperationId,
-    pub(crate) definition: crate::catalog::action::QueueActionDefinition,
+    pub(crate) definition: QueueActionDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -135,59 +149,59 @@ pub(crate) struct QueueRuleActionOp {
     pub(crate) actors: Box<[UnitId]>,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) owner: UnitId,
-    pub(crate) ability: crate::AbilityId,
-    pub(crate) origin: crate::ActionOrigin,
+    pub(crate) ability: AbilityId,
+    pub(crate) origin: ActionOrigin,
     pub(crate) priority: i16,
-    pub(crate) boundary: crate::catalog::action::ReactionBoundary,
-    pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
-    pub(crate) source: crate::SourceDefinitionId,
-    pub(crate) rule: Option<crate::RuleId>,
-    pub(crate) instance: Option<crate::RuleInstanceId>,
-    pub(crate) trigger: Option<crate::TriggerId>,
+    pub(crate) boundary: ReactionBoundary,
+    pub(crate) payment: Option<SkillPointPaymentPolicy>,
+    pub(crate) source: SourceDefinitionId,
+    pub(crate) rule: Option<RuleId>,
+    pub(crate) instance: Option<RuleInstanceId>,
+    pub(crate) trigger: Option<TriggerId>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ModifyStateSlotOp {
     pub(crate) id: OperationId,
     pub(crate) owner: UnitId,
-    pub(crate) instance: Option<crate::RuleInstanceId>,
-    pub(crate) definition: crate::rule::model::RuleSlotMutationDefinition,
+    pub(crate) instance: Option<RuleInstanceId>,
+    pub(crate) definition: RuleSlotMutationDefinition,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct ModifyTeamResourceOp {
     pub(crate) id: OperationId,
     pub(crate) actor: UnitId,
-    pub(crate) definition: crate::catalog::action::TeamResourceChangeDefinition,
+    pub(crate) definition: TeamResourceChangeDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ApplyEffectOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::EffectApplicationDefinition,
-    pub(crate) rng_purpose: Option<crate::rng::types::DrawPurpose>,
-    pub(crate) resolved_chances: Option<Box<[crate::EffectChancePolicy]>>,
-    pub(crate) resolved_runtime: Option<Box<[crate::EffectRuntimeDefinition]>>,
+    pub(crate) definition: EffectApplicationDefinition,
+    pub(crate) rng_purpose: Option<DrawPurpose>,
+    pub(crate) resolved_chances: Option<Box<[EffectChancePolicy]>>,
+    pub(crate) resolved_runtime: Option<Box<[EffectRuntimeDefinition]>>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct RemoveEffectsOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::EffectRemovalDefinition,
+    pub(crate) definition: EffectRemovalDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct DetonateDotsOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::DotDetonationDefinition,
+    pub(crate) definition: DotDetonationDefinition,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub(crate) struct HitOperationScratch {
-    pub(crate) effective_reductions: BTreeMap<UnitId, crate::RawToughness>,
+    pub(crate) effective_reductions: BTreeMap<UnitId, RawToughness>,
     pub(crate) critical_by_target: BTreeMap<UnitId, bool>,
     pub(crate) shared_critical_draw: Option<u32>,
 }
@@ -196,7 +210,7 @@ pub(crate) struct HitOperationScratch {
 pub(crate) struct AddWeaknessOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::catalog::action::WeaknessApplicationDefinition,
+    pub(crate) definition: WeaknessApplicationDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -211,21 +225,21 @@ pub(crate) struct AddWeaknessFromAlliedElementsOp {
 pub(crate) struct ReduceToughnessOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::ToughnessReductionDefinition,
+    pub(crate) definition: ToughnessReductionDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ForceBreakOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) element: crate::formula::model::CombatElement,
+    pub(crate) element: CombatElement,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct SuperBreakOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) definition: crate::formula::toughness::SuperBreakDefinition,
+    pub(crate) definition: SuperBreakDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -233,8 +247,8 @@ pub(crate) struct DamageOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: OrdinaryDamageDefinition,
-    pub(crate) element: Option<crate::formula::model::CombatElement>,
-    pub(crate) crit_policy: crate::catalog::action::HitCritPolicy,
+    pub(crate) element: Option<CombatElement>,
+    pub(crate) crit_policy: HitCritPolicy,
     pub(crate) apply_source_modifiers: bool,
     /// Replaces inherited action tags with Attack + Ultimate for formula
     /// modifier queries without creating a new action lifecycle.
@@ -255,14 +269,14 @@ pub(crate) struct ShieldOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: ShieldDefinition,
-    pub(crate) source_effect: Option<crate::EffectDefinitionId>,
+    pub(crate) source_effect: Option<EffectDefinitionId>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct RemoveShieldsOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
-    pub(crate) effect: crate::EffectDefinitionId,
+    pub(crate) effect: EffectDefinitionId,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -1,6 +1,9 @@
 use super::fault::{invariant_fault, numeric_fault};
+
+use crate::effect::shield::ShieldState;
+use crate::formula::sustain::healing;
 use crate::{
-    HealingAmount, Hp, LifeState,
+    HealingAmount, Hp, LifeState, ShieldAmount,
     battle::fault::BattleFault,
     catalog::CombatCatalog,
     event::{
@@ -52,7 +55,7 @@ pub(super) fn execute_shield(
             .insert(
                 target,
                 operation.formula.policy(),
-                crate::effect::shield::ShieldState {
+                ShieldState {
                     id: shield,
                     source_operation: operation.id,
                     source_effect: operation.source_effect,
@@ -61,7 +64,7 @@ pub(super) fn execute_shield(
             )
             .map_err(|_| invariant_fault(4))?;
         txn.record_shield_change(
-            crate::ShieldAmount::new(0).expect("zero shield amount is valid"),
+            ShieldAmount::new(0).expect("zero shield amount is valid"),
             calculation.finalized,
         );
         parent = txn.emit(
@@ -126,7 +129,7 @@ pub(super) fn execute_heal(
         let calculation = if operation.apply_formula_modifiers {
             inputs.healing(catalog, txn, cause, operation.formula, target)?
         } else {
-            crate::formula::sustain::healing(operation.formula)
+            healing(operation.formula)
                 .map_err(|_| numeric_fault(11, operation.formula.base_healing().scaled()))?
         };
         let (hp_before, maximum_hp, life) = txn

@@ -1,6 +1,27 @@
+pub(super) mod fault;
+mod sustain;
+mod weakness;
+
 use super::transaction::Transaction;
+
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::HitCritPolicy;
+use crate::effect::break_effect::BreakEffectState;
+use crate::effect::state::EffectApplicationContext;
+use crate::effect::state::EffectApplyResult;
+use crate::effect::state::EffectState;
+use crate::formula::model::CombatElement;
+use crate::formula::model::DamageClass;
+use crate::modifier::model::FormulaStage;
+use crate::rng::types::DrawPurpose;
+use crate::rule::model::RuleValue;
+use crate::rule::model::SlotResetPoint;
+use crate::toughness::state::route_reduction_with_override;
 use crate::{
-    DamageAmount, Hp,
+    BreakCreditPolicy, CauseActor, DamageAmount, DurationClock, EffectCategory, EffectChancePolicy,
+    EffectInstanceId, EffectRemovalOrder, EffectTickPhase, Hp, LifeState,
+    NEGATIVE_EFFECT_GUARDED_SIGNAL, OperationId, Probability, Ratio, RawToughness, Rounding,
+    RuleSignalEventData, Scalar, Speed, UnitId,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
@@ -16,13 +37,10 @@ use crate::{
         RemoveEffectsOp, SuperBreakOp,
     },
 };
-pub(super) mod fault;
-mod sustain;
-mod weakness;
 use fault::{invariant_fault, numeric_fault};
 
 pub(super) fn execute_operation(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
@@ -111,7 +129,7 @@ pub(super) fn execute_operation(
 }
 
 pub(super) fn execute_toughness_reduction(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -164,7 +182,7 @@ pub(super) fn execute_toughness_reduction(
         });
         let routed = (!protected)
             .then(|| {
-                crate::toughness::state::route_reduction_with_override(
+                route_reduction_with_override(
                     &mut layers,
                     &weaknesses,
                     was_broken,
@@ -174,7 +192,7 @@ pub(super) fn execute_toughness_reduction(
                 )
             })
             .flatten();
-        let zero = crate::RawToughness::new(0).expect("zero Toughness is valid");
+        let zero = RawToughness::new(0).expect("zero Toughness is valid");
         let (layer_key, effective, before, after) =
             routed.map_or((None, zero, zero, zero), |value| {
                 (
@@ -205,8 +223,8 @@ pub(super) fn execute_toughness_reduction(
             continue;
         };
         let break_cause = match value.break_credit {
-            crate::BreakCreditPolicy::HitApplier => cause,
-            crate::BreakCreditPolicy::LayerProvider(source) => cause.with_source_definition(source),
+            BreakCreditPolicy::HitApplier => cause,
+            BreakCreditPolicy::LayerProvider(source) => cause.with_source_definition(source),
         };
         if value.applies_break_damage {
             let break_damage = super::operation_formula::FormulaInputs::new(txn)?.break_damage(
@@ -256,10 +274,8 @@ pub(super) fn execute_toughness_reduction(
             }),
         );
         if value.applies_break_effect {
-            let applied = txn.roll_probability(
-                definition.break_effect_chance,
-                crate::rng::types::DrawPurpose::EFFECT_CHANCE,
-            )?;
+            let applied =
+                txn.roll_probability(definition.break_effect_chance, DrawPurpose::EFFECT_CHANCE)?;
             if applied {
                 let plan = formula::toughness::base_break_effect(
                     value.break_element,
@@ -282,25 +298,25 @@ pub(super) fn execute_toughness_reduction(
                 let effect = txn.allocate_effect();
                 let speed_before = if plan.speed_reduction.scaled() > 0 {
                     let before = txn.unit_speed(target)?;
-                    let multiplier = crate::Ratio::ONE
+                    let multiplier = Ratio::ONE
                         .checked_sub(plan.speed_reduction)
                         .map_err(|_| numeric_fault(19, plan.speed_reduction.scaled()))?;
                     let scaled = multiplier
                         .checked_apply(
-                            crate::Scalar::from_scaled(before.scaled()),
-                            crate::Rounding::NearestTiesEven,
+                            Scalar::from_scaled(before.scaled()),
+                            Rounding::NearestTiesEven,
                         )
                         .map_err(|_| numeric_fault(20, before.scaled()))?;
                     txn.set_unit_speed(
                         target,
-                        crate::Speed::from_scaled(scaled.scaled())
+                        Speed::from_scaled(scaled.scaled())
                             .map_err(|_| numeric_fault(21, scaled.scaled()))?,
                     )?;
                     Some(before)
                 } else {
                     None
                 };
-                txn.record_break_effect(crate::effect::break_effect::BreakEffectState {
+                txn.record_break_effect(BreakEffectState {
                     id: effect,
                     owner: target,
                     applier: cause.applier().ok_or_else(|| invariant_fault(7))?,
@@ -345,7 +361,7 @@ pub(super) fn execute_toughness_reduction(
 }
 
 fn execute_super_break(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -357,7 +373,7 @@ fn execute_super_break(
             .effective_reductions
             .get(&target)
             .copied()
-            .unwrap_or(crate::RawToughness::new(0).expect("zero is valid"));
+            .unwrap_or(RawToughness::new(0).expect("zero is valid"));
         let broken = txn
             .state
             .units
@@ -404,16 +420,16 @@ fn execute_super_break(
 
 #[derive(Clone, Copy)]
 struct BreakDamageApplication {
-    operation: crate::OperationId,
-    target: crate::UnitId,
-    element: crate::formula::model::CombatElement,
+    operation: OperationId,
+    target: UnitId,
+    element: CombatElement,
     kind: BreakDamageKind,
-    raw: crate::Scalar,
-    calculated: crate::DamageAmount,
+    raw: Scalar,
+    calculated: DamageAmount,
 }
 
 fn apply_break_damage(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -473,7 +489,7 @@ fn apply_break_damage(
             hp_after,
         }),
     );
-    if hp_after.get() == 0 && life_before == crate::LifeState::Alive {
+    if hp_after.get() == 0 && life_before == LifeState::Alive {
         parent = super::lifecycle::transition_enemy_phase_or_defeat(
             catalog, txn, cause, parent, operation, target,
         )?;
@@ -482,11 +498,11 @@ fn apply_break_damage(
 }
 
 pub(super) fn settle_break_effects_at_turn_start(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    owner: crate::UnitId,
+    owner: UnitId,
 ) -> Result<(EventId, bool), BattleFault> {
     let effects = txn.state.break_effects.active_for(owner);
     let mut skips_action = false;
@@ -494,22 +510,20 @@ pub(super) fn settle_break_effects_at_turn_start(
         let expires = effect.remaining_turns == 1;
         let is_dot = matches!(
             effect.plan.element,
-            crate::formula::model::CombatElement::Physical
-                | crate::formula::model::CombatElement::Fire
-                | crate::formula::model::CombatElement::Lightning
-                | crate::formula::model::CombatElement::Wind
+            CombatElement::Physical
+                | CombatElement::Fire
+                | CombatElement::Lightning
+                | CombatElement::Wind
         );
         let expiry_damage = expires
             && matches!(
                 effect.plan.element,
-                crate::formula::model::CombatElement::Ice
-                    | crate::formula::model::CombatElement::Quantum
+                CombatElement::Ice | CombatElement::Quantum
             );
         if let (true, Some(mut base)) = (is_dot || expiry_damage, effect.plan.base_damage) {
             if matches!(
                 effect.plan.element,
-                crate::formula::model::CombatElement::Wind
-                    | crate::formula::model::CombatElement::Quantum
+                CombatElement::Wind | CombatElement::Quantum
             ) {
                 base = base
                     .checked_mul_integer(i64::from(effect.stacks))
@@ -574,25 +588,25 @@ pub(super) fn settle_break_effects_at_turn_start(
 }
 
 pub(super) fn settle_effects_at_turn_start(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    owner: crate::UnitId,
+    owner: UnitId,
 ) -> Result<EventId, BattleFault> {
     parent = super::effect_boundary::tick(
         catalog,
         txn,
         cause,
         parent,
-        crate::EffectTickPhase::TurnStart,
+        EffectTickPhase::TurnStart,
         owner,
     )?;
     super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
-        crate::DurationClock::TargetTurnStart,
+        DurationClock::TargetTurnStart,
         Some(owner),
     )
     .and_then(|parent| {
@@ -600,52 +614,46 @@ pub(super) fn settle_effects_at_turn_start(
             txn,
             cause,
             parent,
-            crate::DurationClock::OwnerTurnStart,
+            DurationClock::OwnerTurnStart,
             Some(owner),
         )
     })
 }
 
 pub(super) fn settle_effects_at_turn_end(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
-    owner: crate::UnitId,
+    owner: UnitId,
 ) -> Result<EventId, BattleFault> {
-    let parent = super::effect_boundary::tick(
-        catalog,
-        txn,
-        cause,
-        parent,
-        crate::EffectTickPhase::TurnEnd,
-        owner,
-    )?;
+    let parent =
+        super::effect_boundary::tick(catalog, txn, cause, parent, EffectTickPhase::TurnEnd, owner)?;
     let parent = super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
-        crate::DurationClock::TargetTurnEnd,
+        DurationClock::TargetTurnEnd,
         Some(owner),
     )?;
     super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
-        crate::DurationClock::OwnerTurnEnd,
+        DurationClock::OwnerTurnEnd,
         Some(owner),
     )
 }
 
 pub(super) fn settle_effects_at_action_end(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
     let owner = match cause.actor() {
-        Some(crate::CauseActor::Unit(unit)) => unit,
-        Some(crate::CauseActor::TimelineActor(actor)) => txn
+        Some(CauseActor::Unit(unit)) => unit,
+        Some(CauseActor::TimelineActor(actor)) => txn
             .state
             .actors
             .get(actor)
@@ -658,25 +666,22 @@ pub(super) fn settle_effects_at_action_end(
         txn,
         cause,
         parent,
-        crate::EffectTickPhase::ActionEnd,
+        EffectTickPhase::ActionEnd,
         owner,
     )?;
-    txn.reset_rule_slots(
-        crate::rule::model::SlotResetPoint::ActionEnd,
-        cause.applier(),
-    );
+    txn.reset_rule_slots(SlotResetPoint::ActionEnd, cause.applier());
     let parent = super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
-        crate::DurationClock::ActionEnd,
+        DurationClock::ActionEnd,
         None,
     )?;
     super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
-        crate::DurationClock::TargetActionEnd,
+        DurationClock::TargetActionEnd,
         Some(owner),
     )
 }
@@ -686,13 +691,7 @@ pub(super) fn settle_effects_at_wave_end(
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    super::effect_duration::advance_effect_clock(
-        txn,
-        cause,
-        parent,
-        crate::DurationClock::WaveEnd,
-        None,
-    )
+    super::effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::WaveEnd, None)
 }
 
 pub(super) fn settle_effects_at_battle_end(
@@ -700,17 +699,11 @@ pub(super) fn settle_effects_at_battle_end(
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    super::effect_duration::advance_effect_clock(
-        txn,
-        cause,
-        parent,
-        crate::DurationClock::BattleEnd,
-        None,
-    )
+    super::effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::BattleEnd, None)
 }
 
 fn execute_damage(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -721,34 +714,29 @@ fn execute_damage(
     let class = operation.formula.class();
     let semantics = operation.ultimate_semantics;
     for target in operation.targets {
-        let critical = (operation.crit_policy != crate::catalog::action::HitCritPolicy::Never)
+        let critical = (operation.crit_policy != HitCritPolicy::Never)
             .then(|| inputs.critical_profile(catalog, txn, cause, class, target, semantics))
             .transpose()?;
         let is_critical = match operation.crit_policy {
-            crate::catalog::action::HitCritPolicy::Never => false,
-            crate::catalog::action::HitCritPolicy::Shared => {
+            HitCritPolicy::Never => false,
+            HitCritPolicy::Shared => {
                 let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
                 txn.roll_shared_probability(
                     critical.chance,
-                    crate::rng::types::DrawPurpose::CRIT,
+                    DrawPurpose::CRIT,
                     &mut scratch.shared_critical_draw,
                 )?
             }
-            crate::catalog::action::HitCritPolicy::PerTarget => {
-                match scratch.critical_by_target.get(&target).copied() {
-                    Some(value) => value,
-                    None => {
-                        let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
-                        let value = txn.roll_probability(
-                            critical.chance,
-                            crate::rng::types::DrawPurpose::CRIT,
-                        )?;
-                        scratch.critical_by_target.insert(target, value);
-                        value
-                    }
+            HitCritPolicy::PerTarget => match scratch.critical_by_target.get(&target).copied() {
+                Some(value) => value,
+                None => {
+                    let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+                    let value = txn.roll_probability(critical.chance, DrawPurpose::CRIT)?;
+                    scratch.critical_by_target.insert(target, value);
+                    value
                 }
-            }
-            crate::catalog::action::HitCritPolicy::GuaranteedBelowHpRatio(threshold) => {
+            },
+            HitCritPolicy::GuaranteedBelowHpRatio(threshold) => {
                 let unit = txn
                     .state
                     .units
@@ -763,10 +751,7 @@ fn execute_damage(
                         Some(value) => value,
                         None => {
                             let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
-                            let value = txn.roll_probability(
-                                critical.chance,
-                                crate::rng::types::DrawPurpose::CRIT,
-                            )?;
+                            let value = txn.roll_probability(critical.chance, DrawPurpose::CRIT)?;
                             scratch.critical_by_target.insert(target, value);
                             value
                         }
@@ -778,7 +763,7 @@ fn execute_damage(
             let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
             operation
                 .formula
-                .with_formula_modifier(crate::modifier::model::FormulaStage::Crit, critical.damage)
+                .with_formula_modifier(FormulaStage::Crit, critical.damage)
                 .map_err(|_| numeric_fault(50, critical.damage.scaled()))?
         } else {
             operation.formula
@@ -814,18 +799,18 @@ fn execute_damage(
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_ordinary_damage(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
-    operation: crate::OperationId,
-    target: crate::UnitId,
+    operation: OperationId,
+    target: UnitId,
     kind: DamageKind,
-    class: crate::formula::model::DamageClass,
-    element: Option<crate::formula::model::CombatElement>,
-    source_effect: Option<crate::EffectInstanceId>,
-    raw: crate::Scalar,
-    calculated: crate::DamageAmount,
+    class: DamageClass,
+    element: Option<CombatElement>,
+    source_effect: Option<EffectInstanceId>,
+    raw: Scalar,
+    calculated: DamageAmount,
 ) -> Result<EventId, BattleFault> {
     apply_ordinary_damage_with_floor(
         catalog,
@@ -846,18 +831,18 @@ pub(super) fn apply_ordinary_damage(
 
 #[allow(clippy::too_many_arguments)]
 fn apply_ordinary_damage_with_floor(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    operation: crate::OperationId,
-    target: crate::UnitId,
+    operation: OperationId,
+    target: UnitId,
     kind: DamageKind,
-    class: crate::formula::model::DamageClass,
-    element: Option<crate::formula::model::CombatElement>,
-    source_effect: Option<crate::EffectInstanceId>,
-    raw: crate::Scalar,
-    mut calculated: crate::DamageAmount,
+    class: DamageClass,
+    element: Option<CombatElement>,
+    source_effect: Option<EffectInstanceId>,
+    raw: Scalar,
+    mut calculated: DamageAmount,
     minimum_hp: i64,
 ) -> Result<EventId, BattleFault> {
     let (hp_before, life_before) = txn
@@ -909,7 +894,7 @@ fn apply_ordinary_damage_with_floor(
             hp_after,
         }),
     );
-    if hp_after.get() == 0 && life_before == crate::LifeState::Alive {
+    if hp_after.get() == 0 && life_before == LifeState::Alive {
         parent = super::lifecycle::transition_enemy_phase_or_defeat(
             catalog, txn, cause, parent, operation, target,
         )?;
@@ -918,7 +903,7 @@ fn apply_ordinary_damage_with_floor(
 }
 
 fn execute_apply_effect(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -954,12 +939,11 @@ fn execute_apply_effect(
             .map(|values| values[index])
             .unwrap_or(operation.definition.chance);
         let (pre_clamp, probability) = match chance {
-            crate::EffectChancePolicy::Guaranteed => (crate::Scalar::ONE, crate::Probability::ONE),
-            crate::EffectChancePolicy::Fixed { chance } => (
-                crate::Scalar::from_scaled(i64::from(chance.millionths())),
-                chance,
-            ),
-            crate::EffectChancePolicy::Resistible {
+            EffectChancePolicy::Guaranteed => (Scalar::ONE, Probability::ONE),
+            EffectChancePolicy::Fixed { chance } => {
+                (Scalar::from_scaled(i64::from(chance.millionths())), chance)
+            }
+            EffectChancePolicy::Resistible {
                 base_chance,
                 attacker_effect_hit_rate,
                 target_effect_resistance,
@@ -977,9 +961,7 @@ fn execute_apply_effect(
         };
         if matches!(
             runtime.category(),
-            crate::EffectCategory::Debuff
-                | crate::EffectCategory::Control
-                | crate::EffectCategory::Dot
+            EffectCategory::Debuff | EffectCategory::Control | EffectCategory::Dot
         ) {
             let (next, guarded) = super::effect_operation::consume_negative_effect_guard(
                 catalog,
@@ -993,10 +975,10 @@ fn execute_apply_effect(
             if guarded {
                 parent = txn.emit(
                     cause.with_parent(parent).with_primary_target(Some(target)),
-                    BattleEventKind::RuleSignal(crate::RuleSignalEventData {
+                    BattleEventKind::RuleSignal(RuleSignalEventData {
                         operation: operation.id,
-                        code: crate::NEGATIVE_EFFECT_GUARDED_SIGNAL,
-                        value: Some(crate::rule::model::RuleValue::StableId(u64::from(
+                        code: NEGATIVE_EFFECT_GUARDED_SIGNAL,
+                        value: Some(RuleValue::StableId(u64::from(
                             operation.definition.effect.get(),
                         ))),
                     }),
@@ -1015,9 +997,7 @@ fn execute_apply_effect(
         }
         if !txn.roll_probability(
             probability,
-            operation
-                .rng_purpose
-                .unwrap_or(crate::rng::types::DrawPurpose::EFFECT_CHANCE),
+            operation.rng_purpose.unwrap_or(DrawPurpose::EFFECT_CHANCE),
         )? {
             parent = txn.emit(
                 cause.with_parent(parent).with_primary_target(Some(target)),
@@ -1031,11 +1011,11 @@ fn execute_apply_effect(
             continue;
         }
         let candidate_id = txn.allocate_effect();
-        let candidate = crate::effect::state::EffectState::from_definition(
+        let candidate = EffectState::from_definition(
             candidate_id,
             operation.definition.effect,
             runtime,
-            crate::effect::state::EffectApplicationContext {
+            EffectApplicationContext {
                 source_definition: source,
                 source_operation: operation.id,
                 applier,
@@ -1054,7 +1034,7 @@ fn execute_apply_effect(
         let after = txn.state.effects.canonical_entries().len() as u64;
         txn.record_effect_change(before, after, candidate_id.get());
         match result {
-            crate::effect::state::EffectApplyResult::Inserted { effect, removed } => {
+            EffectApplyResult::Inserted { effect, removed } => {
                 for removed in removed {
                     txn.remove_effect_attachments(removed);
                     parent = txn.emit(
@@ -1087,7 +1067,7 @@ fn execute_apply_effect(
                 );
                 super::effect_operation::instantiate_attachments(catalog, txn, effect)?;
             }
-            crate::effect::state::EffectApplyResult::Refreshed {
+            EffectApplyResult::Refreshed {
                 effect,
                 stacks_before,
                 stacks_after,
@@ -1134,7 +1114,7 @@ fn execute_remove_effects(
             operation.definition.required_definition,
             operation.definition.required_tag,
         );
-        if operation.definition.order == crate::EffectRemovalOrder::NewestFirst {
+        if operation.definition.order == EffectRemovalOrder::NewestFirst {
             ids.reverse();
         }
         for effect in ids

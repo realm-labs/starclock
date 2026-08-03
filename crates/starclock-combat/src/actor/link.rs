@@ -1,6 +1,7 @@
 use crate::{
-    AbilityId, ActionGauge, FormationIndex, Hp, PresenceState, Ratio, ResolvedCombatantSpec,
-    Scalar, SourceDefinitionId, Speed, TimelineActorId, UnitDefinitionId, UnitId,
+    AbilityId, ActionGauge, FormationIndex, Hp, NumericError, PresenceState, Ratio,
+    ResolvedCombatantSpec, Rounding, RuleBundleId, Scalar, SourceDefinitionId, Speed,
+    TimelineActorId, UnitDefinitionId, UnitId,
 };
 
 /// Shared semantic role of an entity linked to a combat unit.
@@ -53,9 +54,9 @@ impl LinkedStatScaling {
     pub const fn new(owner_ratio: Ratio, flat: Scalar) -> Self {
         Self { owner_ratio, flat }
     }
-    pub(crate) fn resolve(self, owner: Scalar) -> Result<Scalar, crate::NumericError> {
+    pub(crate) fn resolve(self, owner: Scalar) -> Result<Scalar, NumericError> {
         self.owner_ratio
-            .checked_apply(owner, crate::Rounding::NearestTiesEven)?
+            .checked_apply(owner, Rounding::NearestTiesEven)?
             .checked_add(self.flat)
     }
 }
@@ -236,28 +237,28 @@ impl LinkedUnitDefinition {
 /// Catalog-owned linked combatant resolved by a typed Rule IR summon.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LinkedUnitCatalogDefinition {
-    id: crate::UnitDefinitionId,
+    id: UnitDefinitionId,
     definition: LinkedUnitDefinition,
 }
 
 impl LinkedUnitCatalogDefinition {
     #[must_use]
-    pub fn new(id: crate::UnitDefinitionId, definition: LinkedUnitDefinition) -> Option<Self> {
+    pub fn new(id: UnitDefinitionId, definition: LinkedUnitDefinition) -> Option<Self> {
         (definition.combatant().form() == id).then_some(Self { id, definition })
     }
-    pub(crate) const fn id(&self) -> crate::UnitDefinitionId {
+    pub(crate) const fn id(&self) -> UnitDefinitionId {
         self.id
     }
     #[must_use]
-    pub const fn unit(&self) -> crate::UnitDefinitionId {
+    pub const fn unit(&self) -> UnitDefinitionId {
         self.id
     }
     #[must_use]
-    pub fn abilities(&self) -> &[crate::AbilityId] {
+    pub fn abilities(&self) -> &[AbilityId] {
         self.definition.combatant().abilities()
     }
     #[must_use]
-    pub fn rule_bundles(&self) -> &[crate::RuleBundleId] {
+    pub fn rule_bundles(&self) -> &[RuleBundleId] {
         self.definition.combatant().rule_bundles()
     }
     /// Returns the executable linked-unit runtime definition.

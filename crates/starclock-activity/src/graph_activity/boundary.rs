@@ -1,4 +1,5 @@
 use super::*;
+use crate::ActivityRngLabel;
 
 impl GraphActivity {
     /// Atomically applies one state-only extension program at the current
@@ -60,7 +61,7 @@ impl GraphActivity {
         &mut self,
         expected_state_hash: ActivityStateHash,
         program_id: ActivityProgramId,
-        label: crate::ActivityRngLabel,
+        label: ActivityRngLabel,
         count_purpose: u16,
         choice_purpose: u16,
         minimum: u16,

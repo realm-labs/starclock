@@ -1,3 +1,4 @@
+use crate::curio::CurioDefinition;
 use std::{collections::BTreeMap, sync::Arc};
 
 use serde::Deserialize;
@@ -797,7 +798,7 @@ fn compile_curio(
         .curios()
         .iter()
         .find(|candidate| candidate.stable_key() == shared_key)
-        .map(crate::curio::CurioDefinition::id);
+        .map(CurioDefinition::id);
     if state.curio != row.id
         || rule.state != state.id
         || state.key.is_empty()

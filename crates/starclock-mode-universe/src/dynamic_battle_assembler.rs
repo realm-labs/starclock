@@ -1,5 +1,7 @@
 //! Atomic current-Activity assembly for one prepared Standard Universe battle.
 
+use crate::battle_assembly::DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY;
+use crate::battle_snapshot::StandardUniverseBattleSnapshot;
 use std::{
     num::NonZeroUsize,
     sync::{Arc, Mutex},
@@ -139,7 +141,7 @@ impl StandardUniverseBattleAssembler {
             composition,
             roster,
             template,
-            NonZeroUsize::new(crate::battle_assembly::DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY)
+            NonZeroUsize::new(DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY)
                 .expect("default cache capacity is non-zero"),
             BattleAssemblyBudget::default(),
         )
@@ -203,7 +205,7 @@ impl StandardUniverseBattleAssembler {
     pub fn start_pending_battle_from_snapshot(
         &self,
         activity: &mut StandardUniverseActivity,
-        snapshot: crate::battle_snapshot::StandardUniverseBattleSnapshot,
+        snapshot: StandardUniverseBattleSnapshot,
     ) -> Result<StandardUniverseDynamicBattleStart, StandardUniverseDynamicBattleError> {
         let view = activity.view();
         let expected_state_hash = view.state_hash();
@@ -253,7 +255,7 @@ impl StandardUniverseBattleAssembler {
 
     pub fn resolve_snapshot(
         &self,
-        snapshot: &crate::battle_snapshot::StandardUniverseBattleSnapshot,
+        snapshot: &StandardUniverseBattleSnapshot,
         technique: Option<UniverseBattleTechniqueDefinition>,
     ) -> Result<StandardUniverseResolvedAssembly, StandardUniverseDynamicBattleError> {
         self.validate_budget(snapshot)?;
@@ -290,7 +292,7 @@ impl StandardUniverseBattleAssembler {
     fn resolve(
         &self,
         key: BattleAssemblyKey,
-        snapshot: &crate::battle_snapshot::StandardUniverseBattleSnapshot,
+        snapshot: &StandardUniverseBattleSnapshot,
         technique: Option<UniverseBattleTechniqueDefinition>,
     ) -> Result<(Arc<UniverseBattleMaterialization>, bool), StandardUniverseDynamicBattleError>
     {
@@ -334,7 +336,7 @@ impl StandardUniverseBattleAssembler {
 
     fn validate_budget(
         &self,
-        snapshot: &crate::battle_snapshot::StandardUniverseBattleSnapshot,
+        snapshot: &StandardUniverseBattleSnapshot,
     ) -> Result<(), StandardUniverseDynamicBattleError> {
         if snapshot.contributions().rules().len() > self.budget.maximum_rule_bindings
             || snapshot.contributions().modifiers().len() > self.budget.maximum_modifiers

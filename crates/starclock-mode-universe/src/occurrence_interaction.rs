@@ -1,24 +1,5 @@
 //! Canonical lowering of Occurrence choices into Activity handler payloads.
 
-use starclock_activity::{
-    ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerFaultKind,
-    ActivityHandlerInput, ActivityHandlerOutput, ActivityInventoryId, ActivityOperation,
-    ActivitySlotId, ActivityValue,
-};
-
-use crate::{
-    catalog::UniverseCatalog,
-    curio_activity::{
-        CurioActivityBindings, CurioActivityRecord, acquisition_operations, teardown_operations,
-    },
-    id::EncounterMemberId,
-    id::{CurioId, CurioStateId, OccurrenceChoiceId},
-    occurrence::{
-        AuthoredScalar, AuthoredScalarUnit, OccurrenceChoiceDefinition, OccurrenceOperation,
-        OccurrenceOutcome, OccurrenceTarget, RandomOutcomePolicy,
-    },
-};
-
 mod digest;
 mod external;
 mod s02;
@@ -33,6 +14,24 @@ mod s11;
 mod s12;
 pub(crate) mod support;
 
+use crate::occurrence_battle::compile as occurrence_battle_compile;
+use crate::{
+    catalog::UniverseCatalog,
+    curio_activity::{
+        CurioActivityBindings, CurioActivityRecord, acquisition_operations, teardown_operations,
+    },
+    id::EncounterMemberId,
+    id::{CurioId, CurioStateId, OccurrenceChoiceId},
+    occurrence::{
+        AuthoredScalar, AuthoredScalarUnit, OccurrenceChoiceDefinition, OccurrenceOperation,
+        OccurrenceOutcome, OccurrenceTarget, RandomOutcomePolicy,
+    },
+};
+use starclock_activity::{
+    ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerFaultKind,
+    ActivityHandlerInput, ActivityHandlerOutput, ActivityInventoryId, ActivityOperation,
+    ActivitySlotId, ActivityValue,
+};
 use support::{
     Decoder, arithmetic, checked_lcm, exact_integer, fragment_delta, invalid_payload,
     invalid_state, inventory, lower_costs, lower_pairs, outcome_pairs, referenced_curios,
@@ -87,7 +86,7 @@ impl OccurrenceInteractionRuntimeCatalog {
         selected_path: ActivitySlotId,
         formation_inventory: ActivityInventoryId,
     ) -> Result<Self, OccurrenceInteractionError> {
-        let occurrence_battles = crate::occurrence_battle::compile(catalog)
+        let occurrence_battles = occurrence_battle_compile(catalog)
             .map_err(|_| OccurrenceInteractionError::InvalidChoice)?;
         let mut programs = catalog
             .occurrence_choices()

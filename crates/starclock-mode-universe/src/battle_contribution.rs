@@ -1,5 +1,7 @@
 //! Canonical Standard Universe snapshot-to-combat contribution compilation.
 
+use crate::id::ResonanceId;
+use crate::path::ExactParameter;
 use std::{collections::BTreeSet, sync::Arc};
 
 use starclock_combat::{
@@ -451,7 +453,7 @@ impl UniverseBattleContributionCompiler {
     fn push_resonance(
         &self,
         output: &mut Vec<UniverseBattleRuleBinding>,
-        id: crate::id::ResonanceId,
+        id: ResonanceId,
         kind: ResonanceKind,
     ) -> Result<(), UniverseBattleContributionError> {
         let definition = self
@@ -487,7 +489,7 @@ impl UniverseBattleContributionCompiler {
     }
 }
 
-fn exact_six(value: crate::path::ExactParameter) -> Result<i64, UniverseBattleContributionError> {
+fn exact_six(value: ExactParameter) -> Result<i64, UniverseBattleContributionError> {
     let exponent = 6_u8
         .checked_sub(value.scale())
         .ok_or(UniverseBattleContributionError::InvalidExecutableRule)?;

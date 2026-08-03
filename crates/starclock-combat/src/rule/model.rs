@@ -1,8 +1,16 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
+
+use crate::catalog::action::AbilityTag;
+use crate::catalog::action::AbilityTags;
+use crate::catalog::action::ReactionBoundary;
+use crate::catalog::action::TargetPattern;
+use crate::formula::toughness::EnemyRank;
+use crate::rng::types::DrawPurpose;
 use crate::{
-    AbilityId, ActionId, EffectDefinitionId, EventId, HitId, NativeHandlerId, ProgramId, Rounding,
-    RuleId, RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId,
-    TriggerId, UnitId, WaveInstanceId,
+    AbilityId, ActionId, CommandId, EffectCategory, EffectDefinitionId, EffectRemovalOrder,
+    EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness,
+    Rounding, RuleId, RuleInstanceId, Scalar, SelectorId, SourceDefinitionId,
+    StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
 };
 use crate::{
     formula::model::{CombatElement, DamageClass},
@@ -263,12 +271,12 @@ pub struct RuleEventFacts {
     pub effect_definition: Option<EffectDefinitionId>,
     pub source_class: Option<SourceClass>,
     pub action_kind: Option<RuleActionKind>,
-    pub ability_tags: crate::catalog::action::AbilityTags,
+    pub ability_tags: AbilityTags,
     /// Authored target shape of the observed ability selector.
-    pub target_pattern: Option<crate::catalog::action::TargetPattern>,
+    pub target_pattern: Option<TargetPattern>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
-    pub effect_category: Option<crate::EffectCategory>,
+    pub effect_category: Option<EffectCategory>,
     /// Specific-resistance stat declared by the observed effect definition.
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
@@ -283,7 +291,7 @@ pub struct RuleEventFacts {
     pub hp_before: Option<Scalar>,
     pub hp_after: Option<Scalar>,
     /// Effective Toughness reduction carried by a `Reduced` event.
-    pub toughness_reduction: Option<crate::RawToughness>,
+    pub toughness_reduction: Option<RawToughness>,
     pub resource_delta: Option<Scalar>,
     pub resource_overflow: Option<Scalar>,
     pub stack_count: Option<i64>,
@@ -352,12 +360,12 @@ pub struct EventFilter {
     pub applier_selector: Option<SelectorId>,
     pub target_selector: Option<SelectorId>,
     pub action_kind: Option<RuleActionKind>,
-    pub ability_tag: Option<crate::catalog::action::AbilityTag>,
+    pub ability_tag: Option<AbilityTag>,
     /// Optional authored target-shape requirement for the observed ability.
-    pub target_pattern: Option<crate::catalog::action::TargetPattern>,
+    pub target_pattern: Option<TargetPattern>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
-    pub effect_category: Option<crate::EffectCategory>,
+    pub effect_category: Option<EffectCategory>,
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
@@ -419,7 +427,7 @@ pub enum ValueExpr {
     },
     QueryEffectCategoryStacks {
         subject: StatQuerySubject,
-        category: crate::EffectCategory,
+        category: EffectCategory,
     },
     Add(Box<ValueExpr>, Box<ValueExpr>),
     Subtract(Box<ValueExpr>, Box<ValueExpr>),
@@ -494,8 +502,8 @@ pub enum ConditionExpr {
     },
     LifePresence {
         selector: SelectorId,
-        life: Option<crate::LifeState>,
-        presence: Option<crate::PresenceState>,
+        life: Option<LifeState>,
+        presence: Option<PresenceState>,
     },
     EffectExists {
         selector: SelectorId,
@@ -509,7 +517,7 @@ pub enum ConditionExpr {
     /// The current unit bound by the enclosing `ForEach` is Weakness Broken.
     CurrentTargetIsBroken,
     /// Every selected unit has the authored encounter rank.
-    EnemyRank(SelectorId, crate::formula::toughness::EnemyRank),
+    EnemyRank(SelectorId, EnemyRank),
     /// Every selected unit is currently in a Freeze-compatible control state.
     IsFrozen(SelectorId),
 }
@@ -601,8 +609,8 @@ pub enum RuleOperationTemplate {
         elements: Box<[CombatElement]>,
         minimum_hits: u16,
         maximum_hits: u16,
-        count_rng_purpose: crate::rng::types::DrawPurpose,
-        element_rng_purpose: crate::rng::types::DrawPurpose,
+        count_rng_purpose: DrawPurpose,
+        element_rng_purpose: DrawPurpose,
         exclude_event_element: bool,
         can_crit: bool,
         can_defeat: bool,
@@ -682,7 +690,7 @@ pub enum RuleOperationTemplate {
         stacks: ValueExpr,
         chance: RuleEffectChancePolicy,
         base_chance: Option<ValueExpr>,
-        rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        rng_purpose: Option<DrawPurpose>,
     },
     /// Chooses one canonically ordered effect definition, then applies it
     /// through the ordinary effect-chance pipeline.
@@ -690,10 +698,10 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         effects: Box<[EffectDefinitionId]>,
         stacks: ValueExpr,
-        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        choice_rng_purpose: DrawPurpose,
         chance: RuleEffectChancePolicy,
         base_chance: Option<ValueExpr>,
-        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        chance_rng_purpose: Option<DrawPurpose>,
     },
     /// Applies one effect to a fresh random target group for every evaluated
     /// group. Candidates are selected without replacement inside a group and
@@ -704,10 +712,10 @@ pub enum RuleOperationTemplate {
         groups: ValueExpr,
         applications_per_group: u16,
         stacks: ValueExpr,
-        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        choice_rng_purpose: DrawPurpose,
         chance: RuleEffectChancePolicy,
         base_chance: Option<ValueExpr>,
-        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        chance_rng_purpose: Option<DrawPurpose>,
     },
     AdjustEffectStacks {
         selector: SelectorId,
@@ -721,7 +729,7 @@ pub enum RuleOperationTemplate {
     Cleanse {
         selector: SelectorId,
         maximum: u16,
-        order: crate::EffectRemovalOrder,
+        order: EffectRemovalOrder,
     },
     DetonateDot {
         selector: SelectorId,
@@ -748,7 +756,7 @@ pub enum RuleOperationTemplate {
         ability: AbilityId,
         priority: ReactionPriority,
         forced_use: bool,
-        boundary: crate::catalog::action::ReactionBoundary,
+        boundary: ReactionBoundary,
         owner: RuleActionOwner,
         payment: Option<RuleActionPaymentPolicy>,
     },
@@ -757,14 +765,14 @@ pub enum RuleOperationTemplate {
     },
     Summon {
         owner_selector: SelectorId,
-        unit_definition: crate::UnitDefinitionId,
+        unit_definition: UnitDefinitionId,
     },
     Despawn {
         selector: SelectorId,
     },
     Transform {
         selector: SelectorId,
-        replacement_definition: crate::UnitDefinitionId,
+        replacement_definition: UnitDefinitionId,
     },
     ReplaceAbility {
         selector: SelectorId,
@@ -773,7 +781,7 @@ pub enum RuleOperationTemplate {
     },
     ChangePresence {
         selector: SelectorId,
-        presence: crate::PresenceState,
+        presence: PresenceState,
     },
     CreateCountdown {
         code: u32,
@@ -838,7 +846,7 @@ pub enum RuleEffectChancePolicy {
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RuleDotSelection {
     All,
-    RandomOne(crate::rng::types::DrawPurpose),
+    RandomOne(DrawPurpose),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -885,9 +893,9 @@ pub struct BattleRuleDefinition {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RuleCause {
     pub parent_event: Option<EventId>,
-    pub root_command: Option<crate::CommandId>,
+    pub root_command: Option<CommandId>,
     pub action: Option<ActionId>,
-    pub phase: Option<crate::PhaseId>,
+    pub phase: Option<PhaseId>,
     pub hit: Option<HitId>,
     pub owner: Option<UnitId>,
     pub actor: Option<UnitId>,
@@ -966,8 +974,8 @@ pub enum RuleEmission {
         elements: Box<[CombatElement]>,
         minimum_hits: u16,
         maximum_hits: u16,
-        count_rng_purpose: crate::rng::types::DrawPurpose,
-        element_rng_purpose: crate::rng::types::DrawPurpose,
+        count_rng_purpose: DrawPurpose,
+        element_rng_purpose: DrawPurpose,
         exclude_event_element: bool,
         can_crit: bool,
         can_defeat: bool,
@@ -1060,17 +1068,17 @@ pub enum RuleEmission {
         stacks: RuleValue,
         chance: RuleEffectChancePolicy,
         base_chance: Option<RuleValue>,
-        rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        rng_purpose: Option<DrawPurpose>,
         current_target: Option<UnitId>,
     },
     ApplyRandomEffect {
         selector: SelectorId,
         effects: Box<[EffectDefinitionId]>,
         stacks: RuleValue,
-        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        choice_rng_purpose: DrawPurpose,
         chance: RuleEffectChancePolicy,
         base_chance: Option<RuleValue>,
-        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        chance_rng_purpose: Option<DrawPurpose>,
         current_target: Option<UnitId>,
     },
     RandomGroupedEffect {
@@ -1079,10 +1087,10 @@ pub enum RuleEmission {
         groups: RuleValue,
         applications_per_group: u16,
         stacks: RuleValue,
-        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        choice_rng_purpose: DrawPurpose,
         chance: RuleEffectChancePolicy,
         base_chance: Option<RuleValue>,
-        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        chance_rng_purpose: Option<DrawPurpose>,
         current_target: Option<UnitId>,
     },
     AdjustEffectStacks {
@@ -1099,7 +1107,7 @@ pub enum RuleEmission {
     Cleanse {
         selector: SelectorId,
         maximum: u16,
-        order: crate::EffectRemovalOrder,
+        order: EffectRemovalOrder,
         current_target: Option<UnitId>,
     },
     DetonateDot {
@@ -1131,7 +1139,7 @@ pub enum RuleEmission {
         ability: AbilityId,
         priority: ReactionPriority,
         forced_use: bool,
-        boundary: crate::catalog::action::ReactionBoundary,
+        boundary: ReactionBoundary,
         owner: RuleActionOwner,
         payment: Option<RuleActionPaymentPolicy>,
         current_target: Option<UnitId>,
@@ -1142,7 +1150,7 @@ pub enum RuleEmission {
     },
     Summon {
         owner_selector: SelectorId,
-        unit_definition: crate::UnitDefinitionId,
+        unit_definition: UnitDefinitionId,
         current_target: Option<UnitId>,
     },
     Despawn {
@@ -1151,7 +1159,7 @@ pub enum RuleEmission {
     },
     Transform {
         selector: SelectorId,
-        replacement_definition: crate::UnitDefinitionId,
+        replacement_definition: UnitDefinitionId,
         current_target: Option<UnitId>,
     },
     ReplaceAbility {
@@ -1162,7 +1170,7 @@ pub enum RuleEmission {
     },
     ChangePresence {
         selector: SelectorId,
-        presence: crate::PresenceState,
+        presence: PresenceState,
         current_target: Option<UnitId>,
     },
     CreateCountdown {

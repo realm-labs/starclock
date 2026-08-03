@@ -1,6 +1,7 @@
 //! Read-only projections of pending timeline work and allocator cursors.
 
 use crate::UnitId;
+use crate::timeline::state::PendingExtraTurn;
 
 /// One queued extra-turn request in deterministic insertion order.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -20,8 +21,8 @@ impl PendingExtraTurnView {
     }
 }
 
-impl From<crate::timeline::state::PendingExtraTurn> for PendingExtraTurnView {
-    fn from(value: crate::timeline::state::PendingExtraTurn) -> Self {
+impl From<PendingExtraTurn> for PendingExtraTurnView {
+    fn from(value: PendingExtraTurn) -> Self {
         Self {
             insertion: value.insertion,
             unit: value.unit,

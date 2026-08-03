@@ -1,5 +1,7 @@
 //! Complete read-only projection of generic team-scoped resources.
 
+use crate::{SourceDefinitionId, TeamResourceWavePolicy};
+
 use crate::actor::store::KeyedTeamResourceState;
 
 use super::TeamView;
@@ -12,7 +14,7 @@ pub struct TeamResourceView<'a> {
 
 impl<'a> TeamResourceView<'a> {
     #[must_use]
-    pub const fn id(self) -> crate::SourceDefinitionId {
+    pub const fn id(self) -> SourceDefinitionId {
         self.state.id
     }
     #[must_use]
@@ -32,7 +34,7 @@ impl<'a> TeamResourceView<'a> {
         self.state.maximum
     }
     #[must_use]
-    pub const fn wave_policy(self) -> crate::TeamResourceWavePolicy {
+    pub const fn wave_policy(self) -> TeamResourceWavePolicy {
         self.state.wave
     }
 }

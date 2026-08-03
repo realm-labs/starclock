@@ -1,5 +1,8 @@
 //! Immutable current-Activity contribution snapshot for one Gold and Gears battle.
 
+use crate::blessing_runtime::BlessingContributionSet;
+use crate::curio_runtime::CurioContributionSet;
+use crate::digest::Encoder;
 use starclock_activity::{
     ActivityInventoryId, ActivitySlotId, ActivityTransactionState, ActivityValue,
 };
@@ -276,7 +279,7 @@ impl GoldAndGearsRuntimeInstance {
 
     fn blessing_path_counts(
         &self,
-        blessings: &crate::blessing_runtime::BlessingContributionSet,
+        blessings: &BlessingContributionSet,
     ) -> Result<Vec<(String, u8)>, GoldAndGearsEntryError> {
         self.content_runtime
             .standard
@@ -300,13 +303,8 @@ impl GoldAndGearsRuntimeInstance {
     fn current_curios(
         &self,
         state: &ActivityTransactionState,
-    ) -> Result<
-        (
-            GoldAndGearsCurioContributionSet,
-            crate::curio_runtime::CurioContributionSet,
-        ),
-        GoldAndGearsEntryError,
-    > {
+    ) -> Result<(GoldAndGearsCurioContributionSet, CurioContributionSet), GoldAndGearsEntryError>
+    {
         let owned = inventory(state, CURIO_INVENTORY)?
             .into_iter()
             .map(|(raw, count)| {
@@ -430,8 +428,7 @@ fn snapshot_digest(
     neural: [u8; 32],
     conundrum: [u8; 32],
 ) -> [u8; 32] {
-    let mut encoder =
-        crate::digest::Encoder::new(b"starclock.gold-and-gears.battle-contribution-snapshot.v1");
+    let mut encoder = Encoder::new(b"starclock.gold-and-gears.battle-contribution-snapshot.v1");
     encoder.digest(shared);
     encoder.digest(path_boost);
     encoder.digest(resonance);

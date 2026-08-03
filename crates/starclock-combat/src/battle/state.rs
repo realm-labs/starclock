@@ -1,4 +1,12 @@
+use crate::actor::store::LinkStore;
+use crate::effect::break_effect::BreakEffectStore;
+use crate::effect::shield::ShieldStore;
+use crate::effect::state::EffectStore;
+use crate::modifier::state::ModifierStore;
+use crate::rule::state::RuleStateStore;
+use crate::timeline::state::TimelineState;
 use crate::{
+    ModifierInstanceId, RuleInstanceId,
     catalog::CatalogDigest,
     id::{
         ActionId, CommandId, DecisionId, EffectInstanceId, EncounterId, EventId, HitId,
@@ -137,12 +145,12 @@ impl SequenceState {
         try_allocate(&mut self.next_effect, EffectInstanceId::new)
     }
 
-    pub(crate) fn rule(&mut self) -> crate::RuleInstanceId {
-        allocate(&mut self.next_rule, crate::RuleInstanceId::new)
+    pub(crate) fn rule(&mut self) -> RuleInstanceId {
+        allocate(&mut self.next_rule, RuleInstanceId::new)
     }
 
-    pub(crate) fn modifier(&mut self) -> crate::ModifierInstanceId {
-        allocate(&mut self.next_modifier, crate::ModifierInstanceId::new)
+    pub(crate) fn modifier(&mut self) -> ModifierInstanceId {
+        allocate(&mut self.next_modifier, ModifierInstanceId::new)
     }
 
     pub(crate) fn try_extra_turn(&mut self) -> Option<u64> {
@@ -197,16 +205,16 @@ pub(crate) struct BattleState {
     pub(crate) decision: Option<DecisionPoint>,
     pub(crate) units: UnitStore,
     pub(crate) actors: TimelineActorStore,
-    pub(crate) links: crate::actor::store::LinkStore,
+    pub(crate) links: LinkStore,
     pub(crate) formations: FormationState,
     pub(crate) teams: TeamStateStore,
-    pub(crate) shields: crate::effect::shield::ShieldStore,
-    pub(crate) break_effects: crate::effect::break_effect::BreakEffectStore,
-    pub(crate) effects: crate::effect::state::EffectStore,
-    pub(crate) rules: crate::rule::state::RuleStateStore,
-    pub(crate) modifiers: crate::modifier::state::ModifierStore,
+    pub(crate) shields: ShieldStore,
+    pub(crate) break_effects: BreakEffectStore,
+    pub(crate) effects: EffectStore,
+    pub(crate) rules: RuleStateStore,
+    pub(crate) modifiers: ModifierStore,
     pub(crate) encounter: EncounterState,
-    pub(crate) timeline: crate::timeline::state::TimelineState,
+    pub(crate) timeline: TimelineState,
     pub(crate) concede: ConcedePolicy,
     pub(crate) rng: DeterministicRng,
     pub(crate) sequences: SequenceState,

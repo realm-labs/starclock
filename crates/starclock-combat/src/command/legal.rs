@@ -1,4 +1,6 @@
+use crate::effect::state::EffectStore;
 use crate::{
+    ConcedePolicy, ControlledAction,
     actor::store::{FormationState, TeamStateStore, UnitStore},
     battle::{spec::TeamSide, state::BattleState},
     catalog::CombatCatalog,
@@ -25,7 +27,7 @@ pub(crate) fn interrupt_window(
     units: &UnitStore,
     formations: &FormationState,
     teams: &TeamStateStore,
-    effects: &crate::effect::state::EffectStore,
+    effects: &EffectStore,
     catalog: &CombatCatalog,
 ) -> DecisionPoint {
     let mut commands = vec![Command::PassInterruptWindow { decision: id }];
@@ -41,7 +43,7 @@ pub(crate) fn interrupt_window(
             };
             if action.kind() != AbilityKind::Ultimate
                 || !can_pay(units, teams, unit.id, action.resources())
-                || effects.blocks(unit.id, crate::ControlledAction::Ultimate)
+                || effects.blocks(unit.id, ControlledAction::Ultimate)
             {
                 continue;
             }
@@ -85,9 +87,7 @@ pub(crate) fn normal_action(
         };
         if !action.kind().is_normal_turn()
             || !can_pay(&state.units, &state.teams, actor, action.resources())
-            || state
-                .effects
-                .blocks(actor, crate::ControlledAction::NormalAction)
+            || state.effects.blocks(actor, ControlledAction::NormalAction)
         {
             continue;
         }
@@ -106,7 +106,7 @@ pub(crate) fn normal_action(
     }
     if owner == TeamSide::Player {
         match state.concede {
-            crate::ConcedePolicy::Allowed => legal_commands.push(Command::Concede { decision: id }),
+            ConcedePolicy::Allowed => legal_commands.push(Command::Concede { decision: id }),
         }
     }
     DecisionPoint::new(
@@ -119,7 +119,7 @@ pub(crate) fn normal_action(
 
 pub(crate) fn effective_abilities(
     innate: &[AbilityId],
-    effects: &crate::effect::state::EffectStore,
+    effects: &EffectStore,
     catalog: &CombatCatalog,
     actor: UnitId,
 ) -> Vec<AbilityId> {

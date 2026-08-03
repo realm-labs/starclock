@@ -1,6 +1,23 @@
+use crate::actor::store::CharacterResourceState;
+use crate::actor::store::LinkStore;
+#[cfg(feature = "benchmark-instrumentation")]
+use crate::benchmark::BattlePerformanceSnapshot;
+use crate::catalog::encounter::EnemyPhaseDefinition;
+#[cfg(feature = "benchmark-instrumentation")]
+use crate::codec::canonical_state_len;
+use crate::effect::break_effect::BreakEffectStore;
+use crate::effect::shield::ShieldStore;
+use crate::effect::state::EffectStore;
+use crate::modifier::model::ActiveModifier;
+use crate::modifier::state::ModifierStore;
+use crate::resolver::modifier_snapshot::initialize_battle;
+use crate::rule::state::RuleStateStore;
+use crate::timeline::state::TimelineState;
+use crate::toughness::state::ToughnessLayerState;
 use std::sync::Arc;
 
 use crate::{
+    BattleDiagnostics, EnemyDefinitionId, EnemyPhaseId,
     actor::{
         model::{LifeState, PresenceState},
         store::{
@@ -51,7 +68,7 @@ impl Battle {
         let mut units = UnitStore::default();
         let mut actors = TimelineActorStore::default();
         let mut formations = FormationState::default();
-        let mut modifiers = crate::modifier::state::ModifierStore::default();
+        let mut modifiers = ModifierStore::default();
 
         for participant in spec.participants() {
             let unit_id = sequences.unit();
@@ -96,7 +113,7 @@ impl Battle {
                     .toughness_layers()
                     .iter()
                     .cloned()
-                    .map(crate::toughness::state::ToughnessLayerState::from_spec)
+                    .map(ToughnessLayerState::from_spec)
                     .collect::<Vec<_>>(),
                 weakness_broken: false,
                 abilities: combatant.abilities().into(),
@@ -105,7 +122,7 @@ impl Battle {
                 resources: definition
                     .resources()
                     .iter()
-                    .map(|resource| crate::actor::store::CharacterResourceState {
+                    .map(|resource| CharacterResourceState {
                         stable_key: resource.stable_key().into(),
                         initial: resource.initial(),
                         current: resource.initial(),
@@ -125,7 +142,7 @@ impl Battle {
                     .map(|index| &combatant.sources()[index])
                     .expect("battle build validated modifier source");
                 let instance = sequences.modifier();
-                let inserted = modifiers.insert(crate::modifier::model::ActiveModifier {
+                let inserted = modifiers.insert(ActiveModifier {
                     instance,
                     definition: binding.definition(),
                     owner: unit_id,
@@ -201,7 +218,7 @@ impl Battle {
                     .into_boxed_slice(),
             },
         );
-        let mut rules = crate::rule::state::RuleStateStore::default();
+        let mut rules = RuleStateStore::default();
         for unit in units.iter_by_id() {
             for bundle_id in &unit.rule_bundles {
                 let bundle = catalog
@@ -248,12 +265,12 @@ impl Battle {
             decision: Some(legal::battle_start(first_decision)),
             units,
             actors,
-            links: crate::actor::store::LinkStore::default(),
+            links: LinkStore::default(),
             formations,
             teams,
-            shields: crate::effect::shield::ShieldStore::default(),
-            break_effects: crate::effect::break_effect::BreakEffectStore::default(),
-            effects: crate::effect::state::EffectStore::default(),
+            shields: ShieldStore::default(),
+            break_effects: BreakEffectStore::default(),
+            effects: EffectStore::default(),
             rules,
             modifiers,
             encounter: EncounterState {
@@ -269,13 +286,13 @@ impl Battle {
                 )
                 .expect("catalog encounter wave count is bounded by u16"),
             },
-            timeline: crate::timeline::state::TimelineState::default(),
+            timeline: TimelineState::default(),
             concede: spec.concede_policy(),
             rng: BattleState::rng_from_seed(seed),
             sequences,
             committed_revision: 0,
         };
-        crate::resolver::modifier_snapshot::initialize_battle(&catalog, &mut state)
+        initialize_battle(&catalog, &mut state)
             .map_err(super::build::BattleBuildError::invalid_modifier_snapshot)?;
         Ok(Self {
             _catalog: catalog,
@@ -300,7 +317,7 @@ impl Battle {
     pub fn apply_inspected(
         &mut self,
         command: Command,
-        diagnostics: &mut crate::BattleDiagnostics,
+        diagnostics: &mut BattleDiagnostics,
     ) -> Result<Resolution, CommandError> {
         diagnostics.clear();
         let validated = validate(&self.state, &command)?;
@@ -317,7 +334,7 @@ impl Battle {
         &mut self,
         validated: ValidatedCommand,
         injection: Option<FaultInjection>,
-        diagnostics: Option<&mut crate::BattleDiagnostics>,
+        diagnostics: Option<&mut BattleDiagnostics>,
     ) -> Resolution {
         let mut scratch = match self.scratch.take() {
             Some(mut scratch) => {
@@ -371,13 +388,13 @@ impl Battle {
     /// Returns non-authoritative structural measurements for benchmark tooling.
     #[cfg(feature = "benchmark-instrumentation")]
     #[must_use]
-    pub fn performance_snapshot(&self) -> crate::benchmark::BattlePerformanceSnapshot {
+    pub fn performance_snapshot(&self) -> BattlePerformanceSnapshot {
         let metrics = self
             .scratch
             .as_ref()
             .map_or_else(Default::default, ResolutionScratch::last_metrics);
-        crate::benchmark::BattlePerformanceSnapshot::new(
-            crate::codec::canonical_state_len(&self.state),
+        BattlePerformanceSnapshot::new(
+            canonical_state_len(&self.state),
             metrics.entries,
             metrics.events,
             metrics.operations,
@@ -390,7 +407,7 @@ fn encounter_slot(
     catalog: &CombatCatalog,
     spec: &BattleSpec,
     participant: &super::spec::ParticipantSpec,
-) -> Option<(crate::EnemyDefinitionId, Option<crate::EnemyPhaseId>)> {
+) -> Option<(EnemyDefinitionId, Option<EnemyPhaseId>)> {
     let super::spec::ParticipantSource::EncounterEnemy(enemy) = participant.source() else {
         return None;
     };
@@ -410,7 +427,7 @@ fn encounter_slot(
 
 fn enemy_runtime(
     catalog: &CombatCatalog,
-    occurrence: Option<(crate::EnemyDefinitionId, Option<crate::EnemyPhaseId>)>,
+    occurrence: Option<(EnemyDefinitionId, Option<EnemyPhaseId>)>,
 ) -> Option<EnemyRuntimeState> {
     let (definition, phase_id) = occurrence?;
     let enemy = catalog
@@ -418,7 +435,7 @@ fn enemy_runtime(
         .expect("battle build validated enemy definition");
     let phase = phase_id.and_then(|id| enemy.phases().iter().find(|phase| phase.id() == id));
     let graph = phase
-        .map(crate::catalog::encounter::EnemyPhaseDefinition::ai_graph)
+        .map(EnemyPhaseDefinition::ai_graph)
         .or_else(|| enemy.ai_graph())?;
     let state = catalog
         .ai_graph(graph)
@@ -435,6 +452,8 @@ fn enemy_runtime(
 
 #[cfg(test)]
 mod tests {
+    use crate::DecisionId;
+    use crate::Energy;
     use proptest::{
         collection::vec,
         prelude::*,
@@ -510,7 +529,7 @@ mod tests {
                         AbilityKind::Basic,
                         1,
                         TargetInvalidationPolicy::CancelRemainingForTarget,
-                        ActionResourcePolicy::new(0, 0, crate::Energy::ZERO, crate::Energy::ZERO),
+                        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
                     )
                     .unwrap(),
                 ),
@@ -742,7 +761,7 @@ mod tests {
                 if step % 4 == 0 {
                     let decision = first.decision().unwrap().id();
                     prop_assert_eq!(decision, second.decision().unwrap().id());
-                    let forged_decision = crate::DecisionId::new(
+                    let forged_decision = DecisionId::new(
                         decision.get().checked_add(10_000).unwrap()
                     ).unwrap();
                     let forged = Command::StartBattle { decision: forged_decision };

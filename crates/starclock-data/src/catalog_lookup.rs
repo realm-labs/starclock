@@ -1,3 +1,6 @@
+use crate::{EnemyRuntimeProfileDefinition, EnemyRuntimeStatDefinition};
+
+use crate::build_lower::CharacterDataDefinition;
 use crate::catalog::{
     CatalogManifest, CatalogSummary, EffectDataDefinition, SimulationCatalog,
     StandardScenarioDefinition,
@@ -24,7 +27,7 @@ impl SimulationCatalog {
     pub fn character(
         &self,
         id: starclock_combat::UnitDefinitionId,
-    ) -> Option<&crate::build_lower::CharacterDataDefinition> {
+    ) -> Option<&CharacterDataDefinition> {
         self.builds
             .characters
             .binary_search_by_key(&id, |character| character.id())
@@ -142,7 +145,7 @@ impl SimulationCatalog {
         variant: starclock_combat::EnemyDefinitionId,
         level: starclock_combat::UnitLevel,
         difficulty_key: &str,
-    ) -> Option<&crate::EnemyRuntimeStatDefinition> {
+    ) -> Option<&EnemyRuntimeStatDefinition> {
         self.encounters.enemy_stat(variant, level, difficulty_key)
     }
 
@@ -151,7 +154,7 @@ impl SimulationCatalog {
     pub fn enemy_runtime_profile(
         &self,
         variant: starclock_combat::EnemyDefinitionId,
-    ) -> Option<&crate::EnemyRuntimeProfileDefinition> {
+    ) -> Option<&EnemyRuntimeProfileDefinition> {
         self.encounters.enemy_profile(variant)
     }
 

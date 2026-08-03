@@ -1,3 +1,5 @@
+use crate::swarm_disaster_entry::SwarmDisasterEntry;
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::{ActivityCause, ActivityTransactionOutcome, ActivityTransactionState};
 
 use crate::{
@@ -91,15 +93,15 @@ fn boss_decay_thresholds_stack_once_and_gate_plane_completion() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
-fn entry() -> crate::swarm_disaster_entry::SwarmDisasterEntry {
-    super::super::tests::released_entry(
+fn entry() -> SwarmDisasterEntry {
+    released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-        super::super::tests::participants(super::super::tests::policy()),
+        participants(policy()),
     )
 }
 

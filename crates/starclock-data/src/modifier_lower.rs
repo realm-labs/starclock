@@ -1,5 +1,7 @@
 //! Generated Sora modifier rows to Starclock-owned Rule IR and definitions.
 
+use crate::rule_lower::lower_condition;
+use crate::rule_lower::lower_event_property;
 use std::collections::BTreeSet;
 
 use starclock_combat::modifier::model::{
@@ -238,7 +240,7 @@ pub(super) fn expression(
         },
         Node::SelectorCount { selector_id } => ValueExpr::SelectorCount(selector(*selector_id)?),
         Node::ReadEventProperty { property } => {
-            ValueExpr::ReadEventProperty(crate::rule_lower::lower_event_property(*property))
+            ValueExpr::ReadEventProperty(lower_event_property(*property))
         }
         Node::SelectorSum {
             selector_id,
@@ -290,7 +292,7 @@ pub(super) fn expression(
             when_true_expression_id,
             when_false_expression_id,
         } => ValueExpr::Choose {
-            condition: Box::new(crate::rule_lower::lower_condition(
+            condition: Box::new(lower_condition(
                 config,
                 *condition_id,
                 &mut BTreeSet::new(),

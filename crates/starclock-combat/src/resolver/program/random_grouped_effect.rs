@@ -1,6 +1,8 @@
 //! Deterministic grouped random-target effect application for typed Rule IR.
 
+use crate::catalog::CombatCatalog;
 use crate::{
+    EffectDefinitionId, EventId, SelectorId, UnitId,
     battle::fault::BattleFault,
     event::cause::Cause,
     operation::HitOperationScratch,
@@ -9,18 +11,19 @@ use crate::{
 };
 
 use super::{emission_targets, program_fault};
+use crate::resolver::program_effect::apply_effect_operation;
 use crate::resolver::{operation::execute_operation, transaction::Transaction};
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn execute_random_grouped_effect(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
+    mut parent: EventId,
     input: RuleEvaluationInput<'_>,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
-    effect: crate::EffectDefinitionId,
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+    selector: SelectorId,
+    effect: EffectDefinitionId,
     groups: RuleValue,
     applications_per_group: u16,
     stacks: RuleValue,
@@ -28,9 +31,9 @@ pub(super) fn execute_random_grouped_effect(
     chance: RuleEffectChancePolicy,
     base_chance: Option<RuleValue>,
     chance_rng_purpose: Option<DrawPurpose>,
-    current_target: Option<crate::UnitId>,
+    current_target: Option<UnitId>,
     scratch: &mut HitOperationScratch,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     let RuleValue::Integer(groups) = groups else {
         return Err(program_fault(80, 0));
     };
@@ -53,7 +56,7 @@ pub(super) fn execute_random_grouped_effect(
                 .ok_or_else(|| program_fault(80, 1))?;
             let target = pool.remove(index);
             let selected = [(selector, vec![target].into_boxed_slice())];
-            let operation = super::super::program_effect::apply_effect_operation(
+            let operation = apply_effect_operation(
                 catalog,
                 input,
                 txn.allocate_operation(),

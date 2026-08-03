@@ -1,3 +1,4 @@
+use crate::battle_preparation::ActivityAttemptState;
 use std::{collections::BTreeMap, sync::Arc};
 
 use sha2::{Digest, Sha256};
@@ -8,10 +9,11 @@ use starclock_combat::{
 use crate::{
     ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityEdgeId, ActivityFault,
     ActivityGraphDefinition, ActivityInstanceId, ActivityRngLabel, ActivityRngStreams,
-    ActivitySlotId, ActivityStateHash, ActivityTerminalOutcome, ActivityValue, BattleOutcome,
-    BattleResult, BattleResultConfiguration, BattleResultDigest, BattleResultIdentity,
-    BattleResultProjection, BattleSettlementContractDigest, MetricValue, MetricValueKind, NodeId,
-    ParticipantBattleState, ParticipantId, ProjectionField, ScopeIdentity, TerminalOutcome,
+    ActivitySlotId, ActivityStateHash, ActivityTerminalOutcome, ActivityTransactionState,
+    ActivityValue, BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultDigest,
+    BattleResultIdentity, BattleResultProjection, BattleSettlementContractDigest, MetricValue,
+    MetricValueKind, NodeId, ParticipantBattleState, ParticipantId, PendingBattleSpec,
+    ProjectionField, ScopeIdentity, SlotValueKind, TerminalOutcome,
     codec::{ActivityStateEncoder, CanonicalWriter},
 };
 
@@ -621,7 +623,7 @@ pub enum ActivityBattleSettlementError {
     ActivityFault(ActivityFault),
 }
 
-impl crate::ActivityTransactionState {
+impl ActivityTransactionState {
     pub fn start_pending_battle(
         &mut self,
         graph: &ActivityGraphDefinition,
@@ -819,7 +821,7 @@ impl crate::ActivityTransactionState {
 }
 
 fn validate_contract(
-    attempt: &crate::battle_preparation::ActivityAttemptState,
+    attempt: &ActivityAttemptState,
     contract: &ActivityBattleResultContract,
 ) -> Result<(), ActivityBattleSettlementError> {
     let participants = attempt.participant_specs();
@@ -837,7 +839,7 @@ fn validate_contract(
 }
 
 pub(crate) fn validate_participant_results(
-    attempt: &crate::battle_preparation::ActivityAttemptState,
+    attempt: &ActivityAttemptState,
     result: &BattleResult,
 ) -> Result<(), ActivityBattleSettlementError> {
     let participants = attempt.participant_specs();
@@ -925,13 +927,13 @@ pub(crate) fn metric_value(value: MetricValue) -> ActivityValue {
     }
 }
 
-const fn metric_slot_kind(kind: MetricValueKind) -> crate::SlotValueKind {
+const fn metric_slot_kind(kind: MetricValueKind) -> SlotValueKind {
     match kind {
-        MetricValueKind::BoundedInteger => crate::SlotValueKind::BoundedInteger,
+        MetricValueKind::BoundedInteger => SlotValueKind::BoundedInteger,
         MetricValueKind::FixedScalar
         | MetricValueKind::Ratio
         | MetricValueKind::Probability
-        | MetricValueKind::ActionValue => crate::SlotValueKind::FixedScalar,
+        | MetricValueKind::ActionValue => SlotValueKind::FixedScalar,
     }
 }
 
@@ -957,7 +959,7 @@ fn outcome_edge(
 fn derive_battle_seed(
     rng: &ActivityRngStreams,
     identity: ActivityDefinitionIdentity,
-    pending: &crate::PendingBattleSpec,
+    pending: &PendingBattleSpec,
     contract: BattleSettlementContractDigest,
 ) -> Result<BattleSeed, ActivityBattleSettlementError> {
     let battle_seed = rng

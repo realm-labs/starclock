@@ -1,4 +1,6 @@
+use crate::UnitId;
 use crate::battle::fault::BattleFault;
+use crate::timeline::state::PendingExtraTurn;
 
 use super::{
     journal::{AllocationKind, MutationField, QueueKind},
@@ -6,7 +8,7 @@ use super::{
 };
 
 impl Transaction<'_> {
-    pub(super) fn enqueue_extra_turn(&mut self, unit: crate::UnitId) -> Result<u64, BattleFault> {
+    pub(super) fn enqueue_extra_turn(&mut self, unit: UnitId) -> Result<u64, BattleFault> {
         let insertion = self
             .state
             .sequences
@@ -15,7 +17,7 @@ impl Transaction<'_> {
         let before = self.state.timeline.extra_turns.len() as u64;
         self.state
             .timeline
-            .push_extra_turn(crate::timeline::state::PendingExtraTurn { insertion, unit });
+            .push_extra_turn(PendingExtraTurn { insertion, unit });
         self.journal
             .allocation(AllocationKind::ExtraTurn, insertion);
         self.journal
@@ -28,7 +30,7 @@ impl Transaction<'_> {
         Ok(insertion)
     }
 
-    pub(super) fn pop_extra_turn(&mut self) -> Option<crate::timeline::state::PendingExtraTurn> {
+    pub(super) fn pop_extra_turn(&mut self) -> Option<PendingExtraTurn> {
         let before = self.state.timeline.extra_turns.len() as u64;
         let pending = self.state.timeline.pop_extra_turn()?;
         self.journal.mutation(

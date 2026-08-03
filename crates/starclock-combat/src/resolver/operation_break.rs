@@ -1,6 +1,11 @@
 //! Forced Break lowered through the ordinary Toughness mutation path.
 
+use crate::catalog::CombatCatalog;
+use crate::formula::model::CombatElement;
+use crate::formula::toughness::BreakDamageDefinition;
+use crate::formula::toughness::ToughnessReductionContext;
 use crate::{
+    Probability, Ratio, RawToughness, Scalar, ToughnessReductionDefinition,
     battle::fault::BattleFault,
     event::cause::Cause,
     id::EventId,
@@ -10,7 +15,7 @@ use crate::{
 use super::{operation::execute_toughness_reduction, transaction::Transaction};
 
 pub(super) fn execute_force_break(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -28,7 +33,7 @@ pub(super) fn execute_force_break(
                     .map(|layer| layer.current)
                     .max_by_key(|value| value.get())
             })
-            .unwrap_or_else(|| crate::RawToughness::new(0).expect("zero Toughness is valid"));
+            .unwrap_or_else(|| RawToughness::new(0).expect("zero Toughness is valid"));
         parent = execute_toughness_reduction(
             catalog,
             txn,
@@ -45,33 +50,30 @@ pub(super) fn execute_force_break(
     Ok(parent)
 }
 
-fn definition(
-    element: crate::formula::model::CombatElement,
-    base: crate::RawToughness,
-) -> crate::ToughnessReductionDefinition {
-    crate::ToughnessReductionDefinition {
+fn definition(element: CombatElement, base: RawToughness) -> ToughnessReductionDefinition {
+    ToughnessReductionDefinition {
         element,
         ignores_weakness: true,
-        reduction: crate::formula::toughness::ToughnessReductionContext {
+        reduction: ToughnessReductionContext {
             base,
-            additive: crate::RawToughness::new(0).expect("zero Toughness is valid"),
-            reduction_increase: crate::Ratio::ZERO,
-            weakness_break_efficiency: crate::Ratio::ZERO,
-            weakness_break_efficiency_cap: crate::Ratio::from_scaled(3_000_000),
-            toughness_vulnerability: crate::Ratio::ZERO,
-            ability_multiplier: crate::Ratio::ONE,
+            additive: RawToughness::new(0).expect("zero Toughness is valid"),
+            reduction_increase: Ratio::ZERO,
+            weakness_break_efficiency: Ratio::ZERO,
+            weakness_break_efficiency_cap: Ratio::from_scaled(3_000_000),
+            toughness_vulnerability: Ratio::ZERO,
+            ability_multiplier: Ratio::ONE,
         },
-        break_damage: crate::formula::toughness::BreakDamageDefinition {
-            attacker_level_multiplier: crate::Scalar::ONE,
-            ability_multiplier: crate::Ratio::ONE,
-            break_effect: crate::Ratio::ZERO,
-            break_damage_increase: crate::Ratio::ZERO,
-            defense_multiplier: crate::Ratio::ONE,
-            resistance_multiplier: crate::Ratio::ONE,
-            vulnerability_multiplier: crate::Ratio::ONE,
-            mitigation_multiplier: crate::Ratio::ONE,
-            unbroken_multiplier: crate::Ratio::ONE,
+        break_damage: BreakDamageDefinition {
+            attacker_level_multiplier: Scalar::ONE,
+            ability_multiplier: Ratio::ONE,
+            break_effect: Ratio::ZERO,
+            break_damage_increase: Ratio::ZERO,
+            defense_multiplier: Ratio::ONE,
+            resistance_multiplier: Ratio::ONE,
+            vulnerability_multiplier: Ratio::ONE,
+            mitigation_multiplier: Ratio::ONE,
+            unbroken_multiplier: Ratio::ONE,
         },
-        break_effect_chance: crate::Probability::ONE,
+        break_effect_chance: Probability::ONE,
     }
 }

@@ -1,3 +1,4 @@
+use crate::swarm_disaster_content::SwarmDisasterContentErrorKind;
 use crate::swarm_disaster_generated::{
     SoraConfig, swarm_disaster_block_create_rule::SwarmDisasterBlockCreateRule,
     swarm_disaster_map_event::SwarmDisasterMapEvent,
@@ -75,10 +76,7 @@ fn topology_consequence(
         scope: nonempty(&row.scope, &row.stable_key)?,
         operations: json(&row.ordered_operations_json, &row.stable_key)?,
         audience_die_id: row.aeon_dice_id.parse::<u32>().map_err(|_| {
-            super::error(
-                crate::swarm_disaster_content::SwarmDisasterContentErrorKind::Identifier,
-                &row.stable_key,
-            )
+            super::error(SwarmDisasterContentErrorKind::Identifier, &row.stable_key)
         })?,
         active_stage: nonnegative_u16(row.active_stage, &row.stable_key)?,
     })

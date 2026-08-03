@@ -8,28 +8,7 @@ mod occurrence;
 mod player;
 mod runtime_roster;
 
-use std::{collections::BTreeMap, sync::Arc};
-
-use starclock_activity::{
-    ActivityBattleResultContract, ActivityOptionId, ActivityParticipantCarryDefinition,
-    BattleBinding, BattleResultProjection, EncounterInitiativePolicy, EnergyCarryPolicy,
-    HpCarryPolicy, LifeCarryPolicy, ParticipantId, ParticipantLock, PreparedBattleVariant,
-    PresenceCarryPolicy, ProjectionField, ProjectionId, TechniqueContributionDigest,
-};
-use starclock_combat::{
-    Battle, BattleSeed, BattleSpec, EncounterId, EncounterWaveId, EnemyDefinitionId,
-    FormationIndex, ResolvedCombatantSpec, UnitLevel,
-    catalog::{
-        CombatCatalog,
-        builder::CombatCatalogBuilder,
-        definition::EncounterDefinition,
-        encounter::{
-            EncounterWaveDefinition as CombatEncounterWave, WaveCarry, WaveSlotDefinition,
-            WaveTransitionPolicy,
-        },
-    },
-};
-
+use crate::occurrence_battle::compile as occurrence_battle_compile;
 use crate::{
     battle_assembly::BattleAssemblyKey,
     battle_contribution::UniverseBattleContributionSet,
@@ -52,6 +31,26 @@ pub(crate) use occurrence::{
     FIXED_BLESSING_COUNT_METRIC_PREFIX,
 };
 pub(crate) use player::player_participants;
+use starclock_activity::{
+    ActivityBattleResultContract, ActivityOptionId, ActivityParticipantCarryDefinition,
+    BattleBinding, BattleResultProjection, EncounterInitiativePolicy, EnergyCarryPolicy,
+    HpCarryPolicy, LifeCarryPolicy, ParticipantId, ParticipantLock, PreparedBattleVariant,
+    PresenceCarryPolicy, ProjectionField, ProjectionId, TechniqueContributionDigest,
+};
+use starclock_combat::{
+    Battle, BattleSeed, BattleSpec, EncounterId, EncounterWaveId, EnemyDefinitionId,
+    FormationIndex, ResolvedCombatantSpec, UnitLevel,
+    catalog::{
+        CombatCatalog,
+        builder::CombatCatalogBuilder,
+        definition::EncounterDefinition,
+        encounter::{
+            EncounterWaveDefinition as CombatEncounterWave, WaveCarry, WaveSlotDefinition,
+            WaveTransitionPolicy,
+        },
+    },
+};
+use std::{collections::BTreeMap, sync::Arc};
 
 pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str = "reviewed-enemy-stats-with-proxy-fallback";
 
@@ -545,7 +544,7 @@ impl UniverseBattleMaterializer {
         {
             return Err(UniverseBattleMaterializationError::CatalogCompositionMismatch);
         }
-        let occurrence_battles = crate::occurrence_battle::compile(universe)
+        let occurrence_battles = occurrence_battle_compile(universe)
             .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
         let mut enemy_map = composition
             .enemies()

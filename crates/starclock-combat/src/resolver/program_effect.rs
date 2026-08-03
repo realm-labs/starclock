@@ -1,7 +1,16 @@
 //! Rule IR effect-application lowering and per-target chance resolution.
 
+use crate::catalog::CombatCatalog;
+use crate::modifier::model::FormulaPurpose;
+use crate::modifier::model::StatKind;
+use crate::modifier::model::StatQuerySubject;
+use crate::rng::types::DrawPurpose;
+use crate::rule::evaluate::StatQueryReader;
+use crate::rule::evaluate::evaluate_value;
 use crate::{
-    Ratio, Rounding, Scalar,
+    DispelCategory, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
+    EffectDefinitionId, EffectRuntimeDefinition, EffectRuntimeTemplate, EventId, OperationId,
+    Ratio, Rounding, Scalar, SelectorId, UnitId,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
@@ -16,27 +25,27 @@ use super::transaction::Transaction;
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_effect_operation(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     input: RuleEvaluationInput<'_>,
-    operation_id: crate::OperationId,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
-    current_target: Option<crate::UnitId>,
-    effect: crate::EffectDefinitionId,
+    operation_id: OperationId,
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+    selector: SelectorId,
+    current_target: Option<UnitId>,
+    effect: EffectDefinitionId,
     stacks: RuleValue,
     chance: RuleEffectChancePolicy,
     base_chance: Option<RuleValue>,
-    rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    rng_purpose: Option<DrawPurpose>,
 ) -> Result<Operation, BattleFault> {
     let stacks = effect_stacks(stacks)?;
     let base_chance = match chance {
-        RuleEffectChancePolicy::Guaranteed => crate::EffectChancePolicy::Guaranteed,
-        RuleEffectChancePolicy::Fixed => crate::EffectChancePolicy::Fixed {
+        RuleEffectChancePolicy::Guaranteed => EffectChancePolicy::Guaranteed,
+        RuleEffectChancePolicy::Fixed => EffectChancePolicy::Fixed {
             chance: probability(base_chance.ok_or_else(|| program_fault(7, 0))?)?,
         },
         RuleEffectChancePolicy::Resistible
         | RuleEffectChancePolicy::ResistibleIgnoringSpecificResistance => {
-            crate::EffectChancePolicy::Resistible {
+            EffectChancePolicy::Resistible {
                 base_chance: ratio(base_chance.ok_or_else(|| program_fault(8, 0))?)?,
                 attacker_effect_hit_rate: Ratio::ZERO,
                 target_effect_resistance: Ratio::ZERO,
@@ -67,7 +76,7 @@ pub(super) fn apply_effect_operation(
     Ok(Operation::ApplyEffect(ApplyEffectOp {
         id: operation_id,
         targets,
-        definition: crate::EffectApplicationDefinition::new(effect, base_chance, stacks)
+        definition: EffectApplicationDefinition::new(effect, base_chance, stacks)
             .expect("validated stacks are nonzero"),
         rng_purpose,
         resolved_chances,
@@ -87,15 +96,15 @@ fn effect_stacks(value: RuleValue) -> Result<u16, BattleFault> {
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn adjust_effect_stacks(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
-    operation: crate::OperationId,
-    targets: Box<[crate::UnitId]>,
-    definition: crate::EffectDefinitionId,
+    mut parent: EventId,
+    operation: OperationId,
+    targets: Box<[UnitId]>,
+    definition: EffectDefinitionId,
     delta: RuleValue,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     let RuleValue::Integer(delta) = delta else {
         return Err(program_fault(73, 0));
     };
@@ -165,13 +174,13 @@ pub(super) fn adjust_effect_stacks(
 }
 
 fn resolve_chances(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     input: RuleEvaluationInput<'_>,
-    effect: crate::EffectDefinitionId,
+    effect: EffectDefinitionId,
     chance: RuleEffectChancePolicy,
-    base_chance: crate::EffectChancePolicy,
-    targets: &[crate::UnitId],
-) -> Result<Option<Box<[crate::EffectChancePolicy]>>, BattleFault> {
+    base_chance: EffectChancePolicy,
+    targets: &[UnitId],
+) -> Result<Option<Box<[EffectChancePolicy]>>, BattleFault> {
     if !matches!(
         chance,
         RuleEffectChancePolicy::Resistible
@@ -188,20 +197,20 @@ fn resolve_chances(
         .ok_or_else(|| program_fault(63, 0))?;
     let hit_rate = reader
         .query_stat(
-            crate::modifier::model::StatQuerySubject::Applier,
+            StatQuerySubject::Applier,
             applier,
-            crate::modifier::model::StatKind::EffectHitRate,
-            crate::modifier::model::FormulaPurpose::EffectChance,
+            StatKind::EffectHitRate,
+            FormulaPurpose::EffectChance,
         )
         .map_err(|error| program_fault(64, i64::from(error.context())))?;
     let base = match base_chance {
-        crate::EffectChancePolicy::Resistible { base_chance, .. } => base_chance,
+        EffectChancePolicy::Resistible { base_chance, .. } => base_chance,
         _ => unreachable!("resistible rule chance"),
     };
     let specific_stat = catalog
         .effect(effect)
         .and_then(|definition| definition.runtime())
-        .and_then(crate::EffectRuntimeDefinition::specific_resistance_stat);
+        .and_then(EffectRuntimeDefinition::specific_resistance_stat);
     let ignores_specific = matches!(
         chance,
         RuleEffectChancePolicy::ResistibleIgnoringSpecificResistance
@@ -209,17 +218,12 @@ fn resolve_chances(
     targets
         .iter()
         .map(|target| {
-            let resistance = query_resistance(
-                reader,
-                *target,
-                crate::modifier::model::StatKind::EffectResistance,
-                65,
-            )?;
+            let resistance = query_resistance(reader, *target, StatKind::EffectResistance, 65)?;
             let specific = match (ignores_specific, specific_stat) {
                 (false, Some(stat)) => query_resistance(reader, *target, stat, 66)?,
                 _ => Scalar::ZERO,
             };
-            Ok(crate::EffectChancePolicy::Resistible {
+            Ok(EffectChancePolicy::Resistible {
                 base_chance: base,
                 attacker_effect_hit_rate: Ratio::from_scaled(hit_rate.scaled()),
                 target_effect_resistance: Ratio::from_scaled(resistance.scaled()),
@@ -231,30 +235,30 @@ fn resolve_chances(
 }
 
 fn query_resistance(
-    reader: &dyn crate::rule::evaluate::StatQueryReader,
-    target: crate::UnitId,
-    stat: crate::modifier::model::StatKind,
+    reader: &dyn StatQueryReader,
+    target: UnitId,
+    stat: StatKind,
     context: u32,
 ) -> Result<Scalar, BattleFault> {
     reader
         .query_stat(
-            crate::modifier::model::StatQuerySubject::CurrentTarget,
+            StatQuerySubject::CurrentTarget,
             target,
             stat,
-            crate::modifier::model::FormulaPurpose::EffectChance,
+            FormulaPurpose::EffectChance,
         )
         .map_err(|error| program_fault(context, i64::from(error.context())))
 }
 
 fn resolve_effect_runtime(
-    template: &crate::EffectRuntimeTemplate,
+    template: &EffectRuntimeTemplate,
     input: RuleEvaluationInput<'_>,
-    target: crate::UnitId,
-) -> Result<crate::EffectRuntimeDefinition, BattleFault> {
+    target: UnitId,
+) -> Result<EffectRuntimeDefinition, BattleFault> {
     let duration = template
         .duration_expression()
         .map(|expression| {
-            crate::rule::evaluate::evaluate_value(expression, input, Some(target))
+            evaluate_value(expression, input, Some(target))
                 .map_err(|error| program_fault(45, i64::from(error.context())))
                 .and_then(effect_duration)
         })
@@ -262,7 +266,7 @@ fn resolve_effect_runtime(
     let magnitude = template
         .magnitude_expression()
         .map(|expression| {
-            crate::rule::evaluate::evaluate_value(expression, input, Some(target))
+            evaluate_value(expression, input, Some(target))
                 .map_err(|error| program_fault(46, i64::from(error.context())))
                 .and_then(non_negative_scalar)
         })
@@ -275,13 +279,13 @@ fn resolve_effect_runtime(
 }
 
 fn resolve_negative_effect_duration(
-    runtime: crate::EffectRuntimeDefinition,
+    runtime: EffectRuntimeDefinition,
     input: RuleEvaluationInput<'_>,
-    target: crate::UnitId,
-) -> Result<crate::EffectRuntimeDefinition, BattleFault> {
+    target: UnitId,
+) -> Result<EffectRuntimeDefinition, BattleFault> {
     if !matches!(
         runtime.dispel(),
-        crate::DispelCategory::DispellableDebuff | crate::DispelCategory::CleanseableControl
+        DispelCategory::DispellableDebuff | DispelCategory::CleanseableControl
     ) {
         return Ok(runtime);
     }
@@ -289,13 +293,13 @@ fn resolve_negative_effect_duration(
         return Ok(runtime);
     };
     let reader = input.stat_reader.ok_or_else(|| program_fault(68, 0))?;
-    let duration = if runtime.category() == crate::EffectCategory::Dot {
+    let duration = if runtime.category() == EffectCategory::Dot {
         let addition = reader
             .query_stat(
-                crate::modifier::model::StatQuerySubject::CurrentTarget,
+                StatQuerySubject::CurrentTarget,
                 target,
-                crate::modifier::model::StatKind::DotDurationAddition,
-                crate::modifier::model::FormulaPurpose::Dot,
+                StatKind::DotDurationAddition,
+                FormulaPurpose::Dot,
             )
             .map_err(|error| program_fault(73, i64::from(error.context())))?
             .rounded_integer(Rounding::NearestTiesEven)
@@ -310,10 +314,10 @@ fn resolve_negative_effect_duration(
     };
     let multiplier = reader
         .query_stat(
-            crate::modifier::model::StatQuerySubject::CurrentTarget,
+            StatQuerySubject::CurrentTarget,
             target,
-            crate::modifier::model::StatKind::DebuffDurationMultiplier,
-            crate::modifier::model::FormulaPurpose::Stat,
+            StatKind::DebuffDurationMultiplier,
+            FormulaPurpose::Stat,
         )
         .map_err(|error| program_fault(69, i64::from(error.context())))?;
     let scaled = Scalar::checked_from_integer(i64::from(duration))

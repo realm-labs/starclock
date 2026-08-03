@@ -13,8 +13,13 @@ mod table;
 
 use crate::modifier::{model::ModifierDefinition, registry::ModifierRegistry};
 use crate::{
-    AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId,
-    ProgramId, RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    AbilityId, AiGraphId, CountdownCatalogDefinition, EffectDefinitionId, EncounterId,
+    EnemyDefinitionId, LinkedUnitCatalogDefinition, ModifierDefinitionId, ProgramId, RuleBundleId,
+    RuleId, SelectorId, UnitDefinitionId,
+};
+use crate::{
+    TriggerId,
+    rule::model::{RuleEventKind, TriggerPhase},
 };
 use definition::{
     AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
@@ -22,11 +27,6 @@ use definition::{
 };
 use index::TriggerDefinitionIndex;
 use table::DefinitionTable;
-
-use crate::{
-    TriggerId,
-    rule::model::{RuleEventKind, TriggerPhase},
-};
 
 /// Exact digest of the configuration input represented by this catalog.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -45,8 +45,8 @@ impl CatalogDigest {
 pub struct CombatCatalog {
     digest: CatalogDigest,
     units: DefinitionTable<UnitDefinitionId, UnitDefinition>,
-    linked_units: DefinitionTable<UnitDefinitionId, crate::LinkedUnitCatalogDefinition>,
-    countdowns: DefinitionTable<u32, crate::CountdownCatalogDefinition>,
+    linked_units: DefinitionTable<UnitDefinitionId, LinkedUnitCatalogDefinition>,
+    countdowns: DefinitionTable<u32, CountdownCatalogDefinition>,
     abilities: DefinitionTable<AbilityId, AbilityDefinition>,
     ability_parameters: parameter::Table,
     effects: DefinitionTable<EffectDefinitionId, EffectDefinition>,

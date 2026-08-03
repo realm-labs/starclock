@@ -1,14 +1,20 @@
 //! Closed generated-enum mappings for authored generic effects.
 
+use crate::generated::combat_element::CombatElement as CombatElementCombatElement;
+use crate::generated::dispel_category::DispelCategory as DispelCategoryDispelCategory;
+use crate::generated::duration_clock::DurationClock as DurationClockDurationClock;
+use crate::generated::effect_category::EffectCategory as EffectCategoryEffectCategory;
+use crate::generated::effect_stack_policy::EffectStackPolicy as EffectStackPolicyEffectStackPolicy;
+use crate::generated::effect_teardown_policy::EffectTeardownPolicy as EffectTeardownPolicyEffectTeardownPolicy;
+use crate::generated::effect_tick_phase::EffectTickPhase as EffectTickPhaseEffectTickPhase;
+use crate::generated::snapshot_policy::SnapshotPolicy;
 use starclock_combat::formula::model::CombatElement;
 use starclock_combat::{
     DispelCategory, DurationClock, EffectCategory, EffectSnapshotPolicy, EffectStackPolicy,
     EffectTeardownPolicy, EffectTickPhase,
 };
 
-pub(super) fn lower_element(
-    value: crate::generated::combat_element::CombatElement,
-) -> CombatElement {
+pub(super) fn lower_element(value: CombatElementCombatElement) -> CombatElement {
     use crate::generated::combat_element::CombatElement as V;
     match value {
         V::Physical => CombatElement::Physical,
@@ -21,9 +27,7 @@ pub(super) fn lower_element(
     }
 }
 
-pub(super) fn lower_effect_category(
-    value: crate::generated::effect_category::EffectCategory,
-) -> EffectCategory {
+pub(super) fn lower_effect_category(value: EffectCategoryEffectCategory) -> EffectCategory {
     use crate::generated::effect_category::EffectCategory as V;
     match value {
         V::Buff => EffectCategory::Buff,
@@ -37,9 +41,7 @@ pub(super) fn lower_effect_category(
     }
 }
 
-pub(super) fn lower_dispel(
-    value: crate::generated::dispel_category::DispelCategory,
-) -> DispelCategory {
+pub(super) fn lower_dispel(value: DispelCategoryDispelCategory) -> DispelCategory {
     use crate::generated::dispel_category::DispelCategory as V;
     match value {
         V::DispellableBuff => DispelCategory::DispellableBuff,
@@ -49,9 +51,7 @@ pub(super) fn lower_dispel(
     }
 }
 
-pub(super) fn lower_duration_clock(
-    value: crate::generated::duration_clock::DurationClock,
-) -> DurationClock {
+pub(super) fn lower_duration_clock(value: DurationClockDurationClock) -> DurationClock {
     use crate::generated::duration_clock::DurationClock as V;
     match value {
         V::Permanent => DurationClock::Permanent,
@@ -65,9 +65,7 @@ pub(super) fn lower_duration_clock(
     }
 }
 
-pub(super) fn lower_tick_phase(
-    value: crate::generated::effect_tick_phase::EffectTickPhase,
-) -> EffectTickPhase {
+pub(super) fn lower_tick_phase(value: EffectTickPhaseEffectTickPhase) -> EffectTickPhase {
     use crate::generated::effect_tick_phase::EffectTickPhase as V;
     match value {
         V::None => EffectTickPhase::None,
@@ -79,9 +77,7 @@ pub(super) fn lower_tick_phase(
     }
 }
 
-pub(super) fn lower_stack_policy(
-    value: crate::generated::effect_stack_policy::EffectStackPolicy,
-) -> EffectStackPolicy {
+pub(super) fn lower_stack_policy(value: EffectStackPolicyEffectStackPolicy) -> EffectStackPolicy {
     use crate::generated::effect_stack_policy::EffectStackPolicy as V;
     match value {
         V::Replace => EffectStackPolicy::Replace,
@@ -95,9 +91,7 @@ pub(super) fn lower_stack_policy(
     }
 }
 
-pub(super) fn lower_snapshot_policy(
-    value: crate::generated::snapshot_policy::SnapshotPolicy,
-) -> EffectSnapshotPolicy {
+pub(super) fn lower_snapshot_policy(value: SnapshotPolicy) -> EffectSnapshotPolicy {
     use crate::generated::snapshot_policy::SnapshotPolicy as V;
     match value {
         V::Dynamic => EffectSnapshotPolicy::Dynamic,
@@ -113,7 +107,7 @@ pub(super) fn lower_snapshot_policy(
 }
 
 pub(super) fn lower_teardown(
-    value: crate::generated::effect_teardown_policy::EffectTeardownPolicy,
+    value: EffectTeardownPolicyEffectTeardownPolicy,
 ) -> EffectTeardownPolicy {
     use crate::generated::effect_teardown_policy::EffectTeardownPolicy as V;
     match value {

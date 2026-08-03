@@ -1,3 +1,4 @@
+use crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput;
 use std::sync::Arc;
 
 use crate::{
@@ -313,10 +314,7 @@ impl SwarmDisasterRuntimeFactory {
 fn mechanic_rule(
     content: &SwarmDisasterContentCatalog,
     family: &str,
-) -> Result<
-    crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput,
-    UniverseCatalogLoadError,
-> {
+) -> Result<MechanicRuleRuntimeInput, UniverseCatalogLoadError> {
     content
         .mechanic_rule_runtime_input(family)
         .ok_or_else(|| error("Swarm topology mechanic rule is missing"))

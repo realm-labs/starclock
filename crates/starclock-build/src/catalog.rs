@@ -1,5 +1,6 @@
 //! Immutable build-domain catalog and validated construction.
 
+use crate::compiler::LoadoutCompiler;
 use starclock_combat::{
     AbilityId, Hp, ModifierDefinitionId, ResolvedDefinitionBindings, RuleBundleId, Speed,
     StatValue, UnitDefinitionId, UnitLevel,
@@ -364,7 +365,7 @@ impl BuildCatalogBuilder {
             presets: self.presets.into_boxed_slice(),
         };
         for preset in &catalog.presets {
-            let compiled = crate::compiler::LoadoutCompiler
+            let compiled = LoadoutCompiler
                 .compile(&catalog, combat, preset.spec())
                 .map_err(|_| {
                     preset_error(BuildCatalogErrorKind::InvalidBuildPreset, preset.id())

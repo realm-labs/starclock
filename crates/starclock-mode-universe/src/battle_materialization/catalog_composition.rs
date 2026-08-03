@@ -1,5 +1,6 @@
 //! Immutable encounter and enemy definition composition shared by assemblies.
 
+use crate::occurrence_battle::compile as occurrence_battle_compile;
 use std::{collections::BTreeMap, sync::Arc};
 
 use starclock_combat::catalog::{CombatCatalog, builder::CombatCatalogBuilder};
@@ -32,7 +33,7 @@ impl UniverseBattleCatalogComposition {
             .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
         let enemies = materialize_enemies(universe, &content)?;
         validate_denominators(universe, &enemies)?;
-        let occurrence_battles = crate::occurrence_battle::compile(universe)
+        let occurrence_battles = occurrence_battle_compile(universe)
             .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
         let mut enemy_map = enemies
             .iter()

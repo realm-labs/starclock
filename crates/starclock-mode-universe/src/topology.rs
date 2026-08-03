@@ -6,11 +6,12 @@ mod occurrence_binding;
 mod reward_program;
 mod route_definition;
 mod route_program;
-pub type UniverseTopologyCompileError = error::UniverseTopologyCompileError;
+
 use self::graph_layout::*;
 use self::occurrence_binding::*;
 use self::route_program::compile_route_program;
 use self::{blessing_offer::compile_blessing_offer_policy, reward_program::node_program_id};
+use crate::curio_activity::CurioActivityBindings;
 use crate::{
     ability_runtime::AbilityTarget,
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
@@ -57,6 +58,8 @@ use starclock_activity::{
     TerminalOutcome,
 };
 use std::{collections::BTreeSet, sync::Arc};
+
+pub type UniverseTopologyCompileError = error::UniverseTopologyCompileError;
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 const PATH_NODE: u32 = 1;
 const TOPOLOGY_SELECTOR_NODE: u32 = 2;
@@ -311,7 +314,7 @@ pub(crate) fn compile(
     blessing_offer_marker_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
-    curio_bindings: crate::curio_activity::CurioActivityBindings,
+    curio_bindings: CurioActivityBindings,
     formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
@@ -655,7 +658,7 @@ fn compile_programs(
     blessing_offer_marker_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
-    curio_bindings: crate::curio_activity::CurioActivityBindings,
+    curio_bindings: CurioActivityBindings,
     formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,

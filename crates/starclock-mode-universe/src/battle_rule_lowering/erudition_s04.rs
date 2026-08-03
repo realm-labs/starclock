@@ -1,4 +1,5 @@
 use super::*;
+use crate::path::ResonanceDefinition;
 use starclock_combat::{
     EffectDamageGuard,
     catalog::{
@@ -956,7 +957,7 @@ fn resonance_parameters<'a>(
         .resonances()
         .iter()
         .find(|definition| definition.stable_key() == binding.source_record_key())
-        .map(crate::path::ResonanceDefinition::parameters)
+        .map(ResonanceDefinition::parameters)
         .ok_or(BattleRuleLoweringError::SnapshotMismatch)
 }
 

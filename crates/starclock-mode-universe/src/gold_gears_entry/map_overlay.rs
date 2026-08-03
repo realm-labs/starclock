@@ -1,5 +1,6 @@
 //! Typed chessboard overlays and deterministic map-program compilation.
 
+use crate::gold_gears_content::MapEvent;
 use starclock_activity::{
     ActivityExpression, ActivityGraphDefinition, ActivityOperation, ActivityProgramDefinition,
     ActivityProgramId, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
@@ -624,9 +625,7 @@ fn map_value(state: &ActivityTransactionState, slot_id: u32, node: NodeId) -> Op
         .map(|index| values[index].1)
 }
 
-fn runtime_event(
-    event: &crate::gold_gears_content::MapEvent,
-) -> Result<RuntimeMapEvent, GoldAndGearsEntryError> {
+fn runtime_event(event: &MapEvent) -> Result<RuntimeMapEvent, GoldAndGearsEntryError> {
     Ok(RuntimeMapEvent {
         id: u32::try_from(event.id).map_err(|_| GoldAndGearsEntryError::InvalidMapRuntime)?,
         trigger: event.trigger,

@@ -1,4 +1,5 @@
-use crate::{ActivityInstanceId, AttemptId, NodeId, SectionId};
+use crate::codec::CanonicalWriter;
+use crate::{ActivityGraphDefinition, ActivityInstanceId, AttemptId, NodeId, SectionId};
 
 /// Generic activity-owned lifetime. Battle and shorter lifetimes remain combat-owned.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -116,11 +117,11 @@ impl OneBattleFlow {
 
     /// Compiles the one-battle profile into the generic immutable graph.
     #[must_use]
-    pub fn into_graph(self) -> crate::ActivityGraphDefinition {
-        crate::ActivityGraphDefinition::one_battle(self)
+    pub fn into_graph(self) -> ActivityGraphDefinition {
+        ActivityGraphDefinition::one_battle(self)
     }
 
-    pub(crate) fn encode(self, writer: &mut crate::codec::CanonicalWriter) {
+    pub(crate) fn encode(self, writer: &mut CanonicalWriter) {
         writer.u32(self.section.get());
         writer.u32(self.battle.get());
         writer.u32(self.complete.get());

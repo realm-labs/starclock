@@ -1,9 +1,10 @@
 //! Deterministic `CombatCatalog` construction and cross-reference validation.
+mod composition;
+mod effect_validate;
+mod lifecycle_validate;
+mod parameter_validate;
 mod replacement;
-use std::collections::{BTreeMap, BTreeSet};
-use std::sync::Arc;
-
-use crate::ProgramId;
+mod selector_validate;
 
 use super::{
     CatalogDigest, CombatCatalog,
@@ -15,16 +16,17 @@ use super::{
     encounter::AiGraphDefinition,
     table::{DefinitionTable, DuplicateId},
 };
+use crate::{
+    ActionOrigin, AiStateId, CountdownCatalogDefinition, LinkedUnitCatalogDefinition, ProgramId,
+};
+
 use crate::modifier::{
     model::{ModifierDefinition, ModifierStackingGroup},
     registry::ModifierRegistry,
 };
-
-mod composition;
-mod effect_validate;
-mod lifecycle_validate;
-mod parameter_validate;
-mod selector_validate;
+use crate::rule::model::ProgramStep;
+use std::collections::{BTreeMap, BTreeSet};
+use std::sync::Arc;
 
 /// Foundational definition family named by catalog diagnostics.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -128,8 +130,8 @@ impl std::error::Error for CatalogBuildError {}
 pub struct CombatCatalogBuilder {
     digest: [u8; 32],
     units: Vec<UnitDefinition>,
-    linked_units: Vec<crate::LinkedUnitCatalogDefinition>,
-    countdowns: Vec<crate::CountdownCatalogDefinition>,
+    linked_units: Vec<LinkedUnitCatalogDefinition>,
+    countdowns: Vec<CountdownCatalogDefinition>,
     abilities: Vec<AbilityDefinition>,
     ability_parameters: Vec<AbilityParameterDefinition>,
     effects: Vec<EffectDefinition>,
@@ -173,11 +175,11 @@ impl CombatCatalogBuilder {
         self.units.push(definition);
     }
     /// Adds one complete Rule IR summon template.
-    pub fn add_linked_unit(&mut self, definition: crate::LinkedUnitCatalogDefinition) {
+    pub fn add_linked_unit(&mut self, definition: LinkedUnitCatalogDefinition) {
         self.linked_units.push(definition);
     }
     /// Adds one timeline-only Rule IR countdown template.
-    pub fn add_countdown(&mut self, definition: crate::CountdownCatalogDefinition) {
+    pub fn add_countdown(&mut self, definition: CountdownCatalogDefinition) {
         self.countdowns.push(definition);
     }
     /// Adds one value for an exact effective-level ability definition.
@@ -525,26 +527,25 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 };
                 let compatible = matches!(
                     (queue.origin(), queued.kind()),
-                    (
-                        crate::ActionOrigin::FollowUp,
-                        super::action::AbilityKind::FollowUp
-                    ) | (
-                        crate::ActionOrigin::UltimateInterrupt,
-                        super::action::AbilityKind::Ultimate
-                    ) | (
-                        crate::ActionOrigin::Counter,
-                        super::action::AbilityKind::Counter
-                    ) | (
-                        crate::ActionOrigin::ExtraTurn,
-                        super::action::AbilityKind::ExtraTurn
-                    ) | (
-                        crate::ActionOrigin::ExtraAction | crate::ActionOrigin::Forced,
-                        super::action::AbilityKind::ExtraAction
-                    ) | (
-                        crate::ActionOrigin::DelayedAction,
-                        super::action::AbilityKind::DelayedAction
-                    )
-                ) || (queue.origin() == crate::ActionOrigin::Forced
+                    (ActionOrigin::FollowUp, super::action::AbilityKind::FollowUp)
+                        | (
+                            ActionOrigin::UltimateInterrupt,
+                            super::action::AbilityKind::Ultimate
+                        )
+                        | (ActionOrigin::Counter, super::action::AbilityKind::Counter)
+                        | (
+                            ActionOrigin::ExtraTurn,
+                            super::action::AbilityKind::ExtraTurn
+                        )
+                        | (
+                            ActionOrigin::ExtraAction | ActionOrigin::Forced,
+                            super::action::AbilityKind::ExtraAction
+                        )
+                        | (
+                            ActionOrigin::DelayedAction,
+                            super::action::AbilityKind::DelayedAction
+                        )
+                ) || (queue.origin() == ActionOrigin::Forced
                     && queued.kind() == super::action::AbilityKind::Skill
                     && queued.tags().supports_forced_skill());
                 if !compatible {
@@ -988,10 +989,10 @@ fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> 
 }
 
 fn has_cycle(
-    state: crate::AiStateId,
-    edges: &BTreeMap<crate::AiStateId, Vec<crate::AiStateId>>,
-    visiting: &mut BTreeSet<crate::AiStateId>,
-    visited: &mut BTreeSet<crate::AiStateId>,
+    state: AiStateId,
+    edges: &BTreeMap<AiStateId, Vec<AiStateId>>,
+    visiting: &mut BTreeSet<AiStateId>,
+    visited: &mut BTreeSet<AiStateId>,
 ) -> bool {
     if visited.contains(&state) {
         return false;
@@ -1064,7 +1065,7 @@ fn validate_program_references(catalog: &CombatCatalog) -> Result<(), CatalogBui
             DefinitionKind::Modifier,
         )?;
         for step in program.steps() {
-            let crate::rule::model::ProgramStep::Operation(operation) = step else {
+            let ProgramStep::Operation(operation) = step else {
                 continue;
             };
             lifecycle_validate::validate_program_operation(catalog, id, operation)?;

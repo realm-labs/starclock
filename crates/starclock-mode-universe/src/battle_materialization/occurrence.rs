@@ -1,5 +1,6 @@
 //! Occurrence-specific encounter overlay materialization.
 
+use crate::entry::state_layout::OCCURRENCE_BATTLE_REWARD_COUNT_SLOT;
 use std::{collections::BTreeMap, sync::Arc};
 
 use starclock_activity::{
@@ -105,9 +106,8 @@ pub(super) fn extend_overlay(
             variants,
         )
         .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?;
-        let reward_slot =
-            ActivitySlotId::new(crate::entry::state_layout::OCCURRENCE_BATTLE_REWARD_COUNT_SLOT)
-                .expect("reserved occurrence reward slot is non-zero");
+        let reward_slot = ActivitySlotId::new(OCCURRENCE_BATTLE_REWARD_COUNT_SLOT)
+            .expect("reserved occurrence reward slot is non-zero");
         overlay.push(UniverseEncounterBattleBinding::new(
             member.id(),
             Arc::new(preparation),

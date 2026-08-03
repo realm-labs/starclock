@@ -1,5 +1,6 @@
 //! Swarm Disaster sessions over the shared Activity agent vocabulary.
 
+use crate::schema::IdempotencyKey;
 use std::{collections::BTreeMap, sync::Arc};
 
 use serde::{Deserialize, Serialize};
@@ -179,7 +180,7 @@ pub struct SwarmDisasterActivityAgentSession {
     components: ConfigurationComponentSet,
     run: SwarmDisasterIncrementalRun,
     offered: Option<SwarmOfferedActionSet>,
-    idempotency: BTreeMap<crate::schema::IdempotencyKey, CachedSwarmResponse>,
+    idempotency: BTreeMap<IdempotencyKey, CachedSwarmResponse>,
     closed: bool,
 }
 

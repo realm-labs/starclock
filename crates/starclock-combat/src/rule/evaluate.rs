@@ -1,15 +1,21 @@
 //! Deterministic, budgeted and mutation-free Rule IR evaluation.
-use std::collections::BTreeSet;
 mod arithmetic;
 mod event_property;
 mod helpers;
+
 use super::model::{
     ConditionExpr, ProgramStep, RuleEmission, RuleEvaluationInput, RuleOperationTemplate,
     RuleReplacementProposal, RuleResourceKind, RuleValue, RuleValueKind, ShieldObservation,
     TriggerDef, ValueExpr, once_key,
 };
+
+use crate::formula::model::CombatElement;
+use crate::formula::toughness::EnemyRank;
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
-use crate::{ProgramId, Scalar, UnitId};
+use crate::{
+    AbilityId, EffectCategory, EffectDefinitionId, EventId, LifeState, PresenceState, ProgramId,
+    RuleId, Scalar, SourceDefinitionId, UnitId,
+};
 use arithmetic::{Arithmetic, arithmetic, convert, extremum};
 use event_property::event_property;
 use helpers::{
@@ -18,6 +24,8 @@ use helpers::{
     slot_value, type_error,
 };
 pub(crate) use helpers::{compare, compare_values, stat_query_error};
+use std::collections::BTreeSet;
+
 /// Applies the cheap indexed cause filter without inferring cause roles.
 #[must_use]
 pub fn matches_filter(filter: &super::model::EventFilter, input: RuleEvaluationInput<'_>) -> bool {
@@ -54,7 +62,7 @@ pub trait StatQueryReader {
 /// Read-only bridge used by the Rule IR `AbilityParameter` leaf.
 pub trait AbilityParameterReader {
     /// Returns one parameter selected by the exact resolved ability and semantic key.
-    fn ability_parameter(&self, ability: crate::AbilityId, key: &str) -> Option<RuleValue>;
+    fn ability_parameter(&self, ability: AbilityId, key: &str) -> Option<RuleValue>;
 }
 
 /// Read-only bridge used by the Rule IR `ReadResource` leaf.
@@ -64,12 +72,12 @@ pub trait ResourceQueryReader {
 
 /// Read-only battlefield predicates used by authored contextual conditions.
 pub trait BattleQueryReader {
-    fn life_presence(&self, subject: UnitId) -> Option<(crate::LifeState, crate::PresenceState)>;
-    fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool;
+    fn life_presence(&self, subject: UnitId) -> Option<(LifeState, PresenceState)>;
+    fn has_effect(&self, subject: UnitId, effect: EffectDefinitionId) -> bool;
     fn is_frozen(&self, subject: UnitId) -> bool;
-    fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
+    fn has_weakness(&self, subject: UnitId, element: CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
-    fn enemy_rank(&self, _subject: UnitId) -> Option<crate::formula::toughness::EnemyRank> {
+    fn enemy_rank(&self, _subject: UnitId) -> Option<EnemyRank> {
         None
     }
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
@@ -79,12 +87,8 @@ pub trait BattleQueryReader {
     fn maximum_energy(&self, _subject: UnitId) -> Option<Scalar> {
         None
     }
-    fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64>;
-    fn effect_category_stacks(
-        &self,
-        _subject: UnitId,
-        _category: crate::EffectCategory,
-    ) -> Option<i64> {
+    fn effect_stacks(&self, subject: UnitId, effect: EffectDefinitionId) -> Option<i64>;
+    fn effect_category_stacks(&self, _subject: UnitId, _category: EffectCategory) -> Option<i64> {
         Some(0)
     }
 }
@@ -255,7 +259,7 @@ impl TriggerLedger {
         before - self.keys.len()
     }
 
-    pub(crate) fn reset_event(&mut self, event: crate::EventId) -> usize {
+    pub(crate) fn reset_event(&mut self, event: EventId) -> usize {
         let before = self.keys.len();
         self.keys
             .retain(|key| key.scope != super::model::OnceScope::Event || key.first != event.get());
@@ -821,8 +825,8 @@ fn evaluate_operation(
 /// Stable definition-only total order for candidate triggers.
 #[must_use]
 pub fn trigger_definition_order(
-    rule: crate::RuleId,
-    source: crate::SourceDefinitionId,
+    rule: RuleId,
+    source: SourceDefinitionId,
     trigger: &super::model::TriggerDef,
 ) -> super::model::TriggerDefinitionOrder {
     helpers::trigger_definition_order(rule, source, trigger)

@@ -1,8 +1,19 @@
 //! Modifier-aware formula preparation separated from authoritative state mutation.
 
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::AbilityKind;
+use crate::catalog::action::AbilityTag;
+use crate::catalog::definition::AbilityDefinition;
+use crate::formula::sustain::DamageCalculation;
+use crate::formula::sustain::HealingCalculation;
+use crate::modifier::model::StatKind;
+use crate::modifier::model::StatQuery;
+use crate::rule::model::SourceClass;
 use std::collections::BTreeMap;
 
 use crate::{
+    AbilityId, EffectCategory, EffectDefinitionId, LifeState, PresenceState, Probability, Ratio,
+    Rounding, Scalar, UnitId,
     battle::fault::BattleFault,
     catalog::action::{HealingDefinition, OrdinaryDamageDefinition, ShieldDefinition},
     event::cause::{Cause, CauseActor},
@@ -22,10 +33,10 @@ use super::{
 };
 
 pub(super) struct FormulaInputs {
-    bases: BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), crate::Scalar>,
-    shields: BTreeMap<crate::UnitId, crate::Scalar>,
-    effect_stacks: BTreeMap<(crate::UnitId, crate::EffectDefinitionId), i64>,
-    effect_category_stacks: BTreeMap<(crate::UnitId, crate::EffectCategory), i64>,
+    bases: BTreeMap<(UnitId, StatKind), Scalar>,
+    shields: BTreeMap<UnitId, Scalar>,
+    effect_stacks: BTreeMap<(UnitId, EffectDefinitionId), i64>,
+    effect_category_stacks: BTreeMap<(UnitId, EffectCategory), i64>,
     modifiers: Vec<ActiveModifier>,
 }
 
@@ -43,15 +54,15 @@ impl FormulaInputs {
     #[allow(clippy::too_many_arguments)]
     pub(super) fn damage(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
         mut formula: OrdinaryDamageDefinition,
         element: Option<formula::model::CombatElement>,
-        target: crate::UnitId,
+        target: UnitId,
         apply_source_modifiers: bool,
         ultimate_semantics: bool,
-    ) -> Result<crate::formula::sustain::DamageCalculation, BattleFault> {
+    ) -> Result<DamageCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
         let purpose = damage_purpose(formula.class());
         let source = formula_source(txn, cause, purpose)?;
@@ -137,15 +148,13 @@ impl FormulaInputs {
 
     pub(super) fn critical_profile(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
         class: formula::model::DamageClass,
-        target: crate::UnitId,
+        target: UnitId,
         ultimate_semantics: bool,
     ) -> Result<CriticalProfile, BattleFault> {
-        use crate::modifier::model::StatKind;
-
         let purpose = damage_purpose(class);
         let source = formula_source(txn, cause, purpose)?;
         let resolver = self.resolver(catalog);
@@ -158,7 +167,7 @@ impl FormulaInputs {
         .with_formula_subject(FormulaSubject::Source);
         let rate = resolver
             .query(
-                crate::modifier::model::StatQuery {
+                StatQuery {
                     subject: source,
                     stat: StatKind::CritRate,
                     purpose,
@@ -181,7 +190,7 @@ impl FormulaInputs {
         )?;
         let damage = resolver
             .query(
-                crate::modifier::model::StatQuery {
+                StatQuery {
                     subject: source,
                     stat: StatKind::CritDamage,
                     purpose,
@@ -193,7 +202,7 @@ impl FormulaInputs {
             return Err(numeric_fault(52, damage.scaled()));
         }
         Ok(CriticalProfile {
-            chance: formula::model::clamp_probability(crate::Ratio::from_scaled(
+            chance: formula::model::clamp_probability(Ratio::from_scaled(
                 rate.checked_add(target_bonus)
                     .map_err(|_| numeric_fault(53, target_bonus.scaled()))?
                     .scaled(),
@@ -204,16 +213,14 @@ impl FormulaInputs {
 
     pub(super) fn energy_regeneration_rate(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
-        subject: crate::UnitId,
-    ) -> Result<crate::Scalar, BattleFault> {
-        use crate::modifier::model::StatKind;
-
+        subject: UnitId,
+    ) -> Result<Scalar, BattleFault> {
         self.resolver(catalog)
             .query(
-                crate::modifier::model::StatQuery {
+                StatQuery {
                     subject,
                     stat: StatKind::EnergyRegenerationRate,
                     purpose: FormulaPurpose::Stat,
@@ -236,12 +243,12 @@ impl FormulaInputs {
 
     pub(super) fn break_damage(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
         mut formula: formula::toughness::BreakDamageDefinition,
         element: formula::model::CombatElement,
-        target: crate::UnitId,
+        target: UnitId,
     ) -> Result<formula::toughness::BreakDamageDefinition, BattleFault> {
         let modifiers = self.break_formula_modifiers(
             catalog,
@@ -253,26 +260,26 @@ impl FormulaInputs {
         )?;
         formula.break_damage_increase = formula
             .break_damage_increase
-            .checked_add(crate::Ratio::from_scaled(modifiers.damage_boost.scaled()))
+            .checked_add(Ratio::from_scaled(modifiers.damage_boost.scaled()))
             .map_err(|_| numeric_fault(57, modifiers.damage_boost.scaled()))?;
         formula.vulnerability_multiplier = formula
             .vulnerability_multiplier
-            .checked_add(crate::Ratio::from_scaled(modifiers.vulnerability.scaled()))
+            .checked_add(Ratio::from_scaled(modifiers.vulnerability.scaled()))
             .map_err(|_| numeric_fault(58, modifiers.vulnerability.scaled()))?;
         formula.mitigation_multiplier = formula
             .mitigation_multiplier
-            .checked_mul(modifiers.mitigation, crate::Rounding::NearestTiesEven)
+            .checked_mul(modifiers.mitigation, Rounding::NearestTiesEven)
             .map_err(|_| numeric_fault(59, modifiers.mitigation.scaled()))?;
         Ok(formula)
     }
 
     pub(super) fn super_break_damage(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
         mut formula: formula::toughness::SuperBreakDefinition,
-        target: crate::UnitId,
+        target: UnitId,
     ) -> Result<formula::toughness::SuperBreakDefinition, BattleFault> {
         let modifiers = self.break_formula_modifiers(
             catalog,
@@ -284,25 +291,25 @@ impl FormulaInputs {
         )?;
         formula.break_damage_increase = formula
             .break_damage_increase
-            .checked_add(crate::Ratio::from_scaled(modifiers.damage_boost.scaled()))
+            .checked_add(Ratio::from_scaled(modifiers.damage_boost.scaled()))
             .map_err(|_| numeric_fault(60, modifiers.damage_boost.scaled()))?;
         formula.vulnerability_multiplier = formula
             .vulnerability_multiplier
-            .checked_add(crate::Ratio::from_scaled(modifiers.vulnerability.scaled()))
+            .checked_add(Ratio::from_scaled(modifiers.vulnerability.scaled()))
             .map_err(|_| numeric_fault(61, modifiers.vulnerability.scaled()))?;
         formula.mitigation_multiplier = formula
             .mitigation_multiplier
-            .checked_mul(modifiers.mitigation, crate::Rounding::NearestTiesEven)
+            .checked_mul(modifiers.mitigation, Rounding::NearestTiesEven)
             .map_err(|_| numeric_fault(62, modifiers.mitigation.scaled()))?;
         Ok(formula)
     }
 
     fn break_formula_modifiers(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
-        target: crate::UnitId,
+        target: UnitId,
         purpose: FormulaPurpose,
         element: formula::model::CombatElement,
     ) -> Result<BreakFormulaModifiers, BattleFault> {
@@ -371,8 +378,8 @@ impl FormulaInputs {
                 .with_formula_subject(FormulaSubject::Target),
         )?)
         .map_err(|_| numeric_fault(65, i64::from(FormulaStage::Mitigation as u8)))?;
-        let mitigation = crate::Ratio::ONE
-            .checked_sub(crate::Ratio::from_scaled(mitigation_value.scaled()))
+        let mitigation = Ratio::ONE
+            .checked_sub(Ratio::from_scaled(mitigation_value.scaled()))
             .map_err(|_| numeric_fault(65, i64::from(FormulaStage::Mitigation as u8)))?;
         Ok(BreakFormulaModifiers {
             damage_boost,
@@ -383,12 +390,12 @@ impl FormulaInputs {
 
     pub(super) fn weakness_break_efficiency(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
-        target: crate::UnitId,
+        target: UnitId,
         element: formula::model::CombatElement,
-    ) -> Result<crate::Ratio, BattleFault> {
+    ) -> Result<Ratio, BattleFault> {
         let purpose = FormulaPurpose::Break;
         let source = formula_source(txn, cause, purpose)?;
         let context = action_modifier_context(
@@ -406,33 +413,28 @@ impl FormulaInputs {
         let value = self
             .resolver(catalog)
             .query(
-                crate::modifier::model::StatQuery {
+                StatQuery {
                     subject: source,
-                    stat: crate::modifier::model::StatKind::ToughnessDamage,
+                    stat: StatKind::ToughnessDamage,
                     purpose,
                 },
                 &context,
             )
-            .map_err(|_| {
-                numeric_fault(
-                    56,
-                    i64::from(crate::modifier::model::StatKind::ToughnessDamage as u8),
-                )
-            })?;
-        Ok(crate::Ratio::from_scaled(value.scaled()))
+            .map_err(|_| numeric_fault(56, i64::from(StatKind::ToughnessDamage as u8)))?;
+        Ok(Ratio::from_scaled(value.scaled()))
     }
 
     pub(super) fn toughness_recovery(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
-        target: crate::UnitId,
-    ) -> Result<crate::Ratio, BattleFault> {
-        let stat = crate::modifier::model::StatKind::ToughnessRecovery;
+        target: UnitId,
+    ) -> Result<Ratio, BattleFault> {
+        let stat = StatKind::ToughnessRecovery;
         let value = self
             .resolver(catalog)
             .query(
-                crate::modifier::model::StatQuery {
+                StatQuery {
                     subject: target,
                     stat,
                     purpose: FormulaPurpose::Stat,
@@ -449,17 +451,17 @@ impl FormulaInputs {
         if value.scaled() < 0 {
             return Err(numeric_fault(68, value.scaled()));
         }
-        Ok(crate::Ratio::from_scaled(value.scaled()))
+        Ok(Ratio::from_scaled(value.scaled()))
     }
 
     pub(super) fn healing(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
         formula: HealingDefinition,
-        target: crate::UnitId,
-    ) -> Result<crate::formula::sustain::HealingCalculation, BattleFault> {
+        target: UnitId,
+    ) -> Result<HealingCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
         let source = formula_source(txn, cause, FormulaPurpose::Healing)?;
         let outgoing = formula_modifier(
@@ -501,11 +503,11 @@ impl FormulaInputs {
 
     pub(super) fn shield(
         &self,
-        catalog: &crate::catalog::CombatCatalog,
+        catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
         formula: ShieldDefinition,
-        target: crate::UnitId,
+        target: UnitId,
     ) -> Result<formula::model::ShieldCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
         let source = formula_source(txn, cause, FormulaPurpose::Shield)?;
@@ -549,17 +551,17 @@ impl FormulaInputs {
         let context = formula::model::ShieldContext {
             scaling_terms: vec![formula::model::ScalingTerm {
                 stat: formula.base_shield(),
-                ratio: crate::Ratio::ONE,
+                ratio: Ratio::ONE,
             }]
             .into_boxed_slice(),
-            additive_base: crate::Scalar::ZERO,
+            additive_base: Scalar::ZERO,
             bonuses: vec![formula.bonus()].into_boxed_slice(),
         };
         formula::shield::calculate(&context)
             .map_err(|_| numeric_fault(9, formula.base_shield().scaled()))
     }
 
-    fn resolver<'a>(&'a self, catalog: &'a crate::catalog::CombatCatalog) -> StatResolver<'a> {
+    fn resolver<'a>(&'a self, catalog: &'a CombatCatalog) -> StatResolver<'a> {
         StatResolver::new(catalog.modifier_registry(), &self.bases, &self.modifiers)
             .with_shields(&self.shields)
             .with_effect_stacks(&self.effect_stacks)
@@ -569,7 +571,7 @@ impl FormulaInputs {
 
 fn effect_stacks(
     txn: &Transaction<'_>,
-) -> Result<BTreeMap<(crate::UnitId, crate::EffectDefinitionId), i64>, BattleFault> {
+) -> Result<BTreeMap<(UnitId, EffectDefinitionId), i64>, BattleFault> {
     let mut output = BTreeMap::new();
     for effect in txn.state.effects.iter_by_id() {
         let stacks = output
@@ -584,7 +586,7 @@ fn effect_stacks(
 
 fn effect_category_stacks(
     txn: &Transaction<'_>,
-) -> Result<BTreeMap<(crate::UnitId, crate::EffectCategory), i64>, BattleFault> {
+) -> Result<BTreeMap<(UnitId, EffectCategory), i64>, BattleFault> {
     let mut output = BTreeMap::new();
     for effect in txn.state.effects.iter_by_id() {
         let stacks = output
@@ -598,21 +600,21 @@ fn effect_category_stacks(
 }
 
 pub(super) struct CriticalProfile {
-    pub(super) chance: crate::Probability,
-    pub(super) damage: crate::Scalar,
+    pub(super) chance: Probability,
+    pub(super) damage: Scalar,
 }
 
 struct BreakFormulaModifiers {
-    damage_boost: crate::Scalar,
-    vulnerability: crate::Scalar,
-    mitigation: crate::Ratio,
+    damage_boost: Scalar,
+    vulnerability: Scalar,
+    mitigation: Ratio,
 }
 
 #[derive(Clone, Copy)]
 struct IncomingModifierContext {
     cause: Cause,
-    source: crate::UnitId,
-    target: crate::UnitId,
+    source: UnitId,
+    target: UnitId,
     element: Option<formula::model::CombatElement>,
     class: formula::model::DamageClass,
     ultimate_semantics: bool,
@@ -620,11 +622,11 @@ struct IncomingModifierContext {
 
 fn formula_modifier(
     resolver: &StatResolver<'_>,
-    subject: crate::UnitId,
+    subject: UnitId,
     stage: FormulaStage,
     purpose: FormulaPurpose,
     context: &ModifierQueryContext,
-) -> Result<crate::Scalar, BattleFault> {
+) -> Result<Scalar, BattleFault> {
     resolver
         .query_formula(
             FormulaModifierQuery {
@@ -639,12 +641,12 @@ fn formula_modifier(
 
 fn incoming_formula_modifier(
     resolver: &StatResolver<'_>,
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &Transaction<'_>,
     input: IncomingModifierContext,
     stage: FormulaStage,
     purpose: FormulaPurpose,
-) -> Result<crate::Scalar, BattleFault> {
+) -> Result<Scalar, BattleFault> {
     let context = damage_modifier_context(
         catalog,
         input.cause,
@@ -654,7 +656,7 @@ fn incoming_formula_modifier(
     let unscoped = if input.source == input.target
         && matches!(purpose, FormulaPurpose::Healing | FormulaPurpose::Shield)
     {
-        crate::Scalar::ZERO
+        Scalar::ZERO
     } else {
         formula_modifier(resolver, input.target, stage, purpose, &context)?
     };
@@ -674,7 +676,7 @@ fn formula_source(
     txn: &Transaction<'_>,
     cause: Cause,
     purpose: FormulaPurpose,
-) -> Result<crate::UnitId, BattleFault> {
+) -> Result<UnitId, BattleFault> {
     if purpose == FormulaPurpose::Dot
         && let Some(applier) = cause.applier()
     {
@@ -697,8 +699,8 @@ fn formula_source(
 
 fn modifier_context(
     txn: &Transaction<'_>,
-    subject: crate::UnitId,
-    target: crate::UnitId,
+    subject: UnitId,
+    target: UnitId,
     element: Option<formula::model::CombatElement>,
     class: formula::model::DamageClass,
 ) -> Result<ModifierQueryContext, BattleFault> {
@@ -717,17 +719,17 @@ fn modifier_context(
         .into_boxed_slice(),
         element: element.map(|value| value as u8),
         life: Some(match unit.life {
-            crate::LifeState::Alive => LifeFilter::Alive,
-            crate::LifeState::Downed => LifeFilter::Downed,
-            crate::LifeState::Defeated => LifeFilter::Defeated,
+            LifeState::Alive => LifeFilter::Alive,
+            LifeState::Downed => LifeFilter::Downed,
+            LifeState::Defeated => LifeFilter::Defeated,
         }),
         presence: Some(match unit.presence {
-            crate::PresenceState::Present => PresenceFilter::Present,
-            crate::PresenceState::Reserved => PresenceFilter::Reserved,
-            crate::PresenceState::Departed => PresenceFilter::Departed,
-            crate::PresenceState::Untargetable => PresenceFilter::Untargetable,
-            crate::PresenceState::Linked => PresenceFilter::Linked,
-            crate::PresenceState::Transformed => PresenceFilter::Transformed,
+            PresenceState::Present => PresenceFilter::Present,
+            PresenceState::Reserved => PresenceFilter::Reserved,
+            PresenceState::Departed => PresenceFilter::Departed,
+            PresenceState::Untargetable => PresenceFilter::Untargetable,
+            PresenceState::Linked => PresenceFilter::Linked,
+            PresenceState::Transformed => PresenceFilter::Transformed,
         }),
         target: Some(target),
         ..ModifierQueryContext::default()
@@ -736,8 +738,8 @@ fn modifier_context(
 
 fn break_modifier_context(
     txn: &Transaction<'_>,
-    subject: crate::UnitId,
-    target: crate::UnitId,
+    subject: UnitId,
+    target: UnitId,
     element: formula::model::CombatElement,
     purpose: FormulaPurpose,
 ) -> Result<ModifierQueryContext, BattleFault> {
@@ -758,42 +760,33 @@ fn break_modifier_context(
 }
 
 fn action_modifier_context(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     cause: Cause,
     mut context: ModifierQueryContext,
 ) -> ModifierQueryContext {
     let Some(action) = cause
         .source_definition()
-        .and_then(|source| crate::AbilityId::new(source.get()))
+        .and_then(|source| AbilityId::new(source.get()))
         .and_then(|ability| catalog.ability(ability))
-        .and_then(crate::catalog::definition::AbilityDefinition::action)
+        .and_then(AbilityDefinition::action)
     else {
         return context;
     };
     let mut tags = [
-        (crate::catalog::action::AbilityTag::Attack, "attack"),
-        (crate::catalog::action::AbilityTag::Basic, "basic"),
-        (crate::catalog::action::AbilityTag::Skill, "skill"),
-        (crate::catalog::action::AbilityTag::Ultimate, "ultimate"),
-        (crate::catalog::action::AbilityTag::FollowUp, "follow_up"),
-        (crate::catalog::action::AbilityTag::Counter, "counter"),
-        (crate::catalog::action::AbilityTag::Summon, "summon"),
-        (crate::catalog::action::AbilityTag::Memosprite, "memosprite"),
-        (
-            crate::catalog::action::AbilityTag::AdditionalDamage,
-            "additional_damage",
-        ),
-        (crate::catalog::action::AbilityTag::Joint, "joint"),
-        (
-            crate::catalog::action::AbilityTag::ElationSkill,
-            "elation_skill",
-        ),
-        (crate::catalog::action::AbilityTag::Assist, "assist"),
-        (
-            crate::catalog::action::AbilityTag::PathResonance,
-            "path_resonance",
-        ),
-        (crate::catalog::action::AbilityTag::Technique, "technique"),
+        (AbilityTag::Attack, "attack"),
+        (AbilityTag::Basic, "basic"),
+        (AbilityTag::Skill, "skill"),
+        (AbilityTag::Ultimate, "ultimate"),
+        (AbilityTag::FollowUp, "follow_up"),
+        (AbilityTag::Counter, "counter"),
+        (AbilityTag::Summon, "summon"),
+        (AbilityTag::Memosprite, "memosprite"),
+        (AbilityTag::AdditionalDamage, "additional_damage"),
+        (AbilityTag::Joint, "joint"),
+        (AbilityTag::ElationSkill, "elation_skill"),
+        (AbilityTag::Assist, "assist"),
+        (AbilityTag::PathResonance, "path_resonance"),
+        (AbilityTag::Technique, "technique"),
     ]
     .into_iter()
     .filter(|(tag, _)| action.tags().contains(*tag))
@@ -802,12 +795,12 @@ fn action_modifier_context(
     tags.sort_unstable();
     context.ability_tags = tags.into_boxed_slice();
     context.action_kind = Some(action.kind() as u8);
-    context.source_class = Some(crate::rule::model::SourceClass::Ability);
+    context.source_class = Some(SourceClass::Ability);
     context
 }
 
 fn damage_modifier_context(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     cause: Cause,
     mut context: ModifierQueryContext,
     ultimate_semantics: bool,
@@ -816,8 +809,8 @@ fn damage_modifier_context(
         return action_modifier_context(catalog, cause, context);
     }
     context.ability_tags = vec!["attack".into(), "ultimate".into()].into_boxed_slice();
-    context.action_kind = Some(crate::catalog::action::AbilityKind::Ultimate as u8);
-    context.source_class = Some(crate::rule::model::SourceClass::Ability);
+    context.action_kind = Some(AbilityKind::Ultimate as u8);
+    context.source_class = Some(SourceClass::Ability);
     context
 }
 

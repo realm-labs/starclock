@@ -1,5 +1,44 @@
 //! Validated Sora-row to immutable Starclock catalog boundary.
 //! Generated rows and preliminary definition storage remain private.
+mod effect_bindings;
+mod hit_formula;
+mod validation;
+mod value_map;
+
+use crate::build_lower::BuildDefinitions;
+use crate::build_lower::convert;
+use crate::catalog_manifest::convert_manifest;
+use crate::catalog_support;
+use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
+use crate::domain_catalog::compile;
+use crate::effect_lower::{
+    lower_dispel, lower_duration_clock, lower_effect_category, lower_element,
+    lower_snapshot_policy, lower_stack_policy, lower_teardown, lower_tick_phase,
+};
+use crate::encounter_lower::EncounterDefinitions;
+use crate::encounter_lower::convert as encounter_lower_convert;
+use crate::generated::ability_phase_kind::AbilityPhaseKind;
+use crate::generated::confidence::Confidence;
+use crate::generated::content_identity::ContentIdentity;
+use crate::generated::source_category::SourceCategory;
+use crate::generated::{
+    SoraConfig, content_kind::ContentKind, coverage_state::CoverageState,
+    release_state::ReleaseState, runtime::SoraBundle,
+};
+use crate::lifecycle_lower::lower;
+use crate::modifier_lower::convert as modifier_lower_convert;
+use crate::modifier_lower::expression;
+use crate::native_handler_lower::audit;
+use crate::operation_lower::RuleProgramDefinition;
+use crate::operation_lower::convert as operation_lower_convert;
+use crate::rule_lower::RuleDataDefinition;
+use crate::rule_lower::convert as rule_lower_convert;
+use crate::selector_lower::SelectorDataDefinition;
+use crate::selector_lower::lower as selector_lower_lower;
+use crate::standard_lower::StandardDefinitions;
+use crate::standard_lower::convert as standard_lower_convert;
+pub(super) use catalog_support::{domain_fail, fail, parse_decimal, valid_date, valid_sha256};
+use hit_formula::AbilityHitPlanDefinition;
 use sha2::{Digest, Sha256};
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::{
@@ -8,27 +47,6 @@ use starclock_combat::{
     EffectTickPhase, ModifierDefinitionId, Ratio, RuleId, SourceDefinitionId,
 };
 use std::{collections::BTreeMap, sync::Arc};
-
-use crate::catalog_manifest::convert_manifest;
-pub(super) use crate::catalog_support::{
-    domain_fail, fail, parse_decimal, valid_date, valid_sha256,
-};
-use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
-use crate::effect_lower::{
-    lower_dispel, lower_duration_clock, lower_effect_category, lower_element,
-    lower_snapshot_policy, lower_stack_policy, lower_teardown, lower_tick_phase,
-};
-use crate::generated::{
-    SoraConfig, content_kind::ContentKind, coverage_state::CoverageState,
-    release_state::ReleaseState, runtime::SoraBundle,
-};
-
-mod effect_bindings;
-mod hit_formula;
-mod validation;
-mod value_map;
-
-use hit_formula::AbilityHitPlanDefinition;
 use validation::{bounded_u16, identity_kind};
 pub(super) use validation::{contiguous, positive, positive_u16, require_identity};
 use value_map::{
@@ -247,9 +265,9 @@ pub struct SimulationCatalog {
     pub(super) manifest: CatalogManifest,
     pub(super) identities: Box<[IdentityDefinition]>,
     pub(super) combat: CombatDefinitions,
-    pub(super) builds: crate::build_lower::BuildDefinitions,
-    pub(super) encounters: crate::encounter_lower::EncounterDefinitions,
-    pub(super) standard: crate::standard_lower::StandardDefinitions,
+    pub(super) builds: BuildDefinitions,
+    pub(super) encounters: EncounterDefinitions,
+    pub(super) standard: StandardDefinitions,
     pub(super) combat_catalog: Arc<starclock_combat::catalog::CombatCatalog>,
     pub(super) build_catalog: starclock_build::catalog::BuildCatalog,
 }
@@ -290,10 +308,10 @@ pub(super) struct CombatDefinitions {
     pub(super) abilities: Box<[AbilityDefinition]>,
     pub(super) hit_plans: Box<[HitPlanDefinition]>,
     pub(super) modifiers: ModifierRegistry,
-    pub(super) selectors: Box<[crate::selector_lower::SelectorDataDefinition]>,
-    pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
+    pub(super) selectors: Box<[SelectorDataDefinition]>,
+    pub(super) programs: Box<[RuleProgramDefinition]>,
     pub(super) effects: Box<[EffectDataDefinition]>,
-    pub(super) rules: Box<[crate::rule_lower::RuleDataDefinition]>,
+    pub(super) rules: Box<[RuleDataDefinition]>,
     pub(super) linked_units: Box<[starclock_combat::LinkedUnitCatalogDefinition]>,
     pub(super) countdowns: Box<[starclock_combat::CountdownCatalogDefinition]>,
 }
@@ -470,10 +488,10 @@ pub(super) fn load_with_mode(
         .map(|identity| (identity.id, identity))
         .collect::<BTreeMap<_, _>>();
     let combat = convert_combat(&config, mode, &identity_by_id)?;
-    let builds = crate::build_lower::convert(&config, mode, &identity_by_id, &combat)?;
-    let encounters = crate::encounter_lower::convert(&config, mode, &identity_by_id, &combat)?;
-    let standard = crate::standard_lower::convert(&config, mode, &identity_by_id, &encounters)?;
-    let (combat_catalog, build_catalog) = crate::domain_catalog::compile(
+    let builds = convert(&config, mode, &identity_by_id, &combat)?;
+    let encounters = encounter_lower_convert(&config, mode, &identity_by_id, &combat)?;
+    let standard = standard_lower_convert(&config, mode, &identity_by_id, &encounters)?;
+    let (combat_catalog, build_catalog) = compile(
         config_digest,
         &identities,
         &combat,
@@ -576,13 +594,8 @@ fn convert_metadata(
             ));
         }
         if mode == LoadMode::Production
-            && (matches!(
-                row.category,
-                crate::generated::source_category::SourceCategory::SyntheticFixture
-            ) || matches!(
-                row.confidence,
-                crate::generated::confidence::Confidence::SyntheticFixture
-            ))
+            && (matches!(row.category, SourceCategory::SyntheticFixture)
+                || matches!(row.confidence, Confidence::SyntheticFixture))
         {
             return Err(fail(
                 CatalogLoadErrorKind::Metadata,
@@ -685,7 +698,7 @@ fn convert_metadata(
 }
 
 fn validate_release_coverage(
-    row: &crate::generated::content_identity::ContentIdentity,
+    row: &ContentIdentity,
     mode: LoadMode,
 ) -> Result<(), CatalogLoadError> {
     if mode == LoadMode::Production
@@ -731,12 +744,12 @@ fn convert_combat(
         let mut visiting = std::collections::BTreeSet::new();
         let duration = row
             .duration_expression_id
-            .map(|id| crate::modifier_lower::expression(config, id, &mut visiting))
+            .map(|id| expression(config, id, &mut visiting))
             .transpose()?;
         visiting.clear();
         let magnitude = row
             .magnitude_comparator_expression_id
-            .map(|id| crate::modifier_lower::expression(config, id, &mut visiting))
+            .map(|id| expression(config, id, &mut visiting))
             .transpose()?;
         let duration_clock = lower_duration_clock(row.duration_clock);
         if (duration_clock == DurationClock::Permanent) != duration.is_none() {
@@ -900,11 +913,11 @@ fn convert_combat(
                 Ok(AbilityPhaseDefinition {
                     sequence: positive_u16(phase.sequence, "AbilityPhase.sequence")?,
                     kind: match phase.kind {
-                        crate::generated::ability_phase_kind::AbilityPhaseKind::Entry => 0,
-                        crate::generated::ability_phase_kind::AbilityPhaseKind::BeforeHits => 1,
-                        crate::generated::ability_phase_kind::AbilityPhaseKind::Hits => 2,
-                        crate::generated::ability_phase_kind::AbilityPhaseKind::AfterHits => 3,
-                        crate::generated::ability_phase_kind::AbilityPhaseKind::Resolved => 4,
+                        AbilityPhaseKind::Entry => 0,
+                        AbilityPhaseKind::BeforeHits => 1,
+                        AbilityPhaseKind::Hits => 2,
+                        AbilityPhaseKind::AfterHits => 3,
+                        AbilityPhaseKind::Resolved => 4,
                     },
                     program: phase
                         .program_identity_id
@@ -1136,16 +1149,16 @@ fn convert_combat(
         }
         ability.hit_plan_bindings = bindings.into_boxed_slice();
     }
-    let native_handlers = crate::native_handler_lower::audit(config)?;
-    let modifiers = crate::modifier_lower::convert(config)?;
+    let native_handlers = audit(config)?;
+    let modifiers = modifier_lower_convert(config)?;
     let selectors = config
         .selector()
         .ordered_rows()
-        .map(|row| crate::selector_lower::lower(config, row))
+        .map(|row| selector_lower_lower(config, row))
         .collect::<Result<Vec<_>, _>>()?;
-    let programs = crate::operation_lower::convert(config, &native_handlers)?;
-    let rules = crate::rule_lower::convert(config, mode, identities, &native_handlers)?;
-    let (linked_units, countdowns) = crate::lifecycle_lower::lower(config, identities, mode)?;
+    let programs = operation_lower_convert(config, &native_handlers)?;
+    let rules = rule_lower_convert(config, mode, identities, &native_handlers)?;
+    let (linked_units, countdowns) = lower(config, identities, mode)?;
     for ability in &abilities {
         if ability
             .entry_rule

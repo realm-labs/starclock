@@ -1,3 +1,6 @@
+use crate::swarm_disaster_entry::SwarmDisasterEntry;
+use crate::swarm_disaster_entry::state::{NODE_BEACON, NODE_DOMAIN, NODE_STATE, PLANE};
+use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityProgramDefinition,
@@ -52,12 +55,12 @@ fn topology_generation_and_exact_event_order_delegate_to_existing_runtime() {
     assert!(program.operations()[..3].iter().all(|operation| matches!(
         operation,
         starclock_activity::ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == crate::swarm_disaster_entry::state::PLANE
+            if slot.get() == PLANE
     )));
     assert!(matches!(
         program.operations()[3],
         starclock_activity::ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == crate::swarm_disaster_entry::state::NODE_STATE
+            if slot.get() == NODE_STATE
     ));
     assert_eq!(active_rng_labels(&rng), [ActivityRngLabel::Graph]);
 
@@ -107,16 +110,13 @@ fn domain_beacon_copy_and_blanking_execute_atomically() {
         &mut state,
         instance.compile_node_copy(source, target).unwrap(),
     );
-    assert_eq!(
-        counter(&state, super::super::state::NODE_DOMAIN, target),
-        10
-    );
-    assert_eq!(counter(&state, super::super::state::NODE_BEACON, target), 2);
+    assert_eq!(counter(&state, NODE_DOMAIN, target), 10);
+    assert_eq!(counter(&state, NODE_BEACON, target), 2);
     let blank = instance.compile_node_blanking(target).unwrap();
     commit(&instance, &mut state, blank);
-    assert_eq!(counter(&state, super::super::state::NODE_STATE, target), 4);
-    assert_eq!(counter(&state, super::super::state::NODE_DOMAIN, target), 0);
-    assert_eq!(counter(&state, super::super::state::NODE_BEACON, target), 2);
+    assert_eq!(counter(&state, NODE_STATE, target), 4);
+    assert_eq!(counter(&state, NODE_DOMAIN, target), 0);
+    assert_eq!(counter(&state, NODE_BEACON, target), 2);
     let sequence = state.command_sequence();
     assert!(
         instance
@@ -127,15 +127,15 @@ fn domain_beacon_copy_and_blanking_execute_atomically() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
 
-fn entry() -> crate::swarm_disaster_entry::SwarmDisasterEntry {
-    super::super::tests::released_entry(
+fn entry() -> SwarmDisasterEntry {
+    released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-        super::super::tests::participants(super::super::tests::policy()),
+        participants(policy()),
     )
 }
 

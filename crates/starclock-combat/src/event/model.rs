@@ -1,4 +1,16 @@
+use crate::AbilityId as CrateAbilityId;
+
+use crate::catalog::action::AbilityTags;
+use crate::catalog::action::ReactionBoundary;
+use crate::catalog::encounter::EnemyPhaseTransitionModel;
+use crate::formula::model::CombatElement;
+use crate::formula::model::DamageClass;
+use crate::rule::model::RuleValue;
 use crate::{
+    ActionGauge, AiGraphId, AiStateId, DamageAmount, EffectDefinitionId, EffectInstanceId,
+    EnemyPhaseId, Energy, HealingAmount, Hp, LinkedEntity, LinkedEntityKind, OwnerLinkPolicy,
+    PresenceState, Ratio, RawToughness, RuleInstanceId, Scalar, ShieldAmount, ShieldInstanceId,
+    SourceDefinitionId, StateSlotDefinitionId, UnitDefinitionId,
     action::model::ActionOrigin,
     battle::{fault::BattleFault, spec::TeamSide},
     command::model::{DecisionKind, DecisionOwner},
@@ -93,24 +105,24 @@ pub struct DamageEventData {
     pub operation: OperationId,
     /// Semantic damage family, including retained DoT attribution.
     pub kind: DamageKind,
-    pub class: crate::formula::model::DamageClass,
-    pub element: Option<crate::formula::model::CombatElement>,
+    pub class: DamageClass,
+    pub element: Option<CombatElement>,
     /// Original retained effect instance for a tick or detonation.
-    pub source_effect: Option<crate::EffectInstanceId>,
+    pub source_effect: Option<EffectInstanceId>,
     /// Unit whose HP changed.
     pub target: UnitId,
     /// Fixed-point result before integral finalization.
-    pub raw: crate::Scalar,
+    pub raw: Scalar,
     /// Floored formula result before current-HP bounds.
-    pub calculated: crate::DamageAmount,
+    pub calculated: DamageAmount,
     /// Portion absorbed before HP application.
-    pub absorbed: crate::DamageAmount,
+    pub absorbed: DamageAmount,
     /// Effective HP loss after current-HP bounds.
-    pub applied: crate::DamageAmount,
+    pub applied: DamageAmount,
     /// HP immediately before this operation.
-    pub hp_before: crate::Hp,
+    pub hp_before: Hp,
     /// HP immediately after this operation.
-    pub hp_after: crate::Hp,
+    pub hp_after: Hp,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -124,21 +136,21 @@ pub enum DamageKind {
 pub enum EffectEventData {
     Applied {
         operation: OperationId,
-        effect: crate::EffectInstanceId,
-        definition: crate::EffectDefinitionId,
+        effect: EffectInstanceId,
+        definition: EffectDefinitionId,
         target: UnitId,
         stacks: u16,
         remaining: Option<u16>,
     },
     Resisted {
         operation: OperationId,
-        definition: crate::EffectDefinitionId,
+        definition: EffectDefinitionId,
         target: UnitId,
-        pre_clamp_chance: crate::Scalar,
+        pre_clamp_chance: Scalar,
     },
     Refreshed {
         operation: OperationId,
-        effect: crate::EffectInstanceId,
+        effect: EffectInstanceId,
         target: UnitId,
         stacks_before: u16,
         stacks_after: u16,
@@ -146,31 +158,31 @@ pub enum EffectEventData {
     },
     Removed {
         operation: OperationId,
-        effect: crate::EffectInstanceId,
-        definition: crate::EffectDefinitionId,
+        effect: EffectInstanceId,
+        definition: EffectDefinitionId,
         target: UnitId,
     },
     Ticked {
         operation: OperationId,
-        effect: crate::EffectInstanceId,
+        effect: EffectInstanceId,
         target: UnitId,
         remaining: Option<u16>,
     },
     Detonated {
         operation: OperationId,
-        effect: crate::EffectInstanceId,
+        effect: EffectInstanceId,
         target: UnitId,
-        fraction: crate::Ratio,
+        fraction: Ratio,
     },
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RuleStateEventData {
     pub operation: OperationId,
-    pub instance: crate::RuleInstanceId,
-    pub slot: crate::StateSlotDefinitionId,
-    pub before: crate::rule::model::RuleValue,
-    pub after: crate::rule::model::RuleValue,
+    pub instance: RuleInstanceId,
+    pub slot: StateSlotDefinitionId,
+    pub before: RuleValue,
+    pub after: RuleValue,
 }
 
 /// Typed informational signal retained in the ordinary event stream.
@@ -178,7 +190,7 @@ pub struct RuleStateEventData {
 pub struct RuleSignalEventData {
     pub operation: OperationId,
     pub code: u32,
-    pub value: Option<crate::rule::model::RuleValue>,
+    pub value: Option<RuleValue>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -193,13 +205,13 @@ pub struct BreakDamageEventData {
     pub operation: OperationId,
     pub target: UnitId,
     pub kind: BreakDamageKind,
-    pub element: crate::formula::model::CombatElement,
-    pub raw: crate::Scalar,
-    pub calculated: crate::DamageAmount,
-    pub absorbed: crate::DamageAmount,
-    pub applied: crate::DamageAmount,
-    pub hp_before: crate::Hp,
-    pub hp_after: crate::Hp,
+    pub element: CombatElement,
+    pub raw: Scalar,
+    pub calculated: DamageAmount,
+    pub absorbed: DamageAmount,
+    pub applied: DamageAmount,
+    pub hp_before: Hp,
+    pub hp_after: Hp,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -207,24 +219,24 @@ pub enum ToughnessEventData {
     WeaknessAdded {
         operation: OperationId,
         target: UnitId,
-        element: crate::formula::model::CombatElement,
+        element: CombatElement,
         already_present: bool,
         duration_turns: Option<u8>,
     },
     WeaknessRemoved {
         operation: OperationId,
         target: UnitId,
-        element: crate::formula::model::CombatElement,
+        element: CombatElement,
     },
     Reduced {
         operation: OperationId,
         target: UnitId,
-        element: crate::formula::model::CombatElement,
+        element: CombatElement,
         layer_key: Option<u32>,
-        attempted: crate::RawToughness,
-        effective: crate::RawToughness,
-        before: crate::RawToughness,
-        after: crate::RawToughness,
+        attempted: RawToughness,
+        effective: RawToughness,
+        before: RawToughness,
+        after: RawToughness,
     },
     LayerDepleted {
         operation: OperationId,
@@ -235,39 +247,39 @@ pub enum ToughnessEventData {
     BaseEffectApplied {
         operation: OperationId,
         target: UnitId,
-        effect: crate::EffectInstanceId,
-        element: crate::formula::model::CombatElement,
+        effect: EffectInstanceId,
+        element: CombatElement,
         duration_turns: u8,
         stacks: u8,
     },
     BaseEffectResisted {
         operation: OperationId,
         target: UnitId,
-        element: crate::formula::model::CombatElement,
+        element: CombatElement,
     },
     BaseEffectTicked {
         operation: OperationId,
         target: UnitId,
-        effect: crate::EffectInstanceId,
+        effect: EffectInstanceId,
         remaining_turns: u8,
         stacks: u8,
     },
     BaseEffectExpired {
         target: UnitId,
-        effect: crate::EffectInstanceId,
-        element: crate::formula::model::CombatElement,
+        effect: EffectInstanceId,
+        element: CombatElement,
     },
     Recovered {
         target: UnitId,
         layer_key: u32,
-        before: crate::RawToughness,
-        after: crate::RawToughness,
+        before: RawToughness,
+        after: RawToughness,
         exited_global_broken: bool,
     },
     SuperBreakSkipped {
         operation: OperationId,
         target: UnitId,
-        effective_reduction: crate::RawToughness,
+        effective_reduction: RawToughness,
     },
 }
 
@@ -276,11 +288,11 @@ pub enum ToughnessEventData {
 pub struct HpConsumptionEventData {
     pub operation: OperationId,
     pub target: UnitId,
-    pub requested: crate::Hp,
-    pub effective: crate::Hp,
-    pub overflow: crate::Hp,
-    pub hp_before: crate::Hp,
-    pub hp_after: crate::Hp,
+    pub requested: Hp,
+    pub effective: Hp,
+    pub overflow: Hp,
+    pub hp_before: Hp,
+    pub hp_after: Hp,
 }
 
 /// One active shield-instance mutation.
@@ -288,22 +300,22 @@ pub struct HpConsumptionEventData {
 pub enum ShieldEventData {
     Applied {
         operation: OperationId,
-        shield: crate::ShieldInstanceId,
+        shield: ShieldInstanceId,
         target: UnitId,
-        raw: crate::Scalar,
-        amount: crate::ShieldAmount,
+        raw: Scalar,
+        amount: ShieldAmount,
     },
     Absorbed {
-        shield: crate::ShieldInstanceId,
+        shield: ShieldInstanceId,
         target: UnitId,
-        before: crate::ShieldAmount,
-        after: crate::ShieldAmount,
+        before: ShieldAmount,
+        after: ShieldAmount,
     },
     Removed {
         operation: OperationId,
-        shield: crate::ShieldInstanceId,
+        shield: ShieldInstanceId,
         target: UnitId,
-        before: crate::ShieldAmount,
+        before: ShieldAmount,
     },
 }
 
@@ -315,17 +327,17 @@ pub struct HealEventData {
     /// Unit whose HP changed.
     pub target: UnitId,
     /// Fixed-point result before integral finalization.
-    pub raw: crate::Scalar,
+    pub raw: Scalar,
     /// Floored formula result before missing-HP bounds.
-    pub calculated: crate::HealingAmount,
+    pub calculated: HealingAmount,
     /// Effective HP restoration after missing-HP bounds.
-    pub effective: crate::HealingAmount,
+    pub effective: HealingAmount,
     /// Calculated healing discarded by the maximum-HP bound.
-    pub overheal: crate::HealingAmount,
+    pub overheal: HealingAmount,
     /// HP immediately before this operation.
-    pub hp_before: crate::Hp,
+    pub hp_before: Hp,
     /// HP immediately after this operation.
-    pub hp_after: crate::Hp,
+    pub hp_after: Hp,
 }
 
 /// Immediate zero-HP settlement facts before encounter settlement.
@@ -340,45 +352,45 @@ pub enum UnitEventData {
         unit: UnitId,
         owner: UnitId,
         actor: Option<TimelineActorId>,
-        kind: crate::LinkedEntityKind,
+        kind: LinkedEntityKind,
     },
     /// One timeline-only countdown actor was linked to its owner.
     CountdownCreated {
         owner: UnitId,
         actor: TimelineActorId,
-        ability: crate::AbilityId,
+        ability: CrateAbilityId,
     },
     /// One explicit presence mutation completed.
     PresenceChanged {
         unit: UnitId,
-        before: crate::PresenceState,
-        after: crate::PresenceState,
+        before: PresenceState,
+        after: PresenceState,
     },
     /// Form/ability replacement and optional countdown creation completed.
     Transformed {
         unit: UnitId,
-        from: crate::UnitDefinitionId,
-        to: crate::UnitDefinitionId,
+        from: UnitDefinitionId,
+        to: UnitDefinitionId,
         countdown: Option<TimelineActorId>,
     },
     /// A transformation restored its original form and ability set.
     TransformationEnded {
         unit: UnitId,
-        restored_form: crate::UnitDefinitionId,
+        restored_form: UnitDefinitionId,
     },
     /// A downed/defeated unit returned under explicit authored policy.
     Revived {
         unit: UnitId,
-        hp: crate::Hp,
-        presence: crate::PresenceState,
+        hp: Hp,
+        presence: PresenceState,
     },
     /// A linked unit departed and its timeline actor became inactive.
     Despawned { unit: UnitId },
     /// An owner or wave policy settled one explicit link.
     LinkSettled {
         owner: UnitId,
-        entity: crate::LinkedEntity,
-        policy: crate::OwnerLinkPolicy,
+        entity: LinkedEntity,
+        policy: OwnerLinkPolicy,
     },
 }
 
@@ -397,11 +409,11 @@ pub enum EnemyPhaseEventData {
     /// One validated phase cursor and its selected AI graph became authoritative.
     Transitioned {
         unit: UnitId,
-        from: Option<crate::EnemyPhaseId>,
-        to: crate::EnemyPhaseId,
-        model: crate::catalog::encounter::EnemyPhaseTransitionModel,
-        graph: crate::AiGraphId,
-        state: crate::AiStateId,
+        from: Option<EnemyPhaseId>,
+        to: EnemyPhaseId,
+        model: EnemyPhaseTransitionModel,
+        graph: AiGraphId,
+        state: AiStateId,
     },
 }
 
@@ -420,9 +432,9 @@ pub enum TurnEventData {
         actor: TimelineActorId,
         owner: UnitId,
         kind: ActionGaugeChangeKind,
-        amount: crate::Ratio,
-        before: crate::ActionGauge,
-        after: crate::ActionGauge,
+        amount: Ratio,
+        before: ActionGauge,
+        after: ActionGauge,
     },
     /// Global time advanced, or an already-granted extra turn began.
     Started {
@@ -446,28 +458,28 @@ pub enum ActionEventData {
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
-        boundary: crate::catalog::action::ReactionBoundary,
+        boundary: ReactionBoundary,
     },
     Declared {
         action: ActionId,
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
-        tags: crate::catalog::action::AbilityTags,
+        tags: AbilityTags,
     },
     Started {
         action: ActionId,
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
-        tags: crate::catalog::action::AbilityTags,
+        tags: AbilityTags,
     },
     Resolved {
         action: ActionId,
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
-        tags: crate::catalog::action::AbilityTags,
+        tags: AbilityTags,
         /// Stable committed target order for rules that react after the action.
         targets: Box<[UnitId]>,
     },
@@ -507,7 +519,7 @@ pub enum HitEventData {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SkillPointPayer {
     TeamSkillPoints,
-    TeamResource(crate::SourceDefinitionId),
+    TeamResource(SourceDefinitionId),
     Suppressed,
 }
 
@@ -527,22 +539,22 @@ pub enum ResourceEventData {
     /// Personal Energy changed in canonical millionths.
     Energy {
         unit: UnitId,
-        before: crate::Energy,
-        after: crate::Energy,
-        overflow: crate::Energy,
+        before: Energy,
+        after: Energy,
+        overflow: Energy,
     },
     /// Form-scoped named character resource mutation.
     CharacterResource {
         unit: UnitId,
         resource: Box<str>,
-        before: crate::Scalar,
-        after: crate::Scalar,
-        maximum: crate::Scalar,
+        before: Scalar,
+        after: Scalar,
+        maximum: Scalar,
     },
     /// Generic team-owned resource mutation with cap/spend effectiveness.
     TeamResource {
         side: TeamSide,
-        resource: crate::SourceDefinitionId,
+        resource: SourceDefinitionId,
         attempted: u16,
         effective: u16,
         before: u16,

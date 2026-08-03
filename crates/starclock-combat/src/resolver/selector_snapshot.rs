@@ -1,9 +1,21 @@
 //! Compact immutable battlefield projections for authored selector reference points.
 
+use crate::battle::state::BattleState;
+use crate::catalog::selector::RuleSelectorReference;
+use crate::event::cause::Cause;
+use crate::event::model::BattleEvent;
+use crate::event::model::BattleEventKind;
+use crate::formula::toughness::attacker_level_multiplier;
+use crate::modifier::model::StatKind;
+use crate::modifier::model::StatKind::{
+    Atk, BreakBaseDamage, Def, DotDurationAddition, EnergyRegenerationRate, Hp as HpStat, Spd,
+    ToughnessDamage, ToughnessRecovery,
+};
 use std::{collections::BTreeMap, sync::Arc};
 
 use crate::{
-    EffectDefinitionId, SourceDefinitionId, UnitId,
+    ActionGauge, ActionId, EffectDefinitionId, EventId, Hp, LifeState, LinkedEntity, NumericError,
+    PresenceState, Scalar, SourceDefinitionId, Speed, StatValue, UnitId, UnitLevel,
     battle::spec::{FormationIndex, TeamSide},
     formula::model::CombatElement,
     modifier::model::ActiveModifier,
@@ -13,16 +25,16 @@ use crate::{
 pub(super) struct SelectorUnitSnapshot {
     pub(super) side: TeamSide,
     pub(super) formation: FormationIndex,
-    pub(super) life: crate::LifeState,
-    pub(super) presence: crate::PresenceState,
-    pub(super) current_hp: crate::Hp,
-    pub(super) maximum_hp: crate::Hp,
-    pub(super) base_attack: crate::StatValue,
-    pub(super) base_defense: crate::StatValue,
-    pub(super) base_speed: crate::Speed,
-    pub(super) level: crate::UnitLevel,
-    pub(super) gauge: Option<crate::ActionGauge>,
-    pub(super) shield: crate::Scalar,
+    pub(super) life: LifeState,
+    pub(super) presence: PresenceState,
+    pub(super) current_hp: Hp,
+    pub(super) maximum_hp: Hp,
+    pub(super) base_attack: StatValue,
+    pub(super) base_defense: StatValue,
+    pub(super) base_speed: Speed,
+    pub(super) level: UnitLevel,
+    pub(super) gauge: Option<ActionGauge>,
+    pub(super) shield: Scalar,
     pub(super) weaknesses: Box<[CombatElement]>,
 }
 
@@ -41,7 +53,7 @@ pub(super) struct RuleSelectorSnapshot {
 }
 
 impl RuleSelectorSnapshot {
-    pub(super) fn capture(state: &crate::battle::state::BattleState) -> Self {
+    pub(super) fn capture(state: &BattleState) -> Self {
         let units = state
             .units
             .iter_by_id()
@@ -68,8 +80,8 @@ impl RuleSelectorSnapshot {
                             .shields
                             .effective_remaining(unit.id)
                             .ok()
-                            .and_then(|value| crate::Scalar::checked_from_integer(value.get()).ok())
-                            .unwrap_or(crate::Scalar::ZERO),
+                            .and_then(|value| Scalar::checked_from_integer(value.get()).ok())
+                            .unwrap_or(Scalar::ZERO),
                         weaknesses: unit.weaknesses.clone().into_boxed_slice(),
                     },
                 )
@@ -98,8 +110,8 @@ impl RuleSelectorSnapshot {
                     return None;
                 }
                 match link.entity {
-                    crate::LinkedEntity::Unit(unit) => Some((unit, link.owner)),
-                    crate::LinkedEntity::TimelineActor(_) => None,
+                    LinkedEntity::Unit(unit) => Some((unit, link.owner)),
+                    LinkedEntity::TimelineActor(_) => None,
                 }
             })
             .collect();
@@ -116,46 +128,28 @@ impl RuleSelectorSnapshot {
         }
     }
 
-    pub(super) fn stat_bases(
-        &self,
-    ) -> Result<
-        BTreeMap<(UnitId, crate::modifier::model::StatKind), crate::Scalar>,
-        crate::NumericError,
-    > {
-        use crate::modifier::model::StatKind::{
-            Atk, BreakBaseDamage, Def, DotDurationAddition, EnergyRegenerationRate, Hp, Spd,
-            ToughnessDamage, ToughnessRecovery,
-        };
+    pub(super) fn stat_bases(&self) -> Result<BTreeMap<(UnitId, StatKind), Scalar>, NumericError> {
         let mut bases = BTreeMap::new();
         for (id, unit) in &self.units {
             bases.insert(
-                (*id, Hp),
-                crate::Scalar::checked_from_integer(unit.maximum_hp.get())?,
+                (*id, HpStat),
+                Scalar::checked_from_integer(unit.maximum_hp.get())?,
             );
-            bases.insert(
-                (*id, Atk),
-                crate::Scalar::from_scaled(unit.base_attack.scaled()),
-            );
-            bases.insert(
-                (*id, Def),
-                crate::Scalar::from_scaled(unit.base_defense.scaled()),
-            );
-            bases.insert(
-                (*id, Spd),
-                crate::Scalar::from_scaled(unit.base_speed.scaled()),
-            );
-            bases.insert((*id, ToughnessDamage), crate::Scalar::ZERO);
-            bases.insert((*id, EnergyRegenerationRate), crate::Scalar::ONE);
-            bases.insert((*id, ToughnessRecovery), crate::Scalar::ONE);
-            if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
+            bases.insert((*id, Atk), Scalar::from_scaled(unit.base_attack.scaled()));
+            bases.insert((*id, Def), Scalar::from_scaled(unit.base_defense.scaled()));
+            bases.insert((*id, Spd), Scalar::from_scaled(unit.base_speed.scaled()));
+            bases.insert((*id, ToughnessDamage), Scalar::ZERO);
+            bases.insert((*id, EnergyRegenerationRate), Scalar::ONE);
+            bases.insert((*id, ToughnessRecovery), Scalar::ONE);
+            if let Some(value) = attacker_level_multiplier(unit.level) {
                 bases.insert((*id, BreakBaseDamage), value);
             }
-            bases.insert((*id, DotDurationAddition), crate::Scalar::ZERO);
+            bases.insert((*id, DotDurationAddition), Scalar::ZERO);
         }
         Ok(bases)
     }
 
-    pub(super) fn shield_values(&self) -> BTreeMap<UnitId, crate::Scalar> {
+    pub(super) fn shield_values(&self) -> BTreeMap<UnitId, Scalar> {
         self.units
             .iter()
             .map(|(id, unit)| (*id, unit.shield))
@@ -166,12 +160,10 @@ impl RuleSelectorSnapshot {
 impl super::transaction::Transaction<'_> {
     pub(super) fn selector_snapshot(
         &self,
-        reference: crate::catalog::selector::RuleSelectorReference,
-        event: crate::EventId,
-        action: Option<crate::ActionId>,
+        reference: RuleSelectorReference,
+        event: EventId,
+        action: Option<ActionId>,
     ) -> Option<Arc<RuleSelectorSnapshot>> {
-        use crate::catalog::selector::RuleSelectorReference;
-
         match reference {
             RuleSelectorReference::CurrentState => None,
             RuleSelectorReference::EventSnapshot => {
@@ -183,11 +175,7 @@ impl super::transaction::Transaction<'_> {
         }
     }
 
-    pub(super) fn emit(
-        &mut self,
-        cause: crate::event::cause::Cause,
-        kind: crate::event::model::BattleEventKind,
-    ) -> crate::EventId {
+    pub(super) fn emit(&mut self, cause: Cause, kind: BattleEventKind) -> EventId {
         let id = self.allocate_event();
         if self.capture_selector_snapshots {
             let snapshot = Arc::new(RuleSelectorSnapshot::capture(self.state));
@@ -198,8 +186,7 @@ impl super::transaction::Transaction<'_> {
                     .or_insert(snapshot);
             }
         }
-        self.events
-            .push(crate::event::model::BattleEvent::new(id, cause, kind));
+        self.events.push(BattleEvent::new(id, cause, kind));
         self.journal.event(id);
         id
     }

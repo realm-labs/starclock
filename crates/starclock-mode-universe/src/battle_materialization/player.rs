@@ -1,5 +1,6 @@
 //! Player participant assembly from locked builds, mode contributions and carry.
 
+use crate::digest::Encoder;
 use starclock_activity::ActivityParticipantCarryState;
 use starclock_combat::{
     CombatantSpecDigest, Energy, ParticipantInitialState, ParticipantSource, ParticipantSpec,
@@ -113,9 +114,8 @@ fn preserve_runtime_base_stats(
     compiled: &ResolvedCombatantSpec,
     runtime: &ResolvedCombatantSpec,
 ) -> Result<ResolvedCombatantSpec, UniverseBattleMaterializationError> {
-    let mut encoder = crate::digest::Encoder::new(
-        b"starclock.standard-universe.compiled-runtime-stat-envelope.v1",
-    );
+    let mut encoder =
+        Encoder::new(b"starclock.standard-universe.compiled-runtime-stat-envelope.v1");
     encoder.digest(compiled.digest().bytes());
     encoder.i64(runtime.maximum_hp().get());
     encoder.i64(runtime.base_attack().scaled());

@@ -1,5 +1,12 @@
 //! Generated Sora selector rows to typed combat selector plans.
 
+use crate::effect_lower::lower_element;
+use crate::generated::SoraConfig;
+use crate::generated::selector::Selector;
+use crate::generated::selector_predicate_node::SelectorPredicateNode;
+use crate::modifier_lower::expression;
+use crate::modifier_lower::stat as lower_stat;
+use crate::rule_lower::lower_comparison;
 use std::collections::BTreeSet;
 
 use crate::catalog::{CatalogLoadError, domain_fail, positive};
@@ -11,8 +18,8 @@ pub(super) struct SelectorDataDefinition {
 }
 
 pub(super) fn lower(
-    config: &crate::generated::SoraConfig,
-    row: &crate::generated::selector::Selector,
+    config: &SoraConfig,
+    row: &Selector,
 ) -> Result<SelectorDataDefinition, CatalogLoadError> {
     use crate::generated::{
         empty_pool_policy::EmptyPoolPolicy as E, life_predicate::LifePredicate as L,
@@ -38,7 +45,7 @@ pub(super) fn lower(
         .collect::<Result<Vec<_>, _>>()?;
     let weight = row
         .weight_expression_id
-        .map(|id| crate::modifier_lower::expression(config, id, &mut BTreeSet::new()))
+        .map(|id| expression(config, id, &mut BTreeSet::new()))
         .transpose()?;
     let units = RuleUnitSelector::new(
         match row.origin {
@@ -115,8 +122,8 @@ pub(super) fn lower(
 }
 
 fn lower_predicate(
-    config: &crate::generated::SoraConfig,
-    node: &crate::generated::selector_predicate_node::SelectorPredicateNode,
+    config: &SoraConfig,
+    node: &SelectorPredicateNode,
 ) -> Result<starclock_combat::catalog::selector::RuleSelectorPredicate, CatalogLoadError> {
     use crate::generated::selector_predicate_node::SelectorPredicateNode as Node;
     use starclock_combat::catalog::selector::RuleSelectorPredicate as Predicate;
@@ -133,9 +140,7 @@ fn lower_predicate(
             Predicate::FormationRange { minimum, maximum }
         }
         Node::HasMark { effect_id } => Predicate::HasMark(effect(*effect_id)?),
-        Node::HasWeakness { element } => {
-            Predicate::HasWeakness(crate::effect_lower::lower_element(*element))
-        }
+        Node::HasWeakness { element } => Predicate::HasWeakness(lower_element(*element)),
         Node::HasEffect { effect_id } => Predicate::HasEffect(effect(*effect_id)?),
         Node::HasTag { tag } => {
             let identity = config
@@ -161,13 +166,9 @@ fn lower_predicate(
             comparison,
             value_expression_id,
         } => Predicate::StatCompare {
-            stat: crate::modifier_lower::stat(*stat),
-            comparison: crate::rule_lower::lower_comparison(*comparison),
-            value: crate::modifier_lower::expression(
-                config,
-                *value_expression_id,
-                &mut BTreeSet::new(),
-            )?,
+            stat: lower_stat(*stat),
+            comparison: lower_comparison(*comparison),
+            value: expression(config, *value_expression_id, &mut BTreeSet::new())?,
         },
     })
 }

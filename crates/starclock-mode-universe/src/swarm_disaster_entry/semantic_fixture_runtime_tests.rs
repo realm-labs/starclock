@@ -1,3 +1,4 @@
+use crate::swarm_disaster_entry::tests::BUNDLE;
 use std::collections::BTreeSet;
 
 use super::{ExecutionKind, fixture_bindings};
@@ -100,5 +101,5 @@ fn encounter_fixture_is_catalog_bound_without_claiming_phase6_selection() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }

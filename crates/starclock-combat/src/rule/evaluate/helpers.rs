@@ -1,6 +1,10 @@
 use super::{RuleEvaluationError, RuleEvaluationErrorKind};
+
+use crate::rule::model::CauseAncestry;
+use crate::rule::model::Comparison;
 use crate::{
-    NumericError, RuleId, SourceDefinitionId, UnitId,
+    EffectCategory, NumericError, RuleId, SelectorId, SourceDefinitionId, StateSlotDefinitionId,
+    UnitId,
     modifier::model::StatQuerySubject,
     rule::model::{
         EventFilter, RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleValue,
@@ -9,10 +13,7 @@ use crate::{
 };
 use core::cmp::Ordering;
 
-pub(super) fn compare_ordering(
-    ordering: Ordering,
-    operator: crate::rule::model::Comparison,
-) -> bool {
+pub(super) fn compare_ordering(ordering: Ordering, operator: Comparison) -> bool {
     use crate::rule::model::Comparison;
     match operator {
         Comparison::Equal => ordering == Ordering::Equal,
@@ -52,7 +53,7 @@ pub(super) fn weakness_emission(
 
 pub(crate) fn compare(
     lhs: &RuleValue,
-    operator: crate::rule::model::Comparison,
+    operator: Comparison,
     rhs: &RuleValue,
 ) -> Result<bool, RuleEvaluationError> {
     Ok(compare_ordering(compare_values(lhs, rhs)?, operator))
@@ -88,17 +89,14 @@ pub(super) fn require_current_target_broken(
         .is_some_and(|reader| reader.is_broken(target)))
 }
 
-pub(super) fn ancestry_matches(
-    value: crate::rule::model::CauseAncestry,
-    input: RuleEvaluationInput<'_>,
-) -> bool {
+pub(super) fn ancestry_matches(value: CauseAncestry, input: RuleEvaluationInput<'_>) -> bool {
     match value {
-        crate::rule::model::CauseAncestry::Any => true,
-        crate::rule::model::CauseAncestry::RootCommand => !input.event_facts.has_parent,
-        crate::rule::model::CauseAncestry::DirectParent => input.event_facts.has_parent,
-        crate::rule::model::CauseAncestry::SameAction => input.event_facts.has_action,
-        crate::rule::model::CauseAncestry::SamePhase => input.event_facts.has_phase,
-        crate::rule::model::CauseAncestry::SameHit => input.event_facts.has_hit,
+        CauseAncestry::Any => true,
+        CauseAncestry::RootCommand => !input.event_facts.has_parent,
+        CauseAncestry::DirectParent => input.event_facts.has_parent,
+        CauseAncestry::SameAction => input.event_facts.has_action,
+        CauseAncestry::SamePhase => input.event_facts.has_phase,
+        CauseAncestry::SameHit => input.event_facts.has_hit,
     }
 }
 
@@ -233,7 +231,7 @@ pub(super) fn query_subject(
 
 pub(super) fn query_effect_category_stacks(
     subject: StatQuerySubject,
-    category: crate::EffectCategory,
+    category: EffectCategory,
     input: RuleEvaluationInput<'_>,
     current_target: Option<UnitId>,
 ) -> Result<RuleValue, RuleEvaluationError> {
@@ -272,7 +270,7 @@ pub fn trigger_definition_order(
 
 pub(super) fn selector_units(
     input: RuleEvaluationInput<'_>,
-    selector: crate::SelectorId,
+    selector: SelectorId,
 ) -> Option<&[UnitId]> {
     input
         .selectors
@@ -282,7 +280,7 @@ pub(super) fn selector_units(
 }
 
 pub(super) fn selector_matches(
-    selector: Option<crate::SelectorId>,
+    selector: Option<SelectorId>,
     unit: Option<UnitId>,
     input: RuleEvaluationInput<'_>,
 ) -> bool {
@@ -295,7 +293,7 @@ pub(super) fn selector_matches(
 
 pub(super) fn slot_value(
     input: RuleEvaluationInput<'_>,
-    slot: crate::StateSlotDefinitionId,
+    slot: StateSlotDefinitionId,
 ) -> Option<&RuleValue> {
     input
         .slots

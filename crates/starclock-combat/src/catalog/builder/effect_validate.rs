@@ -1,5 +1,7 @@
 //! Cross-definition validation for generic effect runtime ownership.
 
+use crate::{EffectRuntimeDefinition, EffectRuntimeTemplate, EffectTickPhase};
+
 use crate::catalog::CombatCatalog;
 
 use super::{CatalogBuildError, CatalogBuildErrorKind, error};
@@ -18,13 +20,13 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         }
         let tick_phase = effect
             .runtime()
-            .map(crate::EffectRuntimeDefinition::tick_phase)
+            .map(EffectRuntimeDefinition::tick_phase)
             .or_else(|| {
                 effect
                     .runtime_template()
-                    .map(crate::EffectRuntimeTemplate::tick_phase)
+                    .map(EffectRuntimeTemplate::tick_phase)
             });
-        if tick_phase == Some(crate::EffectTickPhase::AfterEvent) && effect.rules().is_empty() {
+        if tick_phase == Some(EffectTickPhase::AfterEvent) && effect.rules().is_empty() {
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,
                 format!(

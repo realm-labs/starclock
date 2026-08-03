@@ -1,5 +1,6 @@
 //! Closed executor for negative Curios, Error Codes and replacement effects.
 
+use crate::path_effect_runtime::PathEffectRuntimeError;
 use crate::{
     curio::CurioStateKind,
     curio_effect_runtime::{AppliedCurioEffect, CurioEffect, CurioEnergyChange, CurioHpChange},
@@ -453,10 +454,10 @@ pub enum NegativeCurioRuntimeError {
     Overflow,
 }
 
-impl From<crate::path_effect_runtime::PathEffectRuntimeError> for NegativeCurioRuntimeError {
-    fn from(value: crate::path_effect_runtime::PathEffectRuntimeError) -> Self {
+impl From<PathEffectRuntimeError> for NegativeCurioRuntimeError {
+    fn from(value: PathEffectRuntimeError) -> Self {
         match value {
-            crate::path_effect_runtime::PathEffectRuntimeError::Overflow => Self::Overflow,
+            PathEffectRuntimeError::Overflow => Self::Overflow,
             _ => Self::InvalidParameter,
         }
     }

@@ -1,26 +1,30 @@
 //! Rule-IR resource mutations and Energy-regeneration scaling.
 
 use super::*;
+use crate::{Energy, EventId, Scalar, UnitId};
+
+use crate::catalog::CombatCatalog;
+use crate::resolver::operation_formula::FormulaInputs;
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn modify_resource(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
-    targets: Box<[crate::UnitId]>,
+    mut parent: EventId,
+    targets: Box<[UnitId]>,
     resource: RuleResourceKind,
     update: ResourceUpdateKind,
     amount: RuleValue,
     scales_with_regeneration: bool,
     rounding: Rounding,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     let amount = non_negative_scalar(amount)?;
     for target in targets {
         match &resource {
             RuleResourceKind::Energy => {
                 let amount = if scales_with_regeneration {
-                    let rate = super::super::operation_formula::FormulaInputs::new(txn)?
+                    let rate = FormulaInputs::new(txn)?
                         .energy_regeneration_rate(catalog, txn, cause, target)?;
                     amount
                         .checked_mul(rate, rounding)
@@ -36,7 +40,7 @@ pub(super) fn modify_resource(
                     .ok_or_else(|| program_fault(23, 0))?;
                 let raw =
                     resource_value(before.scaled(), maximum.scaled(), amount.scaled(), update)?;
-                let after = crate::Energy::from_scaled(raw).map_err(|_| program_fault(24, raw))?;
+                let after = Energy::from_scaled(raw).map_err(|_| program_fault(24, raw))?;
                 txn.set_energy(target, after)?;
                 parent = txn.emit(
                     cause.with_parent(parent).with_primary_target(Some(target)),
@@ -44,7 +48,7 @@ pub(super) fn modify_resource(
                         unit: target,
                         before,
                         after,
-                        overflow: crate::Energy::ZERO,
+                        overflow: Energy::ZERO,
                     }),
                 );
             }
@@ -90,7 +94,7 @@ pub(super) fn modify_resource(
                     .ok_or_else(|| program_fault(28, 0))?;
                 let raw =
                     resource_value(before.scaled(), maximum.scaled(), amount.scaled(), update)?;
-                let after = crate::Scalar::from_scaled(raw);
+                let after = Scalar::from_scaled(raw);
                 txn.set_character_resource(target, stable_key, after)?;
                 parent = txn.emit(
                     cause.with_parent(parent).with_primary_target(Some(target)),

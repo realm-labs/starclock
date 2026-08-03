@@ -2,14 +2,16 @@ use core::mem;
 
 use crate::battle::state::BattleState;
 
-use super::super::journal::MutationJournal;
+#[cfg(feature = "benchmark-instrumentation")]
+use crate::resolver::journal::JournalMetrics;
+use crate::resolver::journal::MutationJournal;
 
 #[derive(Debug)]
 pub(crate) struct ResolutionScratch {
     pub(super) working: BattleState,
     pub(super) journal: MutationJournal,
     #[cfg(feature = "benchmark-instrumentation")]
-    last_metrics: super::super::journal::JournalMetrics,
+    last_metrics: JournalMetrics,
     #[cfg(test)]
     preparations: u64,
 }
@@ -20,7 +22,7 @@ impl ResolutionScratch {
             working: state.semantic_clone(),
             journal: MutationJournal::default(),
             #[cfg(feature = "benchmark-instrumentation")]
-            last_metrics: super::super::journal::JournalMetrics::default(),
+            last_metrics: JournalMetrics::default(),
             #[cfg(test)]
             preparations: 1,
         }
@@ -45,7 +47,7 @@ impl ResolutionScratch {
     }
 
     #[cfg(feature = "benchmark-instrumentation")]
-    pub(crate) const fn last_metrics(&self) -> super::super::journal::JournalMetrics {
+    pub(crate) const fn last_metrics(&self) -> JournalMetrics {
         self.last_metrics
     }
 

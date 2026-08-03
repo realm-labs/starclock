@@ -1,6 +1,20 @@
+use crate::actor::store::CharacterResourceState;
+use crate::actor::store::EnemyRuntimeState;
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::AbilityKind;
+use crate::catalog::definition::AbilityDefinition;
+use crate::catalog::encounter::EnemyPhaseCarry;
+use crate::catalog::encounter::EnemyPhaseTransitionModel;
+use crate::modifier::model::ActiveModifier;
+use crate::operation::CreateCountdownOp;
+use crate::rule::model::RuleEventKind;
+use crate::toughness::state::ToughnessLayerState;
 use crate::{
-    ActionGauge, LifeState, LinkedEntity, LinkedEntityKind, OwnerLinkPolicy, PresenceState,
-    ReviveGaugePolicy, TransformEndPolicy, WaveLinkPolicy,
+    ActionGauge, DurationClock, EffectEventData, EffectTeardownPolicy, FaultBoundary, FaultKind,
+    FaultPolicy, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedUnitDefinition, OperationId,
+    OwnerLinkPolicy, ParticipantSource, PresenceState, RawToughness, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, ReviveGaugePolicy, Rounding, RuleBundleId, Scalar, Speed,
+    StatValue, TimelineActorId, TransformEndPolicy, TransformationDefinition, WaveLinkPolicy,
     actor::store::{FormationEntry, LinkState, TimelineActorState, TransformationState, UnitState},
     battle::fault::BattleFault,
     event::{
@@ -19,7 +33,7 @@ const BASE_ACTION_GAUGE_SCALED: i64 = 10_000_000_000;
 const MAX_LINKED_ENTITIES: usize = 64;
 
 pub(super) fn execute_enemy_phase(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -58,10 +72,7 @@ pub(super) fn execute_enemy_phase(
         } else {
             PresenceState::Untargetable
         };
-        if let crate::catalog::encounter::EnemyPhaseTransitionModel::ReplaceLinkedVariant(
-            replacement,
-        ) = phase.transition()
-        {
+        if let EnemyPhaseTransitionModel::ReplaceLinkedVariant(replacement) = phase.transition() {
             let replacement = catalog
                 .enemy(replacement)
                 .ok_or_else(|| action_fault(102))?;
@@ -82,7 +93,7 @@ pub(super) fn execute_enemy_phase(
             .initial_state();
         txn.set_enemy_runtime(
             unit,
-            crate::actor::store::EnemyRuntimeState {
+            EnemyRuntimeState {
                 definition: runtime.definition,
                 graph,
                 state,
@@ -109,7 +120,7 @@ pub(super) fn execute_enemy_phase(
                 parent,
                 program,
                 unit,
-                crate::rule::model::RuleEventKind::Unit,
+                RuleEventKind::Unit,
             )?;
         }
     }
@@ -117,11 +128,11 @@ pub(super) fn execute_enemy_phase(
 }
 
 pub(super) fn transition_enemy_phase_or_defeat(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
-    operation: crate::OperationId,
+    operation: OperationId,
     unit: UnitId,
 ) -> Result<EventId, BattleFault> {
     let runtime = txn.state.units.get(unit).and_then(|state| state.enemy);
@@ -171,12 +182,12 @@ pub(super) fn transition_enemy_phase_or_defeat(
 }
 
 fn apply_phase_carry(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     unit: UnitId,
-    carry: crate::catalog::encounter::EnemyPhaseCarry,
+    carry: EnemyPhaseCarry,
 ) -> Result<EventId, BattleFault> {
     use crate::catalog::encounter::PhaseCarryPolicy;
     let maximum_hp = txn
@@ -188,9 +199,7 @@ fn apply_phase_carry(
     match carry.hp {
         PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
         PhaseCarryPolicy::Reset => txn.set_hp(unit, maximum_hp)?,
-        PhaseCarryPolicy::Clear => {
-            txn.set_hp(unit, crate::Hp::new(1).map_err(|_| action_fault(105))?)?
-        }
+        PhaseCarryPolicy::Clear => txn.set_hp(unit, Hp::new(1).map_err(|_| action_fault(105))?)?,
         PhaseCarryPolicy::ExplicitProgram(_) => {}
     }
     match carry.action_gauge {
@@ -223,7 +232,7 @@ fn apply_phase_carry(
             .filter(|effect| {
                 effect.target == unit
                     && (carry.effects == PhaseCarryPolicy::Clear
-                        || effect.duration_clock != crate::DurationClock::Permanent)
+                        || effect.duration_clock != DurationClock::Permanent)
             })
             .map(|effect| effect.id)
             .collect::<Vec<_>>();
@@ -233,7 +242,7 @@ fn apply_phase_carry(
                 txn.record_effect_change(effect.get(), 0, effect.get());
                 parent = txn.emit(
                     cause.with_parent(parent).with_primary_target(Some(unit)),
-                    BattleEventKind::Effect(crate::EffectEventData::Removed {
+                    BattleEventKind::Effect(EffectEventData::Removed {
                         operation: removed.source_operation,
                         effect,
                         definition: removed.definition,
@@ -257,7 +266,7 @@ fn apply_phase_carry(
                     let current = if carry.toughness == PhaseCarryPolicy::Reset {
                         layer.spec.maximum()
                     } else {
-                        crate::RawToughness::new(0).expect("zero Toughness is valid")
+                        RawToughness::new(0).expect("zero Toughness is valid")
                     };
                     (layer.spec.key(), current)
                 })
@@ -322,14 +331,14 @@ fn apply_phase_carry(
             parent,
             program,
             unit,
-            crate::rule::model::RuleEventKind::Unit,
+            RuleEventKind::Unit,
         )?;
     }
     Ok(parent)
 }
 
 pub(super) fn execute_summon(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -371,7 +380,7 @@ pub(super) fn execute_summon(
             id: unit,
             spawn,
             form: combatant.form(),
-            source: crate::ParticipantSource::Linked(definition.source()),
+            source: ParticipantSource::Linked(definition.source()),
             side,
             formation: definition.formation(),
             entry_wave,
@@ -395,7 +404,7 @@ pub(super) fn execute_summon(
                 .toughness_layers()
                 .iter()
                 .cloned()
-                .map(crate::toughness::state::ToughnessLayerState::from_spec)
+                .map(ToughnessLayerState::from_spec)
                 .collect(),
             weakness_broken: false,
             abilities: combatant.abilities().into(),
@@ -404,7 +413,7 @@ pub(super) fn execute_summon(
             resources: unit_definition
                 .resources()
                 .iter()
-                .map(|resource| crate::actor::store::CharacterResourceState {
+                .map(|resource| CharacterResourceState {
                     stable_key: resource.stable_key().into(),
                     initial: resource.initial(),
                     current: resource.initial(),
@@ -446,11 +455,11 @@ pub(super) fn execute_summon(
 }
 
 pub(super) fn execute_countdown(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
-    operation: crate::operation::CreateCountdownOp,
+    operation: CreateCountdownOp,
 ) -> Result<EventId, BattleFault> {
     if txn.state.links.canonical_entries().len() >= MAX_LINKED_ENTITIES {
         return Err(budget_fault(3));
@@ -466,8 +475,8 @@ pub(super) fn execute_countdown(
     let definition = operation.definition;
     if catalog
         .ability(definition.ability())
-        .and_then(crate::catalog::definition::AbilityDefinition::action)
-        .is_none_or(|action| action.kind() != crate::catalog::action::AbilityKind::Countdown)
+        .and_then(AbilityDefinition::action)
+        .is_none_or(|action| action.kind() != AbilityKind::Countdown)
     {
         return Err(action_fault(116));
     }
@@ -556,7 +565,7 @@ pub(super) fn execute_presence(
 }
 
 pub(super) fn execute_transform(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -826,7 +835,7 @@ fn settle_owned_effects(
         .iter_by_id()
         .filter(|effect| {
             effect.applier == owner
-                && effect.teardown_policy == crate::EffectTeardownPolicy::RemoveWithOwner
+                && effect.teardown_policy == EffectTeardownPolicy::RemoveWithOwner
         })
         .map(|effect| effect.id)
         .collect::<Vec<_>>();
@@ -842,7 +851,7 @@ fn settle_owned_effects(
             cause
                 .with_parent(parent)
                 .with_primary_target(Some(removed.target)),
-            BattleEventKind::Effect(crate::EffectEventData::Removed {
+            BattleEventKind::Effect(EffectEventData::Removed {
                 operation: removed.source_operation,
                 effect,
                 definition: removed.definition,
@@ -863,7 +872,7 @@ fn apply_link_policy(
             OwnerLinkPolicy::Persist => {}
             OwnerLinkPolicy::Depart => depart_linked_unit(txn, unit)?,
             OwnerLinkPolicy::Defeat => {
-                txn.set_hp(unit, crate::Hp::new(0).expect("zero HP is in domain"))?;
+                txn.set_hp(unit, Hp::new(0).expect("zero HP is in domain"))?;
                 txn.set_life(unit, LifeState::Defeated)?;
                 if let Some(actor) = txn.state.actors.any_id_for_unit(unit) {
                     txn.set_actor_active(actor, false)?;
@@ -922,7 +931,7 @@ fn end_transform(
     ))
 }
 
-fn actor_for_entity(txn: &Transaction<'_>, entity: LinkedEntity) -> Option<crate::TimelineActorId> {
+fn actor_for_entity(txn: &Transaction<'_>, entity: LinkedEntity) -> Option<TimelineActorId> {
     match entity {
         LinkedEntity::Unit(unit) => txn.state.actors.any_id_for_unit(unit),
         LinkedEntity::TimelineActor(actor) => Some(actor),
@@ -947,8 +956,8 @@ fn emit_link(
 }
 
 fn validate_combatant(
-    catalog: &crate::catalog::CombatCatalog,
-    combatant: &crate::ResolvedCombatantSpec,
+    catalog: &CombatCatalog,
+    combatant: &ResolvedCombatantSpec,
 ) -> Result<(), BattleFault> {
     if catalog.unit(combatant.form()).is_none()
         || combatant
@@ -978,9 +987,9 @@ fn validate_combatant(
 }
 
 fn resolve_linked_combatant(
-    definition: &crate::LinkedUnitDefinition,
+    definition: &LinkedUnitDefinition,
     owner: &UnitState,
-) -> Result<crate::ResolvedCombatantSpec, BattleFault> {
+) -> Result<ResolvedCombatantSpec, BattleFault> {
     let prototype = definition.combatant();
     let Some(scaling) = definition.owner_scaling() else {
         return Ok(prototype.clone());
@@ -988,38 +997,37 @@ fn resolve_linked_combatant(
     let hp = scaling
         .hp()
         .resolve(
-            crate::Scalar::checked_from_integer(owner.maximum_hp.get())
-                .map_err(|_| action_fault(120))?,
+            Scalar::checked_from_integer(owner.maximum_hp.get()).map_err(|_| action_fault(120))?,
         )
-        .and_then(|value| crate::Hp::from_scalar(value, crate::Rounding::NearestTiesEven))
+        .and_then(|value| Hp::from_scalar(value, Rounding::NearestTiesEven))
         .map_err(|_| action_fault(121))?;
     let hp = if hp.get() == 0 {
-        crate::Hp::new(1).expect("one HP is the declared maximum-HP minimum")
+        Hp::new(1).expect("one HP is the declared maximum-HP minimum")
     } else {
         hp
     };
     let attack = scaling
         .attack()
-        .resolve(crate::Scalar::from_scaled(owner.base_attack.scaled()))
-        .and_then(|value| crate::StatValue::from_scaled(value.scaled()))
+        .resolve(Scalar::from_scaled(owner.base_attack.scaled()))
+        .and_then(|value| StatValue::from_scaled(value.scaled()))
         .map_err(|_| action_fault(122))?;
     let defense = scaling
         .defense()
-        .resolve(crate::Scalar::from_scaled(owner.base_defense.scaled()))
-        .and_then(|value| crate::StatValue::from_scaled(value.scaled()))
+        .resolve(Scalar::from_scaled(owner.base_defense.scaled()))
+        .and_then(|value| StatValue::from_scaled(value.scaled()))
         .map_err(|_| action_fault(123))?;
     let speed = scaling
         .speed()
-        .resolve(crate::Scalar::from_scaled(owner.base_speed.scaled()))
-        .and_then(|value| crate::Speed::from_scaled(value.scaled()))
+        .resolve(Scalar::from_scaled(owner.base_speed.scaled()))
+        .and_then(|value| Speed::from_scaled(value.scaled()))
         .map_err(|_| action_fault(124))?;
-    let bindings = crate::ResolvedDefinitionBindings::new(
+    let bindings = ResolvedDefinitionBindings::new(
         prototype.abilities().to_vec(),
         prototype.rule_bundles().to_vec(),
         prototype.modifiers().to_vec(),
     )
     .map_err(|_| action_fault(125))?;
-    let mut combatant = crate::ResolvedCombatantSpec::new(
+    let mut combatant = ResolvedCombatantSpec::new(
         prototype.form(),
         prototype.level(),
         hp,
@@ -1047,10 +1055,10 @@ fn resolve_linked_combatant(
 }
 
 fn instantiate_modifiers(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     unit: UnitId,
-    combatant: &crate::ResolvedCombatantSpec,
+    combatant: &ResolvedCombatantSpec,
 ) -> Result<(), BattleFault> {
     for binding in combatant.modifier_bindings() {
         let source = combatant
@@ -1062,7 +1070,7 @@ fn instantiate_modifiers(
         let instance = txn.allocate_modifier();
         txn.insert_modifier(
             catalog,
-            crate::modifier::model::ActiveModifier {
+            ActiveModifier {
                 instance,
                 definition: binding.definition(),
                 owner: unit,
@@ -1082,8 +1090,8 @@ fn instantiate_modifiers(
 }
 
 fn validate_transform(
-    catalog: &crate::catalog::CombatCatalog,
-    definition: &crate::TransformationDefinition,
+    catalog: &CombatCatalog,
+    definition: &TransformationDefinition,
 ) -> Result<(), BattleFault> {
     let unit = catalog
         .unit(definition.replacement_form())
@@ -1094,7 +1102,7 @@ fn validate_transform(
         catalog
             .ability(countdown.ability())
             .and_then(|ability| ability.action())
-            .is_none_or(|action| action.kind() != crate::catalog::action::AbilityKind::Countdown)
+            .is_none_or(|action| action.kind() != AbilityKind::Countdown)
     }) {
         return Err(action_fault(92));
     }
@@ -1102,10 +1110,10 @@ fn validate_transform(
 }
 
 fn instantiate_rules(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     unit: UnitId,
-    bundles: &[crate::RuleBundleId],
+    bundles: &[RuleBundleId],
 ) -> Result<(), BattleFault> {
     for bundle_id in bundles {
         let bundle = catalog
@@ -1130,9 +1138,9 @@ fn base_gauge() -> Result<ActionGauge, BattleFault> {
 
 fn budget_fault(code: u32) -> BattleFault {
     BattleFault::new(
-        crate::FaultKind::BudgetExceeded,
-        crate::FaultBoundary::Command,
-        crate::FaultPolicy::Rollback,
+        FaultKind::BudgetExceeded,
+        FaultBoundary::Command,
+        FaultPolicy::Rollback,
         0x31a0 + code,
         Some(MAX_LINKED_ENTITIES as i64),
     )

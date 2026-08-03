@@ -1,8 +1,7 @@
 //! Battle-owned modifier instances, separate from immutable catalog definitions.
 
+use crate::{EffectInstanceId, ModifierInstanceId};
 use std::collections::BTreeMap;
-
-use crate::ModifierInstanceId;
 
 use super::model::ActiveModifier;
 
@@ -28,10 +27,7 @@ impl ModifierStore {
         self.entries.values()
     }
 
-    pub(crate) fn remove_by_effect(
-        &mut self,
-        effect: crate::EffectInstanceId,
-    ) -> Vec<crate::ModifierInstanceId> {
+    pub(crate) fn remove_by_effect(&mut self, effect: EffectInstanceId) -> Vec<ModifierInstanceId> {
         let ids = self
             .entries
             .values()

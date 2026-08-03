@@ -2,6 +2,7 @@
 
 use super::CombatCatalogBuilder;
 use crate::catalog::CombatCatalog;
+use crate::catalog::parameter::definitions;
 
 impl CombatCatalogBuilder {
     /// Starts a composition builder containing every definition from one
@@ -18,8 +19,7 @@ impl CombatCatalogBuilder {
             linked_units: base.linked_units.values().cloned().collect(),
             countdowns: base.countdowns.values().copied().collect(),
             abilities: base.abilities.values().cloned().collect(),
-            ability_parameters: crate::catalog::parameter::definitions(&base.ability_parameters)
-                .collect(),
+            ability_parameters: definitions(&base.ability_parameters).collect(),
             effects: base.effects.values().cloned().collect(),
             rules: base.rules.values().cloned().collect(),
             programs: base.programs.values().cloned().collect(),

@@ -1,5 +1,6 @@
 //! Bounded Gold and Gears chessboard compilation over the generic Activity graph.
 
+use crate::gold_gears_structural::PlaneDefinition;
 use starclock_activity::{
     ActivityEdgeCondition, ActivityEdgeDefinition, ActivityEdgeId, ActivityGraphDefinition,
     ActivityNodeDefinition, ActivityNodeKind, ActivityTerminalOutcome, LogicalScopeAddress,
@@ -191,13 +192,7 @@ fn terminal_scope_binding(
 fn select_plane_board<'a>(
     catalog: &'a GoldAndGearsStructuralCatalog,
     plane_source: &str,
-) -> Result<
-    (
-        &'a crate::gold_gears_structural::PlaneDefinition,
-        &'a ChessboardDefinition,
-    ),
-    GoldAndGearsEntryError,
-> {
+) -> Result<(&'a PlaneDefinition, &'a ChessboardDefinition), GoldAndGearsEntryError> {
     let plane = catalog
         .planes
         .iter()

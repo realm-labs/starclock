@@ -1,6 +1,7 @@
 use core::fmt;
 
 use crate::{
+    LifeState, PresenceState, SourceDefinitionId,
     formula::{model::CombatElement, toughness::EnemyRank},
     id::{
         AbilityId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, RuleBundleId,
@@ -148,7 +149,7 @@ pub enum ParticipantSource {
     /// One enemy definition listed by the selected encounter.
     EncounterEnemy(EnemyDefinitionId),
     /// Battle-created linked entity attributed to a stable source definition.
-    Linked(crate::SourceDefinitionId),
+    Linked(SourceDefinitionId),
 }
 
 /// Whether this battle profile offers explicit concession.
@@ -171,13 +172,13 @@ pub struct ResolvedDefinitionBindings {
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct ResolvedModifierBinding {
     definition: ModifierDefinitionId,
-    source: crate::SourceDefinitionId,
+    source: SourceDefinitionId,
 }
 
 impl ResolvedModifierBinding {
     /// Binds one modifier definition to the generic source that selected it.
     #[must_use]
-    pub const fn new(definition: ModifierDefinitionId, source: crate::SourceDefinitionId) -> Self {
+    pub const fn new(definition: ModifierDefinitionId, source: SourceDefinitionId) -> Self {
         Self { definition, source }
     }
 
@@ -187,7 +188,7 @@ impl ResolvedModifierBinding {
     }
 
     #[must_use]
-    pub const fn source(self) -> crate::SourceDefinitionId {
+    pub const fn source(self) -> SourceDefinitionId {
         self.source
     }
 }
@@ -528,8 +529,8 @@ pub struct ParticipantSpec {
 pub struct ParticipantInitialState {
     current_hp: Hp,
     current_energy: Energy,
-    life: crate::LifeState,
-    presence: crate::PresenceState,
+    life: LifeState,
+    presence: PresenceState,
 }
 
 impl ParticipantInitialState {
@@ -539,14 +540,13 @@ impl ParticipantInitialState {
         maximum_hp: Hp,
         current_energy: Energy,
         maximum_energy: Energy,
-        life: crate::LifeState,
-        presence: crate::PresenceState,
+        life: LifeState,
+        presence: PresenceState,
     ) -> Option<Self> {
         if current_hp.get() > maximum_hp.get()
             || current_energy.scaled() > maximum_energy.scaled()
-            || (life == crate::LifeState::Alive && current_hp.get() == 0)
-            || (matches!(life, crate::LifeState::Downed | crate::LifeState::Defeated)
-                && current_hp.get() != 0)
+            || (life == LifeState::Alive && current_hp.get() == 0)
+            || (matches!(life, LifeState::Downed | LifeState::Defeated) && current_hp.get() != 0)
         {
             return None;
         }
@@ -567,11 +567,11 @@ impl ParticipantInitialState {
         self.current_energy
     }
     #[must_use]
-    pub const fn life(self) -> crate::LifeState {
+    pub const fn life(self) -> LifeState {
         self.life
     }
     #[must_use]
-    pub const fn presence(self) -> crate::PresenceState {
+    pub const fn presence(self) -> PresenceState {
         self.presence
     }
 }
@@ -681,7 +681,7 @@ pub enum TeamResourceWavePolicy {
 /// One generic team-owned resource definition such as a shared subsystem tally.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyedTeamResourceSpec {
-    id: crate::SourceDefinitionId,
+    id: SourceDefinitionId,
     stable_key: Option<Box<str>>,
     initial: u16,
     maximum: u16,
@@ -691,7 +691,7 @@ pub struct KeyedTeamResourceSpec {
 impl KeyedTeamResourceSpec {
     #[must_use]
     pub const fn new(
-        id: crate::SourceDefinitionId,
+        id: SourceDefinitionId,
         initial: u16,
         maximum: u16,
         wave: TeamResourceWavePolicy,
@@ -719,7 +719,7 @@ impl KeyedTeamResourceSpec {
         Some(self)
     }
     #[must_use]
-    pub const fn id(&self) -> crate::SourceDefinitionId {
+    pub const fn id(&self) -> SourceDefinitionId {
         self.id
     }
     /// Returns the Rule IR semantic key when this resource is named.

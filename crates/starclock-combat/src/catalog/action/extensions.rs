@@ -1,15 +1,16 @@
 use super::*;
+use crate::formula::model::DamageClass;
 
 impl ScalingDamageDefinition {
     #[must_use]
-    pub const fn class(self) -> crate::formula::model::DamageClass {
+    pub const fn class(self) -> DamageClass {
         self.class
     }
 }
 
 impl OrdinaryDamageDefinition {
     #[must_use]
-    pub const fn class(self) -> crate::formula::model::DamageClass {
+    pub const fn class(self) -> DamageClass {
         self.class
     }
 

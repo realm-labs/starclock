@@ -1,18 +1,21 @@
 //! Effect activation at explicit lifecycle boundaries.
 
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::OrdinaryDamageDefinition;
 use crate::{
-    DamageKind, EffectTickPhase, battle::fault::BattleFault, event::cause::Cause, id::EventId,
+    DamageKind, EffectTickPhase, UnitId, battle::fault::BattleFault, event::cause::Cause,
+    id::EventId,
 };
 
 use super::{operation::fault::numeric_fault, transaction::Transaction};
 
 pub(super) fn tick(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     phase: EffectTickPhase,
-    owner: crate::UnitId,
+    owner: UnitId,
 ) -> Result<EventId, BattleFault> {
     let effects = txn
         .state
@@ -31,10 +34,9 @@ pub(super) fn tick(
             .base_damage()
             .checked_mul_integer(i64::from(effect.stacks))
             .map_err(|_| numeric_fault(47, per_stack.base_damage().scaled()))?;
-        let formula =
-            crate::catalog::action::OrdinaryDamageDefinition::new(base, per_stack.multipliers())
-                .map_err(|_| numeric_fault(48, base.scaled()))?
-                .with_class(per_stack.class());
+        let formula = OrdinaryDamageDefinition::new(base, per_stack.multipliers())
+            .map_err(|_| numeric_fault(48, base.scaled()))?
+            .with_class(per_stack.class());
         let attributed = cause
             .with_applier(effect.applier)
             .with_source_definition(effect.source_definition);

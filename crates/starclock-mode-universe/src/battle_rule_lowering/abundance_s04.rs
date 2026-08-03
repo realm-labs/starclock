@@ -1,4 +1,5 @@
 use super::*;
+use crate::path::ResonanceDefinition;
 use starclock_combat::{
     ActionGauge, CountdownCatalogDefinition, CountdownDefinition, EffectApplicationGuard,
     EffectDamageGuard, OwnerLinkPolicy, Scalar, Speed, WaveLinkPolicy,
@@ -760,7 +761,7 @@ fn resonance_parameters<'a>(
         .resonances()
         .iter()
         .find(|definition| definition.stable_key() == binding.source_record_key())
-        .map(crate::path::ResonanceDefinition::parameters)
+        .map(ResonanceDefinition::parameters)
         .ok_or(BattleRuleLoweringError::SnapshotMismatch)
 }
 

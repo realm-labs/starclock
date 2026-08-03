@@ -1,7 +1,10 @@
 //! Stable repeated random-element damage emitted by typed Rule IR.
 
+use crate::catalog::CombatCatalog;
+use crate::formula::model::CombatElement;
+use crate::formula::model::DamageClass;
 use crate::{
-    Ratio,
+    EventId, Ratio, SelectorId, UnitId,
     battle::fault::BattleFault,
     catalog::action::{HitCritPolicy, OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     event::cause::Cause,
@@ -15,17 +18,17 @@ use crate::resolver::{operation::execute_operation, transaction::Transaction};
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn execute_random_repeated_damage(
-    catalog: &crate::catalog::CombatCatalog,
+    catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
+    mut parent: EventId,
     context: &AbilityProgramContext,
     input: RuleEvaluationInput<'_>,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+    selector: SelectorId,
     amount: RuleValue,
-    class: crate::formula::model::DamageClass,
-    elements: &[crate::formula::model::CombatElement],
+    class: DamageClass,
+    elements: &[CombatElement],
     minimum_hits: u16,
     maximum_hits: u16,
     count_rng_purpose: DrawPurpose,
@@ -33,9 +36,9 @@ pub(super) fn execute_random_repeated_damage(
     exclude_event_element: bool,
     can_crit: bool,
     can_defeat: bool,
-    current_target: Option<crate::UnitId>,
+    current_target: Option<UnitId>,
     scratch: &mut HitOperationScratch,
-) -> Result<crate::EventId, BattleFault> {
+) -> Result<EventId, BattleFault> {
     let candidates = elements
         .iter()
         .copied()

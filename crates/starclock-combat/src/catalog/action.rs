@@ -1,5 +1,19 @@
 mod extensions;
-use crate::{Energy, NumericError, Ratio, Scalar};
+
+use crate::formula::model::CombatElement;
+use crate::formula::model::DamageClass;
+use crate::formula::shield::ShieldAbsorptionPolicy;
+use crate::formula::toughness::SuperBreakDefinition;
+use crate::modifier::model::FormulaStage;
+use crate::modifier::model::StatKind;
+use crate::rule::model::RuleSlotMutationDefinition;
+use crate::{
+    AbilityId, ActionOrigin, DotDetonationDefinition, EffectApplicationDefinition,
+    EffectRemovalDefinition, EnemyPhaseId, Energy, Hp, LinkedEntityKind, LinkedUnitDefinition,
+    NumericError, PresenceState, ProgramId, Ratio, ReviveDefinition, Rounding, Scalar,
+    SourceDefinitionId, ToughnessReductionDefinition, TransformationDefinition,
+};
+
 /// Shared semantic family used by legality, resources and event filters.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
@@ -44,7 +58,7 @@ pub enum AbilityProgramTiming {
 pub struct AbilityProgramBinding {
     sequence: u16,
     timing: AbilityProgramTiming,
-    program: crate::ProgramId,
+    program: ProgramId,
 }
 
 impl AbilityProgramBinding {
@@ -52,7 +66,7 @@ impl AbilityProgramBinding {
     pub const fn new(
         sequence: u16,
         timing: AbilityProgramTiming,
-        program: crate::ProgramId,
+        program: ProgramId,
     ) -> Option<Self> {
         if sequence == 0 {
             None
@@ -73,7 +87,7 @@ impl AbilityProgramBinding {
         self.timing
     }
     #[must_use]
-    pub const fn program(self) -> crate::ProgramId {
+    pub const fn program(self) -> ProgramId {
         self.program
     }
 }
@@ -164,7 +178,7 @@ pub enum QueuedActor {
     CauseApplier,
     PrimaryTarget,
     /// The unique active linked entity of this generic kind on the provider's side.
-    SharedEntity(crate::LinkedEntityKind),
+    SharedEntity(LinkedEntityKind),
 }
 
 /// Explicit attribution owner for a queued action whose actor may differ.
@@ -180,7 +194,7 @@ pub enum QueuedOwner {
 pub enum SkillPointPaymentPolicy {
     TeamSkillPoints,
     Suppressed,
-    TeamResource(crate::SourceDefinitionId),
+    TeamResource(SourceDefinitionId),
 }
 
 /// Checked mutation selected for a generic team-owned resource.
@@ -193,17 +207,17 @@ pub enum TeamResourceChange {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TeamResourceChangeDefinition {
-    resource: crate::SourceDefinitionId,
+    resource: SourceDefinitionId,
     change: TeamResourceChange,
 }
 
 impl TeamResourceChangeDefinition {
     #[must_use]
-    pub const fn new(resource: crate::SourceDefinitionId, change: TeamResourceChange) -> Self {
+    pub const fn new(resource: SourceDefinitionId, change: TeamResourceChange) -> Self {
         Self { resource, change }
     }
     #[must_use]
-    pub const fn resource(self) -> crate::SourceDefinitionId {
+    pub const fn resource(self) -> SourceDefinitionId {
         self.resource
     }
     #[must_use]
@@ -225,8 +239,8 @@ pub enum QueuedTarget {
 /// Generic queue request embedded in an authored operation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QueueActionDefinition {
-    ability: crate::AbilityId,
-    origin: crate::ActionOrigin,
+    ability: AbilityId,
+    origin: ActionOrigin,
     actor: QueuedActor,
     target: QueuedTarget,
     boundary: ReactionBoundary,
@@ -238,8 +252,8 @@ pub struct QueueActionDefinition {
 impl QueueActionDefinition {
     #[must_use]
     pub const fn new(
-        ability: crate::AbilityId,
-        origin: crate::ActionOrigin,
+        ability: AbilityId,
+        origin: ActionOrigin,
         actor: QueuedActor,
         target: QueuedTarget,
         boundary: ReactionBoundary,
@@ -268,11 +282,11 @@ impl QueueActionDefinition {
         self
     }
     #[must_use]
-    pub const fn ability(self) -> crate::AbilityId {
+    pub const fn ability(self) -> AbilityId {
         self.ability
     }
     #[must_use]
-    pub const fn origin(self) -> crate::ActionOrigin {
+    pub const fn origin(self) -> ActionOrigin {
         self.origin
     }
     #[must_use]
@@ -521,7 +535,7 @@ impl ActionResourcePolicy {
     #[must_use]
     pub fn with_costs_suppressed(mut self) -> Self {
         self.skill_point_payment = SkillPointPaymentPolicy::Suppressed;
-        self.energy_cost = crate::Energy::ZERO;
+        self.energy_cost = Energy::ZERO;
         self.character_resource_costs = Box::new([]);
         self.team_resource_costs = Box::new([]);
         self
@@ -646,13 +660,7 @@ impl OrdinaryDamageMultipliers {
         ]
     }
 
-    fn apply_modifier(
-        &mut self,
-        stage: crate::modifier::model::FormulaStage,
-        value: Scalar,
-    ) -> Result<(), NumericError> {
-        use crate::modifier::model::FormulaStage;
-
+    fn apply_modifier(&mut self, stage: FormulaStage, value: Scalar) -> Result<(), NumericError> {
         let value = Ratio::from_scaled(value.scaled());
         let target = match stage {
             FormulaStage::Crit => &mut self.crit,
@@ -665,10 +673,9 @@ impl OrdinaryDamageMultipliers {
             FormulaStage::Resistance => &mut self.resistance,
             FormulaStage::Vulnerability => &mut self.vulnerability,
             FormulaStage::Mitigation => {
-                self.mitigation = self.mitigation.checked_mul(
-                    Ratio::ONE.checked_sub(value)?,
-                    crate::Rounding::NearestTiesEven,
-                )?;
+                self.mitigation = self
+                    .mitigation
+                    .checked_mul(Ratio::ONE.checked_sub(value)?, Rounding::NearestTiesEven)?;
                 return validate_non_negative_ratio(self.mitigation);
             }
             FormulaStage::Broken => &mut self.broken,
@@ -684,25 +691,25 @@ impl OrdinaryDamageMultipliers {
 pub struct OrdinaryDamageDefinition {
     base_damage: Scalar,
     multipliers: OrdinaryDamageMultipliers,
-    class: crate::formula::model::DamageClass,
+    class: DamageClass,
 }
 
 /// One live-stat damage coefficient retained by an authored ability hit.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ScalingDamageDefinition {
-    scaling_stat: crate::modifier::model::StatKind,
+    scaling_stat: StatKind,
     coefficient: Ratio,
-    class: crate::formula::model::DamageClass,
-    element: crate::formula::model::CombatElement,
+    class: DamageClass,
+    element: CombatElement,
 }
 
 impl ScalingDamageDefinition {
     /// Creates a non-negative coefficient over one explicitly selected actor stat.
     pub fn new(
-        scaling_stat: crate::modifier::model::StatKind,
+        scaling_stat: StatKind,
         coefficient: Ratio,
-        class: crate::formula::model::DamageClass,
-        element: crate::formula::model::CombatElement,
+        class: DamageClass,
+        element: CombatElement,
     ) -> Result<Self, NumericError> {
         if coefficient.scaled() < 0 {
             Err(NumericError::OutOfDomain)
@@ -717,7 +724,7 @@ impl ScalingDamageDefinition {
     }
 
     #[must_use]
-    pub const fn scaling_stat(self) -> crate::modifier::model::StatKind {
+    pub const fn scaling_stat(self) -> StatKind {
         self.scaling_stat
     }
 
@@ -727,7 +734,7 @@ impl ScalingDamageDefinition {
     }
 
     #[must_use]
-    pub const fn element(self) -> crate::formula::model::CombatElement {
+    pub const fn element(self) -> CombatElement {
         self.element
     }
 
@@ -735,7 +742,7 @@ impl ScalingDamageDefinition {
     pub fn resolve(self, stat: Scalar) -> Result<OrdinaryDamageDefinition, NumericError> {
         let base = self
             .coefficient
-            .checked_apply(stat, crate::Rounding::NearestTiesEven)?;
+            .checked_apply(stat, Rounding::NearestTiesEven)?;
         OrdinaryDamageDefinition::new(base, OrdinaryDamageMultipliers::new([Ratio::ONE; 9])?)
             .map(|definition| definition.with_class(self.class))
     }
@@ -753,7 +760,7 @@ impl OrdinaryDamageDefinition {
             Ok(Self {
                 base_damage,
                 multipliers,
-                class: crate::formula::model::DamageClass::Direct,
+                class: DamageClass::Direct,
             })
         }
     }
@@ -769,14 +776,14 @@ impl OrdinaryDamageDefinition {
     }
     /// Selects the independently queryable ordinary-formula damage class.
     #[must_use]
-    pub const fn with_class(mut self, class: crate::formula::model::DamageClass) -> Self {
+    pub const fn with_class(mut self, class: DamageClass) -> Self {
         self.class = class;
         self
     }
     /// Applies one already-filtered and already-stacked formula-stage contribution.
     pub fn with_formula_modifier(
         mut self,
-        stage: crate::modifier::model::FormulaStage,
+        stage: FormulaStage,
         value: Scalar,
     ) -> Result<Self, NumericError> {
         self.multipliers.apply_modifier(stage, value)?;
@@ -798,7 +805,7 @@ pub struct HealingDefinition {
 pub struct ShieldDefinition {
     base_shield: Scalar,
     bonus: Ratio,
-    policy: crate::formula::shield::ShieldAbsorptionPolicy,
+    policy: ShieldAbsorptionPolicy,
 }
 
 impl ShieldDefinition {
@@ -806,7 +813,7 @@ impl ShieldDefinition {
     pub fn new(
         base_shield: Scalar,
         bonus: Ratio,
-        policy: crate::formula::shield::ShieldAbsorptionPolicy,
+        policy: ShieldAbsorptionPolicy,
     ) -> Result<Self, NumericError> {
         if base_shield.scaled() <= 0 || bonus.scaled() < 0 {
             Err(NumericError::OutOfDomain)
@@ -830,7 +837,7 @@ impl ShieldDefinition {
     }
 
     #[must_use]
-    pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
+    pub const fn policy(self) -> ShieldAbsorptionPolicy {
         self.policy
     }
 
@@ -845,30 +852,27 @@ impl ShieldDefinition {
 /// Checked HP-consumption request that cannot defeat its target below `floor`.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HpConsumptionDefinition {
-    requested: crate::Hp,
-    floor: crate::Hp,
+    requested: Hp,
+    floor: Hp,
 }
 
 /// Elemental weakness application with an explicit target-turn lifetime.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WeaknessApplicationDefinition {
-    element: crate::formula::model::CombatElement,
+    element: CombatElement,
     duration_turns: Option<u8>,
 }
 
 impl WeaknessApplicationDefinition {
     #[must_use]
-    pub const fn permanent(element: crate::formula::model::CombatElement) -> Self {
+    pub const fn permanent(element: CombatElement) -> Self {
         Self {
             element,
             duration_turns: None,
         }
     }
     #[must_use]
-    pub const fn timed(
-        element: crate::formula::model::CombatElement,
-        duration_turns: u8,
-    ) -> Option<Self> {
+    pub const fn timed(element: CombatElement, duration_turns: u8) -> Option<Self> {
         if duration_turns == 0 {
             None
         } else {
@@ -879,7 +883,7 @@ impl WeaknessApplicationDefinition {
         }
     }
     #[must_use]
-    pub const fn element(self) -> crate::formula::model::CombatElement {
+    pub const fn element(self) -> CombatElement {
         self.element
     }
     #[must_use]
@@ -890,17 +894,17 @@ impl WeaknessApplicationDefinition {
 
 impl HpConsumptionDefinition {
     #[must_use]
-    pub const fn new(requested: crate::Hp, floor: crate::Hp) -> Self {
+    pub const fn new(requested: Hp, floor: Hp) -> Self {
         Self { requested, floor }
     }
 
     #[must_use]
-    pub const fn requested(self) -> crate::Hp {
+    pub const fn requested(self) -> Hp {
         self.requested
     }
 
     #[must_use]
-    pub const fn floor(self) -> crate::Hp {
+    pub const fn floor(self) -> Hp {
         self.floor
     }
 }
@@ -991,37 +995,37 @@ pub enum HitOperationDefinition {
     /// Adds one elemental weakness before later operations in the same hit.
     AddWeakness(WeaknessApplicationDefinition),
     /// Routes a checked reduction through the first eligible authored layer.
-    ReduceToughness(crate::ToughnessReductionDefinition),
+    ReduceToughness(ToughnessReductionDefinition),
     /// Converts the preceding effective reduction for each target into Super Break.
-    SuperBreak(crate::formula::toughness::SuperBreakDefinition),
+    SuperBreak(SuperBreakDefinition),
     /// Applies one catalog effect using its authored chance and stacking policy.
-    ApplyEffect(crate::EffectApplicationDefinition),
+    ApplyEffect(EffectApplicationDefinition),
     /// Removes a bounded stable-ID query of dispellable/cleanseable effects.
-    RemoveEffects(crate::EffectRemovalDefinition),
+    RemoveEffects(EffectRemovalDefinition),
     /// Replays selected target-local ordinary DoT snapshots without mutating them.
-    DetonateDots(crate::DotDetonationDefinition),
+    DetonateDots(DotDetonationDefinition),
     /// Mutates one battle-owned typed slot on the actor's bound rule instance.
-    ModifyStateSlot(crate::rule::model::RuleSlotMutationDefinition),
+    ModifyStateSlot(RuleSlotMutationDefinition),
     /// Mutates one generic resource owned by the acting side.
     ModifyTeamResource(TeamResourceChangeDefinition),
     /// Queues one cause-relative action through the deterministic reaction scheduler.
     QueueAction(QueueActionDefinition),
     /// Allocates one linked unit and optional independent timeline actor.
-    SummonLinked(crate::LinkedUnitDefinition),
+    SummonLinked(LinkedUnitDefinition),
     /// Applies an explicit battlefield-presence transition.
-    ChangePresence(crate::PresenceState),
+    ChangePresence(PresenceState),
     /// Atomically replaces form/abilities and optionally creates a countdown.
-    Transform(crate::TransformationDefinition),
+    Transform(TransformationDefinition),
     /// Restores the original form/abilities and removes transform-owned actors.
     EndTransformation,
     /// Restores a downed or defeated unit with authored HP/presence/gauge policy.
-    Revive(crate::ReviveDefinition),
+    Revive(ReviveDefinition),
     /// Departs a linked unit and deactivates its timeline actor.
     DespawnLinked,
     /// Performs an explicitly authored pending wave transition.
     RequestWaveTransition,
     /// Advances one hostile occurrence to an exact validated boss phase.
-    TransitionEnemyPhase(crate::EnemyPhaseId),
+    TransitionEnemyPhase(EnemyPhaseId),
 }
 
 /// Ordered operation templates owned by one authored hit.

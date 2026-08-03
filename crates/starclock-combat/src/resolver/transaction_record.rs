@@ -1,13 +1,18 @@
 //! Mutation-journal recording helpers separated from command resolution.
 
 use super::{journal::MutationField, transaction::Transaction};
+use crate::{EventId, OperationId, RuleInstanceId, ShieldAmount, StateSlotDefinitionId};
+
+use crate::battle::fault::BattleFault;
+use crate::rng::types::DrawPurpose;
+use crate::rule::model::RuleValue;
 
 impl Transaction<'_> {
     pub(super) fn choose_index(
         &mut self,
-        purpose: crate::rng::types::DrawPurpose,
+        purpose: DrawPurpose,
         count: usize,
-    ) -> Result<Option<usize>, crate::battle::fault::BattleFault> {
+    ) -> Result<Option<usize>, BattleFault> {
         let count = u32::try_from(count).map_err(|_| super::transaction::action_fault(51))?;
         let before = self.state.rng.draw_count();
         let selected = self
@@ -25,7 +30,7 @@ impl Transaction<'_> {
             .transpose()
     }
 
-    pub(super) fn reset_event_once_keys(&mut self, event: crate::EventId) {
+    pub(super) fn reset_event_once_keys(&mut self, event: EventId) {
         let count = self.state.rules.reset_once_event(event);
         if count > 0 {
             let before = event.get();
@@ -37,15 +42,11 @@ impl Transaction<'_> {
         }
     }
 
-    pub(super) fn snapshot(&mut self, operation: crate::OperationId) {
+    pub(super) fn snapshot(&mut self, operation: OperationId) {
         self.journal.snapshot(operation.get());
     }
 
-    pub(super) fn record_shield_change(
-        &mut self,
-        before: crate::ShieldAmount,
-        after: crate::ShieldAmount,
-    ) {
+    pub(super) fn record_shield_change(&mut self, before: ShieldAmount, after: ShieldAmount) {
         if before != after {
             self.journal.mutation(
                 MutationField::ShieldRemaining,
@@ -69,10 +70,10 @@ impl Transaction<'_> {
 
     pub(super) fn record_rule_state_change(
         &mut self,
-        instance: crate::RuleInstanceId,
-        slot: crate::StateSlotDefinitionId,
-        before: &crate::rule::model::RuleValue,
-        after: &crate::rule::model::RuleValue,
+        instance: RuleInstanceId,
+        slot: StateSlotDefinitionId,
+        before: &RuleValue,
+        after: &RuleValue,
     ) {
         if before != after {
             let key = instance.get().rotate_left(17) ^ u64::from(slot.get());

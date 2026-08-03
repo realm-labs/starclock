@@ -1,12 +1,28 @@
+use crate::{BattleFault, OperationId, Ratio, SelectorId, StateSlotDefinitionId, UnitId};
+
+use crate::catalog::CombatCatalog;
+use crate::catalog::action::AbilityKind;
+use crate::catalog::action::HealingDefinition;
+use crate::catalog::action::HitOperationDefinition;
+use crate::catalog::definition::SelectorDefinition;
+use crate::catalog::selector::RuleSelectorOrigin;
+use crate::formula::model::CombatElement;
+use crate::operation::HealOp;
+use crate::operation::ModifyStateSlotOp;
+use crate::operation::Operation;
+use crate::resolver::transaction::Transaction;
 use crate::rule::model::RuleEmission;
+use crate::rule::model::RuleSlotMutationDefinition;
+use crate::rule::model::RuleValue;
+use crate::rule::model::StateSlotUpdateKind;
 
 use super::{AbilityProgramContext, non_negative_scalar, program_fault};
 
 pub(in crate::resolver) fn actor_basic_element(
-    catalog: &crate::catalog::CombatCatalog,
-    txn: &crate::resolver::transaction::Transaction<'_>,
-    actor: crate::UnitId,
-) -> Result<crate::formula::model::CombatElement, crate::BattleFault> {
+    catalog: &CombatCatalog,
+    txn: &Transaction<'_>,
+    actor: UnitId,
+) -> Result<CombatElement, BattleFault> {
     let unit = txn
         .state
         .units
@@ -17,12 +33,11 @@ pub(in crate::resolver) fn actor_basic_element(
         let Some(action) = ability.action() else {
             continue;
         };
-        if action.kind() != crate::catalog::action::AbilityKind::Basic {
+        if action.kind() != AbilityKind::Basic {
             continue;
         }
         for authored in action.hits().iter().flat_map(|hit| hit.operations()) {
-            let crate::catalog::action::HitOperationDefinition::ScalingDamage(damage) = authored
-            else {
+            let HitOperationDefinition::ScalingDamage(damage) = authored else {
                 continue;
             };
             match element {
@@ -36,17 +51,15 @@ pub(in crate::resolver) fn actor_basic_element(
 }
 
 pub(in crate::resolver) fn emission_targets(
-    catalog: &crate::catalog::CombatCatalog,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
-    current_target: Option<crate::UnitId>,
-) -> Result<Box<[crate::UnitId]>, crate::BattleFault> {
+    catalog: &CombatCatalog,
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+    selector: SelectorId,
+    current_target: Option<UnitId>,
+) -> Result<Box<[UnitId]>, BattleFault> {
     let is_current_subject = catalog
         .selector(selector)
-        .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
-        .is_some_and(|definition| {
-            definition.origin() == crate::catalog::selector::RuleSelectorOrigin::CurrentSubject
-        });
+        .and_then(SelectorDefinition::rule_units)
+        .is_some_and(|definition| definition.origin() == RuleSelectorOrigin::CurrentSubject);
     if is_current_subject && let Some(target) = current_target {
         return Ok(vec![target].into_boxed_slice());
     }
@@ -59,18 +72,18 @@ pub(in crate::resolver) fn emission_targets(
 
 pub(super) fn slot_operation(
     context: &AbilityProgramContext,
-    id: crate::OperationId,
-    slot: crate::StateSlotDefinitionId,
-    update: crate::rule::model::StateSlotUpdateKind,
-    value: crate::rule::model::RuleValue,
-) -> Result<crate::operation::ModifyStateSlotOp, crate::BattleFault> {
+    id: OperationId,
+    slot: StateSlotDefinitionId,
+    update: StateSlotUpdateKind,
+    value: RuleValue,
+) -> Result<ModifyStateSlotOp, BattleFault> {
     let rule = context.rule.ok_or_else(|| program_fault(52, 0))?;
     let instance = context.rule_instance.ok_or_else(|| program_fault(53, 0))?;
-    Ok(crate::operation::ModifyStateSlotOp {
+    Ok(ModifyStateSlotOp {
         id,
         owner: context.owner,
         instance: Some(instance),
-        definition: crate::rule::model::RuleSlotMutationDefinition {
+        definition: RuleSlotMutationDefinition {
             rule,
             slot,
             update,
@@ -81,38 +94,31 @@ pub(super) fn slot_operation(
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn healing_operation(
-    catalog: &crate::catalog::CombatCatalog,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    id: crate::OperationId,
-    selector: crate::SelectorId,
-    amount: crate::rule::model::RuleValue,
-    current_target: Option<crate::UnitId>,
+    catalog: &CombatCatalog,
+    resolved: &[(SelectorId, Box<[UnitId]>)],
+    id: OperationId,
+    selector: SelectorId,
+    amount: RuleValue,
+    current_target: Option<UnitId>,
     apply_formula_modifiers: bool,
-) -> Result<crate::operation::Operation, crate::BattleFault> {
+) -> Result<Operation, BattleFault> {
     let amount = non_negative_scalar(amount)?;
-    let formula = crate::catalog::action::HealingDefinition::new(
-        amount,
-        crate::Ratio::ZERO,
-        crate::Ratio::ZERO,
-        crate::Ratio::ZERO,
-    )
-    .map_err(|_| {
-        program_fault(
-            if apply_formula_modifiers { 3 } else { 78 },
-            amount.scaled(),
-        )
-    })?;
-    Ok(crate::operation::Operation::Heal(
-        crate::operation::HealOp {
-            id,
-            targets: emission_targets(catalog, resolved, selector, current_target)?,
-            formula,
-            apply_formula_modifiers,
-        },
-    ))
+    let formula =
+        HealingDefinition::new(amount, Ratio::ZERO, Ratio::ZERO, Ratio::ZERO).map_err(|_| {
+            program_fault(
+                if apply_formula_modifiers { 3 } else { 78 },
+                amount.scaled(),
+            )
+        })?;
+    Ok(Operation::Heal(HealOp {
+        id,
+        targets: emission_targets(catalog, resolved, selector, current_target)?,
+        formula,
+        apply_formula_modifiers,
+    }))
 }
 
-pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<crate::UnitId> {
+pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<UnitId> {
     match emission {
         RuleEmission::SetSlot { current_target, .. }
         | RuleEmission::AddSlot { current_target, .. }

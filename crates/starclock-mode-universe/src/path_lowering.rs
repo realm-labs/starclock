@@ -1,5 +1,6 @@
 //! Strict lowering for Path, Blessing and Resonance content.
 
+use crate::definition::LocalizedText;
 use std::collections::{BTreeMap, BTreeSet};
 
 use crate::digest::{Encoder, UniversePathDefinitionsDigest};
@@ -581,7 +582,7 @@ fn digest(
     UniversePathDefinitionsDigest::new(encoder.finish())
 }
 
-fn encode_text(encoder: &mut Encoder, value: &crate::definition::LocalizedText) {
+fn encode_text(encoder: &mut Encoder, value: &LocalizedText) {
     encoder.text(value.name_en());
     encoder.text(value.name_zh_cn());
     encoder.text(value.summary_en());

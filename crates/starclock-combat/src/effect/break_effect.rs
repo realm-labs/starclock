@@ -1,5 +1,5 @@
 use crate::{
-    EffectInstanceId, OperationId, SourceDefinitionId, UnitId,
+    EffectInstanceId, OperationId, SourceDefinitionId, Speed, UnitId,
     formula::toughness::{BaseBreakEffect, BreakDamageDefinition},
 };
 
@@ -15,7 +15,7 @@ pub(crate) struct BreakEffectState {
     pub(crate) damage: BreakDamageDefinition,
     pub(crate) remaining_turns: u8,
     pub(crate) stacks: u8,
-    pub(crate) speed_before: Option<crate::Speed>,
+    pub(crate) speed_before: Option<Speed>,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]

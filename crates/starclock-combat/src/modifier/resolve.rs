@@ -1,9 +1,18 @@
 //! Pure staged stat resolution with deterministic dependency-cycle faults.
 
+use crate::formula::model::CombatElement;
+use crate::modifier::model::StatQuerySubject;
+use crate::modifier::model::StatQuerySubject::{Actor, Applier, CurrentTarget, EventTarget, Owner};
+use crate::rule::evaluate::BattleQueryReader;
+use crate::rule::model::RuleEventFacts;
+use crate::rule::model::RuleEventKind;
+use crate::rule::model::RuleEventPoint;
+use crate::rule::model::ValueExpr;
 use std::{cell::RefCell, collections::BTreeMap};
 
 use crate::{
-    ActionId, EventId, ModifierInstanceId, RuleInstanceId, Scalar, UnitId, WaveInstanceId,
+    ActionId, EffectCategory, EffectDefinitionId, EventId, LifeState, ModifierInstanceId,
+    PresenceState, Rounding, RuleInstanceId, Scalar, UnitId, WaveInstanceId,
     rule::{
         evaluate::{RuleEvaluationError, StatQueryReader, evaluate_value, stat_query_error},
         model::{RuleCause, RuleEvaluationInput, RuleOccurrence, RuleValue},
@@ -45,8 +54,8 @@ pub struct StatResolver<'a> {
     registry: &'a ModifierRegistry,
     bases: &'a BTreeMap<(UnitId, StatKind), Scalar>,
     shields: Option<&'a BTreeMap<UnitId, Scalar>>,
-    effect_stacks: Option<&'a BTreeMap<(UnitId, crate::EffectDefinitionId), i64>>,
-    effect_category_stacks: Option<&'a BTreeMap<(UnitId, crate::EffectCategory), i64>>,
+    effect_stacks: Option<&'a BTreeMap<(UnitId, EffectDefinitionId), i64>>,
+    effect_category_stacks: Option<&'a BTreeMap<(UnitId, EffectCategory), i64>>,
     instances: &'a [ActiveModifier],
     context: RefCell<ModifierQueryContext>,
     stack: RefCell<Vec<StatQuery>>,
@@ -94,7 +103,7 @@ impl<'a> StatResolver<'a> {
     #[must_use]
     pub const fn with_effect_category_stacks(
         mut self,
-        values: &'a BTreeMap<(UnitId, crate::EffectCategory), i64>,
+        values: &'a BTreeMap<(UnitId, EffectCategory), i64>,
     ) -> Self {
         self.effect_category_stacks = Some(values);
         self
@@ -104,7 +113,7 @@ impl<'a> StatResolver<'a> {
     #[must_use]
     pub const fn with_effect_stacks(
         mut self,
-        values: &'a BTreeMap<(UnitId, crate::EffectDefinitionId), i64>,
+        values: &'a BTreeMap<(UnitId, EffectDefinitionId), i64>,
     ) -> Self {
         self.effect_stacks = Some(values);
         self
@@ -265,10 +274,10 @@ impl<'a> StatResolver<'a> {
                     Scalar::ONE
                         .checked_add(combined)
                         .map_err(|_| ModifierQueryError::Numeric)?,
-                    crate::Rounding::NearestTiesEven,
+                    Rounding::NearestTiesEven,
                 ),
                 FormulaStage::FinalMultiply => {
-                    result.checked_mul(combined, crate::Rounding::NearestTiesEven)
+                    result.checked_mul(combined, Rounding::NearestTiesEven)
                 }
                 _ => unreachable!(),
             }
@@ -318,7 +327,7 @@ impl<'a> StatResolver<'a> {
     fn evaluate_expression(
         &self,
         instance: &ActiveModifier,
-        expression: &crate::rule::model::ValueExpr,
+        expression: &ValueExpr,
         policy: SnapshotPolicy,
     ) -> Result<Scalar, ModifierQueryError> {
         let snapshot_reader = SnapshotReader {
@@ -331,9 +340,9 @@ impl<'a> StatResolver<'a> {
         } else {
             &snapshot_reader
         };
-        let event_facts = crate::rule::model::RuleEventFacts {
-            point: Some(crate::rule::model::RuleEventPoint::RuleStateChanged),
-            ..crate::rule::model::RuleEventFacts::default()
+        let event_facts = RuleEventFacts {
+            point: Some(RuleEventPoint::RuleStateChanged),
+            ..RuleEventFacts::default()
         };
         let battle_reader = (self.shields.is_some()
             || self.effect_stacks.is_some()
@@ -344,7 +353,7 @@ impl<'a> StatResolver<'a> {
             effect_category_stacks: self.effect_category_stacks,
         });
         let input = RuleEvaluationInput {
-            event_kind: crate::rule::model::RuleEventKind::Rule,
+            event_kind: RuleEventKind::Rule,
             event_facts: &event_facts,
             cause: RuleCause {
                 parent_event: None,
@@ -377,7 +386,7 @@ impl<'a> StatResolver<'a> {
             resource_reader: None,
             battle_query_reader: battle_reader
                 .as_ref()
-                .map(|reader| reader as &dyn crate::rule::evaluate::BattleQueryReader),
+                .map(|reader| reader as &dyn BattleQueryReader),
         };
         let value = evaluate_value(expression, input, Some(instance.subject));
         if let Some(error) = self.deferred_error.borrow_mut().take() {
@@ -418,7 +427,7 @@ impl<'a> StatResolver<'a> {
 impl StatQueryReader for StatResolver<'_> {
     fn query_stat(
         &self,
-        _origin: crate::modifier::model::StatQuerySubject,
+        _origin: StatQuerySubject,
         subject: UnitId,
         stat: StatKind,
         purpose: FormulaPurpose,
@@ -437,7 +446,7 @@ impl StatQueryReader for StatResolver<'_> {
 
     fn query_base_stat(
         &self,
-        _origin: crate::modifier::model::StatQuerySubject,
+        _origin: StatQuerySubject,
         subject: UnitId,
         stat: StatKind,
     ) -> Result<Scalar, RuleEvaluationError> {
@@ -457,14 +466,11 @@ struct SnapshotReader<'a, 'b> {
 impl StatQueryReader for SnapshotReader<'_, '_> {
     fn query_stat(
         &self,
-        origin: crate::modifier::model::StatQuerySubject,
+        origin: StatQuerySubject,
         subject: UnitId,
         stat: StatKind,
         purpose: FormulaPurpose,
     ) -> Result<Scalar, RuleEvaluationError> {
-        use crate::modifier::model::StatQuerySubject::{
-            Actor, Applier, CurrentTarget, EventTarget, Owner,
-        };
         let should_capture = match self.policy {
             SnapshotPolicy::SourceSnapshotTargetDynamic => {
                 matches!(origin, Owner | Actor | Applier)
@@ -505,7 +511,7 @@ impl StatQueryReader for SnapshotReader<'_, '_> {
 
     fn query_base_stat(
         &self,
-        origin: crate::modifier::model::StatQuerySubject,
+        origin: StatQuerySubject,
         subject: UnitId,
         stat: StatKind,
     ) -> Result<Scalar, RuleEvaluationError> {
@@ -515,16 +521,16 @@ impl StatQueryReader for SnapshotReader<'_, '_> {
 
 struct ModifierBattleQuery<'a> {
     shields: Option<&'a BTreeMap<UnitId, Scalar>>,
-    effect_stacks: Option<&'a BTreeMap<(UnitId, crate::EffectDefinitionId), i64>>,
-    effect_category_stacks: Option<&'a BTreeMap<(UnitId, crate::EffectCategory), i64>>,
+    effect_stacks: Option<&'a BTreeMap<(UnitId, EffectDefinitionId), i64>>,
+    effect_category_stacks: Option<&'a BTreeMap<(UnitId, EffectCategory), i64>>,
 }
 
-impl crate::rule::evaluate::BattleQueryReader for ModifierBattleQuery<'_> {
-    fn life_presence(&self, _subject: UnitId) -> Option<(crate::LifeState, crate::PresenceState)> {
+impl BattleQueryReader for ModifierBattleQuery<'_> {
+    fn life_presence(&self, _subject: UnitId) -> Option<(LifeState, PresenceState)> {
         None
     }
 
-    fn has_effect(&self, _subject: UnitId, _effect: crate::EffectDefinitionId) -> bool {
+    fn has_effect(&self, _subject: UnitId, _effect: EffectDefinitionId) -> bool {
         false
     }
 
@@ -532,11 +538,7 @@ impl crate::rule::evaluate::BattleQueryReader for ModifierBattleQuery<'_> {
         false
     }
 
-    fn has_weakness(
-        &self,
-        _subject: UnitId,
-        _element: crate::formula::model::CombatElement,
-    ) -> bool {
+    fn has_weakness(&self, _subject: UnitId, _element: CombatElement) -> bool {
         false
     }
 
@@ -548,7 +550,7 @@ impl crate::rule::evaluate::BattleQueryReader for ModifierBattleQuery<'_> {
         self.shields?.get(&subject).copied()
     }
 
-    fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64> {
+    fn effect_stacks(&self, subject: UnitId, effect: EffectDefinitionId) -> Option<i64> {
         Some(
             self.effect_stacks
                 .and_then(|values| values.get(&(subject, effect)).copied())
@@ -556,11 +558,7 @@ impl crate::rule::evaluate::BattleQueryReader for ModifierBattleQuery<'_> {
         )
     }
 
-    fn effect_category_stacks(
-        &self,
-        subject: UnitId,
-        category: crate::EffectCategory,
-    ) -> Option<i64> {
+    fn effect_category_stacks(&self, subject: UnitId, category: EffectCategory) -> Option<i64> {
         Some(
             self.effect_category_stacks
                 .and_then(|values| values.get(&(subject, category)).copied())
@@ -612,7 +610,7 @@ fn sum(mut values: impl Iterator<Item = Scalar>) -> Result<Scalar, ModifierQuery
 
 fn product(mut values: impl Iterator<Item = Scalar>) -> Result<Scalar, ModifierQueryError> {
     values.try_fold(Scalar::ONE, |left, right| {
-        left.checked_mul(right, crate::Rounding::NearestTiesEven)
+        left.checked_mul(right, Rounding::NearestTiesEven)
             .map_err(|_| ModifierQueryError::Numeric)
     })
 }

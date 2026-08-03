@@ -2,7 +2,7 @@
 
 use std::collections::BTreeMap;
 
-use crate::{RuleId, RuleInstanceId, StateSlotDefinitionId, UnitId};
+use crate::{EffectInstanceId, EventId, RuleId, RuleInstanceId, StateSlotDefinitionId, UnitId};
 
 use super::model::{
     BattleRuleDefinition, RuleValue, SlotResetPoint, StateSlotDef, StateSlotUpdateKind,
@@ -13,7 +13,7 @@ pub(crate) struct RuleInstanceState {
     pub(crate) id: RuleInstanceId,
     pub(crate) rule: RuleId,
     pub(crate) owner: Option<UnitId>,
-    pub(crate) source_effect: Option<crate::EffectInstanceId>,
+    pub(crate) source_effect: Option<EffectInstanceId>,
     pub(crate) slots: Box<[(StateSlotDef, RuleValue)]>,
     pub(crate) ledger: super::evaluate::TriggerLedger,
 }
@@ -65,7 +65,7 @@ impl RuleStateStore {
         id: RuleInstanceId,
         rule: RuleId,
         owner: UnitId,
-        effect: crate::EffectInstanceId,
+        effect: EffectInstanceId,
         runtime: &BattleRuleDefinition,
     ) -> bool {
         if !self.insert(id, rule, Some(owner), runtime) {
@@ -78,10 +78,7 @@ impl RuleStateStore {
         true
     }
 
-    pub(crate) fn remove_by_effect(
-        &mut self,
-        effect: crate::EffectInstanceId,
-    ) -> Vec<RuleInstanceId> {
+    pub(crate) fn remove_by_effect(&mut self, effect: EffectInstanceId) -> Vec<RuleInstanceId> {
         let ids = self
             .entries
             .values()
@@ -175,7 +172,7 @@ impl RuleStateStore {
             .sum()
     }
 
-    pub(crate) fn reset_once_event(&mut self, event: crate::EventId) -> usize {
+    pub(crate) fn reset_once_event(&mut self, event: EventId) -> usize {
         self.entries
             .values_mut()
             .map(|state| state.ledger.reset_event(event))
@@ -249,6 +246,7 @@ fn within_bounds(definition: &StateSlotDef, value: &RuleValue) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::RuleInstanceId;
     use crate::{
         RuleId, SourceDefinitionId,
         rule::model::{BattleRuleScope, RuleSource, RuleValueKind, SourceClass},
@@ -282,8 +280,8 @@ mod tests {
         let rule = RuleId::new(1).unwrap();
         let first_owner = UnitId::new(1).unwrap();
         let second_owner = UnitId::new(2).unwrap();
-        let first = crate::RuleInstanceId::new(1).unwrap();
-        let second = crate::RuleInstanceId::new(2).unwrap();
+        let first = RuleInstanceId::new(1).unwrap();
+        let second = RuleInstanceId::new(2).unwrap();
         assert!(store.insert(first, rule, Some(first_owner), &runtime()));
         assert!(store.insert(second, rule, Some(second_owner), &runtime()));
         for instance in [first, second] {
@@ -342,7 +340,7 @@ mod tests {
             None,
         );
         let owner = UnitId::new(1).unwrap();
-        let instance = crate::RuleInstanceId::new(1).unwrap();
+        let instance = RuleInstanceId::new(1).unwrap();
         let mut store = RuleStateStore::default();
         assert!(store.insert(instance, RuleId::new(1).unwrap(), Some(owner), &runtime));
         for index in 0..points.len() {

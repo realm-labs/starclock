@@ -1,4 +1,4 @@
-use crate::{Ratio, RawToughness, formula::model::CombatElement};
+use crate::{Ratio, RawToughness, Rounding, Scalar, formula::model::CombatElement};
 
 use super::model::{BreakCreditPolicy, ToughnessLayerSpec, ToughnessWeaknessPolicy};
 
@@ -76,11 +76,11 @@ pub(crate) fn route_reduction_with_override(
     };
     let scaled = eligibility
         .checked_apply(
-            crate::Scalar::checked_from_integer(attempted.get()).ok()?,
-            crate::Rounding::Floor,
+            Scalar::checked_from_integer(attempted.get()).ok()?,
+            Rounding::Floor,
         )
         .ok()?;
-    let eligible_attempted = RawToughness::from_scalar(scaled, crate::Rounding::Floor).ok()?;
+    let eligible_attempted = RawToughness::from_scalar(scaled, Rounding::Floor).ok()?;
     let before = layer.current;
     let effective = RawToughness::new(eligible_attempted.get().min(before.get())).ok()?;
     let after = RawToughness::new(before.get() - effective.get()).ok()?;

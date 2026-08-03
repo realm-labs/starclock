@@ -1,3 +1,5 @@
+use crate::catalog::CatalogLoadErrorKind;
+use crate::catalog::load;
 use std::collections::BTreeMap;
 
 use starclock_combat::{
@@ -123,8 +125,8 @@ fn yao_guang_elation_probe_lowers_shared_actor_without_form_specific_ir() {
 #[test]
 fn production_loader_rejects_nonproduction_elation_probes() {
     for probe in [TRAILBLAZER_ELATION_PROBE, YAO_GUANG_ELATION_PROBE] {
-        let error = crate::catalog::load(probe).expect_err("probe cannot enter production");
-        assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+        let error = load(probe).expect_err("probe cannot enter production");
+        assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
     }
 }
 
@@ -313,14 +315,14 @@ fn clara_counter_trigger_and_shared_charge_program_lower_in_authored_order() {
 
 #[test]
 fn production_loader_rejects_the_nonproduction_clara_probe() {
-    let error = crate::catalog::load(CLARA_PROBE).expect_err("probe cannot enter production");
-    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    let error = load(CLARA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
 }
 
 #[test]
 fn production_loader_rejects_the_nonproduction_kafka_probe() {
-    let error = crate::catalog::load(KAFKA_PROBE).expect_err("probe cannot enter production");
-    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    let error = load(KAFKA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
 }
 
 #[test]
@@ -370,8 +372,8 @@ fn asta_dynamic_team_aura_tracks_one_charging_instance() {
 
 #[test]
 fn production_loader_rejects_the_nonproduction_asta_probe() {
-    let error = crate::catalog::load(ASTA_PROBE).expect_err("probe cannot enter production");
-    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    let error = load(ASTA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
 }
 
 #[test]
@@ -545,15 +547,14 @@ fn aglaea_memosprite_program_keeps_owner_link_and_departure_proposals() {
 
 #[test]
 fn production_loader_rejects_the_nonproduction_aglaea_probe() {
-    let error = crate::catalog::load(AGLAEA_PROBE).expect_err("probe cannot enter production");
-    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    let error = load(AGLAEA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
 }
 
 #[test]
 fn production_loader_rejects_the_nonproduction_firefly_transform_probe() {
-    let error = crate::catalog::load(FIREFLY_TRANSFORM_PROBE)
-        .expect_err("transform probe cannot enter production");
-    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    let error = load(FIREFLY_TRANSFORM_PROBE).expect_err("transform probe cannot enter production");
+    assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
 }
 
 #[test]
@@ -588,8 +589,8 @@ fn firefly_enhanced_skill_adds_weakness_before_toughness_and_super_break() {
 
 #[test]
 fn production_loader_rejects_the_nonproduction_firefly_probe() {
-    let error = crate::catalog::load(FIREFLY_PROBE).expect_err("probe cannot enter production");
-    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    let error = load(FIREFLY_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
 }
 
 #[test]

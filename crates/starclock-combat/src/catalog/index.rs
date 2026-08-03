@@ -1,5 +1,6 @@
 //! Immutable trigger-definition indexes compiled once with the catalog.
 
+use crate::rule::evaluate::trigger_definition_order;
 use std::collections::BTreeMap;
 
 use crate::{
@@ -33,11 +34,7 @@ impl TriggerDefinitionIndex {
                     .entry((trigger.event, trigger.phase))
                     .or_default()
                     .push((
-                        crate::rule::evaluate::trigger_definition_order(
-                            rule_id,
-                            runtime.source().definition(),
-                            trigger,
-                        ),
+                        trigger_definition_order(rule_id, runtime.source().definition(), trigger),
                         TriggerIndexEntry {
                             rule: rule_id,
                             trigger: trigger.id,

@@ -1,6 +1,7 @@
 //! Shared primitives introduced by Goal 07 Occurrence partition S05.
 
 use super::*;
+use crate::path::ExactParameter;
 
 const TAG_ENHANCE_BEST_INVENTORY_GROUP: u8 = 11;
 const TAG_PROGRESSIVE_INVENTORY_DRAW: u8 = 12;
@@ -340,7 +341,7 @@ pub(super) const fn repeat_key(key: u64) -> u64 {
     PROGRESSIVE_REPEAT_KEY_BASE | key
 }
 
-fn exact_percentage(value: crate::path::ExactParameter) -> Result<u8, OccurrenceInteractionError> {
+fn exact_percentage(value: ExactParameter) -> Result<u8, OccurrenceInteractionError> {
     let divisor = 10_i64
         .checked_pow(u32::from(value.scale()))
         .ok_or(OccurrenceInteractionError::Arithmetic)?;

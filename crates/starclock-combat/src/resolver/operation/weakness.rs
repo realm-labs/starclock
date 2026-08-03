@@ -1,4 +1,5 @@
 use super::{Transaction, invariant_fault};
+use crate::resolver::program::actor_basic_element;
 use crate::{
     LifeState, PresenceState,
     battle::fault::BattleFault,
@@ -68,7 +69,7 @@ pub(super) fn execute_allied_element_weakness(
         .collect::<Vec<_>>();
     let mut elements = units
         .into_iter()
-        .map(|unit| super::super::program::actor_basic_element(catalog, txn, unit))
+        .map(|unit| actor_basic_element(catalog, txn, unit))
         .collect::<Result<Vec<_>, _>>()?;
     elements.sort_unstable();
     elements.dedup();

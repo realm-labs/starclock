@@ -2,8 +2,8 @@
 
 use crate::{
     AbilityId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId, EncounterWaveId,
-    EnemyDefinitionId, EnemyPhaseId, FormationIndex, ProgramId, SelectorId,
-    rng::types::DrawPurpose, rule::model::ConditionExpr,
+    EnemyDefinitionId, EnemyPhaseId, FormationIndex, OwnerLinkPolicy, ProgramId, SelectorId,
+    WaveLinkPolicy, rng::types::DrawPurpose, rule::model::ConditionExpr,
 };
 
 /// How a legal candidate is selected after canonical priority ordering.
@@ -307,8 +307,8 @@ pub struct EnemyLinkDefinition {
     kind: EnemyLinkKind,
     maximum_simultaneous: u16,
     overflow: LinkOverflowPolicy,
-    owner_defeat: crate::OwnerLinkPolicy,
-    wave: crate::WaveLinkPolicy,
+    owner_defeat: OwnerLinkPolicy,
+    wave: WaveLinkPolicy,
     contributes_to_victory: bool,
     formation: LinkedFormationPolicy,
 }
@@ -322,8 +322,8 @@ impl EnemyLinkDefinition {
         kind: EnemyLinkKind,
         maximum_simultaneous: u16,
         overflow: LinkOverflowPolicy,
-        owner_defeat: crate::OwnerLinkPolicy,
-        wave: crate::WaveLinkPolicy,
+        owner_defeat: OwnerLinkPolicy,
+        wave: WaveLinkPolicy,
         contributes_to_victory: bool,
         formation: LinkedFormationPolicy,
     ) -> Option<Self> {
@@ -364,11 +364,11 @@ impl EnemyLinkDefinition {
         self.overflow
     }
     #[must_use]
-    pub const fn owner_defeat(self) -> crate::OwnerLinkPolicy {
+    pub const fn owner_defeat(self) -> OwnerLinkPolicy {
         self.owner_defeat
     }
     #[must_use]
-    pub const fn wave(self) -> crate::WaveLinkPolicy {
+    pub const fn wave(self) -> WaveLinkPolicy {
         self.wave
     }
     #[must_use]

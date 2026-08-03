@@ -1,4 +1,6 @@
+use crate::catalog::action::AbilityTags;
 use crate::{
+    Ratio,
     catalog::action::{
         AbilityProgramBinding, ActionResourcePolicy, HitCritPolicy, HitOperationDefinition,
         HitTargetGroup, TargetInvalidationPolicy, UnitTargetSelector,
@@ -49,8 +51,8 @@ pub(crate) struct HitPlan {
     pub(crate) id: HitId,
     pub(crate) invalidation: TargetInvalidationPolicy,
     pub(crate) target_group: HitTargetGroup,
-    pub(crate) damage_share: crate::Ratio,
-    pub(crate) toughness_share: crate::Ratio,
+    pub(crate) damage_share: Ratio,
+    pub(crate) toughness_share: Ratio,
     pub(crate) crit_policy: HitCritPolicy,
     pub(crate) operations: Box<[OperationPlan]>,
 }
@@ -74,7 +76,7 @@ pub(crate) struct ActionPlan {
     pub(crate) owner: UnitId,
     pub(crate) ability: AbilityId,
     pub(crate) origin: ActionOrigin,
-    pub(crate) tags: crate::catalog::action::AbilityTags,
+    pub(crate) tags: AbilityTags,
     pub(crate) normal_turn: Option<TimelineActorId>,
     pub(crate) selector: UnitTargetSelector,
     pub(crate) targets: TargetCommitment,

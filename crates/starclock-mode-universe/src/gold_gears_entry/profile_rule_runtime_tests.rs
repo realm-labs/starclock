@@ -1,3 +1,4 @@
+use crate::id::BlessingId;
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryId, ActivityMasterSeed,
@@ -295,7 +296,7 @@ fn commit(
 fn execute_profile_rule(
     instance: &GoldAndGearsRuntimeInstance,
     state: &mut ActivityTransactionState,
-    blessings: &[(crate::id::BlessingId, u32)],
+    blessings: &[(BlessingId, u32)],
     curios: &[(super::GoldAndGearsCurioId, u32)],
     rng: &mut ActivityRngStreams,
 ) -> Result<GoldAndGearsProfileRuleExecution, GoldAndGearsEntryError> {

@@ -2,8 +2,8 @@ use starclock_combat::{BattleSeed, BattleSpec};
 
 use crate::{
     ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityInstanceId, ActivityMasterSeed,
-    ActivitySlotId, ActivitySpec, ActivityStateHash, ActivityValue, BattleOutcome, BattleResult,
-    BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId, ScopeIdentity,
+    ActivitySlotId, ActivitySpec, ActivityStateHash, ActivityValue, AttemptId, BattleOutcome,
+    BattleResult, BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId, ScopeIdentity,
     SlotResetPoint, TerminalOutcome, codec::CanonicalWriter, slot::ScopedSlots,
 };
 
@@ -117,7 +117,7 @@ impl Activity {
         instance: ActivityInstanceId,
         master_seed: ActivityMasterSeed,
     ) -> Self {
-        let attempt = crate::AttemptId::new(1).expect("one is a valid attempt ID");
+        let attempt = AttemptId::new(1).expect("one is a valid attempt ID");
         let battle_sequence = BattleSequence::new(1).expect("one is a valid sequence");
         let entry = spec.graph().entry();
         let section = spec
