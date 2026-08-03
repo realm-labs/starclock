@@ -42,6 +42,7 @@ The project, repository, and command-line executable are named **Starclock** / `
 | Exceptional native rule registry | `starclock-rules` | `starclock_rules` |
 | Deterministic controllers | `starclock-ai` | `starclock_ai` |
 | Canonical codec and replay verification | `starclock-replay` | `starclock_replay` |
+| ID-only battle inspection snapshots and diagnostics | `starclock-inspector` | `starclock_inspector` |
 | Standard activity profiles | `starclock-mode-standard` | `starclock_mode_standard` |
 | Challenge activity profiles | `starclock-mode-challenge` | `starclock_mode_challenge` |
 | Universe activity profiles | `starclock-mode-universe` | `starclock_mode_universe` |
@@ -100,6 +101,7 @@ crates/
       validate.rs
       load.rs
   starclock-replay/
+  starclock-inspector/
   starclock-ai/
   starclock-rules/
   starclock-activity/

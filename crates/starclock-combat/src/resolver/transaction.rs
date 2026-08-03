@@ -59,12 +59,14 @@ pub(crate) fn resolve_prepared(
     scratch: &mut ResolutionScratch,
     command: ValidatedCommand,
     injection: Option<FaultInjection>,
+    diagnostics: Option<&mut crate::BattleDiagnostics>,
 ) -> TransactionOutput {
     let (mut events, root_command, failure, mut timeline_elapsed_scaled) = {
         let mut txn = Transaction::new(
             &mut scratch.working,
             &mut scratch.journal,
             catalog.needs_selector_snapshots(),
+            diagnostics,
         );
         let root = txn.begin_command();
         let failure = execute(catalog, &mut txn, root, command, injection)
@@ -99,7 +101,7 @@ pub(crate) fn resolve_prepared(
         if fault.policy() == FaultPolicy::Rollback {
             scratch.prepare(before);
             timeline_elapsed_scaled = 0;
-            let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal, false);
+            let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal, false, None);
             let rollback_root = txn.begin_command();
             debug_assert_eq!(rollback_root, root_command);
             events = txn.commit_fault(rollback_root, fault);
@@ -405,6 +407,7 @@ pub(super) struct Transaction<'a> {
     resolved_reactions: usize,
     next_reaction: u64,
     pub(super) timeline_elapsed_scaled: i64,
+    diagnostics: Option<&'a mut crate::BattleDiagnostics>,
 }
 
 impl<'a> Transaction<'a> {
@@ -412,6 +415,7 @@ impl<'a> Transaction<'a> {
         state: &'a mut BattleState,
         journal: &'a mut MutationJournal,
         capture_selector_snapshots: bool,
+        diagnostics: Option<&'a mut crate::BattleDiagnostics>,
     ) -> Self {
         Self {
             state,
@@ -425,6 +429,7 @@ impl<'a> Transaction<'a> {
             resolved_reactions: 0,
             next_reaction: 1,
             timeline_elapsed_scaled: 0,
+            diagnostics,
         }
     }
 
@@ -445,6 +450,13 @@ impl<'a> Transaction<'a> {
             resolved_reactions: 0,
             next_reaction: 1,
             timeline_elapsed_scaled: 0,
+            diagnostics: None,
+        }
+    }
+
+    pub(super) fn record_diagnostic(&mut self, record: impl FnOnce() -> crate::DiagnosticRecord) {
+        if let Some(diagnostics) = self.diagnostics.as_deref_mut() {
+            diagnostics.record(record);
         }
     }
 

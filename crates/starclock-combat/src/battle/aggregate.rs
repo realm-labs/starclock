@@ -290,13 +290,34 @@ impl Battle {
     /// no IDs or RNG. Accepted resolution settles synchronously and atomically.
     pub fn apply(&mut self, command: Command) -> Result<Resolution, CommandError> {
         let validated = validate(&self.state, &command)?;
-        Ok(self.apply_validated(validated, None))
+        Ok(self.apply_validated(validated, None, None))
+    }
+
+    /// Applies one offered command while collecting bounded non-authoritative diagnostics.
+    ///
+    /// The batch is cleared before validation. Diagnostic collection cannot
+    /// affect events, RNG draws, decisions, or canonical state.
+    pub fn apply_inspected(
+        &mut self,
+        command: Command,
+        diagnostics: &mut crate::BattleDiagnostics,
+    ) -> Result<Resolution, CommandError> {
+        diagnostics.clear();
+        let validated = validate(&self.state, &command)?;
+        let resolution = self.apply_validated(validated, None, Some(diagnostics));
+        diagnostics.finish(
+            resolution.root_command(),
+            resolution.committed_revision(),
+            resolution.state_hash(),
+        );
+        Ok(resolution)
     }
 
     fn apply_validated(
         &mut self,
         validated: ValidatedCommand,
         injection: Option<FaultInjection>,
+        diagnostics: Option<&mut crate::BattleDiagnostics>,
     ) -> Resolution {
         let mut scratch = match self.scratch.take() {
             Some(mut scratch) => {
@@ -311,6 +332,7 @@ impl Battle {
             &mut scratch,
             validated,
             injection,
+            diagnostics,
         );
         scratch.commit_into(&mut self.state);
         debug_assert_eq!(hash_state(&self.state), output.state_hash);
@@ -551,7 +573,7 @@ mod tests {
         let decision = battle.decision().unwrap().id();
         let command = Command::StartBattle { decision };
         let validated = validate(&battle.state, &command).unwrap();
-        battle.apply_validated(validated, Some(injection))
+        battle.apply_validated(validated, Some(injection), None)
     }
 
     fn supported_command(battle: &Battle) -> Command {
@@ -585,6 +607,7 @@ mod tests {
                 point,
                 policy: FaultPolicy::Rollback,
             }),
+            None,
         )
     }
 

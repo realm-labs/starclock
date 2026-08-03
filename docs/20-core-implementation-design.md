@@ -497,6 +497,14 @@ new `state_hash_revision`, not a transparent optimization.
 
 `BattleView` is a borrowed read-only projection with explicit query methods. It may expose units in formation or stable-ID order, legal commands, timeline order, visible effects/resources, encounter progress, and exact domain values. It cannot expose internal mutable references or container types. A controller and engine adapter consume the same view/decision contract.
 
+`starclock-inspector` may copy that projection into ID-only owned snapshots at
+stable boundaries. An explicit inspected command path may additionally collect
+bounded non-authoritative resolver diagnostics for transient queue ordering,
+target revalidation and cancellation reasons. The ordinary command path does
+not allocate diagnostic records; diagnostics never enter state, replay, RNG,
+event ordering or canonical hashes, and presentation/configuration lookup stays
+outside `starclock-combat`.
+
 ## Throughput contract
 
 One battle remains logically single-threaded. A headless verifier shares one

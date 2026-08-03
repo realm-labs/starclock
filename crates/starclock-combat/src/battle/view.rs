@@ -22,6 +22,13 @@ use super::{
     state::BattleState,
 };
 
+mod team_resource;
+pub use team_resource::TeamResourceView;
+mod timeline_detail;
+pub use timeline_detail::{PendingExtraTurnView, SequenceCursorsView};
+mod unit_detail;
+pub use unit_detail::{CharacterResourceView, TemporaryWeaknessView, TransformationView};
+
 /// Borrowed immutable projection of one authoritative battle state.
 #[derive(Clone, Copy)]
 pub struct BattleView<'a> {
@@ -110,6 +117,14 @@ impl<'a> BattleView<'a> {
             .iter_by_id()
             .map(|state| BreakEffectView { state })
     }
+    /// Iterates every retained base Break-effect record, including expired entries.
+    pub fn retained_break_effects_by_id(self) -> impl Iterator<Item = BreakEffectView<'a>> + 'a {
+        self.state
+            .break_effects
+            .canonical_entries()
+            .iter()
+            .map(|state| BreakEffectView { state })
+    }
     /// Iterates retained generic effect instances in stable instance order.
     pub fn effects_by_id(self) -> impl Iterator<Item = EffectView<'a>> + 'a {
         self.state
@@ -164,6 +179,25 @@ impl<'a> BattleView<'a> {
                 turn: ActiveTurnView::from(window.turn),
             })
     }
+    /// Iterates pending extra turns in their authoritative queue order.
+    pub fn pending_extra_turns(self) -> impl Iterator<Item = PendingExtraTurnView> + 'a {
+        self.state
+            .timeline
+            .extra_turns
+            .iter()
+            .copied()
+            .map(PendingExtraTurnView::from)
+    }
+    /// Returns the authored concession policy retained by this battle.
+    #[must_use]
+    pub const fn concede_policy(self) -> super::spec::ConcedePolicy {
+        self.state.concede
+    }
+    /// Returns the canonical next-ID cursors used by deterministic allocation.
+    #[must_use]
+    pub const fn sequence_cursors(self) -> SequenceCursorsView {
+        SequenceCursorsView::new(self.state.sequences.canonical_next_values())
+    }
 }
 
 /// Immutable projection of one active shield instance.
@@ -192,7 +226,7 @@ pub struct ModifierInstanceView<'a> {
     state: &'a crate::modifier::model::ActiveModifier,
 }
 
-impl ModifierInstanceView<'_> {
+impl<'a> ModifierInstanceView<'a> {
     #[must_use]
     pub const fn id(self) -> crate::ModifierInstanceId {
         self.state.instance
@@ -222,9 +256,39 @@ impl ModifierInstanceView<'_> {
     pub const fn source_effect(self) -> Option<crate::EffectInstanceId> {
         self.state.source_effect
     }
+    #[must_use]
+    pub const fn insertion_sequence(self) -> u64 {
+        self.state.insertion_sequence
+    }
+    #[must_use]
+    pub const fn application_action(self) -> Option<crate::ActionId> {
+        self.state.application_action
+    }
+    pub fn slots(
+        self,
+    ) -> impl Iterator<
+        Item = (
+            crate::StateSlotDefinitionId,
+            &'a crate::rule::model::RuleValue,
+        ),
+    > {
+        self.state.slots.iter().map(|(slot, value)| (*slot, value))
+    }
+    #[must_use]
+    pub const fn captured_value(self) -> Option<crate::Scalar> {
+        self.state.captured_value
+    }
+    pub fn captured_stats(
+        self,
+    ) -> impl Iterator<Item = (&'a crate::modifier::model::StatQuery, crate::Scalar)> {
+        self.state
+            .captured_stats
+            .iter()
+            .map(|(query, value)| (query, *value))
+    }
 }
 
-impl EffectView<'_> {
+impl<'a> EffectView<'a> {
     #[must_use]
     pub const fn id(self) -> crate::EffectInstanceId {
         self.state.id
@@ -265,6 +329,54 @@ impl EffectView<'_> {
     pub const fn snapshot_policy(self) -> crate::EffectSnapshotPolicy {
         self.state.snapshot_policy
     }
+    #[must_use]
+    pub const fn source_operation(self) -> crate::OperationId {
+        self.state.source_operation
+    }
+    #[must_use]
+    pub const fn dispel(self) -> crate::DispelCategory {
+        self.state.dispel
+    }
+    #[must_use]
+    pub const fn stack_limit(self) -> u16 {
+        self.state.stack_limit
+    }
+    #[must_use]
+    pub const fn tick_phase(self) -> crate::EffectTickPhase {
+        self.state.tick_phase
+    }
+    #[must_use]
+    pub const fn stack_policy(self) -> crate::EffectStackPolicy {
+        self.state.stack_policy
+    }
+    #[must_use]
+    pub const fn teardown_policy(self) -> crate::EffectTeardownPolicy {
+        self.state.teardown_policy
+    }
+    #[must_use]
+    pub const fn application_priority(self) -> i32 {
+        self.state.application_priority
+    }
+    #[must_use]
+    pub const fn magnitude(self) -> crate::Scalar {
+        self.state.magnitude
+    }
+    #[must_use]
+    pub fn tags(self) -> &'a [crate::SourceDefinitionId] {
+        &self.state.tags
+    }
+    #[must_use]
+    pub fn controlled_actions(self) -> &'a [crate::ControlledAction] {
+        &self.state.controlled_actions
+    }
+    #[must_use]
+    pub const fn dot(self) -> Option<crate::DotDefinition> {
+        self.state.dot
+    }
+    #[must_use]
+    pub const fn application_sequence(self) -> u64 {
+        self.state.application_sequence
+    }
 }
 
 #[derive(Clone, Copy)]
@@ -285,6 +397,10 @@ impl<'a> RuleInstanceView<'a> {
     pub const fn owner(self) -> Option<UnitId> {
         self.state.owner
     }
+    #[must_use]
+    pub const fn source_effect(self) -> Option<crate::EffectInstanceId> {
+        self.state.source_effect
+    }
     pub fn slots(
         self,
     ) -> impl Iterator<
@@ -297,6 +413,9 @@ impl<'a> RuleInstanceView<'a> {
             .slots
             .iter()
             .map(|(definition, value)| (definition.id(), value))
+    }
+    pub fn once_keys(self) -> impl Iterator<Item = crate::rule::model::OnceKey> + 'a {
+        self.state.ledger.canonical_keys().copied()
     }
 }
 
@@ -329,6 +448,22 @@ impl BreakEffectView<'_> {
     pub const fn stacks(self) -> u8 {
         self.state.stacks
     }
+    #[must_use]
+    pub const fn source_operation(self) -> crate::OperationId {
+        self.state.source_operation
+    }
+    #[must_use]
+    pub const fn plan(self) -> crate::formula::toughness::BaseBreakEffect {
+        self.state.plan
+    }
+    #[must_use]
+    pub const fn damage(self) -> crate::formula::toughness::BreakDamageDefinition {
+        self.state.damage
+    }
+    #[must_use]
+    pub const fn speed_before(self) -> Option<crate::Speed> {
+        self.state.speed_before
+    }
 }
 
 impl ShieldView<'_> {
@@ -340,6 +475,11 @@ impl ShieldView<'_> {
     #[must_use]
     pub const fn owner(self) -> UnitId {
         self.owner
+    }
+
+    #[must_use]
+    pub const fn source_operation(self) -> crate::OperationId {
+        self.state.source_operation
     }
 
     #[must_use]
@@ -363,6 +503,8 @@ impl ShieldView<'_> {
 pub struct ActiveTurnView {
     actor: TimelineActorId,
     owner: UnitId,
+    unit: UnitId,
+    automatic: Option<(AbilityId, crate::ActionOrigin)>,
     side: TeamSide,
     formation: FormationIndex,
     spawn: SpawnSequence,
@@ -379,6 +521,16 @@ impl ActiveTurnView {
     #[must_use]
     pub const fn owner(self) -> UnitId {
         self.owner
+    }
+    /// Returns the target-capable unit represented by the timeline actor.
+    #[must_use]
+    pub const fn unit(self) -> UnitId {
+        self.unit
+    }
+    /// Returns the automatic action bound to this turn, when present.
+    #[must_use]
+    pub const fn automatic(self) -> Option<(AbilityId, crate::ActionOrigin)> {
+        self.automatic
     }
     /// Returns the formation side that owns the selected turn.
     #[must_use]
@@ -407,6 +559,8 @@ impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
         Self {
             actor: turn.actor,
             owner: turn.owner,
+            unit: turn.unit,
+            automatic: turn.automatic,
             side: turn.side,
             formation: turn.formation,
             spawn: turn.spawn,
@@ -566,12 +720,24 @@ impl<'a> UnitView<'a> {
     pub const fn maximum_energy(self) -> crate::Energy {
         self.state.maximum_energy
     }
+    /// Returns the authored encounter rank used by Break formulas and rules.
+    #[must_use]
+    pub const fn rank(self) -> crate::formula::toughness::EnemyRank {
+        self.state.rank
+    }
     /// Returns a named form-scoped resource and its cap.
     #[must_use]
     pub fn character_resource(self, stable_key: &str) -> Option<(crate::Scalar, crate::Scalar)> {
         self.state
             .resource(stable_key)
             .map(|resource| (resource.current, resource.maximum))
+    }
+    /// Iterates every form-scoped resource in canonical key order.
+    pub fn character_resources(self) -> impl Iterator<Item = CharacterResourceView<'a>> + 'a {
+        self.state
+            .resources
+            .iter()
+            .map(|state| CharacterResourceView { state })
     }
     /// Returns the canonical selected ability set.
     #[must_use]
@@ -589,6 +755,14 @@ impl<'a> UnitView<'a> {
         match &self.state.transformation {
             None => None,
             Some(state) => state.countdown_actor,
+        }
+    }
+    /// Returns the complete retained transformation state, when active.
+    #[must_use]
+    pub const fn transformation(self) -> Option<TransformationView<'a>> {
+        match &self.state.transformation {
+            None => None,
+            Some(state) => Some(TransformationView { state }),
         }
     }
     /// Returns the bound enemy definition for authored hostile occurrences.
@@ -630,6 +804,23 @@ impl<'a> UnitView<'a> {
     pub fn weaknesses(self) -> &'a [crate::formula::model::CombatElement] {
         &self.state.weaknesses
     }
+    /// Returns the immutable authored weakness baseline.
+    #[must_use]
+    pub fn permanent_weaknesses(self) -> &'a [crate::formula::model::CombatElement] {
+        &self.state.permanent_weaknesses
+    }
+    /// Iterates temporary weakness contributions in canonical insertion order.
+    pub fn temporary_weaknesses(self) -> impl Iterator<Item = TemporaryWeaknessView> + 'a {
+        self.state
+            .temporary_weaknesses
+            .iter()
+            .map(|state| TemporaryWeaknessView {
+                element: state.element,
+                applier: state.applier,
+                source_operation: state.source_operation,
+                remaining_turns: state.remaining_turns,
+            })
+    }
     /// Returns whether a layer has placed this unit in the global broken state.
     #[must_use]
     pub const fn weakness_broken(self) -> bool {
@@ -655,7 +846,12 @@ pub struct ToughnessLayerView<'a> {
     state: &'a crate::toughness::state::ToughnessLayerState,
 }
 
-impl ToughnessLayerView<'_> {
+impl<'a> ToughnessLayerView<'a> {
+    /// Returns the complete immutable authored layer policy.
+    #[must_use]
+    pub const fn spec(self) -> &'a crate::ToughnessLayerSpec {
+        &self.state.spec
+    }
     #[must_use]
     pub const fn key(self) -> u32 {
         self.state.spec.key()
@@ -810,7 +1006,7 @@ pub struct TeamView<'a> {
     state: &'a TeamState,
 }
 
-impl TeamView<'_> {
+impl<'a> TeamView<'a> {
     /// Returns the team side.
     #[must_use]
     pub const fn side(self) -> TeamSide {

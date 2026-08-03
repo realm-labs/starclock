@@ -22,6 +22,8 @@ Git history is the only historical record.
 - Standard battle, Standard Universe, Gold and Gears, and Swarm Disaster use the
   shared combat/activity kernels.
 - Replay records and verifies only data produced by the current tree.
+- `starclock-inspector` captures ID-only owned battle snapshots, diffs and
+  optional bounded resolver diagnostics without owning presentation metadata.
 - CLI, Agent API and MCP are current adapters over the domain crates.
 
 ## Verification

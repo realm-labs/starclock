@@ -1004,6 +1004,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "starclock-inspector"
+version = "0.1.0"
+dependencies = [
+ "starclock-combat",
+ "starclock-data",
+]
+
+[[package]]
 name = "starclock-mcp"
 version = "0.1.0"
 dependencies = [

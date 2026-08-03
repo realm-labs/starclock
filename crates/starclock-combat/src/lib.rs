@@ -14,6 +14,7 @@ pub mod benchmark;
 pub mod catalog;
 mod codec;
 mod command;
+mod diagnostic;
 mod effect;
 mod event;
 pub mod formula;
@@ -69,13 +70,19 @@ pub use battle::spec::{
     TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EffectView, EncounterView,
-    FormationView, InterruptWindowView, LinkView, ModifierInstanceView, RuleInstanceView,
-    ShieldView, TeamView, TimelineActorView, ToughnessLayerView, UnitView,
+    ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, CharacterResourceView,
+    EffectView, EncounterView, FormationView, InterruptWindowView, LinkView, ModifierInstanceView,
+    PendingExtraTurnView, RuleInstanceView, SequenceCursorsView, ShieldView, TeamResourceView,
+    TeamView, TemporaryWeaknessView, TimelineActorView, ToughnessLayerView, TransformationView,
+    UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
     Command, CommandError, CommandErrorKind, DecisionKind, DecisionOwner, DecisionPoint,
+};
+pub use diagnostic::{
+    ActionCancellationReason, BattleDiagnostics, CommittedTargetsDiagnostic, DiagnosticRecord,
+    MAX_DIAGNOSTIC_RECORDS_PER_COMMAND, ReactionOrderDiagnostic, ReactionTierDiagnostic,
 };
 pub use effect::model::{
     ControlledAction, DispelCategory, DotDefinition, DotDetonationDefinition,

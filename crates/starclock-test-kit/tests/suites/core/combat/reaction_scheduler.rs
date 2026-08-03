@@ -1,8 +1,9 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
-    CombatantSpecDigest, Command, ConcedePolicy, ControlledAction, DispelCategory, DurationClock,
+    ActionCancellationReason, ActionEventData, ActionOrigin, AssemblyDigest, Battle,
+    BattleDiagnostics, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
+    ConcedePolicy, ControlledAction, DiagnosticRecord, DispelCategory, DurationClock,
     EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRuntimeDefinition,
     EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp, ParticipantSource,
     ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed,
@@ -272,6 +273,69 @@ fn execute_enemy_attack(
         .clone();
     let resolution = battle.apply(attack).unwrap();
     (battle, resolution)
+}
+
+fn execute_enemy_attack_inspected(
+    control_counter: bool,
+) -> (Battle, starclock_combat::Resolution, BattleDiagnostics) {
+    let mut battle = battle(
+        control_counter,
+        ReactionBoundary::AfterAction,
+        ActionOrigin::Counter,
+        AbilityKind::Counter,
+        false,
+    );
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    battle
+        .apply(Command::PassInterruptWindow {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let attack = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(
+            |command| matches!(command, Command::UseAbility { ability, .. } if ability.get() == 3),
+        )
+        .unwrap()
+        .clone();
+    let mut diagnostics = BattleDiagnostics::new();
+    let resolution = battle.apply_inspected(attack, &mut diagnostics).unwrap();
+    (battle, resolution, diagnostics)
+}
+
+#[test]
+fn inspected_reaction_records_queue_order_and_target_validation() {
+    let (_battle, _resolution, diagnostics) = execute_enemy_attack_inspected(false);
+    assert!(diagnostics.records().iter().any(|record| matches!(
+        record,
+        DiagnosticRecord::ReactionQueued { order, targets, .. }
+            if order.boundary == ReactionBoundary::AfterAction
+                && !targets.targets.is_empty()
+    )));
+    assert!(diagnostics.records().iter().any(|record| matches!(
+        record,
+        DiagnosticRecord::ReactionTargetsValidated { accepted: true, .. }
+    )));
+    assert!(!diagnostics.truncated());
+}
+
+#[test]
+fn inspected_reaction_reports_the_exact_cancellation_reason() {
+    let (_battle, _resolution, diagnostics) = execute_enemy_attack_inspected(true);
+    assert!(diagnostics.records().iter().any(|record| matches!(
+        record,
+        DiagnosticRecord::ReactionCancelled {
+            reason: ActionCancellationReason::FollowUpBlocked,
+            ..
+        }
+    )));
 }
 
 #[test]

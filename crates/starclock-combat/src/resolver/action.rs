@@ -32,6 +32,12 @@ pub(super) fn drain_reactions(
     mut parent: EventId,
 ) -> Result<EventId, BattleFault> {
     while let Some(queued) = txn.reactions.pop_ready(boundary) {
+        txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionDequeued {
+            insertion: queued.order.insertion,
+            actor: queued.actor,
+            ability: queued.ability,
+            boundary: queued.order.boundary,
+        });
         if !txn.consume_reaction_budget(MAX_REACTIONS_PER_COMMAND) {
             return Err(BattleFault::new(
                 crate::FaultKind::BudgetExceeded,
@@ -41,33 +47,56 @@ pub(super) fn drain_reactions(
                 Some(MAX_REACTIONS_PER_COMMAND as i64),
             ));
         }
-        let eligible = txn.state.units.get(queued.actor).is_some_and(|unit| {
-            unit.life == crate::LifeState::Alive
-                && unit.presence.is_active()
-                && crate::command::legal::ability_owner(
-                    txn.state,
-                    catalog,
-                    queued.actor,
-                    queued.ability,
-                )
-                .is_some()
-                && !(matches!(
-                    queued.origin,
-                    crate::ActionOrigin::FollowUp | crate::ActionOrigin::Counter
-                ) && txn
-                    .state
-                    .effects
-                    .blocks(queued.actor, crate::ControlledAction::FollowUp))
-        });
-        if !eligible {
-            parent = cancel_queued(txn, &queued);
+        let Some(unit) = txn.state.units.get(queued.actor) else {
+            parent = cancel_queued(
+                txn,
+                &queued,
+                crate::ActionCancellationReason::ActorUnavailable,
+            );
+            continue;
+        };
+        if unit.life != crate::LifeState::Alive || !unit.presence.is_active() {
+            parent = cancel_queued(
+                txn,
+                &queued,
+                crate::ActionCancellationReason::ActorUnavailable,
+            );
+            continue;
+        }
+        if crate::command::legal::ability_owner(txn.state, catalog, queued.actor, queued.ability)
+            .is_none()
+        {
+            parent = cancel_queued(
+                txn,
+                &queued,
+                crate::ActionCancellationReason::AbilityUnavailable,
+            );
+            continue;
+        }
+        if matches!(
+            queued.origin,
+            crate::ActionOrigin::FollowUp | crate::ActionOrigin::Counter
+        ) && txn
+            .state
+            .effects
+            .blocks(queued.actor, crate::ControlledAction::FollowUp)
+        {
+            parent = cancel_queued(
+                txn,
+                &queued,
+                crate::ActionCancellationReason::FollowUpBlocked,
+            );
             continue;
         }
         let Some(action) = catalog
             .ability(queued.ability)
             .and_then(|ability| ability.action())
         else {
-            parent = cancel_queued(txn, &queued);
+            parent = cancel_queued(
+                txn,
+                &queued,
+                crate::ActionCancellationReason::MissingActionDefinition,
+            );
             continue;
         };
         let payment = queued
@@ -80,7 +109,11 @@ pub(super) fn drain_reactions(
             action.resources(),
             payment,
         ) {
-            parent = cancel_queued(txn, &queued);
+            parent = cancel_queued(
+                txn,
+                &queued,
+                crate::ActionCancellationReason::ResourceUnavailable,
+            );
             continue;
         }
         let mut plan = crate::action::lower::lower_queued_action(
@@ -96,11 +129,16 @@ pub(super) fn drain_reactions(
             queued.targets.clone(),
         )
         .ok_or_else(|| action_fault(72))?;
-        if !txn
+        let targets_accepted = txn
             .resolve_hit_targets(plan.actor, &mut plan.targets)
-            .is_ok_and(|targets| !targets.is_empty())
-        {
-            parent = cancel_queued(txn, &queued);
+            .is_ok_and(|targets| !targets.is_empty());
+        txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionTargetsValidated {
+            insertion: queued.order.insertion,
+            targets: (&plan.targets).into(),
+            accepted: targets_accepted,
+        });
+        if !targets_accepted {
+            parent = cancel_queued(txn, &queued, crate::ActionCancellationReason::TargetInvalid);
             continue;
         }
         parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
@@ -113,7 +151,14 @@ pub(super) fn drain_reactions(
 fn cancel_queued(
     txn: &mut Transaction<'_>,
     queued: &crate::reaction::queue::QueuedAction,
+    reason: crate::ActionCancellationReason,
 ) -> EventId {
+    txn.record_diagnostic(|| crate::DiagnosticRecord::ReactionCancelled {
+        insertion: queued.order.insertion,
+        actor: queued.actor,
+        ability: queued.ability,
+        reason,
+    });
     txn.emit(
         Cause::root(queued.root)
             .with_parent(queued.parent)
