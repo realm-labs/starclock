@@ -164,8 +164,12 @@ Follow `docs/sources.md`,
   behavior to crate-level `tests/`.
 - Do not use `super::super` or deeper parent-relative paths. Cross two or more
   module boundaries through a stable `crate::` path.
-- Prefer clear imports near the top of a module over repeated long qualified
-  paths. Use descriptive aliases for conflicts.
+- Put stable path qualification in clear `use` declarations near the top of a
+  module, then use the imported local names in signatures and bodies. Do not
+  write inline qualified names such as `crate::Type` merely to avoid an import.
+- Resolve import-name conflicts with descriptive aliases. Qualify a name at its
+  use site only when same-named items must remain visibly distinguished and an
+  alias would make that distinction less clear.
 - Use domain newtypes and enums to prevent illegal/interchangeable states.
   Avoid untyped string/value maps when legal keys and operations are known.
 - Keep pure formulas separate from mutation, event collection, reaction
