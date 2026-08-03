@@ -1,20 +1,16 @@
-use crate::{BattleFault, OperationId, Ratio, SelectorId, StateSlotDefinitionId, UnitId};
-
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::AbilityKind;
-use crate::catalog::action::HealingDefinition;
-use crate::catalog::action::HitOperationDefinition;
-use crate::catalog::definition::SelectorDefinition;
-use crate::catalog::selector::RuleSelectorOrigin;
-use crate::formula::model::CombatElement;
-use crate::operation::HealOp;
-use crate::operation::ModifyStateSlotOp;
-use crate::operation::Operation;
-use crate::resolver::transaction::Transaction;
-use crate::rule::model::RuleEmission;
-use crate::rule::model::RuleSlotMutationDefinition;
-use crate::rule::model::RuleValue;
-use crate::rule::model::StateSlotUpdateKind;
+use crate::{
+    BattleFault, OperationId, Ratio, SelectorId, StateSlotDefinitionId, UnitId,
+    catalog::{
+        CombatCatalog,
+        action::{AbilityKind, HealingDefinition, HitOperationDefinition},
+        definition::SelectorDefinition,
+        selector::RuleSelectorOrigin,
+    },
+    formula::model::CombatElement,
+    operation::{HealOp, ModifyStateSlotOp, Operation},
+    resolver::transaction::Transaction,
+    rule::model::{RuleEmission, RuleSlotMutationDefinition, RuleValue, StateSlotUpdateKind},
+};
 
 use super::{AbilityProgramContext, non_negative_scalar, program_fault};
 

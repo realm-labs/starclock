@@ -3,14 +3,16 @@
 use crate::definition::LocalizedText;
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::curio::{CurioDefinition, CurioDefinitions, CurioStateDefinition, CurioStateKind};
-use crate::digest::{Encoder, UniverseCurioDefinitionsDigest};
-use crate::error::UniverseCatalogLoadError;
-use crate::generated::{SoraConfig, universe_curio_state_kind::UniverseCurioStateKind};
-use crate::id::{CurioId, CurioStateId};
-use crate::lowering::{checked_key, checked_source, invalid, localized, reference};
-use crate::path::ExactParameter;
-use crate::path_lowering::{parameter_groups, parse_decimal, tags, validate_rule};
+use crate::{
+    curio::{CurioDefinition, CurioDefinitions, CurioStateDefinition, CurioStateKind},
+    digest::{Encoder, UniverseCurioDefinitionsDigest},
+    error::UniverseCatalogLoadError,
+    generated::{SoraConfig, universe_curio_state_kind::UniverseCurioStateKind},
+    id::{CurioId, CurioStateId},
+    lowering::{checked_key, checked_source, invalid, localized, reference},
+    path::ExactParameter,
+    path_lowering::{parameter_groups, parse_decimal, tags, validate_rule},
+};
 
 pub(crate) fn lower(config: &SoraConfig) -> Result<CurioDefinitions, UniverseCatalogLoadError> {
     let states = lower_states(config)?;

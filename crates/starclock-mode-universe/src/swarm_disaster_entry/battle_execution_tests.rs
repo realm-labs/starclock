@@ -16,6 +16,7 @@ use super::{
         activity_identity, activity_rng, combat_state, commit, instance, roster,
     },
 };
+use super::{content_runtime, state};
 
 #[test]
 fn real_nested_battle_executes_and_settles_verified_carry() {
@@ -26,7 +27,7 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
         .curios
         .iter()
         .find(|curio| {
-            curio.initial_state == super::content_runtime::CurioState::Repairing
+            curio.initial_state == content_runtime::CurioState::Repairing
                 && curio.repair_after_battles.is_some()
         })
         .map(|curio| curio.id)
@@ -58,12 +59,12 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
     assert_eq!(result.actual_digest(), result.claimed_digest());
     assert_eq!(
         digest_hex(result.actual_digest().bytes()),
-        "1949edc100fc814545c22f84a141819acebae130b0788a77119fe78346f1c99c"
+        "f6c8446ce11a8816a91f2ca961cd4a931c252b20c6c626281a6dc33d2429352b"
     );
     assert_eq!(
         digest_hex(settlement.state_hash().bytes())
         ,
-        "0a8360cffe8bb54f250389409286e2ab5d6311807bc4574b9a5588205fb7ec13"
+        "f5f05833638f35e77f5dc61a0498c8cd1f428ae1187293c738b4b884734aea3d"
     );
     assert_eq!(report.outcome(), settlement.outcome());
     assert_eq!(
@@ -81,7 +82,7 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
     );
     assert!(state.current_battle_attempt_is_settled());
     assert_eq!(
-        content_counter(&state, super::content_runtime::counter_key(repairing)),
+        content_counter(&state, content_runtime::counter_key(repairing)),
         1
     );
 }
@@ -136,12 +137,12 @@ fn final_boss_choice_decay_and_completion_settle_atomically() {
     assert_eq!(report.outcome(), starclock_activity::BattleOutcome::Won);
     assert_eq!(
         digest_hex(settlement.result_digest().bytes()),
-        "a271dcf03a70f3719428a45cd965d1a6e87bc32143e5f96f7f86250c511f0b38"
+        "cba8ecec7a8f818bf3ad24b999aae2e5f7fcdea70501f8338d7bb8a7acdc586d"
     );
     assert_eq!(
         digest_hex(settlement.state_hash().bytes())
         ,
-        "640ddcfb3396b20e2eb2b03e0e66b60e05b6ba40742053491f9a62fbb93af2e4"
+        "04a3f6f1c251213a9c00f7b5ed3ccfb2e3bc3be83edd6f92f743a302333b9da2"
     );
     assert!(!settlement.events().is_empty());
     assert_eq!(
@@ -199,7 +200,7 @@ fn rejected_result_is_byte_identical_and_defeated_carry_can_be_revived() {
         ActivityProgramDefinition::new(
             ActivityProgramId::new(0x7f98_0001).unwrap(),
             vec![ActivityOperation::AddCounter {
-                slot: starclock_activity::ActivitySlotId::new(super::state::RESOURCES).unwrap(),
+                slot: starclock_activity::ActivitySlotId::new(state::RESOURCES).unwrap(),
                 key: 1,
                 delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(100)),
             }],
@@ -367,7 +368,7 @@ fn lost_nested_result_enters_generic_failed_terminal() {
 }
 
 fn content_counter(state: &ActivityTransactionState, key: u64) -> i64 {
-    match state.slot(starclock_activity::ActivitySlotId::new(super::state::CONTENT).unwrap()) {
+    match state.slot(starclock_activity::ActivitySlotId::new(state::CONTENT).unwrap()) {
         Some(ActivityValue::BoundedCounterMap(values)) => values
             .binary_search_by_key(&key, |(candidate, _)| *candidate)
             .ok()

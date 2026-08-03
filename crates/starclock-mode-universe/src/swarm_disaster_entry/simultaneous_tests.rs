@@ -10,6 +10,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     simultaneous::{PHASE3_FIXTURE_IDS, RESOLUTION_TIER_BASE},
 };
+use super::{state, tests};
 
 const ROOT: &str = "swarm-disaster.pathstrider-cabinet.22";
 const ROOT_OBJECTIVE: &str = "6013222";
@@ -46,7 +47,7 @@ fn five_tiers_move_activate_replace_choose_and_reward_in_one_cause_chain() {
         .iter()
         .position(|operation| {
             matches!(operation, ActivityOperation::AddToSlot { slot, .. }
-                if slot.get() == super::state::COUNTDOWN)
+                if slot.get() == state::COUNTDOWN)
         })
         .unwrap();
     let traversal = program
@@ -79,7 +80,7 @@ fn five_tiers_move_activate_replace_choose_and_reward_in_one_cause_chain() {
     assert_eq!(
         counter(
             &state,
-            super::state::NODE_STATE,
+            state::NODE_STATE,
             u64::from(map_target.get())
         ),
         2
@@ -254,7 +255,7 @@ fn four_phase3_fixture_bindings_use_production_contracts_and_ordered_clamps() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(
@@ -267,9 +268,9 @@ fn instance(
                 "swarm-disaster.area.201",
                 "universe.path.abundance",
                 "swarm-disaster.audience-die.4",
-                super::tests::participants(super::tests::policy()),
+                tests::participants(tests::policy()),
             )
-            .with_audience_unlocks(super::tests::audience_unlocks())
+            .with_audience_unlocks(tests::audience_unlocks())
             .with_progression(points, vec![], None),
         )
         .unwrap()
@@ -324,7 +325,7 @@ fn operation_tiers(operations: &[ActivityOperation]) -> Vec<u64> {
         .iter()
         .filter_map(|operation| match operation {
             ActivityOperation::AddCounter { slot, key, .. }
-                if slot.get() == super::state::DEFERRED
+                if slot.get() == state::DEFERRED
                     && (RESOLUTION_TIER_BASE + 1..=RESOLUTION_TIER_BASE + 5).contains(key) =>
             {
                 Some(*key - RESOLUTION_TIER_BASE)
@@ -339,7 +340,7 @@ fn event_tiers(events: &[ActivityTransactionEvent]) -> Vec<u64> {
         .iter()
         .filter_map(|event| match event.kind() {
             ActivityTransactionEventKind::CounterChanged { slot, key }
-                if slot.get() == super::state::DEFERRED
+                if slot.get() == state::DEFERRED
                     && (RESOLUTION_TIER_BASE + 1..=RESOLUTION_TIER_BASE + 5).contains(key) =>
             {
                 Some(*key - RESOLUTION_TIER_BASE)

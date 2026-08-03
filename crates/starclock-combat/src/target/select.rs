@@ -238,14 +238,11 @@ const fn opposite(side: TeamSide) -> TeamSide {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::Scalar;
-    use crate::Speed;
-    use crate::StatValue;
-    use crate::formula::toughness::EnemyRank;
     use crate::{
-        Energy, Hp, PresenceState,
+        Energy, Hp, PresenceState, Scalar, Speed, StatValue,
         actor::store::{FormationEntry, UnitState},
         battle::spec::{CombatantSpecDigest, FormationIndex, ParticipantSource, UnitLevel},
+        formula::toughness::EnemyRank,
         id::{SpawnSequence, UnitDefinitionId},
     };
 

@@ -2,27 +2,23 @@ pub(super) mod fault;
 mod sustain;
 mod weakness;
 
-use super::transaction::Transaction;
+use super::{operation_formula::FormulaInputs, transaction::Transaction};
 
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::HitCritPolicy;
-use crate::effect::break_effect::BreakEffectState;
-use crate::effect::state::EffectApplicationContext;
-use crate::effect::state::EffectApplyResult;
-use crate::effect::state::EffectState;
-use crate::formula::model::CombatElement;
-use crate::formula::model::DamageClass;
-use crate::modifier::model::FormulaStage;
-use crate::rng::types::DrawPurpose;
-use crate::rule::model::RuleValue;
-use crate::rule::model::SlotResetPoint;
-use crate::toughness::state::route_reduction_with_override;
+use super::{
+    effect_boundary, effect_duration, effect_operation, lifecycle, modifier_snapshot,
+    operation_break, operation_resource, schedule, settle,
+};
 use crate::{
     BreakCreditPolicy, CauseActor, DamageAmount, DurationClock, EffectCategory, EffectChancePolicy,
     EffectInstanceId, EffectRemovalOrder, EffectTickPhase, Hp, LifeState,
     NEGATIVE_EFFECT_GUARDED_SIGNAL, OperationId, Probability, Ratio, RawToughness, Rounding,
     RuleSignalEventData, Scalar, Speed, UnitId,
     battle::fault::BattleFault,
+    catalog::{CombatCatalog, action::HitCritPolicy},
+    effect::{
+        break_effect::BreakEffectState,
+        state::{EffectApplicationContext, EffectApplyResult, EffectState},
+    },
     event::{
         cause::Cause,
         model::{
@@ -30,12 +26,19 @@ use crate::{
             EffectEventData, ShieldEventData, ToughnessEventData,
         },
     },
-    formula,
+    formula::{
+        self,
+        model::{CombatElement, DamageClass},
+    },
     id::EventId,
+    modifier::model::FormulaStage,
     operation::{
         ApplyEffectOp, DamageOp, HitOperationScratch, Operation, ReduceToughnessOp,
         RemoveEffectsOp, SuperBreakOp,
     },
+    rng::types::DrawPurpose,
+    rule::model::{RuleValue, SlotResetPoint},
+    toughness::state::route_reduction_with_override,
 };
 use fault::{invariant_fault, numeric_fault};
 
@@ -71,9 +74,9 @@ pub(super) fn execute_operation(
         Operation::ReduceToughness(operation) => {
             execute_toughness_reduction(catalog, txn, cause, parent, operation, scratch)
         }
-        Operation::ForceBreak(operation) => super::operation_break::execute_force_break(
-            catalog, txn, cause, parent, operation, scratch,
-        ),
+        Operation::ForceBreak(operation) => {
+            operation_break::execute_force_break(catalog, txn, cause, parent, operation, scratch)
+        }
         Operation::SuperBreak(operation) => {
             execute_super_break(catalog, txn, cause, parent, operation, scratch)
         }
@@ -84,46 +87,44 @@ pub(super) fn execute_operation(
             execute_remove_effects(txn, cause, parent, operation)
         }
         Operation::DetonateDots(operation) => {
-            super::effect_operation::detonate_dots(catalog, txn, cause, parent, operation)
+            effect_operation::detonate_dots(catalog, txn, cause, parent, operation)
         }
         Operation::ModifyStateSlot(operation) => {
-            super::operation_resource::execute_modify_state_slot(txn, cause, parent, operation)
+            operation_resource::execute_modify_state_slot(txn, cause, parent, operation)
         }
         Operation::ModifyTeamResource(operation) => {
-            super::operation_resource::execute_modify_team_resource(txn, cause, parent, operation)
+            operation_resource::execute_modify_team_resource(txn, cause, parent, operation)
         }
         Operation::QueueAction(operation) => {
-            super::schedule::execute_queue_action(catalog, txn, cause, parent, operation)
+            schedule::execute_queue_action(catalog, txn, cause, parent, operation)
         }
         Operation::QueueRuleAction(operation) => {
-            super::schedule::execute_queue_rule_action(catalog, txn, cause, parent, operation)
+            schedule::execute_queue_rule_action(catalog, txn, cause, parent, operation)
         }
         Operation::SummonLinked(operation) => {
-            super::lifecycle::execute_summon(catalog, txn, cause, parent, operation)
+            lifecycle::execute_summon(catalog, txn, cause, parent, operation)
         }
         Operation::CreateCountdown(operation) => {
-            super::lifecycle::execute_countdown(catalog, txn, cause, parent, operation)
+            lifecycle::execute_countdown(catalog, txn, cause, parent, operation)
         }
         Operation::ChangePresence(operation) => {
-            super::lifecycle::execute_presence(txn, cause, parent, operation)
+            lifecycle::execute_presence(txn, cause, parent, operation)
         }
         Operation::Transform(operation) => {
-            super::lifecycle::execute_transform(catalog, txn, cause, parent, operation)
+            lifecycle::execute_transform(catalog, txn, cause, parent, operation)
         }
         Operation::EndTransformation(operation) => {
-            super::lifecycle::execute_end_transform(txn, cause, parent, operation)
+            lifecycle::execute_end_transform(txn, cause, parent, operation)
         }
-        Operation::Revive(operation) => {
-            super::lifecycle::execute_revive(txn, cause, parent, operation)
-        }
+        Operation::Revive(operation) => lifecycle::execute_revive(txn, cause, parent, operation),
         Operation::DespawnLinked(operation) => {
-            super::lifecycle::execute_despawn(txn, cause, parent, operation)
+            lifecycle::execute_despawn(txn, cause, parent, operation)
         }
         Operation::RequestWaveTransition(_) => {
-            super::settle::request_explicit_wave_transition(catalog, txn, cause, parent)
+            settle::request_explicit_wave_transition(catalog, txn, cause, parent)
         }
         Operation::TransitionEnemyPhase(operation) => {
-            super::lifecycle::execute_enemy_phase(catalog, txn, cause, parent, operation)
+            lifecycle::execute_enemy_phase(catalog, txn, cause, parent, operation)
         }
     }
 }
@@ -136,7 +137,7 @@ pub(super) fn execute_toughness_reduction(
     operation: ReduceToughnessOp,
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
-    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
+    let inputs = FormulaInputs::new(txn)?;
     for target in operation.targets {
         let mut definition = operation.definition;
         if !definition.ignores_weakness {
@@ -227,7 +228,7 @@ pub(super) fn execute_toughness_reduction(
             BreakCreditPolicy::LayerProvider(source) => cause.with_source_definition(source),
         };
         if value.applies_break_damage {
-            let break_damage = super::operation_formula::FormulaInputs::new(txn)?.break_damage(
+            let break_damage = FormulaInputs::new(txn)?.break_damage(
                 catalog,
                 txn,
                 break_cause,
@@ -391,7 +392,7 @@ fn execute_super_break(
             );
             continue;
         }
-        let definition = super::operation_formula::FormulaInputs::new(txn)?.super_break_damage(
+        let definition = FormulaInputs::new(txn)?.super_break_damage(
             catalog,
             txn,
             cause,
@@ -449,7 +450,7 @@ fn apply_break_damage(
         .get(target)
         .map(|unit| (unit.current_hp, unit.life))
         .ok_or_else(|| invariant_fault(9))?;
-    (parent, calculated) = super::effect_operation::apply_damage_guard(
+    (parent, calculated) = effect_operation::apply_damage_guard(
         catalog, txn, cause, parent, operation, target, calculated,
     )?;
     let (absorbed, changes) = txn
@@ -490,7 +491,7 @@ fn apply_break_damage(
         }),
     );
     if hp_after.get() == 0 && life_before == LifeState::Alive {
-        parent = super::lifecycle::transition_enemy_phase_or_defeat(
+        parent = lifecycle::transition_enemy_phase_or_defeat(
             catalog, txn, cause, parent, operation, target,
         )?;
     }
@@ -532,7 +533,7 @@ pub(super) fn settle_break_effects_at_turn_start(
             let effect_cause = cause
                 .with_applier(effect.applier)
                 .with_source_definition(effect.source_definition);
-            let definition = super::operation_formula::FormulaInputs::new(txn)?.break_damage(
+            let definition = FormulaInputs::new(txn)?.break_damage(
                 catalog,
                 txn,
                 effect_cause,
@@ -594,7 +595,7 @@ pub(super) fn settle_effects_at_turn_start(
     mut parent: EventId,
     owner: UnitId,
 ) -> Result<EventId, BattleFault> {
-    parent = super::effect_boundary::tick(
+    parent = effect_boundary::tick(
         catalog,
         txn,
         cause,
@@ -602,7 +603,7 @@ pub(super) fn settle_effects_at_turn_start(
         EffectTickPhase::TurnStart,
         owner,
     )?;
-    super::effect_duration::advance_effect_clock(
+    effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
@@ -610,7 +611,7 @@ pub(super) fn settle_effects_at_turn_start(
         Some(owner),
     )
     .and_then(|parent| {
-        super::effect_duration::advance_effect_clock(
+        effect_duration::advance_effect_clock(
             txn,
             cause,
             parent,
@@ -628,15 +629,15 @@ pub(super) fn settle_effects_at_turn_end(
     owner: UnitId,
 ) -> Result<EventId, BattleFault> {
     let parent =
-        super::effect_boundary::tick(catalog, txn, cause, parent, EffectTickPhase::TurnEnd, owner)?;
-    let parent = super::effect_duration::advance_effect_clock(
+        effect_boundary::tick(catalog, txn, cause, parent, EffectTickPhase::TurnEnd, owner)?;
+    let parent = effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
         DurationClock::TargetTurnEnd,
         Some(owner),
     )?;
-    super::effect_duration::advance_effect_clock(
+    effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
@@ -661,7 +662,7 @@ pub(super) fn settle_effects_at_action_end(
             .ok_or_else(|| invariant_fault(50))?,
         None => cause.applier().ok_or_else(|| invariant_fault(50))?,
     };
-    let parent = super::effect_boundary::tick(
+    let parent = effect_boundary::tick(
         catalog,
         txn,
         cause,
@@ -670,14 +671,9 @@ pub(super) fn settle_effects_at_action_end(
         owner,
     )?;
     txn.reset_rule_slots(SlotResetPoint::ActionEnd, cause.applier());
-    let parent = super::effect_duration::advance_effect_clock(
-        txn,
-        cause,
-        parent,
-        DurationClock::ActionEnd,
-        None,
-    )?;
-    super::effect_duration::advance_effect_clock(
+    let parent =
+        effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::ActionEnd, None)?;
+    effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
@@ -691,7 +687,7 @@ pub(super) fn settle_effects_at_wave_end(
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    super::effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::WaveEnd, None)
+    effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::WaveEnd, None)
 }
 
 pub(super) fn settle_effects_at_battle_end(
@@ -699,7 +695,7 @@ pub(super) fn settle_effects_at_battle_end(
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    super::effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::BattleEnd, None)
+    effect_duration::advance_effect_clock(txn, cause, parent, DurationClock::BattleEnd, None)
 }
 
 fn execute_damage(
@@ -710,7 +706,7 @@ fn execute_damage(
     operation: DamageOp,
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
-    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
+    let inputs = FormulaInputs::new(txn)?;
     let class = operation.formula.class();
     let semantics = operation.ultimate_semantics;
     for target in operation.targets {
@@ -851,7 +847,7 @@ fn apply_ordinary_damage_with_floor(
         .get(target)
         .map(|unit| (unit.current_hp, unit.life))
         .ok_or_else(|| invariant_fault(1))?;
-    (parent, calculated) = super::effect_operation::apply_damage_guard(
+    (parent, calculated) = effect_operation::apply_damage_guard(
         catalog, txn, cause, parent, operation, target, calculated,
     )?;
     let (absorbed, shield_changes) = txn
@@ -895,7 +891,7 @@ fn apply_ordinary_damage_with_floor(
         }),
     );
     if hp_after.get() == 0 && life_before == LifeState::Alive {
-        parent = super::lifecycle::transition_enemy_phase_or_defeat(
+        parent = lifecycle::transition_enemy_phase_or_defeat(
             catalog, txn, cause, parent, operation, target,
         )?;
     }
@@ -963,7 +959,7 @@ fn execute_apply_effect(
             runtime.category(),
             EffectCategory::Debuff | EffectCategory::Control | EffectCategory::Dot
         ) {
-            let (next, guarded) = super::effect_operation::consume_negative_effect_guard(
+            let (next, guarded) = effect_operation::consume_negative_effect_guard(
                 catalog,
                 txn,
                 cause,
@@ -1065,19 +1061,14 @@ fn execute_apply_effect(
                         remaining: state.remaining,
                     }),
                 );
-                super::effect_operation::instantiate_attachments(catalog, txn, effect)?;
+                effect_operation::instantiate_attachments(catalog, txn, effect)?;
             }
             EffectApplyResult::Refreshed {
                 effect,
                 stacks_before,
                 stacks_after,
             } => {
-                super::modifier_snapshot::refresh_effect_stacks(
-                    catalog,
-                    txn,
-                    effect,
-                    stacks_after,
-                )?;
+                modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, stacks_after)?;
                 let remaining = txn
                     .state
                     .effects

@@ -1,23 +1,20 @@
 //! Cause-relative lowering into the deterministic reaction queue.
 
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::ReactionBoundary;
-use crate::catalog::action::SkillPointPaymentPolicy;
-use crate::catalog::action::TargetPattern;
-use crate::catalog::action::TargetRelation;
-use crate::operation::QueueRuleActionOp;
-use crate::reaction::queue::QueuedAction;
-use crate::reaction::queue::ReactionOrder;
-use crate::reaction::queue::ReactionTier;
-use crate::target::model::TargetCommitment;
-use crate::target::select::commit;
 use crate::{
     AbilityId, ActionEventData, ActionOrigin, BattleEventKind, DiagnosticRecord, EventId,
     LinkedEntity, RuleId, RuleInstanceId, SourceDefinitionId, TriggerId, UnitId,
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
-    catalog::action::{QueuedActor, QueuedOwner, QueuedTarget},
+    catalog::{
+        CombatCatalog,
+        action::{
+            QueuedActor, QueuedOwner, QueuedTarget, ReactionBoundary, SkillPointPaymentPolicy,
+            TargetPattern, TargetRelation,
+        },
+    },
     event::cause::{Cause, CauseActor},
-    operation::QueueActionOp,
+    operation::{QueueActionOp, QueueRuleActionOp},
+    reaction::queue::{QueuedAction, ReactionOrder, ReactionTier},
+    target::{model::TargetCommitment, select::commit},
 };
 
 use super::transaction::Transaction;

@@ -1,10 +1,9 @@
 //! Static validation for executable battle Rule IR.
 
-use crate::catalog::action::AbilityKind;
-use crate::rule::model::ResourceUpdateKind;
-use crate::rule::model::RuleEffectChancePolicy;
-use crate::rule::model::RuleEventKind;
-use crate::rule::model::RuleResourceKind;
+use crate::{
+    catalog::action::AbilityKind,
+    rule::model::{ResourceUpdateKind, RuleEffectChancePolicy, RuleEventKind, RuleResourceKind},
+};
 use std::collections::BTreeSet;
 
 use crate::{
@@ -17,8 +16,9 @@ use crate::{
 };
 
 use super::{CombatCatalog, builder::CatalogBuildErrorKind};
+use super::{builder, definition};
 
-pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), super::builder::CatalogBuildError> {
+pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), builder::CatalogBuildError> {
     for rule_id in catalog.rules.ids() {
         let rule = catalog.rules.get(rule_id).expect("ID came from table");
         let Some(runtime) = rule.runtime() else {
@@ -68,7 +68,7 @@ fn validate_selector_for_rule(
     use crate::catalog::selector::RuleSelectorPredicate;
     let Some(definition) = catalog
         .selector(selector)
-        .and_then(super::definition::SelectorDefinition::rule_units)
+        .and_then(definition::SelectorDefinition::rule_units)
     else {
         return Ok(());
     };
@@ -984,6 +984,6 @@ fn check_depth(depth: u16) -> Result<(), String> {
     Ok(())
 }
 
-fn invalid(message: String) -> super::builder::CatalogBuildError {
-    super::builder::catalog_error(CatalogBuildErrorKind::InvalidDefinition, message)
+fn invalid(message: String) -> builder::CatalogBuildError {
+    builder::catalog_error(CatalogBuildErrorKind::InvalidDefinition, message)
 }

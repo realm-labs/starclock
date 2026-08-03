@@ -1,3 +1,4 @@
+use super::SourceClass;
 use super::{
     BattleRuleDefinition, OnceKey, OnceScope, RuleEvaluationInput, RuleEventKind, RuleEventPoint,
     RuleOccurrence, RuleSource, RuleValue, RuleValueKind, StateSlotDef, TriggerDef,
@@ -41,7 +42,7 @@ impl RuleSource {
     #[must_use]
     pub fn new(
         definition: SourceDefinitionId,
-        class: super::SourceClass,
+        class: SourceClass,
         tags: Vec<SourceDefinitionId>,
         digest: [u8; 32],
     ) -> Self {
@@ -57,7 +58,7 @@ impl RuleSource {
         self.definition
     }
     #[must_use]
-    pub const fn class(&self) -> super::SourceClass {
+    pub const fn class(&self) -> SourceClass {
         self.class
     }
     #[must_use]

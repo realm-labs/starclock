@@ -11,6 +11,7 @@ use starclock_activity::{
 
 use crate::battle_materialization::UniverseBattleRoster;
 
+use super::GoldAndGearsSeededRunStep;
 use super::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsEncounterRole, GoldAndGearsExtrapolationContext,
     GoldAndGearsOfferedAction, GoldAndGearsOfferedCommand, GoldAndGearsRuntimeInstance,
@@ -54,7 +55,7 @@ pub struct GoldAndGearsIncrementalRun {
     rng: ActivityRngStreams,
     created_planes: [bool; 3],
     selected_boss_nodes: BTreeSet<NodeId>,
-    steps: Vec<super::GoldAndGearsSeededRunStep>,
+    steps: Vec<GoldAndGearsSeededRunStep>,
     replay: Vec<GoldAndGearsSeededReplayStep>,
     battle_count: u32,
 }

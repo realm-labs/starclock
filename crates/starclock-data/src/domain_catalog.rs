@@ -1,7 +1,6 @@
 //! Compilation from validated data definitions into public combat/build catalogs.
 
-use crate::catalog::AbilityDefinition;
-use crate::catalog::HitPlanDefinition;
+use crate::catalog::{AbilityDefinition, HitPlanDefinition};
 use std::{
     collections::{BTreeMap, BTreeSet},
     sync::Arc,
@@ -875,8 +874,9 @@ pub(super) fn source(
 
 #[cfg(test)]
 mod tests {
-    use crate::catalog::AbilityDefinition as CatalogAbilityDefinition;
-    use crate::catalog::AbilityResourceDefinition;
+    use crate::catalog::{
+        AbilityDefinition as CatalogAbilityDefinition, AbilityResourceDefinition,
+    };
     use starclock_build::{
         ability::{AbilityInvestment, AbilityLevel},
         catalog::BuildCatalogBuilder,

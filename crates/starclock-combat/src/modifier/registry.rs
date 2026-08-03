@@ -2,7 +2,9 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
+use super::model;
 use super::model::{FormulaStage, ModifierDefinition, ModifierStackingGroup};
+
 use crate::{ModifierDefinitionId, ModifierStackingGroupId};
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -31,7 +33,7 @@ impl ModifierRegistry {
         let definitions = collect_unique(definitions, |value| value.id, "modifier")?;
         for group in groups.values() {
             let requires_comparator =
-                group.aggregation == super::model::ModifierAggregation::StrongestByComparator;
+                group.aggregation == model::ModifierAggregation::StrongestByComparator;
             if requires_comparator != group.comparator.is_some() {
                 return Err(error(format!(
                     "modifier stacking group {} has an invalid comparator contract",

@@ -20,12 +20,13 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests};
 
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn stats_partition_binds_exactly_six_project_policy_rules() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(
         GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
         "DeterministicProjectPolicyNotObservedParity"
@@ -77,7 +78,7 @@ fn stats_partition_binds_exactly_six_project_policy_rules() {
 
 #[test]
 fn stats_fixture_executes_all_active_modifiers_through_combat_resolver() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let set = compile(factory, 6)
         .compile_stats_conundrum_modifiers()
         .unwrap();
@@ -125,7 +126,7 @@ fn stats_fixture_executes_all_active_modifiers_through_combat_resolver() {
 
 #[test]
 fn every_enemy_stat_tier_executes_its_exact_percent_of_base_values() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let unit = UnitId::new(1).unwrap();
     for (level, expected_hp, expected_attack, expected_speed) in [
         (1, 11_000_000, 2_200_000, 1_025_000),
@@ -162,7 +163,7 @@ fn every_enemy_stat_tier_executes_its_exact_percent_of_base_values() {
 
 #[test]
 fn rank_berserk_and_received_attack_activation_is_fail_closed() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let set = compile(factory, 6)
         .compile_stats_conundrum_modifiers()
         .unwrap();

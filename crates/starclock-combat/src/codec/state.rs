@@ -1,7 +1,8 @@
-use crate::formula::shield::ShieldAbsorptionPolicy;
-use crate::formula::toughness::EnemyRank;
-use crate::rule::model::RuleValue;
-use crate::timeline::state::NormalTurnState;
+use crate::{
+    formula::{shield::ShieldAbsorptionPolicy, toughness::EnemyRank},
+    rule::model::RuleValue,
+    timeline::state::NormalTurnState,
+};
 use sha2::{Digest, Sha256};
 
 use crate::{

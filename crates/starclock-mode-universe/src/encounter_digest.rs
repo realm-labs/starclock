@@ -1,13 +1,15 @@
 //! Canonical identity for encounter, pool and mechanic-rule definitions.
 
-use crate::definition::LocalizedText;
-use crate::digest::{Encoder, UniverseEncounterDefinitionsDigest};
-use crate::encounter::{
-    ContentPoolDefinition, DifficultyEnemyBinding, EncounterGroupDefinition,
-    EncounterPoolDefinition, RoomContentBinding,
+use crate::{
+    definition::LocalizedText,
+    digest::{Encoder, UniverseEncounterDefinitionsDigest},
+    encounter::{
+        ContentPoolDefinition, DifficultyEnemyBinding, EncounterGroupDefinition,
+        EncounterPoolDefinition, RoomContentBinding,
+    },
+    path::ExactParameter,
+    rule::MechanicRuleDefinition,
 };
-use crate::path::ExactParameter;
-use crate::rule::MechanicRuleDefinition;
 
 pub(crate) fn digest(
     groups: &[EncounterGroupDefinition],

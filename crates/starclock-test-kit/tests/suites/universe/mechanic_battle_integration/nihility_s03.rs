@@ -4,6 +4,7 @@ use starclock_combat::{
     modifier::model::{FormulaPurpose, FormulaStage, StatKind},
     rule::model::{RuleValue, ValueExpr},
 };
+use super::{nihility_s02};
 
 const IGNOSTICISM: (&str, u32) = ("universe.blessing.612250", 2);
 const QUESTIONING: (&str, u32) = ("universe.blessing.612251", 2);
@@ -38,7 +39,7 @@ fn goal07_p2_m04_s03_materializes_every_assigned_modifier_with_exact_values() {
         None,
         false,
     );
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let combat = materialization.combat_catalog();
 
@@ -113,7 +114,7 @@ fn sensory_labyrinth_extends_a_production_kafka_shock_by_two_target_turns() {
         None,
         false,
     );
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let spec = durable_spec_with_enemy_hp(
         &materialization,
@@ -123,7 +124,7 @@ fn sensory_labyrinth_extends_a_production_kafka_shock_by_two_target_turns() {
     );
     let (mut battle, started) = start(&materialization, spec, 0x72);
     assert!(started.fault().is_none(), "{:?}", started.fault());
-    let resolution = super::nihility_s02::use_kafka_ultimate(&mut battle);
+    let resolution = nihility_s02::use_kafka_ultimate(&mut battle);
     assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
     let enemy = battle
         .view()
@@ -175,12 +176,12 @@ fn kafka_initial_break(
     contributions: &UniverseBattleContributionSet,
     marker: u8,
 ) -> starclock_combat::Scalar {
-    let roster = super::nihility_s02::kafka_roster(catalog);
+    let roster = nihility_s02::kafka_roster(catalog);
     let materialization = materialize_with_roster(catalog, &roster, contributions);
-    let spec = super::nihility_s02::two_enemy_break_spec(&materialization, marker);
+    let spec = nihility_s02::two_enemy_break_spec(&materialization, marker);
     let (mut battle, started) = start(&materialization, spec, marker.wrapping_add(1));
     assert!(started.fault().is_none(), "{:?}", started.fault());
-    let resolution = super::nihility_s02::use_kafka_ultimate(&mut battle);
+    let resolution = nihility_s02::use_kafka_ultimate(&mut battle);
     resolution
         .events()
         .iter()

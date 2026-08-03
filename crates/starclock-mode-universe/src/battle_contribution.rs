@@ -1,7 +1,6 @@
 //! Canonical Standard Universe snapshot-to-combat contribution compilation.
 
-use crate::id::ResonanceId;
-use crate::path::ExactParameter;
+use crate::{id::ResonanceId, path::ExactParameter};
 use std::{collections::BTreeSet, sync::Arc};
 
 use starclock_combat::{

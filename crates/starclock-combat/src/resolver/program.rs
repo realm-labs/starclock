@@ -8,50 +8,48 @@ mod resource;
 mod value;
 
 use super::{operation::execute_operation, transaction::Transaction};
+use super::{program_break, program_effect, program_timeline, rule, stat_input, target};
 
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::AbilityActionDefinition;
-use crate::catalog::action::HpConsumptionDefinition;
-use crate::catalog::action::ShieldDefinition;
-use crate::catalog::action::SkillPointPaymentPolicy;
-use crate::catalog::action::WeaknessApplicationDefinition;
-use crate::catalog::definition::AbilityDefinition;
-use crate::formula::model::CombatElement;
-use crate::formula::model::DamageClass;
-use crate::formula::shield::ShieldAbsorptionPolicy;
-use crate::formula::toughness::BreakDamageDefinition;
-use crate::formula::toughness::SuperBreakDefinition;
-use crate::formula::toughness::ToughnessReductionContext;
-use crate::formula::toughness::attacker_level_multiplier;
-use crate::modifier::model::StatKind;
-use crate::modifier::resolve::StatResolver;
-use crate::operation::AddWeaknessFromAlliedElementsOp;
-use crate::rule::model::RuleDotSelection;
-use crate::rule::model::RuleEventFacts;
-use crate::rule::model::RuleEventKind;
-use crate::rule::model::RuleEventPoint;
 use crate::{
     AbilityId, ActionId, ActionOrigin, DotDetonationDefinition, DotDetonationSelection,
     EffectRemovalDefinition, EventId, HitId, Hp, Probability, ProgramId, Ratio, RawToughness,
     Rounding, RuleId, RuleInstanceId, RuleSignalEventData, Scalar, SelectorId, TeamSide,
     ToughnessReductionDefinition, TransformEndPolicy, TransformationDefinition, TriggerId, UnitId,
     battle::fault::BattleFault,
-    catalog::action::{HitCritPolicy, OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
+    catalog::{
+        CombatCatalog,
+        action::{
+            AbilityActionDefinition, HitCritPolicy, HpConsumptionDefinition,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ShieldDefinition,
+            SkillPointPaymentPolicy, WeaknessApplicationDefinition,
+        },
+        definition::AbilityDefinition,
+    },
     event::{
         cause::Cause,
         model::{BattleEventKind, ResourceEventData, SkillPointPayer},
     },
+    formula::{
+        model::{CombatElement, DamageClass},
+        shield::ShieldAbsorptionPolicy,
+        toughness::{
+            BreakDamageDefinition, SuperBreakDefinition, ToughnessReductionContext,
+            attacker_level_multiplier,
+        },
+    },
+    modifier::{model::StatKind, resolve::StatResolver},
     operation::{
-        AddWeaknessOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp, DetonateDotsOp,
-        ForceBreakOp, HitOperationScratch, Operation, QueueRuleActionOp, ReduceToughnessOp,
-        RemoveEffectsOp, RemoveShieldsOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp,
-        UnitLifecycleOp,
+        AddWeaknessFromAlliedElementsOp, AddWeaknessOp, ChangePresenceOp, ConsumeHpOp,
+        CreateCountdownOp, DamageOp, DetonateDotsOp, ForceBreakOp, HitOperationScratch, Operation,
+        QueueRuleActionOp, ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, ShieldOp,
+        SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
         model::{
-            ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause, RuleEmission,
-            RuleEvaluationInput, RuleOccurrence, RuleResourceKind, RuleValue, SelectorResult,
+            ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause,
+            RuleDotSelection, RuleEmission, RuleEvaluationInput, RuleEventFacts, RuleEventKind,
+            RuleEventPoint, RuleOccurrence, RuleResourceKind, RuleValue, SelectorResult,
             StateSlotUpdateKind,
         },
     },
@@ -162,10 +160,10 @@ fn execute_program(
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
-    let shields = super::stat_input::shield_values(txn);
+    let shields = stat_input::shield_values(txn);
     let stat_reader =
         StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
-    let battle_queries = super::rule::BattleQuerySnapshot::new(txn);
+    let battle_queries = rule::BattleQuerySnapshot::new(txn);
     let event_facts = RuleEventFacts {
         point: Some(event_point),
         has_parent: true,
@@ -201,7 +199,7 @@ fn execute_program(
         .ok_or_else(|| program_fault(1, i64::from(context.program.get())))?;
     let event_order = context.primary.into_iter().collect::<Vec<_>>();
     let mut owned: Vec<(SelectorId, Box<[UnitId]>)> = Vec::new();
-    for id in super::target::ordered_rule_selectors(catalog, program.selectors())? {
+    for id in target::ordered_rule_selectors(catalog, program.selectors())? {
         let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
             continue;
         };
@@ -239,14 +237,14 @@ fn execute_program(
             selection_input,
         )?;
         match selection {
-            super::target::RuleSelectorResolution::Selected(units) => {
+            target::RuleSelectorResolution::Selected(units) => {
                 let index = owned
                     .binary_search_by_key(&id, |(selector, _)| *selector)
                     .unwrap_err();
                 owned.insert(index, (id, units));
             }
-            super::target::RuleSelectorResolution::Skip
-            | super::target::RuleSelectorResolution::CancelRemaining => return Ok(parent),
+            target::RuleSelectorResolution::Skip
+            | target::RuleSelectorResolution::CancelRemaining => return Ok(parent),
         }
     }
     let selectors = owned
@@ -723,7 +721,7 @@ fn execute_emission(
                     .or(input.event_facts.element)
                     .ok_or_else(|| program_fault(43, 0))?;
                 let targets = emission_targets(catalog, resolved, selector, current_target)?;
-                super::program_break::seed_observed_reduction(
+                program_break::seed_observed_reduction(
                     scratch,
                     input.cause.target,
                     input.event_facts.toughness_reduction,
@@ -743,7 +741,7 @@ fn execute_emission(
                 base_chance,
                 rng_purpose,
                 ..
-            } => super::program_effect::apply_effect_operation(
+            } => program_effect::apply_effect_operation(
                 catalog,
                 input,
                 operation_id,
@@ -772,7 +770,7 @@ fn execute_emission(
                 let effect = *effects
                     .get(index)
                     .ok_or_else(|| program_fault(68, i64::try_from(index).unwrap_or(i64::MAX)))?;
-                super::program_effect::apply_effect_operation(
+                program_effect::apply_effect_operation(
                     catalog,
                     input,
                     operation_id,
@@ -792,7 +790,7 @@ fn execute_emission(
                 delta,
                 ..
             } => {
-                return super::program_effect::adjust_effect_stacks(
+                return program_effect::adjust_effect_stacks(
                     catalog,
                     txn,
                     cause,
@@ -917,7 +915,7 @@ fn execute_emission(
             }
             RuleEmission::GrantExtraTurn { actor_selector, .. } => {
                 let actors = emission_targets(catalog, resolved, actor_selector, current_target)?;
-                return super::program_timeline::grant_extra_turns(txn, cause, parent, actors);
+                return program_timeline::grant_extra_turns(txn, cause, parent, actors);
             }
             RuleEmission::ModifyResource {
                 selector,
@@ -1090,6 +1088,7 @@ fn queue_origin(
         .and_then(AbilityDefinition::action)
         .map(AbilityActionDefinition::kind)
         .ok_or_else(|| program_fault(56, i64::from(ability.get())))?;
+
     use crate::{ActionOrigin as O, catalog::action::AbilityKind as K};
     match kind {
         K::Ultimate => Some(O::UltimateInterrupt),
@@ -1114,7 +1113,7 @@ fn shift_action(
     amount: RuleValue,
     advance: bool,
 ) -> Result<EventId, BattleFault> {
-    super::program_timeline::shift_actions(txn, cause, parent, targets, ratio(amount)?, advance)
+    program_timeline::shift_actions(txn, cause, parent, targets, ratio(amount)?, advance)
 }
 
 fn replace_ability(

@@ -1,8 +1,9 @@
 //! Executable encounter-selection, composition and overlay-closure contract.
 
-use crate::encounter::WeightedEncounterBinding;
-use crate::id::EncounterMemberId;
-use crate::occurrence_battle::compile as occurrence_battle_compile;
+use crate::{
+    encounter::WeightedEncounterBinding, id::EncounterMemberId,
+    occurrence_battle::compile as occurrence_battle_compile,
+};
 use std::collections::BTreeSet;
 
 use crate::{

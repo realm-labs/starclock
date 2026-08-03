@@ -2,10 +2,7 @@
 //!
 //! The header binds the exact runtime components consumed by a replay.
 
-use crate::digest::BuildCatalogDigest;
-use crate::digest::CombatantBuildDigest;
-use crate::digest::DefinitionDigest;
-use crate::digest::EntrySpecDigest;
+use crate::digest::{BuildCatalogDigest, CombatantBuildDigest, DefinitionDigest, EntrySpecDigest};
 use core::fmt;
 
 use crate::{

@@ -1,19 +1,23 @@
-use crate::swarm_disaster_content::SwarmDisasterContentErrorKind;
-use crate::swarm_disaster_generated::{
-    SoraConfig, swarm_disaster_adventure_outcome::SwarmDisasterAdventureOutcome,
-    swarm_disaster_blessing::SwarmDisasterBlessing,
-    swarm_disaster_blessing_level::SwarmDisasterBlessingLevel,
-    swarm_disaster_curio::SwarmDisasterCurio, swarm_disaster_curio_rule::SwarmDisasterCurioRule,
-    swarm_disaster_curio_state::SwarmDisasterCurioState,
-    swarm_disaster_currency::SwarmDisasterCurrency,
-    swarm_disaster_occurrence::SwarmDisasterOccurrence,
-    swarm_disaster_occurrence_choice::SwarmDisasterOccurrenceChoice,
-    swarm_disaster_occurrence_variant::SwarmDisasterOccurrenceVariant,
-    swarm_disaster_pool_membership::SwarmDisasterPoolMembership,
-    swarm_disaster_service::SwarmDisasterService,
-    swarm_disaster_service_rule::SwarmDisasterServiceRule,
+use crate::{
+    swarm_disaster_content::SwarmDisasterContentErrorKind,
+    swarm_disaster_generated::{
+        SoraConfig, swarm_disaster_adventure_outcome::SwarmDisasterAdventureOutcome,
+        swarm_disaster_blessing::SwarmDisasterBlessing,
+        swarm_disaster_blessing_level::SwarmDisasterBlessingLevel,
+        swarm_disaster_curio::SwarmDisasterCurio,
+        swarm_disaster_curio_rule::SwarmDisasterCurioRule,
+        swarm_disaster_curio_state::SwarmDisasterCurioState,
+        swarm_disaster_currency::SwarmDisasterCurrency,
+        swarm_disaster_occurrence::SwarmDisasterOccurrence,
+        swarm_disaster_occurrence_choice::SwarmDisasterOccurrenceChoice,
+        swarm_disaster_occurrence_variant::SwarmDisasterOccurrenceVariant,
+        swarm_disaster_pool_membership::SwarmDisasterPoolMembership,
+        swarm_disaster_service::SwarmDisasterService,
+        swarm_disaster_service_rule::SwarmDisasterServiceRule,
+    },
 };
 
+use super::error;
 use super::{
     json, metadata, nonempty, nonnegative_u16, positive, positive_u8, scalar, stable, text_list,
     text_values,
@@ -203,9 +207,7 @@ fn occurrence_choice(
         variant: OccurrenceVariantId(positive(row.variant_id, &row.stable_key)?),
         ordinal: positive(row.ordinal, &row.stable_key)?
             .try_into()
-            .map_err(|_| {
-                super::error(SwarmDisasterContentErrorKind::Identifier, &row.stable_key)
-            })?,
+            .map_err(|_| error(SwarmDisasterContentErrorKind::Identifier, &row.stable_key))?,
         node_ordinal: nonnegative_u16(row.node_ordinal, &row.stable_key)?,
         option_ordinal: nonnegative_u16(row.option_ordinal, &row.stable_key)?,
         conditions: json(&row.conditions_json, &row.stable_key)?,

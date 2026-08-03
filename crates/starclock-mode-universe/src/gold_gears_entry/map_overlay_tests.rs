@@ -10,12 +10,13 @@ use starclock_activity::{
 use super::{
     GoldAndGearsEncounterRole, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
 };
+use super::{tests, state_layout};
 
 #[test]
 fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(factory.map.denominators(), (115, 332, 1_091));
-    let instance = super::tests::compiled_fixture(factory);
+    let instance = tests::compiled_fixture(factory);
     let mut rng = map_rng(&instance, 0x1402_0003);
     let program = instance
         .compile_plane_creation(0, &mut rng)
@@ -26,9 +27,9 @@ fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
     let mut state = transaction_state(&instance);
 
     assert_committed(&mut state, &program, &instance, 1);
-    let node_states = counter_map(&state, super::state_layout::BOARD_NODE_STATE_SLOT);
-    let domains = counter_map(&state, super::state_layout::BOARD_NODE_DOMAIN_SLOT);
-    let beacons = counter_map(&state, super::state_layout::BOARD_NODE_BEACON_SLOT);
+    let node_states = counter_map(&state, state_layout::BOARD_NODE_STATE_SLOT);
+    let domains = counter_map(&state, state_layout::BOARD_NODE_DOMAIN_SLOT);
+    let beacons = counter_map(&state, state_layout::BOARD_NODE_BEACON_SLOT);
     assert_eq!(node_states.len(), 27);
     assert_eq!(domains.len(), 27);
     assert_eq!(beacons.len(), 27);
@@ -38,7 +39,7 @@ fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
     let start = instance.plane_starts().next().unwrap();
     let end = instance.plane_ends().next().unwrap();
     assert_ne!(
-        counter_value(&state, super::state_layout::BOARD_NODE_STATE_SLOT, end),
+        counter_value(&state, state_layout::BOARD_NODE_STATE_SLOT, end),
         4
     );
     assert_eq!(
@@ -88,8 +89,8 @@ fn has_legal_route(
 
 #[test]
 fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
-    let factory = super::tests::shared_factory();
-    let instance = super::tests::compiled_fixture(factory);
+    let factory = tests::shared_factory();
+    let instance = tests::compiled_fixture(factory);
     let graph_digest = instance.graph_definition().digest();
     let route_source = instance
         .graph_definition()
@@ -149,21 +150,21 @@ fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
     );
     assert_committed(&mut state, &blank, &instance, 4);
     assert_eq!(
-        counter_value(&state, super::state_layout::BOARD_NODE_STATE_SLOT, source),
+        counter_value(&state, state_layout::BOARD_NODE_STATE_SLOT, source),
         4
     );
     assert_eq!(
-        counter_value(&state, super::state_layout::BOARD_NODE_DOMAIN_SLOT, source),
+        counter_value(&state, state_layout::BOARD_NODE_DOMAIN_SLOT, source),
         0
     );
     assert_eq!(
-        counter_value(&state, super::state_layout::BOARD_NODE_BEACON_SLOT, source),
+        counter_value(&state, state_layout::BOARD_NODE_BEACON_SLOT, source),
         0
     );
     assert_eq!(
         counter_value(
             &state,
-            super::state_layout::BOARD_NODE_STATE_SLOT,
+            state_layout::BOARD_NODE_STATE_SLOT,
             copy_target
         ),
         3
@@ -171,7 +172,7 @@ fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
     assert_eq!(
         counter_value(
             &state,
-            super::state_layout::BOARD_NODE_DOMAIN_SLOT,
+            state_layout::BOARD_NODE_DOMAIN_SLOT,
             copy_target
         ),
         11
@@ -179,7 +180,7 @@ fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
     assert_eq!(
         counter_value(
             &state,
-            super::state_layout::BOARD_NODE_BEACON_SLOT,
+            state_layout::BOARD_NODE_BEACON_SLOT,
             copy_target
         ),
         1
@@ -189,8 +190,8 @@ fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
 
 #[test]
 fn selected_map_event_executes_before_block_creation_and_is_rng_isolated() {
-    let factory = super::tests::shared_factory();
-    let instance = super::tests::compiled_fixture(factory);
+    let factory = tests::shared_factory();
+    let instance = tests::compiled_fixture(factory);
     let mut creation_rng = map_rng(&instance, 0x1402_0003);
     let _ = instance
         .compile_plane_creation(0, &mut creation_rng)
@@ -204,12 +205,12 @@ fn selected_map_event_executes_before_block_creation_and_is_rng_isolated() {
     assert!(program.operations()[..4].iter().all(|operation| matches!(
         operation,
         starclock_activity::ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == super::state_layout::PLANE_STATE_SLOT
+            if slot.get() == state_layout::PLANE_STATE_SLOT
     )));
     assert!(matches!(
         program.operations()[4],
         starclock_activity::ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == super::state_layout::BOARD_NODE_STATE_SLOT
+            if slot.get() == state_layout::BOARD_NODE_STATE_SLOT
     ));
     let mut state = transaction_state(&instance);
     assert_committed(&mut state, &program, &instance, 1);
@@ -226,14 +227,14 @@ fn selected_map_event_executes_before_block_creation_and_is_rng_isolated() {
     assert!(
         counter_value(
             &state,
-            super::state_layout::PLANE_STATE_SLOT,
+            state_layout::PLANE_STATE_SLOT,
             NodeId::new(1).unwrap()
         ) > 0
     );
     assert_eq!(
         counter_value(
             &state,
-            super::state_layout::PLANE_STATE_SLOT,
+            state_layout::PLANE_STATE_SLOT,
             NodeId::new(4).unwrap()
         ),
         1

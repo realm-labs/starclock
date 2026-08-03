@@ -4,14 +4,13 @@
 //! from a stable [`crate::BattleView`]. They never participate in battle state,
 //! replay identity, event ordering, RNG, or canonical hashing.
 
-use crate::reaction::queue::ReactionOrder;
-use crate::reaction::queue::ReactionTier;
-use crate::target::model::TargetCommitment;
 use crate::{
     AbilityId, ActionOrigin, BattleStateHash, CommandId, EventId, FormationIndex, RuleId,
     RuleInstanceId, SourceDefinitionId, SpawnSequence, TriggerId, UnitId,
     battle::spec::TeamSide,
     catalog::action::{ReactionBoundary, TargetInvalidationPolicy, UnitTargetSelector},
+    reaction::queue::{ReactionOrder, ReactionTier},
+    target::model::TargetCommitment,
 };
 
 /// Hard bound for one accepted command's diagnostic records.

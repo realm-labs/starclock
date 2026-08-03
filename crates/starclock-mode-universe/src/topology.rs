@@ -11,11 +11,11 @@ use self::graph_layout::*;
 use self::occurrence_binding::*;
 use self::route_program::compile_route_program;
 use self::{blessing_offer::compile_blessing_offer_policy, reward_program::node_program_id};
-use crate::curio_activity::CurioActivityBindings;
 use crate::{
     ability_runtime::AbilityTarget,
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
+    curio_activity::CurioActivityBindings,
     definition::DomainKind,
     encounter::RoomContentKind,
     handler_bundle::{

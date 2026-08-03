@@ -1,9 +1,11 @@
 //! Immutable Curio and lifecycle-state definitions.
 
-use crate::definition::LocalizedText;
-use crate::digest::UniverseCurioDefinitionsDigest;
-use crate::id::{CurioId, CurioStateId};
-use crate::path::ExactParameter;
+use crate::{
+    definition::LocalizedText,
+    digest::UniverseCurioDefinitionsDigest,
+    id::{CurioId, CurioStateId},
+    path::ExactParameter,
+};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]

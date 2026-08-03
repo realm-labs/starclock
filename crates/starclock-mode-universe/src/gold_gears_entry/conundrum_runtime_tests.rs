@@ -13,12 +13,13 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests};
 
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_twelve_levels_compile_with_independent_caps() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(factory.conundrum.denominators(), (12, 6, 6));
 
     for stats in 0..=6 {
@@ -40,7 +41,7 @@ fn all_twelve_levels_compile_with_independent_caps() {
 
 #[test]
 fn stats_replaces_only_the_prior_stat_tier() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let expected = [
         Vec::<&str>::new(),
         vec!["stats.1"],
@@ -84,7 +85,7 @@ fn stats_replaces_only_the_prior_stat_tier() {
 
 #[test]
 fn auxiliary_effects_are_cumulative_and_change_initial_state() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let level_three = compile(factory, 0, 3);
     assert_eq!(level_three.conundrum_blessing_reset_cost_delta(), 20);
     assert_eq!(level_three.conundrum_initial_countdown_delta(), 0);
@@ -124,7 +125,7 @@ fn auxiliary_effects_are_cumulative_and_change_initial_state() {
 
 #[test]
 fn berserk_policy_is_explicit_monotone_and_stored_in_activity_state() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let base = compile(factory, 2, 0);
     let enhanced = compile(factory, 3, 0);
     let base_policy = base.conundrum_berserk_policy();
@@ -154,7 +155,7 @@ fn berserk_policy_is_explicit_monotone_and_stored_in_activity_state() {
 
 #[test]
 fn policy_projection_and_composition_have_stable_digests() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let first = compile(factory, 6, 6);
     let second = compile(factory, 6, 6);
     assert_eq!(
@@ -164,8 +165,8 @@ fn policy_projection_and_composition_have_stable_digests() {
     assert_eq!(
         first.conundrum_contribution_digest(),
         [
-            139, 37, 131, 62, 81, 163, 226, 61, 114, 44, 1, 104, 243, 96, 150, 203, 3, 13, 139,
-            234, 78, 44, 198, 145, 241, 42, 64, 159, 153, 241, 131, 234,
+            44, 203, 225, 254, 197, 24, 10, 54, 93, 132, 254, 38, 213, 133, 200, 33, 216, 78,
+            198, 166, 78, 184, 51, 58, 172, 233, 187, 228, 186, 73, 38, 85,
         ]
     );
     assert_ne!(
@@ -188,7 +189,7 @@ fn policy_projection_and_composition_have_stable_digests() {
 
 #[test]
 fn numeric_policy_binds_every_unpublished_field_without_claiming_parity() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(
         GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
         "DeterministicProjectPolicyNotObservedParity"

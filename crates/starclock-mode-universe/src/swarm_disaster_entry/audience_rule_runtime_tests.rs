@@ -1,6 +1,8 @@
-use crate::swarm_disaster_entry::dice_control::{CHEAT_CHARGE_KEY, REROLL_CHARGE_KEY};
-use crate::swarm_disaster_entry::state::RESOURCES;
-use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
+use crate::swarm_disaster_entry::{
+    dice_control::{CHEAT_CHARGE_KEY, REROLL_CHARGE_KEY},
+    state::RESOURCES,
+    tests::{BUNDLE, participants, policy, released_entry},
+};
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityExpression, ActivityInstanceId, ActivityMasterSeed,

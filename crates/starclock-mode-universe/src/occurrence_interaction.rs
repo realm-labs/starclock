@@ -14,18 +14,17 @@ mod s11;
 mod s12;
 pub(crate) mod support;
 
-use crate::occurrence_battle::compile as occurrence_battle_compile;
 use crate::{
     catalog::UniverseCatalog,
     curio_activity::{
         CurioActivityBindings, CurioActivityRecord, acquisition_operations, teardown_operations,
     },
-    id::EncounterMemberId,
-    id::{CurioId, CurioStateId, OccurrenceChoiceId},
+    id::{CurioId, CurioStateId, EncounterMemberId, OccurrenceChoiceId},
     occurrence::{
         AuthoredScalar, AuthoredScalarUnit, OccurrenceChoiceDefinition, OccurrenceOperation,
         OccurrenceOutcome, OccurrenceTarget, RandomOutcomePolicy,
     },
+    occurrence_battle::compile as occurrence_battle_compile,
 };
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerFaultKind,

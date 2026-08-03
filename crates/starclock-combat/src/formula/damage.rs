@@ -2,6 +2,7 @@
 
 use crate::{DamageAmount, NumericError, Ratio, Rounding, Scalar};
 
+use super::model;
 use super::model::{CritDecision, DamageCalculation, DamageContext, DefenseInput, ScalingTerm};
 
 const ROUNDING: Rounding = Rounding::NearestTiesEven;
@@ -120,7 +121,7 @@ fn defense_multiplier(input: DefenseInput) -> Result<Ratio, NumericError> {
     Ok(Ratio::from_scaled(value.scaled()))
 }
 
-fn resistance_multiplier(input: super::model::ResistanceInput) -> Result<Ratio, NumericError> {
+fn resistance_multiplier(input: model::ResistanceInput) -> Result<Ratio, NumericError> {
     if input.minimum > input.maximum {
         return Err(NumericError::OutOfDomain);
     }

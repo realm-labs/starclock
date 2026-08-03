@@ -5,14 +5,12 @@
 
 mod registry;
 
-use crate::observation::AgentBattlePhase;
-use crate::observation::MAX_EVENTS_PER_PAGE;
 use crate::{
     action::{ActionBindingError, OfferedAction, OfferedActionSet},
     error::{AgentError, AgentErrorCode},
     observation::{
-        AgentBattleStatus, AgentEventPage, AgentEventSummary, AgentObservation, VisibilityPolicy,
-        project_event_summary, project_player_visible,
+        AgentBattlePhase, AgentBattleStatus, AgentEventPage, AgentEventSummary, AgentObservation,
+        MAX_EVENTS_PER_PAGE, VisibilityPolicy, project_event_summary, project_player_visible,
     },
     schema::{
         ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey, ScenarioId, SessionId,

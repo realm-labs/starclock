@@ -16,6 +16,7 @@ use crate::{
     },
 };
 
+use super::state;
 use super::{SwarmDisasterRuntimeInstance, state::PROGRESSION};
 
 const FINISH_PROGRESS_BASE: u64 = 0x4000_0000;
@@ -574,7 +575,7 @@ fn communing_points(
     state: &ActivityTransactionState,
     dimension_id: u32,
 ) -> Result<i64, UniverseCatalogLoadError> {
-    match state.slot(slot(super::state::COMMUNING)) {
+    match state.slot(slot(state::COMMUNING)) {
         Some(ActivityValue::BoundedCounterMap(values)) => Ok(values
             .binary_search_by_key(&u64::from(dimension_id), |(candidate, _)| *candidate)
             .ok()
@@ -588,7 +589,7 @@ fn require_counter(key: u64, value: i64) -> ActivityOperation {
 fn require_communing(dimension_id: u32, value: i64) -> ActivityOperation {
     ActivityOperation::Require(ActivityCondition::Equal(
         ActivityExpression::CounterValue {
-            slot: slot(super::state::COMMUNING),
+            slot: slot(state::COMMUNING),
             key: u64::from(dimension_id),
         },
         integer(value),

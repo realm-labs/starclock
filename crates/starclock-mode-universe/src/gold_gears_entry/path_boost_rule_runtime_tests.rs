@@ -31,6 +31,7 @@ use super::{
     state_layout::{PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, PROGRESSION_SLOT},
     tests::{compiled_fixture, entry},
 };
+use super::{tests};
 
 #[test]
 fn path_boost_partition_binds_exactly_495_terminal_rules() {
@@ -420,7 +421,7 @@ fn registry_and_instances(
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn compile_path(factory: &GoldAndGearsRuntimeFactory, path: &str) -> GoldAndGearsRuntimeInstance {

@@ -1,8 +1,7 @@
 //! Validated immutable catalog composition.
 
 use super::CombatCatalogBuilder;
-use crate::catalog::CombatCatalog;
-use crate::catalog::parameter::definitions;
+use crate::catalog::{CombatCatalog, parameter::definitions};
 
 impl CombatCatalogBuilder {
     /// Starts a composition builder containing every definition from one

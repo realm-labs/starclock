@@ -1,6 +1,8 @@
-use crate::swarm_disaster_entry::SwarmDisasterEntry;
-use crate::swarm_disaster_entry::state::{NODE_BEACON, NODE_DOMAIN, NODE_STATE, PLANE};
-use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
+use crate::swarm_disaster_entry::{
+    SwarmDisasterEntry,
+    state::{NODE_BEACON, NODE_DOMAIN, NODE_STATE, PLANE},
+    tests::{BUNDLE, participants, policy, released_entry},
+};
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityProgramDefinition,

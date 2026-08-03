@@ -1,13 +1,14 @@
 //! Stable repeated random-element damage emitted by typed Rule IR.
 
-use crate::catalog::CombatCatalog;
-use crate::formula::model::CombatElement;
-use crate::formula::model::DamageClass;
 use crate::{
     EventId, Ratio, SelectorId, UnitId,
     battle::fault::BattleFault,
-    catalog::action::{HitCritPolicy, OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
+    catalog::{
+        CombatCatalog,
+        action::{HitCritPolicy, OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
+    },
     event::cause::Cause,
+    formula::model::{CombatElement, DamageClass},
     operation::{DamageOp, HitOperationScratch, Operation},
     rng::types::DrawPurpose,
     rule::model::{RuleEvaluationInput, RuleValue},

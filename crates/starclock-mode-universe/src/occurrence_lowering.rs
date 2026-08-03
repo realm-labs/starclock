@@ -4,16 +4,18 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use serde::Deserialize;
 
-use crate::error::UniverseCatalogLoadError;
-use crate::generated::SoraConfig;
-use crate::id::{OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId};
-use crate::lowering::{checked_key, checked_source, invalid, localized, parse_digest, reference};
-use crate::occurrence::{
-    AuthoredScalar, AuthoredScalarUnit, OccurrenceChoiceDefinition, OccurrenceCost,
-    OccurrenceDefinition, OccurrenceOperation, OccurrenceOutcome, OccurrenceParameterVector,
-    OccurrenceTarget, OccurrenceVariantDefinition, RandomOutcomePolicy,
+use crate::{
+    error::UniverseCatalogLoadError,
+    generated::SoraConfig,
+    id::{OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId},
+    lowering::{checked_key, checked_source, invalid, localized, parse_digest, reference},
+    occurrence::{
+        AuthoredScalar, AuthoredScalarUnit, OccurrenceChoiceDefinition, OccurrenceCost,
+        OccurrenceDefinition, OccurrenceOperation, OccurrenceOutcome, OccurrenceParameterVector,
+        OccurrenceTarget, OccurrenceVariantDefinition, RandomOutcomePolicy,
+    },
+    path_lowering::{parse_decimal, tags},
 };
-use crate::path_lowering::{parse_decimal, tags};
 
 pub(crate) struct OccurrenceDefinitions {
     pub(crate) occurrences: Box<[OccurrenceDefinition]>,

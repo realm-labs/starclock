@@ -8,17 +8,18 @@ use super::{
     state_layout::{COGNITION_SLOT, SECRETS_SLOT},
     tests::{compiled_fixture, entry},
 };
+use super::{tests};
 
 #[test]
 fn cognition_catalog_closes_all_ranges_secrets_and_policy_metadata() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(factory.cognition.denominators(), (13, 20, 10));
     assert_eq!(factory.cognition.initial(), 0);
 }
 
 #[test]
 fn cognition_adjustment_clamps_and_carries_without_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = runtime(&instance);
     assert_eq!(cognition(&state), 0);
@@ -50,7 +51,7 @@ fn cognition_adjustment_clamps_and_carries_without_rng() {
 
 #[test]
 fn plane_boss_evaluation_advances_one_secret_per_frontier() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = runtime(&instance);
 
@@ -89,7 +90,7 @@ fn plane_boss_evaluation_advances_one_secret_per_frontier() {
 
 #[test]
 fn overlapping_secret_thresholds_use_the_frozen_tie_order() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = factory
         .compile_entry(entry(
             factory,
@@ -130,7 +131,7 @@ fn overlapping_secret_thresholds_use_the_frozen_tie_order() {
 
 #[test]
 fn every_authored_secret_can_enter_a_valid_runtime_frontier() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     for secret in &factory.unique.secrets {
         let required_area = secret.area_source.parse::<u32>().unwrap();
         let (area, range) = factory

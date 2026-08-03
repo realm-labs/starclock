@@ -1,16 +1,15 @@
 //! Checked generic team-resource and typed rule-slot operations.
 
-use crate::catalog::action::TeamResourceChange;
-use crate::operation::ModifyTeamResourceOp;
 use crate::{
     ResourceEventData,
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
+    catalog::action::TeamResourceChange,
     event::{
         cause::Cause,
         model::{BattleEventKind, RuleStateEventData},
     },
     id::EventId,
-    operation::ModifyStateSlotOp,
+    operation::{ModifyStateSlotOp, ModifyTeamResourceOp},
 };
 
 use super::transaction::Transaction;

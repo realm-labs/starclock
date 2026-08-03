@@ -11,6 +11,7 @@ use crate::{
     },
 };
 
+use super::occurrence_execution;
 use super::{
     GoldAndGearsEntryError,
     api::{GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance},
@@ -84,7 +85,7 @@ impl GoldAndGearsOccurrenceRuntimeCatalog {
             return Err(GoldAndGearsEntryError::InvalidOccurrenceRuntime);
         }
         let (rule_bindings, execution_digest) =
-            super::occurrence_execution::compile_rule_runtime(content, &choices)?;
+            occurrence_execution::compile_rule_runtime(content, &choices)?;
         let digest = catalog_digest(&definitions, &variants, &choices);
         Ok(Self {
             definitions: definitions.into_boxed_slice(),

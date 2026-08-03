@@ -7,6 +7,7 @@ use crate::{EffectInstanceId, EventId, RuleId, RuleInstanceId, StateSlotDefiniti
 use super::model::{
     BattleRuleDefinition, RuleValue, SlotResetPoint, StateSlotDef, StateSlotUpdateKind,
 };
+use super::{evaluate, model};
 
 #[derive(Clone, Debug)]
 pub(crate) struct RuleInstanceState {
@@ -15,7 +16,7 @@ pub(crate) struct RuleInstanceState {
     pub(crate) owner: Option<UnitId>,
     pub(crate) source_effect: Option<EffectInstanceId>,
     pub(crate) slots: Box<[(StateSlotDef, RuleValue)]>,
-    pub(crate) ledger: super::evaluate::TriggerLedger,
+    pub(crate) ledger: evaluate::TriggerLedger,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -55,7 +56,7 @@ impl RuleStateStore {
                 })
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
-            ledger: super::evaluate::TriggerLedger::default(),
+            ledger: evaluate::TriggerLedger::default(),
         };
         self.entries.insert(id, state).is_none()
     }
@@ -104,19 +105,19 @@ impl RuleStateStore {
     pub(crate) fn evaluate_trigger(
         &mut self,
         instance: RuleInstanceId,
-        programs: &impl super::evaluate::ProgramLookup,
-        trigger: &super::model::TriggerDef,
-        input: super::model::RuleEvaluationInput<'_>,
-    ) -> Result<Vec<super::model::RuleEmission>, super::evaluate::RuleEvaluationError> {
+        programs: &impl evaluate::ProgramLookup,
+        trigger: &model::TriggerDef,
+        input: model::RuleEvaluationInput<'_>,
+    ) -> Result<Vec<model::RuleEmission>, evaluate::RuleEvaluationError> {
         self.entries
             .get_mut(&instance)
-            .ok_or_else(|| super::evaluate::stat_query_error(0x301))?
+            .ok_or_else(|| evaluate::stat_query_error(0x301))?
             .ledger
             .evaluate(
                 programs,
                 trigger,
                 input,
-                super::evaluate::EvaluationBudget::STANDARD,
+                evaluate::EvaluationBudget::STANDARD,
                 4_096,
             )
     }
@@ -165,7 +166,7 @@ impl RuleStateStore {
         count
     }
 
-    pub(crate) fn reset_once_scope(&mut self, scope: super::model::OnceScope) -> usize {
+    pub(crate) fn reset_once_scope(&mut self, scope: model::OnceScope) -> usize {
         self.entries
             .values_mut()
             .map(|state| state.ledger.reset_scope(scope))
@@ -246,9 +247,8 @@ fn within_bounds(definition: &StateSlotDef, value: &RuleValue) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::RuleInstanceId;
     use crate::{
-        RuleId, SourceDefinitionId,
+        RuleId, RuleInstanceId, SourceDefinitionId,
         rule::model::{BattleRuleScope, RuleSource, RuleValueKind, SourceClass},
     };
 

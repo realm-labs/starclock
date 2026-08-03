@@ -14,6 +14,7 @@ use crate::swarm_disaster_generated::{
     swarm_disaster_source_record::SwarmDisasterSourceRecord,
 };
 
+use super::error;
 use super::{fail, json, metadata, nonempty, positive, stable, text_list};
 use crate::swarm_disaster_content::{
     SwarmDisasterContentError, SwarmDisasterContentErrorKind, types::*,
@@ -47,7 +48,7 @@ pub(super) fn lower(source: &SoraConfig) -> Result<LoweredAudit, SwarmDisasterCo
         .swarm_disaster_manifest()
         .ordered_rows()
         .next()
-        .ok_or_else(|| super::error(SwarmDisasterContentErrorKind::Denominator, "manifest"))?;
+        .ok_or_else(|| error(SwarmDisasterContentErrorKind::Denominator, "manifest"))?;
     if source.swarm_disaster_manifest().len() != 1
         || manifest.schema_revision != "starclock.swarm-disaster-pack-manifest.v1"
         || manifest.stable_key != "swarm-disaster.pack-manifest.v1"
@@ -80,11 +81,11 @@ pub(super) fn lower(source: &SoraConfig) -> Result<LoweredAudit, SwarmDisasterCo
             manifest_rows: source.swarm_disaster_manifest().len(),
             pack_rows: source.swarm_disaster_pack_index().len(),
             frozen_obligations: u32::try_from(manifest.frozen_source_obligations)
-                .map_err(|_| super::error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
+                .map_err(|_| error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
             mechanic_rules: u16::try_from(manifest.mechanic_rule_count)
-                .map_err(|_| super::error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
+                .map_err(|_| error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
             fixture_families: u16::try_from(manifest.semantic_fixture_family_count)
-                .map_err(|_| super::error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
+                .map_err(|_| error(SwarmDisasterContentErrorKind::Identifier, "manifest"))?,
             coverage_categories,
         },
     ))
@@ -193,7 +194,7 @@ fn validate_coverage(
         let count = categories.entry(&row.manifest_category).or_default();
         *count = count
             .checked_add(1)
-            .ok_or_else(|| super::error(SwarmDisasterContentErrorKind::Denominator, "coverage"))?;
+            .ok_or_else(|| error(SwarmDisasterContentErrorKind::Denominator, "coverage"))?;
     }
     categories
         .into_iter()

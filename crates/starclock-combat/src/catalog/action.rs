@@ -1,17 +1,17 @@
 mod extensions;
 
-use crate::formula::model::CombatElement;
-use crate::formula::model::DamageClass;
-use crate::formula::shield::ShieldAbsorptionPolicy;
-use crate::formula::toughness::SuperBreakDefinition;
-use crate::modifier::model::FormulaStage;
-use crate::modifier::model::StatKind;
-use crate::rule::model::RuleSlotMutationDefinition;
 use crate::{
     AbilityId, ActionOrigin, DotDetonationDefinition, EffectApplicationDefinition,
     EffectRemovalDefinition, EnemyPhaseId, Energy, Hp, LinkedEntityKind, LinkedUnitDefinition,
     NumericError, PresenceState, ProgramId, Ratio, ReviveDefinition, Rounding, Scalar,
     SourceDefinitionId, ToughnessReductionDefinition, TransformationDefinition,
+    formula::{
+        model::{CombatElement, DamageClass},
+        shield::ShieldAbsorptionPolicy,
+        toughness::SuperBreakDefinition,
+    },
+    modifier::model::{FormulaStage, StatKind},
+    rule::model::RuleSlotMutationDefinition,
 };
 
 /// Shared semantic family used by legality, resources and event filters.

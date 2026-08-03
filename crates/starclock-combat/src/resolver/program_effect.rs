@@ -1,25 +1,25 @@
 //! Rule IR effect-application lowering and per-target chance resolution.
 
-use crate::catalog::CombatCatalog;
-use crate::modifier::model::FormulaPurpose;
-use crate::modifier::model::StatKind;
-use crate::modifier::model::StatQuerySubject;
-use crate::rng::types::DrawPurpose;
-use crate::rule::evaluate::StatQueryReader;
-use crate::rule::evaluate::evaluate_value;
 use crate::{
     DispelCategory, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
     EffectDefinitionId, EffectRuntimeDefinition, EffectRuntimeTemplate, EventId, OperationId,
     Ratio, Rounding, Scalar, SelectorId, UnitId,
     battle::fault::BattleFault,
+    catalog::CombatCatalog,
     event::{
         cause::Cause,
         model::{BattleEventKind, EffectEventData},
     },
+    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
     operation::{ApplyEffectOp, Operation},
-    rule::model::{RuleEffectChancePolicy, RuleEvaluationInput, RuleValue},
+    rng::types::DrawPurpose,
+    rule::{
+        evaluate::{StatQueryReader, evaluate_value},
+        model::{RuleEffectChancePolicy, RuleEvaluationInput, RuleValue},
+    },
 };
 
+use super::modifier_snapshot;
 use super::program::{emission_targets, non_negative_scalar, probability, program_fault, ratio};
 use super::transaction::Transaction;
 
@@ -155,7 +155,7 @@ pub(super) fn adjust_effect_stacks(
                     }),
                 );
             } else {
-                super::modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, after)?;
+                modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, after)?;
                 parent = txn.emit(
                     cause.with_parent(parent).with_primary_target(Some(target)),
                     BattleEventKind::Effect(EffectEventData::Refreshed {

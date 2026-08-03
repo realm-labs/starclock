@@ -1,32 +1,29 @@
-use crate::action::lower::TimelineActionContext;
-use crate::action::lower::lower_forced_basic_action;
-use crate::action::lower::lower_timeline_action;
-use crate::action::model::ActionPlan;
-use crate::catalog::action::AbilityKind;
-use crate::catalog::action::ReactionBoundary;
-use crate::catalog::action::TargetPattern;
-use crate::catalog::action::TargetRelation;
-use crate::catalog::action::UnitTargetSelector;
-use crate::rng::types::DrawPurpose;
-use crate::rule::model::SlotResetPoint;
-use crate::target::select::commit;
-use crate::target::select::legal_primary_targets;
-use crate::target::select::stable_pool;
-use crate::timeline::state::NormalTurnState;
 use crate::{
     AbilityId, ActionGauge, ActionOrigin, BattlePhase, EffectRuntimeDefinition,
     EffectRuntimeTemplate, ForcedNormalAction, LifeState, ToughnessEventData, UnitId,
+    action::{
+        lower::{TimelineActionContext, lower_forced_basic_action, lower_timeline_action},
+        model::ActionPlan,
+    },
     battle::fault::BattleFault,
-    catalog::CombatCatalog,
+    catalog::{
+        CombatCatalog,
+        action::{
+            AbilityKind, ReactionBoundary, TargetPattern, TargetRelation, UnitTargetSelector,
+        },
+    },
     command::{legal, model::DecisionPoint},
     event::{
         cause::Cause,
         model::{BattleEventData, BattleEventKind, DecisionEventData, TurnEventData},
     },
     id::{CommandId, EventId},
+    rng::types::DrawPurpose,
+    rule::model::SlotResetPoint,
+    target::select::{commit, legal_primary_targets, stable_pool},
     timeline::{
         select::plan_next_turn,
-        state::{InterruptWindowKind, InterruptWindowState},
+        state::{InterruptWindowKind, InterruptWindowState, NormalTurnState},
     },
 };
 
@@ -35,6 +32,7 @@ use super::{
     settle::{ActionBoundary, settle_after_action},
     transaction::{Transaction, action_cause, action_fault, commit_targets},
 };
+use super::{operation, operation_formula, rule};
 
 pub(super) fn start_battle(
     catalog: &CombatCatalog,
@@ -46,7 +44,7 @@ pub(super) fn start_battle(
         Cause::root(root),
         BattleEventKind::Battle(BattleEventData::Started),
     );
-    started = super::rule::dispatch_pending_after_events(catalog, txn, started)?;
+    started = rule::dispatch_pending_after_events(catalog, txn, started)?;
     started = drain_reactions(catalog, txn, ReactionBoundary::BeforeTimeline, started)?;
     if let ActionBoundary::Continue(started) =
         settle_after_action(catalog, txn, Cause::root(root), started)?
@@ -133,12 +131,9 @@ pub(super) fn begin_turn(
     }
     let controlled_skip = txn.state.effects.skips_normal_turn_at_start(turn.unit);
     let forced_normal_action = forced_normal_action(catalog, txn, turn.unit);
-    let (mut parent, frozen_skip) = super::operation::settle_break_effects_at_turn_start(
-        catalog, txn, turn_cause, parent, turn.unit,
-    )?;
-    parent = super::operation::settle_effects_at_turn_start(
-        catalog, txn, turn_cause, parent, turn.unit,
-    )?;
+    let (mut parent, frozen_skip) =
+        operation::settle_break_effects_at_turn_start(catalog, txn, turn_cause, parent, turn.unit)?;
+    parent = operation::settle_effects_at_turn_start(catalog, txn, turn_cause, parent, turn.unit)?;
     match settle_after_action(catalog, txn, turn_cause, parent)? {
         ActionBoundary::Terminal(_) => return Ok(()),
         ActionBoundary::Continue(next) => parent = next,
@@ -167,11 +162,10 @@ pub(super) fn begin_turn(
                 origin: turn.origin,
             }),
         );
-        parent = super::operation::settle_effects_at_turn_end(
-            catalog, txn, turn_cause, parent, turn.unit,
-        )?;
+        parent =
+            operation::settle_effects_at_turn_end(catalog, txn, turn_cause, parent, turn.unit)?;
         txn.reset_rule_slots(SlotResetPoint::TurnEnd, Some(turn.unit));
-        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
         txn.set_active_turn(None);
         return begin_next_turn(catalog, txn, root, parent);
     }
@@ -182,7 +176,7 @@ pub(super) fn begin_turn(
         .map(|unit| unit.weakness_broken)
         .ok_or_else(|| action_fault(60))?;
     if was_broken {
-        let recovery = super::operation_formula::FormulaInputs::new(txn)?
+        let recovery = operation_formula::FormulaInputs::new(txn)?
             .toughness_recovery(catalog, txn, turn.unit)?;
         let changes = txn.recover_toughness(turn.unit, recovery)?;
         txn.set_weakness_broken(turn.unit, false)?;
@@ -407,7 +401,7 @@ fn execute_planned_turn(
 ) -> Result<(), BattleFault> {
     let mut parent = execute_action_plan(catalog, txn, root, parent, plan)?;
     let cause = action_cause(root, plan)?;
-    parent = super::operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
+    parent = operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     parent = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, parent)?;
     if txn
         .state
@@ -428,9 +422,9 @@ fn execute_planned_turn(
             origin: turn.origin,
         }),
     );
-    parent = super::operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
+    parent = operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
     txn.reset_rule_slots(SlotResetPoint::TurnEnd, Some(turn.unit));
-    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
     txn.set_active_turn(None);
     if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)? {
         let parent = drain_reactions(catalog, txn, ReactionBoundary::BeforeTimeline, parent)?;

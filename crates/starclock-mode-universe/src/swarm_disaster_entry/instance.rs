@@ -6,6 +6,7 @@ use starclock_activity::{
 use crate::error::UniverseCatalogLoadError;
 
 use super::SwarmDisasterRuntimeInstance;
+use super::{face_effect, map_overlay, simultaneous, topology_rule_runtime};
 
 impl SwarmDisasterRuntimeInstance {
     #[must_use]
@@ -244,66 +245,66 @@ impl SwarmDisasterRuntimeInstance {
     #[must_use]
     pub fn dice_face_activation_stage(&self, face: &str) -> Option<u8> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::activation_stage)
+            .map(face_effect::RuntimeDiceFace::activation_stage)
     }
 
     /// Returns the target contract for one selected-Die face.
     #[must_use]
     pub fn dice_face_target_contract(&self, face: &str) -> Option<&'static str> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::target_contract)
+            .map(face_effect::RuntimeDiceFace::target_contract)
     }
 
     /// Returns the typed selector name for one selected-Die face.
     #[must_use]
     pub fn dice_face_selector(&self, face: &str) -> Option<&'static str> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::selector_name)
+            .map(face_effect::RuntimeDiceFace::selector_name)
     }
 
     /// Returns the typed duration name for one selected-Die face.
     #[must_use]
     pub fn dice_face_duration(&self, face: &str) -> Option<&'static str> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::duration_name)
+            .map(face_effect::RuntimeDiceFace::duration_name)
     }
 
     /// Returns the authored operation name for one selected-Die face.
     #[must_use]
     pub fn dice_face_operation(&self, face: &str) -> Option<&'static str> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::operation_name)
+            .map(face_effect::RuntimeDiceFace::operation_name)
     }
 
     /// Returns exact canonical parameters scaled by one million.
     #[must_use]
     pub fn dice_face_parameters_scaled(&self, face: &str) -> Option<&[i64]> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::parameters_scaled)
+            .map(face_effect::RuntimeDiceFace::parameters_scaled)
     }
 
     /// Returns exact description parameters scaled by one million.
     #[must_use]
     pub fn dice_face_description_scaled(&self, face: &str) -> Option<&[i64]> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::description_scaled)
+            .map(face_effect::RuntimeDiceFace::description_scaled)
     }
 
     /// Returns a finite next-battle turn duration when one is authored.
     #[must_use]
     pub fn dice_face_turn_duration(&self, face: &str) -> Option<u16> {
         self.dice_face_runtime(face)
-            .and_then(super::face_effect::RuntimeDiceFace::turn_duration)
+            .and_then(face_effect::RuntimeDiceFace::turn_duration)
     }
 
     /// Returns released source-effect references in authored order.
     #[must_use]
     pub fn dice_face_effect_references(&self, face: &str) -> Option<&[u32]> {
         self.dice_face_runtime(face)
-            .map(super::face_effect::RuntimeDiceFace::effect_references)
+            .map(face_effect::RuntimeDiceFace::effect_references)
     }
 
-    fn dice_face_runtime(&self, face: &str) -> Option<&super::face_effect::RuntimeDiceFace> {
+    fn dice_face_runtime(&self, face: &str) -> Option<&face_effect::RuntimeDiceFace> {
         self.audience
             .faces()
             .any(|candidate| candidate == face)
@@ -429,7 +430,7 @@ impl SwarmDisasterRuntimeInstance {
         communing: (Option<(u16, &str)>, Option<(&str, &str)>),
         rng: &mut ActivityRngStreams,
     ) -> Result<ActivityProgramDefinition, UniverseCatalogLoadError> {
-        let mut request = super::simultaneous::SwarmSimultaneousResolution::new()
+        let mut request = simultaneous::SwarmSimultaneousResolution::new()
             .with_face_activation(explicit_face_target);
         if let Some((target, adjustments)) = movement {
             request = request.with_movement(target, adjustments);
@@ -443,7 +444,7 @@ impl SwarmDisasterRuntimeInstance {
         if let Some((cabinet, objective)) = communing.1 {
             request = request.with_cabinet_completion(cabinet, objective);
         }
-        super::simultaneous::compile(self, state, request, rng)
+        simultaneous::compile(self, state, request, rng)
     }
 
     /// Compiles one plane's canonical node-domain and beacon initialization.
@@ -458,9 +459,8 @@ impl SwarmDisasterRuntimeInstance {
         let plane = self
             .planes
             .get(plane_ordinal)
-            .ok_or_else(super::map_overlay::invalid_plane)?;
-        let section =
-            u32::try_from(plane_ordinal + 1).map_err(|_| super::map_overlay::invalid_plane())?;
+            .ok_or_else(map_overlay::invalid_plane)?;
+        let section = u32::try_from(plane_ordinal + 1).map_err(|_| map_overlay::invalid_plane())?;
         let nodes = self
             .graph
             .nodes()
@@ -470,11 +470,11 @@ impl SwarmDisasterRuntimeInstance {
             .collect::<Vec<_>>();
         self.topology_rules.compile_creation(
             &self.map,
-            super::topology_rule_runtime::PlaneMapContext {
+            topology_rule_runtime::PlaneMapContext {
                 board: &plane.board_key,
                 nodes: &nodes,
                 terminal: plane.end,
-                terminal_domain: super::map_overlay::terminal_domain(plane_ordinal)?,
+                terminal_domain: map_overlay::terminal_domain(plane_ordinal)?,
             },
             rng,
         )
@@ -494,9 +494,8 @@ impl SwarmDisasterRuntimeInstance {
         let plane = self
             .planes
             .get(plane_ordinal)
-            .ok_or_else(super::map_overlay::invalid_plane)?;
-        let section =
-            u32::try_from(plane_ordinal + 1).map_err(|_| super::map_overlay::invalid_plane())?;
+            .ok_or_else(map_overlay::invalid_plane)?;
+        let section = u32::try_from(plane_ordinal + 1).map_err(|_| map_overlay::invalid_plane())?;
         let nodes = self
             .graph
             .nodes()
@@ -506,11 +505,11 @@ impl SwarmDisasterRuntimeInstance {
             .collect::<Vec<_>>();
         self.topology_rules.compile_event_then_creation(
             &self.map,
-            super::topology_rule_runtime::PlaneMapContext {
+            topology_rule_runtime::PlaneMapContext {
                 board: &plane.board_key,
                 nodes: &nodes,
                 terminal: plane.end,
-                terminal_domain: super::map_overlay::terminal_domain(plane_ordinal)?,
+                terminal_domain: map_overlay::terminal_domain(plane_ordinal)?,
             },
             trigger,
             parameter,
@@ -564,7 +563,7 @@ impl SwarmDisasterRuntimeInstance {
     ) -> Box<[ActivityEdgeId]> {
         self.graph
             .outgoing(source)
-            .filter(|edge| !super::map_overlay::node_is_blanked(state, edge.to()))
+            .filter(|edge| !map_overlay::node_is_blanked(state, edge.to()))
             .map(|edge| edge.id())
             .collect::<Vec<_>>()
             .into_boxed_slice()
@@ -767,6 +766,6 @@ impl SwarmDisasterRuntimeInstance {
         self.graph
             .node(node)
             .map(|_| ())
-            .ok_or_else(super::map_overlay::invalid_node)
+            .ok_or_else(map_overlay::invalid_node)
     }
 }

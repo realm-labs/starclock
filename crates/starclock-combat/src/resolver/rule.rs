@@ -1,20 +1,5 @@
 //! Authoritative dispatch from committed event facts into battle-owned Rule IR.
 
-use crate::action::model::ActionOrigin as ModelActionOrigin;
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::AbilityActionDefinition;
-use crate::catalog::action::AbilityKind;
-use crate::catalog::action::AbilityTag;
-use crate::catalog::action::HitCritPolicy;
-use crate::catalog::action::HitOperationDefinition;
-use crate::catalog::action::UnitTargetSelector;
-use crate::catalog::definition::AbilityDefinition;
-use crate::catalog::definition::SelectorDefinition;
-use crate::formula::model::{CombatElement, DamageClass};
-use crate::formula::toughness::EnemyRank;
-use crate::rule::evaluate::BattleQueryReader;
-use crate::rule::evaluate::ResourceQueryReader;
-use crate::rule::model::RuleToughnessEventKind;
 use crate::{
     AbilityId, ActionEventData, ActionId, ActionOrigin, BattleEvent, BattleEventData,
     BattleEventKind, BattleFault, BreakDamageKind, ControlledAction, DecisionEventData,
@@ -23,13 +8,30 @@ use crate::{
     PhaseEventData, PresenceState, Ratio, ResourceEventData, RuleId, RuleInstanceId, Scalar,
     SelectorId, ShieldEventData, SourceDefinitionId, StateSlotDefinitionId, TeamSide,
     ToughnessEventData, TurnEventData, UnitDefinitionId, UnitEventData, UnitId, WaveEventData,
+    action::model::ActionOrigin as ModelActionOrigin,
+    catalog::{
+        CombatCatalog,
+        action::{
+            AbilityActionDefinition, AbilityKind, AbilityTag, HitCritPolicy,
+            HitOperationDefinition, UnitTargetSelector,
+        },
+        definition::{AbilityDefinition, SelectorDefinition},
+    },
     event::cause::CauseActor,
+    formula::{
+        model::{CombatElement, DamageClass},
+        toughness::EnemyRank,
+    },
     modifier::resolve::StatResolver,
     operation::HitOperationScratch,
-    rule::model::{
-        RuleActionKind, RuleCause, RuleDamageClass, RuleEvaluationInput, RuleEventFacts,
-        RuleEventKind, RuleEventPoint, RuleOccurrence, RuleResourceKind, RuleValue, SelectorResult,
-        SourceClass, TriggerDef, TriggerPhase,
+    rule::{
+        evaluate::{BattleQueryReader, ResourceQueryReader},
+        model::{
+            RuleActionKind, RuleCause, RuleDamageClass, RuleEvaluationInput, RuleEventFacts,
+            RuleEventKind, RuleEventPoint, RuleOccurrence, RuleResourceKind,
+            RuleToughnessEventKind, RuleValue, SelectorResult, SourceClass, TriggerDef,
+            TriggerPhase,
+        },
     },
 };
 
@@ -39,6 +41,7 @@ use super::{
     program::{AbilityProgramContext, execute_emissions, stat_bases},
     transaction::Transaction,
 };
+use super::{stat_input, target};
 
 const MAX_RULE_DISPATCHES_PER_DRAIN: usize = 4_096;
 
@@ -197,7 +200,7 @@ fn evaluate_candidate(
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
-    let shields = super::stat_input::shield_values(txn);
+    let shields = stat_input::shield_values(txn);
     let stat_reader =
         StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
     let event_facts = event_facts(catalog, txn, event, event_point);
@@ -232,7 +235,7 @@ fn evaluate_candidate(
     };
     let event_order = event_target_order(event);
     let mut resolved: Vec<(SelectorId, Box<[UnitId]>)> = Vec::new();
-    for id in super::target::ordered_rule_selectors(catalog, program.selectors())? {
+    for id in target::ordered_rule_selectors(catalog, program.selectors())? {
         let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
             continue;
         };
@@ -270,16 +273,16 @@ fn evaluate_candidate(
             selection_input,
         )?;
         match selection {
-            super::target::RuleSelectorResolution::Selected(units) => {
+            target::RuleSelectorResolution::Selected(units) => {
                 let index = resolved
                     .binary_search_by_key(&id, |(selector, _)| *selector)
                     .unwrap_err();
                 resolved.insert(index, (id, units));
             }
-            super::target::RuleSelectorResolution::Skip => {
+            target::RuleSelectorResolution::Skip => {
                 return Ok(CandidateResolution::Completed(parent));
             }
-            super::target::RuleSelectorResolution::CancelRemaining => {
+            target::RuleSelectorResolution::CancelRemaining => {
                 return Ok(CandidateResolution::CancelRemaining);
             }
         }

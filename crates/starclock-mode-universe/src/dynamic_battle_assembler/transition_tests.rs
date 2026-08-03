@@ -30,6 +30,7 @@ use crate::{
 };
 
 use super::StandardUniverseBattleAssembler;
+use super::StandardUniverseResolvedAssembly;
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../../config/universe-generated/config.sora");
@@ -180,7 +181,7 @@ fn current_inventory_transitions_reassemble_real_battle_inputs() {
     let resonance = assembler.resolve_snapshot(&resonance, None).unwrap();
     let ability = assembler.resolve_snapshot(&ability, None).unwrap();
 
-    let input = |resolved: &super::StandardUniverseResolvedAssembly| {
+    let input = |resolved: &StandardUniverseResolvedAssembly| {
         resolved.materialization().difficulty_specs()[0]
             .battle_spec()
             .combat_input_digest()
@@ -403,8 +404,8 @@ fn ability_tree_with_prerequisite(catalog: &UniverseCatalog, key: &str) -> Vec<A
 }
 
 fn assert_blessing_level_changes_damage(
-    acquired: &super::StandardUniverseResolvedAssembly,
-    upgraded: &super::StandardUniverseResolvedAssembly,
+    acquired: &StandardUniverseResolvedAssembly,
+    upgraded: &StandardUniverseResolvedAssembly,
 ) {
     let acquired_damage = first_action_damage(acquired, 0x31);
     let upgraded_damage = first_action_damage(upgraded, 0x31);
@@ -412,8 +413,8 @@ fn assert_blessing_level_changes_damage(
 }
 
 fn assert_curio_start_effect_is_suppressed(
-    active: &super::StandardUniverseResolvedAssembly,
-    suppressed: &super::StandardUniverseResolvedAssembly,
+    active: &StandardUniverseResolvedAssembly,
+    suppressed: &StandardUniverseResolvedAssembly,
 ) {
     let active = start_events(active, 0x32);
     let suppressed = start_events(suppressed, 0x32);
@@ -430,7 +431,7 @@ fn assert_curio_start_effect_is_suppressed(
 }
 
 fn start_events(
-    assembly: &super::StandardUniverseResolvedAssembly,
+    assembly: &StandardUniverseResolvedAssembly,
     marker: u8,
 ) -> Box<[starclock_combat::BattleEvent]> {
     let materialization = assembly.materialization();
@@ -450,7 +451,7 @@ fn start_events(
         .into_boxed_slice()
 }
 
-fn first_action_damage(assembly: &super::StandardUniverseResolvedAssembly, marker: u8) -> Vec<i64> {
+fn first_action_damage(assembly: &StandardUniverseResolvedAssembly, marker: u8) -> Vec<i64> {
     let materialization = assembly.materialization();
     let spec = durable_spec(materialization.difficulty_specs()[0].battle_spec(), marker);
     let mut battle = Battle::create(

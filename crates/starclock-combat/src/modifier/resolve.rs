@@ -1,13 +1,13 @@
 //! Pure staged stat resolution with deterministic dependency-cycle faults.
 
-use crate::formula::model::CombatElement;
-use crate::modifier::model::StatQuerySubject;
-use crate::modifier::model::StatQuerySubject::{Actor, Applier, CurrentTarget, EventTarget, Owner};
-use crate::rule::evaluate::BattleQueryReader;
-use crate::rule::model::RuleEventFacts;
-use crate::rule::model::RuleEventKind;
-use crate::rule::model::RuleEventPoint;
-use crate::rule::model::ValueExpr;
+use crate::{
+    formula::model::CombatElement,
+    modifier::model::StatQuerySubject::{self, Actor, Applier, CurrentTarget, EventTarget, Owner},
+    rule::{
+        evaluate::BattleQueryReader,
+        model::{RuleEventFacts, RuleEventKind, RuleEventPoint, ValueExpr},
+    },
+};
 use std::{cell::RefCell, collections::BTreeMap};
 
 use crate::{
@@ -19,6 +19,7 @@ use crate::{
     },
 };
 
+use super::model;
 use super::model::{
     ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, LifeFilter,
     ModifierAggregation, ModifierDefinition, ModifierFilter, ModifierQueryContext, PresenceFilter,
@@ -403,7 +404,7 @@ impl<'a> StatResolver<'a> {
 
     fn aggregate_group(
         &self,
-        group: &super::model::ModifierStackingGroup,
+        group: &model::ModifierStackingGroup,
         values: &[(&ActiveModifier, &ModifierDefinition, Scalar)],
     ) -> Result<Scalar, ModifierQueryError> {
         if group.aggregation != ModifierAggregation::StrongestByComparator {
@@ -655,11 +656,11 @@ fn matches_filters(
     instance: &ActiveModifier,
     context: &ModifierQueryContext,
 ) -> bool {
-    if context.formula_subject == Some(super::model::FormulaSubject::Target)
+    if context.formula_subject == Some(model::FormulaSubject::Target)
         && !definition.filters.iter().any(|filter| {
             matches!(
                 filter,
-                ModifierFilter::FormulaSubject(super::model::FormulaSubject::Target)
+                ModifierFilter::FormulaSubject(model::FormulaSubject::Target)
             )
         })
     {

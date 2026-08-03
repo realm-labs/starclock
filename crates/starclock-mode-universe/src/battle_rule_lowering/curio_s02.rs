@@ -31,6 +31,7 @@ use crate::{
     curio_runtime::{CurioContribution, CurioContributionSet},
 };
 
+use super::parameter;
 use super::{
     BattleRuleLoweringError, ExecutableBattleRule, RuleAttachment, curio_s01, multiply,
     propagation_s01, scalar,
@@ -63,7 +64,7 @@ pub(super) fn lower(
                 1,
                 StatKind::CritDamage,
                 FormulaStage::Flat,
-                super::parameter(contribution.state().parameters(), 0)?
+                parameter(contribution.state().parameters(), 0)?
                     .checked_mul(stacks)
                     .ok_or(BattleRuleLoweringError::InvalidParameter)?,
             )?);
@@ -90,7 +91,7 @@ pub(super) fn lower(
             2,
             StatKind::BreakEffect,
             FormulaStage::Flat,
-            super::parameter(contribution.state().parameters(), 0)?
+            parameter(contribution.state().parameters(), 0)?
                 .checked_mul(path_count)
                 .ok_or(BattleRuleLoweringError::InvalidParameter)?,
         )?);
@@ -140,7 +141,7 @@ fn turn_healing(
             stat: StatKind::Hp,
             purpose: FormulaPurpose::Healing,
         },
-        scalar(super::parameter(contribution.state().parameters(), 0)?),
+        scalar(parameter(contribution.state().parameters(), 0)?),
     );
     let program_definition =
         ProgramDefinition::new(program, Vec::new(), vec![actor], Vec::new(), Vec::new())
@@ -192,9 +193,9 @@ fn toxi_flame(
     let speed_group = local(LOCAL_GROUP_BASE, raw, 3)?;
     let battle_trigger = local(LOCAL_TRIGGER_BASE, raw, 2)?;
     let turn_trigger = local(LOCAL_TRIGGER_BASE, raw, 3)?;
-    let hp_ratio = super::parameter(contribution.state().parameters(), 0)?;
-    let speed_ratio = super::parameter(contribution.state().parameters(), 1)?;
-    let maximum_stacks = whole(super::parameter(contribution.state().parameters(), 2)?)?;
+    let hp_ratio = parameter(contribution.state().parameters(), 0)?;
+    let speed_ratio = parameter(contribution.state().parameters(), 1)?;
+    let maximum_stacks = whole(parameter(contribution.state().parameters(), 2)?)?;
 
     let groups = vec![ModifierStackingGroup {
         id: speed_group,

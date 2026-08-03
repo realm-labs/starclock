@@ -1,13 +1,13 @@
 //! Closed effect executor for positive, neutral and special Standard Curios.
 
-use crate::path_effect_runtime::PathEffectRuntimeError;
 use crate::{
     catalog::UniverseCatalog,
     curio_runtime::CurioRuntimeCatalog,
     digest::Encoder,
     id::{CurioId, PathId},
     path_effect_runtime::{
-        PathEffect, PathEffectStat, PathEffectTarget, PathEffectValue, exact_parameters, turns,
+        PathEffect, PathEffectRuntimeError, PathEffectStat, PathEffectTarget, PathEffectValue,
+        exact_parameters, turns,
     },
 };
 

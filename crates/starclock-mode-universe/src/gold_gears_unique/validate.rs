@@ -1,5 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
+use super::support;
 use super::{
     EXPECTED_UNIQUE_ROWS, GoldAndGearsUniqueCatalog, GoldAndGearsUniqueError,
     GoldAndGearsUniqueErrorKind,
@@ -690,7 +691,7 @@ fn integer(value: &CanonicalScalar) -> Result<i64, GoldAndGearsUniqueError> {
     value
         .0
         .parse::<i64>()
-        .map_err(|_| super::support::error(GoldAndGearsUniqueErrorKind::Metadata, &value.0))
+        .map_err(|_| support::error(GoldAndGearsUniqueErrorKind::Metadata, &value.0))
 }
 
 fn unique<T: Ord>(values: &[T]) -> bool {

@@ -8,6 +8,7 @@ use starclock_activity::{
     ActivitySlotId, ActivityTransactionState, ActivityValue, NodeId,
 };
 
+use super::knowledge;
 use super::{
     GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent, GoldAndGearsEntryError,
     dice_passive::compile_passive,
@@ -461,7 +462,7 @@ fn rule_operations(
             record_query(&mut operations, rule, targets.len())?;
         }
     }
-    if rule.access == super::knowledge::KnowledgeAccess::Apply
+    if rule.access == knowledge::KnowledgeAccess::Apply
         && !targets.is_empty()
         && let Some(passive) = compile_passive(
             context.dice,

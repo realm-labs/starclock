@@ -13,6 +13,7 @@ use super::{
     difficulty_encounter, materialization_digest::catalog_composition_digest, materialize_enemies,
     member_encounter, members,
 };
+use super::{EnemyDefinitionMatch, proxy_key};
 
 /// Definitions that depend only on the released catalog, never on one run.
 ///
@@ -52,7 +53,7 @@ impl UniverseBattleCatalogComposition {
                     .or_else(|| {
                         universe
                             .simulation_catalog()
-                            .enemy_by_stable_key(super::proxy_key(slot.enemy_variant_key()))
+                            .enemy_by_stable_key(proxy_key(slot.enemy_variant_key()))
                     })
                     .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
                 enemy_map.insert(slot.enemy_variant_key(), enemy.id());
@@ -128,7 +129,7 @@ fn validate_denominators(
         .sum::<usize>();
     let exact = enemies
         .iter()
-        .filter(|enemy| enemy.definition_match() == super::EnemyDefinitionMatch::Exact)
+        .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::Exact)
         .count();
     if member_count != MEMBER_COUNT
         || enemy_slot_count != MEMBER_ENEMY_SLOT_COUNT

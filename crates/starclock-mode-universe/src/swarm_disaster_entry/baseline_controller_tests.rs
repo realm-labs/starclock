@@ -8,6 +8,7 @@ use super::baseline_controller::{
     SwarmBaselineController, SwarmBaselineError, SwarmCommandFamily, SwarmOfferedAction,
     SwarmOfferedCommand,
 };
+use super::{SwarmDisasterControllerIdentity, seeded_run_tests};
 
 fn id(raw: u64) -> ActivityOptionId {
     ActivityOptionId::new(raw).unwrap()
@@ -53,7 +54,7 @@ fn action(family: SwarmCommandFamily, ordinal: u32) -> SwarmOfferedAction {
 
 #[test]
 fn every_swarm_family_selects_only_an_exact_offered_command() {
-    let identity = super::SwarmDisasterControllerIdentity::baseline();
+    let identity = SwarmDisasterControllerIdentity::baseline();
     assert_ne!(identity.digest, [0; 32]);
     let controller = SwarmBaselineController::default();
     let families = [
@@ -136,10 +137,10 @@ fn ordering_is_inert_and_malformed_offer_sets_fail_closed() {
 
 #[test]
 fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
-    let (instance, roster) = super::seeded_run_tests::representative_runtime();
+    let (instance, roster) = seeded_run_tests::representative_runtime();
     let report = instance
         .execute_baseline_run(
-            super::seeded_run_tests::representative_request(),
+            seeded_run_tests::representative_request(),
             &roster,
         )
         .unwrap();

@@ -1,11 +1,13 @@
 //! Private validation boundary for the frozen Swarm Disaster Candidate bundle.
 
-use crate::digest::bundle_digest;
-use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
-use crate::swarm_disaster_generated::{
-    ErasedSoraTable, SCHEMA_FINGERPRINT, SoraConfig,
-    runtime::{SoraBundle, SoraTableSource},
-    swarm_disaster_manifest::SwarmDisasterManifest,
+use crate::{
+    digest::bundle_digest,
+    error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind},
+    swarm_disaster_generated::{
+        ErasedSoraTable, SCHEMA_FINGERPRINT, SoraConfig,
+        runtime::{SoraBundle, SoraTableSource},
+        swarm_disaster_manifest::SwarmDisasterManifest,
+    },
 };
 
 const EXPECTED_BUNDLE_DIGEST: [u8; 32] = [

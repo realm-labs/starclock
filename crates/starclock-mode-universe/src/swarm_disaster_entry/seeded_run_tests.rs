@@ -9,6 +9,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
     seeded_run::{SwarmSeededBoundary, SwarmSeededRunRequest},
 };
+use super::{SwarmDisasterRuntimeInstance, tests, battle_materialization_tests};
 
 struct MatrixRow {
     id: &'static str,
@@ -107,10 +108,10 @@ fn frozen_matrix_completes_real_battles_and_verifies_from_fresh_factories() {
 fn runtime(
     row: &MatrixRow,
 ) -> (
-    super::SwarmDisasterRuntimeInstance,
+    SwarmDisasterRuntimeInstance,
     UniverseBattleRoster,
 ) {
-    let factory = SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap();
+    let factory = SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap();
     let mut progression = factory
         .unique
         .trail_runtime_input()
@@ -137,11 +138,11 @@ fn runtime(
     let points = (1..=7)
         .map(|id| (format!("swarm-disaster.communing-dimension.{id}"), 20))
         .collect();
-    let entry = super::tests::released_entry(
+    let entry = tests::released_entry(
         row.area,
         row.path,
         row.die,
-        super::battle_materialization_tests::battle_participants(),
+        battle_materialization_tests::battle_participants(),
     )
     .with_dice_control_unlocks(vec!["1000022".into()])
     .with_progression(points, progression, None);
@@ -149,7 +150,7 @@ fn runtime(
 }
 
 pub(super) fn representative_runtime() -> (
-    super::SwarmDisasterRuntimeInstance,
+    SwarmDisasterRuntimeInstance,
     UniverseBattleRoster,
 ) {
     runtime(&MATRIX[0])
@@ -163,18 +164,18 @@ fn compiled(
     factory: SwarmDisasterRuntimeFactory,
     entry: SwarmDisasterEntry,
 ) -> (
-    super::SwarmDisasterRuntimeInstance,
+    SwarmDisasterRuntimeInstance,
     UniverseBattleRoster,
 ) {
     let instance = factory.compile_entry(entry).unwrap();
-    let roster = super::battle_materialization_tests::seeded_matrix_roster(&instance);
+    let roster = battle_materialization_tests::seeded_matrix_roster(&instance);
     (instance, roster)
 }
 
 fn request(row: &MatrixRow) -> SwarmSeededRunRequest {
     SwarmSeededRunRequest {
         seed: row.seed,
-        identity: super::battle_materialization_tests::activity_identity(),
+        identity: battle_materialization_tests::activity_identity(),
         activity_instance: ActivityInstanceId::new(1).unwrap(),
         config_digest: ActivityConfigDigest::new([0x6d; 32]).unwrap(),
         boundary: row.boundary,

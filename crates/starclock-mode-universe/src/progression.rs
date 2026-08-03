@@ -1,8 +1,10 @@
 //! Immutable run service, shop-policy and Ability Tree definitions.
 
-use crate::definition::LocalizedText;
-use crate::id::{AbilityTreeNodeId, ServiceId};
-use crate::path::ExactParameter;
+use crate::{
+    definition::LocalizedText,
+    id::{AbilityTreeNodeId, ServiceId},
+    path::ExactParameter,
+};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]

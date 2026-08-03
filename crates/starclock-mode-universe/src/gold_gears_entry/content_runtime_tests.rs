@@ -23,6 +23,7 @@ use super::{
     },
     tests::compiled_fixture,
 };
+use super::{tests};
 
 #[test]
 fn curio_partition_binds_exactly_160_project_policy_rules() {
@@ -127,15 +128,15 @@ fn shared_content_denominators_revisions_and_inventories_are_bound() {
     );
     assert_eq!(
         digest_hex(factory.shared_content_digests().blessing()),
-        "e670d6419dffbc441a18aa946516466bca62f28505921bbf96233f65833d3691"
+        "5b0e55ff87403533edab808784b3f4234c6ef553e5d77c61a1c7ad4b6d873e8b"
     );
     assert_eq!(
         digest_hex(factory.shared_content_digests().path()),
-        "0d733907bb5bd6d75cb17c51e63b2c61ec73e1e922b0f8cfcdba2a22aaea7ce2"
+        "0e7f6d8182250caf80b0110c5254ba3647d67ca4e842231cd92287ba51c3f9f5"
     );
     assert_eq!(
         digest_hex(factory.shared_content_digests().curio()),
-        "ce4001b5bb74ca3e5103f0888380ea8ea35e69c78b17789116658db3a0cee8df"
+        "7f7326ca2ea4a58c312feb9c551abe6a12703b7e647d6834f8e328c5cc1f6ca9"
     );
 }
 
@@ -603,7 +604,7 @@ fn all_160_curio_rules_execute_through_the_production_fixture() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn new_state(instance: &GoldAndGearsRuntimeInstance) -> ActivityTransactionState {

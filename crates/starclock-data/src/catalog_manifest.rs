@@ -1,5 +1,7 @@
-use crate::catalog::{CatalogLoadError, CatalogLoadErrorKind, CatalogManifest, fail, valid_date};
-use crate::generated::SoraConfig;
+use crate::{
+    catalog::{CatalogLoadError, CatalogLoadErrorKind, CatalogManifest, fail, valid_date},
+    generated::SoraConfig,
+};
 
 pub(super) fn convert_manifest(config: &SoraConfig) -> Result<CatalogManifest, CatalogLoadError> {
     let row = config.config_manifest();

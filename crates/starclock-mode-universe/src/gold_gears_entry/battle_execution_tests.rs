@@ -20,10 +20,11 @@ use super::{
     progression_runtime::GoldAndGearsExtrapolationContext,
     service_adventure_types::GoldAndGearsServiceKind,
 };
+use super::{tests, state_layout};
 
 #[test]
 fn real_nested_battle_executes_and_settles_verified_carry() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (mut state, selection) = selected_combat(&instance, 0x1406_0301);
     let repairing = instance
         .curio_definitions()
@@ -65,11 +66,11 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
         .unwrap();
     assert_eq!(
         digest_hex(execution.result().actual_digest().bytes()),
-        "6fc7694609ef1879db23a8a389c916043e0e7dbd1535a5ecee88b87884dd7927"
+        "330e2ef5cfe5b643aa4ae6897da00be8e9a2f6dea578c6289ee61e4e7b6a3adf"
     );
     assert_eq!(
         digest_hex(execution.settlement().state_hash().bytes()),
-        "59eaa20c5336acc04141760c901d49f138de764f68af2a5c72e05e2e2dda357c"
+        "b81c5f53845a70df88fe6e96e211aa225af2e89dcb35e77ff96c525a1756dbb1"
     );
 
     assert_eq!(execution.report().outcome(), execution.settlement().outcome());
@@ -91,7 +92,7 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
     assert_eq!(
         lifecycle_counter(
             &state,
-            super::state_layout::CONTENT_CURIO_CHARGE_BASE + u64::from(repairing.get()),
+            state_layout::CONTENT_CURIO_CHARGE_BASE + u64::from(repairing.get()),
         ),
         1
     );
@@ -119,7 +120,7 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
 }
 
 fn lifecycle_counter(state: &ActivityTransactionState, key: u64) -> i64 {
-    match state.slot(ActivitySlotId::new(super::state_layout::CONTENT_LIFECYCLE_SLOT).unwrap()) {
+    match state.slot(ActivitySlotId::new(state_layout::CONTENT_LIFECYCLE_SLOT).unwrap()) {
         Some(ActivityValue::BoundedCounterMap(values)) => values
             .binary_search_by_key(&key, |(candidate, _)| *candidate)
             .ok()
@@ -130,7 +131,7 @@ fn lifecycle_counter(state: &ActivityTransactionState, key: u64) -> i64 {
 
 #[test]
 fn final_boss_choice_and_extrapolation_execute_before_atomic_plane_completion() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let node = instance.plane_ends().nth(2).unwrap();
     let mut state = ActivityTransactionState::new(instance.state_definition().clone(), node);
     let boss = "gold-gears.boss-choice.8024011";
@@ -193,11 +194,11 @@ fn final_boss_choice_and_extrapolation_execute_before_atomic_plane_completion() 
         .unwrap();
     assert_eq!(
         digest_hex(execution.result().actual_digest().bytes()),
-        "12e1f806b3764557595da028fa45b1881ed1170982ed71b92c21336f901f022f"
+        "17f588a0a3ffebcc6bbd76deeb1303df3d343ce3668fb03808b5b601d50fbf0d"
     );
     assert_eq!(
         digest_hex(execution.settlement().state_hash().bytes()),
-        "432b34d06567dbd507fe80c5f828afe704c39a4cce036d8ded2c114129aa042d"
+        "1303ffd1a2bc892e5de20e17346dd2b560aec72895a8b7f313f524b3847b3842"
     );
     assert_eq!(execution.report().outcome(), starclock_activity::BattleOutcome::Won);
     assert!(!execution.post_battle_events().is_empty());
@@ -209,7 +210,7 @@ fn final_boss_choice_and_extrapolation_execute_before_atomic_plane_completion() 
 
 #[test]
 fn rejected_result_is_byte_identical_and_defeat_can_be_revived() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (mut state, selection) = selected_combat(&instance, 0x1406_0311);
     let roster = roster(&instance);
     let identity = activity_identity();
@@ -336,7 +337,7 @@ fn rejected_result_is_byte_identical_and_defeat_can_be_revived() {
 
 #[test]
 fn lost_nested_result_enters_the_generic_failed_terminal_without_a_graph_edge() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (mut state, selection) = selected_combat(&instance, 0x1406_0331);
     let roster = roster(&instance);
     let identity = activity_identity();

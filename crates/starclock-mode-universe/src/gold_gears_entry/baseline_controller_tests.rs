@@ -10,6 +10,7 @@ use super::{
     GoldAndGearsOfferedAction, GoldAndGearsOfferedCommand, GoldAndGearsSeededRunRequest,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
+use super::{tests};
 
 fn id(raw: u64) -> ActivityOptionId {
     ActivityOptionId::new(raw).unwrap()
@@ -156,10 +157,10 @@ fn ordering_is_inert_and_malformed_offer_sets_fail_closed() {
 
 #[test]
 fn baseline_completes_a_real_seeded_run_through_route_and_boss_offers() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let instance = factory
-        .compile_entry(super::tests::battle_entry(
+        .compile_entry(tests::battle_entry(
             factory,
             "gold-gears.area.401",
             "universe.path.abundance",

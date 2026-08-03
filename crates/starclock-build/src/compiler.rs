@@ -1,9 +1,10 @@
 //! Pure build-validation and combat-boundary compilation pipeline.
 
-use crate::ability::AbilityLevelTable;
-use crate::catalog::CharacterBuildDefinition;
-use crate::catalog::CharacterStatRow;
-use crate::spec::EidolonLevel;
+use crate::{
+    ability::AbilityLevelTable,
+    catalog::{CharacterBuildDefinition, CharacterStatRow},
+    spec::EidolonLevel,
+};
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{

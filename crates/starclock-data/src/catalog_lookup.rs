@@ -1,9 +1,10 @@
-use crate::{EnemyRuntimeProfileDefinition, EnemyRuntimeStatDefinition};
-
-use crate::build_lower::CharacterDataDefinition;
-use crate::catalog::{
-    CatalogManifest, CatalogSummary, EffectDataDefinition, SimulationCatalog,
-    StandardScenarioDefinition,
+use crate::{
+    EnemyRuntimeProfileDefinition, EnemyRuntimeStatDefinition,
+    build_lower::CharacterDataDefinition,
+    catalog::{
+        CatalogManifest, CatalogSummary, EffectDataDefinition, SimulationCatalog,
+        StandardScenarioDefinition,
+    },
 };
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::rule::model::BattleRuleDefinition;

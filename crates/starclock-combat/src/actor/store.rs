@@ -1,15 +1,16 @@
-use crate::battle::spec::TeamResourceWavePolicy;
-use crate::formula::model::CombatElement;
-use crate::formula::toughness::EnemyRank;
-use crate::toughness::state::ToughnessLayerState;
 use crate::{
     AiGraphId, AiStateId, EnemyDefinitionId, EnemyPhaseId, OperationId, Scalar, SourceDefinitionId,
-    battle::spec::{CombatantSpecDigest, FormationIndex, ParticipantSource, TeamSide, UnitLevel},
+    battle::spec::{
+        CombatantSpecDigest, FormationIndex, ParticipantSource, TeamResourceWavePolicy, TeamSide,
+        UnitLevel,
+    },
+    formula::{model::CombatElement, toughness::EnemyRank},
     id::{
         AbilityId, ModifierDefinitionId, RuleBundleId, SpawnSequence, TimelineActorId,
         UnitDefinitionId, UnitId,
     },
     numeric::domain::{ActionGauge, Energy, Hp, Speed, StatValue},
+    toughness::state::ToughnessLayerState,
 };
 
 use super::link::{

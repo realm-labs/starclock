@@ -20,6 +20,7 @@ use crate::{
     curio_runtime::{CurioContribution, CurioContributionSet},
 };
 
+use super::parameter;
 use super::{
     BattleRuleLoweringError, ExecutableBattleRule, RuleAttachment, all_ally_selector, multiply,
     propagation_s01, scalar,
@@ -56,7 +57,7 @@ fn family_ties(
     contribution: &CurioContribution,
     destroyed: u32,
 ) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
-    let ratio = super::parameter(contribution.state().parameters(), 0)?
+    let ratio = parameter(contribution.state().parameters(), 0)?
         .checked_mul(i64::from(destroyed))
         .ok_or(BattleRuleLoweringError::InvalidParameter)?;
     permanent_team_modifiers(
@@ -70,8 +71,8 @@ fn tonic(
     binding: &UniverseBattleRuleBinding,
     contribution: &CurioContribution,
 ) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
-    let bonus = super::parameter(contribution.state().parameters(), 0)?;
-    let hp_ratio = super::parameter(contribution.state().parameters(), 1)?;
+    let bonus = parameter(contribution.state().parameters(), 0)?;
+    let hp_ratio = parameter(contribution.state().parameters(), 1)?;
     let filters = [ModifierFilter::AbilityTag("technique".into())];
     let mut modifiers = damage_modifiers(binding.rule().get(), scalar(bonus), &filters)?;
     modifiers.push(ModifierDefinition {

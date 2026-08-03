@@ -15,10 +15,10 @@ use crate::{
     path::ExactParameter,
 };
 
-use super::BattleRuleLoweringError;
+use super::{BattleRuleLoweringError, RESONANCE_ABILITY_ID};
 
 pub(super) fn resonance_source() -> starclock_combat::SourceDefinitionId {
-    starclock_combat::SourceDefinitionId::new(super::RESONANCE_ABILITY_ID.get())
+    starclock_combat::SourceDefinitionId::new(RESONANCE_ABILITY_ID.get())
         .expect("resonance ability ID is non-zero")
 }
 

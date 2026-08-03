@@ -1,13 +1,15 @@
 //! Runtime modifier snapshot capture at explicit lifecycle boundaries.
 
-use crate::battle::state::BattleState;
-use crate::catalog::CombatCatalog;
-use crate::formula::toughness::attacker_level_multiplier;
-use crate::modifier::model::ModifierDefinition;
-use crate::modifier::model::ModifierQueryContext;
-use crate::modifier::model::StatKind;
-use crate::modifier::resolve::StatResolver;
-use crate::rule::model::RuleValue;
+use crate::{
+    battle::state::BattleState,
+    catalog::CombatCatalog,
+    formula::toughness::attacker_level_multiplier,
+    modifier::{
+        model::{ModifierDefinition, ModifierQueryContext, StatKind},
+        resolve::StatResolver,
+    },
+    rule::model::RuleValue,
+};
 use std::collections::BTreeSet;
 
 use crate::{
@@ -21,6 +23,7 @@ use super::{
     journal::MutationField,
     transaction::{Transaction, action_fault},
 };
+use super::{program, stat_input};
 
 pub(crate) fn initialize_battle(
     catalog: &CombatCatalog,
@@ -93,8 +96,8 @@ pub(super) fn initialize(
     let definition = catalog
         .modifier(instance.definition)
         .ok_or_else(|| action_fault(135))?;
-    let bases = super::program::stat_bases(txn)?;
-    let shields = super::stat_input::shield_values(txn);
+    let bases = program::stat_bases(txn)?;
+    let shields = stat_input::shield_values(txn);
     let active = txn
         .state
         .modifiers
@@ -134,8 +137,8 @@ pub(super) fn refresh(
         boundary,
         SnapshotPolicy::OnActionStart | SnapshotPolicy::OnPhaseStart | SnapshotPolicy::OnHitStart
     ));
-    let bases = super::program::stat_bases(txn)?;
-    let shields = super::stat_input::shield_values(txn);
+    let bases = program::stat_bases(txn)?;
+    let shields = stat_input::shield_values(txn);
     let active = txn
         .state
         .modifiers
@@ -219,8 +222,8 @@ pub(super) fn refresh_effect_stacks(
             instance.get() ^ (u64::from(stacks) + 1),
         );
     }
-    let bases = super::program::stat_bases(txn)?;
-    let shields = super::stat_input::shield_values(txn);
+    let bases = program::stat_bases(txn)?;
+    let shields = stat_input::shield_values(txn);
     let active = txn
         .state
         .modifiers

@@ -23,6 +23,7 @@ use super::{
     state_layout::{RESOURCE_COSMIC_FRAGMENTS_KEY, RUN_RESOURCES_SLOT},
     tests::compiled_fixture,
 };
+use super::{tests};
 
 #[test]
 fn occurrence_service_and_adventure_catalogs_are_complete_and_revisioned() {
@@ -379,7 +380,7 @@ fn adventure_accepts_external_results_and_resolves_cumulative_rewards_atomically
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn commit(

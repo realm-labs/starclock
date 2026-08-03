@@ -1,6 +1,5 @@
 //! Closed executor for negative Curios, Error Codes and replacement effects.
 
-use crate::path_effect_runtime::PathEffectRuntimeError;
 use crate::{
     curio::CurioStateKind,
     curio_effect_runtime::{AppliedCurioEffect, CurioEffect, CurioEnergyChange, CurioHpChange},
@@ -8,7 +7,8 @@ use crate::{
     digest::Encoder,
     id::{CurioId, CurioStateId},
     path_effect_runtime::{
-        PathEffect, PathEffectStat, PathEffectTarget, PathEffectValue, exact_parameters, turns,
+        PathEffect, PathEffectRuntimeError, PathEffectStat, PathEffectTarget, PathEffectValue,
+        exact_parameters, turns,
     },
 };
 

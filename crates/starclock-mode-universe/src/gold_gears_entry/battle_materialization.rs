@@ -29,6 +29,7 @@ use crate::{
     digest::Encoder,
 };
 
+use super::GoldAndGearsNeuralStatContribution;
 use super::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleContributionSnapshot,
     GoldAndGearsEncounterSelection, GoldAndGearsEnemyDefinitionBinding, GoldAndGearsEntryError,
@@ -564,7 +565,7 @@ fn attach_modifiers(
 }
 
 fn neural_modifiers(
-    contributions: &[super::GoldAndGearsNeuralStatContribution],
+    contributions: &[GoldAndGearsNeuralStatContribution],
 ) -> Result<Vec<ModifierAttachment>, GoldAndGearsEntryError> {
     let mut output = Vec::new();
     for (source_index, contribution) in contributions.iter().enumerate() {
@@ -766,7 +767,7 @@ fn combatant_digest(root: [u8; 32], key: &str, wave: usize, slot: usize) -> [u8;
     encoder.finish()
 }
 
-fn neural_source_digest(contribution: &super::GoldAndGearsNeuralStatContribution) -> [u8; 32] {
+fn neural_source_digest(contribution: &GoldAndGearsNeuralStatContribution) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock.gold-and-gears.neural-battle-source.v1");
     encoder.text(contribution.source_node());
     encoder.u8(contribution.stat() as u8);

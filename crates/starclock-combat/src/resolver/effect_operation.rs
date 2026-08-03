@@ -1,24 +1,22 @@
 //! Effect attachment and DoT operations.
 
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::OrdinaryDamageDefinition;
-use crate::catalog::definition::RuleDefinition;
-use crate::modifier::model::ActiveModifier;
-use crate::rule::model::RuleValue;
-use crate::rule::model::SourceClass;
 use crate::{
     DamageAmount, DamageKind, DotDetonationSelection, EffectApplicationGuard, EffectDamageGuard,
     EffectDefinitionId, EffectInstanceId, OperationId, Rounding, RuleSignalEventData,
     TEAM_DEFEAT_GUARDED_SIGNAL, UnitId,
     battle::fault::BattleFault,
+    catalog::{CombatCatalog, action::OrdinaryDamageDefinition, definition::RuleDefinition},
     event::{
         cause::Cause,
         model::{BattleEventKind, EffectEventData},
     },
     id::EventId,
+    modifier::model::ActiveModifier,
     operation::DetonateDotsOp,
+    rule::model::{RuleValue, SourceClass},
 };
 
+use super::{modifier_snapshot, operation, operation_formula};
 use super::{
     operation::fault::{invariant_fault, numeric_fault},
     transaction::Transaction,
@@ -223,7 +221,7 @@ pub(super) fn consume_negative_effect_guard(
             }),
         );
     } else {
-        super::modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, after)?;
+        modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, after)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(target)),
             BattleEventKind::Effect(EffectEventData::Refreshed {
@@ -305,7 +303,7 @@ pub(super) fn detonate_dots(
     mut parent: EventId,
     operation: DetonateDotsOp,
 ) -> Result<EventId, BattleFault> {
-    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
+    let inputs = operation_formula::FormulaInputs::new(txn)?;
     for target in operation.targets {
         let mut effects = txn
             .state
@@ -349,7 +347,7 @@ pub(super) fn detonate_dots(
                 .map_err(|_| numeric_fault(32, calculation.raw.scaled()))?;
             let finalized = DamageAmount::from_scalar(raw, Rounding::Floor)
                 .map_err(|_| numeric_fault(33, raw.scaled()))?;
-            parent = super::operation::apply_ordinary_damage(
+            parent = operation::apply_ordinary_damage(
                 catalog,
                 txn,
                 attributed,

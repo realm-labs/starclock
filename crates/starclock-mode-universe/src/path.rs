@@ -1,8 +1,10 @@
 //! Immutable Path, Blessing and Resonance definitions.
 
-use crate::definition::LocalizedText;
-use crate::digest::UniversePathDefinitionsDigest;
-use crate::id::{BlessingId, BlessingLevelId, PathId, ResonanceId};
+use crate::{
+    definition::LocalizedText,
+    digest::UniversePathDefinitionsDigest,
+    id::{BlessingId, BlessingLevelId, PathId, ResonanceId},
+};
 
 /// Exact authored decimal atom. Formula compilation owns later six-place rounding.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

@@ -30,6 +30,7 @@ use crate::{
     curio_runtime::{CurioContribution, CurioContributionSet},
 };
 
+use super::curio_s01;
 use super::{
     BattleRuleLoweringError, ExecutableBattleRule, RuleAttachment, all_ally_selector,
     all_enemy_selector, multiply, owner_selector, parameter, propagation_s01, scalar,
@@ -99,7 +100,7 @@ fn normal_code(
         when_false: Box::new(scalar(0)),
     };
     let modifiers = damage_modifiers(binding.rule().get(), FormulaStage::Vulnerability, value)?;
-    super::curio_s01::permanent_team_modifiers(binding, 11, modifiers)
+    curio_s01::permanent_team_modifiers(binding, 11, modifiers)
 }
 
 fn elegant_code(

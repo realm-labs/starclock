@@ -1,10 +1,12 @@
 //! Production synchronous execution of an Activity battle handoff.
 
-use crate::battle_materialization::CYCLE_BLESSING_COUNT_METRIC_PREFIX;
-use crate::battle_materialization::DEFEATED_ENEMY_COUNT_METRIC;
-use crate::battle_materialization::FIXED_BLESSING_COUNT_METRIC_PREFIX;
-use crate::runtime::StandardUniverseActivity;
-use crate::runtime::StandardUniverseBattleStartError;
+use crate::{
+    battle_materialization::{
+        CYCLE_BLESSING_COUNT_METRIC_PREFIX, DEFEATED_ENEMY_COUNT_METRIC,
+        FIXED_BLESSING_COUNT_METRIC_PREFIX,
+    },
+    runtime::{StandardUniverseActivity, StandardUniverseBattleStartError},
+};
 use std::sync::Arc;
 
 use starclock_activity::{

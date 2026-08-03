@@ -16,6 +16,7 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests, GoldAndGearsCurioId};
 
 #[test]
 fn profile_partition_binds_exactly_five_exact_public_activity_rules() {
@@ -251,7 +252,7 @@ fn assert_rule_effect(
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn compile(factory: &GoldAndGearsRuntimeFactory, bonus: &str) -> GoldAndGearsRuntimeInstance {
@@ -297,7 +298,7 @@ fn execute_profile_rule(
     instance: &GoldAndGearsRuntimeInstance,
     state: &mut ActivityTransactionState,
     blessings: &[(BlessingId, u32)],
-    curios: &[(super::GoldAndGearsCurioId, u32)],
+    curios: &[(GoldAndGearsCurioId, u32)],
     rng: &mut ActivityRngStreams,
 ) -> Result<GoldAndGearsProfileRuleExecution, GoldAndGearsEntryError> {
     rng.transact(|working| {
@@ -328,7 +329,7 @@ fn execute_profile_rule(
 
 fn curio_category(
     instance: &GoldAndGearsRuntimeInstance,
-    id: super::GoldAndGearsCurioId,
+    id: GoldAndGearsCurioId,
 ) -> GoldAndGearsCurioCategory {
     instance
         .curio_definitions()

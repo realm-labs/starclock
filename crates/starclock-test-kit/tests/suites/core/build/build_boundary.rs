@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use self::form as unit_definition_id;
 use starclock_build::{
     catalog::{
         BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, CharacterBuildDefinition,
@@ -152,7 +153,7 @@ fn build_builder(combat: &CombatCatalog) -> BuildCatalogBuilder {
 
 fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
-        self::form(form),
+        unit_definition_id(form),
         CombatPath::Harmony,
         source(100 + form, SourceClass::Unit),
         CharacterStatRow::new(
@@ -164,7 +165,7 @@ fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
         ResolvedDefinitionBindings::new(vec![ability(bound_ability)], vec![], vec![]).unwrap(),
     )
     .with_eidolons(EidolonSetDefinition::new(
-        self::form(form),
+        unit_definition_id(form),
         (1..=6)
             .map(|rank| {
                 EidolonDefinition::new(

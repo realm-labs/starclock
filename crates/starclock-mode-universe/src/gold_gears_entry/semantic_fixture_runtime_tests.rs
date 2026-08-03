@@ -4,6 +4,7 @@ use super::{
     GoldAndGearsRuntimeFactory,
     semantic_fixture_runtime::GoldAndGearsSemanticFixtureExecutionKind,
 };
+use super::{tests};
 
 #[test]
 fn all_18_semantic_fixture_families_bind_exactly_once() {
@@ -103,5 +104,5 @@ fn all_fixture_regressions_are_unique_and_production_runtime_backed() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }

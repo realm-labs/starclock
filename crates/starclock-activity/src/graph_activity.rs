@@ -1,7 +1,6 @@
 mod boundary;
 mod random_offer;
 
-use crate::program::condition_type;
 use crate::{
     ActivityBattleHandoff, ActivityBattlePreparationRequest, ActivityBattleResultContract,
     ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
@@ -19,6 +18,7 @@ use crate::{
     GraphActivityDefinitionError, GraphActivityEncounterError, GraphActivityRandomOfferError,
     GraphActivityRuntimeError, GraphActivityStartError, MAX_ACTIVITY_PROGRAM_OPERATIONS, NodeId,
     ParticipantLock, PendingBattleSpec, SlotValueKind, TechniqueContributionDigest,
+    program::condition_type,
 };
 use random_offer::restrict_random_offer;
 use std::sync::Arc;

@@ -2,6 +2,7 @@ use crate::{Rounding, Scalar};
 
 use core::cmp::Ordering;
 
+use super::RuleEvaluationErrorKind;
 use super::{
     RuleEvaluationError, RuleEvaluationInput, RuleValue, RuleValueKind, UnitId, ValueExpr,
     compare_values, evaluate_value,
@@ -86,7 +87,7 @@ pub(super) fn convert(
             .map(RuleValue::Integer)
             .map_err(|_| numeric_error(0x121)),
         _ => Err(RuleEvaluationError {
-            kind: super::RuleEvaluationErrorKind::InvalidConversion,
+            kind: RuleEvaluationErrorKind::InvalidConversion,
             context: 0x122,
         }),
     }

@@ -1,6 +1,7 @@
-use crate::{AbilityId, UnitId};
-
-use crate::battle::{model::BattlePhase, state::BattleState};
+use crate::{
+    AbilityId, UnitId,
+    battle::{model::BattlePhase, state::BattleState},
+};
 
 use super::model::{Command, CommandError, CommandErrorKind};
 

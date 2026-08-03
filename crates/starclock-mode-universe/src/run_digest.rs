@@ -1,13 +1,15 @@
 //! Canonical identity for run-choice and progression definitions.
 
-use crate::definition::LocalizedText;
-use crate::digest::{Encoder, UniverseRunDefinitionsDigest};
-use crate::occurrence::{
-    AuthoredScalar, OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceOutcome,
-    OccurrenceVariantDefinition,
+use crate::{
+    definition::LocalizedText,
+    digest::{Encoder, UniverseRunDefinitionsDigest},
+    occurrence::{
+        AuthoredScalar, OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceOutcome,
+        OccurrenceVariantDefinition,
+    },
+    path::ExactParameter,
+    progression::{AbilityTreeNodeDefinition, ServiceDefinition},
 };
-use crate::path::ExactParameter;
-use crate::progression::{AbilityTreeNodeDefinition, ServiceDefinition};
 
 pub(crate) fn digest(
     occurrences: &[OccurrenceDefinition],

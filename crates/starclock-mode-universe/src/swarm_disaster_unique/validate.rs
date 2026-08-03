@@ -1,5 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
+use super::types;
 use super::{
     EXPECTED_UNIQUE_ROWS, SwarmDisasterUniqueCatalog, SwarmDisasterUniqueError,
     SwarmDisasterUniqueErrorKind, types::TrailNodeId,
@@ -395,7 +396,7 @@ fn validate_communing(
 
 fn validate_trail_prerequisites(
     catalog: &SwarmDisasterUniqueCatalog,
-    nodes: &BTreeMap<TrailNodeId, &super::types::TrailNodeDefinition>,
+    nodes: &BTreeMap<TrailNodeId, &types::TrailNodeDefinition>,
     node_keys: &BTreeSet<&str>,
 ) -> Result<(), SwarmDisasterUniqueError> {
     let mut order = BTreeSet::new();

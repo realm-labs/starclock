@@ -18,13 +18,14 @@ use super::{
     },
     tests::{compiled_fixture, entry},
 };
+use super::{tests};
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn six_tiers_relocate_then_mutate_callback_collapse_and_reward_atomically() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = dice(factory, "303");
     let instance = factory
         .compile_entry(entry(factory, AREA, PATH, dice))
@@ -87,7 +88,7 @@ fn six_tiers_relocate_then_mutate_callback_collapse_and_reward_atomically() {
 
 #[test]
 fn after_movement_face_uses_destination_as_its_current_domain() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_502);
     let destination = instance
@@ -115,7 +116,7 @@ fn after_movement_face_uses_destination_as_its_current_domain() {
 
 #[test]
 fn face_protection_precedes_collapse_and_stable_targets_ignore_input_order() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = dice(factory, "302");
     let instance = factory
         .compile_entry(entry(factory, AREA, PATH, dice))
@@ -147,7 +148,7 @@ fn face_protection_precedes_collapse_and_stable_targets_ignore_input_order() {
 
 #[test]
 fn late_invalid_collapse_rolls_back_face_rng_and_stale_face_rejects_movement() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_506);
     let active = candidates(factory, &instance, &state, "SelectedDomain", None);
@@ -195,7 +196,7 @@ fn late_invalid_collapse_rolls_back_face_rng_and_stale_face_rejects_movement() {
 
 #[test]
 fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = dice(factory, "301");
     let instance = factory
         .compile_entry(entry(factory, AREA, PATH, dice))

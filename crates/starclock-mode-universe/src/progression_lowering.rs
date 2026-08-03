@@ -2,21 +2,23 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::error::UniverseCatalogLoadError;
-use crate::generated::{
-    SoraConfig, universe_ability_effect_class::UniverseAbilityEffectClass,
-    universe_ability_operation::UniverseAbilityOperation,
-    universe_ability_value_unit::UniverseAbilityValueUnit,
-    universe_service_kind::UniverseServiceKind,
-    universe_service_profile_owner::UniverseServiceProfileOwner,
-};
-use crate::id::{AbilityTreeNodeId, ServiceId};
-use crate::lowering::{checked_key, checked_source, invalid, localized, reference};
-use crate::path_lowering::{parameter_groups, parse_decimal, validate_rule};
-use crate::progression::{
-    AbilityEffectClass, AbilityOperation, AbilityTreeCost, AbilityTreeEffect,
-    AbilityTreeNodeDefinition, AbilityValueUnit, ServiceDefinition, ServiceKind, ServiceParameter,
-    ServiceProfileOwner,
+use crate::{
+    error::UniverseCatalogLoadError,
+    generated::{
+        SoraConfig, universe_ability_effect_class::UniverseAbilityEffectClass,
+        universe_ability_operation::UniverseAbilityOperation,
+        universe_ability_value_unit::UniverseAbilityValueUnit,
+        universe_service_kind::UniverseServiceKind,
+        universe_service_profile_owner::UniverseServiceProfileOwner,
+    },
+    id::{AbilityTreeNodeId, ServiceId},
+    lowering::{checked_key, checked_source, invalid, localized, reference},
+    path_lowering::{parameter_groups, parse_decimal, validate_rule},
+    progression::{
+        AbilityEffectClass, AbilityOperation, AbilityTreeCost, AbilityTreeEffect,
+        AbilityTreeNodeDefinition, AbilityValueUnit, ServiceDefinition, ServiceKind,
+        ServiceParameter, ServiceProfileOwner,
+    },
 };
 
 pub(crate) struct ProgressionDefinitions {

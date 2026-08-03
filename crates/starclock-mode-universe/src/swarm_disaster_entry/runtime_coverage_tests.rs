@@ -1,6 +1,5 @@
 use super::{SOURCE_CATEGORIES, coverage_snapshot, validate_categories, validate_rule_fixture_ids};
-use crate::swarm_disaster_entry::SwarmDisasterRuntimeFactory;
-use crate::swarm_disaster_entry::tests::BUNDLE;
+use crate::swarm_disaster_entry::{SwarmDisasterRuntimeFactory, tests::BUNDLE};
 
 #[test]
 fn exact_6963_23_23_runtime_coverage_is_stable() {

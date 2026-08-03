@@ -10,6 +10,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     communing::CommuningRuntimeCatalog,
 };
+use super::{state, tests};
 
 const ROOT: &str = "swarm-disaster.pathstrider-cabinet.22";
 const ROOT_OBJECTIVE: &str = "6013222";
@@ -38,10 +39,10 @@ fn frozen_communing_catalog_retains_exact_denominators_and_order() {
     assert_eq!(instance.communing_choices(5).count(), 0);
     assert_eq!(instance.communing_maximum(DIMENSION_SIX), Some(20));
 
-    let communing_slot = slot_definition(&instance, super::state::COMMUNING);
+    let communing_slot = slot_definition(&instance, state::COMMUNING);
     assert_eq!(communing_slot.owner(), ActivityScope::Activity);
     assert_eq!(communing_slot.carry(), SlotCarryPolicy::CarryExact);
-    let choice_slot = slot_definition(&instance, super::state::COMMUNING_CHOICE);
+    let choice_slot = slot_definition(&instance, state::COMMUNING_CHOICE);
     assert_eq!(choice_slot.owner(), ActivityScope::Attempt);
     assert_eq!(choice_slot.carry(), SlotCarryPolicy::Reset);
 }
@@ -203,7 +204,7 @@ fn corrupt_cabinet_completion_state_fails_closed() {
     let corruption = ActivityProgramDefinition::new(
         ActivityProgramId::new(0x5370_ff00).unwrap(),
         vec![ActivityOperation::AddCounter {
-            slot: ActivitySlotId::new(super::state::PROGRESSION).unwrap(),
+            slot: ActivitySlotId::new(state::PROGRESSION).unwrap(),
             key: 0x2000_0000 + 24,
             delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(2)),
         }],
@@ -254,7 +255,7 @@ fn stale_cabinet_program_rejects_atomically_and_seeded_hash_is_stable() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(
@@ -268,7 +269,7 @@ fn instance(
                 "swarm-disaster.area.201",
                 "universe.path.destruction",
                 "swarm-disaster.audience-die.6",
-                super::tests::participants(super::tests::policy()),
+                tests::participants(tests::policy()),
             )
             .with_progression(points, progression, None),
         )

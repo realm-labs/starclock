@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use self::promotion as promotion_stage;
 use starclock_build::{
     catalog::{
         BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, CharacterBuildDefinition,
@@ -315,7 +316,7 @@ fn loadout(id: u32, level: u8, promotion: u8, rank: u8) -> LightConeLoadout {
     LightConeLoadout::new(
         cone_id(id),
         cone_level(level),
-        self::promotion(promotion),
+        promotion_stage(promotion),
         superimposition(rank),
     )
 }

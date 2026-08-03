@@ -19,12 +19,13 @@ use super::{
     record_gold_and_gears_run, verify_gold_and_gears_replay,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
+use super::{tests, GoldAndGearsRuntimeInstance};
 
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 
 #[test]
 fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
-    let primary = super::tests::shared_factory();
+    let primary = tests::shared_factory();
     let instance = replay_instance(primary);
     let roster = seeded_matrix_roster(&instance);
     let request = GoldAndGearsSeededRunRequest::new(
@@ -71,7 +72,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     let replay = decode_replay(&bytes).unwrap();
     assert_eq!(
         replay_digest,
-        "f97494350366e8da2378bee8dabe8ec698f6dfeef7d02770c6feb7714fd996d0"
+        "2fbaa3e77d6ff11370b2babea456e62a20f6f171cee72f03d67eb398bcd92658"
     );
     assert_eq!(replay.records().len(), 344);
     assert_eq!(
@@ -84,11 +85,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "a917ca9e0277ba895e73983dc3be07f38c6cb35c3d8288c801771ab584fe6e21"
+        "a08cf45e45f7460b0745e2d57bd787df21af526afdf56540d6d6b58428f96dbf"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
-        "60430a58f16f061b5bf20676ac019e6f3efe74cafd97cb2cb5731db75ae2a2a1"
+        "bc248590eb8dd8d5fab6bb15b42361f90c97d4ecf5180ccde2d6b6faeb807117"
     );
 
     assert_divergence(
@@ -183,10 +184,10 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
 }
 
-fn replay_instance(factory: &GoldAndGearsRuntimeFactory) -> super::GoldAndGearsRuntimeInstance {
+fn replay_instance(factory: &GoldAndGearsRuntimeFactory) -> GoldAndGearsRuntimeInstance {
     let dice = &factory.unique.dice[0];
     factory
-        .compile_entry(super::tests::battle_entry(
+        .compile_entry(tests::battle_entry(
             factory,
             "gold-gears.area.401",
             "universe.path.abundance",
@@ -196,7 +197,7 @@ fn replay_instance(factory: &GoldAndGearsRuntimeFactory) -> super::GoldAndGearsR
 }
 
 fn components(
-    instance: &super::GoldAndGearsRuntimeInstance,
+    instance: &GoldAndGearsRuntimeInstance,
     controller: u8,
 ) -> ConfigurationComponentSet {
     let identity = GoldAndGearsCatalogIdentity::load(BUNDLE).unwrap();
@@ -218,7 +219,7 @@ fn components(
 
 fn assert_divergence(
     bytes: &[u8],
-    instance: &super::GoldAndGearsRuntimeInstance,
+    instance: &GoldAndGearsRuntimeInstance,
     request: GoldAndGearsSeededRunRequest,
     roster: &UniverseBattleRoster,
     components: &ConfigurationComponentSet,

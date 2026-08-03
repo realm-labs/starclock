@@ -1,13 +1,10 @@
 use super::*;
-use crate::curio_activity::CAVITY_CRITICAL_STACK_KEY;
-use crate::curio_activity::CurioActivityBindings;
-use crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY;
-use crate::curio_activity::ROBE_FRAGMENT_SNAPSHOT_KEY;
-use crate::curio_activity::cavity_critical_stacks;
-use crate::curio_activity::destroyed_curio_count;
-use crate::curio_activity::destructible_destroyed_count;
-use crate::curio_activity::negative::FISSION_EXTRA_COPY_KEY;
-use crate::curio_activity::negative::fission_extra_copies;
+use crate::curio_activity::{
+    CAVITY_CRITICAL_STACK_KEY, CurioActivityBindings, DESTRUCTIBLE_DESTROYED_COUNT_KEY,
+    ROBE_FRAGMENT_SNAPSHOT_KEY, cavity_critical_stacks, destroyed_curio_count,
+    destructible_destroyed_count,
+    negative::{FISSION_EXTRA_COPY_KEY, fission_extra_copies},
+};
 
 impl StandardUniverseActivity {
     pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {

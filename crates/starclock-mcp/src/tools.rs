@@ -16,12 +16,15 @@ use starclock_agent_api::{
     session::{AgentSeedPolicy, PlayActionRequest, RegistryCreateSessionRequest},
 };
 
-use crate::activity_tools::{
-    ActivityActionOutput, ActivityObservationOutput, ActivityReplayExportOutput,
-    ActivitySessionInput, CloseActivityOutput, CreateUniverseInput, PlayActivityActionInput,
-    VerifyActivityReplayInput, VerifyActivityReplayOutput,
+use crate::{
+    activity_tools::{
+        ActivityActionOutput, ActivityObservationOutput, ActivityReplayExportOutput,
+        ActivitySessionInput, CloseActivityOutput, CreateUniverseInput, PlayActivityActionInput,
+        VerifyActivityReplayInput, VerifyActivityReplayOutput,
+    },
+    error::structured_result,
+    server::StarclockMcp,
 };
-use crate::{error::structured_result, server::StarclockMcp};
 
 pub const MAX_REPLAY_IMPORT_BYTES: usize = 64 * 1024 * 1024;
 

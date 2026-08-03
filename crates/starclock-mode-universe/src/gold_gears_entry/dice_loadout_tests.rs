@@ -9,13 +9,14 @@ use super::{
     state_layout::{DICE_LOADOUT_MAX_RARITY_KEY_BASE, DICE_LOADOUT_SLOT},
     tests::entry,
 };
+use super::{tests, GoldAndGearsEntry, GoldAndGearsRuntimeInstance};
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_default_loadouts_and_recommendation_pools_are_legal() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
 
     for dice in &factory.unique.dice {
         let instance = factory
@@ -46,7 +47,7 @@ fn all_default_loadouts_and_recommendation_pools_are_legal() {
 
 #[test]
 fn face_unlock_groups_fail_closed_until_their_dice_are_unlocked() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let default_dice = factory
         .unique
         .dice
@@ -89,7 +90,7 @@ fn face_unlock_groups_fail_closed_until_their_dice_are_unlocked() {
 
 #[test]
 fn neural_nodes_upgrade_slots_five_three_then_six_in_policy_order() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let cases = [
         (0, vec![3, 3, 2, 2, 1, 1]),
@@ -118,7 +119,7 @@ fn neural_nodes_upgrade_slots_five_three_then_six_in_policy_order() {
 
 #[test]
 fn upgraded_rarity_and_color_constraints_change_entry_legality_and_state() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let all_neural = factory
         .unique
@@ -187,9 +188,9 @@ fn entry_with_faces(
     factory: &GoldAndGearsRuntimeFactory,
     dice: &DiceDefinition,
     faces: Vec<String>,
-) -> super::GoldAndGearsEntry {
+) -> GoldAndGearsEntry {
     let template = entry(factory, AREA, PATH, dice);
-    super::GoldAndGearsEntry::new(
+    GoldAndGearsEntry::new(
         template.area(),
         template.path(),
         template.custom_dice(),
@@ -233,7 +234,7 @@ fn face<'a>(factory: &'a GoldAndGearsRuntimeFactory, key: &str) -> &'a DiceFace 
 }
 
 fn assert_recommendations_are_eligible(
-    instance: &super::GoldAndGearsRuntimeInstance,
+    instance: &GoldAndGearsRuntimeInstance,
     recommendations: Vec<&str>,
 ) {
     assert!(!recommendations.is_empty());

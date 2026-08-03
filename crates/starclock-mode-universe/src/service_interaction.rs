@@ -1,8 +1,6 @@
 //! Canonical lowering of concrete Standard Universe service selections.
 mod codec;
 
-use crate::id::CurioStateId;
-use crate::service_effect_runtime::RespiteOffer;
 use crate::{
     ability_runtime::AbilityTarget,
     catalog::UniverseCatalog,
@@ -11,10 +9,10 @@ use crate::{
     },
     curio_runtime::CurioRuntimeCatalog,
     digest::Encoder,
-    id::{BlessingId, CurioId, ServiceId},
+    id::{BlessingId, CurioId, CurioStateId, ServiceId},
     service_effect_runtime::{
-        RespiteOfferKind, ServiceAction, ServiceEffectRuntimeCatalog, ServiceEffectRuntimeError,
-        TrailblazeBonusEffect, TrailblazeBonusTier,
+        RespiteOffer, RespiteOfferKind, ServiceAction, ServiceEffectRuntimeCatalog,
+        ServiceEffectRuntimeError, TrailblazeBonusEffect, TrailblazeBonusTier,
     },
 };
 use codec::{Decoder, invalid_payload, invalid_state, inventory, slot};

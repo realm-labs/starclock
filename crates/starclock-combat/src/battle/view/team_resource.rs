@@ -1,8 +1,6 @@
 //! Complete read-only projection of generic team-scoped resources.
 
-use crate::{SourceDefinitionId, TeamResourceWavePolicy};
-
-use crate::actor::store::KeyedTeamResourceState;
+use crate::{SourceDefinitionId, TeamResourceWavePolicy, actor::store::KeyedTeamResourceState};
 
 use super::TeamView;
 

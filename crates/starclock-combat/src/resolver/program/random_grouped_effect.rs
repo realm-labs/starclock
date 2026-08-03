@@ -1,9 +1,9 @@
 //! Deterministic grouped random-target effect application for typed Rule IR.
 
-use crate::catalog::CombatCatalog;
 use crate::{
     EffectDefinitionId, EventId, SelectorId, UnitId,
     battle::fault::BattleFault,
+    catalog::CombatCatalog,
     event::cause::Cause,
     operation::HitOperationScratch,
     rng::types::DrawPurpose,
@@ -11,8 +11,9 @@ use crate::{
 };
 
 use super::{emission_targets, program_fault};
-use crate::resolver::program_effect::apply_effect_operation;
-use crate::resolver::{operation::execute_operation, transaction::Transaction};
+use crate::resolver::{
+    operation::execute_operation, program_effect::apply_effect_operation, transaction::Transaction,
+};
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn execute_random_grouped_effect(

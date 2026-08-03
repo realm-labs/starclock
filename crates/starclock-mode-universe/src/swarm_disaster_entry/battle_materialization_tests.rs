@@ -13,6 +13,7 @@ use starclock_combat::{
 use crate::battle_materialization::UniverseBattleRoster;
 
 use super::{SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance};
+use super::{tests};
 
 #[test]
 fn current_activity_materializes_a_real_construction_validated_battle() {
@@ -143,7 +144,7 @@ fn unresolved_domain_rejects_without_consuming_encounter_rng() {
 
 #[test]
 fn trail_path_and_next_battle_die_face_are_bound_into_the_spec() {
-    let factory = SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap();
+    let factory = SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap();
     let progression = factory
         .unique
         .trail_runtime_input()
@@ -156,7 +157,7 @@ fn trail_path_and_next_battle_die_face_are_bound_into_the_spec() {
         .collect::<Vec<_>>();
     let instance = factory
         .compile_entry(
-            super::tests::released_entry(
+            tests::released_entry(
                 "swarm-disaster.area.201",
                 "universe.path.preservation",
                 "swarm-disaster.audience-die.1",
@@ -192,9 +193,9 @@ fn trail_path_and_next_battle_die_face_are_bound_into_the_spec() {
 }
 
 pub(super) fn instance() -> SwarmDisasterRuntimeInstance {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE)
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE)
         .unwrap()
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
@@ -223,7 +224,7 @@ pub(super) fn battle_participants() -> ParticipantLock {
             .unwrap()
         })
         .collect();
-    ParticipantLock::seal(super::tests::policy(), entries).unwrap()
+    ParticipantLock::seal(tests::policy(), entries).unwrap()
 }
 
 pub(super) fn combat_state(instance: &SwarmDisasterRuntimeInstance) -> ActivityTransactionState {

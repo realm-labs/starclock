@@ -1,8 +1,6 @@
 //! Event-to-operation bridge for triggered Super Break.
 
-use crate::{RawToughness, UnitId};
-
-use crate::operation::HitOperationScratch;
+use crate::{RawToughness, UnitId, operation::HitOperationScratch};
 pub(super) fn seed_observed_reduction(
     scratch: &mut HitOperationScratch,
     target: Option<UnitId>,
@@ -22,9 +20,7 @@ pub(super) fn seed_observed_reduction(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::RawToughness;
-    use crate::UnitId;
-    use crate::operation::HitOperationScratch;
+    use crate::{RawToughness, UnitId, operation::HitOperationScratch};
 
     #[test]
     fn observed_reduction_seeds_only_its_matching_event_target() {

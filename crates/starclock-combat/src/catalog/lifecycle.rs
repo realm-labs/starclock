@@ -1,8 +1,9 @@
 //! Immutable linked-unit and countdown lookups.
 
+use super::CombatCatalog;
 use crate::{AbilityId, CountdownCatalogDefinition, LinkedUnitCatalogDefinition, UnitDefinitionId};
 
-impl super::CombatCatalog {
+impl CombatCatalog {
     /// Looks up a complete linked-unit runtime definition by unit identity.
     #[must_use]
     pub fn linked_unit(&self, id: UnitDefinitionId) -> Option<&LinkedUnitCatalogDefinition> {

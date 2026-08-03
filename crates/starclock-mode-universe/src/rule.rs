@@ -1,7 +1,6 @@
 //! Immutable Universe mechanic-rule contributions.
 
-use crate::definition::LocalizedText;
-use crate::id::MechanicRuleId;
+use crate::{definition::LocalizedText, id::MechanicRuleId};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]

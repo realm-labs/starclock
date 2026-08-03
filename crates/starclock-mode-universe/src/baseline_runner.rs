@@ -10,12 +10,14 @@ use starclock_activity::{
     GraphActivityBattleError, GraphActivityCommandError, GraphActivityEncounterError,
 };
 
-use crate::dynamic_battle_assembler::{
-    StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
-    StandardUniverseDynamicBattleStart,
-};
-use crate::runtime::{
-    StandardUniverseActivity, StandardUniverseBattleStartError, StandardUniverseEncounterError,
+use crate::{
+    dynamic_battle_assembler::{
+        StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
+        StandardUniverseDynamicBattleStart,
+    },
+    runtime::{
+        StandardUniverseActivity, StandardUniverseBattleStartError, StandardUniverseEncounterError,
+    },
 };
 
 /// Synchronous authoritative battle boundary used by CLI, services and tests.

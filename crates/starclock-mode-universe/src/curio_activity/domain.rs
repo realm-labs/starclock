@@ -3,7 +3,8 @@
 use starclock_activity::{ActivityCondition, ActivityExpression, ActivityOperation};
 
 use super::{
-    CurioActivityBindings, destroy_and_count_operations, event_key, fragment_gain, integer, owned,
+    CurioActivityBindings, active_condition, destroy_and_count_operations, event_key,
+    fragment_gain, integer, owned,
 };
 use crate::{curio_effect_runtime::CurioEvent, id::CurioId};
 
@@ -20,7 +21,7 @@ pub(crate) fn gold_coin_condition(bindings: CurioActivityBindings) -> ActivityCo
 }
 
 pub(crate) fn perpetual_motion_condition(bindings: CurioActivityBindings) -> ActivityCondition {
-    super::active_condition(
+    active_condition(
         CurioId::new(67).expect("Perpetual Motion Cuckoo Clock ID is non-zero"),
         bindings,
     )

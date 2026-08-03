@@ -1,20 +1,17 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
-use crate::catalog::action::AbilityTag;
-use crate::catalog::action::AbilityTags;
-use crate::catalog::action::ReactionBoundary;
-use crate::catalog::action::TargetPattern;
-use crate::formula::toughness::EnemyRank;
-use crate::rng::types::DrawPurpose;
 use crate::{
     AbilityId, ActionId, CommandId, EffectCategory, EffectDefinitionId, EffectRemovalOrder,
     EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness,
     Rounding, RuleId, RuleInstanceId, Scalar, SelectorId, SourceDefinitionId,
     StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
-};
-use crate::{
-    formula::model::{CombatElement, DamageClass},
+    catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
+    formula::{
+        model::{CombatElement, DamageClass},
+        toughness::EnemyRank,
+    },
     modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
+    rng::types::DrawPurpose,
 };
 mod state_slot;
 mod support;

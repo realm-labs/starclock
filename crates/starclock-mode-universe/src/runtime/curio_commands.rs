@@ -1,7 +1,7 @@
-use crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY;
-use crate::curio_activity::destroy_and_count_operations;
-use crate::curio_activity::event_key;
-use crate::id::PathId;
+use crate::{
+    curio_activity::{DESTRUCTIBLE_DESTROYED_COUNT_KEY, destroy_and_count_operations, event_key},
+    id::PathId,
+};
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityOperation, ActivityOptionDefinition,
     ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,

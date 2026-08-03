@@ -1,12 +1,14 @@
 //! Effect activation at explicit lifecycle boundaries.
 
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::OrdinaryDamageDefinition;
 use crate::{
-    DamageKind, EffectTickPhase, UnitId, battle::fault::BattleFault, event::cause::Cause,
+    DamageKind, EffectTickPhase, UnitId,
+    battle::fault::BattleFault,
+    catalog::{CombatCatalog, action::OrdinaryDamageDefinition},
+    event::cause::Cause,
     id::EventId,
 };
 
+use super::{operation, operation_formula};
 use super::{operation::fault::numeric_fault, transaction::Transaction};
 
 pub(super) fn tick(
@@ -24,7 +26,7 @@ pub(super) fn tick(
         .filter(|effect| effect.target == owner && effect.tick_phase == phase)
         .cloned()
         .collect::<Vec<_>>();
-    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
+    let inputs = operation_formula::FormulaInputs::new(txn)?;
     for effect in effects {
         let Some(dot) = effect.dot else {
             continue;
@@ -50,7 +52,7 @@ pub(super) fn tick(
             true,
             false,
         )?;
-        parent = super::operation::apply_ordinary_damage(
+        parent = operation::apply_ordinary_damage(
             catalog,
             txn,
             attributed,

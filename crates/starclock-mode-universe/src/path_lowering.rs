@@ -3,16 +3,18 @@
 use crate::definition::LocalizedText;
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::digest::{Encoder, UniversePathDefinitionsDigest};
-use crate::error::UniverseCatalogLoadError;
-use crate::generated::{SoraConfig, universe_resonance_kind::UniverseResonanceKind};
-use crate::id::{BlessingId, BlessingLevelId, PathId, ResonanceId};
-use crate::lowering::{
-    checked_key, checked_source, invalid, localized, parse_digest, positive_u8, reference,
-};
-use crate::path::{
-    BlessingDefinition, BlessingLevelDefinition, ExactParameter, PathDefinition, PathDefinitions,
-    ResonanceDefinition, ResonanceKind,
+use crate::{
+    digest::{Encoder, UniversePathDefinitionsDigest},
+    error::UniverseCatalogLoadError,
+    generated::{SoraConfig, universe_resonance_kind::UniverseResonanceKind},
+    id::{BlessingId, BlessingLevelId, PathId, ResonanceId},
+    lowering::{
+        checked_key, checked_source, invalid, localized, parse_digest, positive_u8, reference,
+    },
+    path::{
+        BlessingDefinition, BlessingLevelDefinition, ExactParameter, PathDefinition,
+        PathDefinitions, ResonanceDefinition, ResonanceKind,
+    },
 };
 
 pub(crate) fn lower(config: &SoraConfig) -> Result<PathDefinitions, UniverseCatalogLoadError> {

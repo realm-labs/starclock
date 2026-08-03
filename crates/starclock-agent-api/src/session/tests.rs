@@ -1,7 +1,8 @@
 use super::*;
-use crate::action::AgentActionKind;
-use crate::observation::MAX_EVENTS_PER_PAGE;
-use crate::observation::VisibilityPolicy;
+use crate::{
+    action::AgentActionKind,
+    observation::{MAX_EVENTS_PER_PAGE, VisibilityPolicy},
+};
 use starclock_data::standard::SCENARIOS;
 
 fn request(scenario: &str, seed: AgentSeedPolicy) -> CreateSessionRequest {

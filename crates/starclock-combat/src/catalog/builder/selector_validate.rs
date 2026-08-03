@@ -1,10 +1,12 @@
 //! Rule-selector cross-reference, ordering and snapshot-safety validation.
 
-use crate::catalog::definition::SelectorDefinition;
-use crate::catalog::selector::RuleSelectorReference;
-use crate::catalog::selector::RuleUnitSelector;
-use crate::rule::model::ConditionExpr;
-use crate::rule::model::ValueExpr;
+use crate::{
+    catalog::{
+        definition::SelectorDefinition,
+        selector::{RuleSelectorReference, RuleUnitSelector},
+    },
+    rule::model::{ConditionExpr, ValueExpr},
+};
 use std::collections::BTreeSet;
 
 use crate::{EffectCategory, SelectorId, catalog::CombatCatalog};

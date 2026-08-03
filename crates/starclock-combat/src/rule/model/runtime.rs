@@ -1,3 +1,4 @@
+use super::{evaluate};
 // Runtime evaluation context and deterministic reaction identity types.
 
 /// Mutation-free proposal produced only by a `Replace` trigger.
@@ -20,10 +21,10 @@ pub struct RuleEvaluationInput<'a> {
     pub source_tags: &'a [SourceDefinitionId],
     pub slots: &'a [(StateSlotDefinitionId, RuleValue)],
     pub selectors: &'a [SelectorResult<'a>],
-    pub stat_reader: Option<&'a dyn super::evaluate::StatQueryReader>,
-    pub ability_parameter_reader: Option<&'a dyn super::evaluate::AbilityParameterReader>,
-    pub resource_reader: Option<&'a dyn super::evaluate::ResourceQueryReader>,
-    pub battle_query_reader: Option<&'a dyn super::evaluate::BattleQueryReader>,
+    pub stat_reader: Option<&'a dyn evaluate::StatQueryReader>,
+    pub ability_parameter_reader: Option<&'a dyn evaluate::AbilityParameterReader>,
+    pub resource_reader: Option<&'a dyn evaluate::ResourceQueryReader>,
+    pub battle_query_reader: Option<&'a dyn evaluate::BattleQueryReader>,
 }
 
 /// Stable key used to enforce one trigger occurrence.

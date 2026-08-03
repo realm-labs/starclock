@@ -17,15 +17,16 @@ use super::{
     },
     seeded_run::{SwarmSeededBoundary, SwarmSeededRunRequest},
 };
+use super::{seeded_run_tests, battle_materialization_tests, SwarmDisasterRuntimeInstance, tests};
 
 #[test]
 fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
-    let (instance, roster) = super::seeded_run_tests::representative_runtime();
+    let (instance, roster) = seeded_run_tests::representative_runtime();
     let request = request();
     let component_set = components(&instance, 0x44);
     assert_eq!(
         hex(component_set.root().bytes()),
-        "d92b016d97686e7a8286aa9ce7924bedf064e31692ea7e4ac37ed720b6656a54"
+        "f84d04bbda60990513518141ba51859d2c50c934541124720aab0f4627ec7c84"
     );
     let bytes = encode_complete_swarm_replay(
         &instance,
@@ -49,7 +50,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
         bytes
     );
 
-    let (fresh_instance, fresh_roster) = super::seeded_run_tests::representative_runtime();
+    let (fresh_instance, fresh_roster) = seeded_run_tests::representative_runtime();
     let verified = verify_complete_swarm_replay(
         &bytes,
         &fresh_instance,
@@ -64,7 +65,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert!(verified.battle_command_count() > 0);
     assert_eq!(
         hex(verified.final_state_hash().bytes()),
-        "caabb6cdfdcc827b592ce1fe3576600d84e06c0a68adbafb1bf663bd83b820db"
+        "9bcd99b334e4c4d7c75543799350025a460f7299c10531728999bf2b7588b01e"
     );
 
     let mut replay_digest = Sha256Sink::new();
@@ -78,7 +79,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(replay.records().len(), 264);
     assert_eq!(
         replay_digest,
-        "a909811127e983e2570fec815773b4d316d7d979ab785e7c36b8867e54326a9b"
+        "34a0d1614a4a68d7e066e866c62cf8700664bd103a3e88dadd1b7fb2eb8462be"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
@@ -90,11 +91,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "57e25a03413a24122e930fa4cb3141f2fa0bdb8606cf5e1c4105e389c240c58d"
+        "2b4456329e77bc411d32e6863826b2eadc572bbe320975cc61714121ce4249b2"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
-        "2a092c50d7cb0cedb44d3ca4e8d0d136785717413becaff13ff818174e448a85"
+        "ef665627289414fc803024438600b79e5dcc9a138fd1adfa2d0ea9de9ecffc8c"
     );
 
     assert_divergence(
@@ -192,7 +193,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
 fn request() -> SwarmSeededRunRequest {
     SwarmSeededRunRequest {
         seed: 20_001,
-        identity: super::battle_materialization_tests::activity_identity(),
+        identity: battle_materialization_tests::activity_identity(),
         activity_instance: ActivityInstanceId::new(1).unwrap(),
         config_digest: starclock_activity::ActivityConfigDigest::new([0x6d; 32]).unwrap(),
         boundary: SwarmSeededBoundary::Baseline,
@@ -200,15 +201,15 @@ fn request() -> SwarmSeededRunRequest {
 }
 
 fn components(
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
     controller: u8,
 ) -> ConfigurationComponentSet {
     let combat = instance.battle_catalog.combat();
     swarm_disaster_component_set(
-        super::tests::BUNDLE,
+        tests::BUNDLE,
         combat.digest().bytes(),
         [0x33; 32],
-        super::battle_materialization_tests::activity_identity()
+        battle_materialization_tests::activity_identity()
             .definition_digest()
             .bytes(),
         instance.battle_catalog.digest(),
@@ -220,7 +221,7 @@ fn components(
 
 fn assert_divergence(
     bytes: &[u8],
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
     request: SwarmSeededRunRequest,
     roster: &UniverseBattleRoster,
     components: &ConfigurationComponentSet,

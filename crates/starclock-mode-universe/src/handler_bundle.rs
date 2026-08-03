@@ -6,11 +6,11 @@ use starclock_activity::{
     ActivityHandlerRegistry, core_activity_handler_bundle,
 };
 
-use crate::occurrence_interaction::{
-    OCCURRENCE_INTERACTION_HANDLER_ID, execute as execute_occurrence_interaction,
-};
-use crate::service_interaction::{
-    SERVICE_INTERACTION_HANDLER_ID, execute as execute_service_interaction,
+use crate::{
+    occurrence_interaction::{
+        OCCURRENCE_INTERACTION_HANDLER_ID, execute as execute_occurrence_interaction,
+    },
+    service_interaction::{SERVICE_INTERACTION_HANDLER_ID, execute as execute_service_interaction},
 };
 
 pub const STANDARD_UNIVERSE_HANDLER_BUNDLE_ID: &str = "starclock.mode.standard-universe";

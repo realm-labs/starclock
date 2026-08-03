@@ -13,12 +13,12 @@ use std::{
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
-use crate::http_observability::{
-    DRAIN_TIMEOUT_SECONDS, HEALTH_PATH, HttpOperations, METRICS_PATH, READINESS_PATH,
-};
 use crate::{
     authorization::{
         AuthorizationFailure, AuthorizationPolicy, SUPPORTED_SCOPES, required_scope_for_json_rpc,
+    },
+    http_observability::{
+        DRAIN_TIMEOUT_SECONDS, HEALTH_PATH, HttpOperations, METRICS_PATH, READINESS_PATH,
     },
     metadata::MCP_PROTOCOL_REVISION,
     rate_limit::{McpRateLimiter, RateClass, RateLimitClock, RateLimitExceeded},

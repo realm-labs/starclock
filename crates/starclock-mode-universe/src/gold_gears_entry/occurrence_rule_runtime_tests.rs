@@ -14,6 +14,7 @@ use super::{
     state_layout::DEFERRED_EFFECTS_SLOT,
     tests::compiled_fixture,
 };
+use super::{tests};
 
 #[test]
 fn occurrence_partition_binds_exactly_384_terminal_rules() {
@@ -243,7 +244,7 @@ fn occurrence_selection_and_duplicate_execution_fail_without_state_or_rng_change
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn commit(

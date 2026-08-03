@@ -1,10 +1,10 @@
 //! Rule-IR resource mutations and Energy-regeneration scaling.
 
 use super::*;
-use crate::{Energy, EventId, Scalar, UnitId};
-
-use crate::catalog::CombatCatalog;
-use crate::resolver::operation_formula::FormulaInputs;
+use crate::{
+    Energy, EventId, Scalar, UnitId, catalog::CombatCatalog,
+    resolver::operation_formula::FormulaInputs,
+};
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn modify_resource(

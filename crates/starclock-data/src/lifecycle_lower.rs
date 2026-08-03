@@ -1,7 +1,9 @@
 //! Linked-unit and countdown lowering from generated Sora rows.
 
-use crate::generated::countdown_definition::CountdownDefinition as CountdownDefinitionCountdownDefinition;
-use crate::generated::linked_unit_definition::LinkedUnitDefinition as LinkedUnitDefinitionLinkedUnitDefinition;
+use crate::generated::{
+    countdown_definition::CountdownDefinition as CountdownDefinitionCountdownDefinition,
+    linked_unit_definition::LinkedUnitDefinition as LinkedUnitDefinitionLinkedUnitDefinition,
+};
 use std::collections::BTreeMap;
 
 use starclock_combat::{

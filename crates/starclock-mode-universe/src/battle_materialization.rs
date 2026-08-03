@@ -8,7 +8,6 @@ mod occurrence;
 mod player;
 mod runtime_roster;
 
-use crate::occurrence_battle::compile as occurrence_battle_compile;
 use crate::{
     battle_assembly::BattleAssemblyKey,
     battle_contribution::UniverseBattleContributionSet,
@@ -19,6 +18,7 @@ use crate::{
     encounter::{DifficultyEnemyBinding, EncounterMemberDefinition, EnemyRole},
     encounter_content_runtime::EncounterContentRuntimeCatalog,
     id::{DifficultyId, EncounterMemberId},
+    occurrence_battle::compile as occurrence_battle_compile,
 };
 use battle_spec::{difficulty_spec, member_spec};
 use catalog_composition::UniverseBattleCatalogComposition;

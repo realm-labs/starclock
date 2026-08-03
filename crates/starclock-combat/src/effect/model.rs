@@ -1,11 +1,11 @@
 //! Generic authored effect semantics. Content identities remain catalog data.
 
-use crate::rng::types::DrawPurpose;
 use crate::{
     EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
     catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     formula::model::{CombatElement, DamageClass},
     modifier::model::StatKind,
+    rng::types::DrawPurpose,
     rule::model::ValueExpr,
 };
 

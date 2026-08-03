@@ -28,6 +28,7 @@ use crate::{
     curio_runtime::{CurioContribution, CurioContributionSet},
 };
 
+use super::parameter;
 use super::{
     BattleRuleLoweringError, ExecutableBattleRule, RuleAttachment, all_ally_selector, curio_s01,
     propagation_s01, scalar,
@@ -51,10 +52,10 @@ pub(super) fn lower(
         let fragments = curios
             .runtime_value(ROBE_FRAGMENT_SNAPSHOT_KEY)
             .unwrap_or(0);
-        let divisor = whole(super::parameter(contribution.state().parameters(), 0)?)?;
+        let divisor = whole(parameter(contribution.state().parameters(), 0)?)?;
         let stacks = fragments / divisor;
         if stacks > 0 {
-            let ratio = super::parameter(contribution.state().parameters(), 1)?
+            let ratio = parameter(contribution.state().parameters(), 1)?
                 .checked_mul(stacks)
                 .ok_or(BattleRuleLoweringError::InvalidParameter)?;
             output.push(curio_s01::permanent_team_modifiers(
@@ -136,11 +137,8 @@ fn entry_protection(
         .iter()
         .map(|modifier| modifier.id)
         .collect::<Vec<_>>();
-    let duration = u16::try_from(whole(super::parameter(
-        contribution.state().parameters(),
-        1,
-    )?)?)
-    .map_err(|_| BattleRuleLoweringError::InvalidParameter)?;
+    let duration = u16::try_from(whole(parameter(contribution.state().parameters(), 1)?)?)
+        .map_err(|_| BattleRuleLoweringError::InvalidParameter)?;
     let effects = vec![
         EffectDefinition::new(protection, Vec::new(), protection_modifiers)
             .with_runtime_template(runtime(None, DurationClock::Permanent)?),

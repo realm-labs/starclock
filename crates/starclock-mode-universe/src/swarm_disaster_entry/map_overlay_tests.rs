@@ -10,6 +10,7 @@ use starclock_activity::{
 use crate::error::UniverseCatalogLoadErrorKind;
 
 use super::SwarmDisasterRuntimeFactory;
+use super::{state, tests, SwarmDisasterRuntimeInstance};
 
 #[test]
 fn creation_executes_bounded_domain_beacon_overlays_on_graph_stream() {
@@ -30,13 +31,13 @@ fn creation_executes_bounded_domain_beacon_overlays_on_graph_stream() {
     }
     assert_eq!(operation_counts, [33, 84, 24]);
 
-    let states = counter_map(&state, super::state::NODE_STATE);
+    let states = counter_map(&state, state::NODE_STATE);
     assert_eq!(states.len(), 47);
     assert!(states.iter().all(|(_, value)| *value == 1));
     assert_eq!(
         counter_value(
             &state,
-            super::state::NODE_DOMAIN,
+            state::NODE_DOMAIN,
             instance.plane_ends().next().unwrap()
         ),
         4
@@ -44,7 +45,7 @@ fn creation_executes_bounded_domain_beacon_overlays_on_graph_stream() {
     assert_eq!(
         instance
             .plane_ends()
-            .map(|node| counter_value(&state, super::state::NODE_DOMAIN, node))
+            .map(|node| counter_value(&state, state::NODE_DOMAIN, node))
             .collect::<Vec<_>>(),
         [4, 4, 8]
     );
@@ -96,17 +97,17 @@ fn replacement_domain_copy_and_blanking_preserve_explicit_beacon_state() {
         &instance,
         3,
     );
-    assert_eq!(counter_value(&state, super::state::NODE_DOMAIN, target), 10);
-    assert_eq!(counter_value(&state, super::state::NODE_BEACON, target), 2);
+    assert_eq!(counter_value(&state, state::NODE_DOMAIN, target), 10);
+    assert_eq!(counter_value(&state, state::NODE_BEACON, target), 2);
     assert_committed(
         &mut state,
         &instance.compile_node_blanking(target).unwrap(),
         &instance,
         4,
     );
-    assert_eq!(counter_value(&state, super::state::NODE_STATE, target), 4);
-    assert_eq!(counter_value(&state, super::state::NODE_DOMAIN, target), 0);
-    assert_eq!(counter_value(&state, super::state::NODE_BEACON, target), 2);
+    assert_eq!(counter_value(&state, state::NODE_STATE, target), 4);
+    assert_eq!(counter_value(&state, state::NODE_DOMAIN, target), 0);
+    assert_eq!(counter_value(&state, state::NODE_BEACON, target), 2);
     assert_eq!(
         instance
             .compile_node_blanking(NodeId::new(u32::MAX).unwrap())
@@ -159,12 +160,12 @@ fn map_event_precedes_creation_and_empty_candidates_consume_no_draw() {
     assert!(program.operations()[..3].iter().all(|operation| matches!(
         operation,
         starclock_activity::ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == super::state::PLANE
+            if slot.get() == state::PLANE
     )));
     assert!(matches!(
         program.operations()[3],
         starclock_activity::ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == super::state::NODE_STATE
+            if slot.get() == state::NODE_STATE
     ));
     let mut no_candidate = map_rng(&instance, 0x2002_0003);
     let before = graph_draws(&no_candidate);
@@ -177,28 +178,28 @@ fn map_event_precedes_creation_and_empty_candidates_consume_no_draw() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
-fn instance(factory: &SwarmDisasterRuntimeFactory) -> super::SwarmDisasterRuntimeInstance {
+fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::tests::participants(super::tests::policy()),
+            tests::participants(tests::policy()),
         ))
         .unwrap()
 }
 
-fn transaction_state(instance: &super::SwarmDisasterRuntimeInstance) -> ActivityTransactionState {
+fn transaction_state(instance: &SwarmDisasterRuntimeInstance) -> ActivityTransactionState {
     ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),
     )
 }
 
-fn map_rng(instance: &super::SwarmDisasterRuntimeInstance, seed: u64) -> ActivityRngStreams {
+fn map_rng(instance: &SwarmDisasterRuntimeInstance, seed: u64) -> ActivityRngStreams {
     let identity = ActivityDefinitionIdentity::new(
         ActivityDefinitionId::new(20).unwrap(),
         ActivityDefinitionDigest::new([0x20; 32]).unwrap(),
@@ -221,7 +222,7 @@ fn map_rng(instance: &super::SwarmDisasterRuntimeInstance, seed: u64) -> Activit
 fn assert_committed(
     state: &mut ActivityTransactionState,
     program: &ActivityProgramDefinition,
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
     sequence: u64,
 ) {
     assert!(matches!(
@@ -266,7 +267,7 @@ fn active_rng_labels(rng: &ActivityRngStreams) -> Vec<ActivityRngLabel> {
 }
 
 fn has_legal_route(
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
     state: &ActivityTransactionState,
     source: NodeId,
     target: NodeId,

@@ -1,12 +1,11 @@
 //! Generated Sora selector rows to typed combat selector plans.
 
-use crate::effect_lower::lower_element;
-use crate::generated::SoraConfig;
-use crate::generated::selector::Selector;
-use crate::generated::selector_predicate_node::SelectorPredicateNode;
-use crate::modifier_lower::expression;
-use crate::modifier_lower::stat as lower_stat;
-use crate::rule_lower::lower_comparison;
+use crate::{
+    effect_lower::lower_element,
+    generated::{SoraConfig, selector::Selector, selector_predicate_node::SelectorPredicateNode},
+    modifier_lower::{expression, stat as lower_stat},
+    rule_lower::lower_comparison,
+};
 use std::collections::BTreeSet;
 
 use crate::catalog::{CatalogLoadError, domain_fail, positive};

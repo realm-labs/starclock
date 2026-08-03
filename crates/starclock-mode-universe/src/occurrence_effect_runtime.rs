@@ -1,11 +1,11 @@
 //! Closed typed execution plans for every Standard Universe Occurrence choice.
 
-use crate::path::ExactParameter;
 use crate::{
     catalog::UniverseCatalog,
     digest::Encoder,
     id::{OccurrenceChoiceId, OccurrenceVariantId},
     occurrence::{OccurrenceCost, OccurrenceOutcome, RandomOutcomePolicy},
+    path::ExactParameter,
     run_runtime::{OccurrenceRuntimeChoice, RunRuntimeCatalog},
 };
 

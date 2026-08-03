@@ -16,8 +16,10 @@ use starclock_combat::{
     rule::model::RuleValue,
 };
 
-use crate::battle_event_cause::encode_cause;
-use crate::codec::{CodecError, Encoder};
+use crate::{
+    battle_event_cause::encode_cause,
+    codec::{CodecError, Encoder},
+};
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(

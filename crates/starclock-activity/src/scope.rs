@@ -1,5 +1,7 @@
-use crate::codec::CanonicalWriter;
-use crate::{ActivityGraphDefinition, ActivityInstanceId, AttemptId, NodeId, SectionId};
+use crate::{
+    ActivityGraphDefinition, ActivityInstanceId, AttemptId, NodeId, SectionId,
+    codec::CanonicalWriter,
+};
 
 /// Generic activity-owned lifetime. Battle and shorter lifetimes remain combat-owned.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

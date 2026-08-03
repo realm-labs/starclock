@@ -1,46 +1,47 @@
-use crate::action::lower::QueuedActionContext;
-use crate::action::lower::lower_queued_action;
-use crate::action::model::HitPlan;
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::AbilityKind;
-use crate::catalog::action::AbilityProgramTiming;
-use crate::catalog::action::HitCritPolicy;
-use crate::catalog::action::HitTargetGroup;
-use crate::catalog::action::OrdinaryDamageDefinition;
-use crate::catalog::action::ReactionBoundary;
-use crate::catalog::action::ScalingDamageDefinition;
-use crate::catalog::action::SkillPointPaymentPolicy;
-use crate::catalog::encounter::WaveTransitionPolicy;
-use crate::command::legal::ability_owner;
-use crate::formula::model::DamageClass;
-use crate::modifier::model::SnapshotPolicy;
-use crate::modifier::resolve::StatResolver;
-use crate::reaction::queue::QueuedAction;
-use crate::resource::check::can_pay_with_policy;
-use crate::rule::model::SlotResetPoint;
-use crate::target::model::TargetCommitment;
 use crate::{
     ActionCancellationReason, ActionOrigin, ControlledAction, DiagnosticRecord, EffectTickPhase,
     Energy, FaultBoundary, FaultKind, FaultPolicy, LifeState, Ratio, Rounding, Scalar,
     SkillPointPayer, UnitId,
-    action::model::ActionPlan,
+    action::{
+        lower::{QueuedActionContext, lower_queued_action},
+        model::{ActionPlan, HitPlan},
+    },
     battle::fault::BattleFault,
-    catalog::action::HitOperationDefinition,
+    catalog::{
+        CombatCatalog,
+        action::{
+            AbilityKind, AbilityProgramTiming, HitCritPolicy, HitOperationDefinition,
+            HitTargetGroup, OrdinaryDamageDefinition, ReactionBoundary, ScalingDamageDefinition,
+            SkillPointPaymentPolicy,
+        },
+        encounter::WaveTransitionPolicy,
+    },
+    command::legal::ability_owner,
     event::{
         cause::{Cause, CauseActor},
         model::{
             ActionEventData, BattleEventKind, HitEventData, PhaseEventData, ResourceEventData,
         },
     },
+    formula::model::DamageClass,
     id::{CommandId, EventId, SourceDefinitionId},
+    modifier::{model::SnapshotPolicy, resolve::StatResolver},
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
         EncounterLifecycleOp, EnemyPhaseOp, HealOp, HitOperationScratch, ModifyStateSlotOp,
         ModifyTeamResourceOp, Operation, QueueActionOp, ReduceToughnessOp, RemoveEffectsOp,
         ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
+    reaction::queue::QueuedAction,
+    resource::check::can_pay_with_policy,
+    rule::model::SlotResetPoint,
+    target::model::TargetCommitment,
 };
 
+use super::{
+    effect_boundary, lifecycle, modifier_snapshot, operation, operation_formula, program, rule,
+    settle, stat_input, transaction,
+};
 use super::{
     operation::execute_operation,
     program::{AbilityProgramContext, execute_ability_program},
@@ -144,8 +145,8 @@ pub(super) fn drain_reactions(
             continue;
         }
         parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
-        let cause = super::transaction::action_cause(queued.root, &plan)?;
-        parent = super::operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
+        let cause = transaction::action_cause(queued.root, &plan)?;
+        parent = operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     }
     Ok(parent)
 }
@@ -222,9 +223,9 @@ pub(super) fn execute_action_plan(
         &mut HitOperationScratch::default(),
     )?;
     parent = apply_resource_costs(txn, base, parent, plan)?;
-    super::modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnActionStart)?;
+    modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnActionStart)?;
     txn.reset_rule_slots(SlotResetPoint::ActionStart, Some(plan.actor));
-    parent = super::effect_boundary::tick(
+    parent = effect_boundary::tick(
         catalog,
         txn,
         base.with_applier(plan.owner),
@@ -242,7 +243,7 @@ pub(super) fn execute_action_plan(
             tags: plan.tags,
         }),
     );
-    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
     parent = run_programs_at(
         catalog,
         txn,
@@ -253,11 +254,11 @@ pub(super) fn execute_action_plan(
         None,
         &mut HitOperationScratch::default(),
     )?;
-    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
     let phases = plan.phases.clone();
     for phase in &phases {
         let phase_cause = base.with_phase(phase.id);
-        super::modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnPhaseStart)?;
+        modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnPhaseStart)?;
         parent = txn.emit(
             phase_cause.with_parent(parent),
             BattleEventKind::Phase(PhaseEventData::Started {
@@ -265,7 +266,7 @@ pub(super) fn execute_action_plan(
                 phase: phase.id,
             }),
         );
-        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
         for hit in &phase.hits {
             txn.reset_rule_slots(SlotResetPoint::HitStart, Some(plan.actor));
             let mut operation_scratch = HitOperationScratch::default();
@@ -273,7 +274,7 @@ pub(super) fn execute_action_plan(
             let selected = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
             let targets =
                 project_hit_targets(txn, plan.actor, &plan.targets, hit.target_group, selected)?;
-            super::modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnHitStart)?;
+            modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnHitStart)?;
             let hit_cause = phase_cause
                 .with_hit(hit.id)
                 .with_primary_target(plan.targets.primary);
@@ -286,7 +287,7 @@ pub(super) fn execute_action_plan(
                     targets: targets.clone(),
                 }),
             );
-            parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+            parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
             parent = run_programs_at(
                 catalog,
                 txn,
@@ -297,7 +298,7 @@ pub(super) fn execute_action_plan(
                 Some(hit),
                 &mut operation_scratch,
             )?;
-            parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+            parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
             for operation in &hit.operations {
                 let request = match &operation.definition {
                     HitOperationDefinition::ScalingDamage(definition) => {
@@ -466,7 +467,7 @@ pub(super) fn execute_action_plan(
                     request,
                     &mut operation_scratch,
                 )?;
-                parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+                parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
             }
             txn.increment_entanglement_for_hit(&targets)?;
             parent = txn.emit(
@@ -478,9 +479,9 @@ pub(super) fn execute_action_plan(
                     targets,
                 }),
             );
-            parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+            parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
             parent = drain_reactions(catalog, txn, ReactionBoundary::AfterHit, parent)?;
-            parent = super::settle::settle_wave_boundary(
+            parent = settle::settle_wave_boundary(
                 catalog,
                 txn,
                 hit_cause,
@@ -498,7 +499,7 @@ pub(super) fn execute_action_plan(
             None,
             &mut HitOperationScratch::default(),
         )?;
-        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
         parent = txn.emit(
             phase_cause.with_parent(parent),
             BattleEventKind::Phase(PhaseEventData::Ended {
@@ -506,9 +507,9 @@ pub(super) fn execute_action_plan(
                 phase: phase.id,
             }),
         );
-        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
         parent = drain_reactions(catalog, txn, ReactionBoundary::AfterPhase, parent)?;
-        parent = super::settle::settle_wave_boundary(
+        parent = settle::settle_wave_boundary(
             catalog,
             txn,
             phase_cause,
@@ -526,14 +527,14 @@ pub(super) fn execute_action_plan(
         None,
         &mut HitOperationScratch::default(),
     )?;
-    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
     if plan.origin == ActionOrigin::Countdown
         && catalog
             .countdown_for_ability(plan.ability)
             .is_some_and(|definition| definition.definition().ends_transformation())
     {
         let operation = txn.allocate_operation();
-        parent = super::lifecycle::execute_end_transform(
+        parent = lifecycle::execute_end_transform(
             txn,
             base.with_applier(plan.owner),
             parent,
@@ -555,7 +556,7 @@ pub(super) fn execute_action_plan(
             targets: plan.targets.targets.clone(),
         }),
     );
-    super::rule::dispatch_pending_after_events(catalog, txn, parent)
+    rule::dispatch_pending_after_events(catalog, txn, parent)
 }
 
 fn resolve_scaling_damage(
@@ -564,17 +565,19 @@ fn resolve_scaling_damage(
     actor: UnitId,
     definition: ScalingDamageDefinition,
 ) -> Result<OrdinaryDamageDefinition, BattleFault> {
-    use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
-    use crate::rule::evaluate::StatQueryReader;
+    use crate::{
+        modifier::model::{FormulaPurpose, StatQuerySubject},
+        rule::evaluate::StatQueryReader,
+    };
 
-    let bases = super::program::stat_bases(txn)?;
+    let bases = program::stat_bases(txn)?;
     let modifiers = txn
         .state
         .modifiers
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
-    let shields = super::stat_input::shield_values(txn);
+    let shields = stat_input::shield_values(txn);
     let reader =
         StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
     let purpose = match definition.class() {
@@ -843,7 +846,7 @@ fn apply_resource_gains(
         );
     }
     if policy.energy_gain() > Energy::ZERO {
-        let rate = super::operation_formula::FormulaInputs::new(txn)?
+        let rate = operation_formula::FormulaInputs::new(txn)?
             .energy_regeneration_rate(catalog, txn, cause, plan.actor)?;
         let gain = Scalar::from_scaled(policy.energy_gain().scaled())
             .checked_mul(rate, Rounding::NearestTiesEven)

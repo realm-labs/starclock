@@ -1,9 +1,9 @@
 //! Current production Standard scenario catalog and battle instantiation.
 
-use crate::CharacterDataDefinition;
-use crate::catalog::CatalogManifest;
-use crate::catalog::CatalogSummary;
-use crate::catalog::load as catalog_load;
+use crate::{
+    CharacterDataDefinition,
+    catalog::{CatalogManifest, CatalogSummary, load as catalog_load},
+};
 use std::{collections::BTreeSet, sync::Arc};
 
 use crate::catalog::SimulationCatalog;

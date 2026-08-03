@@ -9,6 +9,7 @@ use starclock_activity::{
 
 use crate::digest::Encoder;
 
+use super::SwarmDisasterRuntimeInstance;
 use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory,
     baseline_fixture::{SwarmDisasterBaselineFixture, SwarmDisasterBaselineFixtureError},
@@ -165,7 +166,7 @@ impl SwarmDisasterPerformanceFixture {
 }
 
 fn commit(
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
     state: &mut ActivityTransactionState,
     program: starclock_activity::ActivityProgramDefinition,
 ) -> Result<(), SwarmDisasterPerformanceFixtureError> {

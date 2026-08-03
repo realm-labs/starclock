@@ -1,9 +1,9 @@
 //! Cross-reference checks for lifecycle operations and linked combatants.
 
-use crate::catalog::action::AbilityKind;
-use crate::catalog::definition::AbilityDefinition;
 use crate::{
-    LinkedEntityKind, LinkedUnitDefinition, ProgramId, rule::model::RuleOperationTemplate,
+    LinkedEntityKind, LinkedUnitDefinition, ProgramId,
+    catalog::{action::AbilityKind, definition::AbilityDefinition},
+    rule::model::RuleOperationTemplate,
 };
 
 use super::{CatalogBuildError, CombatCatalog, DefinitionKind, require};

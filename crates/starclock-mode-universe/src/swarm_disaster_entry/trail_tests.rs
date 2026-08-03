@@ -9,6 +9,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     trail::TrailRuntimeCatalog,
 };
+use super::{dice_control, state, trail, tests};
 
 #[test]
 fn frozen_trail_catalog_retains_exact_chains_and_projection_denominators() {
@@ -98,13 +99,13 @@ fn run_start_activity_effects_commit_once_and_stale_program_rejects() {
     commit(&instance, &mut state, program);
 
     assert_eq!(resource(&state, 1), 150);
-    assert_eq!(resource(&state, super::dice_control::CHEAT_CHARGE_KEY), 1);
+    assert_eq!(resource(&state, dice_control::CHEAT_CHARGE_KEY), 1);
     assert_eq!(instance.countdown(&state).unwrap(), 22);
     assert_eq!(
         counter(
             &state,
-            super::state::PROGRESSION,
-            super::trail::RUN_START_APPLIED_KEY
+            state::PROGRESSION,
+            trail::RUN_START_APPLIED_KEY
         ),
         1
     );
@@ -157,7 +158,7 @@ fn dice_and_plane_effects_execute_at_their_declared_boundaries() {
         .unwrap();
     commit(&instance, &mut transition_state, completion);
     assert_eq!(
-        resource(&transition_state, super::dice_control::REROLL_CHARGE_KEY),
+        resource(&transition_state, dice_control::REROLL_CHARGE_KEY),
         1
     );
 }
@@ -223,11 +224,11 @@ fn battle_projections_retain_exact_parameters_and_bounded_entry_accounting() {
             .unwrap()
             .is_none()
     );
-    assert_eq!(counter(&state, super::state::PROGRESSION, 3), 4);
+    assert_eq!(counter(&state, state::PROGRESSION, 3), 4);
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn full_instance(
@@ -257,11 +258,11 @@ fn entry(
     progression: Vec<String>,
     abandon: bool,
 ) -> SwarmDisasterEntry {
-    let entry = super::tests::released_entry(
+    let entry = tests::released_entry(
         "swarm-disaster.area.201",
         "universe.path.destruction",
         "swarm-disaster.audience-die.6",
-        super::tests::participants(super::tests::policy()),
+        tests::participants(tests::policy()),
     )
     .with_progression(points, progression, None);
     if abandon {
@@ -311,7 +312,7 @@ fn counter(state: &ActivityTransactionState, slot_id: u32, key: u64) -> i64 {
 }
 
 fn resource(state: &ActivityTransactionState, key: u64) -> i64 {
-    counter(state, super::state::RESOURCES, key)
+    counter(state, state::RESOURCES, key)
 }
 
 fn activity_rng(instance: &SwarmDisasterRuntimeInstance, seed: u64) -> ActivityRngStreams {

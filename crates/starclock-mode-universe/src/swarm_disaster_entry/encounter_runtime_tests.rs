@@ -11,6 +11,7 @@ use super::encounter_runtime::{
     SWARM_DISASTER_ENCOUNTER_POLICY_REPLACEMENT_CONDITION,
 };
 use super::{SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance};
+use super::{tests};
 
 #[test]
 fn catalog_closes_groups_members_waves_slots_and_boss_pools() {
@@ -206,16 +207,16 @@ fn unresolved_nodes_and_mismatched_boss_domains_fail_before_rng() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(factory: &SwarmDisasterRuntimeFactory, difficulty: u8) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             format!("swarm-disaster.area.20{difficulty}"),
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::tests::participants(super::tests::policy()),
+            tests::participants(tests::policy()),
         ))
         .unwrap()
 }

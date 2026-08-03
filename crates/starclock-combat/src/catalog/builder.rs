@@ -16,15 +16,15 @@ use super::{
     encounter::AiGraphDefinition,
     table::{DefinitionTable, DuplicateId},
 };
+use super::{action, definition, encounter, index, rule_validate, table as parent_table};
 use crate::{
     ActionOrigin, AiStateId, CountdownCatalogDefinition, LinkedUnitCatalogDefinition, ProgramId,
+    modifier::{
+        model::{ModifierDefinition, ModifierStackingGroup},
+        registry::ModifierRegistry,
+    },
+    rule::model::ProgramStep,
 };
-
-use crate::modifier::{
-    model::{ModifierDefinition, ModifierStackingGroup},
-    registry::ModifierRegistry,
-};
-use crate::rule::model::ProgramStep;
 use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
 
@@ -250,15 +250,15 @@ impl CombatCatalogBuilder {
             ai_graphs: table(self.ai_graphs, DefinitionKind::AiGraph)?,
             enemies: table(self.enemies, DefinitionKind::Enemy)?,
             encounters: table(self.encounters, DefinitionKind::Encounter)?,
-            trigger_index: super::index::TriggerDefinitionIndex::default(),
+            trigger_index: index::TriggerDefinitionIndex::default(),
         };
         validate_references(&catalog)?;
         selector_validate::validate(&catalog)?;
         validate_ai_graphs(&catalog)?;
         validate_program_cycles(&catalog)?;
-        super::rule_validate::validate(&catalog)?;
+        rule_validate::validate(&catalog)?;
         let mut catalog = catalog;
-        catalog.trigger_index = super::index::TriggerDefinitionIndex::compile(&catalog.rules);
+        catalog.trigger_index = index::TriggerDefinitionIndex::compile(&catalog.rules);
         Ok(Arc::new(catalog))
     }
 }
@@ -269,7 +269,7 @@ fn table<I, D>(
 ) -> Result<DefinitionTable<I, D>, CatalogBuildError>
 where
     I: Copy + core::fmt::Debug + Ord,
-    D: super::table::Identified<I>,
+    D: parent_table::Identified<I>,
 {
     DefinitionTable::from_unsorted(definitions).map_err(|DuplicateId(id)| {
         error(
@@ -366,8 +366,8 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         if catalog
             .abilities
             .get(countdown.ability())
-            .and_then(super::definition::AbilityDefinition::action)
-            .is_none_or(|action| action.kind() != super::action::AbilityKind::Countdown)
+            .and_then(definition::AbilityDefinition::action)
+            .is_none_or(|action| action.kind() != action::AbilityKind::Countdown)
         {
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,
@@ -449,8 +449,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             ));
         }
         if ability.action().is_some_and(|action| {
-            action.kind() == super::action::AbilityKind::Ultimate
-                && !action.resources().has_payable_cost()
+            action.kind() == action::AbilityKind::Ultimate && !action.resources().has_payable_cost()
         }) {
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,
@@ -464,11 +463,11 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             for operation in action
                 .hits()
                 .iter()
-                .flat_map(super::action::ActionHitDefinition::operations)
+                .flat_map(action::ActionHitDefinition::operations)
             {
-                let super::action::HitOperationDefinition::QueueAction(queue) = operation else {
+                let action::HitOperationDefinition::QueueAction(queue) = operation else {
                     match operation {
-                        super::action::HitOperationDefinition::SummonLinked(linked) => {
+                        action::HitOperationDefinition::SummonLinked(linked) => {
                             if !lifecycle_validate::valid_linked_definition(catalog, linked) {
                                 return Err(error(
                                     CatalogBuildErrorKind::InvalidDefinition,
@@ -479,7 +478,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                                 ));
                             }
                         }
-                        super::action::HitOperationDefinition::Transform(transform) => {
+                        action::HitOperationDefinition::Transform(transform) => {
                             let valid =
                                 catalog.units.get(transform.replacement_form()).is_some_and(
                                     |unit| {
@@ -492,9 +491,9 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                                     catalog
                                         .abilities
                                         .get(countdown.ability())
-                                        .and_then(super::definition::AbilityDefinition::action)
+                                        .and_then(definition::AbilityDefinition::action)
                                         .is_some_and(|action| {
-                                            action.kind() == super::action::AbilityKind::Countdown
+                                            action.kind() == action::AbilityKind::Countdown
                                         })
                                 });
                             if !valid {
@@ -514,7 +513,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 let Some(queued) = catalog
                     .abilities
                     .get(queue.ability())
-                    .and_then(super::definition::AbilityDefinition::action)
+                    .and_then(definition::AbilityDefinition::action)
                 else {
                     return Err(error(
                         CatalogBuildErrorKind::InvalidDefinition,
@@ -527,26 +526,23 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 };
                 let compatible = matches!(
                     (queue.origin(), queued.kind()),
-                    (ActionOrigin::FollowUp, super::action::AbilityKind::FollowUp)
+                    (ActionOrigin::FollowUp, action::AbilityKind::FollowUp)
                         | (
                             ActionOrigin::UltimateInterrupt,
-                            super::action::AbilityKind::Ultimate
+                            action::AbilityKind::Ultimate
                         )
-                        | (ActionOrigin::Counter, super::action::AbilityKind::Counter)
-                        | (
-                            ActionOrigin::ExtraTurn,
-                            super::action::AbilityKind::ExtraTurn
-                        )
+                        | (ActionOrigin::Counter, action::AbilityKind::Counter)
+                        | (ActionOrigin::ExtraTurn, action::AbilityKind::ExtraTurn)
                         | (
                             ActionOrigin::ExtraAction | ActionOrigin::Forced,
-                            super::action::AbilityKind::ExtraAction
+                            action::AbilityKind::ExtraAction
                         )
                         | (
                             ActionOrigin::DelayedAction,
-                            super::action::AbilityKind::DelayedAction
+                            action::AbilityKind::DelayedAction
                         )
                 ) || (queue.origin() == ActionOrigin::Forced
-                    && queued.kind() == super::action::AbilityKind::Skill
+                    && queued.kind() == action::AbilityKind::Skill
                     && queued.tags().supports_forced_skill());
                 if !compatible {
                     return Err(error(
@@ -718,7 +714,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                     program.get(),
                 )?;
             }
-            if let super::encounter::EnemyPhaseTransitionModel::ReplaceLinkedVariant(replacement) =
+            if let encounter::EnemyPhaseTransitionModel::ReplaceLinkedVariant(replacement) =
                 phase.transition()
             {
                 require(
@@ -890,15 +886,14 @@ fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> 
                 )?;
                 if matches!(
                     candidate.selection(),
-                    super::encounter::AiCandidateSelection::WeightedDraw { weight: 0, .. }
+                    encounter::AiCandidateSelection::WeightedDraw { weight: 0, .. }
                 ) {
                     return Err(error(
                         CatalogBuildErrorKind::InvalidDefinition,
                         format!("AI graph {} has a zero-weight candidate", graph_id.get()),
                     ));
                 }
-                if let super::encounter::AiNoTargetFallback::Transition(target) =
-                    candidate.no_target()
+                if let encounter::AiNoTargetFallback::Transition(target) = candidate.no_target()
                     && !state_ids.contains(&target)
                 {
                     return Err(error(
@@ -909,7 +904,7 @@ fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> 
                         ),
                     ));
                 }
-                if let super::encounter::AiNoTargetFallback::UseFallbackAbility(ability) =
+                if let encounter::AiNoTargetFallback::UseFallbackAbility(ability) =
                     candidate.no_target()
                 {
                     require(
@@ -962,8 +957,7 @@ fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> 
                         .transitions()
                         .iter()
                         .filter(|item| {
-                            item.timing()
-                                == super::encounter::AiTransitionTiming::AutomaticBeforeDecision
+                            item.timing() == encounter::AiTransitionTiming::AutomaticBeforeDecision
                         })
                         .map(|item| item.target())
                         .collect::<Vec<_>>(),

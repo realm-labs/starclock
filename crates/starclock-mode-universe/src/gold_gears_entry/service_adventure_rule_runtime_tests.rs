@@ -16,6 +16,7 @@ use super::{
     state_layout::{DEFERRED_EFFECTS_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY, RUN_RESOURCES_SLOT},
     tests::compiled_fixture,
 };
+use super::{tests};
 
 const FIXTURE_FUNDING: i64 = 100_000;
 
@@ -237,7 +238,7 @@ fn service_and_adventure_rejections_preserve_state_and_rng() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn funding_program() -> ActivityProgramDefinition {

@@ -11,14 +11,11 @@ mod rule_validate;
 pub mod selector;
 mod table;
 
-use crate::modifier::{model::ModifierDefinition, registry::ModifierRegistry};
 use crate::{
     AbilityId, AiGraphId, CountdownCatalogDefinition, EffectDefinitionId, EncounterId,
     EnemyDefinitionId, LinkedUnitCatalogDefinition, ModifierDefinitionId, ProgramId, RuleBundleId,
-    RuleId, SelectorId, UnitDefinitionId,
-};
-use crate::{
-    TriggerId,
+    RuleId, SelectorId, TriggerId, UnitDefinitionId,
+    modifier::{model::ModifierDefinition, registry::ModifierRegistry},
     rule::model::{RuleEventKind, TriggerPhase},
 };
 use definition::{

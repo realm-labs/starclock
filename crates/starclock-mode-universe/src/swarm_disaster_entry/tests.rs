@@ -8,6 +8,7 @@ use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use crate::error::UniverseCatalogLoadErrorKind;
 
 use super::*;
+use super::{topology};
 
 pub(super) const BUNDLE: &[u8] =
     include_bytes!("../../../../config/swarm-disaster-generated/config.sora");
@@ -179,9 +180,9 @@ fn topology_scopes_and_route_validation_are_bounded_and_fail_closed() {
             .map(|class| (class.id().get(), class.maximum_instances()))
             .collect::<Vec<_>>(),
         [
-            (super::topology::PLANE_BOARD_SCOPE_CLASS, 3),
-            (super::topology::BOARD_NODE_VISIT_SCOPE_CLASS, 1_991),
-            (super::topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
+            (topology::PLANE_BOARD_SCOPE_CLASS, 3),
+            (topology::BOARD_NODE_VISIT_SCOPE_CLASS, 1_991),
+            (topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
         ]
     );
     assert_eq!(
@@ -196,13 +197,13 @@ fn topology_scopes_and_route_validation_are_bounded_and_fail_closed() {
     let mut bad_order = factory.structural.topology_input(1).unwrap();
     bad_order.planes[0].plane_number = 2;
     assert_eq!(
-        super::topology::compile(bad_order).unwrap_err().kind(),
+        topology::compile(bad_order).unwrap_err().kind(),
         UniverseCatalogLoadErrorKind::InvalidGraph
     );
     let mut bad_route = factory.structural.topology_input(1).unwrap();
     bad_route.planes[0].edges[0].target = bad_route.planes[0].edges[0].source;
     assert_eq!(
-        super::topology::compile(bad_route).unwrap_err().kind(),
+        topology::compile(bad_route).unwrap_err().kind(),
         UniverseCatalogLoadErrorKind::InvalidGraph
     );
 }

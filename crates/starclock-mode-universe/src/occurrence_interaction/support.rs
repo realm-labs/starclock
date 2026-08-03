@@ -1,6 +1,5 @@
 use super::*;
-use crate::curio_activity::GOSSIP_CURIO_CONTENT;
-use crate::path::ExactParameter;
+use crate::{curio_activity::GOSSIP_CURIO_CONTENT, path::ExactParameter};
 
 const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 

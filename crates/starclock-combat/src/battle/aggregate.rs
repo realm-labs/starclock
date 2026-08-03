@@ -1,19 +1,17 @@
-use crate::actor::store::CharacterResourceState;
-use crate::actor::store::LinkStore;
+use crate::actor::store::{CharacterResourceState, LinkStore};
 #[cfg(feature = "benchmark-instrumentation")]
 use crate::benchmark::BattlePerformanceSnapshot;
 use crate::catalog::encounter::EnemyPhaseDefinition;
 #[cfg(feature = "benchmark-instrumentation")]
 use crate::codec::canonical_state_len;
-use crate::effect::break_effect::BreakEffectStore;
-use crate::effect::shield::ShieldStore;
-use crate::effect::state::EffectStore;
-use crate::modifier::model::ActiveModifier;
-use crate::modifier::state::ModifierStore;
-use crate::resolver::modifier_snapshot::initialize_battle;
-use crate::rule::state::RuleStateStore;
-use crate::timeline::state::TimelineState;
-use crate::toughness::state::ToughnessLayerState;
+use crate::{
+    effect::{break_effect::BreakEffectStore, shield::ShieldStore, state::EffectStore},
+    modifier::{model::ActiveModifier, state::ModifierStore},
+    resolver::modifier_snapshot::initialize_battle,
+    rule::state::RuleStateStore,
+    timeline::state::TimelineState,
+    toughness::state::ToughnessLayerState,
+};
 use std::sync::Arc;
 
 use crate::{
@@ -37,8 +35,10 @@ use crate::{
 };
 
 use super::{
+    build,
     build::{BattleBuildError, validate as validate_build},
     model::{BattlePhase, Resolution, ResolutionBoundary},
+    spec,
     spec::{BattleSeed, BattleSpec, TeamSide},
     state::{BattleIdentity, BattleState, EncounterState, SequenceState},
     view::BattleView,
@@ -293,7 +293,7 @@ impl Battle {
             committed_revision: 0,
         };
         initialize_battle(&catalog, &mut state)
-            .map_err(super::build::BattleBuildError::invalid_modifier_snapshot)?;
+            .map_err(build::BattleBuildError::invalid_modifier_snapshot)?;
         Ok(Self {
             _catalog: catalog,
             state,
@@ -406,9 +406,9 @@ impl Battle {
 fn encounter_slot(
     catalog: &CombatCatalog,
     spec: &BattleSpec,
-    participant: &super::spec::ParticipantSpec,
+    participant: &spec::ParticipantSpec,
 ) -> Option<(EnemyDefinitionId, Option<EnemyPhaseId>)> {
-    let super::spec::ParticipantSource::EncounterEnemy(enemy) = participant.source() else {
+    let spec::ParticipantSource::EncounterEnemy(enemy) = participant.source() else {
         return None;
     };
     let slot = catalog
@@ -452,8 +452,7 @@ fn enemy_runtime(
 
 #[cfg(test)]
 mod tests {
-    use crate::DecisionId;
-    use crate::Energy;
+    use crate::{DecisionId, Energy};
     use proptest::{
         collection::vec,
         prelude::*,

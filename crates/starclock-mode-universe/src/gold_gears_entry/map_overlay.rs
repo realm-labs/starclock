@@ -14,6 +14,7 @@ use crate::{
     gold_gears_structural::GoldAndGearsStructuralCatalog,
 };
 
+use super::state_layout;
 use super::{
     GoldAndGearsEntryError,
     state_layout::{
@@ -321,7 +322,7 @@ impl MapRuntimeCatalog {
         let blank = self.domain("gold-gears.domain.empty")?;
         let domains = map_values(state, BOARD_NODE_DOMAIN_SLOT);
         let states = map_values(state, BOARD_NODE_STATE_SLOT);
-        let knowledge = map_values(state, super::state_layout::KNOWLEDGE_SLOT);
+        let knowledge = map_values(state, state_layout::KNOWLEDGE_SLOT);
         let anchor = anchor.unwrap_or(state.current_node());
         let adjacent = graph
             .edges()
@@ -507,7 +508,7 @@ impl MapRuntimeCatalog {
         let blank = self.domain("gold-gears.domain.empty")?;
         let domains = map_values(state, BOARD_NODE_DOMAIN_SLOT);
         let beacons = map_values(state, BOARD_NODE_BEACON_SLOT);
-        let knowledge = map_values(state, super::state_layout::KNOWLEDGE_SLOT);
+        let knowledge = map_values(state, state_layout::KNOWLEDGE_SLOT);
         let node_states = map_values(state, BOARD_NODE_STATE_SLOT);
         let adjacent = graph
             .edges()

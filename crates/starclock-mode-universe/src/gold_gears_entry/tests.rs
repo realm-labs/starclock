@@ -17,6 +17,7 @@ use crate::{
 };
 
 use super::*;
+use super::{topology};
 
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 
@@ -521,9 +522,9 @@ fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
             .map(|class| (class.id().get(), class.maximum_instances()))
             .collect::<Vec<_>>(),
         [
-            (super::topology::PLANE_BOARD_SCOPE_CLASS, 3),
-            (super::topology::BOARD_NODE_VISIT_SCOPE_CLASS, 2_502),
-            (super::topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
+            (topology::PLANE_BOARD_SCOPE_CLASS, 3),
+            (topology::BOARD_NODE_VISIT_SCOPE_CLASS, 2_502),
+            (topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
         ]
     );
     assert_eq!(

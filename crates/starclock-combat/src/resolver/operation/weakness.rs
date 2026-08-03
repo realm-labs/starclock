@@ -1,5 +1,4 @@
 use super::{Transaction, invariant_fault};
-use crate::resolver::program::actor_basic_element;
 use crate::{
     LifeState, PresenceState,
     battle::fault::BattleFault,
@@ -10,6 +9,7 @@ use crate::{
     },
     id::EventId,
     operation::{AddWeaknessFromAlliedElementsOp, AddWeaknessOp},
+    resolver::program::actor_basic_element,
     rng::types::DrawPurpose,
 };
 

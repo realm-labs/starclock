@@ -10,6 +10,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     dice_control::DiceControlRuntimeCatalog,
 };
+use super::{state, dice_control, tests};
 
 #[test]
 fn four_authored_controls_compile_exact_policy_and_unlock() {
@@ -20,7 +21,7 @@ fn four_authored_controls_compile_exact_policy_and_unlock() {
         .state_definition()
         .slots()
         .iter()
-        .find(|slot| slot.id().get() == super::state::RESOURCES)
+        .find(|slot| slot.id().get() == state::RESOURCES)
         .unwrap();
     assert_eq!(resources.owner(), ActivityScope::Activity);
     assert_eq!(resources.carry(), SlotCarryPolicy::CarryExact);
@@ -28,7 +29,7 @@ fn four_authored_controls_compile_exact_policy_and_unlock() {
         .state_definition()
         .slots()
         .iter()
-        .find(|slot| slot.id().get() == super::state::DICE_RESOLUTION)
+        .find(|slot| slot.id().get() == state::DICE_RESOLUTION)
         .unwrap();
     assert_eq!(resolution.owner(), ActivityScope::Attempt);
     assert_eq!(resolution.carry(), SlotCarryPolicy::Reset);
@@ -86,7 +87,7 @@ fn reroll_and_cheat_consume_exact_charges_with_isolated_rng() {
     assert_one_spawn_draw(&before_reroll, &rng.snapshots());
     commit(&instance, &mut state, reroll);
     assert_eq!(instance.dice_resolution_kind(&state).unwrap(), Some(2));
-    assert_eq!(resource(&state, super::dice_control::REROLL_CHARGE_KEY), 0);
+    assert_eq!(resource(&state, dice_control::REROLL_CHARGE_KEY), 0);
 
     let selected = instance.audience_die_faces().next().unwrap().to_owned();
     let before_cheat = rng.snapshots();
@@ -100,7 +101,7 @@ fn reroll_and_cheat_consume_exact_charges_with_isolated_rng() {
         Some(selected.as_str())
     );
     assert_eq!(instance.dice_resolution_kind(&state).unwrap(), Some(3));
-    assert_eq!(resource(&state, super::dice_control::CHEAT_CHARGE_KEY), 0);
+    assert_eq!(resource(&state, dice_control::CHEAT_CHARGE_KEY), 0);
 
     let before = state_bytes(&instance, &state, &rng);
     let snapshots = rng.snapshots();
@@ -211,15 +212,15 @@ fn seeded_control_sequence_freezes_state_and_rng_hash() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn entry(abandon: bool) -> SwarmDisasterEntry {
-    let entry = super::tests::released_entry(
+    let entry = tests::released_entry(
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-        super::tests::participants(super::tests::policy()),
+        tests::participants(tests::policy()),
     );
     if abandon {
         entry.with_dice_control_unlocks(vec!["1000022".into()])
@@ -249,13 +250,13 @@ fn grant_charges(
         ActivityProgramId::new(0x5320_ff00).unwrap(),
         vec![
             ActivityOperation::AddCounter {
-                slot: ActivitySlotId::new(super::state::RESOURCES).unwrap(),
-                key: super::dice_control::REROLL_CHARGE_KEY,
+                slot: ActivitySlotId::new(state::RESOURCES).unwrap(),
+                key: dice_control::REROLL_CHARGE_KEY,
                 delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(rerolls)),
             },
             ActivityOperation::AddCounter {
-                slot: ActivitySlotId::new(super::state::RESOURCES).unwrap(),
-                key: super::dice_control::CHEAT_CHARGE_KEY,
+                slot: ActivitySlotId::new(state::RESOURCES).unwrap(),
+                key: dice_control::CHEAT_CHARGE_KEY,
                 delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(cheats)),
             },
         ],
@@ -285,7 +286,7 @@ fn cause(state: &ActivityTransactionState, program: ActivityProgramId) -> Activi
 
 fn resource(state: &ActivityTransactionState, key: u64) -> i64 {
     match state
-        .slot(ActivitySlotId::new(super::state::RESOURCES).unwrap())
+        .slot(ActivitySlotId::new(state::RESOURCES).unwrap())
         .unwrap()
     {
         ActivityValue::BoundedCounterMap(values) => values

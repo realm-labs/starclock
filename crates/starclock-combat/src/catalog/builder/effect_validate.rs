@@ -1,8 +1,8 @@
 //! Cross-definition validation for generic effect runtime ownership.
 
-use crate::{EffectRuntimeDefinition, EffectRuntimeTemplate, EffectTickPhase};
-
-use crate::catalog::CombatCatalog;
+use crate::{
+    EffectRuntimeDefinition, EffectRuntimeTemplate, EffectTickPhase, catalog::CombatCatalog,
+};
 
 use super::{CatalogBuildError, CatalogBuildErrorKind, error};
 

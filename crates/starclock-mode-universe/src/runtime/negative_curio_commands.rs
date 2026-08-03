@@ -1,7 +1,8 @@
 //! Replayable Activity commands for negative Curio lifecycle effects.
 
-use crate::blessing_runtime::BlessingRuntimeDefinition;
-use crate::curio_activity::negative::fission_extra_copies;
+use crate::{
+    blessing_runtime::BlessingRuntimeDefinition, curio_activity::negative::fission_extra_copies,
+};
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityOperation, ActivityOptionDefinition,
     ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
@@ -531,8 +532,7 @@ pub enum StandardUniverseNegativeCurioCommandError {
 
 #[cfg(test)]
 mod tests {
-    use crate::curio_activity::destroy_and_count_operations;
-    use crate::id::PathId;
+    use crate::{curio_activity::destroy_and_count_operations, id::PathId};
     use std::sync::OnceLock;
 
     use starclock_activity::{

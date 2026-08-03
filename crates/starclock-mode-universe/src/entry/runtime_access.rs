@@ -1,8 +1,8 @@
 //! Read-only access to immutable runtime compilers owned by one compiled entry.
 
-use crate::runtime::ability_access::StandardUniverseRunCapabilities;
-use crate::runtime::ability_access::StandardUniverseRunCapabilityError;
-use crate::runtime::ability_access::capabilities_from_values;
+use crate::runtime::ability_access::{
+    StandardUniverseRunCapabilities, StandardUniverseRunCapabilityError, capabilities_from_values,
+};
 use std::sync::Arc;
 
 use starclock_activity::ActivitySlotId;

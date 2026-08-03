@@ -1,5 +1,4 @@
-use crate::catalog::CatalogLoadErrorKind;
-use crate::catalog::load;
+use crate::catalog::{CatalogLoadErrorKind, load};
 use std::collections::BTreeMap;
 
 use starclock_combat::{

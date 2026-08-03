@@ -1,11 +1,11 @@
 //! Typed unit-selector plans used by authored Rule IR programs.
 
-use crate::rule::model::ConditionExpr;
+use super::CombatCatalog;
 use crate::{
     EffectDefinitionId, SelectorId, SourceDefinitionId,
     formula::model::CombatElement,
     modifier::model::StatKind,
-    rule::model::{Comparison, ValueExpr},
+    rule::model::{Comparison, ConditionExpr, ValueExpr},
 };
 use std::collections::BTreeSet;
 
@@ -254,7 +254,7 @@ impl RuleUnitSelector {
     }
 }
 
-impl super::CombatCatalog {
+impl CombatCatalog {
     pub(crate) fn needs_selector_snapshots(&self) -> bool {
         self.selectors.values().any(|definition| {
             definition

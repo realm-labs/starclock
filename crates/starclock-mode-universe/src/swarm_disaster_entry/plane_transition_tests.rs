@@ -12,6 +12,7 @@ use crate::{
 };
 
 use super::{SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance};
+use super::{state, tests};
 
 #[test]
 fn two_boss_choices_retain_exact_released_descriptors() {
@@ -113,7 +114,7 @@ fn first_plane_completion_resets_section_and_carries_countdown_disarray() {
     assert!(events.iter().any(|event| matches!(
         event.kind(),
         ActivityTransactionEventKind::SlotReset { slot, .. }
-            if slot.get() == super::state::PLANE
+            if slot.get() == state::PLANE
     )));
     assert_eq!(
         state_hash(&instance, &state, &rng),
@@ -298,16 +299,16 @@ fn graph_rng_transaction_rolls_back_rejection_and_isolates_labels() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::tests::participants(super::tests::policy()),
+            tests::participants(tests::policy()),
         ))
         .unwrap()
 }

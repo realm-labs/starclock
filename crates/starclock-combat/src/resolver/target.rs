@@ -1,29 +1,33 @@
 //! Transactional target revalidation and journaled repeated-hit draws.
 
-use crate::battle::state::BattleState;
-use crate::catalog::CombatCatalog;
-use crate::catalog::definition::SelectorDefinition;
-use crate::catalog::selector::RuleSelectorReference;
-use crate::catalog::selector::RuleUnitSelector;
-use crate::catalog::selector::{
-    RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
-    RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorSide,
-};
-use crate::formula::model::CombatElement;
-use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
-use crate::modifier::resolve::StatResolver;
-use crate::rule::evaluate::{compare, compare_values, evaluate_value};
-use crate::rule::model::RuleEvaluationInput;
-use crate::rule::model::RuleValue;
 use crate::{
     ActionGauge, EffectDefinitionId, FormationIndex, Hp, LifeState, PresenceState, SelectorId,
     SourceDefinitionId, TeamSide, UnitId,
-    battle::fault::BattleFault,
-    catalog::action::TargetRelation,
+    battle::{fault::BattleFault, state::BattleState},
+    catalog::{
+        CombatCatalog,
+        action::TargetRelation,
+        definition::SelectorDefinition,
+        selector::{
+            RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorReference,
+            RuleSelectorSide, RuleUnitSelector,
+        },
+    },
+    formula::model::CombatElement,
+    modifier::{
+        model::{FormulaPurpose, StatQuerySubject},
+        resolve::StatResolver,
+    },
     rng::types::DrawPurpose,
+    rule::{
+        evaluate::{compare, compare_values, evaluate_value},
+        model::{RuleEvaluationInput, RuleValue},
+    },
     target::{model::TargetCommitment, select},
 };
 
+use super::selector_snapshot;
 use super::transaction::{Transaction, action_fault};
 
 pub(super) enum RuleSelectorResolution {
@@ -96,12 +100,12 @@ impl Transaction<'_> {
         }
         let snapshot_bases = snapshot
             .as_deref()
-            .map(super::selector_snapshot::RuleSelectorSnapshot::stat_bases)
+            .map(selector_snapshot::RuleSelectorSnapshot::stat_bases)
             .transpose()
             .map_err(|_| action_fault(136))?;
         let snapshot_shields = snapshot
             .as_deref()
-            .map(super::selector_snapshot::RuleSelectorSnapshot::shield_values);
+            .map(selector_snapshot::RuleSelectorSnapshot::shield_values);
         let snapshot_reader = snapshot_bases
             .as_ref()
             .zip(snapshot.as_deref())
@@ -530,7 +534,7 @@ struct SelectorUnitFacts<'a> {
 
 fn selector_unit<'a>(
     state: &'a BattleState,
-    snapshot: Option<&'a super::selector_snapshot::RuleSelectorSnapshot>,
+    snapshot: Option<&'a selector_snapshot::RuleSelectorSnapshot>,
     id: UnitId,
 ) -> Option<SelectorUnitFacts<'a>> {
     if let Some(snapshot) = snapshot {
@@ -567,7 +571,7 @@ fn selector_unit<'a>(
 
 fn selector_unit_ids(
     state: &BattleState,
-    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    snapshot: Option<&selector_snapshot::RuleSelectorSnapshot>,
 ) -> Vec<UnitId> {
     snapshot.map_or_else(
         || state.units.iter_by_id().map(|unit| unit.id).collect(),
@@ -577,7 +581,7 @@ fn selector_unit_ids(
 
 fn selector_has_effect(
     state: &BattleState,
-    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    snapshot: Option<&selector_snapshot::RuleSelectorSnapshot>,
     unit: UnitId,
     definition: EffectDefinitionId,
 ) -> bool {
@@ -599,7 +603,7 @@ fn selector_has_effect(
 
 fn selector_has_tag(
     state: &BattleState,
-    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    snapshot: Option<&selector_snapshot::RuleSelectorSnapshot>,
     unit: UnitId,
     tag: SourceDefinitionId,
 ) -> bool {
@@ -623,7 +627,7 @@ fn selector_has_tag(
 
 fn selector_owner(
     state: &BattleState,
-    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    snapshot: Option<&selector_snapshot::RuleSelectorSnapshot>,
     unit: UnitId,
 ) -> Option<UnitId> {
     snapshot.map_or_else(

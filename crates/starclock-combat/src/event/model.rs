@@ -1,23 +1,21 @@
-use crate::AbilityId as CrateAbilityId;
-
-use crate::catalog::action::AbilityTags;
-use crate::catalog::action::ReactionBoundary;
-use crate::catalog::encounter::EnemyPhaseTransitionModel;
-use crate::formula::model::CombatElement;
-use crate::formula::model::DamageClass;
-use crate::rule::model::RuleValue;
 use crate::{
-    ActionGauge, AiGraphId, AiStateId, DamageAmount, EffectDefinitionId, EffectInstanceId,
-    EnemyPhaseId, Energy, HealingAmount, Hp, LinkedEntity, LinkedEntityKind, OwnerLinkPolicy,
-    PresenceState, Ratio, RawToughness, RuleInstanceId, Scalar, ShieldAmount, ShieldInstanceId,
-    SourceDefinitionId, StateSlotDefinitionId, UnitDefinitionId,
+    AbilityId as CrateAbilityId, ActionGauge, AiGraphId, AiStateId, DamageAmount,
+    EffectDefinitionId, EffectInstanceId, EnemyPhaseId, Energy, HealingAmount, Hp, LinkedEntity,
+    LinkedEntityKind, OwnerLinkPolicy, PresenceState, Ratio, RawToughness, RuleInstanceId, Scalar,
+    ShieldAmount, ShieldInstanceId, SourceDefinitionId, StateSlotDefinitionId, UnitDefinitionId,
     action::model::ActionOrigin,
     battle::{fault::BattleFault, spec::TeamSide},
+    catalog::{
+        action::{AbilityTags, ReactionBoundary},
+        encounter::EnemyPhaseTransitionModel,
+    },
     command::model::{DecisionKind, DecisionOwner},
+    formula::model::{CombatElement, DamageClass},
     id::{
         AbilityId, ActionId, DecisionId, EventId, HitId, OperationId, PhaseId, TimelineActorId,
         UnitId, WaveInstanceId,
     },
+    rule::model::RuleValue,
 };
 
 use super::cause::Cause;

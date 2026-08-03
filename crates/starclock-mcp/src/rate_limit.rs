@@ -192,8 +192,7 @@ const fn exceeded(retry_after_seconds: u64) -> RateLimitExceeded {
 
 #[cfg(test)]
 mod tests {
-    use crate::authorization::SUPPORTED_SCOPES;
-    use crate::authorization::SignatureVerificationError;
+    use crate::authorization::{SUPPORTED_SCOPES, SignatureVerificationError};
     use std::sync::atomic::{AtomicU64, Ordering};
 
     use super::*;

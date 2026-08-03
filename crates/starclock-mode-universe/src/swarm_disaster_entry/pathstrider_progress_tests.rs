@@ -8,6 +8,7 @@ use super::{
     SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     pathstrider_progress::PathstriderRuntimeCatalog,
 };
+use super::{tests};
 
 #[test]
 fn frozen_pathstrider_catalog_retains_exact_enabled_and_fail_closed_denominators() {
@@ -231,7 +232,7 @@ fn chapter_availability_uses_current_plane_and_persistent_communing_points() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(
@@ -240,11 +241,11 @@ fn instance(
 ) -> SwarmDisasterRuntimeInstance {
     factory
         .compile_entry(
-            super::tests::released_entry(
+            tests::released_entry(
                 "swarm-disaster.area.201",
                 "universe.path.destruction",
                 "swarm-disaster.audience-die.6",
-                super::tests::participants(super::tests::policy()),
+                tests::participants(tests::policy()),
             )
             .with_progression(points, vec![], None),
         )

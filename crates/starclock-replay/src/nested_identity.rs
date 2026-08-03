@@ -9,6 +9,7 @@ use crate::{
     digest::ComponentRootDigest,
 };
 
+use super::ActivityCommandPayloadError;
 use super::{
     fixed_digest,
     identity::{decode_identity, encode_identity},
@@ -151,7 +152,7 @@ pub fn decode_nested_battle_end(
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NestedBattleIdentityPayloadError {
     Codec(CodecError),
-    ActivityIdentity(super::ActivityCommandPayloadError),
+    ActivityIdentity(ActivityCommandPayloadError),
     InvalidDigest,
 }
 

@@ -17,10 +17,11 @@ use super::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsEncounterSelection, GoldAndGearsEntryError,
     GoldAndGearsRuntimeInstance,
 };
+use super::{tests};
 
 #[test]
 fn current_activity_snapshot_materializes_a_real_validated_battle() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (state, selection) = selected_combat(&instance, 0x1406_0201);
     let roster = roster(&instance);
     let context = GoldAndGearsBattleAssemblyContext::new(Vec::new(), false);
@@ -48,11 +49,11 @@ fn current_activity_snapshot_materializes_a_real_validated_battle() {
     assert_eq!(first.digest(), second.digest());
     assert_eq!(
         digest_hex(first.digest()),
-        "99634743b9a239906eb1de2fd735880dc0cb8194549b9131b235e9a9bcd2ac6f"
+        "a8a1352250fa1d2f8679b7c4afa86b062696ac521af0945aeeb5411fdbbea886"
     );
     assert_eq!(
         digest_hex(first.battle_spec().combat_input_digest().bytes()),
-        "452e389755ff50e7e91ff46627954a29bef47e0a58be758ea034b17e6dfb4ab4"
+        "c8394337f5d0b8212624f7eabf07f6e26c99b2bff7afe0a7b1c0d5dff120af95"
     );
     assert_eq!(
         digest_hex(first.enemy_definition_digest()),
@@ -119,7 +120,7 @@ fn current_activity_snapshot_materializes_a_real_validated_battle() {
 
 #[test]
 fn repeated_current_battle_resolution_uses_bounded_non_authoritative_cache() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (state, selection) = selected_combat(&instance, 0x1408_0201);
     let roster = roster(&instance);
     let context = GoldAndGearsBattleAssemblyContext::new(Vec::new(), false);
@@ -145,7 +146,7 @@ fn repeated_current_battle_resolution_uses_bounded_non_authoritative_cache() {
 
 #[test]
 fn owned_blessings_and_curios_change_the_immutable_contribution_snapshot() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (mut state, selection) = selected_combat(&instance, 0x1406_0202);
     let roster = roster(&instance);
     let context = GoldAndGearsBattleAssemblyContext::new(Vec::new(), true);
@@ -199,7 +200,7 @@ fn owned_blessings_and_curios_change_the_immutable_contribution_snapshot() {
 
 #[test]
 fn stale_encounter_selection_is_rejected_without_mutating_activity_state() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let (mut state, selection) = selected_combat(&instance, 0x1406_0203);
     let roster = roster(&instance);
     let node = state.current_node();

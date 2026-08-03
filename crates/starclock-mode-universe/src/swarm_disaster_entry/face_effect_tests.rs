@@ -12,6 +12,7 @@ use super::{
     SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     face_effect::{DiceFaceRuntimeCatalog, FaceSelector},
 };
+use super::{state, face_effect, tests};
 
 #[test]
 fn all_faces_compile_exact_program_denominators_and_typed_contracts() {
@@ -118,9 +119,9 @@ fn random_target_uses_exactly_one_spawn_draw_and_stable_candidates() {
     assert_one_spawn_draw(&before, &rng.snapshots());
     commit(&instance, &mut state, program);
     assert!(
-        counter_map(&state, super::state::DEFERRED)
+        counter_map(&state, state::DEFERRED)
             .iter()
-            .any(|(key, value)| *key >= super::face_effect::MERCY_TARGET_BASE && *value == 1)
+            .any(|(key, value)| *key >= face_effect::MERCY_TARGET_BASE && *value == 1)
     );
 }
 
@@ -141,7 +142,7 @@ fn empty_legal_target_commits_no_op_without_rng() {
     assert_eq!(rng.snapshots(), before);
     commit(&instance, &mut state, program);
     assert!(
-        counter_map(&state, super::state::DEFERRED)
+        counter_map(&state, state::DEFERRED)
             .iter()
             .any(|(key, value)| (0x0600_0000..0x0601_0000).contains(key) && *value == 1)
     );
@@ -207,11 +208,11 @@ fn corrupt_candidate_domain_fails_closed_before_rng() {
     );
     let (mut state, mut rng) =
         rolled_operation(&instance, "SelectCellToProtect", true, 0x2033_0600);
-    let (node, domain) = counter_map(&state, super::state::NODE_DOMAIN)[0];
+    let (node, domain) = counter_map(&state, state::NODE_DOMAIN)[0];
     let corruption = ActivityProgramDefinition::new(
         ActivityProgramId::new(0x5350_ff00).unwrap(),
         vec![ActivityOperation::AddCounter {
-            slot: ActivitySlotId::new(super::state::NODE_DOMAIN).unwrap(),
+            slot: ActivitySlotId::new(state::NODE_DOMAIN).unwrap(),
             key: node,
             delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(i64::MAX - domain)),
         }],
@@ -253,7 +254,7 @@ fn rolled_operation(
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(
@@ -262,11 +263,11 @@ fn instance(
     die: &str,
 ) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             "swarm-disaster.area.201",
             path,
             die,
-            super::tests::participants(super::tests::policy()),
+            tests::participants(tests::policy()),
         ))
         .unwrap()
 }

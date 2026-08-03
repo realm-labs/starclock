@@ -12,6 +12,7 @@ use starclock_activity::{ActivityStateHash, ActivityTransactionState};
 
 use crate::{battle_materialization::UniverseBattleRoster, digest::Encoder};
 
+use super::GoldAndGearsExtrapolationSelection;
 use super::{
     GoldAndGearsBattleAssemblyContext, GoldAndGearsBattleMaterialization,
     GoldAndGearsEncounterRole, GoldAndGearsEncounterSelection, GoldAndGearsEntryError,
@@ -130,7 +131,7 @@ fn cache_key(
     hash.optional_digest(
         context
             .extrapolation()
-            .map(super::GoldAndGearsExtrapolationSelection::digest),
+            .map(GoldAndGearsExtrapolationSelection::digest),
     );
     hash.finish()
 }

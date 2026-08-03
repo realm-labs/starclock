@@ -9,6 +9,7 @@ use starclock_combat::{
         ValueExpr,
     },
 };
+use super::{nihility_s02};
 
 const RANDOM: (&str, u32) = ("universe.blessing.612630", 2);
 const CHAMPION: (&str, u32) = ("universe.blessing.612632", 2);
@@ -25,7 +26,7 @@ fn goal07_p2_m08_s02_materializes_every_selected_level_without_native_handlers()
     let contributions = full_contributions(&catalog);
     let materialization = materialize_with_roster(
         &catalog,
-        &super::nihility_s02::kafka_roster(&catalog),
+        &nihility_s02::kafka_roster(&catalog),
         &contributions,
     );
     let combat = materialization.combat_catalog();
@@ -247,7 +248,7 @@ fn military_rule_level_one_uses_one_fixed_65_percent_roll_per_action() {
 fn production_kafka_ultimate_drives_repeated_aoe_ramp_delay_and_skill_point_rules() {
     let catalog = catalog();
     let contributions = full_contributions(&catalog);
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let spec = durable_spec_with_two_enemy_hp(
         &materialization,
@@ -260,7 +261,7 @@ fn production_kafka_ultimate_drives_repeated_aoe_ramp_delay_and_skill_point_rule
     let (mut battle, started) = start(&materialization, spec, 0xed);
     assert!(started.fault().is_none(), "{:?}", started.fault());
     let before_skill_points = battle.view().team(TeamSide::Player).skill_points();
-    let resolution = super::nihility_s02::use_kafka_ultimate(&mut battle);
+    let resolution = nihility_s02::use_kafka_ultimate(&mut battle);
     assert!(
         resolution.fault().is_none(),
         "{:?} {:#?}",

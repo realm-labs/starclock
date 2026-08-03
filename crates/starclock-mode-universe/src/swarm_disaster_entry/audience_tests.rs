@@ -7,6 +7,7 @@ use super::{
     SwarmDisasterEntry, SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance,
     audience::AudienceRuntimeCatalog,
 };
+use super::{state, tests};
 
 #[test]
 fn eight_audience_definitions_retain_exact_order_and_denominators() {
@@ -212,7 +213,7 @@ fn initialization_commits_once_and_uses_activity_owned_carry_state() {
     assert!(matches!(
         program.operations()[2],
         ActivityOperation::AddCounter { slot, .. }
-            if slot.get() == super::state::CONTENT
+            if slot.get() == state::CONTENT
     ));
     apply(&instance, &mut state, &program);
     assert!(instance.audience_initialization_applied(&state).unwrap());
@@ -225,7 +226,7 @@ fn initialization_commits_once_and_uses_activity_owned_carry_state() {
     ));
     assert_eq!(state.command_sequence(), sequence);
 
-    for raw in [super::state::AUDIENCE_DIE, super::state::CONTENT] {
+    for raw in [state::AUDIENCE_DIE, state::CONTENT] {
         let slot = instance
             .state_definition()
             .slots()
@@ -262,7 +263,7 @@ fn entry_requires_known_exact_once_authored_unlocks() {
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-        super::tests::participants(super::tests::policy()),
+        tests::participants(tests::policy()),
     );
     assert!(factory.compile_entry(locked).is_err());
 
@@ -270,7 +271,7 @@ fn entry_requires_known_exact_once_authored_unlocks() {
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-        super::tests::participants(super::tests::policy()),
+        tests::participants(tests::policy()),
     )
     .with_audience_unlocks(vec!["1000018".into(), "unknown".into()]);
     assert!(factory.compile_entry(unknown).is_err());
@@ -279,7 +280,7 @@ fn entry_requires_known_exact_once_authored_unlocks() {
         "swarm-disaster.area.201",
         "universe.path.preservation",
         "swarm-disaster.audience-die.1",
-        super::tests::participants(super::tests::policy()),
+        tests::participants(tests::policy()),
     )
     .with_audience_unlocks(vec!["1000018".into(), "1000018".into()]);
     assert!(factory.compile_entry(duplicate).is_err());
@@ -288,13 +289,13 @@ fn entry_requires_known_exact_once_authored_unlocks() {
         "swarm-disaster.area.201",
         "universe.path.destruction",
         "swarm-disaster.audience-die.6",
-        super::tests::participants(super::tests::policy()),
+        tests::participants(tests::policy()),
     );
     assert!(factory.compile_entry(available).is_ok());
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
 fn instance(
@@ -303,11 +304,11 @@ fn instance(
     die: &str,
 ) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             "swarm-disaster.area.201",
             path,
             die,
-            super::tests::participants(super::tests::policy()),
+            tests::participants(tests::policy()),
         ))
         .unwrap()
 }

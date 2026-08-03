@@ -1,3 +1,4 @@
+use super::propagation_s04;
 use super::*;
 use starclock_combat::catalog::selector::{
     RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
@@ -225,7 +226,7 @@ pub(super) fn add_spore_engine(
         condition: if metamorphosis_required {
             ConditionExpr::EffectExists {
                 selector: ENGINE_ACTOR,
-                effect: super::propagation_s04::METAMORPHOSIS_EFFECT,
+                effect: propagation_s04::METAMORPHOSIS_EFFECT,
             }
         } else {
             ConditionExpr::Literal(true)

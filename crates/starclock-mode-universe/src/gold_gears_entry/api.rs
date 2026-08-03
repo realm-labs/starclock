@@ -49,6 +49,7 @@ use super::{
 };
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
+use super::{knowledge, state_layout};
 use crate::{
     gold_gears_content::GoldAndGearsContentCatalog,
     gold_gears_structural::{AreaDefinition, AreaGroup, GoldAndGearsStructuralCatalog},
@@ -347,10 +348,10 @@ impl GoldAndGearsRuntimeFactory {
             area,
             &topology,
         )?;
-        let initial_cosmic_fragments = conundrum_runtime
-            .initial_cosmic_fragments(super::state_layout::INITIAL_COSMIC_FRAGMENTS)?;
+        let initial_cosmic_fragments =
+            conundrum_runtime.initial_cosmic_fragments(state_layout::INITIAL_COSMIC_FRAGMENTS)?;
         let initial_dice_rerolls =
-            conundrum_runtime.initial_dice_rerolls(super::state_layout::INITIAL_DICE_REROLLS)?;
+            conundrum_runtime.initial_dice_rerolls(state_layout::INITIAL_DICE_REROLLS)?;
         let state = compile_state(
             area,
             path.identity.id.0,
@@ -847,7 +848,7 @@ impl GoldAndGearsRuntimeInstance {
             .iter()
             .find(|(key, _)| key.as_ref() == face)
             .and_then(|(_, id)| self.knowledge.rule_for_face(*id))
-            .map(super::knowledge::RuntimeKnowledgeRule::trigger_name)
+            .map(knowledge::RuntimeKnowledgeRule::trigger_name)
     }
 
     /// Returns all stable Knowledge movement-override destinations for the
@@ -1172,7 +1173,7 @@ fn terminal_domain(plane_ordinal: usize) -> Result<&'static str, GoldAndGearsEnt
 }
 
 fn node_is_blanked(state: &ActivityTransactionState, node: NodeId) -> bool {
-    let slot = ActivitySlotId::new(super::state_layout::BOARD_NODE_STATE_SLOT)
+    let slot = ActivitySlotId::new(state_layout::BOARD_NODE_STATE_SLOT)
         .expect("static Gold and Gears slot is non-zero");
     match state.slot(slot) {
         Some(ActivityValue::BoundedCounterMap(values)) => values

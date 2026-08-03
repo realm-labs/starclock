@@ -1,11 +1,11 @@
 //! Nested battle handoff and settlement accessors for the runtime facade.
 
-use crate::curio_activity::destroy_and_count_operations;
-use crate::curio_effect_runtime::CurioEffectRuntimeCatalog;
-use crate::id::CurioId;
-use crate::id::EncounterMemberId;
-use crate::id::RoomId;
-use crate::negative_curio_runtime::NegativeCurioEvent;
+use crate::{
+    curio_activity::destroy_and_count_operations,
+    curio_effect_runtime::CurioEffectRuntimeCatalog,
+    id::{CurioId, EncounterMemberId, RoomId},
+    negative_curio_runtime::NegativeCurioEvent,
+};
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -16,8 +16,8 @@ use starclock_activity::{
 };
 use starclock_combat::{LifeState, PresenceState, Ratio};
 
-use crate::ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope};
 use crate::{
+    ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     curio::CurioStateKind,
     curio_activity::event_key,
     curio_effect_runtime::{

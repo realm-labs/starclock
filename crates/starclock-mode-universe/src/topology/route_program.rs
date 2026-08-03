@@ -1,11 +1,12 @@
 use super::*;
-use crate::curio_activity::CurioActivityBindings;
-use crate::curio_activity::domain::cogwheel_condition;
-use crate::curio_activity::domain::cogwheel_domain_entry_settlement;
-use crate::curio_activity::domain::gold_coin_condition;
-use crate::curio_activity::domain::gold_coin_domain_entry_settlement;
-use crate::curio_activity::domain::perpetual_motion_condition;
-use crate::curio_activity::domain::perpetual_motion_domain_entry_settlement;
+use crate::curio_activity::{
+    CurioActivityBindings,
+    domain::{
+        cogwheel_condition, cogwheel_domain_entry_settlement, gold_coin_condition,
+        gold_coin_domain_entry_settlement, perpetual_motion_condition,
+        perpetual_motion_domain_entry_settlement,
+    },
+};
 
 pub(super) fn compile_route_program(
     hub: &DomainHubDefinition,

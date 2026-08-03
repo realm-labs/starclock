@@ -1,21 +1,21 @@
-use crate::catalog::CombatCatalog;
-use crate::catalog::encounter::EncounterWaveDefinition;
-use crate::catalog::encounter::WaveCarry;
-use crate::catalog::encounter::WaveTransitionPolicy;
-use crate::rule::model::RuleEventKind;
-use crate::rule::model::SlotResetPoint;
 use crate::{
     ActionGauge, BattlePhase, DurationClock, EffectEventData, Energy, Hp, LifeState,
     ParticipantSource, PresenceState, ResourceEventData, TeamResourceWavePolicy, TeamSide, UnitId,
     battle::fault::BattleFault,
+    catalog::{
+        CombatCatalog,
+        encounter::{EncounterWaveDefinition, WaveCarry, WaveTransitionPolicy},
+    },
     event::{
         cause::Cause,
         model::{BattleEventData, BattleEventKind, WaveEventData},
     },
     id::EventId,
+    rule::model::{RuleEventKind, SlotResetPoint},
 };
 
 use super::transaction::{Transaction, action_fault};
+use super::{lifecycle, operation, program};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum ActionBoundary {
@@ -39,7 +39,7 @@ pub(super) fn settle_after_action(
             cause.with_parent(parent),
             BattleEventKind::Battle(BattleEventData::Lost),
         );
-        parent = super::operation::settle_effects_at_battle_end(txn, cause, parent)?;
+        parent = operation::settle_effects_at_battle_end(txn, cause, parent)?;
         txn.reset_rule_slots(SlotResetPoint::BattleEnd, None);
         return Ok(ActionBoundary::Terminal(parent));
     }
@@ -59,7 +59,7 @@ pub(super) fn settle_after_action(
             cause.with_parent(parent),
             BattleEventKind::Battle(BattleEventData::Won),
         );
-        parent = super::operation::settle_effects_at_battle_end(txn, cause, parent)?;
+        parent = operation::settle_effects_at_battle_end(txn, cause, parent)?;
         txn.reset_rule_slots(SlotResetPoint::BattleEnd, None);
         return Ok(ActionBoundary::Terminal(parent));
     }
@@ -129,7 +129,7 @@ fn transition_wave(
         .wave(current)
         .and_then(EncounterWaveDefinition::exit_program)
     {
-        parent = super::program::execute_boundary_program(
+        parent = program::execute_boundary_program(
             catalog,
             txn,
             cause,
@@ -146,9 +146,9 @@ fn transition_wave(
             number: current,
         }),
     );
-    parent = super::operation::settle_effects_at_wave_end(txn, cause, parent)?;
+    parent = operation::settle_effects_at_wave_end(txn, cause, parent)?;
     txn.reset_rule_slots(SlotResetPoint::WaveEnd, None);
-    parent = super::lifecycle::settle_wave_links(txn, cause, parent)?;
+    parent = lifecycle::settle_wave_links(txn, cause, parent)?;
     parent = settle_team_resources(txn, cause, parent)?;
     let departing = txn
         .state
@@ -159,7 +159,7 @@ fn transition_wave(
         .collect::<Vec<_>>();
     for unit in departing {
         txn.set_presence(unit, PresenceState::Departed)?;
-        parent = super::lifecycle::settle_owner_departure(txn, cause, parent, unit)?;
+        parent = lifecycle::settle_owner_departure(txn, cause, parent, unit)?;
     }
 
     let next = current.checked_add(1).ok_or_else(|| action_fault(40))?;
@@ -190,7 +190,7 @@ fn transition_wave(
         BattleEventKind::Wave(WaveEventData::Started { wave, number: next }),
     );
     if let Some(program) = next_wave.entry_program() {
-        parent = super::program::execute_boundary_program(
+        parent = program::execute_boundary_program(
             catalog,
             txn,
             cause,
@@ -320,7 +320,7 @@ fn settle_wave_carry(
         }
     }
     for program in programs {
-        parent = super::program::execute_boundary_program(
+        parent = program::execute_boundary_program(
             catalog,
             txn,
             cause,

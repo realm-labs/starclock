@@ -1,10 +1,13 @@
-use crate::swarm_disaster_content::SwarmDisasterContentErrorKind;
-use crate::swarm_disaster_generated::{
-    SoraConfig, swarm_disaster_block_create_rule::SwarmDisasterBlockCreateRule,
-    swarm_disaster_map_event::SwarmDisasterMapEvent,
-    swarm_disaster_topology_consequence::SwarmDisasterTopologyConsequence,
+use crate::{
+    swarm_disaster_content::SwarmDisasterContentErrorKind,
+    swarm_disaster_generated::{
+        SoraConfig, swarm_disaster_block_create_rule::SwarmDisasterBlockCreateRule,
+        swarm_disaster_map_event::SwarmDisasterMapEvent,
+        swarm_disaster_topology_consequence::SwarmDisasterTopologyConsequence,
+    },
 };
 
+use super::error;
 use super::{json, metadata, nonempty, nonnegative_u16, positive, scalar, stable};
 use crate::swarm_disaster_content::{SwarmDisasterContentError, types::*};
 
@@ -75,9 +78,10 @@ fn topology_consequence(
         trigger_kind: nonempty(&row.trigger_kind, &row.stable_key)?,
         scope: nonempty(&row.scope, &row.stable_key)?,
         operations: json(&row.ordered_operations_json, &row.stable_key)?,
-        audience_die_id: row.aeon_dice_id.parse::<u32>().map_err(|_| {
-            super::error(SwarmDisasterContentErrorKind::Identifier, &row.stable_key)
-        })?,
+        audience_die_id: row
+            .aeon_dice_id
+            .parse::<u32>()
+            .map_err(|_| error(SwarmDisasterContentErrorKind::Identifier, &row.stable_key))?,
         active_stage: nonnegative_u16(row.active_stage, &row.stable_key)?,
     })
 }

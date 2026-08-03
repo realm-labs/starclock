@@ -1,10 +1,12 @@
 //! Generated-row-free validation boundary for the frozen Gold and Gears bundle.
 
-use crate::digest::bundle_digest;
-use crate::gold_gears_generated::{
-    ErasedSoraTable, SCHEMA_FINGERPRINT, SoraConfig,
-    gold_gears_manifest::GoldGearsManifest,
-    runtime::{SoraBundle, SoraTableSource},
+use crate::{
+    digest::bundle_digest,
+    gold_gears_generated::{
+        ErasedSoraTable, SCHEMA_FINGERPRINT, SoraConfig,
+        gold_gears_manifest::GoldGearsManifest,
+        runtime::{SoraBundle, SoraTableSource},
+    },
 };
 
 const EXPECTED_BUNDLE_DIGEST: [u8; 32] = [

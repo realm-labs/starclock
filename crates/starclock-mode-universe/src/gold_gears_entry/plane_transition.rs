@@ -8,6 +8,7 @@ use starclock_activity::{
 
 use crate::gold_gears_structural::GoldAndGearsStructuralCatalog;
 
+use super::state_layout;
 use super::{
     GoldAndGearsEntryError, cognition::CognitionRuntimeCatalog, state_layout::PLANE_STATE_SLOT,
 };
@@ -70,7 +71,7 @@ impl PlaneTransitionRuntimeCatalog {
         plane_layer: u8,
     ) -> Option<&str> {
         let ActivityValue::BoundedCounterMap(values) =
-            state.slot(slot(super::state_layout::PLANE_STATE_SLOT))?
+            state.slot(slot(state_layout::PLANE_STATE_SLOT))?
         else {
             return None;
         };

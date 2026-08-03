@@ -22,6 +22,7 @@ use crate::{
     curio_runtime::{CurioContribution, CurioContributionSet},
 };
 
+use super::curio_s01;
 use super::{
     BattleRuleLoweringError, ExecutableBattleRule, RuleAttachment, id, multiply, owner_selector,
     parameter, propagation_s01, scalar,
@@ -184,7 +185,7 @@ fn fixed_damage_reduction(
     let ratio = parameter(contribution.state().parameters(), 2)?;
     let raw = binding.rule().get();
     let modifiers = damage_purpose_modifiers(raw, FormulaStage::Mitigation, scalar(ratio))?;
-    super::curio_s01::permanent_team_modifiers(binding, 7, modifiers)
+    curio_s01::permanent_team_modifiers(binding, 7, modifiers)
 }
 
 fn fission_attack_penalty(
@@ -215,7 +216,7 @@ fn fission_attack_penalty(
         source_stack_slot: None,
         filters: Box::new([]),
     };
-    super::curio_s01::permanent_team_modifiers(binding, 8, vec![modifier])
+    curio_s01::permanent_team_modifiers(binding, 8, vec![modifier])
 }
 
 fn damage_purpose_modifiers(

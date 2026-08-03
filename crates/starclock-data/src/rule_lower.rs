@@ -1,8 +1,8 @@
 //! Generated Sora rule/state-slot rows to executable battle Rule IR.
 
-use crate::effect_lower::lower_element;
-use crate::modifier_lower::expression;
-use crate::native_handler_lower::handler_id;
+use crate::{
+    effect_lower::lower_element, modifier_lower::expression, native_handler_lower::handler_id,
+};
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{

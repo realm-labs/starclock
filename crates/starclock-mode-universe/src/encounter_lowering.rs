@@ -2,30 +2,33 @@
 
 use std::collections::BTreeMap;
 
-use crate::definition::DomainKind;
-use crate::encounter::{
-    BossPhasePolicy, ContentPoolDefinition, ContentPoolEntry, ContentPoolKind,
-    DifficultyEnemyBinding, EncounterEnemySlot, EncounterGroupDefinition,
-    EncounterMemberDefinition, EncounterPoolDefinition, EncounterSelectionPolicy,
-    EncounterWaveDefinition, EnemyRole, FixedEncounterBinding, RoomContentBinding, RoomContentKind,
-    WavePolicy, WeightedEncounterBinding,
+use crate::{
+    definition::DomainKind,
+    encounter::{
+        BossPhasePolicy, ContentPoolDefinition, ContentPoolEntry, ContentPoolKind,
+        DifficultyEnemyBinding, EncounterEnemySlot, EncounterGroupDefinition,
+        EncounterMemberDefinition, EncounterPoolDefinition, EncounterSelectionPolicy,
+        EncounterWaveDefinition, EnemyRole, FixedEncounterBinding, RoomContentBinding,
+        RoomContentKind, WavePolicy, WeightedEncounterBinding,
+    },
+    error::UniverseCatalogLoadError,
+    generated::{
+        SoraConfig, universe_boss_phase_policy::UniverseBossPhasePolicy,
+        universe_coverage_state::UniverseCoverageState, universe_domain_kind::UniverseDomainKind,
+        universe_enemy_role::UniverseEnemyRole, universe_mode_owner::UniverseModeOwner,
+        universe_pool_kind::UniversePoolKind, universe_room_content_kind::UniverseRoomContentKind,
+        universe_selection_policy::UniverseSelectionPolicy,
+        universe_service_kind::UniverseServiceKind,
+        universe_service_profile_owner::UniverseServiceProfileOwner,
+        universe_wave_policy::UniverseWavePolicy,
+    },
+    id::{
+        ContentPoolId, DifficultyId, EncounterGroupId, EncounterMemberId, EncounterPoolId,
+        EncounterWaveId, RoomId,
+    },
+    lowering::{checked_key, checked_source, invalid, localized, reference},
+    path_lowering::parse_decimal,
 };
-use crate::error::UniverseCatalogLoadError;
-use crate::generated::{
-    SoraConfig, universe_boss_phase_policy::UniverseBossPhasePolicy,
-    universe_coverage_state::UniverseCoverageState, universe_domain_kind::UniverseDomainKind,
-    universe_enemy_role::UniverseEnemyRole, universe_mode_owner::UniverseModeOwner,
-    universe_pool_kind::UniversePoolKind, universe_room_content_kind::UniverseRoomContentKind,
-    universe_selection_policy::UniverseSelectionPolicy, universe_service_kind::UniverseServiceKind,
-    universe_service_profile_owner::UniverseServiceProfileOwner,
-    universe_wave_policy::UniverseWavePolicy,
-};
-use crate::id::{
-    ContentPoolId, DifficultyId, EncounterGroupId, EncounterMemberId, EncounterPoolId,
-    EncounterWaveId, RoomId,
-};
-use crate::lowering::{checked_key, checked_source, invalid, localized, reference};
-use crate::path_lowering::parse_decimal;
 
 pub(crate) struct EncounterDefinitions {
     pub(crate) groups: Box<[EncounterGroupDefinition]>,

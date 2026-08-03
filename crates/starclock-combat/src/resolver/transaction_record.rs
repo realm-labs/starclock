@@ -1,11 +1,11 @@
 //! Mutation-journal recording helpers separated from command resolution.
 
+use super::transaction;
 use super::{journal::MutationField, transaction::Transaction};
-use crate::{EventId, OperationId, RuleInstanceId, ShieldAmount, StateSlotDefinitionId};
-
-use crate::battle::fault::BattleFault;
-use crate::rng::types::DrawPurpose;
-use crate::rule::model::RuleValue;
+use crate::{
+    EventId, OperationId, RuleInstanceId, ShieldAmount, StateSlotDefinitionId,
+    battle::fault::BattleFault, rng::types::DrawPurpose, rule::model::RuleValue,
+};
 
 impl Transaction<'_> {
     pub(super) fn choose_index(
@@ -13,20 +13,18 @@ impl Transaction<'_> {
         purpose: DrawPurpose,
         count: usize,
     ) -> Result<Option<usize>, BattleFault> {
-        let count = u32::try_from(count).map_err(|_| super::transaction::action_fault(51))?;
+        let count = u32::try_from(count).map_err(|_| transaction::action_fault(51))?;
         let before = self.state.rng.draw_count();
         let selected = self
             .state
             .rng
             .choose_index(purpose, count)
-            .map_err(|_| super::transaction::action_fault(51))?;
+            .map_err(|_| transaction::action_fault(51))?;
         for index in before..self.state.rng.draw_count() {
             self.journal.rng_draw(index, purpose.code());
         }
         selected
-            .map(|value| {
-                usize::try_from(value.value()).map_err(|_| super::transaction::action_fault(51))
-            })
+            .map(|value| usize::try_from(value.value()).map_err(|_| transaction::action_fault(51)))
             .transpose()
     }
 

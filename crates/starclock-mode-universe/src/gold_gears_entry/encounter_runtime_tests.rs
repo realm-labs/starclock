@@ -9,10 +9,11 @@ use super::{
     GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY, GoldAndGearsEncounterRole, GoldAndGearsEntryError,
     GoldAndGearsRuntimeInstance,
 };
+use super::{tests};
 
 #[test]
 fn catalog_closes_all_groups_waves_slots_and_enemy_identities() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     assert_eq!(instance.encounter_runtime.denominators(), (181, 478, 1_513));
     assert_eq!(
         GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY,
@@ -22,7 +23,7 @@ fn catalog_closes_all_groups_waves_slots_and_enemy_identities() {
 
 #[test]
 fn area_plane_and_cut_positions_resolve_exact_released_levels() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     let vectors = [
         (1, 0, 54),
         (1, 2, 55),
@@ -55,7 +56,7 @@ fn area_plane_and_cut_positions_resolve_exact_released_levels() {
 
 #[test]
 fn every_formal_area_binds_all_three_released_difficulty_segments() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let vectors = [
         ("gold-gears.area.401", [(54, 57), (58, 61), (62, 63)]),
         ("gold-gears.area.402", [(62, 65), (66, 69), (70, 71)]),
@@ -65,7 +66,7 @@ fn every_formal_area_binds_all_three_released_difficulty_segments() {
     ];
     for (area, levels) in vectors {
         let instance = factory
-            .compile_entry(super::tests::entry(
+            .compile_entry(tests::entry(
                 factory,
                 area,
                 &factory.unique.paths[0].identity.stable_key,
@@ -89,7 +90,7 @@ fn every_formal_area_binds_all_three_released_difficulty_segments() {
 
 #[test]
 fn combat_elite_and_plane_boss_families_use_bounded_encounter_rng() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     let mut rng = encounter_rng(&instance, 0x1406_0002);
     let first = instance.encounter_runtime.node_at(1, 12).unwrap();
     let second = instance.encounter_runtime.node_at(2, 12).unwrap();
@@ -153,7 +154,7 @@ fn combat_elite_and_plane_boss_families_use_bounded_encounter_rng() {
 
 #[test]
 fn current_activity_domain_join_is_fail_closed_and_transactional() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     let node = instance.encounter_runtime.node_at(1, 2).unwrap();
     let mut state = ActivityTransactionState::new(instance.state_definition().clone(), node);
     commit(
@@ -191,7 +192,7 @@ fn current_activity_domain_join_is_fail_closed_and_transactional() {
 
 #[test]
 fn final_boss_join_requires_the_committed_plane_three_choice() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     let node = instance.encounter_runtime.node_at(3, 12).unwrap();
     let mut state = ActivityTransactionState::new(instance.state_definition().clone(), node);
     commit(

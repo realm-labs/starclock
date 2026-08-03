@@ -1,10 +1,12 @@
 //! Immutable effective-level ability-parameter access.
 
-use crate::rule::evaluate::AbilityParameterReader;
-use crate::rule::evaluate::ProgramLookup;
-use crate::rule::model::ProgramStep;
+use crate::rule::{
+    evaluate::{AbilityParameterReader, ProgramLookup},
+    model::ProgramStep,
+};
 use std::collections::BTreeMap;
 
+use super::definition;
 use super::{CombatCatalog, definition::ProgramDefinition};
 use crate::{AbilityId, ProgramId, rule::model::RuleValue};
 
@@ -16,15 +18,11 @@ pub(super) fn count(table: &Table) -> usize {
 
 pub(super) fn definitions(
     table: &Table,
-) -> impl Iterator<Item = super::definition::AbilityParameterDefinition> + '_ {
+) -> impl Iterator<Item = definition::AbilityParameterDefinition> + '_ {
     table.iter().flat_map(|(ability, parameters)| {
         parameters.iter().map(|(stable_key, value)| {
-            super::definition::AbilityParameterDefinition::new(
-                *ability,
-                stable_key.clone(),
-                value.clone(),
-            )
-            .expect("validated catalog parameters remain valid builder inputs")
+            definition::AbilityParameterDefinition::new(*ability, stable_key.clone(), value.clone())
+                .expect("validated catalog parameters remain valid builder inputs")
         })
     })
 }

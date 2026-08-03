@@ -1,39 +1,38 @@
 //! Exact isolated-bundle loading and composed catalog identity.
 
-use crate::generated::universe_profile::UniverseProfile;
-use crate::lowering::lower;
+use crate::{generated::universe_profile::UniverseProfile, lowering::lower};
 use std::sync::Arc;
 
-use crate::curio::{CurioDefinition, CurioStateDefinition};
-use crate::definition::{
-    DifficultyDefinition, DomainDefinition, RoomDefinition, TopologyDefinition,
-    UniverseActivityBindingDefinition, UniverseDefinitions, UniverseProfileDefinition,
-    WorldDefinition,
+use crate::{
+    curio::{CurioDefinition, CurioStateDefinition},
+    definition::{
+        DifficultyDefinition, DomainDefinition, RoomDefinition, TopologyDefinition,
+        UniverseActivityBindingDefinition, UniverseDefinitions, UniverseProfileDefinition,
+        WorldDefinition,
+    },
+    digest::{
+        ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseCurioDefinitionsDigest,
+        UniverseDefinitionsDigest, UniverseEncounterDefinitionsDigest,
+        UniversePathDefinitionsDigest, UniverseProfileDigest, UniverseRunDefinitionsDigest,
+        bundle_digest,
+    },
+    encounter::{
+        ContentPoolDefinition, DifficultyEnemyBinding, EncounterGroupDefinition,
+        EncounterPoolDefinition, RoomContentBinding,
+    },
+    error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind},
+    generated::{SoraConfig, runtime::SoraBundle},
+    id::{
+        AbilityTreeNodeId, BlessingId, BlessingLevelId, ContentPoolId, CurioId, CurioStateId,
+        DifficultyId, DomainId, EncounterGroupId, EncounterPoolId, MechanicRuleId,
+        OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId, PathId, ResonanceId, RoomId,
+        ServiceId, TopologyId, WorldId,
+    },
+    occurrence::{OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceVariantDefinition},
+    path::{BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition},
+    progression::{AbilityTreeNodeDefinition, ServiceDefinition},
+    rule::MechanicRuleDefinition,
 };
-use crate::digest::{
-    ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseCurioDefinitionsDigest,
-    UniverseDefinitionsDigest, UniverseEncounterDefinitionsDigest, UniversePathDefinitionsDigest,
-    UniverseProfileDigest, UniverseRunDefinitionsDigest, bundle_digest,
-};
-use crate::encounter::{
-    ContentPoolDefinition, DifficultyEnemyBinding, EncounterGroupDefinition,
-    EncounterPoolDefinition, RoomContentBinding,
-};
-use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
-use crate::generated::{SoraConfig, runtime::SoraBundle};
-use crate::id::{
-    AbilityTreeNodeId, BlessingId, BlessingLevelId, ContentPoolId, CurioId, CurioStateId,
-    DifficultyId, DomainId, EncounterGroupId, EncounterPoolId, MechanicRuleId, OccurrenceChoiceId,
-    OccurrenceId, OccurrenceVariantId, PathId, ResonanceId, RoomId, ServiceId, TopologyId, WorldId,
-};
-use crate::occurrence::{
-    OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceVariantDefinition,
-};
-use crate::path::{
-    BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
-};
-use crate::progression::{AbilityTreeNodeDefinition, ServiceDefinition};
-use crate::rule::MechanicRuleDefinition;
 
 const EXPECTED_PROFILE_KEY: &str = "universe.profile.standard-main-world.v4.4";
 const EXPECTED_GAME_VERSION: &str = "4.4";

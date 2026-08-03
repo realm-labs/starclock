@@ -19,6 +19,7 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests};
 
 #[test]
 fn resonance_partition_binds_exactly_90_terminal_rules() {
@@ -234,7 +235,7 @@ fn extrapolation_rejections_preserve_rng_and_valid_projection_polarity() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }
 
 fn compile(

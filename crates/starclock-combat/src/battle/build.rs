@@ -2,6 +2,7 @@ use core::fmt;
 
 use crate::{catalog::CombatCatalog, id::EnemyDefinitionId};
 
+use super::spec;
 use super::spec::{BattleSpec, ParticipantSource, TeamSide};
 
 /// Stable category for battle-construction failure against an immutable catalog.
@@ -213,7 +214,7 @@ fn validate_source(
     catalog: &CombatCatalog,
     encounter_enemies: &[EnemyDefinitionId],
     index: usize,
-    participant: &super::spec::ParticipantSpec,
+    participant: &spec::ParticipantSpec,
 ) -> Result<(), BattleBuildError> {
     match (participant.side(), participant.source()) {
         (TeamSide::Player, ParticipantSource::Player) => Ok(()),

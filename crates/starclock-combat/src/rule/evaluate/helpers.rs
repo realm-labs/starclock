@@ -1,14 +1,12 @@
 use super::{RuleEvaluationError, RuleEvaluationErrorKind};
 
-use crate::rule::model::CauseAncestry;
-use crate::rule::model::Comparison;
 use crate::{
     EffectCategory, NumericError, RuleId, SelectorId, SourceDefinitionId, StateSlotDefinitionId,
     UnitId,
     modifier::model::StatQuerySubject,
     rule::model::{
-        EventFilter, RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleValue,
-        TriggerDef, TriggerDefinitionOrder,
+        CauseAncestry, Comparison, EventFilter, RuleEmission, RuleEvaluationInput,
+        RuleOperationTemplate, RuleValue, TriggerDef, TriggerDefinitionOrder,
     },
 };
 use core::cmp::Ordering;

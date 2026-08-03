@@ -1,5 +1,6 @@
 use core::fmt;
 
+use super::spec_codec;
 use crate::{
     LifeState, PresenceState, SourceDefinitionId,
     formula::{model::CombatElement, toughness::EnemyRank},
@@ -850,7 +851,7 @@ impl BattleSpec {
         {
             return Err(BattleSpecError::MissingSide);
         }
-        let combat_input_digest = super::spec_codec::combat_input_digest(
+        let combat_input_digest = spec_codec::combat_input_digest(
             encounter,
             &participants,
             &player_resources,

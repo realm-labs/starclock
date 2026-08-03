@@ -1,7 +1,6 @@
 //! Read-only projections of pending timeline work and allocator cursors.
 
-use crate::UnitId;
-use crate::timeline::state::PendingExtraTurn;
+use crate::{UnitId, timeline::state::PendingExtraTurn};
 
 /// One queued extra-turn request in deterministic insertion order.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

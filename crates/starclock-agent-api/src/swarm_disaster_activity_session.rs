@@ -20,6 +20,7 @@ use starclock_mode_universe::swarm_disaster_entry::{
 };
 use starclock_replay::component::ConfigurationComponentSet;
 
+use super::activity_session;
 use crate::{
     activity_action::{
         ActivityActionBindingError, AgentActivityActionKind, MAX_OFFERED_ACTIVITY_ACTIONS,
@@ -149,7 +150,7 @@ impl SwarmDisasterActivityAgentSessionFactory {
             action_count: AgentUInt::from_u64(u64::from(report.action_count())),
             nested_battles: AgentUInt::from_u64(u64::from(report.battle_count())),
             final_state_hash: AgentHash::from_bytes(report.final_state_hash().bytes()),
-            terminal: super::activity_session::terminal(report.terminal()),
+            terminal: activity_session::terminal(report.terminal()),
         })
     }
 }

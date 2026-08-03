@@ -1,17 +1,15 @@
 //! Stable compact encodings used by converted combat definitions.
 
-use crate::catalog::CatalogLoadError;
-use crate::generated::ability_kind::AbilityKind;
-use crate::generated::crit_policy::CritPolicy;
-use crate::generated::hit_damage_class::HitDamageClass;
-use crate::generated::hit_element::HitElement;
-use crate::generated::hit_scaling_stat::HitScalingStat;
-use crate::generated::hit_target_group::HitTargetGroup;
-use crate::generated::resource_delta_kind::ResourceDeltaKind;
-use crate::generated::resource_kind::ResourceKind;
-use crate::generated::resource_timing::ResourceTiming;
-use crate::generated::retarget_policy::RetargetPolicy;
-use crate::generated::target_pattern::TargetPattern;
+use crate::{
+    catalog::CatalogLoadError,
+    generated::{
+        ability_kind::AbilityKind, crit_policy::CritPolicy, hit_damage_class::HitDamageClass,
+        hit_element::HitElement, hit_scaling_stat::HitScalingStat,
+        hit_target_group::HitTargetGroup, resource_delta_kind::ResourceDeltaKind,
+        resource_kind::ResourceKind, resource_timing::ResourceTiming,
+        retarget_policy::RetargetPolicy, target_pattern::TargetPattern,
+    },
+};
 pub(super) fn ability_resource_kind(value: ResourceKind) -> u8 {
     use crate::generated::resource_kind::ResourceKind as V;
     match value {

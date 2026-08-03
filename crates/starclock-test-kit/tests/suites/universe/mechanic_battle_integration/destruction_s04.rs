@@ -8,6 +8,7 @@ use starclock_combat::{
         ValueExpr,
     },
 };
+use super::{destruction_s03};
 
 const LOST_HP_DEFENSE: (&str, u32) = ("universe.blessing.612556", 2);
 const LOST_HP_RESISTANCE: (&str, u32) = ("universe.blessing.612557", 2);
@@ -310,7 +311,7 @@ fn event_horizon_queues_a_free_resonance_after_a_low_hp_ally_is_attacked() {
         false,
     );
     let materialization = materialize(&catalog, &contributions);
-    let spec = super::destruction_s03::enemy_duel_spec(&materialization, 30_000, 0xe8);
+    let spec = destruction_s03::enemy_duel_spec(&materialization, 30_000, 0xe8);
     let (mut battle, started) = start(&materialization, spec, 0xe9);
     assert!(started.fault().is_none(), "{:?}", started.fault());
     let resolution = first_normal_action(&mut battle);

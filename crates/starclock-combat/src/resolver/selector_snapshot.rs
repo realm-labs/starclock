@@ -1,18 +1,21 @@
 //! Compact immutable battlefield projections for authored selector reference points.
 
-use crate::battle::state::BattleState;
-use crate::catalog::selector::RuleSelectorReference;
-use crate::event::cause::Cause;
-use crate::event::model::BattleEvent;
-use crate::event::model::BattleEventKind;
-use crate::formula::toughness::attacker_level_multiplier;
-use crate::modifier::model::StatKind;
-use crate::modifier::model::StatKind::{
-    Atk, BreakBaseDamage, Def, DotDurationAddition, EnergyRegenerationRate, Hp as HpStat, Spd,
-    ToughnessDamage, ToughnessRecovery,
+use crate::{
+    battle::state::BattleState,
+    catalog::selector::RuleSelectorReference,
+    event::{
+        cause::Cause,
+        model::{BattleEvent, BattleEventKind},
+    },
+    formula::toughness::attacker_level_multiplier,
+    modifier::model::StatKind::{
+        self, Atk, BreakBaseDamage, Def, DotDurationAddition, EnergyRegenerationRate, Hp as HpStat,
+        Spd, ToughnessDamage, ToughnessRecovery,
+    },
 };
 use std::{collections::BTreeMap, sync::Arc};
 
+use super::transaction;
 use crate::{
     ActionGauge, ActionId, EffectDefinitionId, EventId, Hp, LifeState, LinkedEntity, NumericError,
     PresenceState, Scalar, SourceDefinitionId, Speed, StatValue, UnitId, UnitLevel,
@@ -157,7 +160,7 @@ impl RuleSelectorSnapshot {
     }
 }
 
-impl super::transaction::Transaction<'_> {
+impl transaction::Transaction<'_> {
     pub(super) fn selector_snapshot(
         &self,
         reference: RuleSelectorReference,

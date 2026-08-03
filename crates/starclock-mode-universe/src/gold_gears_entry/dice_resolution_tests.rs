@@ -17,13 +17,14 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests};
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_authored_dice_parts_and_path_values_compile_exactly() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(factory.dice_runtime.denominators(), (12, 108, 39));
 
     let mut compiled = 0;
@@ -86,7 +87,7 @@ fn all_authored_dice_parts_and_path_values_compile_exactly() {
 
 #[test]
 fn roll_and_reroll_are_spawn_isolated_and_rejection_is_byte_identical() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let neural = factory
         .unique
@@ -143,7 +144,7 @@ fn roll_and_reroll_are_spawn_isolated_and_rejection_is_byte_identical() {
 
 #[test]
 fn empty_reroll_candidates_keep_previous_consume_attempt_and_draw_nothing() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = factory
         .compile_entry(entry(factory, AREA, PATH, &factory.unique.dice[0]))
         .unwrap();
@@ -179,7 +180,7 @@ fn empty_reroll_candidates_keep_previous_consume_attempt_and_draw_nothing() {
 
 #[test]
 fn plane_initials_and_cheats_execute_with_exact_masks_and_no_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     for dice in &factory.unique.dice {
         let instance = factory
             .compile_entry(entry(factory, AREA, PATH, dice))
@@ -251,7 +252,7 @@ fn plane_initials_and_cheats_execute_with_exact_masks_and_no_rng() {
 
 #[test]
 fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let cases = [
         (
             "101",

@@ -1,13 +1,14 @@
 //! Forced Break lowered through the ordinary Toughness mutation path.
 
-use crate::catalog::CombatCatalog;
-use crate::formula::model::CombatElement;
-use crate::formula::toughness::BreakDamageDefinition;
-use crate::formula::toughness::ToughnessReductionContext;
 use crate::{
     Probability, Ratio, RawToughness, Scalar, ToughnessReductionDefinition,
     battle::fault::BattleFault,
+    catalog::CombatCatalog,
     event::cause::Cause,
+    formula::{
+        model::CombatElement,
+        toughness::{BreakDamageDefinition, ToughnessReductionContext},
+    },
     id::EventId,
     operation::{ForceBreakOp, HitOperationScratch, ReduceToughnessOp},
 };

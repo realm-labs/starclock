@@ -4,6 +4,7 @@ use starclock_combat::{
     modifier::model::{FormulaPurpose, FormulaStage, ModifierDefinition, ModifierFilter, StatKind},
     rule::model::{ProgramStep, RuleOperationTemplate, RuleValue, ValueExpr},
 };
+use super::{nihility_s02};
 
 const RANDOM: (&str, u32) = ("universe.blessing.612630", 2);
 const CHAMPION: (&str, u32) = ("universe.blessing.612632", 2);
@@ -21,7 +22,7 @@ fn goal07_p2_m08_s03_materializes_all_levels_without_native_handlers() {
     let contributions = full_contributions(&catalog);
     let materialization = materialize_with_roster(
         &catalog,
-        &super::nihility_s02::kafka_roster(&catalog),
+        &nihility_s02::kafka_roster(&catalog),
         &contributions,
     );
     for key in [
@@ -134,7 +135,7 @@ fn doctor_heals_and_lighthouse_scales_production_ultimate_energy_at_action_bound
         None,
         false,
     );
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let spec = wounded_players(
         durable_spec_with_two_enemy_hp(
@@ -163,7 +164,7 @@ fn doctor_heals_and_lighthouse_scales_production_ultimate_energy_at_action_bound
         .unwrap()
         .maximum_hp()
         .get();
-    let resolution = super::nihility_s02::use_kafka_ultimate(&mut battle);
+    let resolution = nihility_s02::use_kafka_ultimate(&mut battle);
     assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
 
     assert_eq!(

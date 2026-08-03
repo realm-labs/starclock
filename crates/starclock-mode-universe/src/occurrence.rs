@@ -1,8 +1,10 @@
 //! Immutable Occurrence choice-graph definitions.
 
-use crate::definition::LocalizedText;
-use crate::id::{OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId};
-use crate::path::ExactParameter;
+use crate::{
+    definition::LocalizedText,
+    id::{OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId},
+    path::ExactParameter,
+};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]

@@ -1,11 +1,10 @@
 //! Deterministic queued-action ordering independent from presentation timing.
 
-use crate::catalog::action::SkillPointPaymentPolicy;
 use crate::{
     AbilityId, ActionOrigin, CommandId, EventId, RuleId, RuleInstanceId, SourceDefinitionId,
     TriggerId, UnitId,
     battle::spec::{FormationIndex, TeamSide},
-    catalog::action::ReactionBoundary,
+    catalog::action::{ReactionBoundary, SkillPointPaymentPolicy},
     id::SpawnSequence,
     target::model::TargetCommitment,
 };

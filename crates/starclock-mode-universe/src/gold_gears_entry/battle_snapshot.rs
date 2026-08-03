@@ -1,8 +1,8 @@
 //! Immutable current-Activity contribution snapshot for one Gold and Gears battle.
 
-use crate::blessing_runtime::BlessingContributionSet;
-use crate::curio_runtime::CurioContributionSet;
-use crate::digest::Encoder;
+use crate::{
+    blessing_runtime::BlessingContributionSet, curio_runtime::CurioContributionSet, digest::Encoder,
+};
 use starclock_activity::{
     ActivityInventoryId, ActivitySlotId, ActivityTransactionState, ActivityValue,
 };
@@ -14,6 +14,7 @@ use crate::{
     id::{BlessingId, CurioStateId, ResonanceId},
 };
 
+use super::GoldAndGearsEncounterRole;
 use super::{
     GoldAndGearsCurioContributionSet, GoldAndGearsCurioId, GoldAndGearsCurioState,
     GoldAndGearsEntryError, GoldAndGearsExtrapolationSelection, GoldAndGearsPathBoostCombatSet,
@@ -196,10 +197,10 @@ impl GoldAndGearsRuntimeInstance {
         let boundary = if matches!(
             self.encounter_role_for_node(state, state.current_node()),
             Some(
-                super::GoldAndGearsEncounterRole::Elite
-                    | super::GoldAndGearsEncounterRole::FirstPlaneBoss
-                    | super::GoldAndGearsEncounterRole::SecondPlaneBoss
-                    | super::GoldAndGearsEncounterRole::FinalBoss
+                GoldAndGearsEncounterRole::Elite
+                    | GoldAndGearsEncounterRole::FirstPlaneBoss
+                    | GoldAndGearsEncounterRole::SecondPlaneBoss
+                    | GoldAndGearsEncounterRole::FinalBoss
             )
         ) {
             AbilityBoundary::EnterEliteOrBossDomain

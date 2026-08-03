@@ -15,13 +15,14 @@ use super::{
     },
     tests::{compiled_fixture, entry},
 };
+use super::{tests, knowledge};
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_twenty_two_rules_lower_exact_policy_denominators_and_triggers() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(
         factory.knowledge.denominators(),
         (22, [15, 1, 5, 1], [4, 2, 11, 1, 4])
@@ -37,7 +38,7 @@ fn all_twenty_two_rules_lower_exact_policy_denominators_and_triggers() {
             factory
                 .knowledge
                 .rule_for_face(face.identity.id.0)
-                .map(super::knowledge::RuntimeKnowledgeRule::trigger_name),
+                .map(knowledge::RuntimeKnowledgeRule::trigger_name),
             Some(
                 "Immediate"
                     | "AfterMovement"
@@ -51,7 +52,7 @@ fn all_twenty_two_rules_lower_exact_policy_denominators_and_triggers() {
 
 #[test]
 fn every_knowledge_operation_builds_and_commits_an_activity_program() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     for (index, rule) in factory.unique.knowledge_rules.iter().enumerate() {
         let face = factory
@@ -95,7 +96,7 @@ fn every_knowledge_operation_builds_and_commits_an_activity_program() {
 
 #[test]
 fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_340);
     let target = candidates(factory, &instance, &state, "SelectedDomain", None)[0];
@@ -144,7 +145,7 @@ fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
 
 #[test]
 fn query_consumption_and_preservation_mutate_only_owned_state() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_343);
     let anchor = candidates(factory, &instance, &state, "SelectedNonBossDomain", None)[0];
@@ -212,7 +213,7 @@ fn query_consumption_and_preservation_mutate_only_owned_state() {
 
 #[test]
 fn movement_override_exposes_only_stable_knowledge_targets() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_345);
     let nodes = candidates(factory, &instance, &state, "SelectedDomain", None);
@@ -239,7 +240,7 @@ fn movement_override_exposes_only_stable_knowledge_targets() {
 
 #[test]
 fn countdown_initial_reduction_and_knowledge_entry_recovery_execute() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let dice = factory
         .unique
         .dice
@@ -275,7 +276,7 @@ fn countdown_initial_reduction_and_knowledge_entry_recovery_execute() {
 
 #[test]
 fn collapse_prevention_and_collapse_rewards_follow_selected_dice() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     for (source, preserved) in [("302", true), ("303", false)] {
         let dice = factory
             .unique

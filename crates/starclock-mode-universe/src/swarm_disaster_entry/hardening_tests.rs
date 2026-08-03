@@ -11,8 +11,9 @@ use super::{
     incremental_run::SwarmDisasterIncrementalRun,
     state::COUNTDOWN,
 };
+use super::{tests, seeded_run_tests, battle_materialization_tests, SwarmDisasterRuntimeInstance};
 
-const BUNDLE: &[u8] = super::tests::BUNDLE;
+const BUNDLE: &[u8] = tests::BUNDLE;
 const DOMAINS: [(&str, ActivityRngLabel, u16); 8] = [
     ("graph", ActivityRngLabel::Graph, 0x5001),
     ("dice", ActivityRngLabel::Spawn, 0x5002),
@@ -26,7 +27,7 @@ const DOMAINS: [(&str, ActivityRngLabel, u16); 8] = [
 
 #[test]
 fn swarm_rng_domains_are_golden_and_do_not_shift_battle_or_unrelated_streams() {
-    let (instance, _) = super::seeded_run_tests::representative_runtime();
+    let (instance, _) = seeded_run_tests::representative_runtime();
     let mut digest = Sha256Sink::new();
     for (domain, perturbed_label, purpose) in DOMAINS {
         let mut baseline = rng(&instance, 20_101);
@@ -68,18 +69,18 @@ fn swarm_rng_domains_are_golden_and_do_not_shift_battle_or_unrelated_streams() {
 
 #[test]
 fn initial_offers_and_state_are_property_stable_across_swarm_seed_corpus() {
-    let (instance, roster) = super::seeded_run_tests::representative_runtime();
+    let (instance, roster) = seeded_run_tests::representative_runtime();
     for seed in 20_120..20_184_u64 {
         let mut first = SwarmDisasterIncrementalRun::start(
             &instance,
             seed,
-            super::battle_materialization_tests::activity_identity(),
+            battle_materialization_tests::activity_identity(),
             ActivityInstanceId::new(1).unwrap(),
         );
         let mut second = SwarmDisasterIncrementalRun::start(
             &instance,
             seed,
-            super::battle_materialization_tests::activity_identity(),
+            battle_materialization_tests::activity_identity(),
             ActivityInstanceId::new(1).unwrap(),
         );
         first.settle_automatic(&instance, &roster).unwrap();
@@ -108,7 +109,7 @@ fn corrupted_swarm_candidate_failures_are_repeatable_and_bounded() {
 
 #[test]
 fn swarm_state_fault_is_deterministic_and_discards_partial_mutation() {
-    let (instance, _) = super::seeded_run_tests::representative_runtime();
+    let (instance, _) = seeded_run_tests::representative_runtime();
     let program = ActivityProgramDefinition::new(
         ActivityProgramId::new(0x50f0_0001).unwrap(),
         vec![ActivityOperation::SetSlot {
@@ -134,7 +135,7 @@ fn swarm_state_fault_is_deterministic_and_discards_partial_mutation() {
 }
 
 fn fault_once(
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
     program: &ActivityProgramDefinition,
 ) -> (ActivityTransactionOutcome, Box<[u8]>) {
     let mut state = ActivityTransactionState::new(
@@ -150,7 +151,7 @@ fn fault_once(
         Some(&ActivityValue::BoundedInteger(20))
     );
     let bytes = state.canonical_state_bytes(
-        super::battle_materialization_tests::activity_identity(),
+        battle_materialization_tests::activity_identity(),
         instance.graph_definition(),
         ActivityInstanceId::new(1).unwrap(),
         &rng,
@@ -158,8 +159,8 @@ fn fault_once(
     (outcome, bytes)
 }
 
-fn rng(instance: &super::SwarmDisasterRuntimeInstance, seed: u64) -> ActivityRngStreams {
-    let identity = super::battle_materialization_tests::activity_identity();
+fn rng(instance: &SwarmDisasterRuntimeInstance, seed: u64) -> ActivityRngStreams {
+    let identity = battle_materialization_tests::activity_identity();
     ActivityRngStreams::new(ActivityRngContext::new(
         ActivityMasterSeed::from_u64(seed),
         identity.id(),

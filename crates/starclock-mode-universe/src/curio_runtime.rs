@@ -1,7 +1,6 @@
 //! Generic Curio ownership, lifecycle and scoped-contribution runtime.
 
-use crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY;
-use crate::curio_activity::EIDOLON_RESONANCE_LEVELS_KEY;
+use crate::curio_activity::{DESTRUCTIBLE_DESTROYED_COUNT_KEY, EIDOLON_RESONANCE_LEVELS_KEY};
 use std::collections::BTreeMap;
 
 use starclock_activity::{

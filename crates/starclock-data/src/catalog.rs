@@ -5,38 +5,31 @@ mod hit_formula;
 mod validation;
 mod value_map;
 
-use crate::build_lower::BuildDefinitions;
-use crate::build_lower::convert;
-use crate::catalog_manifest::convert_manifest;
-use crate::catalog_support;
-use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
-use crate::domain_catalog::compile;
-use crate::effect_lower::{
-    lower_dispel, lower_duration_clock, lower_effect_category, lower_element,
-    lower_snapshot_policy, lower_stack_policy, lower_teardown, lower_tick_phase,
+use crate::{
+    build_lower::{BuildDefinitions, convert},
+    catalog_manifest::convert_manifest,
+    catalog_support,
+    coverage::{GoalCoverageCategory, GoalCoverageState},
+    domain_catalog::compile,
+    effect_lower::{
+        lower_dispel, lower_duration_clock, lower_effect_category, lower_element,
+        lower_snapshot_policy, lower_stack_policy, lower_teardown, lower_tick_phase,
+    },
+    encounter_lower::{EncounterDefinitions, convert as encounter_lower_convert},
+    generated::{
+        SoraConfig, ability_phase_kind::AbilityPhaseKind, confidence::Confidence,
+        content_identity::ContentIdentity, content_kind::ContentKind,
+        coverage_state::CoverageState, release_state::ReleaseState, runtime::SoraBundle,
+        source_category::SourceCategory,
+    },
+    lifecycle_lower::lower,
+    modifier_lower::{convert as modifier_lower_convert, expression},
+    native_handler_lower::audit,
+    operation_lower::{RuleProgramDefinition, convert as operation_lower_convert},
+    rule_lower::{RuleDataDefinition, convert as rule_lower_convert},
+    selector_lower::{SelectorDataDefinition, lower as selector_lower_lower},
+    standard_lower::{StandardDefinitions, convert as standard_lower_convert},
 };
-use crate::encounter_lower::EncounterDefinitions;
-use crate::encounter_lower::convert as encounter_lower_convert;
-use crate::generated::ability_phase_kind::AbilityPhaseKind;
-use crate::generated::confidence::Confidence;
-use crate::generated::content_identity::ContentIdentity;
-use crate::generated::source_category::SourceCategory;
-use crate::generated::{
-    SoraConfig, content_kind::ContentKind, coverage_state::CoverageState,
-    release_state::ReleaseState, runtime::SoraBundle,
-};
-use crate::lifecycle_lower::lower;
-use crate::modifier_lower::convert as modifier_lower_convert;
-use crate::modifier_lower::expression;
-use crate::native_handler_lower::audit;
-use crate::operation_lower::RuleProgramDefinition;
-use crate::operation_lower::convert as operation_lower_convert;
-use crate::rule_lower::RuleDataDefinition;
-use crate::rule_lower::convert as rule_lower_convert;
-use crate::selector_lower::SelectorDataDefinition;
-use crate::selector_lower::lower as selector_lower_lower;
-use crate::standard_lower::StandardDefinitions;
-use crate::standard_lower::convert as standard_lower_convert;
 pub(super) use catalog_support::{domain_fail, fail, parse_decimal, valid_date, valid_sha256};
 use hit_formula::AbilityHitPlanDefinition;
 use sha2::{Digest, Sha256};

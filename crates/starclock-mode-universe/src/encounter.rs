@@ -1,11 +1,13 @@
 //! Immutable spatial-free encounter, room-binding and content-pool definitions.
 
-use crate::definition::{DomainKind, LocalizedText};
-use crate::id::{
-    ContentPoolId, DifficultyId, EncounterGroupId, EncounterMemberId, EncounterPoolId,
-    EncounterWaveId, RoomId,
+use crate::{
+    definition::{DomainKind, LocalizedText},
+    id::{
+        ContentPoolId, DifficultyId, EncounterGroupId, EncounterMemberId, EncounterPoolId,
+        EncounterWaveId, RoomId,
+    },
+    path::ExactParameter,
 };
-use crate::path::ExactParameter;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]

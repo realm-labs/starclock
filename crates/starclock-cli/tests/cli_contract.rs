@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"bundle_sha256\":\"7f7fc51f8ff2fb6714199c49a949f6ff21d1002dffb09f199849c62b809f7fce\",\"identities\":6719,\"enabled\":6719}"
+        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"bundle_sha256\":\"585b397f7cd1c9457078dfe5e29700b07dfa722fe7eaaa5128a70a4e48a7932e\",\"identities\":6719,\"enabled\":6719}"
     );
 
     let bundle =

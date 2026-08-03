@@ -9,7 +9,7 @@ use crate::{
 
 const SEED: u64 = 20_001;
 const FINAL_STATE: &str = "ddb36a9a2dead46083382defdbb26f7d6ace63217d568aae7ac6aab76979d7dd";
-const COMPONENT_ROOT: &str = "ff0a70f4e4f79428933b46b08f039d10e3553b7de8cf54832ae780610ab516b1";
+const COMPONENT_ROOT: &str = "495a79716f248f5cb794c7f369fa1681bd538be3382d69b520e948edabaa5f1d";
 const REPLAY_BYTES: usize = 85_755;
 const REPLAY_SHA256: &str = "c994e7f7e7bc8085c326fa54004363b9bf22e1b489ee624a92c3311eeab27be3";
 

@@ -1,14 +1,15 @@
 //! Curio-aware postcombat Blessing offer policy.
 
 use super::*;
-use crate::blessing_runtime::BlessingRuntimeDefinition;
-use crate::curio_activity::CurioActivityBindings;
-use crate::curio_activity::active_condition;
-use crate::curio_activity::destroy_and_count_operations;
-use crate::curio_activity::dimension_reward_condition;
-use crate::curio_activity::domain::gossip_condition;
-use crate::curio_activity::domain::sealing_wax_condition;
-use crate::id::CurioId;
+use crate::{
+    blessing_runtime::BlessingRuntimeDefinition,
+    curio_activity::{
+        CurioActivityBindings, active_condition, destroy_and_count_operations,
+        dimension_reward_condition,
+        domain::{gossip_condition, sealing_wax_condition},
+    },
+    id::CurioId,
+};
 
 const SEALING_WAX_POLICIES: [(&str, u64); 9] = [
     ("universe.path.propagation", 18),

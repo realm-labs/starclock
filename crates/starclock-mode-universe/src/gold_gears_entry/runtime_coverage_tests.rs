@@ -2,6 +2,7 @@ use super::{
     GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
     runtime_coverage::{category_contract, validate_exact_ids, validate_exact_rule_bindings},
 };
+use super::{tests};
 
 #[test]
 fn production_factory_closes_all_three_frozen_denominators_exactly_once() {
@@ -58,5 +59,5 @@ fn source_contract_rejects_unknown_categories_and_mixed_count_drift() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    super::tests::shared_factory()
+    tests::shared_factory()
 }

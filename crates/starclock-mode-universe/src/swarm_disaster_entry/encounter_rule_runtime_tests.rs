@@ -1,6 +1,8 @@
-use crate::error::UniverseCatalogLoadErrorKind;
-use crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput;
-use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
+use crate::{
+    error::UniverseCatalogLoadErrorKind,
+    swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput,
+    swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry},
+};
 
 use super::EncounterRuleRuntimeCatalog;
 use crate::swarm_disaster_entry::{SwarmDisasterRuntimeFactory, SwarmDisasterRuntimeInstance};

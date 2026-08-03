@@ -590,10 +590,12 @@ fn gold_not_configured() -> AgentError {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::activity_session::production_factory_for_tests;
-    use crate::gold_gears_activity_session::production_factory_for_tests as gold_gears_activity_session_production_factory_for_tests;
-    use crate::schema::IdempotencyKey;
-    use crate::swarm_disaster_activity_session::production_factory_for_tests as swarm_disaster_activity_session_production_factory_for_tests;
+    use crate::{
+        activity_session::production_factory_for_tests,
+        gold_gears_activity_session::production_factory_for_tests as gold_gears_activity_session_production_factory_for_tests,
+        schema::IdempotencyKey,
+        swarm_disaster_activity_session::production_factory_for_tests as swarm_disaster_activity_session_production_factory_for_tests,
+    };
     use std::{
         sync::{
             Barrier,

@@ -1,8 +1,8 @@
 //! Generated Sora operation/program rows to typed Rule IR proposals.
 
-use crate::modifier_lower::expression;
-use crate::native_handler_lower::handler_id;
-use crate::rule_lower::lower_condition;
+use crate::{
+    modifier_lower::expression, native_handler_lower::handler_id, rule_lower::lower_condition,
+};
 use std::collections::BTreeSet;
 
 use starclock_combat::{

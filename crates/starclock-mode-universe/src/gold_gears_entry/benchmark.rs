@@ -7,6 +7,7 @@ use starclock_activity::{
 
 use crate::{digest::Encoder, gold_gears_identity::GoldAndGearsCatalogIdentity};
 
+use super::GoldAndGearsRuntimeInstance;
 use super::{
     GoldAndGearsBattleAssemblyCacheMetrics, GoldAndGearsBattleAssemblyContext,
     GoldAndGearsEncounterSelection, GoldAndGearsEntry, GoldAndGearsEntryError,
@@ -215,7 +216,7 @@ impl GoldAndGearsPerformanceFixture {
 }
 
 fn commit(
-    instance: &super::GoldAndGearsRuntimeInstance,
+    instance: &GoldAndGearsRuntimeInstance,
     state: &mut ActivityTransactionState,
     program: starclock_activity::ActivityProgramDefinition,
 ) -> Result<(), GoldAndGearsPerformanceFixtureError> {

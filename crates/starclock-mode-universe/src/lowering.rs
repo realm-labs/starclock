@@ -1,35 +1,38 @@
 //! Strict lowering from private Sora transport rows into Universe definitions.
 
-use crate::curio_lowering::lower as curio_lowering_lower;
-use crate::encounter_digest::digest as encounter_digest_digest;
-use crate::encounter_lowering::lower as encounter_lowering_lower;
-use crate::occurrence_lowering::lower as occurrence_lowering_lower;
-use crate::path_lowering::lower as path_lowering_lower;
-use crate::progression_lowering::lower as progression_lowering_lower;
-use crate::rule_lowering::lower as rule_lowering_lower;
-use crate::run_digest::digest as run_digest_digest;
+use crate::{
+    curio_lowering::lower as curio_lowering_lower,
+    encounter_digest::digest as encounter_digest_digest,
+    encounter_lowering::lower as encounter_lowering_lower,
+    occurrence_lowering::lower as occurrence_lowering_lower,
+    path_lowering::lower as path_lowering_lower,
+    progression_lowering::lower as progression_lowering_lower,
+    rule_lowering::lower as rule_lowering_lower, run_digest::digest as run_digest_digest,
+};
 use std::collections::{BTreeMap, BTreeSet};
 
 use serde::Deserialize;
 
-use crate::definition::{
-    ActivityDomainBinding, ActivityDomainDecision, DifficultyDefinition, DifficultyKind,
-    DomainDecisionPolicy, DomainDefinition, DomainKind, LocalizedText, RecommendedElement,
-    RoomDefinition, ScoreThreshold, TopologyDefinition, TopologyNodeDefinition,
-    UniverseActivityBindingDefinition, UniverseDefinitions, UniverseProfileDefinition,
-    WorldDefinition,
-};
-use crate::digest::{Encoder, UniverseDefinitionsDigest};
-use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
-use crate::generated::{
-    SoraConfig, universe_activity_decision::UniverseActivityDecision,
-    universe_decision_policy::UniverseDecisionPolicy,
-    universe_difficulty_kind::UniverseDifficultyKind, universe_domain_kind::UniverseDomainKind,
-    universe_map_edge::UniverseMapEdge, universe_map_node::UniverseMapNode,
-};
-use crate::id::{
-    ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
-    UniverseProfileId, WorldId,
+use crate::{
+    definition::{
+        ActivityDomainBinding, ActivityDomainDecision, DifficultyDefinition, DifficultyKind,
+        DomainDecisionPolicy, DomainDefinition, DomainKind, LocalizedText, RecommendedElement,
+        RoomDefinition, ScoreThreshold, TopologyDefinition, TopologyNodeDefinition,
+        UniverseActivityBindingDefinition, UniverseDefinitions, UniverseProfileDefinition,
+        WorldDefinition,
+    },
+    digest::{Encoder, UniverseDefinitionsDigest},
+    error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind},
+    generated::{
+        SoraConfig, universe_activity_decision::UniverseActivityDecision,
+        universe_decision_policy::UniverseDecisionPolicy,
+        universe_difficulty_kind::UniverseDifficultyKind, universe_domain_kind::UniverseDomainKind,
+        universe_map_edge::UniverseMapEdge, universe_map_node::UniverseMapNode,
+    },
+    id::{
+        ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
+        UniverseProfileId, WorldId,
+    },
 };
 
 const EXPECTED_ACTIVITY_KEY: &str = "activity.standard-simulated-universe.v1";

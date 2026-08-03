@@ -12,45 +12,39 @@ use super::{
     state::BattleState,
 };
 
-use crate::ModifierDefinitionId as CrateModifierDefinitionId;
-
-use crate::Speed as CrateSpeed;
-
-use crate::effect::break_effect::BreakEffectState;
-use crate::effect::shield::ShieldState;
-use crate::effect::state::EffectState;
-use crate::formula::model::CombatElement;
-use crate::formula::shield::ShieldAbsorptionPolicy;
-use crate::formula::toughness::BaseBreakEffect;
-use crate::formula::toughness::BreakDamageDefinition;
-use crate::formula::toughness::EnemyRank;
-use crate::modifier::model::ActiveModifier;
-use crate::modifier::model::StatQuery;
-use crate::rule::model::OnceKey;
-use crate::rule::model::RuleValue;
-use crate::rule::model::SourceClass;
-use crate::rule::state::RuleInstanceState;
-use crate::timeline::state::InterruptWindowKind;
-use crate::timeline::state::NormalTurnState;
-use crate::toughness::state::ToughnessLayerState;
+use super::spec as parent_spec;
 use crate::{
     ActionId, ActionOrigin, AiGraphId, AiStateId, ControlledAction, DispelCategory, DotDefinition,
     DurationClock, EffectCategory, EffectDefinitionId, EffectInstanceId, EffectSnapshotPolicy,
     EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, EnemyDefinitionId, EnemyPhaseId,
-    Energy, LinkedEntity, LinkedEntityKind, ModifierInstanceId, OperationId, OwnerLinkPolicy,
-    RawToughness, RuleId, RuleInstanceId, Scalar, SourceDefinitionId, StatValue,
-    StateSlotDefinitionId, ToughnessLayerKind, ToughnessLayerSpec, WaveLinkPolicy,
+    Energy, LinkedEntity, LinkedEntityKind, ModifierDefinitionId as CrateModifierDefinitionId,
+    ModifierInstanceId, OperationId, OwnerLinkPolicy, RawToughness, RuleId, RuleInstanceId, Scalar,
+    SourceDefinitionId, Speed as CrateSpeed, StatValue, StateSlotDefinitionId, ToughnessLayerKind,
+    ToughnessLayerSpec, WaveLinkPolicy,
     actor::{
         model::{LifeState, PresenceState},
         store::{FormationEntry, LinkState, TeamState, TimelineActorState, UnitState},
     },
     catalog::CatalogDigest,
     command::model::DecisionPoint,
+    effect::{break_effect::BreakEffectState, shield::ShieldState, state::EffectState},
+    formula::{
+        model::CombatElement,
+        shield::ShieldAbsorptionPolicy,
+        toughness::{BaseBreakEffect, BreakDamageDefinition, EnemyRank},
+    },
     id::{
         AbilityId, EncounterId, ModifierDefinitionId, RuleBundleId, ShieldInstanceId,
         SpawnSequence, TimelineActorId, UnitDefinitionId, UnitId, WaveInstanceId,
     },
+    modifier::model::{ActiveModifier, StatQuery},
     numeric::domain::{ActionGauge, Hp, ShieldAmount, Speed},
+    rule::{
+        model::{OnceKey, RuleValue, SourceClass},
+        state::RuleInstanceState,
+    },
+    timeline::state::{InterruptWindowKind, NormalTurnState},
+    toughness::state::ToughnessLayerState,
 };
 pub use team_resource::TeamResourceView;
 pub use timeline_detail::{PendingExtraTurnView, SequenceCursorsView};
@@ -217,7 +211,7 @@ impl<'a> BattleView<'a> {
     }
     /// Returns the authored concession policy retained by this battle.
     #[must_use]
-    pub const fn concede_policy(self) -> super::spec::ConcedePolicy {
+    pub const fn concede_policy(self) -> parent_spec::ConcedePolicy {
         self.state.concede
     }
     /// Returns the canonical next-ID cursors used by deterministic allocation.

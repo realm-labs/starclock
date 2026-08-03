@@ -1,12 +1,12 @@
 //! Character build-row lowering into generated-type-free domain definitions.
 
-use crate::generated::build_patch::BuildPatch;
-use crate::generated::character_ability_slot::CharacterAbilitySlot;
-use crate::generated::combat_element::CombatElement;
-use crate::generated::combat_path::CombatPath;
-use crate::generated::trace_node_kind::TraceNodeKind;
-use crate::light_cone_lower::LightConeDataDefinition;
-use crate::light_cone_lower::convert as light_cone_lower_convert;
+use crate::{
+    generated::{
+        build_patch::BuildPatch, character_ability_slot::CharacterAbilitySlot,
+        combat_element::CombatElement, combat_path::CombatPath, trace_node_kind::TraceNodeKind,
+    },
+    light_cone_lower::{LightConeDataDefinition, convert as light_cone_lower_convert},
+};
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{AbilityId, ModifierDefinitionId, RuleBundleId, Scalar, UnitDefinitionId};

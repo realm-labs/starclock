@@ -1,14 +1,15 @@
 //! Modifier-aware formula preparation separated from authoritative state mutation.
 
-use crate::catalog::CombatCatalog;
-use crate::catalog::action::AbilityKind;
-use crate::catalog::action::AbilityTag;
-use crate::catalog::definition::AbilityDefinition;
-use crate::formula::sustain::DamageCalculation;
-use crate::formula::sustain::HealingCalculation;
-use crate::modifier::model::StatKind;
-use crate::modifier::model::StatQuery;
-use crate::rule::model::SourceClass;
+use crate::{
+    catalog::{
+        CombatCatalog,
+        action::{AbilityKind, AbilityTag},
+        definition::AbilityDefinition,
+    },
+    formula::sustain::{DamageCalculation, HealingCalculation},
+    modifier::model::{StatKind, StatQuery},
+    rule::model::SourceClass,
+};
 use std::collections::BTreeMap;
 
 use crate::{
@@ -31,6 +32,7 @@ use super::{
     operation::fault::{invariant_fault, numeric_fault},
     transaction::Transaction,
 };
+use super::{program, stat_input};
 
 pub(super) struct FormulaInputs {
     bases: BTreeMap<(UnitId, StatKind), Scalar>,
@@ -43,8 +45,8 @@ pub(super) struct FormulaInputs {
 impl FormulaInputs {
     pub(super) fn new(txn: &Transaction<'_>) -> Result<Self, BattleFault> {
         Ok(Self {
-            bases: super::program::stat_bases(txn)?,
-            shields: super::stat_input::shield_values(txn),
+            bases: program::stat_bases(txn)?,
+            shields: stat_input::shield_values(txn),
             effect_stacks: effect_stacks(txn)?,
             effect_category_stacks: effect_category_stacks(txn)?,
             modifiers: txn.state.modifiers.iter_by_id().cloned().collect(),

@@ -1,8 +1,7 @@
-use crate::catalog::action::SkillPointPaymentPolicy;
 use crate::{
     LifeState, UnitId,
     actor::store::{TeamStateStore, UnitStore},
-    catalog::action::ActionResourcePolicy,
+    catalog::action::{ActionResourcePolicy, SkillPointPaymentPolicy},
 };
 
 pub(crate) fn can_pay(

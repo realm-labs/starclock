@@ -1,5 +1,7 @@
-use crate::swarm_disaster_entry::SwarmDisasterEntry;
-use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
+use crate::swarm_disaster_entry::{
+    SwarmDisasterEntry,
+    tests::{BUNDLE, participants, policy, released_entry},
+};
 use starclock_activity::{ActivityCause, ActivityTransactionOutcome, ActivityTransactionState};
 
 use crate::{

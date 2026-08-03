@@ -18,12 +18,13 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests, GoldAndGearsCurioCategory, GoldAndGearsCurioId};
 
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn auxiliary_partition_binds_exactly_six_cumulative_exact_public_rules() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert!(
         compile(factory, 0)
             .compile_auxiliary_conundrum_rules(&new_state(&compile(factory, 0)))
@@ -57,7 +58,7 @@ fn auxiliary_partition_binds_exactly_six_cumulative_exact_public_rules() {
 
 #[test]
 fn cumulative_start_program_executes_all_six_rule_payloads_without_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compile(factory, 6);
     let mut state = new_state(&instance);
     let rng = activity_rng(&instance, 0);
@@ -129,7 +130,7 @@ fn cumulative_start_program_executes_all_six_rule_payloads_without_rng() {
 
 #[test]
 fn plane_entry_rule_grants_one_negative_curio_per_plane_on_reward_stream() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compile(factory, 6);
     let mut state = new_state(&instance);
     let mut rng = activity_rng(&instance, 0);
@@ -151,7 +152,7 @@ fn plane_entry_rule_grants_one_negative_curio_per_plane_on_reward_stream() {
             .unwrap();
         assert_eq!(
             definition.category(),
-            super::GoldAndGearsCurioCategory::Negative
+            GoldAndGearsCurioCategory::Negative
         );
         selected_sources.push(definition.source_id());
         owned.push((id, 1));
@@ -175,7 +176,7 @@ fn plane_entry_rule_grants_one_negative_curio_per_plane_on_reward_stream() {
 
 #[test]
 fn duplicate_and_stale_auxiliary_execution_preserve_state_and_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compile(factory, 6);
     let mut state = new_state(&instance);
     let mut rng = activity_rng(&instance, 23);
@@ -254,7 +255,7 @@ fn execute_plane(
     instance: &GoldAndGearsRuntimeInstance,
     state: &mut ActivityTransactionState,
     plane: u8,
-    owned: &[(super::GoldAndGearsCurioId, u32)],
+    owned: &[(GoldAndGearsCurioId, u32)],
     rng: &mut ActivityRngStreams,
 ) -> Result<GoldAndGearsAuxiliaryPlaneEntryExecution, GoldAndGearsEntryError> {
     rng.transact(|working| {

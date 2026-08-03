@@ -1,5 +1,7 @@
-use crate::swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput;
-use crate::swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry};
+use crate::{
+    swarm_disaster_content::mechanic_access::MechanicRuleRuntimeInput,
+    swarm_disaster_entry::tests::{BUNDLE, participants, policy, released_entry},
+};
 use starclock_activity::ActivityTransactionState;
 
 use crate::error::UniverseCatalogLoadErrorKind;

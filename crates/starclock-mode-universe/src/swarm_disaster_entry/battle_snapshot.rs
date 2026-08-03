@@ -12,6 +12,7 @@ use crate::{
     id::BlessingId,
 };
 
+use super::countdown;
 use super::{
     SwarmDisasterRuntimeInstance, curio_battle_bridge,
     encounter_runtime::{EncounterRole, EncounterSelection},
@@ -155,7 +156,7 @@ fn snapshot_digest(
     trail: &[(&str, &str, &str)],
     next_battle_face: Option<&str>,
     selected_boss: Option<&str>,
-    boss_decay: &[&super::countdown::BossDecayContribution],
+    boss_decay: &[&countdown::BossDecayContribution],
     disarray: (i64, i64, i64),
 ) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock.swarm-disaster.battle-snapshot");

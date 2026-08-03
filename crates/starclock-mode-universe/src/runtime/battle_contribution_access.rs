@@ -1,12 +1,12 @@
 //! Aggregate Standard Universe state into one immutable battle contribution set.
 
-use crate::id::RoomId;
-use crate::path_runtime::PathContributionSet;
 use crate::{
     ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     battle_contribution::UniverseBattleContributionSet,
     battle_snapshot::StandardUniverseBattleSnapshot,
     definition::DomainKind,
+    id::RoomId,
+    path_runtime::PathContributionSet,
 };
 
 use super::{StandardUniverseActivity, StandardUniverseBattleContributionError};

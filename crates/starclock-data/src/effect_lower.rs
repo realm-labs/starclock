@@ -1,13 +1,15 @@
 //! Closed generated-enum mappings for authored generic effects.
 
-use crate::generated::combat_element::CombatElement as CombatElementCombatElement;
-use crate::generated::dispel_category::DispelCategory as DispelCategoryDispelCategory;
-use crate::generated::duration_clock::DurationClock as DurationClockDurationClock;
-use crate::generated::effect_category::EffectCategory as EffectCategoryEffectCategory;
-use crate::generated::effect_stack_policy::EffectStackPolicy as EffectStackPolicyEffectStackPolicy;
-use crate::generated::effect_teardown_policy::EffectTeardownPolicy as EffectTeardownPolicyEffectTeardownPolicy;
-use crate::generated::effect_tick_phase::EffectTickPhase as EffectTickPhaseEffectTickPhase;
-use crate::generated::snapshot_policy::SnapshotPolicy;
+use crate::generated::{
+    combat_element::CombatElement as CombatElementCombatElement,
+    dispel_category::DispelCategory as DispelCategoryDispelCategory,
+    duration_clock::DurationClock as DurationClockDurationClock,
+    effect_category::EffectCategory as EffectCategoryEffectCategory,
+    effect_stack_policy::EffectStackPolicy as EffectStackPolicyEffectStackPolicy,
+    effect_teardown_policy::EffectTeardownPolicy as EffectTeardownPolicyEffectTeardownPolicy,
+    effect_tick_phase::EffectTickPhase as EffectTickPhaseEffectTickPhase,
+    snapshot_policy::SnapshotPolicy,
+};
 use starclock_combat::formula::model::CombatElement;
 use starclock_combat::{
     DispelCategory, DurationClock, EffectCategory, EffectSnapshotPolicy, EffectStackPolicy,

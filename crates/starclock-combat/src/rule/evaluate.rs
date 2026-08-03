@@ -9,12 +9,12 @@ use super::model::{
     TriggerDef, ValueExpr, once_key,
 };
 
-use crate::formula::model::CombatElement;
-use crate::formula::toughness::EnemyRank;
-use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
+use super::model;
 use crate::{
     AbilityId, EffectCategory, EffectDefinitionId, EventId, LifeState, PresenceState, ProgramId,
     RuleId, Scalar, SourceDefinitionId, UnitId,
+    formula::{model::CombatElement, toughness::EnemyRank},
+    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
 };
 use arithmetic::{Arithmetic, arithmetic, convert, extremum};
 use event_property::event_property;
@@ -28,7 +28,7 @@ use std::collections::BTreeSet;
 
 /// Applies the cheap indexed cause filter without inferring cause roles.
 #[must_use]
-pub fn matches_filter(filter: &super::model::EventFilter, input: RuleEvaluationInput<'_>) -> bool {
+pub fn matches_filter(filter: &model::EventFilter, input: RuleEvaluationInput<'_>) -> bool {
     helpers::matches_filter(filter, input)
 }
 
@@ -234,7 +234,7 @@ pub fn evaluate_replacement_program(
 /// Canonical authoritative once-key ledger owned by a future bound rule store.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TriggerLedger {
-    keys: BTreeSet<super::model::OnceKey>,
+    keys: BTreeSet<model::OnceKey>,
 }
 
 impl TriggerLedger {
@@ -249,11 +249,11 @@ impl TriggerLedger {
     pub fn is_empty(&self) -> bool {
         self.keys.is_empty()
     }
-    pub(crate) fn canonical_keys(&self) -> impl ExactSizeIterator<Item = &super::model::OnceKey> {
+    pub(crate) fn canonical_keys(&self) -> impl ExactSizeIterator<Item = &model::OnceKey> {
         self.keys.iter()
     }
 
-    pub(crate) fn reset_scope(&mut self, scope: super::model::OnceScope) -> usize {
+    pub(crate) fn reset_scope(&mut self, scope: model::OnceScope) -> usize {
         let before = self.keys.len();
         self.keys.retain(|key| key.scope != scope);
         before - self.keys.len()
@@ -262,7 +262,7 @@ impl TriggerLedger {
     pub(crate) fn reset_event(&mut self, event: EventId) -> usize {
         let before = self.keys.len();
         self.keys
-            .retain(|key| key.scope != super::model::OnceScope::Event || key.first != event.get());
+            .retain(|key| key.scope != model::OnceScope::Event || key.first != event.get());
         before - self.keys.len()
     }
 
@@ -827,8 +827,8 @@ fn evaluate_operation(
 pub fn trigger_definition_order(
     rule: RuleId,
     source: SourceDefinitionId,
-    trigger: &super::model::TriggerDef,
-) -> super::model::TriggerDefinitionOrder {
+    trigger: &model::TriggerDef,
+) -> model::TriggerDefinitionOrder {
     helpers::trigger_definition_order(rule, source, trigger)
 }
 

@@ -1,29 +1,25 @@
 //! Generated-row-free immutable Standard Universe definitions.
 
-use crate::curio::CurioDefinition;
-use crate::curio::CurioStateDefinition;
-use crate::digest::{
-    UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest, UniverseEncounterDefinitionsDigest,
-    UniversePathDefinitionsDigest, UniverseRunDefinitionsDigest,
+use crate::{
+    curio::{CurioDefinition, CurioStateDefinition},
+    digest::{
+        UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest,
+        UniverseEncounterDefinitionsDigest, UniversePathDefinitionsDigest,
+        UniverseRunDefinitionsDigest,
+    },
+    encounter::{
+        ContentPoolDefinition, DifficultyEnemyBinding, EncounterGroupDefinition,
+        EncounterPoolDefinition, RoomContentBinding,
+    },
+    id::{
+        ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
+        UniverseProfileId, WorldId,
+    },
+    occurrence::{OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceVariantDefinition},
+    path::{BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition},
+    progression::{AbilityTreeNodeDefinition, ServiceDefinition},
+    rule::MechanicRuleDefinition,
 };
-use crate::encounter::ContentPoolDefinition;
-use crate::encounter::DifficultyEnemyBinding;
-use crate::encounter::EncounterGroupDefinition;
-use crate::encounter::EncounterPoolDefinition;
-use crate::encounter::RoomContentBinding;
-use crate::id::{
-    ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
-    UniverseProfileId, WorldId,
-};
-use crate::occurrence::OccurrenceChoiceDefinition;
-use crate::occurrence::OccurrenceDefinition;
-use crate::occurrence::OccurrenceVariantDefinition;
-use crate::path::{
-    BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
-};
-use crate::progression::AbilityTreeNodeDefinition;
-use crate::progression::ServiceDefinition;
-use crate::rule::MechanicRuleDefinition;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalizedText {

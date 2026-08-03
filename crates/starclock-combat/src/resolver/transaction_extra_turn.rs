@@ -1,6 +1,4 @@
-use crate::UnitId;
-use crate::battle::fault::BattleFault;
-use crate::timeline::state::PendingExtraTurn;
+use crate::{UnitId, battle::fault::BattleFault, timeline::state::PendingExtraTurn};
 
 use super::{
     journal::{AllocationKind, MutationField, QueueKind},

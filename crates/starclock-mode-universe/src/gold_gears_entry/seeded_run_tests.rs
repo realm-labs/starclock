@@ -6,6 +6,7 @@ use super::{
     GoldAndGearsRuntimeFactory, GoldAndGearsSeededRunRequest,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
+use super::{tests, GoldAndGearsRuntimeInstance, CONUNDRUM_AREA_KEY};
 
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 
@@ -75,7 +76,7 @@ static MATRIX: &[MatrixRow] = &[
 #[ignore = "exhaustive current-state seeded matrix"]
 fn frozen_matrix_completes_real_battles_and_verifies_from_a_fresh_factory() {
     assert_eq!(MATRIX.len(), 25);
-    let primary = super::tests::shared_factory();
+    let primary = tests::shared_factory();
     let fresh = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
     let mut policies = BTreeSet::new();
 
@@ -115,19 +116,19 @@ fn frozen_matrix_completes_real_battles_and_verifies_from_a_fresh_factory() {
 fn compile_row(
     factory: &GoldAndGearsRuntimeFactory,
     row: &MatrixRow,
-) -> super::GoldAndGearsRuntimeInstance {
+) -> GoldAndGearsRuntimeInstance {
     let dice = factory
         .unique
         .dice
         .iter()
         .find(|dice| dice.identity.stable_key.as_ref() == row.custom_dice_id)
         .unwrap();
-    let mut entry = super::tests::battle_entry(factory, row.area_id, row.path_id, dice);
+    let mut entry = tests::battle_entry(factory, row.area_id, row.path_id, dice);
     if row.stats_conundrum > 0 || row.auxiliary_conundrum > 0 {
         entry = entry.with_conundrum(
             row.stats_conundrum,
             row.auxiliary_conundrum,
-            vec![super::CONUNDRUM_AREA_KEY.to_owned()],
+            vec![CONUNDRUM_AREA_KEY.to_owned()],
         );
     }
     factory.compile_entry(entry).unwrap()

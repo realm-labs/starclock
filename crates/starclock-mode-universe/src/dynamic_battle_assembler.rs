@@ -1,7 +1,9 @@
 //! Atomic current-Activity assembly for one prepared Standard Universe battle.
 
-use crate::battle_assembly::DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY;
-use crate::battle_snapshot::StandardUniverseBattleSnapshot;
+use crate::{
+    battle_assembly::DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY,
+    battle_snapshot::StandardUniverseBattleSnapshot,
+};
 use std::{
     num::NonZeroUsize,
     sync::{Arc, Mutex},

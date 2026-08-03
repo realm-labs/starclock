@@ -4,6 +4,7 @@ use starclock_activity::{
 };
 
 use super::{SwarmDisasterRuntimeFactory, state};
+use super::{tests, SwarmDisasterRuntimeInstance};
 
 #[test]
 fn catalog_denominators_and_activity_carry_are_exact() {
@@ -159,21 +160,21 @@ fn boss_decay_contributions_are_bounded_sorted_and_fail_closed() {
 }
 
 fn factory() -> SwarmDisasterRuntimeFactory {
-    SwarmDisasterRuntimeFactory::load_candidate(super::tests::BUNDLE).unwrap()
+    SwarmDisasterRuntimeFactory::load_candidate(tests::BUNDLE).unwrap()
 }
 
-fn instance(factory: &SwarmDisasterRuntimeFactory) -> super::SwarmDisasterRuntimeInstance {
+fn instance(factory: &SwarmDisasterRuntimeFactory) -> SwarmDisasterRuntimeInstance {
     factory
-        .compile_entry(super::tests::released_entry(
+        .compile_entry(tests::released_entry(
             "swarm-disaster.area.201",
             "universe.path.preservation",
             "swarm-disaster.audience-die.1",
-            super::tests::participants(super::tests::policy()),
+            tests::participants(tests::policy()),
         ))
         .unwrap()
 }
 
-fn transaction_state(instance: &super::SwarmDisasterRuntimeInstance) -> ActivityTransactionState {
+fn transaction_state(instance: &SwarmDisasterRuntimeInstance) -> ActivityTransactionState {
     ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),
@@ -183,7 +184,7 @@ fn transaction_state(instance: &super::SwarmDisasterRuntimeInstance) -> Activity
 fn apply(
     state: &mut ActivityTransactionState,
     program: &starclock_activity::ActivityProgramDefinition,
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
 ) {
     let cause = cause(state, program.id(), instance);
     assert!(matches!(
@@ -194,7 +195,7 @@ fn apply(
 
 fn apply_move(
     state: &mut ActivityTransactionState,
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
 ) {
     let program = instance.compile_countdown_move(state, &[]).unwrap();
     apply(state, &program, instance);
@@ -203,7 +204,7 @@ fn apply_move(
 fn cause(
     state: &ActivityTransactionState,
     program: starclock_activity::ActivityProgramId,
-    instance: &super::SwarmDisasterRuntimeInstance,
+    instance: &SwarmDisasterRuntimeInstance,
 ) -> ActivityCause {
     ActivityCause::new(
         state.command_sequence() + 1,

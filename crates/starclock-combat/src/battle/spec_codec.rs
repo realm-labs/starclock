@@ -231,16 +231,11 @@ const fn source_class_tag(class: SourceClass) -> u8 {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::EnemyDefinitionId;
-    use crate::Energy;
-    use crate::KeyedTeamResourceSpec;
-    use crate::LifeState;
-    use crate::PresenceState;
-    use crate::SourceDefinitionId;
     use crate::{
-        AbilityId, AssemblyDigest, BattleSpec, CombatantSpecDigest, EncounterId, FormationIndex,
-        Hp, ParticipantInitialState, ResolvedDefinitionBindings, Speed, TeamResourceWavePolicy,
-        UnitDefinitionId, UnitLevel,
+        AbilityId, AssemblyDigest, BattleSpec, CombatantSpecDigest, EncounterId, EnemyDefinitionId,
+        Energy, FormationIndex, Hp, KeyedTeamResourceSpec, LifeState, ParticipantInitialState,
+        PresenceState, ResolvedDefinitionBindings, SourceDefinitionId, Speed,
+        TeamResourceWavePolicy, UnitDefinitionId, UnitLevel,
     };
 
     fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {

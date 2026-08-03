@@ -17,6 +17,7 @@ use crate::{
     id::BlessingId,
 };
 
+use super::service_adventure_rule_runtime;
 use super::{
     GoldAndGearsEntryError,
     api::{GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance},
@@ -87,7 +88,7 @@ impl GoldAndGearsServiceAdventureRuntimeCatalog {
             return Err(GoldAndGearsEntryError::InvalidServiceRuntime);
         }
         let (rule_bindings, execution_digest) =
-            super::service_adventure_rule_runtime::compile_rule_runtime(&services, &adventures)?;
+            service_adventure_rule_runtime::compile_rule_runtime(&services, &adventures)?;
         let service_digest = service_digest(&services);
         let adventure_digest = adventure_digest(&adventures);
         Ok(Self {

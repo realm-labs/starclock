@@ -18,6 +18,7 @@ use crate::{
     },
 };
 
+use super::content_runtime;
 use super::{
     SwarmDisasterRuntimeInstance,
     content_runtime::select,
@@ -358,7 +359,7 @@ impl SwarmDisasterRuntimeInstance {
         }
         let candidates = self
             .content_runtime
-            .curio_candidates(Some(super::content_runtime::CurioCategory::Normal), owned)?;
+            .curio_candidates(Some(content_runtime::CurioCategory::Normal), owned)?;
         select(
             &candidates,
             maximum,

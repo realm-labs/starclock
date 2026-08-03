@@ -13,6 +13,7 @@ use super::{
     state_layout::COGNITION_SLOT,
     battle_materialization_tests::{activity_identity, seeded_matrix_roster},
 };
+use super::{tests, GoldAndGearsRuntimeInstance};
 
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const DOMAINS: [(&str, ActivityRngLabel, u16); 7] = [
@@ -27,7 +28,7 @@ const DOMAINS: [(&str, ActivityRngLabel, u16); 7] = [
 
 #[test]
 fn gold_rng_domains_are_golden_and_do_not_shift_battle_or_unrelated_streams() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     let mut digest = Sha256Sink::new();
     for (domain, perturbed_label, purpose) in DOMAINS {
         let mut baseline = rng(&instance, 14_801);
@@ -69,7 +70,7 @@ fn gold_rng_domains_are_golden_and_do_not_shift_battle_or_unrelated_streams() {
 
 #[test]
 fn initial_offers_and_state_are_property_stable_across_seed_corpus() {
-    let instance = super::tests::compiled_battle_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_battle_fixture(tests::shared_factory());
     let roster = seeded_matrix_roster(&instance);
     for seed in 14_820..14_884_u64 {
         let request = GoldAndGearsSeededRunRequest::new(
@@ -106,7 +107,7 @@ fn corrupted_candidate_failures_are_repeatable_and_bounded() {
 
 #[test]
 fn gold_state_fault_is_deterministic_and_discards_partial_mutation() {
-    let instance = super::tests::compiled_fixture(super::tests::shared_factory());
+    let instance = tests::compiled_fixture(tests::shared_factory());
     let program = ActivityProgramDefinition::new(
         ActivityProgramId::new(0x48f0_0001).unwrap(),
         vec![ActivityOperation::SetSlot {
@@ -132,7 +133,7 @@ fn gold_state_fault_is_deterministic_and_discards_partial_mutation() {
 }
 
 fn fault_once(
-    instance: &super::GoldAndGearsRuntimeInstance,
+    instance: &GoldAndGearsRuntimeInstance,
     program: &ActivityProgramDefinition,
 ) -> (ActivityTransactionOutcome, Box<[u8]>) {
     let mut state = ActivityTransactionState::new(
@@ -156,7 +157,7 @@ fn fault_once(
     (outcome, bytes)
 }
 
-fn rng(instance: &super::GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRngStreams {
+fn rng(instance: &GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRngStreams {
     let identity = activity_identity();
     ActivityRngStreams::new(ActivityRngContext::new(
         ActivityMasterSeed::from_u64(seed),

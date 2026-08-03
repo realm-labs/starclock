@@ -1,5 +1,6 @@
 use std::sync::{Arc, OnceLock};
 
+use self::program as activity_program;
 use starclock_activity::{
     ActivityCause, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
     ActivityEdgeDefinition, ActivityEdgeId, ActivityGraphDefinition, ActivityInventoryDefinition,
@@ -537,7 +538,7 @@ fn bindings() -> CurioRuntimeBindings {
 }
 
 fn cause(sequence: u64, program: u32) -> ActivityCause {
-    ActivityCause::new(sequence, self::program(program), node(1)).unwrap()
+    ActivityCause::new(sequence, activity_program(program), node(1)).unwrap()
 }
 fn node(raw: u32) -> NodeId {
     NodeId::new(raw).unwrap()

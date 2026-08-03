@@ -20,6 +20,7 @@ use starclock_replay::{
 
 use crate::battle_materialization::UniverseBattleRoster;
 
+use super::seeded_run;
 use super::{
     SwarmDisasterRuntimeInstance,
     incremental_run::SwarmDisasterIncrementalRun,
@@ -157,7 +158,7 @@ fn baseline_request(
         identity,
         activity_instance,
         config_digest: identity.config_digest(),
-        boundary: super::seeded_run::SwarmSeededBoundary::Baseline,
+        boundary: seeded_run::SwarmSeededBoundary::Baseline,
     }
 }
 

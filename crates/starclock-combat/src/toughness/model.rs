@@ -1,8 +1,9 @@
-use crate::formula::toughness::BreakDamageDefinition;
-use crate::formula::toughness::ToughnessReductionContext;
 use crate::{
     NumericError, Probability, Ratio, RawToughness, SourceDefinitionId,
-    formula::model::CombatElement,
+    formula::{
+        model::CombatElement,
+        toughness::{BreakDamageDefinition, ToughnessReductionContext},
+    },
 };
 
 /// Stable authored Toughness-layer family.

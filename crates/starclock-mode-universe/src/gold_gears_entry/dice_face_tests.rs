@@ -12,13 +12,14 @@ use super::{
     state_layout::{DEFERRED_DICE_FACE_USE_BASE, DEFERRED_EFFECTS_SLOT},
     tests::entry,
 };
+use super::{tests};
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_eighty_faces_lower_exact_parameters_effects_tags_and_policies() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(factory.dice_faces.denominators(), (80, 98, 112, 78));
     assert_eq!(
         factory.dice_faces.coverage(),
@@ -53,7 +54,7 @@ fn all_eighty_faces_lower_exact_parameters_effects_tags_and_policies() {
 
 #[test]
 fn global_face_activation_commits_exact_effect_marker_without_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = factory
         .compile_entry(entry(factory, AREA, PATH, &factory.unique.dice[0]))
         .unwrap();
@@ -86,7 +87,7 @@ fn global_face_activation_commits_exact_effect_marker_without_rng() {
 
 #[test]
 fn missing_roll_and_invalid_explicit_target_reject_before_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = factory
         .compile_entry(entry(factory, AREA, PATH, &factory.unique.dice[0]))
         .unwrap();
@@ -115,7 +116,7 @@ fn missing_roll_and_invalid_explicit_target_reject_before_rng() {
 
 #[test]
 fn authored_empty_content_face_commits_no_effect_without_rng() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let target = factory
         .unique
         .dice_faces

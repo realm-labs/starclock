@@ -5,6 +5,7 @@ use starclock_combat::{
     modifier::model::{FormulaPurpose, StatKind},
     rule::model::{ProgramStep, RuleOperationTemplate, RuleValue, ValueExpr},
 };
+use super::{nihility_s02};
 
 const OFFERINGS: (&str, u32) = ("universe.blessing.612256", 2);
 const BEFORE_SUNRISE: (&str, u32) = ("universe.blessing.612257", 2);
@@ -40,7 +41,7 @@ fn goal07_p2_m04_s04_materializes_every_assigned_exact_mechanic() {
             "{key} contribution is selected"
         );
     }
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let combat = materialization.combat_catalog();
     let ability = combat
@@ -101,7 +102,7 @@ fn goal07_p2_m04_s04_materializes_every_assigned_exact_mechanic() {
 fn nihility_resonance_applies_all_six_statuses_with_formation_upgrades() {
     let catalog = catalog();
     let contributions = full_contributions(&catalog);
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let (mut battle, started) = start(
         &materialization,
@@ -164,7 +165,7 @@ fn enemy_dot_ticks_heal_the_team_restore_random_energy_and_charge_resonance() {
         None,
         false,
     );
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let spec = durable_spec_with_enemy_speed(
         &materialization,
@@ -235,17 +236,17 @@ fn enemy_dot_ticks_heal_the_team_restore_random_energy_and_charge_resonance() {
 fn confusion_detonates_current_dots_and_devoid_reduces_toughness_recovery() {
     let catalog = catalog();
     let contributions = full_contributions(&catalog);
-    let roster = super::nihility_s02::kafka_roster(&catalog);
+    let roster = nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
     let spec = charged_resonance(
-        super::nihility_s02::two_enemy_break_spec(&materialization, 0x85),
+        nihility_s02::two_enemy_break_spec(&materialization, 0x85),
         0x87,
     );
     let (mut battle, started) = start(&materialization, spec, 0x86);
     assert!(started.fault().is_none(), "{:?}", started.fault());
     let resonance = use_resonance(&mut battle);
     assert!(resonance.fault().is_none(), "{:?}", resonance.fault());
-    let broken = super::nihility_s02::use_kafka_ultimate(&mut battle);
+    let broken = nihility_s02::use_kafka_ultimate(&mut battle);
     assert!(broken.fault().is_none(), "{:?}", broken.fault());
     let enemy = battle
         .view()

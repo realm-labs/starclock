@@ -293,11 +293,11 @@ impl EffectStore {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::Ratio;
-    use crate::Scalar;
-    use crate::catalog::action::OrdinaryDamageDefinition;
-    use crate::catalog::action::OrdinaryDamageMultipliers;
-    use crate::formula::model::CombatElement;
+    use crate::{
+        Ratio, Scalar,
+        catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
+        formula::model::CombatElement,
+    };
 
     fn effect(raw: u64) -> EffectInstanceId {
         EffectInstanceId::new(raw).unwrap()

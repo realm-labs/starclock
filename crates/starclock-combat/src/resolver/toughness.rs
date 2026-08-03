@@ -1,10 +1,9 @@
 //! Transaction mutations owned by the generic Toughness subsystem.
 
-use crate::actor::store::TemporaryWeaknessState;
-use crate::effect::break_effect::BreakEffectState;
 use crate::{
     EffectInstanceId, OperationId, Ratio, RawToughness, Rounding, Scalar, UnitId,
-    battle::fault::BattleFault, formula::model::CombatElement,
+    actor::store::TemporaryWeaknessState, battle::fault::BattleFault,
+    effect::break_effect::BreakEffectState, formula::model::CombatElement,
 };
 
 use super::{

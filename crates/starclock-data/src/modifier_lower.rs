@@ -1,7 +1,6 @@
 //! Generated Sora modifier rows to Starclock-owned Rule IR and definitions.
 
-use crate::rule_lower::lower_condition;
-use crate::rule_lower::lower_event_property;
+use crate::rule_lower::{lower_condition, lower_event_property};
 use std::collections::BTreeSet;
 
 use starclock_combat::modifier::model::{

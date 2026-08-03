@@ -2,12 +2,14 @@
 
 use serde::Deserialize;
 
-use crate::error::UniverseCatalogLoadError;
-use crate::generated::{SoraConfig, universe_mechanic_rule_kind::UniverseMechanicRuleKind};
-use crate::id::MechanicRuleId;
-use crate::lowering::{checked_key, checked_source, invalid, localized, reference};
-use crate::path_lowering::tags;
-use crate::rule::{MechanicParameter, MechanicRuleDefinition, MechanicRuleKind};
+use crate::{
+    error::UniverseCatalogLoadError,
+    generated::{SoraConfig, universe_mechanic_rule_kind::UniverseMechanicRuleKind},
+    id::MechanicRuleId,
+    lowering::{checked_key, checked_source, invalid, localized, reference},
+    path_lowering::tags,
+    rule::{MechanicParameter, MechanicRuleDefinition, MechanicRuleKind},
+};
 
 pub(crate) fn lower(
     config: &SoraConfig,

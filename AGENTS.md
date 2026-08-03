@@ -163,13 +163,17 @@ Follow `docs/sources.md`,
 - Keep tests close to the responsibility they verify; move large integration
   behavior to crate-level `tests/`.
 - Do not use `super::super` or deeper parent-relative paths. Cross two or more
-  module boundaries through a stable `crate::` path.
-- Put stable path qualification in clear `use` declarations near the top of a
-  module, then use the imported local names in signatures and bodies. Do not
-  write inline qualified names such as `crate::Type` merely to avoid an import.
-- Resolve import-name conflicts with descriptive aliases. Qualify a name at its
-  use site only when same-named items must remain visibly distinguished and an
-  alias would make that distinction less clear.
+  module boundaries through a stable `crate::` path at the import site.
+- Put stable module-path qualification in clear `use` declarations near the
+  top of a module, then use the imported local names in signatures and bodies.
+  This applies to inline `crate::...`, `super::...` and `self::...` paths; a
+  `use super::...` or `use self::...` declaration is fine, but the qualified
+  path should not be repeated at a call site or in a type signature merely to
+  avoid an import.
+- Resolve import-name conflicts with descriptive aliases. Keep an inline path
+  only when the source distinction must remain visible and an alias would make
+  that distinction less clear, or when Rust requires a path for a visibility
+  boundary such as `pub(in crate::...)`.
 - Use domain newtypes and enums to prevent illegal/interchangeable states.
   Avoid untyped string/value maps when legal keys and operations are known.
 - Keep pure formulas separate from mutation, event collection, reaction

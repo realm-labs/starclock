@@ -20,13 +20,14 @@ use super::{
     },
     tests::entry,
 };
+use super::{tests};
 
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn neural_partition_binds_exactly_forty_rules_to_production_executors() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compile(factory, all_neural(factory));
     let bindings = instance.neural_rule_bindings();
     assert_eq!(bindings.len(), 40);
@@ -82,7 +83,7 @@ fn neural_partition_binds_exactly_forty_rules_to_production_executors() {
 
 #[test]
 fn all_forty_nodes_compile_exact_costs_and_immutable_battle_contributions() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     assert_eq!(factory.neural.denominators(), (40, 30, 31_250));
     assert_eq!(
         GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION,
@@ -139,7 +140,7 @@ fn all_forty_nodes_compile_exact_costs_and_immutable_battle_contributions() {
 
 #[test]
 fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let root = key(factory, "101");
     let root_plan = factory.compile_neural_acquisition(&[], &root, 500).unwrap();
     assert_eq!(root_plan.node(), root);
@@ -189,7 +190,7 @@ fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
 
 #[test]
 fn activity_service_and_dice_effects_execute_at_their_declared_boundaries() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compile(factory, all_neural(factory));
     assert_eq!(instance.neural_blessing_store_offer_count(), 3);
     assert_eq!(
@@ -255,7 +256,7 @@ fn activity_service_and_dice_effects_execute_at_their_declared_boundaries() {
 
 #[test]
 fn reboot_plane_projects_four_non_boss_entries_and_rejects_stale_accounting() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let selected = ["101", "102", "103", "201"]
         .map(|source| key(factory, source))
         .to_vec();
@@ -333,7 +334,7 @@ fn reboot_plane_projects_four_non_boss_entries_and_rejects_stale_accounting() {
 
 #[test]
 fn production_program_matches_the_neural_network_effect_semantic_fixture() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let selected = ["101", "102", "103", "201"]
         .map(|source| key(factory, source))
         .to_vec();
@@ -360,7 +361,7 @@ fn production_program_matches_the_neural_network_effect_semantic_fixture() {
 
 #[test]
 fn all_forty_neural_rules_execute_through_the_production_fixture() {
-    let factory = super::tests::shared_factory();
+    let factory = tests::shared_factory();
     let instance = compile(factory, all_neural(factory));
     assert_eq!(instance.neural_rule_bindings().len(), 40);
     assert_eq!(instance.neural_battle_stat_contributions().len(), 30);

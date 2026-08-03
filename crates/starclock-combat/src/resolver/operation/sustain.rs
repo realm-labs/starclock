@@ -1,16 +1,15 @@
 use super::fault::{invariant_fault, numeric_fault};
 
-use crate::effect::shield::ShieldState;
-use crate::formula::sustain::healing;
 use crate::{
     HealingAmount, Hp, LifeState, ShieldAmount,
     battle::fault::BattleFault,
     catalog::CombatCatalog,
+    effect::shield::ShieldState,
     event::{
         cause::Cause,
         model::{BattleEventKind, HealEventData, HpConsumptionEventData, ShieldEventData},
     },
-    formula,
+    formula::{self, sustain::healing},
     id::EventId,
     operation::{ConsumeHpOp, HealOp, RemoveShieldsOp, ShieldOp},
     resolver::{operation_formula::FormulaInputs, transaction::Transaction},

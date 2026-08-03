@@ -6,36 +6,33 @@ use super::{
     settle::{ActionBoundary, settle_after_action},
 };
 
-use crate::EffectInstanceId as CrateEffectInstanceId;
-
-use crate::SourceDefinitionId as CrateSourceDefinitionId;
-
-use crate::action::lower::TimelineActionContext;
-use crate::action::model::ActionPlan;
-use crate::actor::store::EnemyRuntimeState;
-use crate::actor::store::FormationEntry;
-use crate::actor::store::LinkState;
-use crate::actor::store::TimelineActorState;
-use crate::actor::store::TransformationState;
-use crate::actor::store::UnitState;
-use crate::battle::spec::TeamSide as SpecTeamSide;
-use crate::catalog::action::ReactionBoundary;
-use crate::modifier::model::ActiveModifier;
-use crate::reaction::queue::ReactionQueue;
-use crate::rule::model::OnceScope;
-use crate::rule::model::SlotResetPoint;
-use crate::target::model::TargetCommitment;
+use super::{
+    journal, modifier_snapshot, operation as parent_operation, rule, selector_snapshot, turn,
+};
 use crate::{
-    AbilityId, ActionOrigin, BattleDiagnostics, DiagnosticRecord, Energy, Hp, LifeState,
-    LinkedEntity, ModifierInstanceId, PresenceState, Probability, RuleInstanceId, Scalar,
-    SpawnSequence, Speed, TeamSide, UnitDefinitionId, UnitId,
-    action::lower::{ActionIdentityAllocator, lower_interrupt_action, lower_normal_action},
+    AbilityId, ActionOrigin, BattleDiagnostics, DiagnosticRecord,
+    EffectInstanceId as CrateEffectInstanceId, Energy, Hp, LifeState, LinkedEntity,
+    ModifierInstanceId, PresenceState, Probability, RuleInstanceId, Scalar,
+    SourceDefinitionId as CrateSourceDefinitionId, SpawnSequence, Speed, TeamSide,
+    UnitDefinitionId, UnitId,
+    action::{
+        lower::{
+            ActionIdentityAllocator, TimelineActionContext, lower_interrupt_action,
+            lower_normal_action,
+        },
+        model::ActionPlan,
+    },
+    actor::store::{
+        EnemyRuntimeState, FormationEntry, LinkState, TimelineActorState, TransformationState,
+        UnitState,
+    },
     battle::{
         fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
         model::BattlePhase,
+        spec::TeamSide as SpecTeamSide,
         state::BattleState,
     },
-    catalog::CombatCatalog,
+    catalog::{CombatCatalog, action::ReactionBoundary},
     codec::{BattleStateHash, hash_state},
     command::{legal, model::DecisionPoint, validate::ValidatedCommand},
     event::{
@@ -49,9 +46,12 @@ use crate::{
         ActionId, CommandId, DecisionId, EffectInstanceId, EventId, HitId, OperationId, PhaseId,
         ShieldInstanceId, SourceDefinitionId, TimelineActorId, WaveInstanceId,
     },
+    modifier::model::ActiveModifier,
     numeric::domain::ActionGauge,
+    reaction::queue::ReactionQueue,
     rng::types::DrawPurpose,
-    target::select,
+    rule::model::{OnceScope, SlotResetPoint},
+    target::{model::TargetCommitment, select},
     timeline::state::{InterruptWindowState, NormalTurnState},
 };
 pub(crate) use scratch::ResolutionScratch;
@@ -102,7 +102,7 @@ pub(crate) fn resolve_prepared(
                         None,
                     )
                 })?;
-                super::rule::dispatch_pending_after_events(catalog, &mut txn, parent).map(drop)
+                rule::dispatch_pending_after_events(catalog, &mut txn, parent).map(drop)
             })
             .err();
         (txn.events, root, failure, txn.timeline_elapsed_scaled)
@@ -160,7 +160,7 @@ fn execute(
     maybe_inject(injection, FaultInjectionPoint::AfterResolvingPhase)?;
 
     match command {
-        ValidatedCommand::StartBattle => super::turn::start_battle(catalog, txn, root)?,
+        ValidatedCommand::StartBattle => turn::start_battle(catalog, txn, root)?,
         ValidatedCommand::PassInterruptWindow => {
             let closed = close_active_decision(txn, root)?;
             let turn = txn
@@ -184,7 +184,7 @@ fn execute(
                 catalog,
                 txn.state,
             );
-            super::turn::offer_decision(txn, root, Some(closed), decision);
+            turn::offer_decision(txn, root, Some(closed), decision);
         }
         ValidatedCommand::UseAbility {
             actor,
@@ -218,7 +218,7 @@ fn execute(
             .ok_or_else(|| action_fault(5))?;
             let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
-            let action_resolved = super::operation::settle_effects_at_action_end(
+            let action_resolved = parent_operation::settle_effects_at_action_end(
                 catalog,
                 txn,
                 boundary_cause,
@@ -241,7 +241,7 @@ fn execute(
                 }),
             );
             let ended = if turn.origin == ActionOrigin::NormalTurn {
-                let ended = super::operation::settle_effects_at_turn_end(
+                let ended = parent_operation::settle_effects_at_turn_end(
                     catalog,
                     txn,
                     boundary_cause,
@@ -253,7 +253,7 @@ fn execute(
             } else {
                 ended
             };
-            let ended = super::rule::dispatch_pending_after_events(catalog, txn, ended)?;
+            let ended = rule::dispatch_pending_after_events(catalog, txn, ended)?;
             txn.set_active_turn(None);
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, ended)?
@@ -263,7 +263,7 @@ fn execute(
                 if let ActionBoundary::Continue(parent) =
                     settle_after_action(catalog, txn, boundary_cause, parent)?
                 {
-                    super::turn::begin_next_turn(catalog, txn, root, parent)?;
+                    turn::begin_next_turn(catalog, txn, root, parent)?;
                 }
             }
         }
@@ -283,7 +283,7 @@ fn execute(
                 .ok_or_else(|| action_fault(12))?;
             let resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
-            let resolved = super::operation::settle_effects_at_action_end(
+            let resolved = parent_operation::settle_effects_at_action_end(
                 catalog,
                 txn,
                 boundary_cause,
@@ -293,7 +293,7 @@ fn execute(
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, resolved)?
             {
-                super::turn::offer_interrupt_decision(catalog, txn, root, parent)?;
+                turn::offer_interrupt_decision(catalog, txn, root, parent)?;
             }
         }
         ValidatedCommand::Concede => {
@@ -402,9 +402,9 @@ pub(super) struct Transaction<'a> {
     pub(super) events: Vec<BattleEvent>,
     next_rule_event: usize,
     pub(super) selector_event_snapshots:
-        BTreeMap<EventId, Arc<super::selector_snapshot::RuleSelectorSnapshot>>,
+        BTreeMap<EventId, Arc<selector_snapshot::RuleSelectorSnapshot>>,
     pub(super) selector_action_snapshots:
-        BTreeMap<ActionId, Arc<super::selector_snapshot::RuleSelectorSnapshot>>,
+        BTreeMap<ActionId, Arc<selector_snapshot::RuleSelectorSnapshot>>,
     pub(super) capture_selector_snapshots: bool,
     pub(super) reactions: ReactionQueue,
     resolved_reactions: usize,
@@ -548,7 +548,7 @@ impl<'a> Transaction<'a> {
             .expect("rules-revision reaction budget prevents sequence exhaustion");
         self.journal.allocation(AllocationKind::Reaction, insertion);
         self.journal
-            .queue_insertion(super::journal::QueueKind::Reaction, insertion);
+            .queue_insertion(journal::QueueKind::Reaction, insertion);
         insertion
     }
 
@@ -743,7 +743,7 @@ impl<'a> Transaction<'a> {
         catalog: &CombatCatalog,
         mut state: ActiveModifier,
     ) -> Result<(), BattleFault> {
-        super::modifier_snapshot::initialize(catalog, self, &mut state)?;
+        modifier_snapshot::initialize(catalog, self, &mut state)?;
         let id = state.instance;
         if !self.state.modifiers.insert(state) {
             return Err(action_fault(76));
