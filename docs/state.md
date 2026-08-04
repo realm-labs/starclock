@@ -21,6 +21,9 @@ Git history is the only historical record.
 - `starclock-activity` owns deterministic cross-battle orchestration.
 - Standard battle, Standard Universe, Gold and Gears, and Swarm Disaster use the
   shared combat/activity kernels.
+- Manual combat interrupts are player-owned before-action and after-action
+  decisions. Empty windows resolve synchronously, while an offered window
+  persists the typed continuation resumed by pass or after inserted actions.
 - Replay records and verifies only data produced by the current tree.
 - `starclock-inspector` captures ID-only owned battle snapshots, diffs and
   optional bounded resolver diagnostics without owning presentation metadata.

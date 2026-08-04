@@ -1,5 +1,8 @@
 //! Combat and its build, data, rules and Standard-profile integration boundary.
 
+#[path = "support/combat_decision.rs"]
+mod combat_decision;
+
 #[path = "suites/core/combat/ability_program_execution.rs"]
 mod combat_ability_program_execution;
 #[path = "suites/core/combat/action_resources.rs"]

@@ -587,27 +587,11 @@ fn start_and_pass(battle: &mut Battle) {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(battle);
 }
 
 fn pass_interrupt(battle: &mut Battle) {
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(battle);
 }
 
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {
@@ -896,8 +880,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            241, 60, 253, 123, 150, 162, 7, 141, 56, 156, 87, 224, 2, 157, 145, 41, 167, 149, 118,
-            89, 175, 236, 116, 214, 241, 239, 180, 87, 215, 193, 170, 139,
+            176, 19, 165, 5, 50, 20, 165, 137, 60, 7, 1, 127, 177, 45, 108, 70, 168, 195, 197, 89,
+            161, 228, 232, 32, 140, 76, 24, 3, 100, 179, 144, 88,
         ]
     );
     let damage = resolution
@@ -1013,8 +997,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            250, 40, 47, 179, 198, 99, 15, 199, 216, 66, 78, 79, 176, 70, 56, 78, 112, 3, 255, 110,
-            114, 213, 164, 16, 8, 235, 34, 58, 39, 115, 115, 126,
+            62, 232, 19, 11, 134, 220, 136, 138, 84, 223, 149, 4, 180, 2, 170, 89, 47, 29, 44, 212,
+            188, 76, 53, 8, 115, 102, 34, 173, 39, 254, 95, 80,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -1046,8 +1030,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            42, 111, 64, 107, 252, 249, 245, 37, 187, 51, 136, 68, 18, 117, 27, 119, 34, 161, 210,
-            98, 84, 227, 42, 86, 126, 131, 238, 218, 235, 104, 80, 112,
+            58, 178, 153, 250, 213, 194, 15, 83, 15, 96, 8, 236, 195, 24, 62, 55, 161, 216, 59,
+            100, 40, 89, 155, 146, 61, 166, 181, 110, 58, 146, 168, 106,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -1089,8 +1073,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            150, 237, 65, 197, 183, 179, 193, 53, 211, 180, 120, 148, 23, 100, 166, 183, 162, 14,
-            132, 106, 141, 91, 13, 24, 36, 219, 241, 105, 182, 128, 51, 60,
+            227, 62, 45, 93, 184, 32, 6, 220, 106, 191, 95, 6, 248, 246, 54, 17, 17, 228, 89, 108,
+            138, 232, 21, 67, 205, 15, 245, 65, 193, 189, 181, 41,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1140,15 +1124,7 @@ fn nondefault_wave_boundaries_emit_at_the_authored_lifecycle_point() {
 }
 
 fn start_and_pass_current_turn(battle: &mut Battle) {
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(battle);
 }
 
 #[test]
@@ -1159,8 +1135,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            47, 118, 113, 5, 51, 31, 72, 20, 245, 96, 206, 70, 24, 209, 55, 210, 135, 29, 164, 157,
-            159, 60, 169, 16, 63, 134, 76, 165, 190, 144, 147, 154,
+            76, 71, 5, 39, 37, 55, 74, 131, 64, 253, 25, 191, 126, 84, 200, 75, 31, 187, 209, 24,
+            223, 115, 193, 119, 40, 53, 240, 129, 96, 97, 45, 131,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

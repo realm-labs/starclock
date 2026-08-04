@@ -1,6 +1,7 @@
 use crate::{
     AbilityId, ActionOrigin,
     battle::spec::{FormationIndex, TeamSide},
+    event::cause::Cause,
     id::{SpawnSequence, TimelineActorId, UnitId},
 };
 
@@ -25,13 +26,21 @@ pub(crate) struct PendingExtraTurn {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
 pub enum InterruptWindowKind {
-    PreAction = 0,
+    BeforeAction = 0,
+    AfterAction = 1,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ResolutionContinuation {
+    ContinueActiveTurn,
+    CompleteActiveTurn { cause: Cause, ticks_turn_end: bool },
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct InterruptWindowState {
     pub(crate) kind: InterruptWindowKind,
     pub(crate) turn: NormalTurnState,
+    pub(crate) continuation: ResolutionContinuation,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]

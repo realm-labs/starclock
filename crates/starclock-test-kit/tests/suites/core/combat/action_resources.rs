@@ -1,10 +1,11 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest,
-    CombatantSpecError, Command, CommandErrorKind, ConcedePolicy, Energy, FormationIndex,
-    HitEventData, Hp, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, ResourceEventData, Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
+    CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
+    DecisionKind, DecisionOwner, Energy, FormationIndex, HitEventData, Hp, InterruptWindowKind,
+    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResourceEventData, Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -24,6 +25,104 @@ where
     I::Error: core::fmt::Debug,
 {
     I::try_from(raw).unwrap()
+}
+
+#[test]
+fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
+    let mut battle = battle();
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle)
+        .expect("full initial Energy opens the player interrupt window");
+
+    let basic = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| {
+            matches!(
+                command,
+                Command::UseAbility {
+                    ability,
+                    primary_target: None,
+                    ..
+                } if ability.get() == 1
+            )
+        })
+        .unwrap()
+        .clone();
+    battle.apply(basic).unwrap();
+    assert_eq!(
+        battle.view().interrupt_window().unwrap().kind(),
+        InterruptWindowKind::AfterAction
+    );
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle)
+        .expect("the charged Ultimate remains available after the player action");
+
+    let before_enemy = battle.view().interrupt_window().unwrap();
+    assert_eq!(before_enemy.kind(), InterruptWindowKind::BeforeAction);
+    assert_eq!(before_enemy.turn().side(), TeamSide::Enemy);
+    assert_eq!(
+        battle.decision().unwrap().owner(),
+        DecisionOwner::Team(TeamSide::Player)
+    );
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle)
+        .expect("the player declines the opportunity before the enemy action");
+
+    let enemy_action = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::UseAbility { actor, .. } if actor.get() == 2))
+        .unwrap()
+        .clone();
+    battle.apply(enemy_action).unwrap();
+    let after_enemy = battle.view().interrupt_window().unwrap();
+    assert_eq!(after_enemy.kind(), InterruptWindowKind::AfterAction);
+    assert_eq!(after_enemy.turn().side(), TeamSide::Enemy);
+    assert_eq!(
+        battle.decision().unwrap().owner(),
+        DecisionOwner::Team(TeamSide::Player)
+    );
+
+    let ultimate = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::UseInterrupt { ability, .. } if ability.get() == 3))
+        .unwrap()
+        .clone();
+    let inserted = battle.apply(ultimate).unwrap();
+    let ultimate_declared = inserted
+        .events()
+        .iter()
+        .position(|event| {
+            matches!(
+                event.kind(),
+                BattleEventKind::Action(ActionEventData::Declared {
+                    origin: ActionOrigin::UltimateInterrupt,
+                    ..
+                })
+            )
+        })
+        .unwrap();
+    let enemy_turn_ended = inserted
+        .events()
+        .iter()
+        .position(|event| {
+            matches!(
+                event.kind(),
+                BattleEventKind::Turn(TurnEventData::Ended { owner, .. }) if owner.get() == 2
+            )
+        })
+        .unwrap();
+    assert!(ultimate_declared < enemy_turn_ended);
 }
 
 fn runtime<I: TryFrom<u64>>(raw: u64) -> I
@@ -203,8 +302,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            186, 142, 206, 133, 86, 129, 12, 196, 125, 134, 96, 147, 11, 193, 161, 198, 247, 195,
-            234, 130, 168, 199, 13, 158, 250, 44, 221, 32, 43, 191, 102, 52,
+            142, 161, 120, 25, 214, 107, 44, 154, 248, 93, 12, 94, 133, 115, 113, 90, 6, 68, 154,
+            113, 82, 182, 104, 227, 149, 155, 3, 12, 20, 175, 31, 162,
         ]
     );
     assert!(matches!(
@@ -231,13 +330,11 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
         battle.view().units_by_id().next().unwrap().current_energy(),
         Energy::ZERO
     );
-    assert_eq!(battle.decision().unwrap().legal_commands().len(), 1);
-
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: battle.decision().unwrap().id(),
-        })
-        .unwrap();
+    assert_eq!(
+        battle.decision().unwrap().kind(),
+        DecisionKind::NormalAction
+    );
+    assert!(battle.view().interrupt_window().is_none());
     let skill = battle
         .decision()
         .unwrap()
@@ -273,8 +370,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            103, 219, 110, 6, 158, 255, 35, 223, 175, 126, 192, 63, 80, 180, 112, 208, 188, 185,
-            65, 116, 99, 130, 37, 158, 241, 89, 76, 5, 66, 83, 187, 103,
+            232, 99, 79, 175, 165, 237, 8, 104, 61, 157, 99, 208, 152, 191, 194, 8, 60, 253, 115,
+            155, 209, 121, 147, 237, 204, 128, 121, 39, 13, 126, 164, 148,
         ]
     );
     assert!(matches!(
@@ -352,6 +449,18 @@ fn basic_gain_clamps_at_caps_and_reports_overflow() {
         .unwrap()
         .clone();
     let resolution = battle.apply(basic).unwrap();
+    assert_eq!(
+        resolution.next_decision().unwrap().kind(),
+        DecisionKind::InterruptWindow
+    );
+    assert_eq!(
+        battle.view().interrupt_window().unwrap().kind(),
+        InterruptWindowKind::AfterAction
+    );
+    assert!(!resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Turn(starclock_combat::TurnEventData::Ended { .. })
+    )));
     assert!(resolution.events().iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Resource(ResourceEventData::SkillPoints {

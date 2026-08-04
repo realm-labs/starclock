@@ -466,7 +466,7 @@ Use explicit queues, never recursive trigger calls:
 
 - `OperationQueue` executes the current authored action/phase/hit work;
 - `ReactionQueue` holds trigger-produced actions/operations ordered by reaction key;
-- `InterruptWindowState` persists only while awaiting an external interrupt/pass command;
+- `InterruptWindowState` persists only while awaiting an external interrupt/pass command and stores the typed continuation resumed by Pass;
 - `TimelineQueue` derives the next eligible actor from canonical Action Gauge ordering;
 - encounter boundary requests are collected separately and settled only at allowed boundaries.
 

@@ -276,15 +276,7 @@ fn lethal_damage_advances_a_multi_phase_enemy_without_defeat_events() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()
@@ -324,15 +316,7 @@ fn phase_transition_is_transactional_and_applies_every_carry_family() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

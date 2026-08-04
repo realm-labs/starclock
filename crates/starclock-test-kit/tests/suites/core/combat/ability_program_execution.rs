@@ -813,15 +813,7 @@ fn start_and_use(
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(battle);
     let use_ability = battle
         .decision()
         .unwrap()
@@ -1117,15 +1109,7 @@ fn true_damage_program_emission_executes_authoritatively() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

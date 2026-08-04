@@ -1,7 +1,8 @@
 use crate::{
+    event::cause::{Cause, CauseActor},
     formula::{shield::ShieldAbsorptionPolicy, toughness::EnemyRank},
     rule::model::RuleValue,
-    timeline::state::NormalTurnState,
+    timeline::state::{NormalTurnState, ResolutionContinuation},
 };
 use sha2::{Digest, Sha256};
 
@@ -442,12 +443,94 @@ fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
             e.u8(1);
             e.u8(window.kind as u8);
             encode_turn(e, window.turn);
+            match window.continuation {
+                ResolutionContinuation::ContinueActiveTurn => e.u8(0),
+                ResolutionContinuation::CompleteActiveTurn {
+                    cause,
+                    ticks_turn_end,
+                } => {
+                    e.u8(1);
+                    encode_cause(e, cause);
+                    e.u8(u8::from(ticks_turn_end));
+                }
+            }
         }
     }
     e.length(state.timeline.extra_turns.len());
     for pending in &state.timeline.extra_turns {
         e.u64(pending.insertion);
         e.u64(pending.unit.get());
+    }
+}
+
+fn encode_cause<S: Sink>(e: &mut Encoder<'_, S>, cause: Cause) {
+    match cause.parent_event() {
+        None => e.u8(0),
+        Some(parent) => {
+            e.u8(1);
+            e.u64(parent.get());
+        }
+    }
+    e.u64(cause.root_command().get());
+    match cause.action() {
+        None => e.u8(0),
+        Some(action) => {
+            e.u8(1);
+            e.u64(action.get());
+        }
+    }
+    match cause.phase() {
+        None => e.u8(0),
+        Some(phase) => {
+            e.u8(1);
+            e.u64(phase.get());
+        }
+    }
+    match cause.hit() {
+        None => e.u8(0),
+        Some(hit) => {
+            e.u8(1);
+            e.u64(hit.get());
+        }
+    }
+    match cause.owner() {
+        None => e.u8(0),
+        Some(owner) => {
+            e.u8(1);
+            e.u64(owner.get());
+        }
+    }
+    match cause.actor() {
+        None => e.u8(0),
+        Some(CauseActor::Unit(unit)) => {
+            e.u8(1);
+            e.u64(unit.get());
+        }
+        Some(CauseActor::TimelineActor(actor)) => {
+            e.u8(2);
+            e.u64(actor.get());
+        }
+    }
+    match cause.applier() {
+        None => e.u8(0),
+        Some(applier) => {
+            e.u8(1);
+            e.u64(applier.get());
+        }
+    }
+    match cause.source_definition() {
+        None => e.u8(0),
+        Some(source) => {
+            e.u8(1);
+            e.u32(source.get());
+        }
+    }
+    match cause.primary_target() {
+        None => e.u8(0),
+        Some(target) => {
+            e.u8(1);
+            e.u64(target.get());
+        }
     }
 }
 

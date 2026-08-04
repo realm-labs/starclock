@@ -11,6 +11,13 @@ use crate::{
 
 use super::model::{Command, DecisionKind, DecisionOwner, DecisionPoint};
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct InterruptOption {
+    actor: UnitId,
+    ability: AbilityId,
+    primary_target: Option<UnitId>,
+}
+
 pub(crate) fn battle_start(id: DecisionId) -> DecisionPoint {
     DecisionPoint::new(
         id,
@@ -20,16 +27,15 @@ pub(crate) fn battle_start(id: DecisionId) -> DecisionPoint {
     )
 }
 
-pub(crate) fn interrupt_window(
-    id: DecisionId,
+pub(crate) fn interrupt_options(
     owner: TeamSide,
     units: &UnitStore,
     formations: &FormationState,
     teams: &TeamStateStore,
     effects: &EffectStore,
     catalog: &CombatCatalog,
-) -> DecisionPoint {
-    let mut commands = vec![Command::PassInterruptWindow { decision: id }];
+) -> Vec<InterruptOption> {
+    let mut options = Vec::new();
     for unit in units.iter_by_id().filter(|unit| unit.side == owner) {
         for ability in effective_abilities(&unit.abilities, effects, catalog, unit.id) {
             let Some((action, selector)) = catalog.ability(ability).and_then(|definition| {
@@ -47,17 +53,29 @@ pub(crate) fn interrupt_window(
                 continue;
             }
             if let Ok(primaries) = legal_primary_targets(units, formations, unit.id, selector) {
-                commands.extend(primaries.into_iter().map(|primary_target| {
-                    Command::UseInterrupt {
-                        decision: id,
-                        actor: unit.id,
-                        ability,
-                        primary_target,
-                    }
+                options.extend(primaries.into_iter().map(|primary_target| InterruptOption {
+                    actor: unit.id,
+                    ability,
+                    primary_target,
                 }));
             }
         }
     }
+    options
+}
+
+pub(crate) fn interrupt_window(
+    id: DecisionId,
+    owner: TeamSide,
+    options: Vec<InterruptOption>,
+) -> DecisionPoint {
+    let mut commands = vec![Command::PassInterruptWindow { decision: id }];
+    commands.extend(options.into_iter().map(|option| Command::UseInterrupt {
+        decision: id,
+        actor: option.actor,
+        ability: option.ability,
+        primary_target: option.primary_target,
+    }));
     DecisionPoint::new(
         id,
         DecisionKind::InterruptWindow,

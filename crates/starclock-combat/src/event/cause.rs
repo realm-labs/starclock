@@ -49,6 +49,13 @@ impl Cause {
         }
     }
 
+    pub(crate) const fn with_root_command(self, root_command: CommandId) -> Self {
+        Self {
+            root_command,
+            ..self
+        }
+    }
+
     pub(crate) const fn for_action(
         root_command: CommandId,
         action: ActionId,

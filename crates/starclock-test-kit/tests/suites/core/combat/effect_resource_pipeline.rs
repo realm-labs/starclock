@@ -265,11 +265,7 @@ fn execute_probe(mut battle: Battle) -> (Battle, starclock_combat::Resolution) {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: battle.decision().unwrap().id(),
-        })
-        .unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

@@ -14,12 +14,14 @@ floors elapsed distance to six decimal places; ineligible actors retain their
 gauge and the selected actor is set to zero explicitly. Completing its normal
 action resets that actor to the full 10,000 gauge before the next selection.
 
-The active normal turn and interrupt window are authoritative state. Start
-opens a pre-action interrupt window and offers only `PassInterruptWindow`.
-Passing closes that decision and offers the exact executable normal-action
-commands for its owner. Catalog/spec composition rejects a participant with no
-currently executable ability, so an accepted battle cannot open an empty normal
-decision.
+The active normal turn and an optional manual-interrupt window are authoritative
+state. A window records its observable boundary plus a typed continuation: keep
+resolving the active turn or complete the action-owning turn. Before-action and
+after-action windows are controlled by the player even when the active actor is
+an enemy. A window is exposed only when at least one interrupt is legal;
+otherwise its continuation runs synchronously without allocating a decision.
+Passing resumes the saved continuation. Using an interrupt preserves it and
+re-enumerates the remaining legal interrupts after the inserted action settles.
 
 ## Structural action lowering
 
@@ -39,9 +41,10 @@ The synchronous fact chain is:
 4. hit started and ended;
 5. phase ended;
 6. action resolved;
-7. turn ended;
-8. next turn started;
-9. next interrupt decision offered.
+7. higher-priority reactions drained;
+8. optional after-action interrupt decision offered;
+9. turn ended after the decision is passed or no interrupt is legal;
+10. next turn started and its optional before-action interrupt decision offered.
 
 Every fact retains the root command and immediate parent. Action, phase and hit
 identities are added as soon as they exist. Stable fixed vectors cover the

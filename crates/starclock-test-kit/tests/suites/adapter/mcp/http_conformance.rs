@@ -414,24 +414,16 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
 }
 
 fn assert_trace(actual: &TransportTrace) {
-    const CURRENT_COMBAT_STATE_HASHES: [&str; 17] = [
-        "08bd3cbddc356df065f1a0a0014c3300bb5a930b0a2aafd713afcbdb6d881fca",
-        "9f7c1c9909677305a886392cdb8237dc53e57b2e8e5ff638785ec574d21f7dd0",
-        "e2aa6c3104bfefb58bb50bd8739990b3aea31c998f8587ef6306d5caaa07a5c5",
-        "bc79607eb27370708954cb17b8d4beb44786dbe938cc08be26b7ef5bbb9a67b8",
-        "83860b5093b6f772e71f0634de4561e31e701b6cac3a331bc3e22b50dea90743",
-        "7d8c52276e234176f0ad0af2bfc023c7029965d8c319b2c41206eebe645190c3",
-        "57ab6e8dc752f945e3644e9670fc856f7a5e6fba0de481026be6b65b776a83e5",
-        "e9c0c20acb36135739bcf9e9366cfa00c4166ee303ca34e9b471eaa76a2d6ace",
-        "e645bfe65e71374f98ba683418efa8ee5f7e0637e729be7defebb293b531fe8a",
-        "cc46077296883febb7d20bd826b0da6f7e5b372f55bb7dcc163d52fd42ea0c4d",
-        "dd7252d288fc16fcd0fb26062df7328dc217727c72f2c39efa8609945669fa06",
-        "e499f8f8db0a03b79ade449681b5ee6a044d0127b4226fc9de17497246046bde",
-        "136e6cf4a4f2a9c90c7445e119e468c50f16193148cbd5a7af81e200998fceed",
-        "46f1c2b1e35b5315529fe537fff119ccc65f2533853858745b4d79a7c82ef373",
-        "e986ffa9de1e4f72d33048f0331f5036886afdf6febd5090f6acf0ff266145b6",
-        "20e3a9bb5cefdf51cb1c05bf5b92092b236027a163c967755f1665d13ac77b86",
-        "c3a887357ed05ed76e51512f9813635cbd7bea223bde32ca10570b530ef44342",
+    const CURRENT_COMBAT_STATE_HASHES: [&str; 9] = [
+        "be362a4f84775e5a3f10517fb44b0f4fe11fcb0ba46ad75bc267530dd24ed461",
+        "e10f3881ba08509a87a9602b22aebaaebe5d034ee5fa0208a9ec7b63a97f8ea2",
+        "24dba7cdbcef19e32a592e05c4d0889235e7e7cb30c208beccc10b5aa20bfa83",
+        "e78323f1de803a784c10711496863c0fa0c9b1a87852666fcadf465ac1722883",
+        "3ccfcb145a1ef2a5868dbe7bf40591d4dc34553736fcc3e293d2093026896027",
+        "734f74a169fbba63a489b867ab10abcec03a0cca1bc8afb456595123fe51a926",
+        "4cf79e310bcaffc3b7bb1148d2e30348bda354e7a358009ee0fe27c3d3b61af0",
+        "650cb6382f6ba4dbd241e14401d40653efbea267896297d71afc2ea8e7100368",
+        "172dbbda6facf9b5c1e6c0c2be13d1fbf9b27654487cd44e891d641baca42bc2",
     ];
     assert_eq!(
         Value::Array(actual.state_hashes.clone()),
@@ -439,8 +431,8 @@ fn assert_trace(actual: &TransportTrace) {
         "the transport trace follows the current declared combat state codec"
     );
     assert!(!actual.replay_hex.as_str().unwrap().is_empty());
-    assert_eq!(actual.command_count, "21");
-    assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[16]);
+    assert_eq!(actual.command_count, "11");
+    assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[8]);
 }
 
 async fn raw_http(

@@ -5,8 +5,8 @@ use starclock_combat::{
     BattleEventData, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecError,
     CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
     DecisionEventData, DecisionId, DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId,
-    FormationIndex, HitEventData, Hp, InterruptWindowKind, LifeState, ParticipantInitialState,
-    ParticipantSource, ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
+    FormationIndex, HitEventData, Hp, LifeState, ParticipantInitialState, ParticipantSource,
+    ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitDefinitionId,
     UnitId, UnitLevel,
     catalog::{
@@ -348,13 +348,6 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
         decision: runtime(1),
     };
     let started = battle.apply(start).unwrap();
-    assert_eq!(
-        started.state_hash().bytes(),
-        [
-            122, 243, 150, 163, 48, 10, 206, 232, 42, 129, 3, 147, 182, 232, 85, 1, 175, 120, 60,
-            71, 232, 116, 94, 114, 10, 89, 166, 94, 124, 96, 11, 193,
-        ]
-    );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
     assert_eq!(started.committed_revision(), 1);
     assert_eq!(started.rng_draw_count(), 0);
@@ -383,105 +376,59 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
         started.events()[2].kind(),
         &BattleEventKind::Decision(DecisionEventData::Offered {
             decision: runtime(2),
-            kind: DecisionKind::InterruptWindow,
+            kind: DecisionKind::NormalAction,
             owner: DecisionOwner::Team(TeamSide::Player),
         })
     );
     let next = started.next_decision().unwrap();
     assert_eq!(next.id(), runtime::<DecisionId>(2));
-    assert_eq!(next.kind(), DecisionKind::InterruptWindow);
-    assert_eq!(next.owner(), DecisionOwner::Team(TeamSide::Player));
-    assert_eq!(
-        next.legal_commands(),
-        [Command::PassInterruptWindow {
-            decision: runtime(2)
-        }]
-    );
-    assert_eq!(battle.decision(), Some(next));
-    assert_eq!(battle.view().active_turn().unwrap().owner(), runtime(1));
-    assert_eq!(
-        battle.view().interrupt_window().unwrap().kind(),
-        InterruptWindowKind::PreAction
-    );
-
-    let interrupt = snapshot(&battle);
-    let forged_action = Command::UseAbility {
-        decision: runtime(2),
-        actor: runtime(1),
-        ability: definition(1),
-        primary_target: None,
-    };
-    assert_eq!(
-        battle.apply(forged_action).unwrap_err().kind(),
-        CommandErrorKind::NotOffered
-    );
-    assert_eq!(snapshot(&battle), interrupt);
-
-    let passed = battle
-        .apply(Command::PassInterruptWindow {
-            decision: runtime(2),
-        })
-        .unwrap();
-    assert_eq!(
-        passed.state_hash().bytes(),
-        [
-            126, 161, 173, 111, 88, 52, 152, 139, 53, 128, 18, 244, 113, 52, 11, 232, 39, 213, 77,
-            112, 3, 24, 194, 132, 219, 165, 54, 83, 232, 196, 5, 142,
-        ]
-    );
-    let next = passed.next_decision().unwrap();
-    assert_eq!(next.id(), runtime::<DecisionId>(3));
     assert_eq!(next.kind(), DecisionKind::NormalAction);
+    assert_eq!(next.owner(), DecisionOwner::Team(TeamSide::Player));
     assert_eq!(
         next.legal_commands(),
         [
             Command::UseAbility {
-                decision: runtime(3),
+                decision: runtime(2),
                 actor: runtime(1),
                 ability: definition(1),
                 primary_target: None,
             },
             Command::Concede {
-                decision: runtime(3),
+                decision: runtime(2),
             },
         ]
     );
+    assert_eq!(battle.decision(), Some(next));
+    assert_eq!(battle.view().active_turn().unwrap().owner(), runtime(1));
     assert!(battle.view().interrupt_window().is_none());
 
     let awaiting = snapshot(&battle);
-    let unoffered = Command::UseAbility {
-        decision: runtime(3),
+    let forged_action = Command::UseAbility {
+        decision: runtime(2),
         actor: runtime(1),
         ability: definition(1),
         primary_target: Some(runtime(2)),
     };
     assert_eq!(
-        battle.apply(unoffered).unwrap_err().kind(),
+        battle.apply(forged_action).unwrap_err().kind(),
         CommandErrorKind::NotOffered
     );
     assert_eq!(snapshot(&battle), awaiting);
 
     let ended = battle
         .apply(Command::Concede {
-            decision: runtime(3),
+            decision: runtime(2),
         })
         .unwrap();
-    assert_eq!(
-        ended.state_hash().bytes(),
-        [
-            103, 241, 103, 237, 103, 50, 90, 63, 99, 106, 94, 127, 14, 34, 73, 166, 215, 220, 219,
-            108, 87, 183, 44, 176, 81, 41, 71, 123, 54, 60, 3, 98,
-        ]
-    );
     assert_eq!(ended.phase(), BattlePhase::Lost);
-    assert_eq!(ended.committed_revision(), 3);
+    assert_eq!(ended.committed_revision(), 2);
     assert_eq!(ended.next_decision(), None);
     assert_eq!(ended.state_hash(), battle.state_hash());
-    assert_eq!(ended.root_command().get(), 3);
+    assert_eq!(ended.root_command().get(), 2);
     assert_eq!(ended.events().len(), 2);
-    assert_eq!(ended.events()[0].id().get(), 6);
-    assert_eq!(ended.events()[1].id().get(), 7);
-    assert_eq!(ended.events()[1].cause().root_command().get(), 3);
+    assert_eq!(ended.events()[0].id().get(), 4);
+    assert_eq!(ended.events()[1].id().get(), 5);
+    assert_eq!(ended.events()[1].cause().root_command().get(), 2);
     assert_eq!(
         ended.events()[1].kind(),
         &BattleEventKind::Battle(BattleEventData::Conceded {
@@ -493,7 +440,7 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle
             .apply(Command::Concede {
-                decision: runtime(3)
+                decision: runtime(2)
             })
             .unwrap_err()
             .kind(),
@@ -510,33 +457,20 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
             decision: runtime(1),
         })
         .unwrap();
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: runtime(2),
-        })
-        .unwrap();
     let resolution = battle
         .apply(Command::UseAbility {
-            decision: runtime(3),
+            decision: runtime(2),
             actor: runtime(1),
             ability: definition(1),
             primary_target: None,
         })
         .unwrap();
-    assert_eq!(
-        resolution.state_hash().bytes(),
-        [
-            178, 21, 82, 62, 132, 57, 73, 51, 210, 55, 242, 159, 142, 201, 184, 200, 220, 52, 213,
-            196, 153, 222, 17, 143, 198, 167, 84, 122, 15, 10, 86, 140,
-        ]
-    );
-
-    assert_eq!(resolution.committed_revision(), 3);
+    assert_eq!(resolution.committed_revision(), 2);
     assert_eq!(resolution.events().len(), 11);
     assert!(matches!(
         resolution.events()[0].kind(),
         BattleEventKind::Decision(DecisionEventData::Closed { decision })
-            if decision.get() == 3
+            if decision.get() == 2
     ));
     assert!(matches!(
         resolution.events()[1].kind(),
@@ -588,13 +522,13 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
         resolution.events()[10].kind(),
         BattleEventKind::Decision(DecisionEventData::Offered {
             decision,
-            kind: DecisionKind::InterruptWindow,
+            kind: DecisionKind::NormalAction,
             owner: DecisionOwner::Team(TeamSide::Enemy),
-        }) if decision.get() == 4
+        }) if decision.get() == 3
     ));
     for event in &resolution.events()[1..8] {
         let cause = event.cause();
-        assert_eq!(cause.root_command().get(), 3);
+        assert_eq!(cause.root_command().get(), 2);
         assert_eq!(cause.action().unwrap().get(), 1);
         assert_eq!(cause.owner().unwrap().get(), 1);
     }
@@ -644,13 +578,8 @@ fn timeline_uses_exact_av_order_and_floored_gauge_elapsed_distance() {
         [0, 3_333_333_334]
     );
     battle
-        .apply(Command::PassInterruptWindow {
-            decision: runtime(2),
-        })
-        .unwrap();
-    battle
         .apply(Command::UseAbility {
-            decision: runtime(3),
+            decision: runtime(2),
             actor: runtime(1),
             ability: definition(1),
             primary_target: None,

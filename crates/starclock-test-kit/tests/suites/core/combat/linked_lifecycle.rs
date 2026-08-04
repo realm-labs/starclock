@@ -436,20 +436,7 @@ fn fixture_battle_with_player_hp(player_hp: i64) -> Battle {
 fn open_normal_action(battle: &mut Battle) {
     let start = battle.decision().unwrap().legal_commands()[0].clone();
     battle.apply(start).unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                starclock_combat::Command::PassInterruptWindow { .. }
-            )
-        })
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(battle);
 }
 
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {

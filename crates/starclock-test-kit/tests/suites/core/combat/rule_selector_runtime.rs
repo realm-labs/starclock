@@ -343,15 +343,7 @@ fn action_snapshot_selector_observes_pre_hit_life_after_lethal_damage() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()
@@ -395,15 +387,7 @@ fn execute_player_action(policy: RuleEmptyPoolPolicy) -> starclock_combat::Resol
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

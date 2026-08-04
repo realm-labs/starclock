@@ -61,6 +61,9 @@ gate, not an active Goal 01 blocker.
 | [Star Rail Wiki — Aggro](https://honkai-star-rail.fandom.com/wiki/Aggro) | Weighted targeting and path weights | Medium; the page explicitly labels aggro terminology/data community-derived. |
 | [Star Rail Wiki — Follow-Up Attack](https://honkai-star-rail.fandom.com/wiki/Follow-Up_Attack) | Follow-up/counter semantics and priority | High for baseline; individual kit retarget rules remain authored data. |
 | [Star Rail Wiki — Extra Turn](https://honkai-star-rail.fandom.com/wiki/Extra_Turn) | Extra turn priority, no AG movement, duration behavior | High for baseline; special extra actions may differ. |
+| [HoYoLAB — Combat Mechanic Details](https://www.hoyolab.com/article/17984000) | Ultimates may be requested outside the acting character's turn | Community-authored HoYoLAB guide, reviewed 2026-08-04; corroborated by the independent timing references below. |
+| [MiHoYo community wiki — Newbie Guide](https://bbs.mihoyo.com/sr/wiki/content/692/detail?bbs_presentation_style=no_header) | Ultimate insertion during skill preparation and cancellation when the actor becomes unable to act before activation | Community-authored publisher-platform wiki, reviewed 2026-08-04; supports player-facing timing but is not an executable specification. |
+| [Icy Veins — Combat Basics](https://www.icy-veins.com/honkai-star-rail/combat-basics) | An Ultimate requested during another action activates after the current action finishes | Independent current guide, reviewed 2026-08-04; used only for the action-boundary baseline, not hidden priority edge cases. |
 | [Japanese WikiWiki — Damage Calculation](https://wikiwiki.jp/star-rail/%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E8%A8%88%E7%AE%97%E5%BC%8F) | Current cross-check for damage, stat, Super Break, and incoming damage formulas | Useful independent current-language reference; community-maintained. |
 | [HoYoWiki — Honkai: Star Rail](https://wiki.hoyolab.com/pc/hsr/home) | Released character, ability, equipment and enemy descriptions | Publisher-operated released-content reference. Record the stable entry ID, access date, game version and content hash because live pages can change and do not expose a complete executable specification. |
 | [KQM Star Rail Library](https://srl.keqingmains.com/) and [Evidence Vault](https://srl.keqingmains.com/evidence) | Reviewed combat-mechanic findings and their submitted observation evidence | Useful behavioral cross-check, not a current full-content or 4.4 numeric authority. When repository evidence is used, pin public revision [`de0e5c0`](https://github.com/KQM-git/SRL/commit/de0e5c09c8dbba9577367ad86e991fe91c4f0e36) reviewed on 2026-07-20 and retain the exact document path/hash. |
@@ -124,6 +127,7 @@ Do not present these as exact parity until tested against captured game observat
 - internal numeric precision and rounding at every damage/resource boundary;
 - universal tie-breaking when multiple actors have exactly equal AV;
 - interrupt order when several Ultimates are requested at the same opportunity;
+- exact Ultimate activation opportunities inside exceptional multi-action boss sequences and presentation-specific skill-preparation states;
 - snapshot rules for every DoT, field, summon, delayed hit, heal, and shield;
 - exact trigger ordering for all character-specific passives and boss phase transitions;
 - retarget behavior after a target dies during every multi-hit or queued action;

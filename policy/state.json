@@ -16,6 +16,12 @@
     "mcp": true,
     "cli": true
   },
+  "combat_interrupts": {
+    "boundaries": ["before_action", "after_action"],
+    "owner": "player",
+    "empty_decisions": false,
+    "typed_continuation": true
+  },
   "verification": {
     "rust": "cargo",
     "default_excludes_exhaustive": true,

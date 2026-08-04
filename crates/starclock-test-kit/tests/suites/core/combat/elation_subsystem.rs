@@ -249,11 +249,7 @@ fn run(shared_actor: bool) -> (Battle, starclock_combat::Resolution) {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: battle.decision().unwrap().id(),
-        })
-        .unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let command = battle.decision().unwrap().legal_commands().iter().find(|command| {
         matches!(command, Command::UseAbility { ability, primary_target: Some(target), .. } if ability.get() == 1 && target.get() == 2)
     }).unwrap().clone();

@@ -170,11 +170,7 @@ fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: battle.decision().unwrap().id(),
-        })
-        .unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let enemy_action = battle
         .decision()
         .unwrap()
@@ -252,11 +248,7 @@ fn taunt_replaces_the_turn_with_a_basic_attack_against_the_applier() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: battle.decision().unwrap().id(),
-        })
-        .unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let enemy_action = battle
         .decision()
         .unwrap()

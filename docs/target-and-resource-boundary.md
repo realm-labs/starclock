@@ -60,8 +60,10 @@ Costs commit after `ActionDeclared` and before `ActionStarted`. Gains commit
 after the authored hits and before `ActionResolved`. Every mutation emits a
 typed resource fact containing before/after values and discarded ordinary-gain
 overflow. An offered Ultimate executes in the current interrupt window, does
-not reset Action Gauge or end the normal turn, and reopens a freshly enumerated
-interrupt decision after its costs settle.
+not reset Action Gauge or end the normal turn, and preserves the window's typed
+continuation. After its costs and action settle, the resolver re-enumerates
+interrupts; it exposes a new decision when at least one remains legal and
+otherwise resumes the continuation synchronously.
 
 Golden fixtures retain the B3 command hashes under the expanded canonical
 state and add fixed Ultimate and three-hit Skill hashes. Focused fixtures prove

@@ -145,15 +145,7 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
         972
     );
 
-    let pass = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .unwrap()
-        .clone();
-    battle.apply(pass).unwrap();
+    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
     let extra_action = battle
         .decision()
         .unwrap()

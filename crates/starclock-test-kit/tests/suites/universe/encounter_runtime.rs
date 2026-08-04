@@ -235,8 +235,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         overlay.digest().bytes(),
         [
-            187, 231, 73, 238, 237, 50, 181, 57, 252, 78, 9, 26, 126, 125, 251, 54, 204, 209, 176,
-            191, 17, 158, 42, 34, 28, 214, 172, 107, 200, 201, 189, 8,
+            40, 124, 104, 202, 44, 79, 242, 219, 31, 3, 107, 124, 121, 242, 157, 174, 86, 220, 195,
+            230, 61, 62, 116, 231, 80, 161, 174, 234, 170, 243, 113, 114,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -387,8 +387,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            111, 68, 250, 47, 199, 138, 129, 127, 65, 4, 1, 158, 207, 12, 105, 75, 241, 220, 98,
-            162, 146, 240, 89, 168, 229, 245, 165, 218, 110, 126, 102, 233,
+            40, 53, 67, 126, 236, 122, 255, 51, 154, 84, 184, 45, 48, 37, 37, 66, 92, 184, 0, 64,
+            87, 8, 145, 219, 192, 248, 147, 205, 251, 71, 97, 204,
         ]
     );
     let reward = activity.view();
@@ -462,8 +462,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            108, 130, 255, 153, 64, 121, 222, 238, 105, 149, 166, 188, 206, 194, 215, 80, 245, 127,
-            61, 123, 84, 149, 126, 37, 174, 168, 231, 100, 63, 59, 135, 193,
+            93, 15, 55, 234, 160, 165, 243, 60, 183, 186, 75, 158, 23, 209, 21, 79, 174, 182, 191,
+            27, 31, 65, 181, 228, 96, 61, 113, 19, 66, 101, 177, 111,
         ]
     );
     let formation = activity.view();
@@ -655,12 +655,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 19);
+    assert_eq!(report.steps().len(), 65);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            118, 231, 105, 100, 169, 235, 89, 52, 253, 183, 45, 203, 80, 21, 203, 1, 254, 74, 38,
-            202, 135, 102, 208, 55, 186, 250, 218, 244, 9, 104, 181, 50,
+            78, 130, 84, 134, 11, 199, 158, 36, 240, 213, 16, 28, 27, 236, 73, 147, 242, 25, 197,
+            198, 107, 95, 175, 29, 162, 39, 148, 66, 18, 66, 43, 152,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -682,7 +682,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        2
+        6
     );
 }
 

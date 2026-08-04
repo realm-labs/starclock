@@ -64,12 +64,12 @@ The observed ordinary turn lifecycle is:
 1. select the actor with the lowest AV and advance global time;
 2. emit turn start;
 3. trigger start-of-turn DoT and other start effects;
-4. open the pre-action interrupt window;
-5. select and resolve the normal action;
-6. reset the actor's AG after the action is committed/resolved;
-7. drain post-action queued Ultimates and higher-priority reactions;
-8. tick eligible effect durations at turn end;
-9. emit turn end and select the next actor.
+4. if the player has a legal Ultimate/interrupt, open a player-owned before-action window regardless of which side owns the active turn;
+5. select and resolve the normal or automatic action without suspending an atomic hit, phase, or operation;
+6. reset the actor's AG according to the action's timeline ownership;
+7. drain forced follow-ups, counters, and other reactions with priority over manual Ultimates;
+8. if the player now has a legal Ultimate/interrupt, open an after-action window while the active turn and its turn-end durations remain pending;
+9. after the player passes, settle the turn-end boundary—emit turn end, tick eligible effect durations, reset turn-scoped state—and select the next actor.
 
 This ordering follows the current community [Speed turn-order description](https://honkai-star-rail.fandom.com/wiki/Speed#Speed). Keep the interrupt windows as domain phases even in a CLI or AI-only build.
 
@@ -79,7 +79,7 @@ The useful baseline priority is:
 
 1. currently resolving atomic hit/effect;
 2. forced follow-up action/counter queue;
-3. queued Ultimates and general extra actions, in queue order;
+3. manual Ultimates exposed at the next interrupt boundary, plus general extra actions;
 4. extra turns;
 5. zero-AG normal turns;
 6. future timeline actors.
@@ -90,9 +90,9 @@ Implement priority as explicit queue metadata, not nested function calls. Reacti
 
 ## Ultimate actions
 
-Ultimates are out-of-order actions normally enabled when their resource reaches the required threshold. They do not consume the user's normal timeline turn. They can be requested in allowed interrupt windows, including at combat start.
+Ultimates are out-of-order actions normally enabled when their resource reaches the required threshold. They do not consume the user's normal timeline turn. They can be requested before an action or during its presentation; a request made during presentation activates at the after-action boundary and does not split the current atomic action. The after-action window precedes turn-end duration processing, so an eligible Ultimate retains effects that have not yet expired at that turn boundary.
 
-The engine should expose an `AwaitingInterrupts` decision point to a human controller, AI, or replay command stream. A timeout or animation is a presentation concern and does not belong in the combat core.
+The engine exposes an interrupt decision only when at least one manual interrupt is legal. `PassInterruptWindow` resumes a typed continuation, while using an interrupt preserves that continuation and re-enumerates the remaining legal interrupts. A timeout, buffered click, or animation cursor is a presentation concern and does not belong in the combat core.
 
 ## Follow-up actions and extra turns
 

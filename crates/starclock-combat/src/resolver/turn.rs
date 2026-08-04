@@ -1,6 +1,6 @@
 use crate::{
     AbilityId, ActionGauge, ActionOrigin, BattlePhase, EffectRuntimeDefinition,
-    EffectRuntimeTemplate, ForcedNormalAction, LifeState, ToughnessEventData, UnitId,
+    EffectRuntimeTemplate, ForcedNormalAction, LifeState, TeamSide, ToughnessEventData, UnitId,
     action::{
         lower::{TimelineActionContext, lower_forced_basic_action, lower_timeline_action},
         model::ActionPlan,
@@ -23,7 +23,9 @@ use crate::{
     target::select::{commit, legal_primary_targets, stable_pool},
     timeline::{
         select::plan_next_turn,
-        state::{InterruptWindowKind, InterruptWindowState, NormalTurnState},
+        state::{
+            InterruptWindowKind, InterruptWindowState, NormalTurnState, ResolutionContinuation,
+        },
     },
 };
 
@@ -89,7 +91,15 @@ pub(super) fn begin_next_turn(
                 origin: turn.origin,
             }),
         );
-        return offer_turn_decision(catalog, txn, root, started, turn);
+        return enter_interrupt_point(
+            catalog,
+            txn,
+            root,
+            started,
+            InterruptWindowKind::BeforeAction,
+            turn,
+            ResolutionContinuation::ContinueActiveTurn,
+        );
     }
     begin_turn(catalog, txn, root, parent)
 }
@@ -130,7 +140,6 @@ pub(super) fn begin_turn(
         );
     }
     let controlled_skip = txn.state.effects.skips_normal_turn_at_start(turn.unit);
-    let forced_normal_action = forced_normal_action(catalog, txn, turn.unit);
     let (mut parent, frozen_skip) =
         operation::settle_break_effects_at_turn_start(catalog, txn, turn_cause, parent, turn.unit)?;
     parent = operation::settle_effects_at_turn_start(catalog, txn, turn_cause, parent, turn.unit)?;
@@ -195,13 +204,15 @@ pub(super) fn begin_turn(
             );
         }
     }
-    if let Some((ability, origin)) = turn.automatic {
-        return execute_automatic_turn(catalog, txn, root, parent, turn, ability, origin);
-    }
-    if let Some((action, applier)) = forced_normal_action {
-        return execute_forced_basic_turn(catalog, txn, root, parent, turn, action, applier);
-    }
-    offer_turn_decision(catalog, txn, root, parent, turn)
+    enter_interrupt_point(
+        catalog,
+        txn,
+        root,
+        parent,
+        InterruptWindowKind::BeforeAction,
+        turn,
+        ResolutionContinuation::ContinueActiveTurn,
+    )
 }
 
 fn forced_normal_action(
@@ -238,26 +249,100 @@ fn forced_normal_action(
         })
 }
 
-fn offer_turn_decision(
+fn enter_interrupt_point(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    kind: InterruptWindowKind,
+    turn: NormalTurnState,
+    continuation: ResolutionContinuation,
+) -> Result<(), BattleFault> {
+    let options = legal::interrupt_options(
+        TeamSide::Player,
+        &txn.state.units,
+        &txn.state.formations,
+        &txn.state.teams,
+        &txn.state.effects,
+        catalog,
+    );
+    if options.is_empty() {
+        txn.set_interrupt(None);
+        return resume_continuation(catalog, txn, root, parent, turn, continuation);
+    }
+    txn.set_interrupt(Some(InterruptWindowState {
+        kind,
+        turn,
+        continuation,
+    }));
+    let decision_id = txn.allocate_decision();
+    let decision = legal::interrupt_window(decision_id, TeamSide::Player, options);
+    offer_decision(txn, root, Some(parent), decision);
+    Ok(())
+}
+
+fn resume_continuation(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    turn: NormalTurnState,
+    continuation: ResolutionContinuation,
+) -> Result<(), BattleFault> {
+    let active = txn
+        .state
+        .timeline
+        .active_turn
+        .ok_or_else(|| action_fault(1))?;
+    if active != turn {
+        return Err(action_fault(108));
+    }
+    match continuation {
+        ResolutionContinuation::ContinueActiveTurn => {
+            continue_active_turn(catalog, txn, root, parent, turn)
+        }
+        ResolutionContinuation::CompleteActiveTurn {
+            cause,
+            ticks_turn_end,
+        } => finish_active_turn(
+            catalog,
+            txn,
+            root,
+            parent,
+            turn,
+            cause.with_root_command(root),
+            ticks_turn_end,
+        ),
+    }
+}
+
+fn continue_active_turn(
     catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     root: CommandId,
     parent: EventId,
     turn: NormalTurnState,
 ) -> Result<(), BattleFault> {
-    txn.set_interrupt(Some(InterruptWindowState {
-        kind: InterruptWindowKind::PreAction,
-        turn,
-    }));
+    if let Some((ability, origin)) = turn.automatic {
+        return execute_automatic_turn(catalog, txn, root, parent, turn, ability, origin);
+    }
+    if let Some((action, applier)) = forced_normal_action(catalog, txn, turn.unit) {
+        return execute_forced_basic_turn(catalog, txn, root, parent, turn, action, applier);
+    }
+    let unit = txn
+        .state
+        .units
+        .get(turn.owner)
+        .ok_or_else(|| action_fault(2))?;
+    let abilities = unit.abilities.clone();
     let decision_id = txn.allocate_decision();
-    let decision = legal::interrupt_window(
+    let decision = legal::normal_action(
         decision_id,
         turn.side,
-        &txn.state.units,
-        &txn.state.formations,
-        &txn.state.teams,
-        &txn.state.effects,
+        turn.owner,
+        &abilities,
         catalog,
+        txn.state,
     );
     offer_decision(txn, root, Some(parent), decision);
     Ok(())
@@ -403,18 +488,90 @@ fn execute_planned_turn(
     let cause = action_cause(root, plan)?;
     parent = operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     parent = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, parent)?;
-    if txn
+    let resets_gauge = txn
         .state
         .actors
         .get(turn.actor)
-        .is_some_and(|actor| actor.active)
-    {
+        .is_some_and(|actor| actor.active);
+    pause_completed_turn(
+        catalog,
+        txn,
+        root,
+        parent,
+        TurnCompletion::planned(turn, cause, resets_gauge),
+    )
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) struct TurnCompletion {
+    turn: NormalTurnState,
+    cause: Cause,
+    resets_gauge: bool,
+    ticks_turn_end: bool,
+}
+
+impl TurnCompletion {
+    pub(super) const fn selected(turn: NormalTurnState, cause: Cause) -> Self {
+        let completes_normal_turn = matches!(turn.origin, ActionOrigin::NormalTurn);
+        Self {
+            turn,
+            cause,
+            resets_gauge: completes_normal_turn,
+            ticks_turn_end: completes_normal_turn,
+        }
+    }
+
+    const fn planned(turn: NormalTurnState, cause: Cause, resets_gauge: bool) -> Self {
+        Self {
+            turn,
+            cause,
+            resets_gauge,
+            ticks_turn_end: true,
+        }
+    }
+}
+
+pub(super) fn pause_completed_turn(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    completion: TurnCompletion,
+) -> Result<(), BattleFault> {
+    if completion.resets_gauge {
         txn.set_actor_gauge(
-            turn.actor,
+            completion.turn.actor,
             ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(99))?,
         )?;
     }
-    parent = txn.emit(
+    let parent = match settle_after_action(catalog, txn, completion.cause, parent)? {
+        ActionBoundary::Terminal(_) => return Ok(()),
+        ActionBoundary::Continue(parent) => parent,
+    };
+    enter_interrupt_point(
+        catalog,
+        txn,
+        root,
+        parent,
+        InterruptWindowKind::AfterAction,
+        completion.turn,
+        ResolutionContinuation::CompleteActiveTurn {
+            cause: completion.cause,
+            ticks_turn_end: completion.ticks_turn_end,
+        },
+    )
+}
+
+fn finish_active_turn(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    turn: NormalTurnState,
+    cause: Cause,
+    ticks_turn_end: bool,
+) -> Result<(), BattleFault> {
+    let mut parent = txn.emit(
         Cause::for_turn(root, turn.owner, turn.actor).with_parent(parent),
         BattleEventKind::Turn(TurnEventData::Ended {
             actor: turn.actor,
@@ -422,8 +579,10 @@ fn execute_planned_turn(
             origin: turn.origin,
         }),
     );
-    parent = operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
-    txn.reset_rule_slots(SlotResetPoint::TurnEnd, Some(turn.unit));
+    if ticks_turn_end {
+        parent = operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
+        txn.reset_rule_slots(SlotResetPoint::TurnEnd, Some(turn.unit));
+    }
     parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
     txn.set_active_turn(None);
     if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)? {
@@ -442,26 +601,33 @@ pub(super) fn offer_interrupt_decision(
     root: CommandId,
     parent: EventId,
 ) -> Result<(), BattleFault> {
-    let side = txn
+    let window = txn
         .state
         .timeline
         .interrupt
         .as_ref()
-        .ok_or_else(|| action_fault(13))?
-        .turn
-        .side;
-    let decision_id = txn.allocate_decision();
-    let decision = legal::interrupt_window(
-        decision_id,
-        side,
-        &txn.state.units,
-        &txn.state.formations,
-        &txn.state.teams,
-        &txn.state.effects,
+        .cloned()
+        .ok_or_else(|| action_fault(13))?;
+    enter_interrupt_point(
         catalog,
-    );
-    offer_decision(txn, root, Some(parent), decision);
-    Ok(())
+        txn,
+        root,
+        parent,
+        window.kind,
+        window.turn,
+        window.continuation,
+    )
+}
+
+pub(super) fn resume_interrupt(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    window: InterruptWindowState,
+) -> Result<(), BattleFault> {
+    txn.set_interrupt(None);
+    resume_continuation(catalog, txn, root, parent, window.turn, window.continuation)
 }
 
 pub(super) fn offer_decision(

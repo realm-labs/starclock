@@ -10,11 +10,10 @@ use super::{
     journal, modifier_snapshot, operation as parent_operation, rule, selector_snapshot, turn,
 };
 use crate::{
-    AbilityId, ActionOrigin, BattleDiagnostics, DiagnosticRecord,
-    EffectInstanceId as CrateEffectInstanceId, Energy, Hp, LifeState, LinkedEntity,
-    ModifierInstanceId, PresenceState, Probability, RuleInstanceId, Scalar,
-    SourceDefinitionId as CrateSourceDefinitionId, SpawnSequence, Speed, TeamSide,
-    UnitDefinitionId, UnitId,
+    AbilityId, BattleDiagnostics, DiagnosticRecord, EffectInstanceId as CrateEffectInstanceId,
+    Energy, Hp, LifeState, LinkedEntity, ModifierInstanceId, PresenceState, Probability,
+    RuleInstanceId, Scalar, SourceDefinitionId as CrateSourceDefinitionId, SpawnSequence, Speed,
+    TeamSide, UnitDefinitionId, UnitId,
     action::{
         lower::{
             ActionIdentityAllocator, TimelineActionContext, lower_interrupt_action,
@@ -37,10 +36,7 @@ use crate::{
     command::{legal, model::DecisionPoint, validate::ValidatedCommand},
     event::{
         cause::{Cause, CauseActor},
-        model::{
-            BattleEvent, BattleEventData, BattleEventKind, DecisionEventData, FaultEventData,
-            TurnEventData,
-        },
+        model::{BattleEvent, BattleEventData, BattleEventKind, DecisionEventData, FaultEventData},
     },
     id::{
         ActionId, CommandId, DecisionId, EffectInstanceId, EventId, HitId, OperationId, PhaseId,
@@ -163,28 +159,13 @@ fn execute(
         ValidatedCommand::StartBattle => turn::start_battle(catalog, txn, root)?,
         ValidatedCommand::PassInterruptWindow => {
             let closed = close_active_decision(txn, root)?;
-            let turn = txn
+            let window = txn
                 .state
                 .timeline
-                .active_turn
+                .interrupt
+                .clone()
                 .ok_or_else(|| action_fault(1))?;
-            txn.set_interrupt(None);
-            let unit = txn
-                .state
-                .units
-                .get(turn.owner)
-                .ok_or_else(|| action_fault(2))?;
-            let abilities = unit.abilities.clone();
-            let decision_id = txn.allocate_decision();
-            let decision = legal::normal_action(
-                decision_id,
-                turn.side,
-                turn.owner,
-                &abilities,
-                catalog,
-                txn.state,
-            );
-            turn::offer_decision(txn, root, Some(closed), decision);
+            turn::resume_interrupt(catalog, txn, root, closed, window)?;
         }
         ValidatedCommand::UseAbility {
             actor,
@@ -226,46 +207,13 @@ fn execute(
             )?;
             let action_resolved =
                 drain_reactions(catalog, txn, ReactionBoundary::AfterAction, action_resolved)?;
-            if turn.origin == ActionOrigin::NormalTurn {
-                txn.set_actor_gauge(
-                    turn.actor,
-                    ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
-                )?;
-            }
-            let ended = txn.emit(
-                Cause::for_turn(root, turn.owner, turn.actor).with_parent(action_resolved),
-                BattleEventKind::Turn(TurnEventData::Ended {
-                    actor: turn.actor,
-                    owner: turn.owner,
-                    origin: turn.origin,
-                }),
-            );
-            let ended = if turn.origin == ActionOrigin::NormalTurn {
-                let ended = parent_operation::settle_effects_at_turn_end(
-                    catalog,
-                    txn,
-                    boundary_cause,
-                    ended,
-                    turn.owner,
-                )?;
-                txn.reset_rule_slots(SlotResetPoint::TurnEnd, Some(turn.owner));
-                ended
-            } else {
-                ended
-            };
-            let ended = rule::dispatch_pending_after_events(catalog, txn, ended)?;
-            txn.set_active_turn(None);
-            if let ActionBoundary::Continue(parent) =
-                settle_after_action(catalog, txn, boundary_cause, ended)?
-            {
-                let parent =
-                    drain_reactions(catalog, txn, ReactionBoundary::BeforeTimeline, parent)?;
-                if let ActionBoundary::Continue(parent) =
-                    settle_after_action(catalog, txn, boundary_cause, parent)?
-                {
-                    turn::begin_next_turn(catalog, txn, root, parent)?;
-                }
-            }
+            turn::pause_completed_turn(
+                catalog,
+                txn,
+                root,
+                action_resolved,
+                turn::TurnCompletion::selected(turn, boundary_cause),
+            )?;
         }
         ValidatedCommand::UseInterrupt {
             actor,
