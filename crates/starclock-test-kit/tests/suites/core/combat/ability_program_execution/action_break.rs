@@ -1,3 +1,5 @@
+use crate::combat_decision::pass_interrupt_if_offered;
+
 use super::*;
 
 #[test]
@@ -145,7 +147,7 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
         972
     );
 
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let extra_action = battle
         .decision()
         .unwrap()

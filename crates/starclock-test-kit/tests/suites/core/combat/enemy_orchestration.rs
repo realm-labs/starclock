@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -276,7 +277,7 @@ fn lethal_damage_advances_a_multi_phase_enemy_without_defeat_events() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()
@@ -316,7 +317,7 @@ fn phase_transition_is_transactional_and_applies_every_carry_family() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

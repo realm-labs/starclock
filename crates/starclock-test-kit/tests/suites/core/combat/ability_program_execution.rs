@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -813,7 +814,7 @@ fn start_and_use(
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
     let use_ability = battle
         .decision()
         .unwrap()
@@ -1109,7 +1110,7 @@ fn true_damage_program_emission_executes_authoritatively() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

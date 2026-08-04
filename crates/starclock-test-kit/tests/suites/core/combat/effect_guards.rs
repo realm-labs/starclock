@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -212,7 +213,7 @@ fn one_shot_effect_guards_reject_a_debuff_and_prevent_team_defeat() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let use_guard = battle
         .decision()
         .unwrap()

@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -436,7 +437,7 @@ fn fixture_battle_with_player_hp(player_hp: i64) -> Battle {
 fn open_normal_action(battle: &mut Battle) {
     let start = battle.decision().unwrap().legal_commands()[0].clone();
     battle.apply(start).unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
 }
 
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {

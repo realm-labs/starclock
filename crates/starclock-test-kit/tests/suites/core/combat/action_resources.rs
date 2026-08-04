@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -35,7 +36,7 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle)
+    pass_interrupt_if_offered(&mut battle)
         .expect("full initial Energy opens the player interrupt window");
 
     let basic = battle
@@ -60,7 +61,7 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
         battle.view().interrupt_window().unwrap().kind(),
         InterruptWindowKind::AfterAction
     );
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle)
+    pass_interrupt_if_offered(&mut battle)
         .expect("the charged Ultimate remains available after the player action");
 
     let before_enemy = battle.view().interrupt_window().unwrap();
@@ -70,7 +71,7 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
         battle.decision().unwrap().owner(),
         DecisionOwner::Team(TeamSide::Player)
     );
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle)
+    pass_interrupt_if_offered(&mut battle)
         .expect("the player declines the opportunity before the enemy action");
 
     let enemy_action = battle

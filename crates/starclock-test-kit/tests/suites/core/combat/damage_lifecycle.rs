@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -587,11 +588,11 @@ fn start_and_pass(battle: &mut Battle) {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
 }
 
 fn pass_interrupt(battle: &mut Battle) {
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
 }
 
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {
@@ -1124,7 +1125,7 @@ fn nondefault_wave_boundaries_emit_at_the_authored_lifecycle_point() {
 }
 
 fn start_and_pass_current_turn(battle: &mut Battle) {
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
 }
 
 #[test]

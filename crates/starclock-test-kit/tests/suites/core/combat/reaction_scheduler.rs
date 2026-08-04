@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -256,7 +257,7 @@ fn execute_enemy_attack(
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let attack = battle
         .decision()
         .unwrap()
@@ -286,7 +287,7 @@ fn execute_enemy_attack_inspected(
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(&mut battle);
+    pass_interrupt_if_offered(&mut battle);
     let attack = battle
         .decision()
         .unwrap()

@@ -1,3 +1,4 @@
+use crate::combat_decision::pass_interrupt_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -271,7 +272,7 @@ fn start_and_apply_grant(battle: &mut Battle) -> starclock_combat::Resolution {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
     let command = battle
         .decision()
         .unwrap()
@@ -288,7 +289,7 @@ fn start_and_apply_grant(battle: &mut Battle) -> starclock_combat::Resolution {
 }
 
 fn pass_interrupt(battle: &mut Battle) {
-    crate::combat_decision::pass_interrupt_if_offered(battle);
+    pass_interrupt_if_offered(battle);
 }
 
 #[test]
