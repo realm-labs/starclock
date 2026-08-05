@@ -88,7 +88,8 @@ Counters must say whether they react once per ability, target, hit, action, or e
 
 The singleton Sora config manifest carries `game_version`, `snapshot_date`, and
 `sora_cli_version`; the exported bundle receives a SHA-256 digest. An announced
-profile may use optional Excel fields, but
-simulation startup must reject an incomplete or disabled definition unless a
-test explicitly enables provisional data. This prevents guessed values for Rin
-Tohsaka or Gilgamesh from silently becoming production rules.
+profile may use optional Excel fields, but simulation startup must reject an
+incomplete or disabled definition unless a test explicitly enables provisional
+data. Public release does not implicitly enable a definition: Rin Tohsaka and
+Gilgamesh remain outside the executable 88-form baseline until post-release
+facts complete the normal promotion and validation path.

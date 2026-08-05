@@ -16,8 +16,9 @@ primary. Blast commits the primary and valid numeric formation neighbors at
 action lowering. Each hit carries the resulting ordered runtime unit IDs in its
 public event and its cause retains the primary target.
 
-An `ActionPlan` owns that commitment for its complete multi-hit execution. Each
-hit revalidates it through exactly one authored policy:
+In the implemented atomic-action baseline, an `ActionPlan` owns that commitment
+for its complete multi-hit execution. Each hit revalidates it through exactly one
+authored policy:
 
 - `CancelRemainingForTarget` removes an illegal target;
 - `KeepIfPresent` retains downed or ordinarily untargetable battlefield state;
@@ -30,6 +31,14 @@ Retarget draws use the pinned battle RNG purpose and enter the forward journal.
 Selectors declare whether repeated identities are permitted; the baseline is
 no repetition. Catalog construction rejects executable abilities whose selector
 has no target semantics.
+
+The full roster adds a prepared-action boundary and a bounded segmented-action
+extension. A prepared variant/target is committed before declaration. A
+segmented action may commit a new target or finite option between complete
+segments while retaining prior commitments in its `ActionFrame`; it does not
+mutate the baseline commitment in the middle of a hit. The audited users and the
+separation from non-turn-ending actions and post-action work are defined in the
+[character action-flow matrix](characters/action-flow-matrix.md).
 
 Phase 7 mechanic batch `G01-P7-M03` carries each Sora `HitPlanHit` into the
 immutable action definition with its target group, damage share, Toughness

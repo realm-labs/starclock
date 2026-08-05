@@ -18,7 +18,7 @@ outside this release.
 | Area | Document | Current status | Exit gate |
 |---|---|---|---|
 | Battle state, actions, targets, events | `01`, `10` | Implemented and golden-verified | Repository combat and replay suites. |
-| Timeline, AV, turns, interrupts | `02`, `10` | Research baseline | Equal-AV and multi-interrupt observation fixtures. |
+| Timeline, AV, turns, interrupts, segmented action input | `02`, `10`, `characters/action-flow-matrix` | Atomic runtime implemented; full-roster action-flow boundary documented | Prepared-action and segmented-action implementation plus the named observation fixtures. |
 | Damage, healing, shields | `03`, `12` | Research baseline | Fixed-point golden vectors and kit-specific snapshot fixtures. |
 | Toughness, Break, Super Break, layers | `04`, `12` | Research baseline | Provider-specific Exo/multi-layer rows and observations. |
 | Effects, resources, aggro | `05`, `12` | Research baseline | Full content validation plus targeting/effect fixtures. |
@@ -39,8 +39,7 @@ outside this release.
 
 | Category | Identity/behavior coverage today | Prepared data today | Required terminal gate |
 |---|---|---|---|
-| Released character combat forms | 88 frozen forms | Imported through Excel/Sora with statistics, abilities, Traces, Techniques, Eidolons, rules and goldens | 88/88 `GoldenVerified`. |
-| Officially announced forms | 2 disabled behavioral placeholders | Intentionally absent | Stay `Disabled` until public release and full validation; no guessed values. |
+| Public Version 4.4 character combat forms | 90 behavioral profiles plus a 90-row action-flow audit | The frozen 88-form baseline is imported through Excel/Sora; released Rin Tohsaka and Gilgamesh remain disabled audit entries | Preserve 88/88 `GoldenVerified`; promote each post-freeze form only with complete released data, provenance, Rule IR, and behavior fixtures. |
 | Light Cones | 165 frozen definitions | Imported through Excel/Sora with stat curves, promotions, S1-S5 selections, rules and goldens | 165/165 `GoldenVerified`. |
 | Relic and planar sets | Detailed set/affix/piece schema | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
 | Enemies and bosses | Behavior/AI/phase model plus prepared source evidence | Goal 01 imports the exact 17-variant Standard subset and 63 source-bound abilities | 17/17 frozen variants verified; broader catalogs remain future scope. |

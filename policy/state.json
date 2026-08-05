@@ -20,7 +20,11 @@
     "boundaries": ["before_action", "after_action"],
     "owner": "player",
     "empty_decisions": false,
-    "typed_continuation": true
+    "typed_continuation": true,
+    "combined_selection_and_target": true,
+    "prepared_action": false,
+    "segmented_action_frame": false,
+    "action_flow_audit_forms": 90
   },
   "verification": {
     "rust": "cargo",

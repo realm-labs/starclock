@@ -4,7 +4,16 @@ This document defines the Version 4.4 data snapshot, common schemas, provenance,
 
 ## Snapshot boundary
 
-The target snapshot is Version **4.4**, reviewed on **2026-07-17**. It includes public content available in that version plus officially announced characters represented as disabled placeholders. The current data-import target excludes unannounced/leaked Version 4.5 content, Currency Wars, historical Divergent Universe revisions, and past rotating challenge seasons except when an archived digest is required to verify an existing replay. These are data-scope exclusions, not reasons to hard-code architectural limits into `starclock-activity`.
+The target snapshot is Version **4.4**. Its base data was reviewed on
+**2026-07-17**, and character release state was reviewed through
+**2026-08-05**. The public identity catalog contains 90 released combat forms.
+The frozen executable reference baseline contains 88, with Rin Tohsaka and Gilgamesh retained as
+disabled audit entries pending post-release promotion. The current data-import
+target excludes Version 4.5 combat forms and leaks, Currency Wars, historical
+Divergent Universe revisions, and past rotating challenge seasons except when an
+archived digest is required to verify an existing replay. These are data-scope
+exclusions, not reasons to hard-code architectural limits into
+`starclock-activity`.
 
 The frozen coverage manifest is a versioned list of stable IDs and expected release states. Import work may revise an ID or split a mechanically distinct variant only through a reviewed manifest migration with provenance. Row counts are derived from the manifest; documentation must not invent totals for categories whose source catalog has not been frozen.
 
@@ -93,7 +102,12 @@ A complete released combat form requires:
 
 Eidolon patches apply in ascending order over the validated E0 definition. A patch cannot mutate an unknown field or rely on application order within the same Eidolon unless an explicit operation order is authored.
 
-The character directory currently provides behavioral profiles for the public combat-form catalog. Its implementation matrix is a feature-dependency audit, not coefficient coverage. Rin Tohsaka, Gilgamesh, and any similar officially announced but unavailable entry remain `Disabled` until complete post-release data passes validation; no preview/leak values silently enable them.
+The character directory currently provides behavioral profiles for the public
+90-form Version 4.4 catalog. Its implementation and action-flow matrices are
+feature-dependency audits, not coefficient coverage. Rin Tohsaka and Gilgamesh
+are publicly released but remain `Disabled` outside the frozen 88-form
+executable baseline until complete post-release data passes validation; public
+availability never promotes preview or unreviewed values implicitly.
 
 ## Light Cone data
 
@@ -178,11 +192,11 @@ observation fixture is not hidden.
 
 The [Version 4.4 content reference pack](content-reference/README.md) remains
 the normalized source input. Goal 01 has imported its frozen scope through the
-authoritative Excel/Sora path: all 88 released combat forms, all 165 released
+authoritative Excel/Sora path: all 88 frozen baseline combat forms, all 165 released
 Light Cones, 17 Standard enemy variants, six encounters, six scenarios and the
 Standard profile validate and execute. The generated coverage report records
-283/283 character and Light Cone entries as `GoldenVerified`, with two announced
-forms retained as disabled audit-only entries outside the denominator.
+283/283 character and Light Cone entries as `GoldenVerified`, with two later
+released forms retained as disabled audit-only entries outside the denominator.
 
 Universe and rotating-challenge datasets remain outside Goal 01 and retain the
 data-pending status defined above. Their absence does not reduce Goal 01

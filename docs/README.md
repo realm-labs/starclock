@@ -10,7 +10,7 @@ architecture and authoring model only.
 
 ## Research baseline
 
-- Sources were reviewed on **2026-07-17**.
+- The general mechanics baseline was reviewed on **2026-07-17**; the Version 4.4 character release-state and action-flow addendum was reviewed on **2026-08-05**.
 - HoYoverse does not publish a complete combat specification. Exact formulas are therefore based primarily on current community-maintained references, cross-checked where possible against in-game tutorial transcriptions and independent calculations.
 - A formula marked **verified** has consistent support in at least two established references or an established reference plus a worked in-game result.
 - A rule marked **observed** is widely documented but may contain edge cases.
@@ -43,7 +43,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 21. [Character builds, Traces, and equipment](21-build-traces-and-equipment.md) — independent `starclock-build`, build selection/compilation, ability levels, Traces, Eidolons, Light Cones, relics, affixes, generic combat output, and validation.
 22. [Reference data](reference-data.md) — constants and the attacker-level multiplier table.
 23. [Sources and confidence](sources.md) — source provenance and known uncertainties.
-24. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, and an auditable engine-feature matrix.
+24. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, engine-feature matrix, and 90-form action-flow audit.
 25. [Combat content reference pack](content-reference/README.md) — prepared Version 4.4 character, Trace, Eidolon, Light Cone, enemy, ability, and ordinary-encounter facts used before Excel/Sora authoring.
 26. [Dependency and tool policy](dependency-and-tool-policy.md) — exact active package/tool versions, licenses, deterministic impact, compile-cost records and rejected alternatives.
 27. [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md) — checksum-bound installation, executed CLI/schema/codegen/export surface and pinned limitations.

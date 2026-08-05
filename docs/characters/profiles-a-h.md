@@ -157,10 +157,10 @@ These profiles are compact E0 implementation contracts. Coefficients, level scal
 - **Core loop:** Skill attacks one enemy with a chance to Freeze. Ultimate gives the party shields. Once per battle, Talent prevents Gepard's defeat and restores HP; a Trace increases his aggro.
 - **Engine contract:** Seeded effect application, party shield instances, weighted targeting, and a battle-scoped pre-defeat replacement are sufficient.
 
-## Gilgamesh — Lightning / Destruction — Announced
+## Gilgamesh — Lightning / Destruction — Released
 
-- **Core loop:** Officially disclosed behavior says teammate actions build **Interest**, provide Gilgamesh Energy, and increase his Ultimate damage. Higher Interest advances his actions and enables frequent attacks; his main burst comes from the Ultimate. A joint follow-up exists when Saber is on the team.
-- **Engine contract:** Reserve an Interest resource, ally-action trigger, Energy and Ultimate-damage modifiers, threshold/proportional action advance, and Saber-linked joint follow-up. Exact abilities, caps, costs, hit plans, and trigger limits are open data until the public playable kit is available.
+- **Core loop:** Gilgamesh initially performs an automatic Basic at his turn start. Other allies acting grants **Interest**, whose current value raises SPD; the first threshold permanently enters Interest Piqued, where his turn offers Skill instead and using it clears current Interest. Allied Ultimates grant King's Burden and feed his unusually large Ultimate cycle. Ultimate deals AoE damage followed by random single-target strikes. Gilgamesh and Saber share an attack tally that launches a joint AoE follow-up at its threshold.
+- **Engine contract:** Support a turn-start forced Basic before a permanent ability-state transition, live resource-derived SPD, threshold transition with post-Skill resource reset, ally-Ultimate cost/Energy observation, finite deterministic random strikes, and a Saber-linked joint follow-up with shared tally and explicit source credit. Released coefficients and traces remain disabled until they pass the ordinary post-release data promotion gate.
 
 ## Guinaifen — Fire / Nihility — Released
 

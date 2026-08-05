@@ -7,7 +7,7 @@ not a claim that the future Sora workbooks or Rust runtime are implemented.
 
 | Category | Records | Numeric baseline | Mechanic baseline |
 |---|---:|---|---|
-| Released combat forms | 88 | Complete promotion/resource facts; 86 from released 4.4 data, Saber/Archer from pinned released 4.3 data | Every form has an original Starclock behavior summary and engine contract. |
+| Executable reference-baseline forms | 88 | Complete promotion/resource facts; 86 from released 4.4 data, Saber/Archer from pinned released 4.3 data | Every baseline form has an original Starclock behavior summary and engine contract. Rin Tohsaka and Gilgamesh released after the pack freeze and remain outside this count. |
 | Character abilities | 583 | Published level parameter vectors and exposed cost/cooldown/display values | Target/entry/operation evidence where present; released-text inference is explicit where source config is absent. |
 | Traces | 1,618 | Published parameters, stat additions and skill-level references | Ability/trigger source names and text digests retained for patch review. |
 | Eidolons | 528 | Exactly E1-E6 for all 88 forms | Parameters, skill-level patches, source ability names and evidence digests retained. |

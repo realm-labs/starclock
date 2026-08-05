@@ -24,6 +24,10 @@ Git history is the only historical record.
 - Manual combat interrupts are player-owned before-action and after-action
   decisions. Empty windows resolve synchronously, while an offered window
   persists the typed continuation resumed by pass or after inserted actions.
+- The current interrupt command still combines Ultimate selection, initial
+  target commitment, and execution. The 90-form action-flow audit requires a
+  prepared-action boundary and bounded segmented frames; those extensions are
+  documented but not yet implemented.
 - Replay records and verifies only data produced by the current tree.
 - `starclock-inspector` captures ID-only owned battle snapshots, diffs and
   optional bounded resolver diagnostics without owning presentation metadata.

@@ -16,7 +16,7 @@ released row that supports a fact.
 
 The generated Version 4.4 reference contains:
 
-- 88 released character combat forms;
+- 88 character combat forms in the frozen executable reference baseline;
 - 583 character ability families, including level curves and pre-battle skills;
 - 1,618 Trace nodes/level records;
 - exactly 528 Eidolons, six per released combat form;
@@ -60,8 +60,9 @@ reviewer can reproduce it using `tools/content-reference/fetch-sources.ps1`.
 
 Saber and Archer use the pinned 4.3 release index because their collaboration
 records are not present in the pinned 4.4 release dump. This is explicit
-`ExactPreviousRelease`, not an approximation or leak. Announced but unavailable
-Rin Tohsaka and Gilgamesh are not enabled in the 88-form reference baseline.
+`ExactPreviousRelease`, not an approximation or leak. Rin Tohsaka and Gilgamesh
+released after this pack was frozen and are not enabled in its 88-form baseline;
+their release status does not retroactively change the pack's generated counts.
 
 ## What is and is not copied
 

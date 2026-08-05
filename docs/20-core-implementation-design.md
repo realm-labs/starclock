@@ -213,7 +213,10 @@ assembly digests plus the exact battle seed required by replay verification.
 invalidation; caches themselves are non-authoritative and excluded from
 canonical state.
 
-`PersistentPendingState` contains only work that is legitimately observable across command boundaries, such as the active interrupt window or a scheduled timeline action. The synchronous resolution queue must be empty whenever `apply` returns.
+`PersistentPendingState` contains only work that is legitimately observable
+across command boundaries, such as the active interrupt window, a prepared
+manual action, a segmented action frame, or a scheduled timeline action. The
+synchronous resolution queue must be empty whenever `apply` returns.
 
 ## Unit and timeline-actor model
 
@@ -271,6 +274,14 @@ Commands are external intent values. They contain no precomputed damage, selecto
 - answer a battle-local typed choice emitted by a rule;
 - concede only if the selected profile explicitly offers it.
 
+The initial combined interrupt-and-target command is only the atomic-action
+baseline. Full roster behavior separates selecting a queued manual action from
+answering its finite prepared inputs. The selected ability, origin, suspended
+interrupt continuation, and offered option/target specification are
+authoritative; UI widgets and animation state are not. See the
+[character action-flow matrix](characters/action-flow-matrix.md) for the audited
+boundary.
+
 `DecisionPoint` owns the canonical ordered legal-command collection. Controllers select one existing value rather than constructing equivalent commands. A command carries the decision sequence it answers; stale commands are rejected before mutation.
 
 Legality validation reads the current state and catalog and returns a private `ValidatedCommand`. It verifies phase, decision identity, controller ownership, actor/life/presence, costs, ability availability, target choice, and rule-specific restrictions. Failed validation consumes no IDs or RNG and leaves the canonical state byte-identical.
@@ -302,6 +313,14 @@ struct ActionPhasePlan {
 An `ActionStepPlan` is a hit plan, a direct operation template, or a declared reaction/boundary window. A `HitPlan` defines hit identity, target reference point, target invalidation policy, damage/toughness/effect operation templates, snapshots, and per-hit RNG purposes. It does not contain animation timing.
 
 The plan captures authored structure and command commitments, not every dynamic result. Selectors marked current-state, conditional expressions, stat queries, retargeting, and trigger results are evaluated at their declared operation boundary.
+
+Lowering occurs only after every required prepared input has been committed.
+Most plans then resolve synchronously. A bounded segmented definition may retain
+an `ActionFrame` after declaration, but only between complete segments; it stores
+the action identity, finite cursor, prior commitments, payment state, and typed
+continuation. It cannot wait inside a hit, operation, or trigger drain. A child
+action dispatched by an Ultimate owns a new plan/frame rather than borrowing its
+parent's cursor.
 
 Ultimates, extra turns, follow-ups, counters, enemy actions, summons, memosprites, joint actions, and scripted encounter actions all use `ActionPlan`. Differences are expressed by `ActionKind`, ownership, cost, priority, duration-clock policy, target policy, and rule programs rather than separate executors.
 

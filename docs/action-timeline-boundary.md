@@ -23,6 +23,12 @@ otherwise its continuation runs synchronously without allocating a decision.
 Passing resumes the saved continuation. Using an interrupt preserves it and
 re-enumerates the remaining legal interrupts after the inserted action settles.
 
+This implemented boundary currently combines interrupt selection and initial
+target selection. It is the atomic-action baseline, not the complete roster
+contract. The required prepared-action split and the two confirmed segmented
+Ultimate families are audited in the
+[character action-flow matrix](characters/action-flow-matrix.md).
+
 ## Structural action lowering
 
 B3 initially proved a deliberately narrow structural envelope. B4 replaces

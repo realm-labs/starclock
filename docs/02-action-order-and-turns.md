@@ -90,9 +90,22 @@ Implement priority as explicit queue metadata, not nested function calls. Reacti
 
 ## Ultimate actions
 
-Ultimates are out-of-order actions normally enabled when their resource reaches the required threshold. They do not consume the user's normal timeline turn. They can be requested before an action or during its presentation; a request made during presentation activates at the after-action boundary and does not split the current atomic action. The after-action window precedes turn-end duration processing, so an eligible Ultimate retains effects that have not yet expired at that turn boundary.
+Ultimates are out-of-order actions normally enabled when their resource reaches the required threshold. They do not consume the user's normal timeline turn. They can be requested before an action or during its presentation; an adapter buffers a presentation-time request and submits it at the next offered interrupt boundary, so it never splits the current atomic action. The after-action window precedes turn-end duration processing, so an eligible Ultimate retains effects that have not yet expired at that turn boundary.
 
-The engine exposes an interrupt decision only when at least one manual interrupt is legal. `PassInterruptWindow` resumes a typed continuation, while using an interrupt preserves that continuation and re-enumerates the remaining legal interrupts. A timeout, buffered click, or animation cursor is a presentation concern and does not belong in the combat core.
+The engine exposes an interrupt decision only when at least one manual interrupt
+is legal. `PassInterruptWindow` resumes its typed continuation. Selecting an
+Ultimate first creates a prepared action that may request its variant and target;
+it does not declare the action or pay its cost merely because the Ultimate icon
+was selected. After the prepared inputs are complete, an ordinary Ultimate runs
+atomically. A genuinely segmented Ultimate may expose another typed input only
+between complete authored segments. When it finishes, the preserved interrupt
+continuation re-enumerates remaining legal Ultimates.
+
+Non-turn-ending Skills, transformations, counters, summons, and extra turns do
+not reuse this segmented frame. Their exact boundaries and the full 90-form audit
+are defined in the [character action-flow matrix](characters/action-flow-matrix.md).
+A timeout, buffered click, or animation cursor remains a presentation concern and
+does not belong in canonical combat state.
 
 ## Follow-up actions and extra turns
 

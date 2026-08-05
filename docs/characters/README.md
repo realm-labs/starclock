@@ -4,11 +4,10 @@ This directory turns every publicly disclosed playable combat form into a compac
 
 ## Snapshot and coverage
 
-- Snapshot date: **2026-07-17**, Version **4.4**.
-- **88 released combat forms** are covered, counting each Trailblazer path and each alternate character form separately.
-- **2 officially announced combat forms** are covered from their public kit summaries: Rin Tohsaka and Gilgamesh. Their event availability begins on 2026-07-24.
-- Total public coverage: **90 combat forms**.
-- Unannounced Version 4.5 characters and leaks are out of scope. Eidolons, battle-relevant Techniques, Light Cones, relics, enemies, and permanent universe-mode modifiers belong to the full Version 4.4 data manifest, but are tracked outside these compact E0 behavioral profiles.
+- Snapshot date: **2026-08-05**, Version **4.4**.
+- **90 released combat forms** are covered, counting each Trailblazer path and each alternate character form separately. Rin Tohsaka and Gilgamesh became publicly playable on 2026-07-24.
+- The executable Version 4.4 reference baseline remains **88 combat forms**. Rin Tohsaka and Gilgamesh are released roster entries but remain disabled until their post-release facts pass the normal Excel/Sora promotion and validation path.
+- Version 4.5 combat forms and leaks are out of scope. Eidolons, battle-relevant Techniques, Light Cones, relics, enemies, and permanent universe-mode modifiers belong to the full Version 4.4 data manifest, but are tracked outside these compact E0 behavioral profiles.
 
 The count is by combat form rather than person. For example, both March 7th paths, all five public Trailblazer paths, and the three Dan Heng forms are distinct entries. Male and female Trailblazer models share one mechanics contract per path and are not double-counted.
 
@@ -19,6 +18,7 @@ The count is by combat form rather than person. For example, both March 7th path
 - [Profiles I–R](profiles-i-r.md) covers Jade through Ruan Mei.
 - [Profiles S–Z](profiles-s-z.md) covers Saber through Yunli, including every Trailblazer path.
 - [Implementation matrix](implementation-matrix.md) is the auditable 90-row roster and engine-feature checklist.
+- [Action-flow matrix](action-flow-matrix.md) audits Ultimate queueing, prepared choices, segmented actions, non-turn-ending actions, and post-action continuations for all 90 forms.
 
 ## What “complete” means here
 
@@ -36,7 +36,7 @@ The full-data acceptance boundary and status vocabulary are defined in [Content 
 ## Status labels
 
 - **Released**: behavior is based on a publicly playable kit as of the snapshot.
-- **Announced**: only officially disclosed behavior is normative. Unknown hit counts, multipliers, costs, and trigger details must remain nullable or provisional.
+- **Announced**: only officially disclosed behavior is normative. Unknown hit counts, multipliers, costs, and trigger details must remain nullable or provisional. No Version 4.4 row currently uses this status.
 - **Observed extension**: a released kit needs a behavior absent from the initial core milestone, such as memosprites, Elation, or party-wide Ultimate activation.
 
 ## Source policy

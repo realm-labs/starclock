@@ -102,10 +102,10 @@ These profiles are compact E0 implementation contracts. Coefficients, level scal
 - **Core loop:** Ultimate enters Sealform, grants an extra turn, and replaces Basic with a three-part enhanced attack that deals universal Toughness damage. Enemy Weakness Breaks grant Charge; the final enhanced strike spends Charge to deal extra Break damage and reduce Toughness, including against already broken enemies through Super Break behavior.
 - **Engine contract:** Transformation plus extra turn, staged enhanced Basic with finite uses, universal Toughness reduction, break-event Charge, and Break/Super Break damage sourced from the final stage are required.
 
-## Rin Tohsaka — Quantum / Erudition — Announced
+## Rin Tohsaka — Quantum / Erudition — Released
 
-- **Core loop:** Officially disclosed behavior says team Skill Point spending or recovery grants **Gem Energy** and increases Rin's CRIT DMG. Her enhanced Skill consumes Gem Energy for a longer, stronger burst. Public preview data also indicates repeated random hits and a team interaction with Archer that triggers a joint follow-up.
-- **Engine contract:** Reserve team SP-change listeners, Gem Energy, threshold Skill replacement, a resource-consuming bounce loop, and Archer-linked joint follow-up. Exact caps, SP interaction, hit count, costs, and coefficients remain provisional until the playable kit opens on 2026-07-24.
+- **Core loop:** Team Skill Point spending or recovery grants **Gem Energy** and a temporary CRIT DMG buff to the affected ally. At the authored Gem Energy or team-SP threshold, Skill becomes an enhanced AoE-plus-bounce program: it may convert excess SP into Gem Energy, then repeatedly spends Gem Energy on random living enemies up to a finite bound. Ultimate chooses one primary enemy, damages it and all other enemies at different rates, restores SP, applies vulnerability, and grants more Gem Energy through a Trace. Archer's Skill can satisfy a shared condition that launches their joint AoE follow-up and restores SP.
+- **Engine contract:** Observe effective team SP changes, support a mutable team-SP cap, threshold Skill replacement, atomic excess-SP conversion, a resource-spending bounded bounce loop, primary-versus-other target groups, and an Archer-linked joint follow-up with shared trigger/reset ownership. The bounce loop is automatic rather than a sequence of player target choices. Released coefficients and traces remain disabled until they pass the ordinary post-release data promotion gate.
 
 ## Robin — Physical / Harmony — Released
 

@@ -37,7 +37,7 @@ Codes used below: **AA** action advance/extra action; **BR** Break/Toughness ext
 | 29 | Fugue | Fire | Nihility | Released | BR, LK |
 | 30 | Gallagher | Fire | Abundance | Released | LK, AA, TR |
 | 31 | Gepard | Ice | Preservation | Released | HP |
-| 32 | Gilgamesh | Lightning | Destruction | Announced | RS, AA, TR |
+| 32 | Gilgamesh | Lightning | Destruction | Released | RS, AA, TR |
 | 33 | Guinaifen | Fire | Nihility | Released | DT, TR |
 | 34 | Hanya | Physical | Harmony | Released | LK, RS |
 | 35 | Herta | Ice | Erudition | Released | TR |
@@ -67,7 +67,7 @@ Codes used below: **AA** action advance/extra action; **BR** Break/Toughness ext
 | 59 | Phainon | Physical | Destruction | Released | TF, FD, RS, AA |
 | 60 | Qingque | Quantum | Erudition | Released | RS, TF, CP |
 | 61 | Rappa | Imaginary | Erudition | Released | TF, BR, RS, AA |
-| 62 | Rin Tohsaka | Quantum | Erudition | Announced | RS, TF, TR |
+| 62 | Rin Tohsaka | Quantum | Erudition | Released | RS, TF, TR |
 | 63 | Robin | Physical | Harmony | Released | TF, FD, AA, TR |
 | 64 | Ruan Mei | Ice | Harmony | Released | BR, FD, LK |
 | 65 | Saber | Wind | Destruction | Released | RS, CP, TR |
@@ -101,4 +101,7 @@ Codes used below: **AA** action advance/extra action; **BR** Break/Toughness ext
 
 A row is ready to implement only when its referenced primitives have deterministic tests and its versioned data definition supplies every coefficient, cost, chance, cap, duration, hit split, and retarget policy. “Released” does not mean those values have already been imported into this repository.
 
-The two announced rows must remain disabled in normal simulations until their definitions pass schema validation after release. Their profiles intentionally contain no guessed numbers.
+Released status describes the public game roster, not executable readiness.
+Rin Tohsaka and Gilgamesh remain disabled in normal simulations until their
+post-release definitions pass the same schema, provenance, Rule IR, and behavior
+validation as the frozen 88-form reference baseline.
