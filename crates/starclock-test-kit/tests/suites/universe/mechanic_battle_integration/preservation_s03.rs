@@ -320,15 +320,8 @@ fn fixture_action(
         })
         .unwrap();
     assert!(start.fault().is_none(), "{:?}", start.fault());
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let breakable = battle
         .view()

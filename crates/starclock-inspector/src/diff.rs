@@ -153,8 +153,10 @@ impl BattleSnapshotDiff {
             sections.push(SnapshotSection::Links);
         }
         if before.active_turn != after.active_turn
-            || before.interrupt_window != after.interrupt_window
+            || before.action_boundary != after.action_boundary
+            || before.prepared_action != after.prepared_action
             || before.pending_extra_turns != after.pending_extra_turns
+            || before.pending_reactions != after.pending_reactions
         {
             sections.push(SnapshotSection::Timeline);
         }

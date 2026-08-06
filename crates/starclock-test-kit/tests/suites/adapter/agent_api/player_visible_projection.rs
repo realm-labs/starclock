@@ -183,10 +183,10 @@ fn event_pages_are_payload_free_bounded_and_cursor_marked() {
     let resolution = battle.apply(start).unwrap();
     let page = project_event_page(resolution.events()).unwrap();
     assert!(!page.truncated);
-    assert_eq!(page.events.len(), 3);
+    assert_eq!(page.events.len(), 4);
     assert_eq!(page.events[0].event_id.as_str(), "1");
     assert_eq!(page.events[0].root_command_id.as_str(), "1");
-    assert_eq!(page.next_cursor.as_str(), "event_3");
+    assert_eq!(page.next_cursor.as_str(), "event_4");
 
     let repeated = vec![resolution.events()[0].clone(); MAX_EVENTS_PER_PAGE + 1];
     let bounded = project_event_page(&repeated).unwrap();

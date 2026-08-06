@@ -7,7 +7,7 @@ use core::fmt;
 
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
-use starclock_combat::{Command, DecisionId, DecisionPoint};
+use starclock_combat::{ActionBoundaryId, Command, DecisionId, DecisionPoint};
 
 use crate::schema::{ActionToken, AgentUInt, SessionId};
 
@@ -19,8 +19,10 @@ pub const MAX_OFFERED_ACTIONS: usize = 256;
 #[serde(rename_all = "snake_case")]
 pub enum AgentActionKind {
     UseAbility,
-    UseInterrupt,
-    PassInterrupt,
+    UseUltimate,
+    CommitPreparedAction,
+    CancelPreparedAction,
+    Advance,
     Concede,
     BattleChoice,
 }
@@ -42,7 +44,7 @@ pub enum ActionBindingError {
     MixedDecision,
     NonCanonicalCommands,
     UnsupportedCommand,
-    StaleDecision,
+    StaleBoundary,
     InvalidActionToken,
     InvalidTokenEncoding,
 }
@@ -61,11 +63,6 @@ pub struct SelectedAction {
 }
 
 impl SelectedAction {
-    #[must_use]
-    pub fn decision_id(&self) -> AgentUInt {
-        AgentUInt::from_u64(self.command.decision().get())
-    }
-
     pub(crate) fn into_command(self) -> Command {
         self.command
     }
@@ -77,9 +74,49 @@ impl fmt::Debug for SelectedAction {
     }
 }
 
-/// Decision-scoped public actions plus their private exact command table.
+#[derive(Clone, Copy)]
+enum OfferScope {
+    Decision(DecisionId),
+    ActionBoundary {
+        boundary: ActionBoundaryId,
+        decision: Option<DecisionId>,
+    },
+}
+
+impl OfferScope {
+    const fn id(self) -> u64 {
+        match self {
+            Self::Decision(decision) => decision.get(),
+            Self::ActionBoundary { boundary, .. } => boundary.get(),
+        }
+    }
+
+    const fn accepts(self, command: &Command) -> bool {
+        match (self, command.decision(), command.boundary()) {
+            (Self::Decision(expected), Some(actual), None) => expected.get() == actual.get(),
+            (
+                Self::ActionBoundary {
+                    decision: Some(expected),
+                    ..
+                },
+                Some(actual),
+                None,
+            ) => expected.get() == actual.get(),
+            (
+                Self::ActionBoundary {
+                    boundary: expected, ..
+                },
+                None,
+                Some(actual),
+            ) => expected.get() == actual.get(),
+            _ => false,
+        }
+    }
+}
+
+/// Stable-boundary public actions plus their private exact command table.
 pub struct OfferedActionSet {
-    decision: DecisionId,
+    scope: OfferScope,
     public: Box<[OfferedAction]>,
     private: Box<[(ActionToken, Command)]>,
 }
@@ -90,12 +127,29 @@ impl OfferedActionSet {
         session_id: &SessionId,
         decision: &DecisionPoint,
     ) -> Result<Self, ActionBindingError> {
-        Self::bind_commands(session_id, decision.id(), decision.legal_commands())
+        Self::bind_commands(
+            session_id,
+            OfferScope::Decision(decision.id()),
+            decision.legal_commands(),
+        )
+    }
+
+    pub(crate) fn bind_action_boundary(
+        session_id: &SessionId,
+        boundary: ActionBoundaryId,
+        decision: Option<DecisionId>,
+        commands: &[Command],
+    ) -> Result<Self, ActionBindingError> {
+        Self::bind_commands(
+            session_id,
+            OfferScope::ActionBoundary { boundary, decision },
+            commands,
+        )
     }
 
     fn bind_commands(
         session_id: &SessionId,
-        decision: DecisionId,
+        scope: OfferScope,
         commands: &[Command],
     ) -> Result<Self, ActionBindingError> {
         if commands.is_empty() {
@@ -104,10 +158,7 @@ impl OfferedActionSet {
         if commands.len() > MAX_OFFERED_ACTIONS {
             return Err(ActionBindingError::TooManyActions);
         }
-        if commands
-            .iter()
-            .any(|command| command.decision() != decision)
-        {
+        if commands.iter().any(|command| !scope.accepts(command)) {
             return Err(ActionBindingError::MixedDecision);
         }
         if commands
@@ -120,20 +171,20 @@ impl OfferedActionSet {
         let mut public = Vec::with_capacity(commands.len());
         let mut private = Vec::with_capacity(commands.len());
         for (ordinal, command) in commands.iter().enumerate() {
-            let token = action_token(session_id, decision, ordinal)?;
+            let token = action_token(session_id, scope.id(), ordinal)?;
             public.push(summarize(token.clone(), command)?);
             private.push((token, command.clone()));
         }
         Ok(Self {
-            decision,
+            scope,
             public: public.into_boxed_slice(),
             private: private.into_boxed_slice(),
         })
     }
 
     #[must_use]
-    pub fn decision_id(&self) -> AgentUInt {
-        AgentUInt::from_u64(self.decision.get())
+    pub fn boundary_id(&self) -> AgentUInt {
+        AgentUInt::from_u64(self.scope.id())
     }
 
     #[must_use]
@@ -144,11 +195,11 @@ impl OfferedActionSet {
     /// Selects only a token from this exact decision; no command is constructed.
     pub fn select(
         &self,
-        expected_decision: &AgentUInt,
+        expected_boundary: &AgentUInt,
         token: &ActionToken,
     ) -> Result<SelectedAction, ActionBindingError> {
-        if expected_decision.as_str() != self.decision.get().to_string() {
-            return Err(ActionBindingError::StaleDecision);
+        if expected_boundary.as_str() != self.scope.id().to_string() {
+            return Err(ActionBindingError::StaleBoundary);
         }
         self.private
             .iter()
@@ -162,7 +213,7 @@ impl OfferedActionSet {
 
 fn action_token(
     session_id: &SessionId,
-    decision: DecisionId,
+    boundary: u64,
     ordinal: usize,
 ) -> Result<ActionToken, ActionBindingError> {
     let ordinal = u32::try_from(ordinal).map_err(|_| ActionBindingError::TooManyActions)?;
@@ -170,7 +221,7 @@ fn action_token(
     hash.update(b"starclock-agent-action-v1\0");
     hash.update((session_id.as_str().len() as u64).to_be_bytes());
     hash.update(session_id.as_str().as_bytes());
-    hash.update(decision.get().to_be_bytes());
+    hash.update(boundary.to_be_bytes());
     hash.update(ordinal.to_be_bytes());
     let digest = hash.finalize();
     let mut encoded = String::with_capacity(66);
@@ -195,24 +246,31 @@ fn summarize(token: ActionToken, command: &Command) -> Result<OfferedAction, Act
             Some(*actor),
             *primary_target,
         ),
-        Command::UseInterrupt {
-            actor,
-            ability,
-            primary_target,
-            ..
-        } => (
-            AgentActionKind::UseInterrupt,
+        Command::RequestUltimate { actor, ability, .. } => (
+            AgentActionKind::UseUltimate,
             format!(
-                "Use interrupt ability {} with unit {}.",
+                "Use Ultimate ability {} with unit {}.",
                 ability.get(),
                 actor.get()
             ),
             Some(*actor),
+            None,
+        ),
+        Command::CommitPreparedAction { primary_target, .. } => (
+            AgentActionKind::CommitPreparedAction,
+            "Commit the selected prepared-action input.".to_owned(),
+            None,
             *primary_target,
         ),
-        Command::PassInterruptWindow { .. } => (
-            AgentActionKind::PassInterrupt,
-            "Pass the current interrupt window.".to_owned(),
+        Command::CancelPreparedAction { .. } => (
+            AgentActionKind::CancelPreparedAction,
+            "Cancel the prepared action before declaration.".to_owned(),
+            None,
+            None,
+        ),
+        Command::Advance { .. } => (
+            AgentActionKind::Advance,
+            "Advance deterministic battle resolution.".to_owned(),
             None,
             None,
         ),
@@ -274,8 +332,13 @@ mod tests {
     fn canonical_commands_get_stable_summaries_and_distinct_tokens() {
         let session = SessionId::parse("session_a").unwrap();
         let decision = runtime::<DecisionId>(7);
-        let set = OfferedActionSet::bind_commands(&session, decision, &commands(decision)).unwrap();
-        assert_eq!(set.decision_id().as_str(), "7");
+        let set = OfferedActionSet::bind_commands(
+            &session,
+            OfferScope::Decision(decision),
+            &commands(decision),
+        )
+        .unwrap();
+        assert_eq!(set.boundary_id().as_str(), "7");
         assert_eq!(set.actions().len(), 3);
         assert_eq!(set.actions()[0].kind, AgentActionKind::UseAbility);
         assert_eq!(
@@ -302,20 +365,20 @@ mod tests {
         let decision = runtime::<DecisionId>(7);
         let first = OfferedActionSet::bind_commands(
             &SessionId::parse("session_a").unwrap(),
-            decision,
+            OfferScope::Decision(decision),
             &commands(decision),
         )
         .unwrap();
         let second = OfferedActionSet::bind_commands(
             &SessionId::parse("session_b").unwrap(),
-            decision,
+            OfferScope::Decision(decision),
             &commands(decision),
         )
         .unwrap();
         let token = first.actions()[0].token.clone();
         assert_eq!(
             first.select(&AgentUInt::from_u64(8), &token).unwrap_err(),
-            ActionBindingError::StaleDecision
+            ActionBindingError::StaleBoundary
         );
         assert_eq!(
             second.select(&AgentUInt::from_u64(7), &token).unwrap_err(),
@@ -331,7 +394,6 @@ mod tests {
             ActionBindingError::InvalidActionToken
         );
         let selected = first.select(&AgentUInt::from_u64(7), &token).unwrap();
-        assert_eq!(selected.decision_id().as_str(), "7");
         assert_eq!(format!("{selected:?}"), "SelectedAction([private command])");
         assert_eq!(selected.into_command(), commands(decision)[0]);
     }
@@ -343,13 +405,13 @@ mod tests {
         let mut unsorted = commands(decision);
         unsorted.reverse();
         assert!(matches!(
-            OfferedActionSet::bind_commands(&session, decision, &unsorted),
+            OfferedActionSet::bind_commands(&session, OfferScope::Decision(decision), &unsorted),
             Err(ActionBindingError::NonCanonicalCommands)
         ));
         assert!(matches!(
             OfferedActionSet::bind_commands(
                 &session,
-                decision,
+                OfferScope::Decision(decision),
                 &[Command::UseAbility {
                     decision: runtime(8),
                     actor: runtime(1),
@@ -362,7 +424,7 @@ mod tests {
         assert!(matches!(
             OfferedActionSet::bind_commands(
                 &session,
-                decision,
+                OfferScope::Decision(decision),
                 &[Command::StartBattle { decision }],
             ),
             Err(ActionBindingError::UnsupportedCommand)

@@ -50,7 +50,7 @@ fn action_request(session: &AgentSession, key: &str) -> PlayActionRequest {
         .unwrap();
     PlayActionRequest {
         session_id: observation.session_id,
-        decision_id: observation.decision_id.unwrap(),
+        boundary_id: observation.boundary_id.unwrap(),
         expected_state_hash: observation.state_hash,
         action_token: action.token.clone(),
         idempotency_key: IdempotencyKey::parse(key).unwrap(),
@@ -105,8 +105,8 @@ fn conflicting_idempotency_and_cursor_corpus_never_mutates() {
             "expected_state_hash" => {
                 conflict.expected_state_hash = AgentHash::from_bytes([0x44; 32])
             }
-            "decision_id" => {
-                conflict.decision_id = AgentUInt::from_u64(conflict.decision_id.to_u64() + 1)
+            "boundary_id" => {
+                conflict.boundary_id = AgentUInt::from_u64(conflict.boundary_id.to_u64() + 1)
             }
             "session_id" => conflict.session_id = SessionId::parse("session_different").unwrap(),
             value => panic!("unknown idempotency mutation {value}"),
@@ -204,7 +204,7 @@ fn every_settlement_corpus_path_stays_within_all_three_budgets() {
                     observation
                         .legal_actions
                         .iter()
-                        .find(|action| action.kind == AgentActionKind::PassInterrupt)
+                        .find(|action| action.kind == AgentActionKind::Advance)
                 })
                 .unwrap_or_else(|| {
                     panic!(
@@ -215,7 +215,7 @@ fn every_settlement_corpus_path_stays_within_all_three_budgets() {
             let response = session
                 .apply_action(PlayActionRequest {
                     session_id: observation.session_id,
-                    decision_id: observation.decision_id.unwrap(),
+                    boundary_id: observation.boundary_id.unwrap(),
                     expected_state_hash: observation.state_hash,
                     action_token: action.token.clone(),
                     idempotency_key: IdempotencyKey::parse(&format!(
@@ -298,7 +298,7 @@ fn seeded_race_corpus_allows_exactly_one_commit_per_round() {
             .unwrap();
         let base = PlayActionRequest {
             session_id: observation.session_id.clone(),
-            decision_id: observation.decision_id.clone().unwrap(),
+            boundary_id: observation.boundary_id.clone().unwrap(),
             expected_state_hash: observation.state_hash,
             action_token: action.token.clone(),
             idempotency_key: IdempotencyKey::parse(&format!("race_{round}_0")).unwrap(),

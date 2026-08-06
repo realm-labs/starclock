@@ -5,12 +5,12 @@
 //! authoritative value and this codec proves every retained field.
 
 use starclock_combat::{
-    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
-    BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, DecisionKind, DecisionOwner,
-    EffectEventData, EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData,
-    HpConsumptionEventData, LinkedEntity, PhaseEventData, ResourceEventData, RuleSignalEventData,
-    RuleStateEventData, ShieldEventData, SkillPointPayer, TeamSide, ToughnessEventData,
-    TurnEventData, UnitEventData, WaveEventData,
+    ActionBoundaryEventData, ActionEventData, BattleEvent, BattleEventData, BattleEventKind,
+    BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind, DecisionEventData,
+    DecisionKind, DecisionOwner, EffectEventData, EnemyPhaseEventData, FaultEventData,
+    HealEventData, HitEventData, HpConsumptionEventData, LinkedEntity, PhaseEventData,
+    ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData, SkillPointPayer,
+    TeamSide, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
     catalog::{action::AbilityTags, encounter::EnemyPhaseTransitionModel},
     formula::model::{CombatElement, DamageClass},
     rule::model::RuleValue,
@@ -117,9 +117,46 @@ fn encode_kind(
             encoder.u8(19);
             encode_fault(encoder, *value);
         }
+        BattleEventKind::ActionBoundary(value) => {
+            encoder.u8(20);
+            encode_action_boundary(encoder, *value);
+        }
         _ => return Err(BattleEventPayloadError::UnsupportedEventFamily),
     }
     Ok(())
+}
+
+fn encode_action_boundary(encoder: &mut Encoder<Vec<u8>>, value: ActionBoundaryEventData) {
+    match value {
+        ActionBoundaryEventData::Opened { boundary } => {
+            encoder.u8(0);
+            encoder.u64(boundary.get());
+        }
+        ActionBoundaryEventData::Advanced { boundary } => {
+            encoder.u8(1);
+            encoder.u64(boundary.get());
+        }
+        ActionBoundaryEventData::UltimateRequested {
+            boundary,
+            actor,
+            ability,
+        } => {
+            encoder.u8(2);
+            encoder.u64(boundary.get());
+            encoder.u64(actor.get());
+            encoder.u32(ability.get());
+        }
+        ActionBoundaryEventData::UltimateCancelled {
+            boundary,
+            actor,
+            ability,
+        } => {
+            encoder.u8(3);
+            encoder.u64(boundary.get());
+            encoder.u64(actor.get());
+            encoder.u32(ability.get());
+        }
+    }
 }
 
 fn encode_battle(encoder: &mut Encoder<Vec<u8>>, value: BattleEventData) {
@@ -1010,7 +1047,7 @@ fn decision_kind(encoder: &mut Encoder<Vec<u8>>, value: DecisionKind) {
     encoder.u8(match value {
         DecisionKind::BattleStart => 0,
         DecisionKind::NormalAction => 1,
-        DecisionKind::InterruptWindow => 2,
+        DecisionKind::PreparedAction => 2,
         DecisionKind::BattleChoice => 3,
     });
 }

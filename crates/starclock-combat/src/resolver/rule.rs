@@ -397,6 +397,7 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
             RuleEventPoint::DecisionRequested
         }
         BattleEventKind::Decision(DecisionEventData::Closed { .. }) => return None,
+        BattleEventKind::ActionBoundary(_) => return None,
         BattleEventKind::Turn(TurnEventData::Started {
             origin: ActionOrigin::ExtraTurn,
             ..

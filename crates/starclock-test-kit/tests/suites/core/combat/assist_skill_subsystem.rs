@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -272,7 +272,7 @@ fn start_and_apply_grant(battle: &mut Battle) -> starclock_combat::Resolution {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(battle);
+    advance_boundary_if_offered(battle);
     let command = battle
         .decision()
         .unwrap()
@@ -288,8 +288,8 @@ fn start_and_apply_grant(battle: &mut Battle) -> starclock_combat::Resolution {
     battle.apply(command).unwrap()
 }
 
-fn pass_interrupt(battle: &mut Battle) {
-    pass_interrupt_if_offered(battle);
+fn advance_boundary(battle: &mut Battle) {
+    advance_boundary_if_offered(battle);
 }
 
 #[test]
@@ -326,7 +326,7 @@ fn grant_exposes_provider_owned_assist_and_normal_use_spends_shared_counter() {
             effective, ..
         }) if effective.get() == 10)));
 
-    pass_interrupt(&mut battle);
+    advance_boundary(&mut battle);
     let command = battle
         .decision()
         .unwrap()
@@ -374,7 +374,7 @@ fn an_empty_shared_counter_hides_normal_assist_but_not_the_no_cost_forced_use() 
         BattleEventKind::Action(ActionEventData::Declared {
             ability, origin: ActionOrigin::Forced, ..
         }) if ability.get() == 2)));
-    pass_interrupt(&mut battle);
+    advance_boundary(&mut battle);
     assert!(
         !battle
             .decision()
@@ -398,8 +398,9 @@ fn expiring_the_provider_effect_revokes_assist_before_the_recipient_decision() {
             ..
         }) if ability.get() == 2
     )));
+    settle_ready_boundaries(&mut battle);
     assert_eq!(battle.view().effects_by_id().count(), 0);
-    pass_interrupt(&mut battle);
+    advance_boundary(&mut battle);
     assert!(
         !battle
             .decision()

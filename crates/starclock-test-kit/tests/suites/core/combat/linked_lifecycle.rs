@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -437,7 +437,7 @@ fn fixture_battle_with_player_hp(player_hp: i64) -> Battle {
 fn open_normal_action(battle: &mut Battle) {
     let start = battle.decision().unwrap().legal_commands()[0].clone();
     battle.apply(start).unwrap();
-    pass_interrupt_if_offered(battle);
+    advance_boundary_if_offered(battle);
 }
 
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {
@@ -462,6 +462,8 @@ fn memosprite_has_distinct_owner_unit_actor_and_automatic_turn() {
     let mut battle = fixture_battle();
     open_normal_action(&mut battle);
     let resolution = use_ability(&mut battle, 1);
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
     let units = battle.view().units_by_id().collect::<Vec<_>>();
     let memo = units
         .iter()
@@ -483,7 +485,7 @@ fn memosprite_has_distinct_owner_unit_actor_and_automatic_turn() {
         .unwrap();
     assert_eq!(actor.owner(), units[0].id());
     assert_eq!(actor.linked_kind(), Some(LinkedEntityKind::Memosprite));
-    assert!(resolution.events().iter().any(|event| matches!(
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Action(starclock_combat::ActionEventData::Declared { actor, origin: ActionOrigin::MemospriteAction, .. }) if *actor == memo.id()
     ) && event.cause().owner() == Some(units[0].id())));
@@ -535,6 +537,8 @@ fn countdown_ends_transformation_once_and_restores_original_abilities() {
     let mut battle = fixture_battle();
     open_normal_action(&mut battle);
     let resolution = use_ability(&mut battle, 5);
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
     let owner = battle.view().units_by_id().next().unwrap();
     assert_eq!(owner.form(), definition(1));
     assert_eq!(
@@ -557,8 +561,7 @@ fn countdown_ends_transformation_once_and_restores_original_abilities() {
         .collect::<Vec<_>>();
     assert_eq!(countdowns.len(), 1);
     assert!(!countdowns[0].is_active());
-    let unit_events = resolution
-        .events()
+    let unit_events = events
         .iter()
         .filter_map(|event| match event.kind() {
             BattleEventKind::Unit(unit) => Some(unit),
@@ -580,6 +583,8 @@ fn separately_created_countdown_ends_the_active_transformation() {
     let mut battle = fixture_battle();
     open_normal_action(&mut battle);
     let resolution = use_ability(&mut battle, 9);
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
     let owner = battle.view().units_by_id().next().unwrap();
 
     assert_eq!(owner.form(), definition(1));
@@ -596,14 +601,13 @@ fn separately_created_countdown_ends_the_active_transformation() {
         ]
     );
     assert!(!owner.is_transformed());
-    assert!(resolution.events().iter().any(|event| matches!(
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Unit(UnitEventData::CountdownCreated { ability, .. })
             if *ability == definition(10)
     )));
     assert_eq!(
-        resolution
-            .events()
+        events
             .iter()
             .filter(|event| matches!(
                 event.kind(),

@@ -42,7 +42,7 @@ async fn request_authority_cancellation_and_idempotency_do_not_cross_tenants() {
         "jsonrpc":"2.0", "id":3, "method":"tools/call",
         "params":{"name":"starclock_play_action","arguments":{
                         "session_id":battle_session,
-            "decision_id":observation["decision_id"],
+            "boundary_id":observation["boundary_id"],
             "expected_state_hash":observation["state_hash"],
             "action_token":action["token"],
             "idempotency_key":"shared_authority_key"

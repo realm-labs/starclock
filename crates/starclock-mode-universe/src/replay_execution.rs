@@ -6,7 +6,9 @@ use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityStateHash, ActivityTerminalOutcome,
     BattleResultIdentity,
 };
-use starclock_combat::{CommandErrorKind, DecisionOwner, TeamSide, catalog::CombatCatalog};
+use starclock_combat::{
+    BattlePhase, CommandErrorKind, DecisionOwner, TeamSide, catalog::CombatCatalog,
+};
 use starclock_replay::{
     activity::{
         ActivityCommandPayloadError, ControllerDecisionKind, ControllerDiagnostic,
@@ -519,6 +521,7 @@ fn verify_nested_battle(
         validate_controller(
             command_payload.controller(),
             battle.decision().map(|d| d.owner()),
+            battle.view().phase(),
         )
         .map_err(|actual| ReplayExecutionError::ControllerDivergence {
             battle_index,
@@ -617,12 +620,17 @@ fn compare_events(
     Ok(())
 }
 
-fn validate_controller(recorded: u8, owner: Option<DecisionOwner>) -> Result<(), u8> {
-    let actual = match owner {
-        Some(DecisionOwner::System) => 0,
-        Some(DecisionOwner::Team(TeamSide::Player)) => 1,
-        Some(DecisionOwner::Team(TeamSide::Enemy)) => 2,
-        None => u8::MAX,
+fn validate_controller(
+    recorded: u8,
+    owner: Option<DecisionOwner>,
+    phase: BattlePhase,
+) -> Result<(), u8> {
+    let actual = match (owner, phase) {
+        (None, BattlePhase::ReadyToAdvance) => 0,
+        (Some(DecisionOwner::System), _) => 0,
+        (Some(DecisionOwner::Team(TeamSide::Player)), _) => 1,
+        (Some(DecisionOwner::Team(TeamSide::Enemy)), _) => 2,
+        (None, _) => u8::MAX,
     };
     if recorded == actual {
         Ok(())

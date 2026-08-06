@@ -7,6 +7,7 @@ use crate::codec::canonical_state_len;
 use crate::{
     effect::{break_effect::BreakEffectStore, shield::ShieldStore, state::EffectStore},
     modifier::{model::ActiveModifier, state::ModifierStore},
+    reaction::queue::ReactionQueue,
     resolver::modifier_snapshot::initialize_battle,
     rule::state::RuleStateStore,
     timeline::state::TimelineState,
@@ -27,7 +28,7 @@ use crate::{
     codec::{BattleStateHash, hash_state},
     command::{
         legal,
-        model::{Command, CommandError, DecisionPoint},
+        model::{Command, CommandError, CommandErrorKind, DecisionPoint, UltimateOption},
         validate::{ValidatedCommand, validate},
     },
     numeric::domain::ActionGauge,
@@ -287,6 +288,7 @@ impl Battle {
                 .expect("catalog encounter wave count is bounded by u16"),
             },
             timeline: TimelineState::default(),
+            reactions: ReactionQueue::default(),
             concede: spec.concede_policy(),
             rng: BattleState::rng_from_seed(seed),
             sequences,
@@ -306,8 +308,57 @@ impl Battle {
     /// Rejections complete before scratch preparation or mutation and consume
     /// no IDs or RNG. Accepted resolution settles synchronously and atomically.
     pub fn apply(&mut self, command: Command) -> Result<Resolution, CommandError> {
-        let validated = validate(&self.state, &command)?;
+        let validated = validate(&self.state, &self._catalog, &command)?;
         Ok(self.apply_validated(validated, None, None))
+    }
+
+    /// Advances deterministic work once from the current stable action boundary.
+    pub fn advance(&mut self) -> Result<Resolution, CommandError> {
+        let command = self
+            .advance_command()
+            .ok_or_else(|| CommandError::new(CommandErrorKind::WrongPhase))?;
+        self.apply(command)
+    }
+
+    /// Builds the deterministic continuation command for the current boundary.
+    #[must_use]
+    pub fn advance_command(&self) -> Option<Command> {
+        self.state
+            .timeline
+            .boundary
+            .as_ref()
+            .map(|boundary| Command::Advance {
+                boundary: boundary.id,
+            })
+    }
+
+    /// Returns exact ready-Ultimate requests at the current action boundary.
+    #[must_use]
+    pub fn available_ultimates(&self) -> Vec<UltimateOption> {
+        if self.state.timeline.boundary.is_none() {
+            return Vec::new();
+        }
+        legal::ultimate_options(
+            TeamSide::Player,
+            &self.state.units,
+            &self.state.formations,
+            &self.state.teams,
+            &self.state.effects,
+            &self._catalog,
+        )
+    }
+
+    /// Builds the exact request command for a ready Ultimate option.
+    #[must_use]
+    pub fn request_ultimate_command(&self, option: UltimateOption) -> Option<Command> {
+        let boundary = self.state.timeline.boundary.as_ref()?.id;
+        self.available_ultimates()
+            .contains(&option)
+            .then_some(Command::RequestUltimate {
+                boundary,
+                actor: option.actor(),
+                ability: option.ability(),
+            })
     }
 
     /// Applies one offered command while collecting bounded non-authoritative diagnostics.
@@ -320,7 +371,7 @@ impl Battle {
         diagnostics: &mut BattleDiagnostics,
     ) -> Result<Resolution, CommandError> {
         diagnostics.clear();
-        let validated = validate(&self.state, &command)?;
+        let validated = validate(&self.state, &self._catalog, &command)?;
         let resolution = self.apply_validated(validated, None, Some(diagnostics));
         diagnostics.finish(
             resolution.root_command(),
@@ -452,7 +503,7 @@ fn enemy_runtime(
 
 #[cfg(test)]
 mod tests {
-    use crate::{DecisionId, Energy};
+    use crate::{ActionBoundaryId, DecisionId, Energy};
     use proptest::{
         collection::vec,
         prelude::*,
@@ -590,22 +641,33 @@ mod tests {
     fn injected_start(battle: &mut Battle, injection: FaultInjection) -> Resolution {
         let decision = battle.decision().unwrap().id();
         let command = Command::StartBattle { decision };
-        let validated = validate(&battle.state, &command).unwrap();
+        let validated = validate(&battle.state, &battle._catalog, &command).unwrap();
         battle.apply_validated(validated, Some(injection), None)
     }
 
     fn supported_command(battle: &Battle) -> Command {
+        if battle.state.phase == BattlePhase::ReadyToAdvance {
+            return Command::Advance {
+                boundary: battle
+                    .state
+                    .timeline
+                    .boundary
+                    .as_ref()
+                    .expect("ready fixture has an action boundary")
+                    .id,
+            };
+        }
         let decision = battle.decision().expect("fixture remains nonterminal");
         let selected = match decision.kind() {
             DecisionKind::BattleStart => decision.legal_commands().first(),
-            DecisionKind::InterruptWindow => decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
             DecisionKind::NormalAction => decision
                 .legal_commands()
                 .iter()
                 .find(|command| matches!(command, Command::UseAbility { .. })),
+            DecisionKind::PreparedAction => decision
+                .legal_commands()
+                .iter()
+                .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
             DecisionKind::BattleChoice => None,
         };
         selected
@@ -618,7 +680,8 @@ mod tests {
         command: &Command,
         point: FaultInjectionPoint,
     ) -> Resolution {
-        let validated = validate(&battle.state, command).expect("offered command validates");
+        let validated =
+            validate(&battle.state, &battle._catalog, command).expect("offered command validates");
         battle.apply_validated(
             validated,
             Some(FaultInjection {
@@ -711,7 +774,7 @@ mod tests {
         );
         assert_eq!(resolution.phase(), BattlePhase::Faulted);
         assert_eq!(resolution.committed_revision(), 1);
-        assert_eq!(resolution.events().len(), 4);
+        assert_eq!(resolution.events().len(), 5);
         assert!(matches!(
             resolution.events()[0].kind(),
             BattleEventKind::Battle(BattleEventData::Started)
@@ -722,16 +785,20 @@ mod tests {
         ));
         assert!(matches!(
             resolution.events()[2].kind(),
+            BattleEventKind::ActionBoundary(_)
+        ));
+        assert!(matches!(
+            resolution.events()[3].kind(),
             BattleEventKind::Decision(_)
         ));
         let fault = resolution.fault().unwrap();
         assert_eq!(fault.policy(), FaultPolicy::CommitFault);
         assert_eq!(
-            resolution.events()[3].cause().parent_event().unwrap().get(),
-            3
+            resolution.events()[4].cause().parent_event().unwrap().get(),
+            4
         );
         assert_eq!(
-            resolution.events()[3].kind(),
+            resolution.events()[4].kind(),
             &BattleEventKind::Fault(FaultEventData::new(fault))
         );
         assert!(
@@ -758,12 +825,27 @@ mod tests {
 
             for step in steps {
                 if step % 4 == 0 {
-                    let decision = first.decision().unwrap().id();
-                    prop_assert_eq!(decision, second.decision().unwrap().id());
-                    let forged_decision = DecisionId::new(
-                        decision.get().checked_add(10_000).unwrap()
-                    ).unwrap();
-                    let forged = Command::StartBattle { decision: forged_decision };
+                    let forged = match first.decision() {
+                        Some(decision) => {
+                            prop_assert_eq!(Some(decision.id()), second.decision().map(DecisionPoint::id));
+                            let forged_decision = DecisionId::new(
+                                decision.id().get().checked_add(10_000).unwrap()
+                            ).unwrap();
+                            Command::StartBattle { decision: forged_decision }
+                        }
+                        None => {
+                            let boundary = first.state.timeline.boundary.as_ref().unwrap().id;
+                            prop_assert_eq!(
+                                Some(boundary),
+                                second.state.timeline.boundary.as_ref().map(|value| value.id)
+                            );
+                            Command::Advance {
+                                boundary: ActionBoundaryId::new(
+                                    boundary.get().checked_add(10_000).unwrap()
+                                ).unwrap(),
+                            }
+                        }
+                    };
                     let before_bytes = collect_state(&first.state);
                     let before_hash = first.state_hash();
                     let before_draws = first.view().rng_draw_count();

@@ -141,15 +141,8 @@ fn striated_cortex_executes_one_exact_fixed_hit_after_an_aoe_skill_with_one_enem
             .rule_instances_by_id()
             .any(|instance| instance.rule() == striated_rule && instance.owner().is_some())
     );
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let aoe = AbilityId::new(20019).unwrap();
     let command = battle

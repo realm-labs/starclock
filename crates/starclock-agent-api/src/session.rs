@@ -68,7 +68,7 @@ pub struct CreateSessionRequest {
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct PlayActionRequest {
     pub session_id: SessionId,
-    pub decision_id: AgentUInt,
+    pub boundary_id: AgentUInt,
     pub expected_state_hash: AgentHash,
     pub action_token: ActionToken,
     pub idempotency_key: IdempotencyKey,
@@ -313,7 +313,7 @@ pub enum AgentControllerKind {
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AcceptedCommandRecord {
     pub sequence: AgentUInt,
-    pub decision_id: AgentUInt,
+    pub boundary_id: AgentUInt,
     pub controller: AgentControllerKind,
     pub resulting_state_hash: AgentHash,
 }
@@ -590,17 +590,17 @@ impl AgentSession {
                 "The session idempotency cache reached its fixed entry limit.",
             ));
         }
-        let current_decision = self
+        let current_boundary = self
             .offered
             .as_ref()
-            .map(OfferedActionSet::decision_id)
+            .map(OfferedActionSet::boundary_id)
             .ok_or_else(|| {
                 agent_error(
                     AgentErrorCode::StaleDecision,
                     "The session has no current external decision.",
                 )
             })?;
-        if request.decision_id != current_decision {
+        if request.boundary_id != current_boundary {
             return Err(agent_error(
                 AgentErrorCode::StaleDecision,
                 "The requested decision is no longer current.",
@@ -657,8 +657,8 @@ impl AgentSession {
                 "The session is not awaiting an external player decision.",
             )
         })?;
-        let decision = offered.decision_id();
-        let selected = offered.select(&decision, token).map_err(binding_error)?;
+        let boundary = offered.boundary_id();
+        let selected = offered.select(&boundary, token).map_err(binding_error)?;
         let command = selected.into_command();
         let command_start = self.replay.trace.len();
         let controller_start = self.replay.controllers.len();
@@ -688,7 +688,9 @@ impl AgentSession {
         let view = self.battle.view();
         let page = self.replay.page_after(after)?;
         let status = match view.phase() {
-            BattlePhase::AwaitingCommand => AgentBattleStatus::AwaitingPlayer,
+            BattlePhase::AwaitingCommand | BattlePhase::ReadyToAdvance => {
+                AgentBattleStatus::AwaitingPlayer
+            }
             BattlePhase::Won => AgentBattleStatus::Won,
             BattlePhase::Lost => AgentBattleStatus::Lost,
             BattlePhase::Faulted => AgentBattleStatus::Faulted,
@@ -703,7 +705,7 @@ impl AgentSession {
             session_id: self.id.clone(),
             scenario_id: self.scenario.clone(),
             catalog_digest: AgentHash::from_bytes(view.identity().catalog_digest().bytes()),
-            decision_id: self.offered.as_ref().map(OfferedActionSet::decision_id),
+            boundary_id: self.offered.as_ref().map(OfferedActionSet::boundary_id),
             state_hash: self.state_hash(),
             event_cursor: page.next_cursor,
             visibility_policy: self.visibility,
@@ -734,6 +736,66 @@ impl AgentSession {
             if self.replay.trace.len() - start == command_budget {
                 return Err(settlement_budget_error());
             }
+            let ultimate_commands = self
+                .battle
+                .available_ultimates()
+                .into_iter()
+                .filter_map(|option| self.battle.request_ultimate_command(option))
+                .collect::<Vec<_>>();
+            if !ultimate_commands.is_empty() {
+                let boundary = self
+                    .battle
+                    .view()
+                    .action_boundary()
+                    .ok_or_else(|| {
+                        agent_error(
+                            AgentErrorCode::BattleFaulted,
+                            "Ready Ultimates were exposed without an action boundary.",
+                        )
+                    })?
+                    .id();
+                let decision = self.battle.decision().cloned();
+                let mut commands = ultimate_commands;
+                if let Some(player_decision) = decision
+                    .as_ref()
+                    .filter(|decision| decision.owner() == DecisionOwner::Team(TeamSide::Player))
+                {
+                    commands.extend_from_slice(player_decision.legal_commands());
+                } else {
+                    commands.push(self.battle.advance_command().ok_or_else(|| {
+                        agent_error(
+                            AgentErrorCode::BattleFaulted,
+                            "An action boundary could not produce its continuation command.",
+                        )
+                    })?);
+                }
+                commands.sort_by(Command::canonical_cmp);
+                commands.dedup();
+                self.offered = Some(
+                    OfferedActionSet::bind_action_boundary(
+                        &self.id,
+                        boundary,
+                        decision.as_ref().map(starclock_combat::DecisionPoint::id),
+                        &commands,
+                    )
+                    .map_err(binding_error)?,
+                );
+                return Ok(emitted_events);
+            }
+            if self.battle.view().phase() == BattlePhase::ReadyToAdvance {
+                let command = self.battle.advance_command().ok_or_else(|| {
+                    agent_error(
+                        AgentErrorCode::BattleFaulted,
+                        "A ready battle exposed no action-boundary continuation.",
+                    )
+                })?;
+                emitted_events = emitted_events
+                    .checked_add(
+                        self.apply_recorded(command, AgentControllerKind::SystemAutomatic)?,
+                    )
+                    .ok_or_else(settlement_budget_error)?;
+                continue;
+            }
             let decision = self.battle.decision().cloned().ok_or_else(|| {
                 agent_error(
                     AgentErrorCode::BattleFaulted,
@@ -755,15 +817,10 @@ impl AgentSession {
                         .ok_or_else(settlement_budget_error)?;
                 }
                 DecisionOwner::Team(TeamSide::Enemy) => {
-                    if decision.kind() == DecisionKind::InterruptWindow
-                        || (decision.kind() == DecisionKind::BattleChoice
-                            && decision.legal_commands().len() == 1)
+                    if decision.kind() == DecisionKind::BattleChoice
+                        && decision.legal_commands().len() == 1
                     {
-                        let command = if decision.kind() == DecisionKind::InterruptWindow {
-                            system_command(&decision)?
-                        } else {
-                            decision.legal_commands()[0].clone()
-                        };
+                        let command = decision.legal_commands()[0].clone();
                         emitted_events = emitted_events
                             .checked_add(
                                 self.apply_recorded(command, AgentControllerKind::AuthoredEnemy)?,
@@ -863,7 +920,20 @@ impl AgentSession {
         command: Command,
         controller: AgentControllerKind,
     ) -> Result<u64, AgentError> {
-        let decision_id = command.decision().get();
+        let boundary_id = command
+            .decision()
+            .map(starclock_combat::DecisionId::get)
+            .or_else(|| {
+                command
+                    .boundary()
+                    .map(starclock_combat::ActionBoundaryId::get)
+            })
+            .ok_or_else(|| {
+                agent_error(
+                    AgentErrorCode::AdapterFailure,
+                    "A battle command had no stable external boundary identity.",
+                )
+            })?;
         let resolution = self.battle.apply(command.clone()).map_err(|_| {
             agent_error(
                 AgentErrorCode::CombatRejected,
@@ -883,7 +953,7 @@ impl AgentSession {
             sequence: AgentUInt::from_u64(
                 u64::try_from(self.replay.trace.len()).expect("replay bound fits u64"),
             ),
-            decision_id: AgentUInt::from_u64(decision_id),
+            boundary_id: AgentUInt::from_u64(boundary_id),
             controller,
             resulting_state_hash: AgentHash::from_bytes(state_hash.bytes()),
         });
@@ -893,9 +963,11 @@ impl AgentSession {
 
 fn command_actor(command: &Command) -> Option<starclock_combat::UnitId> {
     match command {
-        Command::UseAbility { actor, .. } | Command::UseInterrupt { actor, .. } => Some(*actor),
+        Command::UseAbility { actor, .. } | Command::RequestUltimate { actor, .. } => Some(*actor),
         Command::StartBattle { .. }
-        | Command::PassInterruptWindow { .. }
+        | Command::CommitPreparedAction { .. }
+        | Command::CancelPreparedAction { .. }
+        | Command::Advance { .. }
         | Command::Concede { .. } => None,
     }
 }
@@ -962,6 +1034,7 @@ fn build_replay_header(
 fn replay_phase(phase: BattlePhase) -> Result<AgentBattlePhase, AgentError> {
     match phase {
         BattlePhase::AwaitingCommand => Ok(AgentBattlePhase::AwaitingCommand),
+        BattlePhase::ReadyToAdvance => Ok(AgentBattlePhase::ReadyToAdvance),
         BattlePhase::Won => Ok(AgentBattlePhase::Won),
         BattlePhase::Lost => Ok(AgentBattlePhase::Lost),
         BattlePhase::Faulted => Ok(AgentBattlePhase::Faulted),
@@ -992,11 +1065,9 @@ fn system_command(decision: &starclock_combat::DecisionPoint) -> Result<Command,
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::StartBattle { .. })),
-        DecisionKind::InterruptWindow => decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
-        DecisionKind::NormalAction | DecisionKind::BattleChoice => None,
+        DecisionKind::NormalAction | DecisionKind::PreparedAction | DecisionKind::BattleChoice => {
+            None
+        }
     };
     selected.cloned().ok_or_else(|| {
         agent_error(

@@ -119,7 +119,7 @@ fn complete_erudition_resonance_applies_fifteen_shared_synapse_triggers() {
         .id();
     assert_eq!(synapse_stacks(&battle, enemy), Some(15));
 
-    close_interrupt_window(&mut battle);
+    advance_action_boundaries(&mut battle);
     let attack = battle
         .decision()
         .unwrap()
@@ -267,32 +267,12 @@ fn binding<'a>(
 }
 
 fn use_resonance(battle: &mut Battle) -> starclock_combat::Resolution {
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseAbility { ability, .. } | Command::UseInterrupt { ability, .. }
-                    if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .expect("charged resonance is legal")
-        .clone();
-    battle.apply(command).unwrap()
+    use_ready_ability(battle, RESONANCE_ABILITY_RAW)
 }
 
-fn close_interrupt_window(battle: &mut Battle) {
-    while battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        let decision = battle.decision().unwrap().id();
-        let resolution = battle
-            .apply(Command::PassInterruptWindow { decision })
-            .unwrap();
+fn advance_action_boundaries(battle: &mut Battle) {
+    while battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        let resolution = battle.advance().unwrap();
         assert!(resolution.fault().is_none(), "{:#?}", resolution.events());
     }
 }

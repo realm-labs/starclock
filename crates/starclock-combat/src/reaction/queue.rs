@@ -65,7 +65,7 @@ pub(crate) struct QueuedAction {
     pub(crate) payment: Option<SkillPointPaymentPolicy>,
 }
 
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub(crate) struct ReactionQueue {
     entries: Vec<QueuedAction>,
 }
@@ -91,13 +91,12 @@ impl ReactionQueue {
         self.entries.len()
     }
 
-    pub(crate) fn is_empty(&self) -> bool {
-        self.entries.is_empty()
-    }
-
-    #[cfg(test)]
     pub(crate) fn entries(&self) -> &[QueuedAction] {
         &self.entries
+    }
+
+    pub(crate) fn clear(&mut self) {
+        self.entries.clear();
     }
 }
 

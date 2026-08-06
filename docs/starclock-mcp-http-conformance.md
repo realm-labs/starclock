@@ -7,12 +7,11 @@ Origin, protocol and bearer headers, negotiates MCP `2025-11-25`, sends the
 initialized notification and discovers all thirteen tools. It also probes health,
 readiness and metrics through the production network-header boundary.
 
-The conformance script completes the basic frozen Standard scenario using only
-the first public `use_ability` action, or `pass_interrupt` when no ability is
-offered. In-process, stdio and HTTP tests all consume the same retained
-That artifact freezes nine decision-boundary state hashes and the exact
-987-byte, nine-command replay envelope. Each transport must reproduce every
-hash and every replay byte, not only the terminal result.
+The conformance script completes the basic frozen Standard scenario using the
+first deterministic progress action: `use_ability`, `commit_prepared_action`,
+or `advance`. In-process, stdio and HTTP tests exercise the same public stable
+action-boundary protocol. Each transport must reproduce the same state hashes
+and replay bytes, not only the terminal result.
 
 Before the Battle trace, the client also creates one Standard Universe
 Activity, submits and idempotently retries one offered opaque action, observes

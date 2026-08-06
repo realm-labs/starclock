@@ -161,20 +161,7 @@ fn complete_hunt_resonance_executes_without_fault_and_spends_one_charge() {
     let spec = with_resonance_energy(original, 100, 200, 0xd2);
     let (mut battle, started) = start(&materialization, spec, 0xd3);
     assert!(started.fault().is_none(), "{:?}", started.fault());
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. } if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .unwrap()
-        .clone();
-    let resolution = battle.apply(command).unwrap();
+    let resolution = use_ready_ability(&mut battle, RESONANCE_ABILITY_RAW);
     assert!(
         resolution.fault().is_none(),
         "{:?} {:?}",

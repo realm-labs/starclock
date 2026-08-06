@@ -171,6 +171,8 @@ fn compound_eye_recovers_one_extra_team_skill_point_after_an_ally_turn() {
         "{:#?}",
         eye_resolution.events()
     );
+    complete_action_events(&mut baseline_battle, &baseline_resolution);
+    complete_action_events(&mut eye_battle, &eye_resolution);
     assert_eq!(
         eye_battle.view().team(TeamSide::Player).skill_points(),
         baseline_battle

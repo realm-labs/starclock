@@ -245,7 +245,7 @@ fn action_request(session: &mut AgentSession, index: usize) -> PlayActionRequest
         {
             return PlayActionRequest {
                 session_id: observation.session_id,
-                decision_id: observation.decision_id.expect("decision is present"),
+                boundary_id: observation.boundary_id.expect("boundary is present"),
                 expected_state_hash: observation.state_hash,
                 action_token: action.token.clone(),
                 idempotency_key: IdempotencyKey::parse(&format!("benchmark_step_{index}"))
@@ -255,12 +255,12 @@ fn action_request(session: &mut AgentSession, index: usize) -> PlayActionRequest
         let pass = observation
             .legal_actions
             .iter()
-            .find(|action| action.kind == AgentActionKind::PassInterrupt)
+            .find(|action| action.kind == AgentActionKind::Advance)
             .expect("benchmark preparation can pass the interrupt");
         session
             .apply_action(PlayActionRequest {
                 session_id: observation.session_id,
-                decision_id: observation.decision_id.expect("decision is present"),
+                boundary_id: observation.boundary_id.expect("boundary is present"),
                 expected_state_hash: observation.state_hash,
                 action_token: pass.token.clone(),
                 idempotency_key: IdempotencyKey::parse(&format!(

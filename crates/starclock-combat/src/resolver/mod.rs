@@ -1,4 +1,5 @@
 pub(crate) mod action;
+mod command_resolution;
 mod effect_boundary;
 mod effect_duration;
 mod effect_operation;

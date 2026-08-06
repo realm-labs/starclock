@@ -9,14 +9,7 @@ use crate::{
     target::select::legal_primary_targets,
 };
 
-use super::model::{Command, DecisionKind, DecisionOwner, DecisionPoint};
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) struct InterruptOption {
-    actor: UnitId,
-    ability: AbilityId,
-    primary_target: Option<UnitId>,
-}
+use super::model::{Command, DecisionKind, DecisionOwner, DecisionPoint, UltimateOption};
 
 pub(crate) fn battle_start(id: DecisionId) -> DecisionPoint {
     DecisionPoint::new(
@@ -27,14 +20,14 @@ pub(crate) fn battle_start(id: DecisionId) -> DecisionPoint {
     )
 }
 
-pub(crate) fn interrupt_options(
+pub(crate) fn ultimate_options(
     owner: TeamSide,
     units: &UnitStore,
     formations: &FormationState,
     teams: &TeamStateStore,
     effects: &EffectStore,
     catalog: &CombatCatalog,
-) -> Vec<InterruptOption> {
+) -> Vec<UltimateOption> {
     let mut options = Vec::new();
     for unit in units.iter_by_id().filter(|unit| unit.side == owner) {
         for ability in effective_abilities(&unit.abilities, effects, catalog, unit.id) {
@@ -52,36 +45,44 @@ pub(crate) fn interrupt_options(
             {
                 continue;
             }
-            if let Ok(primaries) = legal_primary_targets(units, formations, unit.id, selector) {
-                options.extend(primaries.into_iter().map(|primary_target| InterruptOption {
-                    actor: unit.id,
-                    ability,
-                    primary_target,
-                }));
+            if legal_primary_targets(units, formations, unit.id, selector)
+                .is_ok_and(|primaries| !primaries.is_empty())
+            {
+                options.push(UltimateOption::new(unit.id, ability));
             }
         }
     }
+    options.sort_by_key(|option| (option.actor(), option.ability()));
+    options.dedup();
     options
 }
 
-pub(crate) fn interrupt_window(
+pub(crate) fn prepared_action(
     id: DecisionId,
-    owner: TeamSide,
-    options: Vec<InterruptOption>,
-) -> DecisionPoint {
-    let mut commands = vec![Command::PassInterruptWindow { decision: id }];
-    commands.extend(options.into_iter().map(|option| Command::UseInterrupt {
-        decision: id,
-        actor: option.actor,
-        ability: option.ability,
-        primary_target: option.primary_target,
-    }));
-    DecisionPoint::new(
+    actor: UnitId,
+    ability: AbilityId,
+    catalog: &CombatCatalog,
+    state: &BattleState,
+) -> Option<DecisionPoint> {
+    let selector = catalog
+        .ability(ability)
+        .and_then(|definition| catalog.selector(definition.selector()))?
+        .unit_targets()?;
+    let primaries = legal_primary_targets(&state.units, &state.formations, actor, selector).ok()?;
+    let mut commands = primaries
+        .into_iter()
+        .map(|primary_target| Command::CommitPreparedAction {
+            decision: id,
+            primary_target,
+        })
+        .collect::<Vec<_>>();
+    commands.push(Command::CancelPreparedAction { decision: id });
+    Some(DecisionPoint::new(
         id,
-        DecisionKind::InterruptWindow,
-        DecisionOwner::Team(owner),
+        DecisionKind::PreparedAction,
+        DecisionOwner::Team(TeamSide::Player),
         commands,
-    )
+    ))
 }
 
 pub(crate) fn normal_action(

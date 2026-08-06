@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -171,7 +171,7 @@ fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let enemy_action = battle
         .decision()
         .unwrap()
@@ -190,7 +190,9 @@ fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
         .unwrap()
         .clone();
     let forced = battle.apply(enemy_action).unwrap();
-    assert!(forced.events().iter().any(|event| matches!(
+    let mut events = forced.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Action(ActionEventData::Resolved {
             actor,
@@ -249,7 +251,7 @@ fn taunt_replaces_the_turn_with_a_basic_attack_against_the_applier() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let enemy_action = battle
         .decision()
         .unwrap()
@@ -268,7 +270,9 @@ fn taunt_replaces_the_turn_with_a_basic_attack_against_the_applier() {
         .unwrap()
         .clone();
     let forced = battle.apply(enemy_action).unwrap();
-    assert!(forced.events().iter().any(|event| matches!(
+    let mut events = forced.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Action(ActionEventData::Resolved {
             actor,

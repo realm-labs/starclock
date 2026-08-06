@@ -658,15 +658,8 @@ fn start(
 }
 
 fn first_normal_action(battle: &mut Battle) -> starclock_combat::Resolution {
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let command = battle
         .decision()
@@ -677,6 +670,75 @@ fn first_normal_action(battle: &mut Battle) -> starclock_combat::Resolution {
         .unwrap()
         .clone();
     battle.apply(command).unwrap()
+}
+
+fn apply_action_command(battle: &mut Battle, command: Command) -> starclock_combat::Resolution {
+    if matches!(command, Command::RequestUltimate { .. }) {
+        let requested = battle.apply(command).expect("Ultimate request is accepted");
+        assert!(requested.fault().is_none(), "{:?}", requested.fault());
+        let commit = battle
+            .decision()
+            .expect("an accepted Ultimate request offers its prepared action")
+            .legal_commands()
+            .iter()
+            .find(|command| matches!(command, Command::CommitPreparedAction { .. }))
+            .expect("the prepared Ultimate has a legal commitment")
+            .clone();
+        battle
+            .apply(commit)
+            .expect("the prepared Ultimate commitment is accepted")
+    } else {
+        battle.apply(command).expect("selected action is accepted")
+    }
+}
+
+fn use_ready_ability(battle: &mut Battle, expected: u32) -> starclock_combat::Resolution {
+    for _ in 0..64 {
+        if let Some(command) = battle
+            .available_ultimates()
+            .into_iter()
+            .find(|option| option.ability().get() == expected)
+            .and_then(|option| battle.request_ultimate_command(option))
+        {
+            return apply_action_command(battle, command);
+        }
+        if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+            let resolution = battle.advance().expect("action boundary advances");
+            assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
+            continue;
+        }
+        let decision = battle.decision().expect("nonterminal battle").clone();
+        if let Some(command) = decision.legal_commands().iter().find(|command| {
+            matches!(command, Command::UseAbility { ability, .. } if ability.get() == expected)
+        }) {
+            return apply_action_command(battle, command.clone());
+        }
+        let command = decision
+            .legal_commands()
+            .iter()
+            .find(|command| matches!(command, Command::UseAbility { .. }))
+            .expect("a normal action advances the fixture")
+            .clone();
+        let resolution = apply_action_command(battle, command);
+        assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
+    }
+    panic!("ability {expected} was not offered within the fixture bound");
+}
+
+fn complete_action_events(
+    battle: &mut Battle,
+    resolution: &starclock_combat::Resolution,
+) -> Vec<starclock_combat::BattleEvent> {
+    let mut events = resolution.events().to_vec();
+    for _ in 0..64 {
+        if battle.view().phase() != starclock_combat::BattlePhase::ReadyToAdvance {
+            return events;
+        }
+        let advanced = battle.advance().expect("stable action boundary advances");
+        assert!(advanced.fault().is_none(), "{:?}", advanced.fault());
+        events.extend_from_slice(advanced.events());
+    }
+    panic!("fixture exceeded the stable action-boundary completion bound");
 }
 
 #[test]
@@ -903,20 +965,7 @@ fn hunt_resonance_is_a_legal_shared_resource_transition() {
         durable_spec(&materialization, 0x51, true),
         0x61,
     );
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. } if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .expect("charged Hunt Resonance is offered as a combat interrupt")
-        .clone();
-    let resolution = battle.apply(command).unwrap();
+    let resolution = use_ready_ability(&mut battle, RESONANCE_ABILITY_RAW);
     assert!(resolution.events().iter().any(|event| {
         matches!(
             event.kind(),
@@ -1059,7 +1108,8 @@ fn goal07_p2_m02_s01_executes_every_assigned_rule_and_operation_fixture() {
     let mut cycle_reset = false;
     for _ in 0..5 {
         let resolution = first_normal_action(&mut battle);
-        cycle_reset |= resolution.events().iter().any(|event| {
+        let events = complete_action_events(&mut battle, &resolution);
+        cycle_reset |= events.iter().any(|event| {
             matches!(
                 event.kind(),
                 BattleEventKind::Shield(starclock_combat::ShieldEventData::Removed { .. })

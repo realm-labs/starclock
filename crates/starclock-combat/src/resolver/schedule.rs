@@ -232,7 +232,7 @@ fn enqueue(
         order: order.into(),
         targets: (&targets).into(),
     });
-    txn.reactions.push(QueuedAction {
+    txn.push_reaction(QueuedAction {
         order,
         root: cause.root_command(),
         parent: queued,

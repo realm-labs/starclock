@@ -64,14 +64,14 @@ The observed ordinary turn lifecycle is:
 1. select the actor with the lowest AV and advance global time;
 2. emit turn start;
 3. trigger start-of-turn DoT and other start effects;
-4. if the player has a legal Ultimate/interrupt, open a player-owned before-action window regardless of which side owns the active turn;
+4. return at a stable before-action boundary; independently expose any ready player Ultimate regardless of which side owns the active turn;
 5. select and resolve the normal or automatic action without suspending an atomic hit, phase, or operation;
 6. reset the actor's AG according to the action's timeline ownership;
 7. drain forced follow-ups, counters, and other reactions with priority over manual Ultimates;
-8. if the player now has a legal Ultimate/interrupt, open an after-action window while the active turn and its turn-end durations remain pending;
-9. after the player passes, settle the turn-end boundary—emit turn end, tick eligible effect durations, reset turn-scoped state—and select the next actor.
+8. return at a stable after-action boundary while the active turn and its turn-end durations remain pending;
+9. after an explicit system `Advance`, settle the turn-end boundary—emit turn end, tick eligible effect durations, reset turn-scoped state—and select the next actor.
 
-This ordering follows the current community [Speed turn-order description](https://honkai-star-rail.fandom.com/wiki/Speed#Speed). Keep the interrupt windows as domain phases even in a CLI or AI-only build.
+This ordering follows the current community [Speed turn-order description](https://honkai-star-rail.fandom.com/wiki/Speed#Speed). Stable action boundaries are domain state; an adapter may advance a boundary automatically when no ready Ultimate requires controller input.
 
 ## Interrupt and reaction priority
 
@@ -79,7 +79,7 @@ The useful baseline priority is:
 
 1. currently resolving atomic hit/effect;
 2. forced follow-up action/counter queue;
-3. manual Ultimates exposed at the next interrupt boundary, plus general extra actions;
+3. manual Ultimates requested at the next stable action boundary, plus general extra actions;
 4. extra turns;
 5. zero-AG normal turns;
 6. future timeline actors.
@@ -90,15 +90,18 @@ Implement priority as explicit queue metadata, not nested function calls. Reacti
 
 ## Ultimate actions
 
-Ultimates are out-of-order actions normally enabled when their resource reaches the required threshold. They do not consume the user's normal timeline turn. They can be requested before an action or during its presentation; an adapter buffers a presentation-time request and submits it at the next offered interrupt boundary, so it never splits the current atomic action. The after-action window precedes turn-end duration processing, so an eligible Ultimate retains effects that have not yet expired at that turn boundary.
+Ultimates are out-of-order actions normally enabled when their resource reaches the required threshold. They do not consume the user's normal timeline turn. They can be requested before an action or during its presentation; an adapter buffers a presentation-time request and submits it at the next stable action boundary, so it never splits the current atomic action. The after-action boundary precedes turn-end duration processing, so an eligible Ultimate retains effects that have not yet expired at that turn boundary.
 
-The engine exposes an interrupt decision only when at least one manual interrupt
-is legal. `PassInterruptWindow` resumes its typed continuation. Selecting an
-Ultimate first creates a prepared action that may request its variant and target;
+The engine always returns at stable action boundaries and independently reports
+ready Ultimate requests. A boundary may coexist with an already offered normal
+decision. In that case `Advance` closes only the Ultimate-insertion opportunity
+and preserves the normal decision; otherwise it resumes the boundary's typed
+continuation. It never skips the pending normal action.
+Selecting an Ultimate first creates a prepared action that may request its variant and target;
 it does not declare the action or pay its cost merely because the Ultimate icon
 was selected. After the prepared inputs are complete, an ordinary Ultimate runs
 atomically. A genuinely segmented Ultimate may expose another typed input only
-between complete authored segments. When it finishes, the preserved interrupt
+between complete authored segments. When it finishes, the preserved boundary
 continuation re-enumerates remaining legal Ultimates.
 
 Non-turn-ending Skills, transformations, counters, summons, and extra turns do

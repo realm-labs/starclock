@@ -155,12 +155,12 @@ fn measure_actions(runtime: &tokio::runtime::Runtime) -> Row {
                     .as_array()
                     .unwrap()
                     .iter()
-                    .find(|action| action["kind"] == "pass_interrupt")
+                    .find(|action| action["kind"] == "advance")
             })
             .unwrap();
         arguments.push(json!({
                         "session_id":observation["session_id"],
-            "decision_id":observation["decision_id"],
+            "boundary_id":observation["boundary_id"],
             "expected_state_hash":observation["state_hash"],
             "action_token":action["token"],
             "idempotency_key":format!("benchmark_action_{index}")

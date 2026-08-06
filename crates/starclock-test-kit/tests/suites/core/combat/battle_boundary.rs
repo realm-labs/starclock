@@ -321,8 +321,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            101, 188, 56, 181, 83, 25, 203, 221, 199, 189, 249, 166, 182, 141, 42, 229, 72, 52, 58,
-            201, 90, 108, 83, 106, 56, 177, 181, 69, 217, 103, 5, 197,
+            199, 125, 119, 244, 69, 56, 0, 247, 28, 84, 170, 67, 70, 194, 111, 164, 85, 4, 94, 31,
+            103, 142, 158, 212, 41, 142, 199, 131, 121, 202, 109, 148,
         ]
     );
     let before = snapshot(&battle);
@@ -353,7 +353,7 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(started.rng_draw_count(), 0);
     assert_eq!(started.state_hash(), battle.state_hash());
     assert_eq!(started.root_command().get(), 1);
-    assert_eq!(started.events().len(), 3);
+    assert_eq!(started.events().len(), 4);
     assert_eq!(started.events()[0].id().get(), 1);
     assert_eq!(started.events()[0].cause().root_command().get(), 1);
     assert_eq!(started.events()[0].cause().parent_event(), None);
@@ -369,11 +369,15 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
             origin: starclock_combat::ActionOrigin::NormalTurn,
         })
     );
-    assert_eq!(started.events()[2].id().get(), 3);
-    assert_eq!(started.events()[2].cause().root_command().get(), 1);
-    assert_eq!(started.events()[2].cause().parent_event().unwrap().get(), 2);
-    assert_eq!(
+    assert!(matches!(
         started.events()[2].kind(),
+        BattleEventKind::ActionBoundary(_)
+    ));
+    assert_eq!(started.events()[3].id().get(), 4);
+    assert_eq!(started.events()[3].cause().root_command().get(), 1);
+    assert_eq!(started.events()[3].cause().parent_event().unwrap().get(), 3);
+    assert_eq!(
+        started.events()[3].kind(),
         &BattleEventKind::Decision(DecisionEventData::Offered {
             decision: runtime(2),
             kind: DecisionKind::NormalAction,
@@ -400,7 +404,7 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     );
     assert_eq!(battle.decision(), Some(next));
     assert_eq!(battle.view().active_turn().unwrap().owner(), runtime(1));
-    assert!(battle.view().interrupt_window().is_none());
+    assert!(battle.view().action_boundary().is_some());
 
     let awaiting = snapshot(&battle);
     let forged_action = Command::UseAbility {
@@ -426,8 +430,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(ended.state_hash(), battle.state_hash());
     assert_eq!(ended.root_command().get(), 2);
     assert_eq!(ended.events().len(), 2);
-    assert_eq!(ended.events()[0].id().get(), 4);
-    assert_eq!(ended.events()[1].id().get(), 5);
+    assert_eq!(ended.events()[0].id().get(), 5);
+    assert_eq!(ended.events()[1].id().get(), 6);
     assert_eq!(ended.events()[1].cause().root_command().get(), 2);
     assert_eq!(
         ended.events()[1].kind(),
@@ -466,7 +470,7 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
         })
         .unwrap();
     assert_eq!(resolution.committed_revision(), 2);
-    assert_eq!(resolution.events().len(), 11);
+    assert_eq!(resolution.events().len(), 9);
     assert!(matches!(
         resolution.events()[0].kind(),
         BattleEventKind::Decision(DecisionEventData::Closed { decision })
@@ -510,16 +514,21 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     ));
     assert!(matches!(
         resolution.events()[8].kind(),
+        BattleEventKind::ActionBoundary(starclock_combat::ActionBoundaryEventData::Opened { .. })
+    ));
+    let advanced = battle.advance().unwrap();
+    assert!(matches!(
+        advanced.events()[1].kind(),
         BattleEventKind::Turn(TurnEventData::Ended { actor, owner, .. })
             if actor.get() == 1 && owner.get() == 1
     ));
     assert!(matches!(
-        resolution.events()[9].kind(),
+        advanced.events()[2].kind(),
         BattleEventKind::Turn(TurnEventData::Started { actor, owner, .. })
             if actor.get() == 2 && owner.get() == 2
     ));
     assert!(matches!(
-        resolution.events()[10].kind(),
+        advanced.events()[4].kind(),
         BattleEventKind::Decision(DecisionEventData::Offered {
             decision,
             kind: DecisionKind::NormalAction,
@@ -542,7 +551,7 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
         .map(|actor| actor.action_gauge().scaled())
         .collect::<Vec<_>>();
     assert_eq!(gauges, [10_000_000_000, 0]);
-    assert_eq!(resolution.state_hash(), battle.state_hash());
+    assert_eq!(advanced.state_hash(), battle.state_hash());
 }
 
 #[test]
@@ -585,6 +594,7 @@ fn timeline_uses_exact_av_order_and_floored_gauge_elapsed_distance() {
             primary_target: None,
         })
         .unwrap();
+    battle.advance().unwrap();
     assert_eq!(battle.view().active_turn().unwrap().owner().get(), 2);
     assert_eq!(
         battle

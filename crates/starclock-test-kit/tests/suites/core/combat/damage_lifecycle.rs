@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -588,11 +588,11 @@ fn start_and_pass(battle: &mut Battle) {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(battle);
+    advance_boundary_if_offered(battle);
 }
 
-fn pass_interrupt(battle: &mut Battle) {
-    pass_interrupt_if_offered(battle);
+fn advance_boundary(battle: &mut Battle) {
+    advance_boundary_if_offered(battle);
 }
 
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {
@@ -773,7 +773,7 @@ fn weakness_precedes_reduction_and_super_break_uses_effective_layer_sample() {
         vec![0, 40]
     );
 
-    pass_interrupt(&mut battle);
+    advance_boundary(&mut battle);
     let second = use_ability(&mut battle, 5);
     let second_reduction = second
         .events()
@@ -791,7 +791,7 @@ fn weakness_precedes_reduction_and_super_break_uses_effective_layer_sample() {
     assert!(second.events().iter().any(|event| matches!(event.kind(),
         BattleEventKind::BreakDamage(data) if data.kind == starclock_combat::BreakDamageKind::SuperBreak)));
 
-    pass_interrupt(&mut battle);
+    advance_boundary(&mut battle);
     let third = use_ability(&mut battle, 5);
     assert!(third.events().iter().any(|event| matches!(event.kind(),
         BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Reduced { layer_key: None, effective, .. }) if effective.get() == 0)));
@@ -804,16 +804,18 @@ fn fire_break_dot_ticks_and_recovery_turn_restores_the_layer() {
     let mut battle = break_recovery_battle();
     start_and_pass(&mut battle);
     let resolution = use_ability(&mut battle, 5);
-    assert!(resolution.events().iter().any(|event| matches!(event.kind(),
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
+    assert!(events.iter().any(|event| matches!(event.kind(),
         BattleEventKind::BreakDamage(data) if data.kind == starclock_combat::BreakDamageKind::Effect)));
-    assert!(resolution.events().iter().any(|event| matches!(
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Toughness(starclock_combat::ToughnessEventData::BaseEffectTicked {
             remaining_turns: 1,
             ..
         })
     )));
-    assert!(resolution.events().iter().any(|event| matches!(event.kind(),
+    assert!(events.iter().any(|event| matches!(event.kind(),
         BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Recovered { before, after, exited_global_broken: true, .. })
             if before.get() == 0 && after.get() == 50)));
     let enemy = battle.view().units_by_id().nth(1).unwrap();
@@ -829,11 +831,15 @@ fn fire_break_dot_ticks_and_recovery_turn_restores_the_layer() {
         1
     );
 
-    pass_interrupt(&mut battle);
-    let _enemy_action = use_ability(&mut battle, 3);
-    pass_interrupt(&mut battle);
-    let expiry = use_ability(&mut battle, 4);
-    assert!(expiry.events().iter().any(|event| matches!(
+    advance_boundary(&mut battle);
+    let enemy_action = use_ability(&mut battle, 3);
+    let mut expiry = enemy_action.events().to_vec();
+    expiry.extend(settle_ready_boundaries(&mut battle));
+    advance_boundary(&mut battle);
+    let player_action = use_ability(&mut battle, 4);
+    expiry.extend_from_slice(player_action.events());
+    expiry.extend(settle_ready_boundaries(&mut battle));
+    assert!(expiry.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Toughness(starclock_combat::ToughnessEventData::WeaknessRemoved {
             element: CombatElement::Fire,
@@ -856,21 +862,23 @@ fn lethal_turn_start_break_effect_settles_before_selecting_another_actor() {
     let mut battle = break_recovery_battle_with_enemy_hp(6);
     start_and_pass(&mut battle);
     let resolution = use_ability(&mut battle, 5);
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
     assert!(
-        resolution.events().iter().any(|event| matches!(
+        events.iter().any(|event| matches!(
             event.kind(),
             BattleEventKind::BreakDamage(data)
                 if data.kind == starclock_combat::BreakDamageKind::Effect && data.hp_after.get() == 0
         )),
         "{:#?}",
-        resolution.events()
+        events
     );
-    assert_eq!(resolution.phase(), BattlePhase::Won);
+    assert_eq!(battle.view().phase(), BattlePhase::Won);
     assert!(matches!(
-        resolution.events().last().unwrap().kind(),
+        events.last().unwrap().kind(),
         BattleEventKind::Battle(starclock_combat::BattleEventData::Won)
     ));
-    assert!(resolution.next_decision().is_none());
+    assert!(battle.decision().is_none());
 }
 
 #[test]
@@ -881,8 +889,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            176, 19, 165, 5, 50, 20, 165, 137, 60, 7, 1, 127, 177, 45, 108, 70, 168, 195, 197, 89,
-            161, 228, 232, 32, 140, 76, 24, 3, 100, 179, 144, 88,
+            122, 251, 126, 149, 224, 172, 188, 100, 232, 126, 244, 53, 74, 76, 14, 9, 208, 9, 243,
+            210, 190, 94, 150, 50, 170, 75, 237, 33, 77, 176, 142, 224,
         ]
     );
     let damage = resolution
@@ -951,7 +959,7 @@ fn hp_consumption_and_concurrent_shields_flow_through_authoritative_state() {
         vec![300, 500]
     );
 
-    pass_interrupt(&mut battle);
+    advance_boundary(&mut battle);
     let damaged = use_ability(&mut battle, 3);
     let shield_events = damaged
         .events()
@@ -998,8 +1006,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            62, 232, 19, 11, 134, 220, 136, 138, 84, 223, 149, 4, 180, 2, 170, 89, 47, 29, 44, 212,
-            188, 76, 53, 8, 115, 102, 34, 173, 39, 254, 95, 80,
+            181, 23, 60, 174, 115, 202, 93, 54, 88, 234, 109, 49, 131, 159, 129, 193, 59, 75, 10,
+            179, 113, 138, 196, 72, 116, 67, 50, 77, 111, 1, 180, 110,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -1031,11 +1039,11 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            58, 178, 153, 250, 213, 194, 15, 83, 15, 96, 8, 236, 195, 24, 62, 55, 161, 216, 59,
-            100, 40, 89, 155, 146, 61, 166, 181, 110, 58, 146, 168, 106,
+            169, 197, 10, 84, 146, 255, 35, 148, 2, 158, 255, 0, 193, 68, 172, 27, 200, 193, 86,
+            43, 108, 203, 221, 170, 165, 115, 87, 233, 190, 194, 1, 122,
         ]
     );
-    assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
+    assert_eq!(first.phase(), BattlePhase::ReadyToAdvance);
     assert_eq!(battle.view().encounter().number(), 2);
     assert_eq!(battle.view().encounter().total_waves(), 2);
     let units = battle.view().units_by_id().collect::<Vec<_>>();
@@ -1074,8 +1082,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            227, 62, 45, 93, 184, 32, 6, 220, 106, 191, 95, 6, 248, 246, 54, 17, 17, 228, 89, 108,
-            138, 232, 21, 67, 205, 15, 245, 65, 193, 189, 181, 41,
+            156, 135, 218, 122, 13, 152, 205, 40, 111, 164, 255, 195, 243, 60, 96, 193, 68, 164,
+            221, 73, 252, 228, 48, 120, 128, 116, 157, 141, 145, 148, 233, 18,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1125,7 +1133,7 @@ fn nondefault_wave_boundaries_emit_at_the_authored_lifecycle_point() {
 }
 
 fn start_and_pass_current_turn(battle: &mut Battle) {
-    pass_interrupt_if_offered(battle);
+    advance_boundary_if_offered(battle);
 }
 
 #[test]
@@ -1136,8 +1144,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            76, 71, 5, 39, 37, 55, 74, 131, 64, 253, 25, 191, 126, 84, 200, 75, 31, 187, 209, 24,
-            223, 115, 193, 119, 40, 53, 240, 129, 96, 97, 45, 131,
+            230, 241, 61, 39, 30, 192, 19, 42, 140, 140, 147, 110, 162, 185, 215, 12, 165, 72, 107,
+            165, 49, 171, 84, 172, 35, 37, 234, 8, 143, 194, 69, 57,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

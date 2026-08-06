@@ -211,6 +211,14 @@ runtime_id!(
     "Battle-local monotonic identity of an externally visible decision point."
 );
 runtime_id!(
+    ActionBoundaryId,
+    "Battle-local monotonic identity of a stable boundary between independent actions."
+);
+runtime_id!(
+    PreparedActionId,
+    "Battle-local monotonic identity of an action awaiting controller input."
+);
+runtime_id!(
     CommandId,
     "Battle-local monotonic identity of one accepted external command."
 );

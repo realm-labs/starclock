@@ -6,22 +6,25 @@
 ## Six-scenario acceptance
 
 An integration controller sees only `AgentObservation`, selects the first
-offered `use_ability` action or the exact `pass_interrupt` action, and submits
-its opaque token with the current decision/hash preconditions. It never reads
-or constructs a combat `Command`.
+offered deterministic progress action (`use_ability`,
+`commit_prepared_action`, or `advance`), and submits its opaque token with the
+current boundary/hash preconditions. It never reads or constructs a combat
+`Command`.
 
 | Frozen Standard scenario | External steps | Replay commands | Terminal hash |
 |---|---:|---:|---|
-| `basic-single-wave` | 8 | 9 | `5021cdd6…07ec` |
-| `cocolia-phase-change` | 2 | 3 | `87d25233…b344` |
-| `elite-control-counter` | 6 | 7 | `c6c1a62d…9603` |
-| `layered-toughness` | 2 | 3 | `d3459759…9c06` |
-| `multi-wave-dot-revival` | 22 | 23 | `c89ee783…a588` |
-| `target-invalidation-and-return` | 22 | 23 | `413356b9…356b` |
+| `basic-single-wave` | 8 | 20 | `2ab5d393…21e0` |
+| `cocolia-phase-change` | 2 | 4 | `d8ad2d64…1baa` |
+| `elite-control-counter` | 6 | 14 | `22d2606b…1118` |
+| `layered-toughness` | 3 | 6 | `aedde8be…706c` |
+| `multi-wave-dot-revival` | 17 | 40 | `b433b020…1a77` |
+| `target-invalidation-and-return` | 22 | 54 | `a1a7a6d3…e6ba` |
 
 Every result is `won`, matches the existing production-domain golden hash and
 round-trips its entire exported command/hash stream against a fresh battle.
-The one-command difference is the system-owned initial start boundary.
+The replay also records system-owned advancement between externally visible
+stable boundaries, so replay command counts are intentionally larger than the
+number of controller submissions.
 
 ## Performance workloads
 

@@ -8,7 +8,7 @@
     "session_id": "session_trigger_heavy",
     "scenario_id": "scenario.standard.target-invalidation-and-return",
     "catalog_digest": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
-    "decision_id": "100",
+    "boundary_id": "100",
     "state_hash": "4133562a7fb1c4324d210e5f68f665775750de0c78dbdfb13f9e0331fd1cfe5a",
     "event_cursor": "event_4096",
     "visibility_policy": "player_visible",
@@ -37,7 +37,7 @@
     },
     "legal_actions": [
       { "token": "action_100_01", "kind": "use_ability", "label": "Skill → enemy 9", "actor_unit_id": "1", "primary_target_unit_id": "9" },
-      { "token": "action_100_02", "kind": "use_interrupt", "label": "Ultimate → enemy 9", "actor_unit_id": "1", "primary_target_unit_id": "9" }
+      { "token": "action_100_02", "kind": "use_ultimate", "label": "Ultimate", "actor_unit_id": "1", "primary_target_unit_id": null }
     ],
     "events": [
       { "event_id": "4085", "kind": "effect_ticked", "summary": "A retained damage-over-time effect ticked.", "root_command_id": "98" },

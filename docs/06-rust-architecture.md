@@ -147,12 +147,15 @@ pub enum Command {
         ability: AbilityId,
         primary_target: Option<UnitId>,
     },
-    UseInterrupt {
+    RequestUltimate {
         actor: UnitId,
         ability: AbilityId,
+    },
+    CommitPreparedAction {
         primary_target: Option<UnitId>,
     },
-    PassInterruptWindow,
+    CancelPreparedAction,
+    Advance,
 }
 
 pub struct Resolution {

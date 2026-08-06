@@ -14,19 +14,25 @@ floors elapsed distance to six decimal places; ineligible actors retain their
 gauge and the selected actor is set to zero explicitly. Completing its normal
 action resets that actor to the full 10,000 gauge before the next selection.
 
-The active normal turn and an optional manual-interrupt window are authoritative
-state. A window records its observable boundary plus a typed continuation: keep
-resolving the active turn or complete the action-owning turn. Before-action and
-after-action windows are controlled by the player even when the active actor is
-an enemy. A window is exposed only when at least one interrupt is legal;
-otherwise its continuation runs synchronously without allocating a decision.
-Passing resumes the saved continuation. Using an interrupt preserves it and
-re-enumerates the remaining legal interrupts after the inserted action settles.
+The active normal turn and a stable action boundary are authoritative state. A
+boundary records its identity, suspended turn and typed continuation: continue
+the selected action or complete the action-owning turn. The resolver returns at
+these boundaries independently of Ultimate readiness. Core callers may submit a
+ready Ultimate request or `Advance`; adapters normally auto-advance when no
+ready Ultimate needs external input.
 
-This implemented boundary currently combines interrupt selection and initial
-target selection. It is the atomic-action baseline, not the complete roster
-contract. The required prepared-action split and the two confirmed segmented
-Ultimate families are audited in the
+A stable boundary may coexist with an already offered normal `DecisionPoint`.
+In that state, `Advance` closes only the current Ultimate-insertion opportunity
+and preserves the normal decision unchanged. When no normal decision is open,
+`Advance` resumes the boundary's typed continuation. It therefore never skips
+an actor's pending normal action.
+
+An Ultimate request records only actor and ability. It closes the current
+boundary, creates `PreparedActionState`, and offers exact target commitments plus
+cancel. Neither request nor cancellation declares the action or pays resources.
+Committing a prepared target executes the action and restores the suspended
+continuation at a newly identified action boundary. The two confirmed segmented
+Ultimate families remain audited in the
 [character action-flow matrix](characters/action-flow-matrix.md).
 
 ## Structural action lowering
@@ -48,18 +54,18 @@ The synchronous fact chain is:
 5. phase ended;
 6. action resolved;
 7. higher-priority reactions drained;
-8. optional after-action interrupt decision offered;
-9. turn ended after the decision is passed or no interrupt is legal;
-10. next turn started and its optional before-action interrupt decision offered.
+8. after-action boundary opened;
+9. turn ended after `Advance` resumes the saved continuation;
+10. next turn started and its before-action boundary opened.
 
 Every fact retains the root command and immediate parent. Action, phase and hit
 identities are added as soon as they exist. Stable fixed vectors cover the
-initial, start, interrupt-pass, concede and completed structural-action states.
+initial, start, boundary-advance, concede and completed structural-action states.
 
-## Interrupt ordering
+## Action-boundary ordering
 
-The private queue freezes a total ordering before it carries executable
-interrupts: forced follow-ups, then Ultimates, then extra actions, followed by
-owner side/formation and insertion ordinal. The queue state and pending count
-are canonically encoded. B4 will construct executable entries through this
-ordering; no character-ID branch or alternative queue is permitted.
+The private reaction queue freezes a total ordering: forced follow-ups, then
+extra actions, followed by owner side/formation and insertion ordinal. Manual
+Ultimates enter only through stable action-boundary commands and never split an
+atomic hit or reaction. Queue state and pending counts are canonically encoded;
+no character-ID branch or alternative queue is permitted.

@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::advance_boundary_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -250,7 +250,7 @@ fn run(shared_actor: bool) -> (Battle, starclock_combat::Resolution) {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let command = battle.decision().unwrap().legal_commands().iter().find(|command| {
         matches!(command, Command::UseAbility { ability, primary_target: Some(target), .. } if ability.get() == 1 && target.get() == 2)
     }).unwrap().clone();

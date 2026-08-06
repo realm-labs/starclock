@@ -22,8 +22,8 @@ use starclock_agent_api::{
 
 use crate::server::StarclockMcp;
 
-const FINAL_STATE: &str = "058921eb765ac41314587c791c68f3267cb6a376ef71add9ce01a901d5645840";
-const REPLAY_SHA256: &str = "91f7781be7125ec59e821472e01f26815f001c9e92761b7761be5b8702acf7cb";
+const FINAL_STATE: &str = "544475f444bf71d553381e10b972299cec6a3bc327ea0350a5b163562ff74aa5";
+const REPLAY_SHA256: &str = "dccf32003a6ad6c939de91d6252333b853633fa644b7417e9ad1dd761721a15a";
 
 struct TestClock;
 impl OperationalClock for TestClock {
@@ -128,7 +128,10 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
         .await
         .expect("manifest");
     let manifest = serde_json::to_string(&manifest).expect("manifest JSON");
-    assert!(manifest.contains("swarm-disaster.profile.v1"));
+    assert!(
+        manifest.contains("swarm-disaster-real-battle-replay"),
+        "unexpected Swarm Disaster manifest: {manifest}"
+    );
     assert!(manifest.contains("SyntheticBalanceIndependentNotObservedNumericParity"));
     let rules = client
         .read_resource(ReadResourceRequestParams::new(
@@ -216,7 +219,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
     assert_eq!(export["sha256"], REPLAY_SHA256);
     assert_eq!(
         export["replay_hex"].as_str().expect("hex").len(),
-        80_925 * 2
+        68_240 * 2
     );
 
     let verified = client

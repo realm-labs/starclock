@@ -70,26 +70,7 @@ fn goal07_p2_m02_s04_executes_resonance_damage_and_forced_critical_formation() {
             marker.wrapping_add(1),
         );
         assert!(start.fault().is_none(), "{:?}", start.fault());
-        let command = battle
-            .decision()
-            .unwrap()
-            .legal_commands()
-            .iter()
-            .find(|command| {
-                matches!(
-                    command,
-                    Command::UseAbility { ability, .. } | Command::UseInterrupt { ability, .. }
-                        if ability.get() == RESONANCE_ABILITY
-                )
-            })
-            .unwrap_or_else(|| {
-                panic!(
-                    "charged Path Resonance is offered: {:?}",
-                    battle.decision().unwrap().legal_commands()
-                )
-            })
-            .clone();
-        let resolution = battle.apply(command).unwrap();
+        let resolution = use_ready_ability(&mut battle, RESONANCE_ABILITY);
         resolution
             .events()
             .iter()
@@ -164,21 +145,7 @@ fn goal07_p2_m02_s04_executes_eutectic_shields_amber_and_energy_formation() {
         "{:?}",
         start_eutectic.fault()
     );
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseAbility { ability, .. } | Command::UseInterrupt { ability, .. }
-                    if ability.get() == RESONANCE_ABILITY
-            )
-        })
-        .unwrap()
-        .clone();
-    let resolution = battle.apply(command).unwrap();
+    let resolution = use_ready_ability(&mut battle, RESONANCE_ABILITY);
     let shields = resolution
         .events()
         .iter()

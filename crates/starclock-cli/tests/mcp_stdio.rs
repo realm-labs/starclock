@@ -21,7 +21,7 @@ const EXPECTED_TOOLS: [&str; 13] = [
     "starclock_verify_replay",
 ];
 const BASIC_SCENARIO: &str = "scenario.standard.basic-single-wave";
-const BASIC_FINAL_HASH: &str = "cdb68a534f2cbb67393e55dacd2f052c42cc331d494db369ca4650188abcd474";
+const BASIC_FINAL_HASH: &str = "2ab5d3937e2dd9d26737cea60270d2fb7997401c37cfbb3fffc23ac9193621e0";
 
 fn spawn_server() -> std::process::Child {
     Command::new(env!("CARGO_BIN_EXE_starclock"))
@@ -141,9 +141,9 @@ fn first_scripted_action(observation: &Value) -> &Value {
                 .as_array()
                 .unwrap()
                 .iter()
-                .find(|action| action["kind"] == "pass_interrupt")
+                .find(|action| action["kind"] == "advance")
         })
-        .expect("frozen public script has an ability or interrupt pass")
+        .expect("frozen public script has an ability or boundary advance")
 }
 
 #[test]
@@ -240,7 +240,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     let mut observation = created["observation"].clone();
     let mut transport_hashes = vec![observation["state_hash"].clone()];
     let session_id = observation["session_id"].as_str().unwrap().to_owned();
-    let stale_decision = observation["decision_id"].clone();
+    let stale_boundary = observation["boundary_id"].clone();
     let stale_hash = observation["state_hash"].clone();
     let stale_token = first_scripted_action(&observation)["token"].clone();
 
@@ -248,8 +248,8 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     let first_result = client.tool(
         "starclock_play_action",
         json!({
-                        "session_id": session_id,
-            "decision_id": observation["decision_id"],
+            "session_id": session_id,
+            "boundary_id": observation["boundary_id"],
             "expected_state_hash": observation["state_hash"],
             "action_token": first["token"],
             "idempotency_key": "stdio_action_0"
@@ -264,8 +264,8 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         json!({
             "name": "starclock_play_action",
             "arguments": {
-                                "session_id": session_id,
-                "decision_id": stale_decision,
+                "session_id": session_id,
+                "boundary_id": stale_boundary,
                 "expected_state_hash": stale_hash,
                 "action_token": stale_token,
                 "idempotency_key": "stdio_stale_action"
@@ -311,8 +311,8 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         let played = client.tool(
             "starclock_play_action",
             json!({
-                                "session_id": session_id,
-                "decision_id": observation["decision_id"],
+                "session_id": session_id,
+                "boundary_id": observation["boundary_id"],
                 "expected_state_hash": observation["state_hash"],
                 "action_token": action["token"],
                 "idempotency_key": format!("stdio_action_{step}")
@@ -322,13 +322,13 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         transport_hashes.push(observation["state_hash"].clone());
         step += 1;
     }
-    assert_eq!(step, 16);
+    assert_eq!(step, 8);
     assert_eq!(observation["status"], "won");
     assert_eq!(observation["state_hash"], BASIC_FINAL_HASH);
     assert_eq!(transport_hashes.last(), Some(&observation["state_hash"]));
 
     let exported = client.tool("starclock_export_replay", json!({"session_id": session_id}));
-    assert_eq!(exported["command_count"], "21");
+    assert_eq!(exported["command_count"], "20");
     assert!(exported["replay_hex"].as_str().unwrap().len() > 1_000);
     let replay_hex = exported["replay_hex"].clone();
     let closed = client.tool("starclock_close_battle", json!({"session_id": session_id}));
@@ -336,11 +336,11 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     let verified = client.tool(
         "starclock_verify_replay",
         json!({
-                        "scenario_id": BASIC_SCENARIO,
+            "scenario_id": BASIC_SCENARIO,
             "replay_hex": replay_hex
         }),
     );
-    assert_eq!(verified["command_count"], "21");
+    assert_eq!(verified["command_count"], "20");
     assert_eq!(verified["phase"], "won");
     assert_eq!(verified["final_state_hash"], BASIC_FINAL_HASH);
 
@@ -348,7 +348,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     assert!(status.success(), "{status:?}: {stderr}");
     assert!(trailing_stdout.is_empty(), "{trailing_stdout}");
     assert!(stderr.is_empty(), "{stderr}");
-    assert_eq!(response_frames, 32);
+    assert_eq!(response_frames, 24);
 }
 
 #[test]

@@ -46,8 +46,9 @@ starclock-mcp
 ```
 
 `Battle::apply(Command)` remains the only battle commit boundary. An agent
-selects one exact command already offered by `DecisionPoint`; it cannot submit
-damage, targets, costs, selectors, RNG results or a hand-authored equivalent.
+selects one exact command retained for the current decision or stable action
+boundary; it cannot submit damage, costs, selectors, RNG results or a
+hand-authored equivalent.
 
 Operational session IDs, leases, request IDs, wall-clock expiry and network
 authentication are nonauthoritative. They never enter the battle state hash or
@@ -97,7 +98,7 @@ pub struct AgentObservation {
     pub session_id: SessionId,
     pub scenario_id: ScenarioId,
     pub catalog_digest: CatalogDigest,
-    pub decision_id: DecisionId,
+    pub boundary_id: Option<AgentUInt>,
     pub state_hash: StateHash,
     pub event_cursor: EventCursor,
     pub status: AgentBattleStatus,
@@ -112,7 +113,7 @@ The projection includes only information visible under an explicit policy:
 - exact HP, Toughness, Energy, team resources and action-order values;
 - visible effects, stacks, durations, weaknesses and battlefield presence;
 - encounter progress and public enemy intent when the profile exposes it;
-- the current external decision and its ordered offered actions;
+- the current external offer boundary and its ordered offered actions;
 - bounded event summaries after a requested cursor.
 
 Authoritative numbers use exact scaled integers or canonical decimal strings.
@@ -144,12 +145,12 @@ pub struct OfferedAction {
 }
 ```
 
-`ActionToken` is opaque and scoped to one session and decision. A request
+`ActionToken` is opaque and scoped to one session and offer boundary. A request
 contains:
 
 ```text
 session_id
-expected_decision_id
+boundary_id
 expected_state_hash
 action_token
 idempotency_key
@@ -158,24 +159,31 @@ idempotency_key
 Unknown, stale or cross-session tokens are rejected before `Battle::apply`. A
 repeated idempotency key with the same payload returns the cached result; reuse
 with another payload is rejected. Racing requests cannot both commit one
-decision.
+offer boundary.
 
-## Decision settlement
+## Boundary settlement
 
-The default `StandardPlayer` session exposes only player tactical decisions.
-Creation and every player action settle until the next external decision:
+The default `StandardPlayer` session exposes only player tactical choices.
+Creation and every player action settle until the next external offer boundary:
 
 1. accept the selected exact player command;
 2. execute the complete combat resolution synchronously;
-3. let authored enemy AI answer enemy-owned decisions;
-4. execute explicitly automatic orchestration decisions;
-5. stop at the next player decision, terminal outcome or deterministic fault.
+3. advance stable boundaries automatically while no player Ultimate is ready;
+4. let authored enemy AI answer enemy-owned decisions;
+5. execute explicitly automatic orchestration decisions;
+6. stop when a player can request an Ultimate, must commit/cancel a prepared
+   action, owns a normal decision, or reaches a terminal/fault outcome.
+
+Requesting an Ultimate does not declare the action or pay its costs. It yields a
+prepared-action boundary containing exact target commitments and cancellation.
+The next accepted commit performs the action; cancellation restores the
+suspended action boundary.
 
 All automatically selected commands carry controller identity in replay
 diagnostics. An explicit test policy may expose both sides, but default MCP does
 not ask an LLM to reproduce enemy AI.
 
-One MCP action means one external decision, not one hit, trigger, event or
+One MCP action means one external boundary choice, not one hit, trigger, event or
 resolver operation. Settlement has fixed command/event/operation budgets.
 
 ## MCP surface
@@ -300,7 +308,7 @@ commands without rerunning the external model.
 ## Failure model
 
 Errors distinguish invalid input, unknown/expired/not-owned session,
-stale decision/hash, invalid action token, idempotency conflict, unauthorized
+stale boundary/hash, invalid action token, idempotency conflict, unauthorized
 policy, configuration rejection, combat rejection/fault, budget/rate limits,
 replay divergence and internal adapter failure.
 

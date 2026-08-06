@@ -80,28 +80,20 @@ fn odd_code_repairing_consumes_thirty_percent_current_hp_after_ultimate() {
         durable_spec(&materialization, 0xe3, false),
         0xe4,
     );
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| match command {
-            Command::UseAbility { ability, .. } | Command::UseInterrupt { ability, .. } => {
-                materialization
-                    .combat_catalog()
-                    .ability(*ability)
-                    .and_then(|definition| definition.action())
-                    .is_some_and(|action| action.kind() == AbilityKind::Ultimate)
-            }
-            _ => false,
+    let option = battle
+        .available_ultimates()
+        .into_iter()
+        .find(|option| {
+            materialization
+                .combat_catalog()
+                .ability(option.ability())
+                .and_then(|definition| definition.action())
+                .is_some_and(|action| action.kind() == AbilityKind::Ultimate)
         })
-        .unwrap()
-        .clone();
-    let actor = match command {
-        Command::UseAbility { actor, .. } | Command::UseInterrupt { actor, .. } => actor,
-        _ => unreachable!(),
-    };
-    battle.apply(command).unwrap();
+        .unwrap();
+    let actor = option.actor();
+    let command = battle.request_ultimate_command(option).unwrap();
+    apply_action_command(&mut battle, command);
     assert_eq!(
         battle
             .view()

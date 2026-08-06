@@ -415,7 +415,7 @@ definitions and resolver operations:
   present enemies and applies the exact selected maximum-HP ratio through
   `TrueDamage`; and
 - Hunt Resonance `StageAbility_612420` is a reserved catalog ability backed by
-  a keyed team resource. It is offered through the normal interrupt window,
+  a keyed team resource. It is offered as a ready action-boundary request,
   spends 100 Resonance Energy and resolves its exact selected ATK coefficient
   as Wind additional damage.
 

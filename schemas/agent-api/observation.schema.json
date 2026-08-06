@@ -4,12 +4,12 @@
   "title": "Starclock agent observation",
   "type": "object",
   "additionalProperties": false,
-  "required": ["session_id", "scenario_id", "catalog_digest", "decision_id", "state_hash", "event_cursor", "visibility_policy", "status", "battle", "legal_actions", "events", "events_truncated"],
+  "required": ["session_id", "scenario_id", "catalog_digest", "boundary_id", "state_hash", "event_cursor", "visibility_policy", "status", "battle", "legal_actions", "events", "events_truncated"],
   "properties": {
     "session_id": { "$ref": "#/$defs/opaqueId" },
     "scenario_id": { "type": "string", "pattern": "^scenario\\.standard\\.[a-z0-9-]+$", "maxLength": 128 },
     "catalog_digest": { "$ref": "#/$defs/hash" },
-    "decision_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] },
+    "boundary_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] },
     "state_hash": { "$ref": "#/$defs/hash" },
     "event_cursor": { "$ref": "#/$defs/opaqueId" },
     "visibility_policy": { "enum": ["player_visible", "omniscient_debug"] },
@@ -35,7 +35,7 @@
       "type": "object", "additionalProperties": false,
       "required": ["phase", "committed_revision", "rng_draw_count", "wave", "teams", "units", "effects", "timeline"],
       "properties": {
-        "phase": { "enum": ["awaiting_command", "won", "lost", "faulted"] },
+        "phase": { "enum": ["awaiting_command", "ready_to_advance", "won", "lost", "faulted"] },
         "committed_revision": { "$ref": "#/$defs/uint" },
         "rng_draw_count": { "$ref": "#/$defs/uint" },
         "wave": { "type": "object", "additionalProperties": false, "required": ["number", "total"], "properties": { "number": { "$ref": "#/$defs/uint" }, "total": { "$ref": "#/$defs/uint" } } },
@@ -70,7 +70,7 @@
     },
     "action": {
       "type": "object", "additionalProperties": false, "required": ["token", "kind", "label", "actor_unit_id", "primary_target_unit_id"],
-      "properties": { "token": { "$ref": "#/$defs/opaqueId" }, "kind": { "enum": ["use_ability", "use_interrupt", "pass_interrupt", "concede", "battle_choice"] }, "label": { "type": "string", "minLength": 1, "maxLength": 256 }, "actor_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] }, "primary_target_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] } }
+      "properties": { "token": { "$ref": "#/$defs/opaqueId" }, "kind": { "enum": ["use_ability", "use_ultimate", "commit_prepared_action", "cancel_prepared_action", "advance", "concede", "battle_choice"] }, "label": { "type": "string", "minLength": 1, "maxLength": 256 }, "actor_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] }, "primary_target_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] } }
     },
     "event": {
       "type": "object", "additionalProperties": false, "required": ["event_id", "kind", "summary"],

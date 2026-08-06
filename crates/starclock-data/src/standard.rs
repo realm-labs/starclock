@@ -432,33 +432,33 @@ mod tests {
         const EXPECTED: [(&str, usize, &str); 6] = [
             (
                 SCENARIOS[0].0,
-                154,
-                "cdb68a534f2cbb67393e55dacd2f052c42cc331d494db369ca4650188abcd474",
+                161,
+                "2ab5d3937e2dd9d26737cea60270d2fb7997401c37cfbb3fffc23ac9193621e0",
             ),
             (
                 SCENARIOS[1].0,
-                33,
-                "aca9ec6fad9dd8d4a6e6c7802d106630d28bea90ddbeec2b18dd105b654cec3b",
+                32,
+                "d8ad2d64507d4a1315c100bacd6a07f4671ab8ed6955ec3dca54bbf079ae1baa",
             ),
             (
                 SCENARIOS[2].0,
-                109,
-                "5371f1152d5753c86d18ce8ee48e0ea84f841ed04f29a28a5981b4cbc9cfdb42",
+                113,
+                "22d2606bcb6bc6f78b1217005f28a8c3967e234f05c1a3d2e5d51b4bfa083118",
             ),
             (
                 SCENARIOS[3].0,
                 48,
-                "884af531aa8991cce0f9145336bb76969ad0f9f028405ff706a6367bdc8efbf6",
+                "aedde8bef5f5d70a1f2564d56d9b6598af2211a171453bd2270d808a19ef2706",
             ),
             (
                 SCENARIOS[4].0,
-                314,
-                "cecc10e7e23c91df77212ab5db7592736777ce32d296218eeabd93319f1b823a",
+                331,
+                "b433b0201b13975652cf069daea40bf81de55c7f0c6a2d0bfc6fdbc6044f1a77",
             ),
             (
                 SCENARIOS[5].0,
-                417,
-                "457c13c14148aca0ab6e5e89636df61bda51f44d99c9907b33bd82d5e0575a3a",
+                441,
+                "a1a7a6d3fb577e5b24364bfb7bf74588e03dd23fae24246eb4cf5e3624f7e6ba",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {
@@ -469,21 +469,28 @@ mod tests {
             let mut commands = 0;
             while !battle.view().phase().is_terminal() {
                 assert!(commands < 512, "current scenario exceeded command budget");
-                let decision = battle.decision().expect("nonterminal decision");
-                let command = match decision.kind() {
-                    DecisionKind::BattleStart => decision.legal_commands().first(),
-                    DecisionKind::InterruptWindow => decision
-                        .legal_commands()
-                        .iter()
-                        .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
-                    DecisionKind::NormalAction => decision
-                        .legal_commands()
-                        .iter()
-                        .find(|command| matches!(command, Command::UseAbility { .. })),
-                    DecisionKind::BattleChoice => None,
-                }
-                .cloned()
-                .expect("golden decision has a supported command");
+                let command = if battle.view().phase() == BattlePhase::ReadyToAdvance {
+                    battle
+                        .advance_command()
+                        .expect("ready battle has an action boundary")
+                } else {
+                    let decision = battle.decision().expect("nonterminal decision");
+                    match decision.kind() {
+                        DecisionKind::BattleStart => decision.legal_commands().first(),
+                        DecisionKind::NormalAction => decision
+                            .legal_commands()
+                            .iter()
+                            .find(|command| matches!(command, Command::UseAbility { .. })),
+                        DecisionKind::PreparedAction => {
+                            decision.legal_commands().iter().find(|command| {
+                                matches!(command, Command::CommitPreparedAction { .. })
+                            })
+                        }
+                        DecisionKind::BattleChoice => None,
+                    }
+                    .cloned()
+                    .expect("golden decision has a supported command")
+                };
                 let resolution = battle.apply(command).expect("offered command applies");
                 events += resolution.events().len();
                 commands += 1;

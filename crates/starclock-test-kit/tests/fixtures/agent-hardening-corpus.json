@@ -1,10 +1,10 @@
 {
   "malformed_requests": [
     "{}",
-    "{\"session_id\":7,\"decision_id\":\"1\",\"expected_state_hash\":\"00\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
-    "{\"session_id\":\"session\",\"decision_id\":1,\"expected_state_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
-    "{\"session_id\":\"session\",\"decision_id\":\"01\",\"expected_state_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
-    "{\"session_id\":\"session\",\"decision_id\":\"1\",\"expected_state_hash\":\"GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\",\"action_token\":[],\"idempotency_key\":\"k\"}",
+    "{\"session_id\":7,\"boundary_id\":\"1\",\"expected_state_hash\":\"00\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
+    "{\"session_id\":\"session\",\"boundary_id\":1,\"expected_state_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
+    "{\"session_id\":\"session\",\"boundary_id\":\"01\",\"expected_state_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
+    "{\"session_id\":\"session\",\"boundary_id\":\"1\",\"expected_state_hash\":\"GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\",\"action_token\":[],\"idempotency_key\":\"k\"}",
     "[]",
     "not-json"
   ],
@@ -21,7 +21,7 @@
   "idempotency_mutations": [
     { "field": "action_token", "error": "idempotency_conflict" },
     { "field": "expected_state_hash", "error": "idempotency_conflict" },
-    { "field": "decision_id", "error": "idempotency_conflict" },
+    { "field": "boundary_id", "error": "idempotency_conflict" },
     { "field": "session_id", "error": "session_not_owned" }
   ],
   "cursors": [

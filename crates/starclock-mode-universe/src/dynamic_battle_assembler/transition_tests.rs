@@ -465,15 +465,8 @@ fn first_action_damage(assembly: &StandardUniverseResolvedAssembly, marker: u8) 
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let command = battle
         .decision()

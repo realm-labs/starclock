@@ -5,11 +5,12 @@ use crate::{
     command::model::DecisionPoint,
     effect::{break_effect::BreakEffectStore, shield::ShieldStore, state::EffectStore},
     id::{
-        ActionId, CommandId, DecisionId, EffectInstanceId, EncounterId, EventId, HitId,
-        OperationId, PhaseId, ShieldInstanceId, SpawnSequence, TimelineActorId, UnitId,
-        WaveInstanceId,
+        ActionBoundaryId, ActionId, CommandId, DecisionId, EffectInstanceId, EncounterId, EventId,
+        HitId, OperationId, PhaseId, PreparedActionId, ShieldInstanceId, SpawnSequence,
+        TimelineActorId, UnitId, WaveInstanceId,
     },
     modifier::state::ModifierStore,
+    reaction::queue::ReactionQueue,
     rng::{engine::DeterministicRng, types::RngSeed},
     rule::state::RuleStateStore,
     timeline::state::TimelineState,
@@ -44,6 +45,8 @@ pub(crate) struct SequenceState {
     next_spawn: u64,
     next_wave: u64,
     next_decision: u64,
+    next_action_boundary: u64,
+    next_prepared_action: u64,
     next_command: u64,
     next_event: u64,
     next_action: u64,
@@ -55,6 +58,7 @@ pub(crate) struct SequenceState {
     next_rule: u64,
     next_modifier: u64,
     next_extra_turn: u64,
+    next_reaction: u64,
 }
 
 impl SequenceState {
@@ -65,6 +69,8 @@ impl SequenceState {
             next_spawn: 1,
             next_wave: 1,
             next_decision: 1,
+            next_action_boundary: 1,
+            next_prepared_action: 1,
             next_command: 1,
             next_event: 1,
             next_action: 1,
@@ -76,6 +82,7 @@ impl SequenceState {
             next_rule: 1,
             next_modifier: 1,
             next_extra_turn: 1,
+            next_reaction: 1,
         }
     }
 
@@ -105,6 +112,14 @@ impl SequenceState {
 
     pub(crate) fn try_decision(&mut self) -> Option<DecisionId> {
         try_allocate(&mut self.next_decision, DecisionId::new)
+    }
+
+    pub(crate) fn try_action_boundary(&mut self) -> Option<ActionBoundaryId> {
+        try_allocate(&mut self.next_action_boundary, ActionBoundaryId::new)
+    }
+
+    pub(crate) fn try_prepared_action(&mut self) -> Option<PreparedActionId> {
+        try_allocate(&mut self.next_prepared_action, PreparedActionId::new)
     }
 
     pub(crate) fn try_command(&mut self) -> Option<CommandId> {
@@ -153,13 +168,21 @@ impl SequenceState {
         Some(raw)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 16] {
+    pub(crate) fn try_reaction(&mut self) -> Option<u64> {
+        let raw = self.next_reaction;
+        self.next_reaction = raw.checked_add(1)?;
+        Some(raw)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 19] {
         [
             self.next_unit,
             self.next_actor,
             self.next_spawn,
             self.next_wave,
             self.next_decision,
+            self.next_action_boundary,
+            self.next_prepared_action,
             self.next_command,
             self.next_event,
             self.next_action,
@@ -171,6 +194,7 @@ impl SequenceState {
             self.next_rule,
             self.next_modifier,
             self.next_extra_turn,
+            self.next_reaction,
         ]
     }
 }
@@ -209,6 +233,7 @@ pub(crate) struct BattleState {
     pub(crate) modifiers: ModifierStore,
     pub(crate) encounter: EncounterState,
     pub(crate) timeline: TimelineState,
+    pub(crate) reactions: ReactionQueue,
     pub(crate) concede: ConcedePolicy,
     pub(crate) rng: DeterministicRng,
     pub(crate) sequences: SequenceState,
@@ -238,6 +263,7 @@ impl BattleState {
             modifiers: self.modifiers.clone(),
             encounter: self.encounter,
             timeline: self.timeline.clone(),
+            reactions: self.reactions.clone(),
             concede: self.concede,
             rng: Self::rng_from_seed(self.identity.seed),
             sequences: self.sequences,
@@ -264,6 +290,7 @@ impl BattleState {
         self.modifiers.clone_from(&source.modifiers);
         self.encounter = source.encounter;
         self.timeline.clone_from(&source.timeline);
+        self.reactions.clone_from(&source.reactions);
         self.concede = source.concede;
         self.rng.clone_from_authoritative(&source.rng);
         self.sequences = source.sequences;

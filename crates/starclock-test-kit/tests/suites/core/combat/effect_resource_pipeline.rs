@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -260,13 +260,19 @@ fn battle() -> Battle {
     Battle::create(catalog(), spec, BattleSeed::new([0x51; 32])).unwrap()
 }
 
-fn execute_probe(mut battle: Battle) -> (Battle, starclock_combat::Resolution) {
+fn execute_probe(
+    mut battle: Battle,
+) -> (
+    Battle,
+    Vec<starclock_combat::BattleEvent>,
+    starclock_combat::BattleStateHash,
+) {
     battle
         .apply(Command::StartBattle {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()
@@ -276,14 +282,16 @@ fn execute_probe(mut battle: Battle) -> (Battle, starclock_combat::Resolution) {
         .unwrap()
         .clone();
     let resolution = battle.apply(command).unwrap();
-    (battle, resolution)
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
+    let hash = battle.state_hash();
+    (battle, events, hash)
 }
 
 #[test]
 fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
-    let (battle, resolution) = execute_probe(battle());
-    let damages = resolution
-        .events()
+    let (battle, events, _) = execute_probe(battle());
+    let damages = events
         .iter()
         .filter_map(|event| match event.kind() {
             BattleEventKind::Damage(data) => Some((event.cause(), *data)),
@@ -330,7 +338,7 @@ fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
         0,
         "guaranteed applications bypass RNG"
     );
-    assert!(resolution.events().iter().any(|event| matches!(
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Effect(EffectEventData::Refreshed { .. })
     )));
@@ -349,10 +357,10 @@ fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
 
 #[test]
 fn effect_execution_is_replay_deterministic() {
-    let (_, first) = execute_probe(battle());
-    let (_, second) = execute_probe(battle());
-    assert_eq!(first.events(), second.events());
-    assert_eq!(first.state_hash(), second.state_hash());
+    let (_, first_events, first_hash) = execute_probe(battle());
+    let (_, second_events, second_hash) = execute_probe(battle());
+    assert_eq!(first_events, second_events);
+    assert_eq!(first_hash, second_hash);
 }
 
 #[test]

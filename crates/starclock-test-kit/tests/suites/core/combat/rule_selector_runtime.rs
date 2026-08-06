@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::advance_boundary_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -344,7 +344,7 @@ fn action_snapshot_selector_observes_pre_hit_life_after_lethal_damage() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()
@@ -388,7 +388,7 @@ fn execute_player_action(policy: RuleEmptyPoolPolicy) -> starclock_combat::Resol
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let command = battle
         .decision()
         .unwrap()

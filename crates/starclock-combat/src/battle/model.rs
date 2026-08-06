@@ -12,14 +12,16 @@ pub enum BattlePhase {
     Initializing = 0,
     /// The controller may select one command from the current decision.
     AwaitingCommand = 1,
+    /// Resolution is stable between independent actions and may advance automatically.
+    ReadyToAdvance = 2,
     /// Accepted work is draining synchronously inside `Battle::apply`.
-    Resolving = 2,
+    Resolving = 3,
     /// Player victory; terminal.
-    Won = 3,
+    Won = 4,
     /// Player loss or authorized concession; terminal.
-    Lost = 4,
+    Lost = 5,
     /// Deterministic internal fault; terminal for the rules revision.
-    Faulted = 5,
+    Faulted = 6,
 }
 
 impl BattlePhase {

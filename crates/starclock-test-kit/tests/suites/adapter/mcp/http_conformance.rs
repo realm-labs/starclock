@@ -365,7 +365,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
                     .as_array()
                     .unwrap()
                     .iter()
-                    .find(|action| action["kind"] == "pass_interrupt")
+                    .find(|action| action["kind"] == "advance")
             })
             .unwrap();
         let played = client
@@ -373,7 +373,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
                 "starclock_play_action",
                 json!({
                                         "session_id":session_id,
-                    "decision_id":observation["decision_id"],
+                    "boundary_id":observation["boundary_id"],
                     "expected_state_hash":observation["state_hash"],
                     "action_token":action["token"],
                     "idempotency_key":format!("http_{prefix}_{step}")

@@ -1,26 +1,16 @@
 mod scratch;
 
 use super::{
-    action::{drain_reactions, execute_action_plan},
-    journal::{AllocationKind, MutationField, MutationJournal, phase_code},
-    settle::{ActionBoundary, settle_after_action},
-};
-
-use super::{
-    journal, modifier_snapshot, operation as parent_operation, rule, selector_snapshot, turn,
+    command_resolution,
+    journal::{self, AllocationKind, MutationField, MutationJournal, phase_code},
+    modifier_snapshot, rule, selector_snapshot,
 };
 use crate::{
     AbilityId, BattleDiagnostics, DiagnosticRecord, EffectInstanceId as CrateEffectInstanceId,
     Energy, Hp, LifeState, LinkedEntity, ModifierInstanceId, PresenceState, Probability,
     RuleInstanceId, Scalar, SourceDefinitionId as CrateSourceDefinitionId, SpawnSequence, Speed,
     TeamSide, UnitDefinitionId, UnitId,
-    action::{
-        lower::{
-            ActionIdentityAllocator, TimelineActionContext, lower_interrupt_action,
-            lower_normal_action,
-        },
-        model::ActionPlan,
-    },
+    action::lower::ActionIdentityAllocator,
     actor::store::{
         EnemyRuntimeState, FormationEntry, LinkState, TimelineActorState, TransformationState,
         UnitState,
@@ -28,27 +18,26 @@ use crate::{
     battle::{
         fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
         model::BattlePhase,
-        spec::TeamSide as SpecTeamSide,
         state::BattleState,
     },
-    catalog::{CombatCatalog, action::ReactionBoundary},
+    catalog::CombatCatalog,
+    catalog::action::ReactionBoundary,
     codec::{BattleStateHash, hash_state},
-    command::{legal, model::DecisionPoint, validate::ValidatedCommand},
+    command::{model::DecisionPoint, validate::ValidatedCommand},
     event::{
-        cause::{Cause, CauseActor},
-        model::{BattleEvent, BattleEventData, BattleEventKind, DecisionEventData, FaultEventData},
+        cause::Cause,
+        model::{BattleEvent, BattleEventKind, FaultEventData},
     },
     id::{
-        ActionId, CommandId, DecisionId, EffectInstanceId, EventId, HitId, OperationId, PhaseId,
-        ShieldInstanceId, SourceDefinitionId, TimelineActorId, WaveInstanceId,
+        ActionBoundaryId, ActionId, CommandId, DecisionId, EffectInstanceId, EventId, HitId,
+        OperationId, PhaseId, PreparedActionId, ShieldInstanceId, TimelineActorId, WaveInstanceId,
     },
     modifier::model::ActiveModifier,
     numeric::domain::ActionGauge,
-    reaction::queue::ReactionQueue,
+    reaction::queue::QueuedAction,
     rng::types::DrawPurpose,
     rule::model::{OnceScope, SlotResetPoint},
-    target::{model::TargetCommitment, select},
-    timeline::state::{InterruptWindowState, NormalTurnState},
+    timeline::state::{ActionBoundaryState, NormalTurnState, PreparedActionState},
 };
 pub(crate) use scratch::ResolutionScratch;
 use std::{collections::BTreeMap, sync::Arc};
@@ -87,7 +76,7 @@ pub(crate) fn resolve_prepared(
             diagnostics,
         );
         let root = txn.begin_command();
-        let failure = execute(catalog, &mut txn, root, command, injection)
+        let failure = command_resolution::execute(catalog, &mut txn, root, command, injection)
             .and_then(|()| {
                 let parent = txn.events.last().map(BattleEvent::id).ok_or_else(|| {
                     BattleFault::new(
@@ -145,179 +134,6 @@ pub(crate) fn resolve_prepared(
     }
 }
 
-fn execute(
-    catalog: &CombatCatalog,
-    txn: &mut Transaction<'_>,
-    root: CommandId,
-    command: ValidatedCommand,
-    injection: Option<FaultInjection>,
-) -> Result<(), BattleFault> {
-    txn.set_phase(BattlePhase::Resolving);
-    maybe_inject(injection, FaultInjectionPoint::AfterResolvingPhase)?;
-
-    match command {
-        ValidatedCommand::StartBattle => turn::start_battle(catalog, txn, root)?,
-        ValidatedCommand::PassInterruptWindow => {
-            let closed = close_active_decision(txn, root)?;
-            let window = txn
-                .state
-                .timeline
-                .interrupt
-                .clone()
-                .ok_or_else(|| action_fault(1))?;
-            turn::resume_interrupt(catalog, txn, root, closed, window)?;
-        }
-        ValidatedCommand::UseAbility {
-            actor,
-            ability,
-            primary_target,
-        } => {
-            let closed = close_active_decision(txn, root)?;
-            let turn = txn
-                .state
-                .timeline
-                .active_turn
-                .ok_or_else(|| action_fault(3))?;
-            if turn.owner != actor || txn.state.timeline.interrupt.is_some() {
-                return Err(action_fault(4));
-            }
-            let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
-            let owner = legal::ability_owner(txn.state, catalog, actor, ability)
-                .ok_or_else(|| action_fault(5))?;
-            let mut plan = lower_normal_action(
-                catalog,
-                txn,
-                TimelineActionContext {
-                    actor,
-                    owner,
-                    timeline_actor: turn.actor,
-                    origin: turn.origin,
-                },
-                ability,
-                targets,
-            )
-            .ok_or_else(|| action_fault(5))?;
-            let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
-            let boundary_cause = action_cause(root, &plan)?;
-            let action_resolved = parent_operation::settle_effects_at_action_end(
-                catalog,
-                txn,
-                boundary_cause,
-                action_resolved,
-            )?;
-            let action_resolved =
-                drain_reactions(catalog, txn, ReactionBoundary::AfterAction, action_resolved)?;
-            turn::pause_completed_turn(
-                catalog,
-                txn,
-                root,
-                action_resolved,
-                turn::TurnCompletion::selected(turn, boundary_cause),
-            )?;
-        }
-        ValidatedCommand::UseInterrupt {
-            actor,
-            ability,
-            primary_target,
-        } => {
-            let closed = close_active_decision(txn, root)?;
-            if txn.state.timeline.interrupt.is_none() {
-                return Err(action_fault(11));
-            }
-            let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
-            let owner = legal::ability_owner(txn.state, catalog, actor, ability)
-                .ok_or_else(|| action_fault(12))?;
-            let mut plan = lower_interrupt_action(catalog, txn, actor, owner, ability, targets)
-                .ok_or_else(|| action_fault(12))?;
-            let resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
-            let boundary_cause = action_cause(root, &plan)?;
-            let resolved = parent_operation::settle_effects_at_action_end(
-                catalog,
-                txn,
-                boundary_cause,
-                resolved,
-            )?;
-            let resolved = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, resolved)?;
-            if let ActionBoundary::Continue(parent) =
-                settle_after_action(catalog, txn, boundary_cause, resolved)?
-            {
-                turn::offer_interrupt_decision(catalog, txn, root, parent)?;
-            }
-        }
-        ValidatedCommand::Concede => {
-            let closed = close_active_decision(txn, root)?;
-            txn.set_decision(None);
-            txn.clear_extra_turns();
-            txn.set_phase(BattlePhase::Lost);
-            txn.emit(
-                Cause::root(root).with_parent(closed),
-                BattleEventKind::Battle(BattleEventData::Conceded {
-                    side: SpecTeamSide::Player,
-                }),
-            );
-        }
-    }
-    if !txn.reactions.is_empty() {
-        return Err(action_fault(73));
-    }
-    maybe_inject(injection, FaultInjectionPoint::AfterCommandMutation)?;
-    txn.bump_revision()?;
-    Ok(())
-}
-
-pub(super) fn action_cause(root: CommandId, plan: &ActionPlan) -> Result<Cause, BattleFault> {
-    let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(42))?;
-    Ok(Cause::for_action(
-        root,
-        plan.id,
-        plan.owner,
-        CauseActor::Unit(plan.actor),
-        source,
-    )
-    .with_primary_target(plan.targets.primary)
-    .with_applier(plan.owner))
-}
-
-pub(super) fn commit_targets(
-    catalog: &CombatCatalog,
-    txn: &Transaction<'_>,
-    actor: UnitId,
-    ability: AbilityId,
-    primary: Option<UnitId>,
-) -> Result<TargetCommitment, BattleFault> {
-    let definition = catalog.ability(ability).ok_or_else(|| action_fault(14))?;
-    let action = definition.action().ok_or_else(|| action_fault(15))?;
-    let selector = catalog
-        .selector(definition.selector())
-        .and_then(|definition| definition.unit_targets())
-        .ok_or_else(|| action_fault(16))?;
-    select::commit(
-        &txn.state.units,
-        &txn.state.formations,
-        actor,
-        selector,
-        action.invalidation(),
-        primary,
-    )
-    .map_err(|_| action_fault(17))
-}
-
-fn close_active_decision(
-    txn: &mut Transaction<'_>,
-    root: CommandId,
-) -> Result<EventId, BattleFault> {
-    let decision = txn
-        .state
-        .decision
-        .as_ref()
-        .ok_or_else(|| action_fault(10))?
-        .id();
-    Ok(txn.emit(
-        Cause::root(root),
-        BattleEventKind::Decision(DecisionEventData::Closed { decision }),
-    ))
-}
-
 pub(super) fn action_fault(context: u32) -> BattleFault {
     BattleFault::new(
         FaultKind::InvariantViolation,
@@ -326,22 +142,6 @@ pub(super) fn action_fault(context: u32) -> BattleFault {
         0x3100 + context,
         None,
     )
-}
-
-fn maybe_inject(
-    injection: Option<FaultInjection>,
-    point: FaultInjectionPoint,
-) -> Result<(), BattleFault> {
-    match injection {
-        Some(injection) if injection.point == point => Err(BattleFault::new(
-            FaultKind::InvariantViolation,
-            FaultBoundary::Command,
-            injection.policy,
-            0xF001,
-            Some(7),
-        )),
-        _ => Ok(()),
-    }
 }
 
 pub(super) struct Transaction<'a> {
@@ -354,9 +154,7 @@ pub(super) struct Transaction<'a> {
     pub(super) selector_action_snapshots:
         BTreeMap<ActionId, Arc<selector_snapshot::RuleSelectorSnapshot>>,
     pub(super) capture_selector_snapshots: bool,
-    pub(super) reactions: ReactionQueue,
     resolved_reactions: usize,
-    next_reaction: u64,
     pub(super) timeline_elapsed_scaled: i64,
     diagnostics: Option<&'a mut BattleDiagnostics>,
 }
@@ -376,9 +174,7 @@ impl<'a> Transaction<'a> {
             selector_event_snapshots: BTreeMap::new(),
             selector_action_snapshots: BTreeMap::new(),
             capture_selector_snapshots,
-            reactions: ReactionQueue::default(),
             resolved_reactions: 0,
-            next_reaction: 1,
             timeline_elapsed_scaled: 0,
             diagnostics,
         }
@@ -397,9 +193,7 @@ impl<'a> Transaction<'a> {
             selector_event_snapshots: BTreeMap::new(),
             selector_action_snapshots: BTreeMap::new(),
             capture_selector_snapshots: false,
-            reactions: ReactionQueue::default(),
             resolved_reactions: 0,
-            next_reaction: 1,
             timeline_elapsed_scaled: 0,
             diagnostics: None,
         }
@@ -437,6 +231,28 @@ impl<'a> Transaction<'a> {
         self.journal
             .allocation(AllocationKind::Decision, decision.get());
         decision
+    }
+
+    pub(super) fn allocate_action_boundary(&mut self) -> ActionBoundaryId {
+        let boundary = self
+            .state
+            .sequences
+            .try_action_boundary()
+            .expect("rules-revision action-boundary budget prevents u64 identity exhaustion");
+        self.journal
+            .allocation(AllocationKind::ActionBoundary, boundary.get());
+        boundary
+    }
+
+    pub(super) fn allocate_prepared_action(&mut self) -> PreparedActionId {
+        let prepared = self
+            .state
+            .sequences
+            .try_prepared_action()
+            .expect("rules-revision prepared-action budget prevents u64 identity exhaustion");
+        self.journal
+            .allocation(AllocationKind::PreparedAction, prepared.get());
+        prepared
     }
 
     pub(super) fn allocate_event(&mut self) -> EventId {
@@ -490,14 +306,30 @@ impl<'a> Transaction<'a> {
     }
 
     pub(super) fn allocate_reaction(&mut self) -> u64 {
-        let insertion = self.next_reaction;
-        self.next_reaction = insertion
-            .checked_add(1)
+        let insertion = self
+            .state
+            .sequences
+            .try_reaction()
             .expect("rules-revision reaction budget prevents sequence exhaustion");
         self.journal.allocation(AllocationKind::Reaction, insertion);
         self.journal
             .queue_insertion(journal::QueueKind::Reaction, insertion);
         insertion
+    }
+
+    pub(super) fn push_reaction(&mut self, action: QueuedAction) {
+        self.state.reactions.push(action);
+    }
+
+    pub(super) fn pop_ready_reaction(
+        &mut self,
+        boundary: ReactionBoundary,
+    ) -> Option<QueuedAction> {
+        self.state.reactions.pop_ready(boundary)
+    }
+
+    pub(super) fn clear_reactions(&mut self) {
+        self.state.reactions.clear();
     }
 
     pub(super) fn allocate_unit(&mut self) -> UnitId {
@@ -616,16 +448,31 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    pub(super) fn set_interrupt(&mut self, interrupt: Option<InterruptWindowState>) {
+    pub(super) fn set_action_boundary(&mut self, boundary: Option<ActionBoundaryState>) {
         let before = self
             .state
             .timeline
-            .interrupt
+            .boundary
             .as_ref()
-            .map_or(0, |value| value.turn.actor.get());
-        let after = interrupt.as_ref().map_or(0, |value| value.turn.actor.get());
-        if self.state.timeline.interrupt != interrupt {
-            self.state.timeline.interrupt = interrupt;
+            .map_or(0, |value| value.id.get());
+        let after = boundary.as_ref().map_or(0, |value| value.id.get());
+        if self.state.timeline.boundary != boundary {
+            self.state.timeline.boundary = boundary;
+            self.journal
+                .mutation(MutationField::Timeline, before, after);
+        }
+    }
+
+    pub(super) fn set_prepared_action(&mut self, prepared: Option<PreparedActionState>) {
+        let before = self
+            .state
+            .timeline
+            .prepared_action
+            .as_ref()
+            .map_or(0, |value| value.id.get());
+        let after = prepared.as_ref().map_or(0, |value| value.id.get());
+        if self.state.timeline.prepared_action != prepared {
+            self.state.timeline.prepared_action = prepared;
             self.journal
                 .mutation(MutationField::Timeline, before, after);
         }
@@ -1064,7 +911,7 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    fn bump_revision(&mut self) -> Result<(), BattleFault> {
+    pub(super) fn bump_revision(&mut self) -> Result<(), BattleFault> {
         let before = self.state.committed_revision;
         let after = before.checked_add(1).ok_or_else(|| {
             BattleFault::new(
@@ -1094,8 +941,10 @@ impl<'a> Transaction<'a> {
 
     fn commit_fault(mut self, root: CommandId, fault: BattleFault) -> Vec<BattleEvent> {
         self.set_decision(None);
-        self.set_interrupt(None);
+        self.set_action_boundary(None);
+        self.set_prepared_action(None);
         self.set_active_turn(None);
+        self.clear_reactions();
         self.set_fault(fault);
         self.set_phase(BattlePhase::Faulted);
         if let Err(revision_fault) = self.bump_revision() {

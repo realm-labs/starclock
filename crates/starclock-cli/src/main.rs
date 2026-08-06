@@ -352,14 +352,20 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
         if trace.len() == MAX_SMOKE_COMMANDS {
             return Err(CliError::Simulation("synthetic command budget exhausted"));
         }
-        let decision = battle
-            .decision()
-            .ok_or(CliError::Simulation("nonterminal battle has no decision"))?;
-        let command = BaselineController
-            .decide(battle.view(), decision, &hints)
-            .map_err(|_| CliError::Simulation("baseline controller rejected authored hints"))?
-            .command()
-            .clone();
+        let command = if battle.view().phase() == BattlePhase::ReadyToAdvance {
+            battle
+                .advance_command()
+                .ok_or(CliError::Simulation("battle has no action boundary"))?
+        } else {
+            let decision = battle
+                .decision()
+                .ok_or(CliError::Simulation("nonterminal battle has no decision"))?;
+            BaselineController
+                .decide(battle.view(), decision, &hints)
+                .map_err(|_| CliError::Simulation("baseline controller rejected authored hints"))?
+                .command()
+                .clone()
+        };
         let resolution = battle
             .apply(command.clone())
             .map_err(|_| CliError::Simulation("offered command was rejected"))?;
@@ -417,25 +423,31 @@ fn standard_battle_run(
         if trace.len() == MAX_STANDARD_COMMANDS {
             return Err(CliError::Simulation("Standard command budget exhausted"));
         }
-        let decision = battle
-            .decision()
-            .ok_or(CliError::Simulation("nonterminal battle has no decision"))?;
-        let command = match decision.kind() {
-            DecisionKind::BattleStart => decision.legal_commands().first(),
-            DecisionKind::InterruptWindow => decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
-            DecisionKind::NormalAction => decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::UseAbility { .. })),
-            DecisionKind::BattleChoice => None,
-        }
-        .cloned()
-        .ok_or(CliError::Simulation(
-            "Standard decision has no supported command",
-        ))?;
+        let command = if battle.view().phase() == BattlePhase::ReadyToAdvance {
+            battle
+                .advance_command()
+                .ok_or(CliError::Simulation("battle has no action boundary"))?
+        } else {
+            let decision = battle
+                .decision()
+                .ok_or(CliError::Simulation("nonterminal battle has no decision"))?;
+            match decision.kind() {
+                DecisionKind::BattleStart => decision.legal_commands().first(),
+                DecisionKind::NormalAction => decision
+                    .legal_commands()
+                    .iter()
+                    .find(|command| matches!(command, Command::UseAbility { .. })),
+                DecisionKind::PreparedAction => decision
+                    .legal_commands()
+                    .iter()
+                    .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
+                DecisionKind::BattleChoice => None,
+            }
+            .cloned()
+            .ok_or(CliError::Simulation(
+                "Standard decision has no supported command",
+            ))?
+        };
         let resolution = battle
             .apply(command.clone())
             .map_err(|_| CliError::Simulation("offered command was rejected"))?;
@@ -646,6 +658,7 @@ fn phase_name(phase: BattlePhase) -> &'static str {
     match phase {
         BattlePhase::Initializing => "initializing",
         BattlePhase::AwaitingCommand => "awaiting-command",
+        BattlePhase::ReadyToAdvance => "ready-to-advance",
         BattlePhase::Resolving => "resolving",
         BattlePhase::Won => "won",
         BattlePhase::Lost => "lost",

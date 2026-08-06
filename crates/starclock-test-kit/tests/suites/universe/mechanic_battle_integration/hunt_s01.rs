@@ -135,6 +135,7 @@ fn enhanced_radiant_advances_the_killer_and_grants_seven_stacks_next_turn() {
         )),
         "the production action defeats the one-HP target"
     );
+    complete_action_events(&mut battle, &resolution);
     assert!(
         battle.view().effects_by_id().any(|effect| {
             effect.definition().get() == CRITICAL_BOOST_RAW && effect.stacks() == 7

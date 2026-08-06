@@ -335,15 +335,8 @@ fn wounded_players(original: BattleSpec, current_hp: i64) -> BattleSpec {
 }
 
 fn enter_normal_turn(battle: &mut Battle) {
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        let resolution = battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        let resolution = battle.advance().unwrap();
         assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
     }
 }

@@ -1,16 +1,16 @@
 use starclock_combat::{
     ActionId, ActionOrigin, AiGraphId, AiStateId, AssemblyDigest, Battle, BattleFault, BattlePhase,
-    BattleSeed, BattleStateHash, CombatInputDigest, CombatantSpecDigest, ConcedePolicy,
-    ControlledAction, DecisionPoint, DispelCategory, DotDefinition, DurationClock, EffectCategory,
-    EffectDefinitionId, EffectInstanceId, EffectSnapshotPolicy, EffectStackPolicy,
-    EffectTeardownPolicy, EffectTickPhase, EncounterId, EnemyDefinitionId, EnemyPhaseId,
-    FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind, ModifierDefinitionId,
-    ModifierInstanceId, OperationId, OwnerLinkPolicy, ParticipantSource, PresenceState,
-    RuleBundleId, RuleId, RuleInstanceId, Scalar, ShieldAmount, ShieldInstanceId,
-    SourceDefinitionId, SpawnSequence, Speed, StatValue, StateSlotDefinitionId,
-    TeamResourceWavePolicy, TeamSide, TimelineActorId, ToughnessLayerSpec, TransformEndPolicy,
-    UnitDefinitionId, UnitId, UnitLevel, WaveInstanceId, WaveLinkPolicy,
-    catalog::CatalogDigest,
+    BattleSeed, BattleStateHash, CombatInputDigest, CombatantSpecDigest,
+    CommittedTargetsDiagnostic, ConcedePolicy, ControlledAction, DecisionPoint, DispelCategory,
+    DotDefinition, DurationClock, EffectCategory, EffectDefinitionId, EffectInstanceId,
+    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, EncounterId,
+    EnemyDefinitionId, EnemyPhaseId, FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind,
+    ModifierDefinitionId, ModifierInstanceId, OperationId, OwnerLinkPolicy, ParticipantSource,
+    PresenceState, ReactionOrderDiagnostic, RuleBundleId, RuleId, RuleInstanceId, Scalar,
+    ShieldAmount, ShieldInstanceId, SourceDefinitionId, SpawnSequence, Speed, StatValue,
+    StateSlotDefinitionId, TeamResourceWavePolicy, TeamSide, TimelineActorId, ToughnessLayerSpec,
+    TransformEndPolicy, UnitDefinitionId, UnitId, UnitLevel, WaveInstanceId, WaveLinkPolicy,
+    catalog::{CatalogDigest, action::SkillPointPaymentPolicy},
     formula::{model::CombatElement, shield::ShieldAbsorptionPolicy, toughness::EnemyRank},
     modifier::model::StatQuery,
     rule::model::{OnceKey, RuleValue, SourceClass},
@@ -37,8 +37,10 @@ pub struct BattleSnapshot {
     pub modifiers: Box<[ModifierSnapshot]>,
     pub teams: [TeamSnapshot; 2],
     pub active_turn: Option<ActiveTurnSnapshot>,
-    pub interrupt_window: Option<InterruptWindowSnapshot>,
+    pub action_boundary: Option<ActionBoundarySnapshot>,
+    pub prepared_action: Option<PreparedActionSnapshot>,
     pub pending_extra_turns: Box<[PendingExtraTurnSnapshot]>,
+    pub pending_reactions: Box<[PendingReactionSnapshot]>,
     pub concede_policy: ConcedePolicy,
     pub sequence_cursors: SequenceCursorsSnapshot,
 }
@@ -172,17 +174,39 @@ impl BattleSnapshot {
                 TeamSnapshot::capture(view.team(TeamSide::Enemy)),
             ],
             active_turn: view.active_turn().map(ActiveTurnSnapshot::capture),
-            interrupt_window: view
-                .interrupt_window()
-                .map(|window| InterruptWindowSnapshot {
-                    kind: window.kind(),
-                    turn: ActiveTurnSnapshot::capture(window.turn()),
+            action_boundary: view
+                .action_boundary()
+                .map(|boundary| ActionBoundarySnapshot {
+                    id: boundary.id(),
+                    turn: ActiveTurnSnapshot::capture(boundary.turn()),
+                }),
+            prepared_action: view
+                .prepared_action()
+                .map(|prepared| PreparedActionSnapshot {
+                    id: prepared.id(),
+                    actor: prepared.actor(),
+                    ability: prepared.ability(),
+                    suspended_boundary: prepared.suspended_boundary(),
                 }),
             pending_extra_turns: view
                 .pending_extra_turns()
                 .map(|pending| PendingExtraTurnSnapshot {
                     insertion: pending.insertion(),
                     unit: pending.unit(),
+                })
+                .collect(),
+            pending_reactions: view
+                .pending_reactions()
+                .map(|pending| PendingReactionSnapshot {
+                    order: pending.order(),
+                    root_command: pending.root_command(),
+                    parent_event: pending.parent_event(),
+                    actor: pending.actor(),
+                    owner: pending.owner(),
+                    ability: pending.ability(),
+                    origin: pending.origin(),
+                    targets: pending.targets().clone(),
+                    payment: pending.payment(),
                 })
                 .collect(),
             concede_policy: view.concede_policy(),
@@ -214,6 +238,8 @@ pub struct SequenceCursorsSnapshot {
     pub next_spawn: u64,
     pub next_wave: u64,
     pub next_decision: u64,
+    pub next_action_boundary: u64,
+    pub next_prepared_action: u64,
     pub next_command: u64,
     pub next_event: u64,
     pub next_action: u64,
@@ -225,6 +251,7 @@ pub struct SequenceCursorsSnapshot {
     pub next_rule: u64,
     pub next_modifier: u64,
     pub next_extra_turn: u64,
+    pub next_reaction: u64,
 }
 
 impl SequenceCursorsSnapshot {
@@ -235,6 +262,8 @@ impl SequenceCursorsSnapshot {
             next_spawn: cursors.next_spawn(),
             next_wave: cursors.next_wave(),
             next_decision: cursors.next_decision(),
+            next_action_boundary: cursors.next_action_boundary(),
+            next_prepared_action: cursors.next_prepared_action(),
             next_command: cursors.next_command(),
             next_event: cursors.next_event(),
             next_action: cursors.next_action(),
@@ -246,6 +275,7 @@ impl SequenceCursorsSnapshot {
             next_rule: cursors.next_rule(),
             next_modifier: cursors.next_modifier(),
             next_extra_turn: cursors.next_extra_turn(),
+            next_reaction: cursors.next_reaction(),
         }
     }
 }
@@ -596,13 +626,34 @@ impl ActiveTurnSnapshot {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct InterruptWindowSnapshot {
-    pub kind: starclock_combat::InterruptWindowKind,
+pub struct ActionBoundarySnapshot {
+    pub id: starclock_combat::ActionBoundaryId,
     pub turn: ActiveTurnSnapshot,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PreparedActionSnapshot {
+    pub id: starclock_combat::PreparedActionId,
+    pub actor: UnitId,
+    pub ability: starclock_combat::AbilityId,
+    pub suspended_boundary: starclock_combat::ActionBoundaryId,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PendingExtraTurnSnapshot {
     pub insertion: u64,
     pub unit: UnitId,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PendingReactionSnapshot {
+    pub order: ReactionOrderDiagnostic,
+    pub root_command: starclock_combat::CommandId,
+    pub parent_event: starclock_combat::EventId,
+    pub actor: UnitId,
+    pub owner: UnitId,
+    pub ability: starclock_combat::AbilityId,
+    pub origin: ActionOrigin,
+    pub targets: CommittedTargetsDiagnostic,
+    pub payment: Option<SkillPointPaymentPolicy>,
 }

@@ -100,7 +100,7 @@ fn lost_memory_freezes_on_the_first_attack_crossing_below_half_hp() {
 
     let mut crossing = None;
     for _ in 0..240 {
-        if battle.decision().is_none() {
+        if battle.view().phase().is_terminal() {
             break;
         }
         let resolution = apply_kind(&mut battle, &catalog, AbilityKind::Basic);
@@ -256,16 +256,8 @@ fn apply_kind(
     catalog: &Arc<UniverseCatalog>,
     kind: AbilityKind,
 ) -> starclock_combat::Resolution {
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        let decision = battle.decision().unwrap();
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: decision.id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let decision = battle.decision().expect("nonterminal action decision");
     let command = decision

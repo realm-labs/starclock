@@ -35,13 +35,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 observation
                     .legal_actions
                     .iter()
-                    .find(|action| action.kind == AgentActionKind::PassInterrupt)
+                    .find(|action| action.kind == AgentActionKind::Advance)
             })
             .ok_or("the current decision has no supported example action")?;
         let response = session.apply_action(PlayActionRequest {
             session_id: session_id.clone(),
-            decision_id: observation
-                .decision_id
+            boundary_id: observation
+                .boundary_id
                 .clone()
                 .ok_or("awaiting-player observation has no decision")?,
             expected_state_hash: observation.state_hash.clone(),

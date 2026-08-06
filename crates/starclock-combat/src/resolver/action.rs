@@ -39,13 +39,14 @@ use crate::{
 };
 
 use super::{
-    effect_boundary, lifecycle, modifier_snapshot, operation, operation_formula, program, rule,
-    settle, stat_input, transaction,
-};
-use super::{
+    command_resolution::action_cause,
     operation::execute_operation,
     program::{AbilityProgramContext, execute_ability_program},
     transaction::{Transaction, action_fault},
+};
+use super::{
+    effect_boundary, lifecycle, modifier_snapshot, operation, operation_formula, program, rule,
+    settle, stat_input,
 };
 
 const MAX_REACTIONS_PER_COMMAND: usize = 256;
@@ -56,7 +57,7 @@ pub(super) fn drain_reactions(
     boundary: ReactionBoundary,
     mut parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    while let Some(queued) = txn.reactions.pop_ready(boundary) {
+    while let Some(queued) = txn.pop_ready_reaction(boundary) {
         txn.record_diagnostic(|| DiagnosticRecord::ReactionDequeued {
             insertion: queued.order.insertion,
             actor: queued.actor,
@@ -145,7 +146,7 @@ pub(super) fn drain_reactions(
             continue;
         }
         parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
-        let cause = transaction::action_cause(queued.root, &plan)?;
+        let cause = action_cause(queued.root, &plan)?;
         parent = operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     }
     Ok(parent)

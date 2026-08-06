@@ -64,7 +64,7 @@ pub(crate) fn lower_normal_action(
     Some(plan)
 }
 
-pub(crate) fn lower_interrupt_action(
+pub(crate) fn lower_ultimate_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
     actor: UnitId,

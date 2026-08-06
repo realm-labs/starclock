@@ -21,8 +21,8 @@ use starclock_agent_api::{
 
 use crate::server::StarclockMcp;
 
-const FINAL_STATE: &str = "fe3c463ffeb94dabbb93d8d7347d53683573e0d3bd966b97df66c60d4c6fd1d7";
-const REPLAY_SHA256: &str = "9ee780dec457ae17705ba22a13b4599d25288b64805681fd73b35bfc43509ecb";
+const FINAL_STATE: &str = "3a72a52004acd4bbbb79414d2bb7abbb987d3a46c344d357539f06933746d3b3";
+const REPLAY_SHA256: &str = "5320189a703261a7147f4f929ee6324f8d05201a88f9e1e783a4607582444741";
 
 struct TestClock;
 impl OperationalClock for TestClock {
@@ -129,7 +129,10 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
         .await
         .expect("manifest");
     let manifest = serde_json::to_string(&manifest).expect("manifest JSON");
-    assert!(manifest.contains("gold-gears.profile.v1"));
+    assert!(
+        manifest.contains("gold-and-gears-real-battle-replay"),
+        "unexpected Gold and Gears manifest: {manifest}"
+    );
     assert!(manifest.contains("SyntheticBalanceIndependentNotObservedNumericParity"));
 
     let created = client
@@ -219,7 +222,7 @@ async fn gold_and_gears_uses_authorized_activity_tools_resources_and_replay() {
     assert_eq!(export["sha256"], REPLAY_SHA256);
     assert_eq!(
         export["replay_hex"].as_str().expect("hex").len(),
-        107_261 * 2
+        101_550 * 2
     );
 
     let verified = client

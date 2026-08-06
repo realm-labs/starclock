@@ -65,7 +65,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert!(verified.battle_command_count() > 0);
     assert_eq!(
         hex(verified.final_state_hash().bytes()),
-        "9bcd99b334e4c4d7c75543799350025a460f7299c10531728999bf2b7588b01e"
+        "3f81a51fa79ddeb1bb5a2d973468d9fe18fd56f4a0c089fc6c3b2bf57420651a"
     );
 
     let mut replay_digest = Sha256Sink::new();
@@ -74,28 +74,28 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     let replay = decode_replay(&bytes).unwrap();
     assert_eq!(verified.action_count(), 48);
     assert_eq!(verified.battle_count(), 12);
-    assert_eq!(verified.battle_command_count(), 72);
-    assert_eq!(bytes.len(), 76_215);
-    assert_eq!(replay.records().len(), 264);
+    assert_eq!(verified.battle_command_count(), 60);
+    assert_eq!(bytes.len(), 74_727);
+    assert_eq!(replay.records().len(), 240);
     assert_eq!(
         replay_digest,
-        "34a0d1614a4a68d7e066e866c62cf8700664bd103a3e88dadd1b7fb2eb8462be"
+        "f301215dd1c8ed07675f07180952ea8b1208f1328a2d42758f7e6a9e3c3c653d"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
-        "c15a034dfc8209dfd88c964ec405b2ab417cd1469ccf7ffedc468df98c3e196e"
+        "f0e0cc1810eb6dfb21859d90faa3e69d3855c4241144d58aece306955736bbe7"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedBattleCommand]),
-        "43af8a15aea84a3cb5ad504fc5ec65bc554645e43b4bf4b560f2bb8ac27d3a86"
+        "3dcedce8bbe994fe724ffbd28eb31845420506d97413f4a03f88b97bd970880a"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "2b4456329e77bc411d32e6863826b2eadc572bbe320975cc61714121ce4249b2"
+        "f0b6e177e774a0bce6a846045686f75ab56ca992e188292d61104ad4610d1caa"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
-        "ef665627289414fc803024438600b79e5dcc9a138fd1adfa2d0ea9de9ecffc8c"
+        "c7f03b2c2e4d91ed9a6d88089bd3489ecb40c6eeabf6f61bdde76eff5653598e"
     );
 
     assert_divergence(

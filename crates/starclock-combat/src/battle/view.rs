@@ -34,8 +34,9 @@ use crate::{
         toughness::{BaseBreakEffect, BreakDamageDefinition, EnemyRank},
     },
     id::{
-        AbilityId, EncounterId, ModifierDefinitionId, RuleBundleId, ShieldInstanceId,
-        SpawnSequence, TimelineActorId, UnitDefinitionId, UnitId, WaveInstanceId,
+        AbilityId, ActionBoundaryId, EncounterId, ModifierDefinitionId, PreparedActionId,
+        RuleBundleId, ShieldInstanceId, SpawnSequence, TimelineActorId, UnitDefinitionId, UnitId,
+        WaveInstanceId,
     },
     modifier::model::{ActiveModifier, StatQuery},
     numeric::domain::{ActionGauge, Hp, ShieldAmount, Speed},
@@ -43,11 +44,11 @@ use crate::{
         model::{OnceKey, RuleValue, SourceClass},
         state::RuleInstanceState,
     },
-    timeline::state::{InterruptWindowKind, NormalTurnState},
+    timeline::state::NormalTurnState,
     toughness::state::ToughnessLayerState,
 };
 pub use team_resource::TeamResourceView;
-pub use timeline_detail::{PendingExtraTurnView, SequenceCursorsView};
+pub use timeline_detail::{PendingExtraTurnView, PendingReactionView, SequenceCursorsView};
 pub use unit_detail::{CharacterResourceView, TemporaryWeaknessView, TransformationView};
 
 /// Borrowed immutable projection of one authoritative battle state.
@@ -188,16 +189,30 @@ impl<'a> BattleView<'a> {
     pub fn active_turn(self) -> Option<ActiveTurnView> {
         self.state.timeline.active_turn.map(ActiveTurnView::from)
     }
-    /// Returns the active external interrupt boundary, if any.
+    /// Returns the current stable boundary between independent actions, if any.
     #[must_use]
-    pub fn interrupt_window(self) -> Option<InterruptWindowView> {
+    pub fn action_boundary(self) -> Option<ActionBoundaryView> {
         self.state
             .timeline
-            .interrupt
+            .boundary
             .as_ref()
-            .map(|window| InterruptWindowView {
-                kind: window.kind,
-                turn: ActiveTurnView::from(window.turn),
+            .map(|boundary| ActionBoundaryView {
+                id: boundary.id,
+                turn: ActiveTurnView::from(boundary.turn),
+            })
+    }
+    /// Returns the action currently waiting for target or variant input.
+    #[must_use]
+    pub fn prepared_action(self) -> Option<PreparedActionView> {
+        self.state
+            .timeline
+            .prepared_action
+            .as_ref()
+            .map(|prepared| PreparedActionView {
+                id: prepared.id,
+                actor: prepared.actor,
+                ability: prepared.ability,
+                suspended_boundary: prepared.boundary.id,
             })
     }
     /// Iterates pending extra turns in their authoritative queue order.
@@ -208,6 +223,14 @@ impl<'a> BattleView<'a> {
             .iter()
             .copied()
             .map(PendingExtraTurnView::from)
+    }
+    /// Iterates queued reactions in their authoritative execution order.
+    pub fn pending_reactions(self) -> impl Iterator<Item = PendingReactionView> + 'a {
+        self.state
+            .reactions
+            .entries()
+            .iter()
+            .map(PendingReactionView::from)
     }
     /// Returns the authored concession policy retained by this battle.
     #[must_use]
@@ -574,23 +597,51 @@ impl From<NormalTurnState> for ActiveTurnView {
     }
 }
 
-/// Immutable interrupt-window state; pending entries remain resolver-private.
+/// Immutable stable action-boundary state.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct InterruptWindowView {
-    kind: InterruptWindowKind,
+pub struct ActionBoundaryView {
+    id: ActionBoundaryId,
     turn: ActiveTurnView,
 }
 
-impl InterruptWindowView {
-    /// Returns the stable interrupt boundary kind.
+impl ActionBoundaryView {
+    /// Returns the battle-local monotonic boundary identity.
     #[must_use]
-    pub const fn kind(self) -> InterruptWindowKind {
-        self.kind
+    pub const fn id(self) -> ActionBoundaryId {
+        self.id
     }
-    /// Returns the normal turn suspended at this interrupt boundary.
+    /// Returns the normal turn suspended at this action boundary.
     #[must_use]
     pub const fn turn(self) -> ActiveTurnView {
         self.turn
+    }
+}
+
+/// Immutable prepared-action identity and selected ability.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PreparedActionView {
+    id: PreparedActionId,
+    actor: UnitId,
+    ability: AbilityId,
+    suspended_boundary: ActionBoundaryId,
+}
+
+impl PreparedActionView {
+    #[must_use]
+    pub const fn id(self) -> PreparedActionId {
+        self.id
+    }
+    #[must_use]
+    pub const fn actor(self) -> UnitId {
+        self.actor
+    }
+    #[must_use]
+    pub const fn ability(self) -> AbilityId {
+        self.ability
+    }
+    #[must_use]
+    pub const fn suspended_boundary(self) -> ActionBoundaryId {
+        self.suspended_boundary
     }
 }
 

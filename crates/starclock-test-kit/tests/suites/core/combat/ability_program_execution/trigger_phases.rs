@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::advance_boundary_if_offered;
 
 use super::*;
 
@@ -191,7 +191,7 @@ fn once_per_turn_coalesces_hits_and_resets_at_the_next_turn_boundary() {
         1
     );
 
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let use_ability = battle
         .decision()
         .unwrap()

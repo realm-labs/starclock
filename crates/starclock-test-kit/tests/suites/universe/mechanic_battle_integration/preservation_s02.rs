@@ -49,8 +49,8 @@ fn goal07_p2_m02_s02_executes_dynamic_stat_and_directional_shield_rules() {
             marker.wrapping_add(1),
         );
         assert!(start.fault().is_none(), "{:?}", start.fault());
-        first_normal_action(&mut battle)
-            .events()
+        let resolution = first_normal_action(&mut battle);
+        complete_action_events(&mut battle, &resolution)
             .iter()
             .find_map(|event| match event.kind() {
                 BattleEventKind::Damage(data)
@@ -85,8 +85,8 @@ fn goal07_p2_m02_s02_executes_dynamic_stat_and_directional_shield_rules() {
             marker.wrapping_add(1),
         );
         assert!(start.fault().is_none(), "{:?}", start.fault());
-        first_normal_action(&mut battle)
-            .events()
+        let resolution = first_normal_action(&mut battle);
+        complete_action_events(&mut battle, &resolution)
             .iter()
             .find_map(|event| match event.kind() {
                 BattleEventKind::Shield(starclock_combat::ShieldEventData::Applied {
@@ -216,15 +216,8 @@ fn provider_shields(catalog: &Arc<UniverseCatalog>, level: u32, marker: u8) -> V
         })
         .unwrap();
     assert!(start.fault().is_none(), "{:?}", start.fault());
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let command = battle
         .decision()

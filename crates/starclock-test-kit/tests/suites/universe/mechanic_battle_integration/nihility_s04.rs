@@ -348,51 +348,18 @@ fn use_kafka_ultimate(battle: &mut Battle) -> starclock_combat::Resolution {
 }
 
 fn use_ability(battle: &mut Battle, expected: u32) -> starclock_combat::Resolution {
-    for _ in 0..40 {
-        let decision = battle.decision().expect("nonterminal battle").clone();
-        if let Some(command) = decision.legal_commands().iter().find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. } | Command::UseAbility { ability, .. }
-                    if ability.get() == expected
-            )
-        }) {
-            return battle
-                .apply(command.clone())
-                .expect("requested ability is accepted");
-        }
-        let progress = decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-            .or_else(|| {
-                decision
-                    .legal_commands()
-                    .iter()
-                    .find(|command| matches!(command, Command::UseAbility { .. }))
-            })
-            .expect("fixture can progress to the requested ability")
-            .clone();
-        let resolution = battle
-            .apply(progress)
-            .expect("progress command is accepted");
-        assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
-    }
-    panic!("ability {expected} was not offered");
+    use_ready_ability(battle, expected)
 }
 
 fn advance(battle: &mut Battle) -> starclock_combat::Resolution {
+    if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        return battle.advance().expect("action boundary advances");
+    }
     let decision = battle.decision().expect("nonterminal fixture").clone();
     let command = decision
         .legal_commands()
         .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::UseAbility { .. }))
-        })
+        .find(|command| matches!(command, Command::UseAbility { .. }))
         .expect("fixture has a deterministic progress command")
         .clone();
     battle.apply(command).expect("progress command is accepted")

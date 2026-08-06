@@ -113,23 +113,18 @@ fn ultimate_arms_exact_next_attack_boost_and_the_attack_consumes_it() {
         0xd4,
     );
     assert!(started.fault().is_none(), "{:#?}", started.events());
-    let ultimate = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::UseInterrupt { .. }))
-        .expect("an Ultimate is legal")
-        .clone();
-    let actor = match &ultimate {
-        Command::UseInterrupt { actor, .. } => *actor,
-        _ => unreachable!("selected Ultimate"),
-    };
-    let resolution = battle.apply(ultimate).unwrap();
+    let option = battle
+        .available_ultimates()
+        .into_iter()
+        .next()
+        .expect("an Ultimate is legal");
+    let actor = option.actor();
+    let ultimate = battle.request_ultimate_command(option).unwrap();
+    let resolution = apply_action_command(&mut battle, ultimate);
     assert!(resolution.fault().is_none(), "{:#?}", resolution.events());
     assert!(has_effect(&battle, actor, effect));
 
-    close_interrupt_window(&mut battle);
+    advance_action_boundaries(&mut battle);
     let basic = battle
         .decision()
         .unwrap()
@@ -180,7 +175,7 @@ fn aoe_attack_applies_exact_three_turn_attack_and_defense_effects() {
         0xd6,
     );
     assert!(started.fault().is_none(), "{:#?}", started.events());
-    close_interrupt_window(&mut battle);
+    advance_action_boundaries(&mut battle);
     let aoe = AbilityId::new(20019).unwrap();
     let command = battle
         .decision()
@@ -196,6 +191,7 @@ fn aoe_attack_applies_exact_three_turn_attack_and_defense_effects() {
     };
     let resolution = battle.apply(command).unwrap();
     assert!(resolution.fault().is_none(), "{:#?}", resolution.events());
+    complete_action_events(&mut battle, &resolution);
 
     for (key, stat) in [
         ("StageAbility_612854", StatKind::Atk),
@@ -265,15 +261,9 @@ fn local_effect(
     EffectDefinitionId::new(LOCAL_EFFECT_BASE + (binding.rule().get() & 0xffff) * 16).unwrap()
 }
 
-fn close_interrupt_window(battle: &mut Battle) {
-    while battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        let decision = battle.decision().unwrap().id();
-        let resolution = battle
-            .apply(Command::PassInterruptWindow { decision })
-            .unwrap();
+fn advance_action_boundaries(battle: &mut Battle) {
+    while battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        let resolution = battle.advance().unwrap();
         assert!(resolution.fault().is_none(), "{:#?}", resolution.events());
     }
 }

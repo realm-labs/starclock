@@ -31,9 +31,11 @@ pub(super) fn settle_after_action(
 ) -> Result<ActionBoundary, BattleFault> {
     if !has_living_present(txn, TeamSide::Player, None) {
         txn.set_decision(None);
-        txn.set_interrupt(None);
+        txn.set_action_boundary(None);
+        txn.set_prepared_action(None);
         txn.set_active_turn(None);
         txn.clear_extra_turns();
+        txn.clear_reactions();
         txn.set_phase(BattlePhase::Lost);
         parent = txn.emit(
             cause.with_parent(parent),
@@ -51,9 +53,11 @@ pub(super) fn settle_after_action(
 
     if current == txn.state.encounter.total_waves {
         txn.set_decision(None);
-        txn.set_interrupt(None);
+        txn.set_action_boundary(None);
+        txn.set_prepared_action(None);
         txn.set_active_turn(None);
         txn.clear_extra_turns();
+        txn.clear_reactions();
         txn.set_phase(BattlePhase::Won);
         parent = txn.emit(
             cause.with_parent(parent),

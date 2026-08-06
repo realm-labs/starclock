@@ -2,7 +2,7 @@ use core::{cmp::Ordering, fmt};
 
 use crate::{
     battle::spec::TeamSide,
-    id::{AbilityId, DecisionId, UnitId},
+    id::{AbilityId, ActionBoundaryId, DecisionId, UnitId},
 };
 
 /// External intent accepted only when it exactly appears in the current decision.
@@ -17,15 +17,21 @@ pub enum Command {
         ability: AbilityId,
         primary_target: Option<UnitId>,
     },
-    /// Use an offered Ultimate/interrupt ability.
-    UseInterrupt {
-        decision: DecisionId,
+    /// Request one ready Ultimate at the current stable action boundary.
+    RequestUltimate {
+        boundary: ActionBoundaryId,
         actor: UnitId,
         ability: AbilityId,
+    },
+    /// Commit one exact offered input for the currently prepared action.
+    CommitPreparedAction {
+        decision: DecisionId,
         primary_target: Option<UnitId>,
     },
-    /// Close the current interrupt window without acting.
-    PassInterruptWindow { decision: DecisionId },
+    /// Cancel the currently prepared action before declaration or payment.
+    CancelPreparedAction { decision: DecisionId },
+    /// Advance deterministic battle work from the current stable action boundary.
+    Advance { boundary: ActionBoundaryId },
     /// End the battle as a player loss when the profile offers concession.
     Concede { decision: DecisionId },
 }
@@ -33,13 +39,27 @@ pub enum Command {
 impl Command {
     /// Returns the exact decision identity answered by this command.
     #[must_use]
-    pub const fn decision(&self) -> DecisionId {
+    pub const fn decision(&self) -> Option<DecisionId> {
         match self {
             Self::StartBattle { decision }
             | Self::UseAbility { decision, .. }
-            | Self::UseInterrupt { decision, .. }
-            | Self::PassInterruptWindow { decision }
-            | Self::Concede { decision } => *decision,
+            | Self::CommitPreparedAction { decision, .. }
+            | Self::CancelPreparedAction { decision }
+            | Self::Concede { decision } => Some(*decision),
+            Self::RequestUltimate { .. } | Self::Advance { .. } => None,
+        }
+    }
+
+    /// Returns the stable action boundary addressed by this command, when applicable.
+    #[must_use]
+    pub const fn boundary(&self) -> Option<ActionBoundaryId> {
+        match self {
+            Self::RequestUltimate { boundary, .. } | Self::Advance { boundary } => Some(*boundary),
+            Self::StartBattle { .. }
+            | Self::UseAbility { .. }
+            | Self::CommitPreparedAction { .. }
+            | Self::CancelPreparedAction { .. }
+            | Self::Concede { .. } => None,
         }
     }
 
@@ -64,20 +84,24 @@ impl Command {
                 ability.get(),
                 primary_target.map_or(0, UnitId::get),
             ),
-            Self::UseInterrupt {
-                decision,
+            Self::RequestUltimate {
+                boundary,
                 actor,
                 ability,
+            } => (2, boundary.get(), actor.get(), ability.get(), 0),
+            Self::CommitPreparedAction {
+                decision,
                 primary_target,
             } => (
-                2,
+                3,
                 decision.get(),
-                actor.get(),
-                ability.get(),
+                0,
+                0,
                 primary_target.map_or(0, UnitId::get),
             ),
-            Self::PassInterruptWindow { decision } => (3, decision.get(), 0, 0, 0),
-            Self::Concede { decision } => (4, decision.get(), 0, 0, 0),
+            Self::CancelPreparedAction { decision } => (4, decision.get(), 0, 0, 0),
+            Self::Advance { boundary } => (5, boundary.get(), 0, 0, 0),
+            Self::Concede { decision } => (6, decision.get(), 0, 0, 0),
         }
     }
 }
@@ -89,10 +113,31 @@ pub enum DecisionKind {
     BattleStart,
     /// One normal controllable unit action.
     NormalAction,
-    /// Ultimate/interrupt use or pass.
-    InterruptWindow,
-    /// Typed battle-local choice emitted by an authored rule.
+    /// Target or variant input for an action selected at an earlier boundary.
+    PreparedAction,
+    /// Typed action target, variant, segment, or battle-local authored choice.
     BattleChoice,
+}
+
+/// One exact ready-Ultimate request at an action boundary.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct UltimateOption {
+    actor: UnitId,
+    ability: AbilityId,
+}
+
+impl UltimateOption {
+    pub(crate) const fn new(actor: UnitId, ability: AbilityId) -> Self {
+        Self { actor, ability }
+    }
+    #[must_use]
+    pub const fn actor(self) -> UnitId {
+        self.actor
+    }
+    #[must_use]
+    pub const fn ability(self) -> AbilityId {
+        self.ability
+    }
 }
 
 /// Controller that owns one decision point.
@@ -120,6 +165,12 @@ impl DecisionPoint {
         owner: DecisionOwner,
         mut legal_commands: Vec<Command>,
     ) -> Self {
+        debug_assert!(
+            legal_commands
+                .iter()
+                .all(|command| command.decision() == Some(id)),
+            "decision points contain only commands addressed to that decision"
+        );
         legal_commands.sort_by(Command::canonical_cmp);
         legal_commands.dedup();
         Self {
@@ -167,6 +218,8 @@ pub enum CommandErrorKind {
     ResolutionInProgress,
     /// Command answers a prior or forged decision identity.
     StaleDecision,
+    /// Command addresses a prior or forged action-boundary identity.
+    StaleActionBoundary,
     /// Command value is not one of the exact offered values.
     NotOffered,
     /// Command family does not match the current lifecycle phase.
@@ -236,7 +289,6 @@ mod tests {
                 ability: definition(4),
                 primary_target: Some(target),
             },
-            Command::PassInterruptWindow { decision },
             Command::Concede { decision },
         ];
         let mut reversed = expected.clone();

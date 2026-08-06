@@ -120,15 +120,8 @@ fn enhanced_virtual_grit_and_hp_consumption_execute_in_a_real_battle() {
         .find(|effect| effect.definition().get() == VIRTUAL_GRIT_EFFECT_RAW)
         .expect("30% HP grants enhanced virtual Grit");
     assert_eq!(virtual_grit.stacks(), 24);
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let command = battle
         .decision()

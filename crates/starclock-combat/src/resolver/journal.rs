@@ -9,6 +9,8 @@ pub(crate) enum AllocationKind {
     Modifier,
     Command,
     Decision,
+    ActionBoundary,
+    PreparedAction,
     Event,
     Action,
     Phase,

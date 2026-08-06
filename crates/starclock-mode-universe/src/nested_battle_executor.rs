@@ -244,12 +244,22 @@ impl UniverseNestedBattleExecutor {
                 let report = report(&battle, &result, trace)?;
                 return Ok((result, report));
             }
-            let decision = battle
-                .decision()
-                .cloned()
-                .ok_or(NestedBattleExecutionError::MissingDecision)?;
             let (command, controller, enemy_action) =
-                select_command(&battle, catalog, &mut enemy, &decision)?;
+                if battle.view().phase() == BattlePhase::ReadyToAdvance {
+                    (
+                        battle
+                            .advance_command()
+                            .ok_or(NestedBattleExecutionError::MissingDecision)?,
+                        NestedBattleController::System,
+                        None,
+                    )
+                } else {
+                    let decision = battle
+                        .decision()
+                        .cloned()
+                        .ok_or(NestedBattleExecutionError::MissingDecision)?;
+                    select_command(&battle, catalog, &mut enemy, &decision)?
+                };
             let resolution = battle
                 .apply(command.clone())
                 .map_err(|_| NestedBattleExecutionError::CommandRejected)?;
@@ -403,19 +413,6 @@ fn select_command<'a>(
     decision: &starclock_combat::DecisionPoint,
 ) -> Result<(Command, NestedBattleController, Option<EnemyAction<'a>>), NestedBattleExecutionError>
 {
-    if decision.kind() == DecisionKind::InterruptWindow
-        && let Some(command) = decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-    {
-        let controller = match decision.owner() {
-            DecisionOwner::System => NestedBattleController::System,
-            DecisionOwner::Team(TeamSide::Player) => NestedBattleController::BaselinePlayer,
-            DecisionOwner::Team(TeamSide::Enemy) => NestedBattleController::AuthoredEnemy,
-        };
-        return Ok((command.clone(), controller, None));
-    }
     if decision.kind() == DecisionKind::BattleChoice && decision.legal_commands().len() == 1 {
         let controller = match decision.owner() {
             DecisionOwner::System => NestedBattleController::System,
@@ -487,11 +484,9 @@ fn system_command(
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::StartBattle { .. })),
-        DecisionKind::InterruptWindow => decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
-        DecisionKind::NormalAction | DecisionKind::BattleChoice => None,
+        DecisionKind::NormalAction | DecisionKind::PreparedAction | DecisionKind::BattleChoice => {
+            None
+        }
     };
     selected
         .cloned()
@@ -504,16 +499,10 @@ fn player_command(
     decision: &starclock_combat::DecisionPoint,
 ) -> Result<Command, NestedBattleExecutionError> {
     let selected = match decision.kind() {
-        DecisionKind::InterruptWindow => decision
+        DecisionKind::PreparedAction => decision
             .legal_commands()
             .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-            .or_else(|| {
-                decision.legal_commands().iter().find(|command| {
-                    matches!(command, Command::UseInterrupt { .. })
-                        && command_is_affordable(catalog, view, command)
-                })
-            }),
+            .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
         DecisionKind::NormalAction | DecisionKind::BattleChoice => decision
             .legal_commands()
             .iter()
@@ -549,7 +538,7 @@ fn command_is_affordable(
 ) -> bool {
     let (actor, ability) = match command {
         Command::UseAbility { actor, ability, .. }
-        | Command::UseInterrupt { actor, ability, .. } => (*actor, *ability),
+        | Command::RequestUltimate { actor, ability, .. } => (*actor, *ability),
         _ => return true,
     };
     let Some(action) = catalog
@@ -585,9 +574,11 @@ fn command_is_affordable(
 
 fn command_actor(command: &Command) -> Option<starclock_combat::UnitId> {
     match command {
-        Command::UseAbility { actor, .. } | Command::UseInterrupt { actor, .. } => Some(*actor),
+        Command::UseAbility { actor, .. } | Command::RequestUltimate { actor, .. } => Some(*actor),
         Command::StartBattle { .. }
-        | Command::PassInterruptWindow { .. }
+        | Command::CommitPreparedAction { .. }
+        | Command::CancelPreparedAction { .. }
+        | Command::Advance { .. }
         | Command::Concede { .. } => None,
     }
 }
@@ -623,7 +614,10 @@ pub(crate) fn project_result(
         BattlePhase::Won => BattleOutcome::Won,
         BattlePhase::Lost => BattleOutcome::Lost,
         BattlePhase::Faulted => BattleOutcome::Faulted,
-        BattlePhase::Initializing | BattlePhase::AwaitingCommand | BattlePhase::Resolving => {
+        BattlePhase::Initializing
+        | BattlePhase::ReadyToAdvance
+        | BattlePhase::AwaitingCommand
+        | BattlePhase::Resolving => {
             return Err(NestedBattleExecutionError::MissingDecision);
         }
     };
@@ -888,6 +882,7 @@ fn event_family(kind: &starclock_combat::BattleEventKind) -> u8 {
         starclock_combat::BattleEventKind::RuleState(_) => 17,
         starclock_combat::BattleEventKind::RuleSignal(_) => 18,
         starclock_combat::BattleEventKind::Fault(_) => 19,
+        starclock_combat::BattleEventKind::ActionBoundary(_) => 20,
         _ => u8::MAX,
     }
 }
@@ -907,21 +902,34 @@ fn encode_command(encoder: &mut Encoder, command: &Command) {
             encoder.u8(1);
             action_command(encoder, *decision, *actor, *ability, *primary_target);
         }
-        Command::UseInterrupt {
-            decision,
+        Command::RequestUltimate {
+            boundary,
             actor,
             ability,
-            primary_target,
         } => {
             encoder.u8(2);
-            action_command(encoder, *decision, *actor, *ability, *primary_target);
+            encoder.u64(boundary.get());
+            encoder.u64(actor.get());
+            encoder.u32(ability.get());
         }
-        Command::PassInterruptWindow { decision } => {
+        Command::CommitPreparedAction {
+            decision,
+            primary_target,
+        } => {
             encoder.u8(3);
             encoder.u64(decision.get());
+            optional_u64(encoder, primary_target.map(|value| value.get()));
+        }
+        Command::CancelPreparedAction { decision } => {
+            encoder.u8(4);
+            encoder.u64(decision.get());
+        }
+        Command::Advance { boundary } => {
+            encoder.u8(5);
+            encoder.u64(boundary.get());
         }
         Command::Concede { decision } => {
-            encoder.u8(4);
+            encoder.u8(6);
             encoder.u64(decision.get());
         }
     }

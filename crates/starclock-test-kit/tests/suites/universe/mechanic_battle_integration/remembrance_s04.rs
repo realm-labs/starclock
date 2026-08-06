@@ -183,39 +183,5 @@ fn first_love_starts_an_uncharged_battle_at_forty_resonance_energy() {
 }
 
 fn use_resonance(battle: &mut Battle) -> starclock_combat::Resolution {
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        let command = battle
-            .decision()
-            .unwrap()
-            .legal_commands()
-            .iter()
-            .find(|command| {
-                matches!(
-                    command,
-                    Command::UseInterrupt { ability, .. }
-                        if ability.get() == RESONANCE_ABILITY_RAW
-                )
-            })
-            .expect("charged Remembrance Resonance is an interrupt")
-            .clone();
-        return battle.apply(command).unwrap();
-    }
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseAbility { ability, .. }
-                    if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .expect("charged Remembrance Resonance is legal")
-        .clone();
-    battle.apply(command).unwrap()
+    use_ready_ability(battle, RESONANCE_ABILITY_RAW)
 }

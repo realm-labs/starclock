@@ -17,7 +17,7 @@ fn request(scenario: &str, seed: AgentSeedPolicy) -> CreateSessionRequest {
 fn play_request(session: &AgentSession, token: ActionToken, key: &str) -> PlayActionRequest {
     PlayActionRequest {
         session_id: session.session_id().clone(),
-        decision_id: session.offered.as_ref().unwrap().decision_id(),
+        boundary_id: session.offered.as_ref().unwrap().boundary_id(),
         expected_state_hash: session.state_hash(),
         action_token: token,
         idempotency_key: IdempotencyKey::parse(key).unwrap(),
@@ -345,7 +345,7 @@ fn terminal_action_returns_terminal_observation_and_complete_trace() {
     let request = play_request(&session, concede, "terminal_concede");
     let response = session.apply_action(request).unwrap();
     assert_eq!(response.observation.status, AgentBattleStatus::Lost);
-    assert_eq!(response.observation.decision_id, None);
+    assert_eq!(response.observation.boundary_id, None);
     assert!(response.observation.legal_actions.is_empty());
     assert!(!response.observation.events.is_empty());
     assert_eq!(

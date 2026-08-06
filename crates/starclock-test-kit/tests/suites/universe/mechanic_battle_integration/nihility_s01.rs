@@ -257,30 +257,15 @@ fn kafka_roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
 
 fn use_kafka_ultimate(battle: &mut Battle) -> starclock_combat::Resolution {
     for _ in 0..12 {
-        let decision = battle.decision().expect("interrupt decision").clone();
-        if let Some(command) = decision.legal_commands().iter().find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. } | Command::UseAbility { ability, .. }
-                    if ability.get() == KAFKA_ULTIMATE
-            )
-        }) {
-            return battle
-                .apply(command.clone())
-                .expect("Kafka Ultimate is accepted");
+        if let Some(command) = battle
+            .available_ultimates()
+            .into_iter()
+            .find(|option| option.ability().get() == KAFKA_ULTIMATE)
+            .and_then(|option| battle.request_ultimate_command(option))
+        {
+            return apply_action_command(battle, command);
         }
-        let pass = decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-            .unwrap_or_else(|| {
-                panic!(
-                    "Kafka Ultimate is offered before a normal action: {:?}",
-                    decision.legal_commands()
-                )
-            })
-            .clone();
-        let resolution = battle.apply(pass).expect("interrupt pass is accepted");
+        let resolution = advance(battle);
         assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
     }
     panic!("Kafka Ultimate interrupt was not offered");
@@ -323,6 +308,9 @@ fn advance_targeting(
     battle: &mut Battle,
     target: starclock_combat::UnitId,
 ) -> starclock_combat::Resolution {
+    if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        return battle.advance().expect("action boundary advances");
+    }
     let decision = battle.decision().expect("nonterminal fixture").clone();
     let command = decision
         .legal_commands()
@@ -340,12 +328,6 @@ fn advance_targeting(
             decision
                 .legal_commands()
                 .iter()
-                .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        })
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
                 .find(|command| matches!(command, Command::UseAbility { .. }))
         })
         .expect("fixture has a progress command")
@@ -354,23 +336,14 @@ fn advance_targeting(
 }
 
 fn advance(battle: &mut Battle) -> starclock_combat::Resolution {
+    if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        return battle.advance().expect("action boundary advances");
+    }
     let decision = battle.decision().expect("nonterminal fixture").clone();
     let command = decision
         .legal_commands()
         .iter()
-        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::UseAbility { .. }))
-        })
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::UseInterrupt { .. }))
-        })
+        .find(|command| matches!(command, Command::UseAbility { .. }))
         .expect("fixture has a progress command")
         .clone();
     battle.apply(command).expect("fixture command is accepted")

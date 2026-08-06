@@ -41,6 +41,7 @@ pub enum AgentBattleStatus {
 #[serde(rename_all = "snake_case")]
 pub enum AgentBattlePhase {
     AwaitingCommand,
+    ReadyToAdvance,
     Won,
     Lost,
     Faulted,
@@ -148,7 +149,7 @@ pub struct AgentObservation {
     pub session_id: SessionId,
     pub scenario_id: ScenarioId,
     pub catalog_digest: AgentHash,
-    pub decision_id: Option<AgentUInt>,
+    pub boundary_id: Option<AgentUInt>,
     pub state_hash: AgentHash,
     pub event_cursor: EventCursor,
     pub visibility_policy: VisibilityPolicy,
@@ -244,6 +245,7 @@ impl std::error::Error for ProjectionError {}
 pub fn project_player_visible(view: BattleView<'_>) -> Result<AgentBattleView, ProjectionError> {
     let phase = match view.phase() {
         BattlePhase::AwaitingCommand => AgentBattlePhase::AwaitingCommand,
+        BattlePhase::ReadyToAdvance => AgentBattlePhase::ReadyToAdvance,
         BattlePhase::Won => AgentBattlePhase::Won,
         BattlePhase::Lost => AgentBattlePhase::Lost,
         BattlePhase::Faulted => AgentBattlePhase::Faulted,

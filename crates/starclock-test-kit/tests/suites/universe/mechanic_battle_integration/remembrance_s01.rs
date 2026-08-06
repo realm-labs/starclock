@@ -68,7 +68,7 @@ fn goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage() {
     assert!(active.contains(&DISSOCIATION));
     assert!(active.contains(&DIZZINESS));
     assert!(
-        battle.decision().is_some(),
+        !battle.view().phase().is_terminal(),
         "battle ended before natural removal: phase={:?}, units={:?}",
         battle.view().phase(),
         battle
@@ -82,7 +82,7 @@ fn goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage() {
     let mut observed_ice = Vec::new();
     let mut enemy_turns = 0;
     for _ in 0..80 {
-        if battle.decision().is_none() {
+        if battle.view().phase().is_terminal() {
             break;
         }
         let resolution = advance(&mut battle);
@@ -187,7 +187,7 @@ fn remembrance_melancholia_detonates_existing_dissociation_once_per_target_actio
     advance_until_effect(&mut battle, FREEZE, 40);
     advance_until_effect(&mut battle, DISSOCIATION, 20);
     assert!(
-        battle.decision().is_some(),
+        !battle.view().phase().is_terminal(),
         "battle ended before Melancholia: phase={:?}, units={:?}",
         battle.view().phase(),
         battle
@@ -202,7 +202,7 @@ fn remembrance_melancholia_detonates_existing_dissociation_once_per_target_actio
     let mut dissociation_presence = Vec::new();
     let mut dissociation_removals = 0;
     for _ in 0..80 {
-        if battle.decision().is_none() {
+        if battle.view().phase().is_terminal() {
             break;
         }
         let resolution = advance(&mut battle);
@@ -287,23 +287,14 @@ fn advance_until_effect(battle: &mut Battle, definition: u32, maximum: usize) {
 }
 
 fn advance(battle: &mut Battle) -> starclock_combat::Resolution {
+    if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        return battle.advance().expect("action boundary advances");
+    }
     let decision = battle.decision().expect("nonterminal fixture").clone();
     let command = decision
         .legal_commands()
         .iter()
         .find(|command| matches!(command, Command::UseAbility { .. }))
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::UseInterrupt { .. }))
-        })
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        })
         .unwrap_or_else(|| {
             panic!(
                 "fixture decision has a progress command: kind={:?}, legal={:?}",

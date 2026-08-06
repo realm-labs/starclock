@@ -1,12 +1,12 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
     ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
-    DecisionKind, DecisionOwner, Energy, FormationIndex, HitEventData, Hp, InterruptWindowKind,
-    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings,
-    ResourceEventData, Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitLevel,
+    DecisionKind, DecisionOwner, Energy, FormationIndex, HitEventData, Hp, ParticipantSource,
+    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, ResourceEventData, Speed,
+    TeamResourceSpec, TeamSide, TurnEventData, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -36,7 +36,7 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle)
+    advance_boundary_if_offered(&mut battle)
         .expect("full initial Energy opens the player interrupt window");
 
     let basic = battle
@@ -58,20 +58,20 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
         .clone();
     battle.apply(basic).unwrap();
     assert_eq!(
-        battle.view().interrupt_window().unwrap().kind(),
-        InterruptWindowKind::AfterAction
+        battle.view().phase(),
+        starclock_combat::BattlePhase::ReadyToAdvance
     );
-    pass_interrupt_if_offered(&mut battle)
+    assert!(battle.view().action_boundary().is_some());
+    advance_boundary_if_offered(&mut battle)
         .expect("the charged Ultimate remains available after the player action");
 
-    let before_enemy = battle.view().interrupt_window().unwrap();
-    assert_eq!(before_enemy.kind(), InterruptWindowKind::BeforeAction);
+    let before_enemy = battle.view().action_boundary().unwrap();
     assert_eq!(before_enemy.turn().side(), TeamSide::Enemy);
     assert_eq!(
         battle.decision().unwrap().owner(),
-        DecisionOwner::Team(TeamSide::Player)
+        DecisionOwner::Team(TeamSide::Enemy)
     );
-    pass_interrupt_if_offered(&mut battle)
+    advance_boundary_if_offered(&mut battle)
         .expect("the player declines the opportunity before the enemy action");
 
     let enemy_action = battle
@@ -83,27 +83,34 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
         .unwrap()
         .clone();
     battle.apply(enemy_action).unwrap();
-    let after_enemy = battle.view().interrupt_window().unwrap();
-    assert_eq!(after_enemy.kind(), InterruptWindowKind::AfterAction);
+    let after_enemy = battle.view().action_boundary().unwrap();
     assert_eq!(after_enemy.turn().side(), TeamSide::Enemy);
-    assert_eq!(
-        battle.decision().unwrap().owner(),
-        DecisionOwner::Team(TeamSide::Player)
-    );
+    assert!(battle.decision().is_none());
 
     let ultimate = battle
+        .available_ultimates()
+        .into_iter()
+        .find(|option| option.ability().get() == 3)
+        .and_then(|option| battle.request_ultimate_command(option))
+        .unwrap();
+    let prepared = battle.apply(ultimate).unwrap();
+    assert!(prepared.events().iter().all(|event| !matches!(
+        event.kind(),
+        BattleEventKind::Action(ActionEventData::Declared { .. })
+    )));
+    let commit = battle
         .decision()
         .unwrap()
         .legal_commands()
         .iter()
-        .find(|command| matches!(command, Command::UseInterrupt { ability, .. } if ability.get() == 3))
+        .find(|command| matches!(command, Command::CommitPreparedAction { .. }))
         .unwrap()
         .clone();
-    let inserted = battle.apply(ultimate).unwrap();
+    let inserted = battle.apply(commit).unwrap();
     let ultimate_declared = inserted
         .events()
         .iter()
-        .position(|event| {
+        .find(|event| {
             matches!(
                 event.kind(),
                 BattleEventKind::Action(ActionEventData::Declared {
@@ -112,17 +119,20 @@ fn player_ultimate_interrupts_an_enemy_after_its_action_and_before_turn_end() {
                 })
             )
         })
-        .unwrap();
-    let enemy_turn_ended = inserted
+        .unwrap()
+        .id();
+    let resumed = battle.advance().unwrap();
+    let enemy_turn_ended = resumed
         .events()
         .iter()
-        .position(|event| {
+        .find(|event| {
             matches!(
                 event.kind(),
                 BattleEventKind::Turn(TurnEventData::Ended { owner, .. }) if owner.get() == 2
             )
         })
-        .unwrap();
+        .unwrap()
+        .id();
     assert!(ultimate_declared < enemy_turn_ended);
 }
 
@@ -292,19 +302,32 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
         })
         .unwrap();
     let interrupt = battle
+        .available_ultimates()
+        .into_iter()
+        .next()
+        .and_then(|option| battle.request_ultimate_command(option))
+        .unwrap();
+    let requested = battle.apply(interrupt).unwrap();
+    assert!(
+        requested
+            .events()
+            .iter()
+            .all(|event| !matches!(event.kind(), BattleEventKind::Resource(_)))
+    );
+    let commit = battle
         .decision()
         .unwrap()
         .legal_commands()
         .iter()
-        .find(|command| matches!(command, Command::UseInterrupt { .. }))
+        .find(|command| matches!(command, Command::CommitPreparedAction { .. }))
         .unwrap()
         .clone();
-    let resolution = battle.apply(interrupt).unwrap();
+    let resolution = battle.apply(commit).unwrap();
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            142, 161, 120, 25, 214, 107, 44, 154, 248, 93, 12, 94, 133, 115, 113, 90, 6, 68, 154,
-            113, 82, 182, 104, 227, 149, 155, 3, 12, 20, 175, 31, 162,
+            195, 86, 24, 23, 54, 4, 18, 233, 48, 182, 38, 214, 29, 6, 38, 1, 192, 37, 173, 149, 95,
+            199, 53, 14, 6, 146, 17, 56, 1, 167, 235, 174,
         ]
     );
     assert!(matches!(
@@ -335,7 +358,7 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
         battle.decision().unwrap().kind(),
         DecisionKind::NormalAction
     );
-    assert!(battle.view().interrupt_window().is_none());
+    assert!(battle.view().action_boundary().is_some());
     let skill = battle
         .decision()
         .unwrap()
@@ -371,8 +394,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            232, 99, 79, 175, 165, 237, 8, 104, 61, 157, 99, 208, 152, 191, 194, 8, 60, 253, 115,
-            155, 209, 121, 147, 237, 204, 128, 121, 39, 13, 126, 164, 148,
+            213, 208, 3, 129, 229, 35, 206, 98, 9, 101, 42, 207, 111, 144, 132, 139, 241, 96, 165,
+            217, 153, 137, 196, 228, 118, 51, 51, 40, 99, 53, 19, 216,
         ]
     );
     assert!(matches!(
@@ -409,6 +432,7 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
             .scaled(),
         30_000_000
     );
+    settle_ready_boundaries(&mut battle);
     assert_eq!(battle.view().active_turn().unwrap().owner().get(), 2);
 }
 
@@ -427,11 +451,7 @@ fn basic_gain_clamps_at_caps_and_reports_overflow() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    battle
-        .apply(Command::PassInterruptWindow {
-            decision: battle.decision().unwrap().id(),
-        })
-        .unwrap();
+    battle.advance().unwrap();
     let basic = battle
         .decision()
         .unwrap()
@@ -450,14 +470,12 @@ fn basic_gain_clamps_at_caps_and_reports_overflow() {
         .unwrap()
         .clone();
     let resolution = battle.apply(basic).unwrap();
+    assert!(resolution.next_decision().is_none());
     assert_eq!(
-        resolution.next_decision().unwrap().kind(),
-        DecisionKind::InterruptWindow
+        battle.view().phase(),
+        starclock_combat::BattlePhase::ReadyToAdvance
     );
-    assert_eq!(
-        battle.view().interrupt_window().unwrap().kind(),
-        InterruptWindowKind::AfterAction
-    );
+    assert!(battle.view().action_boundary().is_some());
     assert!(!resolution.events().iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Turn(starclock_combat::TurnEventData::Ended { .. })
@@ -495,11 +513,7 @@ fn basic_gain_clamps_at_caps_and_reports_overflow() {
             decision: no_skill_points.decision().unwrap().id(),
         })
         .unwrap();
-    no_skill_points
-        .apply(Command::PassInterruptWindow {
-            decision: no_skill_points.decision().unwrap().id(),
-        })
-        .unwrap();
+    no_skill_points.advance().unwrap();
     assert!(
         !no_skill_points
             .decision()
@@ -679,20 +693,21 @@ fn named_character_resource_cost_gates_offers_and_pays_at_action_start() {
         })
         .unwrap();
     let offered = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| matches!(command, Command::UseInterrupt { ability, .. } if ability.get() == 11))
-        .unwrap()
-        .clone();
+        .available_ultimates()
+        .into_iter()
+        .find(|option| option.ability().get() == 11)
+        .and_then(|option| battle.request_ultimate_command(option))
+        .unwrap();
+    let prepared = battle.apply(offered).unwrap();
+    assert!(prepared.events().iter().all(|event| !matches!(
+        event.kind(),
+        BattleEventKind::Resource(ResourceEventData::CharacterResource { .. })
+    )));
     let before = battle.state_hash();
     assert_eq!(
         battle
-            .apply(Command::UseInterrupt {
+            .apply(Command::CommitPreparedAction {
                 decision: battle.decision().unwrap().id(),
-                actor: runtime(1),
-                ability: definition(11),
                 primary_target: Some(runtime(99)),
             })
             .unwrap_err()
@@ -713,7 +728,15 @@ fn named_character_resource_cost_gates_offers_and_pays_at_action_start() {
         100_000_000
     );
 
-    let resolution = battle.apply(offered).unwrap();
+    let commit = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::CommitPreparedAction { .. }))
+        .unwrap()
+        .clone();
+    let resolution = battle.apply(commit).unwrap();
     assert!(resolution.events().iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Resource(ResourceEventData::CharacterResource {
@@ -739,7 +762,75 @@ fn named_character_resource_cost_gates_offers_and_pays_at_action_start() {
             .0,
         starclock_combat::Scalar::ZERO
     );
-    assert!(!battle.decision().unwrap().legal_commands().iter().any(
-        |command| matches!(command, Command::UseInterrupt { ability, .. } if ability.get() == 11)
-    ));
+    assert!(
+        !battle
+            .available_ultimates()
+            .iter()
+            .any(|option| option.ability().get() == 11)
+    );
+}
+
+#[test]
+fn cancelling_a_prepared_ultimate_restores_the_suspended_boundary_without_payment() {
+    let mut battle = named_resource_battle();
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let request = battle
+        .available_ultimates()
+        .into_iter()
+        .find(|option| option.ability().get() == 11)
+        .and_then(|option| battle.request_ultimate_command(option))
+        .unwrap();
+    let requested = battle.apply(request).unwrap();
+    assert!(battle.view().action_boundary().is_none());
+    assert!(battle.view().prepared_action().is_some());
+    assert_eq!(
+        battle.decision().unwrap().kind(),
+        DecisionKind::PreparedAction
+    );
+    assert!(requested.events().iter().all(|event| !matches!(
+        event.kind(),
+        BattleEventKind::Action(ActionEventData::Declared { .. }) | BattleEventKind::Resource(_)
+    )));
+    let resource_before = battle
+        .view()
+        .units_by_id()
+        .next()
+        .unwrap()
+        .character_resource("newbud")
+        .unwrap()
+        .0;
+    let cancel = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::CancelPreparedAction { .. }))
+        .unwrap()
+        .clone();
+    let cancelled = battle.apply(cancel).unwrap();
+    assert!(battle.view().prepared_action().is_none());
+    assert!(battle.view().action_boundary().is_some());
+    assert_eq!(
+        battle.decision().unwrap().kind(),
+        DecisionKind::NormalAction
+    );
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .next()
+            .unwrap()
+            .character_resource("newbud")
+            .unwrap()
+            .0,
+        resource_before
+    );
+    assert!(cancelled.events().iter().all(|event| !matches!(
+        event.kind(),
+        BattleEventKind::Action(ActionEventData::Declared { .. }) | BattleEventKind::Resource(_)
+    )));
 }

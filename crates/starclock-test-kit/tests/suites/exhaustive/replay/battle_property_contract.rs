@@ -179,17 +179,20 @@ fn components() -> ConfigurationComponentSet {
 }
 
 fn supported_command(battle: &Battle) -> Command {
+    if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        return battle.advance_command().unwrap();
+    }
     let decision = battle.decision().unwrap();
     let selected = match decision.kind() {
         DecisionKind::BattleStart => decision.legal_commands().first(),
-        DecisionKind::InterruptWindow => decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
         DecisionKind::NormalAction => decision
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::UseAbility { .. })),
+        DecisionKind::PreparedAction => decision
+            .legal_commands()
+            .iter()
+            .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
         DecisionKind::BattleChoice => None,
     };
     selected.cloned().unwrap()

@@ -160,8 +160,8 @@ The audit does not justify a character-specific command enum or a scripting
 runtime. It requires a small typed protocol:
 
 ```text
-InterruptWindow
-  -> QueueManualAction(actor, ability)
+ActionBoundary
+  -> RequestUltimate(actor, ability)
   -> PreparedAction(action_request_id, actor, ability, origin, continuation)
   -> ActionInput(SelectOption | SelectTargets | SelectCount | Confirm | Cancel)
   -> ActionPlan
@@ -185,11 +185,10 @@ configuration lookup and UI presentation remain outside canonical mutation.
 
 ## Consequences for the current baseline
 
-The current `UseInterrupt` shape combines interrupt selection, target selection,
-declaration, and execution in one command, while one `TargetCommitment` is reused
-for a complete `ActionPlan`. That remains sufficient for `A` rows, but it cannot
-faithfully represent Acheron's target decisions, Feixiao's per-strike option
-decisions, or a queued Ultimate visibly waiting for its first target.
+The current prepared-action shape separates Ultimate request from target
+selection, declaration, payment, and execution. One `TargetCommitment` is still
+reused for a complete atomic `ActionPlan`, so it cannot yet faithfully represent
+Acheron's target decisions or Feixiao's per-strike option decisions.
 
 The implementation should therefore add the prepared-action boundary before
 generalizing `ActionFrame`. Only the two confirmed segmented Ultimate families

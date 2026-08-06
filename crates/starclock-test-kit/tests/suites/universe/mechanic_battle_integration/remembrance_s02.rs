@@ -173,26 +173,20 @@ fn remembrance_shudder_selects_an_eligible_enemy_and_expires_after_two_target_tu
         if eligible.is_empty() {
             continue;
         }
-        let command = battle
-            .decision()
-            .expect("full-energy roster opens an interrupt window")
-            .legal_commands()
-            .iter()
-            .find(|command| {
-                matches!(
-                    command,
-                    Command::UseInterrupt { ability, .. }
-                        if catalog
-                            .simulation_catalog()
-                            .combat_catalog()
-                            .ability(*ability)
-                            .and_then(|definition| definition.action())
-                            .is_some_and(|action| action.kind() == AbilityKind::Ultimate)
-                )
+        let option = battle
+            .available_ultimates()
+            .into_iter()
+            .find(|option| {
+                catalog
+                    .simulation_catalog()
+                    .combat_catalog()
+                    .ability(option.ability())
+                    .and_then(|definition| definition.action())
+                    .is_some_and(|action| action.kind() == AbilityKind::Ultimate)
             })
-            .expect("one authored Ultimate is legal")
-            .clone();
-        let resolution = battle.apply(command).unwrap();
+            .expect("one authored Ultimate is legal");
+        let command = battle.request_ultimate_command(option).unwrap();
+        let resolution = apply_action_command(&mut battle, command);
         assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
         let added = resolution
             .events()
@@ -230,7 +224,7 @@ fn remembrance_shudder_selects_an_eligible_enemy_and_expires_after_two_target_tu
     let mut target_turns = 0;
     let mut removed = false;
     for _ in 0..80 {
-        if battle.decision().is_none() {
+        if battle.view().phase().is_terminal() {
             break;
         }
         let resolution = advance_battle(&mut battle);
@@ -277,23 +271,14 @@ fn remembrance_shudder_selects_an_eligible_enemy_and_expires_after_two_target_tu
 }
 
 fn advance_battle(battle: &mut Battle) -> starclock_combat::Resolution {
+    if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        return battle.advance().expect("action boundary advances");
+    }
     let decision = battle.decision().expect("nonterminal fixture").clone();
     let command = decision
         .legal_commands()
         .iter()
         .find(|command| matches!(command, Command::UseAbility { .. }))
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::UseInterrupt { .. }))
-        })
-        .or_else(|| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
-        })
         .expect("fixture decision exposes a progress command")
         .clone();
     battle.apply(command).expect("accepted fixture command")

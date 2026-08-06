@@ -22,7 +22,7 @@ immutable low-level battle handoff for `synthetic-standard`:
 The player is faster and owns one single-target 1,000-damage Basic action; the
 600-HP enemy owns a structural fallback action that does not execute in the
 golden stream. The smoke controller consumes only offered values: StartBattle,
-PassInterruptWindow, then UseAbility. It cannot fabricate a command.
+Advance, then UseAbility. It cannot fabricate a command.
 
 This fixture constructs `Battle` directly, which the Standard contract permits
 for synthetic tests. It intentionally does not claim the generic Activity,

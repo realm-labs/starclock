@@ -51,7 +51,7 @@ pub struct ObserveBattleInput {
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct PlayActionInput {
     pub session_id: String,
-    pub decision_id: String,
+    pub boundary_id: String,
     pub expected_state_hash: String,
     pub action_token: String,
     pub idempotency_key: String,
@@ -118,8 +118,10 @@ pub struct VerifyReplayOutput {
 #[serde(rename_all = "snake_case")]
 enum ActionKindSchema {
     UseAbility,
-    UseInterrupt,
-    PassInterrupt,
+    UseUltimate,
+    CommitPreparedAction,
+    CancelPreparedAction,
+    Advance,
     Concede,
     BattleChoice,
 }
@@ -284,7 +286,7 @@ struct ObservationSchema {
     session_id: String,
     scenario_id: String,
     catalog_digest: String,
-    decision_id: Option<String>,
+    boundary_id: Option<String>,
     state_hash: String,
     event_cursor: String,
     visibility_policy: String,
@@ -318,7 +320,7 @@ struct ActionResponseSchema {
 #[derive(JsonSchema)]
 struct AcceptedCommandSchema {
     sequence: String,
-    decision_id: String,
+    boundary_id: String,
     controller: ControllerKindSchema,
     resulting_state_hash: String,
 }
@@ -578,8 +580,8 @@ impl StarclockMcp {
             owner,
             PlayActionRequest {
                 session_id: parse_session(&input.session_id)?,
-                decision_id: AgentUInt::parse(&input.decision_id)
-                    .map_err(|_| invalid_request("The decision ID is invalid."))?,
+                boundary_id: AgentUInt::parse(&input.boundary_id)
+                    .map_err(|_| invalid_request("The action boundary ID is invalid."))?,
                 expected_state_hash: AgentHash::parse(&input.expected_state_hash)
                     .map_err(|_| invalid_request("The expected state hash is invalid."))?,
                 action_token: ActionToken::parse(&input.action_token)
@@ -973,7 +975,7 @@ mod tests {
                 CallToolRequestParams::new("starclock_play_action").with_arguments(arguments(
                     json!({
                                                 "session_id":session_id,
-                        "decision_id":observation["decision_id"],
+                        "boundary_id":observation["boundary_id"],
                         "expected_state_hash":observation["state_hash"],
                         "action_token":action["token"],
                         "idempotency_key":"mcp_action_1"

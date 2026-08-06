@@ -9,8 +9,8 @@
     "opaqueId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,128}$" },
     "request": {
       "type": "object", "additionalProperties": false,
-      "required": ["session_id", "decision_id", "expected_state_hash", "action_token", "idempotency_key"],
-      "properties": { "session_id": { "$ref": "#/$defs/opaqueId" }, "decision_id": { "$ref": "#/$defs/uint" }, "expected_state_hash": { "$ref": "#/$defs/hash" }, "action_token": { "$ref": "#/$defs/opaqueId" }, "idempotency_key": { "$ref": "#/$defs/opaqueId" } }
+      "required": ["session_id", "boundary_id", "expected_state_hash", "action_token", "idempotency_key"],
+      "properties": { "session_id": { "$ref": "#/$defs/opaqueId" }, "boundary_id": { "$ref": "#/$defs/uint" }, "expected_state_hash": { "$ref": "#/$defs/hash" }, "action_token": { "$ref": "#/$defs/opaqueId" }, "idempotency_key": { "$ref": "#/$defs/opaqueId" } }
     },
     "response": {
       "type": "object", "additionalProperties": false,

@@ -120,31 +120,12 @@ fn doctors_robe_enters_battle_with_full_resonance_energy() {
         0xb4,
     );
     let (mut battle, _) = start(&materialization, spec, 0xb4);
-    let plain_command = resonance_command(&plain_battle);
-    let command = resonance_command(&battle);
-    let plain_resolution = plain_battle.apply(plain_command).unwrap();
-    let resolution = battle.apply(command).unwrap();
+    let plain_resolution = use_ready_ability(&mut plain_battle, RESONANCE_ABILITY_RAW);
+    let resolution = use_ready_ability(&mut battle, RESONANCE_ABILITY_RAW);
     let plain_damage = all_damage(&plain_resolution);
     let robe_damage = all_damage(&resolution);
     assert!(plain_damage > 0);
     assert_eq!(robe_damage, plain_damage * 7 / 5);
-}
-
-fn resonance_command(battle: &Battle) -> Command {
-    battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. }
-                    if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .expect("full Resonance Energy exposes the Resonance interrupt")
-        .clone()
 }
 
 #[test]

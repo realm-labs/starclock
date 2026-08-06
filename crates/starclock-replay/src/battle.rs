@@ -3,7 +3,8 @@
 use core::fmt;
 
 use starclock_combat::{
-    AbilityId, Battle, BattlePhase, BattleStateHash, Command, CommandErrorKind, DecisionId, UnitId,
+    AbilityId, ActionBoundaryId, Battle, BattlePhase, BattleStateHash, Command, CommandErrorKind,
+    DecisionId, UnitId,
 };
 
 use crate::{
@@ -211,25 +212,34 @@ pub fn encode_battle_command_payload(
             *ability,
             *primary_target,
         ),
-        Command::UseInterrupt {
-            decision,
+        Command::RequestUltimate {
+            boundary,
             actor,
             ability,
+        } => {
+            encoder.u8(2);
+            encoder.u64(boundary.get());
+            encoder.u64(actor.get());
+            encoder.u32(ability.get());
+        }
+        Command::CommitPreparedAction {
+            decision,
             primary_target,
-        } => encode_action_command(
-            &mut encoder,
-            2,
-            *decision,
-            *actor,
-            *ability,
-            *primary_target,
-        ),
-        Command::PassInterruptWindow { decision } => {
+        } => {
             encoder.u8(3);
             encoder.u64(decision.get());
+            encode_optional_target(&mut encoder, *primary_target);
+        }
+        Command::CancelPreparedAction { decision } => {
+            encoder.u8(4);
+            encoder.u64(decision.get());
+        }
+        Command::Advance { boundary } => {
+            encoder.u8(5);
+            encoder.u64(boundary.get());
         }
         Command::Concede { decision } => {
-            encoder.u8(4);
+            encoder.u8(6);
             encoder.u64(decision.get());
         }
     }
@@ -246,6 +256,15 @@ fn encode_action_command(
 ) {
     encoder.u8(kind);
     encoder.u64(decision.get());
+    encode_action_fields(encoder, actor, ability, primary_target);
+}
+
+fn encode_action_fields(
+    encoder: &mut Encoder<Vec<u8>>,
+    actor: UnitId,
+    ability: AbilityId,
+    primary_target: Option<UnitId>,
+) {
     encoder.u64(actor.get());
     encoder.u32(ability.get());
     encoder.boolean(primary_target.is_some());
@@ -260,12 +279,23 @@ pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleComm
         0 => Command::StartBattle {
             decision: runtime_id(decoder.u64()?)?,
         },
-        1 => decode_action_command(&mut decoder, false)?,
-        2 => decode_action_command(&mut decoder, true)?,
-        3 => Command::PassInterruptWindow {
+        1 => decode_action_command(&mut decoder)?,
+        2 => Command::RequestUltimate {
+            boundary: runtime_id::<ActionBoundaryId>(decoder.u64()?)?,
+            actor: runtime_id(decoder.u64()?)?,
+            ability: AbilityId::new(decoder.u32()?).ok_or(BattleCommandPayloadError::InvalidId)?,
+        },
+        3 => Command::CommitPreparedAction {
+            decision: runtime_id(decoder.u64()?)?,
+            primary_target: decode_optional_target(&mut decoder)?,
+        },
+        4 => Command::CancelPreparedAction {
             decision: runtime_id(decoder.u64()?)?,
         },
-        4 => Command::Concede {
+        5 => Command::Advance {
+            boundary: runtime_id(decoder.u64()?)?,
+        },
+        6 => Command::Concede {
             decision: runtime_id(decoder.u64()?)?,
         },
         value => return Err(BattleCommandPayloadError::UnknownCommand(value)),
@@ -274,32 +304,33 @@ pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleComm
     Ok(command)
 }
 
-fn decode_action_command(
-    decoder: &mut Decoder<'_>,
-    interrupt: bool,
-) -> Result<Command, BattleCommandPayloadError> {
+fn encode_optional_target(encoder: &mut Encoder<Vec<u8>>, primary_target: Option<UnitId>) {
+    encoder.boolean(primary_target.is_some());
+    if let Some(target) = primary_target {
+        encoder.u64(target.get());
+    }
+}
+
+fn decode_action_command(decoder: &mut Decoder<'_>) -> Result<Command, BattleCommandPayloadError> {
     let decision = runtime_id(decoder.u64()?)?;
     let actor = runtime_id(decoder.u64()?)?;
     let ability = AbilityId::new(decoder.u32()?).ok_or(BattleCommandPayloadError::InvalidId)?;
-    let primary_target = match decoder.boolean()? {
-        false => None,
-        true => Some(runtime_id(decoder.u64()?)?),
-    };
-    Ok(if interrupt {
-        Command::UseInterrupt {
-            decision,
-            actor,
-            ability,
-            primary_target,
-        }
-    } else {
-        Command::UseAbility {
-            decision,
-            actor,
-            ability,
-            primary_target,
-        }
+    let primary_target = decode_optional_target(decoder)?;
+    Ok(Command::UseAbility {
+        decision,
+        actor,
+        ability,
+        primary_target,
     })
+}
+
+fn decode_optional_target(
+    decoder: &mut Decoder<'_>,
+) -> Result<Option<UnitId>, BattleCommandPayloadError> {
+    match decoder.boolean()? {
+        false => Ok(None),
+        true => Ok(Some(runtime_id(decoder.u64()?)?)),
+    }
 }
 
 fn runtime_id<I>(raw: u64) -> Result<I, BattleCommandPayloadError>

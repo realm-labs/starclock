@@ -572,7 +572,7 @@ mod tests {
             .unwrap();
         PlayActionRequest {
             session_id: observation.session_id.clone(),
-            decision_id: observation.decision_id.clone().unwrap(),
+            boundary_id: observation.boundary_id.clone().unwrap(),
             expected_state_hash: observation.state_hash.clone(),
             action_token: action.token.clone(),
             idempotency_key: IdempotencyKey::parse(idempotency_key).unwrap(),
@@ -802,7 +802,7 @@ mod tests {
                 .unwrap()
                 .diagnostics()
                 .len(),
-            2
+            3
         );
     }
 

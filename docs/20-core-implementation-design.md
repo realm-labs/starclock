@@ -214,7 +214,7 @@ invalidation; caches themselves are non-authoritative and excluded from
 canonical state.
 
 `PersistentPendingState` contains only work that is legitimately observable
-across command boundaries, such as the active interrupt window, a prepared
+across command boundaries, such as the active action boundary, a prepared
 manual action, a segmented action frame, or a scheduled timeline action. The
 synchronous resolution queue must be empty whenever `apply` returns.
 
@@ -270,19 +270,23 @@ Commands are external intent values. They contain no precomputed damage, selecto
 
 - start battle;
 - use a currently offered ability with an offered target choice;
-- use or pass an interrupt/Ultimate window;
+- request a ready Ultimate at the current stable action boundary;
+- commit or cancel its prepared target/variant input;
+- advance a stable action boundary's typed continuation;
 - answer a battle-local typed choice emitted by a rule;
 - concede only if the selected profile explicitly offers it.
 
-The initial combined interrupt-and-target command is only the atomic-action
-baseline. Full roster behavior separates selecting a queued manual action from
-answering its finite prepared inputs. The selected ability, origin, suspended
-interrupt continuation, and offered option/target specification are
-authoritative; UI widgets and animation state are not. See the
+Manual Ultimate behavior separates requesting the action from answering its
+finite prepared inputs. The selected ability, origin, suspended action-boundary
+continuation, and offered option/target specification are authoritative; UI
+widgets and animation state are not. See the
 [character action-flow matrix](characters/action-flow-matrix.md) for the audited
 boundary.
 
-`DecisionPoint` owns the canonical ordered legal-command collection. Controllers select one existing value rather than constructing equivalent commands. A command carries the decision sequence it answers; stale commands are rejected before mutation.
+`DecisionPoint` owns each canonical ordered decision-command collection. Stable
+action-boundary commands carry an `ActionBoundaryId`; prepared and ordinary
+choices carry a `DecisionId`. Controllers select retained values rather than
+constructing equivalents, and stale IDs are rejected before mutation.
 
 Legality validation reads the current state and catalog and returns a private `ValidatedCommand`. It verifies phase, decision identity, controller ownership, actor/life/presence, costs, ability availability, target choice, and rule-specific restrictions. Failed validation consumes no IDs or RNG and leaves the canonical state byte-identical.
 
@@ -485,7 +489,8 @@ Use explicit queues, never recursive trigger calls:
 
 - `OperationQueue` executes the current authored action/phase/hit work;
 - `ReactionQueue` holds trigger-produced actions/operations ordered by reaction key;
-- `InterruptWindowState` persists only while awaiting an external interrupt/pass command and stores the typed continuation resumed by Pass;
+- `ActionBoundaryState` stores the active turn and typed continuation resumed by `Advance`;
+- `PreparedActionState` stores an Ultimate request while exact target or variant input is pending;
 - `TimelineQueue` derives the next eligible actor from canonical Action Gauge ordering;
 - encounter boundary requests are collected separately and settled only at allowed boundaries.
 

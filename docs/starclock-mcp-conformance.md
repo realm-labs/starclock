@@ -11,15 +11,15 @@ Run the retained conformance proof from the repository root:
 cargo test -p starclock-cli --test mcp_stdio --all-features
 ```
 
-The client negotiates MCP `2025-11-25`, discovers all seven typed tools, both
+The client negotiates MCP `2025-11-25`, discovers all thirteen typed tools, both
 static resources, both RFC 6570 templates and the usage prompt, and reads
 bounded inert resources. It then completes the basic frozen Standard scenario
 using only each observation's legal action values. The retained trace is eight
-external actions, nine replay commands and terminal hash
-`5021cdd6…1b507ec`. It exports the replay, closes the session, verifies the
+external actions, twenty replay commands and terminal hash
+`2ab5d393…621e0`. It exports the replay, closes the session, verifies the
 replay against a fresh battle and requires the same final hash.
 
-Negative probes submit an obsolete decision/hash/token tuple and a tool call
+Negative probes submit an obsolete boundary/hash/token tuple and a tool call
 with missing required arguments. Both leave the accepted state hash unchanged
 and the server remains usable. A `notifications/cancelled` continuity probe
 records the frozen advisory-cancellation rule: notification delivery must not

@@ -467,17 +467,22 @@ fn benchmark_components() -> ConfigurationComponentSet {
 }
 
 fn select_command(battle: &Battle) -> Command {
+    if battle.view().phase() == BattlePhase::ReadyToAdvance {
+        return battle
+            .advance_command()
+            .expect("ready benchmark battle has an action boundary");
+    }
     let decision = battle.decision().expect("benchmark battle is nonterminal");
     let selected = match decision.kind() {
         DecisionKind::BattleStart => decision.legal_commands().first(),
-        DecisionKind::InterruptWindow => decision
-            .legal_commands()
-            .iter()
-            .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
         DecisionKind::NormalAction => decision
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::UseAbility { .. })),
+        DecisionKind::PreparedAction => decision
+            .legal_commands()
+            .iter()
+            .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
         DecisionKind::BattleChoice => None,
     };
     selected.cloned().expect("fixture offers supported command")

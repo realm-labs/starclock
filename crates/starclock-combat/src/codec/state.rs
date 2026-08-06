@@ -87,6 +87,9 @@ impl<S: Sink> Encoder<'_, S> {
     fn u16(&mut self, value: u16) {
         self.raw(&value.to_le_bytes());
     }
+    fn i16(&mut self, value: i16) {
+        self.raw(&value.to_le_bytes());
+    }
     fn u32(&mut self, value: u32) {
         self.raw(&value.to_le_bytes());
     }
@@ -378,6 +381,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     e.u16(state.encounter.number);
     e.u16(state.encounter.total_waves);
     encode_timeline(&mut e, state);
+    encode_reactions(&mut e, state);
     e.u8(match state.concede {
         ConcedePolicy::Allowed => 0,
     });
@@ -387,6 +391,72 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u64(next);
     }
     e.u64(state.committed_revision);
+}
+
+fn encode_reactions<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
+    use crate::catalog::action::SkillPointPaymentPolicy;
+
+    e.length(state.reactions.entries().len());
+    for queued in state.reactions.entries() {
+        let order = queued.order;
+        e.u8(order.boundary as u8);
+        e.u8(order.tier as u8);
+        e.i16(order.priority);
+        e.u8(order.side as u8);
+        e.u8(order.formation.get());
+        e.u64(order.spawn.get());
+        e.u32(order.source.get());
+        encode_optional_u32(e, order.rule.map(|id| id.get()));
+        encode_optional_u64(e, order.instance.map(|id| id.get()));
+        encode_optional_u32(e, order.trigger.map(|id| id.get()));
+        e.u64(order.actor.get());
+        e.u32(order.ability.get());
+        e.u64(order.insertion);
+        e.u64(queued.root.get());
+        e.u64(queued.parent.get());
+        e.u64(queued.actor.get());
+        e.u64(queued.owner.get());
+        e.u32(queued.ability.get());
+        e.u8(queued.origin as u8);
+        e.u8(queued.targets.selector.relation() as u8);
+        e.u8(queued.targets.selector.pattern() as u8);
+        e.u8(u8::from(queued.targets.selector.repeated_targets()));
+        e.u8(queued.targets.invalidation as u8);
+        encode_optional_u64(e, queued.targets.primary.map(|id| id.get()));
+        e.length(queued.targets.targets.len());
+        for target in &queued.targets.targets {
+            e.u64(target.get());
+        }
+        match queued.payment {
+            None => e.u8(0),
+            Some(SkillPointPaymentPolicy::TeamSkillPoints) => e.u8(1),
+            Some(SkillPointPaymentPolicy::Suppressed) => e.u8(2),
+            Some(SkillPointPaymentPolicy::TeamResource(resource)) => {
+                e.u8(3);
+                e.u32(resource.get());
+            }
+        }
+    }
+}
+
+fn encode_optional_u32<S: Sink>(e: &mut Encoder<'_, S>, value: Option<u32>) {
+    match value {
+        None => e.u8(0),
+        Some(value) => {
+            e.u8(1);
+            e.u32(value);
+        }
+    }
+}
+
+fn encode_optional_u64<S: Sink>(e: &mut Encoder<'_, S>, value: Option<u64>) {
+    match value {
+        None => e.u8(0),
+        Some(value) => {
+            e.u8(1);
+            e.u64(value);
+        }
+    }
 }
 
 fn encode_rule_value<S: Sink>(e: &mut Encoder<'_, S>, value: &RuleValue) {
@@ -437,13 +507,35 @@ fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
             encode_turn(e, turn);
         }
     }
-    match &state.timeline.interrupt {
+    match &state.timeline.boundary {
         None => e.u8(0),
-        Some(window) => {
+        Some(boundary) => {
             e.u8(1);
-            e.u8(window.kind as u8);
-            encode_turn(e, window.turn);
-            match window.continuation {
+            e.u64(boundary.id.get());
+            encode_turn(e, boundary.turn);
+            match boundary.continuation {
+                ResolutionContinuation::ContinueActiveTurn => e.u8(0),
+                ResolutionContinuation::CompleteActiveTurn {
+                    cause,
+                    ticks_turn_end,
+                } => {
+                    e.u8(1);
+                    encode_cause(e, cause);
+                    e.u8(u8::from(ticks_turn_end));
+                }
+            }
+        }
+    }
+    match &state.timeline.prepared_action {
+        None => e.u8(0),
+        Some(prepared) => {
+            e.u8(1);
+            e.u64(prepared.id.get());
+            e.u64(prepared.actor.get());
+            e.u32(prepared.ability.get());
+            e.u64(prepared.boundary.id.get());
+            encode_turn(e, prepared.boundary.turn);
+            match prepared.boundary.continuation {
                 ResolutionContinuation::ContinueActiveTurn => e.u8(0),
                 ResolutionContinuation::CompleteActiveTurn {
                     cause,
@@ -767,7 +859,7 @@ fn encode_decision<S: Sink>(e: &mut Encoder<'_, S>, decision: Option<&DecisionPo
     e.u8(match decision.kind() {
         DecisionKind::BattleStart => 0,
         DecisionKind::NormalAction => 1,
-        DecisionKind::InterruptWindow => 2,
+        DecisionKind::PreparedAction => 2,
         DecisionKind::BattleChoice => 3,
     });
     match decision.owner() {
@@ -798,21 +890,34 @@ fn encode_command<S: Sink>(e: &mut Encoder<'_, S>, command: &Command) {
             e.u8(1);
             encode_action_command(e, *decision, *actor, *ability, *primary_target);
         }
-        Command::UseInterrupt {
-            decision,
+        Command::RequestUltimate {
+            boundary,
             actor,
             ability,
-            primary_target,
         } => {
             e.u8(2);
-            encode_action_command(e, *decision, *actor, *ability, *primary_target);
+            e.u64(boundary.get());
+            e.u64(actor.get());
+            e.u32(ability.get());
         }
-        Command::PassInterruptWindow { decision } => {
+        Command::CommitPreparedAction {
+            decision,
+            primary_target,
+        } => {
             e.u8(3);
             e.u64(decision.get());
+            encode_optional_target(e, *primary_target);
+        }
+        Command::CancelPreparedAction { decision } => {
+            e.u8(4);
+            e.u64(decision.get());
+        }
+        Command::Advance { boundary } => {
+            e.u8(5);
+            e.u64(boundary.get());
         }
         Command::Concede { decision } => {
-            e.u8(4);
+            e.u8(6);
             e.u64(decision.get());
         }
     }
@@ -828,6 +933,10 @@ fn encode_action_command<S: Sink>(
     e.u64(decision.get());
     e.u64(actor.get());
     e.u32(ability.get());
+    encode_optional_target(e, primary_target);
+}
+
+fn encode_optional_target<S: Sink>(e: &mut Encoder<'_, S>, primary_target: Option<UnitId>) {
     match primary_target {
         None => e.u8(0),
         Some(target) => {

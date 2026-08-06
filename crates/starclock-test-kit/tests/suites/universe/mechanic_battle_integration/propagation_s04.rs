@@ -294,19 +294,5 @@ fn with_resonance_energy(
 }
 
 fn use_resonance(battle: &mut Battle) -> starclock_combat::Resolution {
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. } | Command::UseAbility { ability, .. }
-                    if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .unwrap_or_else(|| panic!("charged targeted Resonance is legal"))
-        .clone();
-    battle.apply(command).unwrap()
+    use_ready_ability(battle, RESONANCE_ABILITY_RAW)
 }

@@ -276,8 +276,8 @@ fn entropic_retribution_ticks_from_current_party_hp_loss_on_enemy_turn() {
         }
         let resolution = first_normal_action(&mut battle);
         assert!(resolution.fault().is_none(), "{:?}", resolution.fault());
-        observed = resolution
-            .events()
+        let events = complete_action_events(&mut battle, &resolution);
+        observed = events
             .iter()
             .find_map(|event| match event.kind() {
                 BattleEventKind::Damage(data)
@@ -411,21 +411,7 @@ fn expression_has_scalar(value: &ValueExpr, expected: i64) -> bool {
 }
 
 fn use_resonance(battle: &mut Battle) -> starclock_combat::Resolution {
-    let command = battle
-        .decision()
-        .unwrap()
-        .legal_commands()
-        .iter()
-        .find(|command| {
-            matches!(
-                command,
-                Command::UseInterrupt { ability, .. } | Command::UseAbility { ability, .. }
-                    if ability.get() == RESONANCE_ABILITY_RAW
-            )
-        })
-        .unwrap_or_else(|| panic!("charged Resonance is legal"))
-        .clone();
-    battle.apply(command).unwrap()
+    use_ready_ability(battle, RESONANCE_ABILITY_RAW)
 }
 
 fn wounded_players(original: BattleSpec, current_hp: i64, marker: u8) -> BattleSpec {

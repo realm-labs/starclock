@@ -12,8 +12,8 @@ use crate::{
     command::model::{DecisionKind, DecisionOwner},
     formula::model::{CombatElement, DamageClass},
     id::{
-        AbilityId, ActionId, DecisionId, EventId, HitId, OperationId, PhaseId, TimelineActorId,
-        UnitId, WaveInstanceId,
+        AbilityId, ActionBoundaryId, ActionId, DecisionId, EventId, HitId, OperationId, PhaseId,
+        TimelineActorId, UnitId, WaveInstanceId,
     },
     rule::model::RuleValue,
 };
@@ -58,6 +58,8 @@ pub enum BattleEventKind {
     Battle(BattleEventData),
     /// External decision lifecycle fact.
     Decision(DecisionEventData),
+    /// Stable boundary between independent actions changed.
+    ActionBoundary(ActionBoundaryEventData),
     /// Normal-turn lifecycle fact.
     Turn(TurnEventData),
     /// Common action-envelope lifecycle fact.
@@ -585,6 +587,26 @@ pub enum DecisionEventData {
     },
     /// The accepted command consumed this exact decision.
     Closed { decision: DecisionId },
+}
+
+/// Stable action-boundary lifecycle facts.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ActionBoundaryEventData {
+    /// Resolution reached a new safe point for controller requests or deterministic advance.
+    Opened { boundary: ActionBoundaryId },
+    /// A system advance consumed the boundary and resumed deterministic work.
+    Advanced { boundary: ActionBoundaryId },
+    /// A ready Ultimate request consumed the boundary before resumed work.
+    UltimateRequested {
+        boundary: ActionBoundaryId,
+        actor: UnitId,
+        ability: AbilityId,
+    },
+    UltimateCancelled {
+        boundary: ActionBoundaryId,
+        actor: UnitId,
+        ability: AbilityId,
+    },
 }
 
 /// Stable fault payload with no platform diagnostic string.

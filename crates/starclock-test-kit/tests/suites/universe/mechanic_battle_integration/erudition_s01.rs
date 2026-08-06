@@ -88,7 +88,7 @@ fn gray_matter_grants_full_entry_charge_and_one_non_recursive_extra_ultimate() {
 
     let first = ultimate_command(&battle, None);
     let (actor, ability) = command_actor_ability(&first);
-    let first_resolution = battle.apply(first).unwrap();
+    let first_resolution = apply_action_command(&mut battle, first);
     assert!(
         first_resolution.fault().is_none(),
         "{:#?}",
@@ -108,7 +108,7 @@ fn gray_matter_grants_full_entry_charge_and_one_non_recursive_extra_ultimate() {
     assert!(!has_effect(&battle, actor, brain));
 
     let second = ultimate_command(&battle, Some((actor, ability)));
-    let second_resolution = battle.apply(second).unwrap();
+    let second_resolution = apply_action_command(&mut battle, second);
     assert!(
         second_resolution.fault().is_none(),
         "{:#?}",
@@ -163,16 +163,8 @@ fn transmitter_converts_actual_energy_overflow_to_exact_brain_charge() {
         0xc4,
     );
     assert!(started.fault().is_none(), "{:#?}", started.events());
-    while battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        let decision = battle.decision().unwrap();
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: decision.id(),
-            })
-            .unwrap();
+    while battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+        battle.advance().unwrap();
     }
     let resolution = first_normal_action(&mut battle);
     assert!(resolution.fault().is_none(), "{:#?}", resolution.events());
@@ -298,26 +290,21 @@ fn ultimate_command(
     battle: &Battle,
     exact: Option<(starclock_combat::UnitId, AbilityId)>,
 ) -> Command {
-    battle
-        .decision()
-        .expect("Ultimate decision")
-        .legal_commands()
-        .iter()
-        .find(|command| match (command, exact) {
-            (
-                Command::UseInterrupt { actor, ability, .. },
-                Some((expected_actor, expected_ability)),
-            ) => *actor == expected_actor && *ability == expected_ability,
-            (Command::UseInterrupt { .. }, None) => true,
-            _ => false,
+    let option = battle
+        .available_ultimates()
+        .into_iter()
+        .find(|option| {
+            exact.is_none_or(|(actor, ability)| {
+                option.actor() == actor && option.ability() == ability
+            })
         })
-        .expect("requested Ultimate is legal")
-        .clone()
+        .expect("requested Ultimate is legal");
+    battle.request_ultimate_command(option).unwrap()
 }
 
 fn command_actor_ability(command: &Command) -> (starclock_combat::UnitId, AbilityId) {
     match command {
-        Command::UseInterrupt { actor, ability, .. } => (*actor, *ability),
+        Command::RequestUltimate { actor, ability, .. } => (*actor, *ability),
         _ => panic!("Ultimate command"),
     }
 }

@@ -282,7 +282,11 @@ fn score(
 ) -> Result<BaselineCommandScore, BaselineDecisionError> {
     let (class_tier, components, target) = match &command {
         Command::StartBattle { .. } => (60_000_000, empty_components(), None),
-        Command::PassInterruptWindow { .. } => (10_000_000, empty_components(), None),
+        Command::Advance { .. } => (10_000_000, empty_components(), None),
+        Command::CommitPreparedAction { primary_target, .. } => {
+            (50_000_000, empty_components(), *primary_target)
+        }
+        Command::CancelPreparedAction { .. } => (-50_000_000, empty_components(), None),
         Command::Concede { .. } => (-100_000_000, empty_components(), None),
         Command::UseAbility {
             actor,
@@ -296,12 +300,7 @@ fn score(
             }
             (hint.class.tier(), hint.components, *primary_target)
         }
-        Command::UseInterrupt {
-            actor,
-            ability,
-            primary_target,
-            ..
-        } => {
+        Command::RequestUltimate { actor, ability, .. } => {
             let hint = checked_hint(*actor, *ability, units, hints)?;
             if !matches!(
                 hint.class,
@@ -309,7 +308,7 @@ fn score(
             ) {
                 return Err(BaselineDecisionError::AbilityClassMismatch(*ability));
             }
-            (hint.class.tier(), hint.components, *primary_target)
+            (hint.class.tier(), hint.components, None)
         }
     };
     let target_value = match target {
@@ -383,7 +382,7 @@ const fn empty_components() -> BaselineScoreComponents {
 
 fn command_ability(command: &Command) -> Option<AbilityId> {
     match command {
-        Command::UseAbility { ability, .. } | Command::UseInterrupt { ability, .. } => {
+        Command::UseAbility { ability, .. } | Command::RequestUltimate { ability, .. } => {
             Some(*ability)
         }
         _ => None,

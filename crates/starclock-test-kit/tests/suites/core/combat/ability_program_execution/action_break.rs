@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 
 use super::*;
 
@@ -73,6 +73,7 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
             )
         ]
     );
+    settle_ready_boundaries(&mut battle);
     assert_eq!(
         battle.view().active_turn().unwrap().origin(),
         starclock_combat::ActionOrigin::ExtraTurn
@@ -147,7 +148,7 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
         972
     );
 
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let extra_action = battle
         .decision()
         .unwrap()
@@ -159,21 +160,23 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
         .unwrap()
         .clone();
     let extra = battle.apply(extra_action).unwrap();
-    assert!(extra.events().iter().any(|event| matches!(
+    let mut events = extra.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Action(starclock_combat::ActionEventData::Resolved {
             origin: starclock_combat::ActionOrigin::ExtraTurn,
             ..
         })
     )));
-    assert!(extra.events().iter().any(|event| matches!(
+    assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Turn(starclock_combat::TurnEventData::Ended {
             origin: starclock_combat::ActionOrigin::ExtraTurn,
             ..
         })
     )));
-    assert!(!extra.events().iter().any(|event| matches!(
+    assert!(!events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Turn(starclock_combat::TurnEventData::ExtraTurnGranted { .. })
     )));

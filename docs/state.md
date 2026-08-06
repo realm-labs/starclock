@@ -21,16 +21,22 @@ Git history is the only historical record.
 - `starclock-activity` owns deterministic cross-battle orchestration.
 - Standard battle, Standard Universe, Gold and Gears, and Swarm Disaster use the
   shared combat/activity kernels.
-- Manual combat interrupts are player-owned before-action and after-action
-  decisions. Empty windows resolve synchronously, while an offered window
-  persists the typed continuation resumed by pass or after inserted actions.
-- The current interrupt command still combines Ultimate selection, initial
-  target commitment, and execution. The 90-form action-flow audit requires a
-  prepared-action boundary and bounded segmented frames; those extensions are
-  documented but not yet implemented.
+- Combat resolution stops at stable boundaries between independent actions.
+  `Advance` resumes deterministic work; adapters may submit it automatically
+  when no ready Ultimate needs to be exposed. If a normal decision already
+  coexists with the boundary, `Advance` closes only the Ultimate-insertion
+  opportunity and leaves that decision pending.
+- A ready Ultimate can be requested at any stable action boundary, including
+  another unit's turn. The request creates `PreparedActionState`; a later exact
+  commit selects its target and executes it, while cancellation restores the
+  suspended continuation without paying resources.
+- Trigger-produced actions use an authoritative deterministic queue that may
+  survive a stable boundary. The two confirmed segmented Ultimate families
+  still require bounded persistent `ActionFrame` implementation.
 - Replay records and verifies only data produced by the current tree.
-- `starclock-inspector` captures ID-only owned battle snapshots, diffs and
-  optional bounded resolver diagnostics without owning presentation metadata.
+- `starclock-inspector` captures ID-only owned battle snapshots, including
+  stable/prepared boundaries, queued reactions and allocator cursors, plus
+  diffs and optional bounded resolver diagnostics without presentation metadata.
 - CLI, Agent API and MCP are current adapters over the domain crates.
 
 ## Verification

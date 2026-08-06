@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::advance_boundary_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -213,7 +213,7 @@ fn one_shot_effect_guards_reject_a_debuff_and_prevent_team_defeat() {
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let use_guard = battle
         .decision()
         .unwrap()
@@ -224,17 +224,20 @@ fn one_shot_effect_guards_reject_a_debuff_and_prevent_team_defeat() {
         .clone();
     let mut events = battle.apply(use_guard).unwrap().events().to_vec();
     for _ in 0..4 {
-        let Some(command) = battle.decision().and_then(|decision| {
-            decision
-                .legal_commands()
-                .iter()
-                .find(|command| match command {
-                    Command::PassInterruptWindow { .. } => true,
-                    Command::UseAbility { ability, .. } => *ability == id(2),
-                    _ => false,
-                })
-                .cloned()
-        }) else {
+        let command = if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+            battle.advance_command()
+        } else {
+            battle.decision().and_then(|decision| {
+                decision
+                    .legal_commands()
+                    .iter()
+                    .find(|command| {
+                        matches!(command, Command::UseAbility { ability, .. } if *ability == id(2))
+                    })
+                    .cloned()
+            })
+        };
+        let Some(command) = command else {
             break;
         };
         events.extend_from_slice(battle.apply(command).unwrap().events());

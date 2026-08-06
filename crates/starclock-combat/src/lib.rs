@@ -34,13 +34,13 @@ mod toughness;
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
 pub use id::{
-    AbilityId, ActionId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId, CommandId,
-    DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId, EncounterWaveId,
+    AbilityId, ActionBoundaryId, ActionId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId,
+    CommandId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId, EncounterWaveId,
     EnemyDefinitionId, EnemyPhaseId, EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId,
-    ModifierInstanceId, ModifierStackingGroupId, NativeHandlerId, OperationId, PhaseId, ProgramId,
-    RuleBundleId, RuleId, RuleInstanceId, SelectorId, ShieldInstanceId, SourceDefinitionId,
-    SpawnSequence, StateSlotDefinitionId, TimelineActorId, TriggerId, UnitDefinitionId, UnitId,
-    WaveInstanceId, ZeroIdError,
+    ModifierInstanceId, ModifierStackingGroupId, NativeHandlerId, OperationId, PhaseId,
+    PreparedActionId, ProgramId, RuleBundleId, RuleId, RuleInstanceId, SelectorId,
+    ShieldInstanceId, SourceDefinitionId, SpawnSequence, StateSlotDefinitionId, TimelineActorId,
+    TriggerId, UnitDefinitionId, UnitId, WaveInstanceId, ZeroIdError,
 };
 pub use numeric::domain::{
     ActionGauge, DamageAmount, Energy, HealingAmount, Hp, Probability, RawToughness, ShieldAmount,
@@ -70,15 +70,16 @@ pub use battle::spec::{
     TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, CharacterResourceView,
-    EffectView, EncounterView, FormationView, InterruptWindowView, LinkView, ModifierInstanceView,
-    PendingExtraTurnView, RuleInstanceView, SequenceCursorsView, ShieldView, TeamResourceView,
-    TeamView, TemporaryWeaknessView, TimelineActorView, ToughnessLayerView, TransformationView,
-    UnitView,
+    ActionBoundaryView, ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView,
+    CharacterResourceView, EffectView, EncounterView, FormationView, LinkView,
+    ModifierInstanceView, PendingExtraTurnView, PendingReactionView, PreparedActionView,
+    RuleInstanceView, SequenceCursorsView, ShieldView, TeamResourceView, TeamView,
+    TemporaryWeaknessView, TimelineActorView, ToughnessLayerView, TransformationView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
     Command, CommandError, CommandErrorKind, DecisionKind, DecisionOwner, DecisionPoint,
+    UltimateOption,
 };
 pub use diagnostic::{
     ActionCancellationReason, BattleDiagnostics, CommittedTargetsDiagnostic, DiagnosticRecord,
@@ -94,14 +95,13 @@ pub use effect::model::{
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
-    ActionEventData, ActionGaugeChangeKind, BattleEvent, BattleEventData, BattleEventKind,
-    BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind, DecisionEventData,
-    EffectEventData, EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData,
-    HpConsumptionEventData, PhaseEventData, ResourceEventData, RuleSignalEventData,
+    ActionBoundaryEventData, ActionEventData, ActionGaugeChangeKind, BattleEvent, BattleEventData,
+    BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
+    DecisionEventData, EffectEventData, EnemyPhaseEventData, FaultEventData, HealEventData,
+    HitEventData, HpConsumptionEventData, PhaseEventData, ResourceEventData, RuleSignalEventData,
     RuleStateEventData, ShieldEventData, SkillPointPayer, ToughnessEventData, TurnEventData,
     UnitEventData, WaveEventData,
 };
-pub use timeline::state::InterruptWindowKind;
 pub use toughness::model::{
     BreakCreditPolicy, ToughnessLayerKind, ToughnessLayerSpec, ToughnessReductionDefinition,
     ToughnessWeaknessPolicy,

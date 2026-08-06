@@ -405,15 +405,8 @@ fn fixture_action(materialization: &UniverseBattleMaterialization, marker: u8) -
         })
         .unwrap();
     assert!(started.fault().is_none(), "{:?}", started.fault());
-    if battle
-        .decision()
-        .is_some_and(|decision| decision.kind() == starclock_combat::DecisionKind::InterruptWindow)
-    {
-        battle
-            .apply(Command::PassInterruptWindow {
-                decision: battle.decision().unwrap().id(),
-            })
-            .unwrap();
+    if battle.advance_command().is_some() {
+        battle.advance().unwrap();
     }
     let command = battle
         .decision()

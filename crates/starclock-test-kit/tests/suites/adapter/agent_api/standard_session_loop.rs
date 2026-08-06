@@ -7,15 +7,15 @@ use starclock_agent_api::{
 use starclock_data::standard::SCENARIOS;
 
 const EXPECTED_FINAL_HASHES: [&str; 6] = [
-    "172dbbda6facf9b5c1e6c0c2be13d1fbf9b27654487cd44e891d641baca42bc2",
-    "a42eee5e33f8b3f245ccdcdd61d3a5fa2ee58412f96fd1b74676e62f45dc92b0",
-    "458cd910333974ed923642af05b0834c51549c293c4d804771b8a97d9be4d7c0",
-    "f2a8372c95bb29b0cb0d0a6ada4f4dfe46f962ef035cc0fc0590742d04125c1a",
-    "6d5830a310448861158b0c6c53943ef748a4118ae2f595469696b8e087b1382b",
-    "4495b146fdb4fcda7e930dcfceb6c22fa01004967f8828c3816717c87fe28c7c",
+    "2ab5d3937e2dd9d26737cea60270d2fb7997401c37cfbb3fffc23ac9193621e0",
+    "d8ad2d64507d4a1315c100bacd6a07f4671ab8ed6955ec3dca54bbf079ae1baa",
+    "22d2606bcb6bc6f78b1217005f28a8c3967e234f05c1a3d2e5d51b4bfa083118",
+    "aedde8bef5f5d70a1f2564d56d9b6598af2211a171453bd2270d808a19ef2706",
+    "b433b0201b13975652cf069daea40bf81de55c7f0c6a2d0bfc6fdbc6044f1a77",
+    "a1a7a6d3fb577e5b24364bfb7bf74588e03dd23fae24246eb4cf5e3624f7e6ba",
 ];
 const EXPECTED_EXTERNAL_STEPS: [u64; 6] = [8, 2, 6, 3, 17, 22];
-const EXPECTED_REPLAY_COMMANDS: [usize; 6] = [11, 3, 8, 4, 21, 28];
+const EXPECTED_REPLAY_COMMANDS: [usize; 6] = [20, 4, 14, 6, 40, 54];
 
 #[test]
 fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
@@ -45,13 +45,19 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
                     observation
                         .legal_actions
                         .iter()
-                        .find(|action| action.kind == AgentActionKind::PassInterrupt)
+                        .find(|action| action.kind == AgentActionKind::CommitPreparedAction)
                 })
-                .expect("the frozen script always has an ability or interrupt pass");
+                .or_else(|| {
+                    observation
+                        .legal_actions
+                        .iter()
+                        .find(|action| action.kind == AgentActionKind::Advance)
+                })
+                .expect("the frozen script always has a deterministic progress action");
             let response = session
                 .apply_action(PlayActionRequest {
                     session_id: session_id.clone(),
-                    decision_id: observation.decision_id.clone().unwrap(),
+                    boundary_id: observation.boundary_id.clone().unwrap(),
                     expected_state_hash: observation.state_hash.clone(),
                     action_token: action.token.clone(),
                     idempotency_key: IdempotencyKey::parse(&format!(

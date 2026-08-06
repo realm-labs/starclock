@@ -1,4 +1,4 @@
-use crate::combat_decision::pass_interrupt_if_offered;
+use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
@@ -257,7 +257,7 @@ fn execute_enemy_attack(
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let attack = battle
         .decision()
         .unwrap()
@@ -287,7 +287,7 @@ fn execute_enemy_attack_inspected(
             decision: battle.decision().unwrap().id(),
         })
         .unwrap();
-    pass_interrupt_if_offered(&mut battle);
+    advance_boundary_if_offered(&mut battle);
     let attack = battle
         .decision()
         .unwrap()
@@ -333,7 +333,7 @@ fn inspected_reaction_reports_the_exact_cancellation_reason() {
 
 #[test]
 fn counter_preserves_cause_and_does_not_own_the_normal_timeline_turn() {
-    let (_battle, resolution) = execute_enemy_attack(
+    let (mut battle, resolution) = execute_enemy_attack(
         false,
         ReactionBoundary::AfterHit,
         ActionOrigin::Counter,
@@ -390,8 +390,8 @@ fn counter_preserves_cause_and_does_not_own_the_normal_timeline_turn() {
     );
     assert_eq!(declared.cause().source_definition().unwrap().get(), 2);
 
-    let ended_turns = resolution
-        .events()
+    let settled = settle_ready_boundaries(&mut battle);
+    let ended_turns = settled
         .iter()
         .filter(|event| {
             matches!(
@@ -435,14 +435,15 @@ fn crowd_control_cancels_a_counter_without_consuming_rng() {
 
 #[test]
 fn a_delayed_action_waits_until_the_declared_boundary() {
-    let (_, resolution) = execute_enemy_attack(
+    let (mut battle, resolution) = execute_enemy_attack(
         false,
         ReactionBoundary::BeforeTimeline,
         ActionOrigin::DelayedAction,
         AbilityKind::DelayedAction,
         false,
     );
-    let events = resolution.events();
+    let mut events = resolution.events().to_vec();
+    events.extend(settle_ready_boundaries(&mut battle));
     let turn_ended = events
         .iter()
         .position(|event| {
@@ -474,7 +475,7 @@ fn every_automatic_action_family_uses_the_common_envelope_without_owning_a_turn(
         (ActionOrigin::ExtraAction, AbilityKind::ExtraAction),
         (ActionOrigin::ExtraTurn, AbilityKind::ExtraTurn),
     ] {
-        let (_, resolution) =
+        let (mut battle, resolution) =
             execute_enemy_attack(false, ReactionBoundary::AfterAction, origin, kind, false);
         assert!(resolution.events().iter().any(|event| matches!(
             event.kind(),
@@ -484,9 +485,9 @@ fn every_automatic_action_family_uses_the_common_envelope_without_owning_a_turn(
                 ..
             }) if ability.get() == 2 && *resolved_origin == origin
         )));
+        let settled = settle_ready_boundaries(&mut battle);
         assert_eq!(
-            resolution
-                .events()
+            settled
                 .iter()
                 .filter(|event| matches!(
                     event.kind(),
