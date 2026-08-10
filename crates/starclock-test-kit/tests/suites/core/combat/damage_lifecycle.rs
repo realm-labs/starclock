@@ -101,6 +101,14 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
 }
 
 fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<CombatCatalog> {
+    catalog_with_spawn(waves, transition, None)
+}
+
+fn catalog_with_spawn(
+    waves: u16,
+    transition: WaveTransitionPolicy,
+    spawn: Option<starclock_combat::catalog::encounter::SpawnProgramDefinition>,
+) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new([0x91; 32]);
     builder.add_modifier_group(ModifierStackingGroup {
         id: definition(1),
@@ -379,7 +387,7 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             } else {
                 WaveCarry::CARRY_ALL
             };
-            EncounterWaveDefinition::new(
+            let wave = EncounterWaveDefinition::new(
                 definition::<EncounterWaveId>(u32::from(number)),
                 number,
                 entry_program,
@@ -392,12 +400,22 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
                         definition(1),
                         None,
                         None,
-                        true,
+                        spawn.is_none(),
                     )
                     .unwrap(),
                 ],
             )
-            .unwrap()
+            .unwrap();
+            if number == 1 {
+                spawn
+                    .clone()
+                    .map_or(Some(wave.clone()), |program| {
+                        wave.with_spawn_program(program)
+                    })
+                    .unwrap()
+            } else {
+                wave
+            }
         })
         .collect::<Vec<_>>();
     builder.add_encounter(
@@ -406,6 +424,50 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             .unwrap(),
     );
     builder.build().unwrap()
+}
+
+fn spawn_battle(quota: u16) -> Battle {
+    use starclock_combat::catalog::encounter::{
+        SpawnEndPolicy, SpawnOrdering, SpawnProgramDefinition, SpawnRefillTiming,
+    };
+
+    let program = SpawnProgramDefinition::new(
+        SpawnRefillTiming::AfterDefeatSettlement,
+        SpawnOrdering::AuthoredSlot,
+        1,
+        vec![FormationIndex::new(4).unwrap()],
+        SpawnEndPolicy::DefeatQuota(quota),
+    )
+    .unwrap();
+    let participants = vec![
+        ParticipantSpec::new(
+            TeamSide::Player,
+            FormationIndex::new(0).unwrap(),
+            ParticipantSource::Player,
+            combatant(1, vec![1, 2, 4], 1_000, 100_000_000, 0x31),
+        ),
+        ParticipantSpec::new(
+            TeamSide::Enemy,
+            FormationIndex::new(4).unwrap(),
+            ParticipantSource::EncounterEnemy(definition(1)),
+            combatant(2, vec![3], 600, 50_000_000, 0x41),
+        ),
+    ];
+    let spec = BattleSpec::new(
+        AssemblyDigest::new([0x52; 32]).unwrap(),
+        definition(1),
+        participants,
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(
+        catalog_with_spawn(1, WaveTransitionPolicy::AfterAction, Some(program)),
+        spec,
+        BattleSeed::new([0x62; 32]),
+    )
+    .unwrap()
 }
 
 fn combatant(
@@ -889,8 +951,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            145, 94, 80, 164, 66, 196, 82, 20, 71, 123, 66, 4, 238, 60, 245, 52, 148, 32, 38, 81,
-            162, 45, 8, 154, 203, 250, 24, 183, 171, 202, 10, 34,
+            84, 121, 181, 229, 93, 128, 169, 152, 170, 255, 73, 14, 138, 235, 89, 7, 15, 107, 148,
+            160, 77, 30, 81, 116, 46, 207, 186, 108, 48, 6, 115, 96,
         ]
     );
     let damage = resolution
@@ -1006,8 +1068,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            79, 193, 157, 110, 229, 131, 197, 152, 71, 63, 217, 85, 241, 130, 234, 37, 158, 142, 4,
-            233, 174, 26, 80, 248, 87, 252, 157, 15, 63, 20, 91, 172,
+            120, 147, 215, 160, 200, 91, 75, 181, 216, 19, 131, 28, 166, 2, 99, 58, 243, 13, 212,
+            158, 119, 131, 188, 13, 26, 134, 169, 84, 167, 238, 65, 176,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -1032,6 +1094,35 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
 }
 
 #[test]
+fn continuous_spawn_refills_in_slot_order_until_the_authored_quota() {
+    let mut battle = spawn_battle(2);
+    start_and_pass(&mut battle);
+    let first = use_ability(&mut battle, 2);
+    assert_eq!(first.phase(), BattlePhase::ReadyToAdvance);
+    assert_eq!(battle.view().encounter().spawn_defeats(), 1);
+    let enemy = battle.view().units_by_id().nth(1).unwrap();
+    assert_eq!(enemy.life(), LifeState::Alive);
+    assert_eq!(enemy.current_hp().get(), 600);
+    assert_eq!(enemy.spawn_sequence().get(), 3);
+    assert!(first.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(starclock_combat::UnitEventData::Refilled {
+            wave_defeats: 1,
+            ..
+        })
+    )));
+
+    start_and_pass_current_turn(&mut battle);
+    let second = use_ability(&mut battle, 2);
+    assert_eq!(second.phase(), BattlePhase::Won);
+    assert_eq!(battle.view().encounter().spawn_defeats(), 2);
+    assert!(!second.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(starclock_combat::UnitEventData::Refilled { .. })
+    )));
+}
+
+#[test]
 fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     let mut battle = battle(2, 200_000_000, 50_000_000);
     start_and_pass(&mut battle);
@@ -1039,8 +1130,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            72, 168, 121, 146, 59, 243, 47, 23, 130, 151, 234, 169, 229, 59, 18, 197, 103, 119,
-            244, 168, 230, 129, 124, 2, 38, 139, 113, 131, 223, 215, 238, 155,
+            190, 63, 34, 3, 49, 185, 110, 178, 26, 161, 169, 23, 90, 210, 151, 137, 117, 242, 142,
+            107, 15, 160, 141, 61, 179, 186, 219, 46, 194, 216, 128, 65,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::ReadyToAdvance);
@@ -1082,8 +1173,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            120, 198, 61, 91, 203, 181, 125, 145, 171, 72, 164, 31, 98, 122, 111, 178, 163, 206,
-            221, 106, 65, 222, 3, 20, 220, 75, 166, 8, 56, 147, 150, 149,
+            131, 176, 117, 85, 161, 158, 213, 181, 130, 181, 184, 157, 239, 83, 132, 177, 35, 221,
+            172, 215, 136, 36, 139, 226, 13, 34, 125, 80, 238, 121, 104, 176,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1144,8 +1235,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            234, 152, 157, 193, 168, 34, 192, 140, 233, 81, 50, 76, 156, 63, 239, 253, 100, 200,
-            147, 205, 253, 19, 12, 129, 34, 213, 205, 160, 113, 225, 195, 237,
+            62, 241, 45, 57, 41, 243, 91, 169, 101, 107, 124, 123, 86, 43, 42, 254, 24, 5, 255, 88,
+            242, 2, 161, 169, 109, 233, 235, 55, 148, 213, 201, 148,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

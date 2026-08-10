@@ -15,7 +15,7 @@ use crate::{
 };
 
 use super::transaction::{Transaction, action_fault};
-use super::{lifecycle, operation, program};
+use super::{clock, lifecycle, operation, program};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum ActionBoundary {
@@ -47,8 +47,9 @@ pub(super) fn settle_after_action(
         return Ok(ActionBoundary::Terminal(parent));
     }
 
+    parent = settle_spawn_program(catalog, txn, cause, parent)?;
     let current = txn.state.encounter.number;
-    if has_living_present(txn, TeamSide::Enemy, Some(current)) {
+    if !wave_complete(catalog, txn)? {
         return Ok(ActionBoundary::Continue(parent));
     }
 
@@ -82,6 +83,112 @@ pub(super) fn settle_after_action(
     Ok(ActionBoundary::Continue(parent))
 }
 
+fn settle_spawn_program(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+) -> Result<EventId, BattleFault> {
+    use crate::catalog::encounter::{SpawnEndPolicy, SpawnRefillTiming};
+
+    let wave = catalog
+        .encounter(txn.state.encounter.definition)
+        .and_then(|encounter| encounter.wave(txn.state.encounter.number))
+        .ok_or_else(|| action_fault(42))?;
+    let Some(program) = wave.spawn_program() else {
+        return Ok(parent);
+    };
+    if program.refill_timing() != SpawnRefillTiming::AfterDefeatSettlement {
+        return Err(action_fault(52));
+    }
+    let required_alive = has_required_living(catalog, txn)?;
+    let mut refillable = txn
+        .state
+        .units
+        .iter_by_id()
+        .filter(|unit| {
+            unit.side == TeamSide::Enemy
+                && unit.entry_wave == txn.state.encounter.number
+                && unit.life != LifeState::Alive
+                && program
+                    .refill_slots()
+                    .binary_search(&unit.formation)
+                    .is_ok()
+        })
+        .map(|unit| (unit.formation, unit.id))
+        .collect::<Vec<_>>();
+    refillable.sort_unstable_by_key(|(formation, unit)| (*formation, *unit));
+    for (_, unit) in refillable {
+        if matches!(program.end(), SpawnEndPolicy::DefeatQuota(quota) if txn.state.encounter.spawn_defeats >= quota)
+        {
+            break;
+        }
+        let next = txn
+            .state
+            .encounter
+            .spawn_defeats
+            .checked_add(1)
+            .ok_or_else(|| action_fault(53))?;
+        txn.set_spawn_defeats(next);
+        let should_refill = match program.end() {
+            SpawnEndPolicy::DefeatQuota(quota) => next < quota,
+            SpawnEndPolicy::RequiredSlotsDefeated => required_alive,
+        };
+        if should_refill {
+            parent = lifecycle::refill_spawn_unit(catalog, txn, cause, parent, unit, next)?;
+        }
+    }
+    Ok(parent)
+}
+
+fn wave_complete(catalog: &CombatCatalog, txn: &Transaction<'_>) -> Result<bool, BattleFault> {
+    use crate::catalog::encounter::SpawnEndPolicy;
+
+    let wave = catalog
+        .encounter(txn.state.encounter.definition)
+        .and_then(|encounter| encounter.wave(txn.state.encounter.number))
+        .ok_or_else(|| action_fault(42))?;
+    let Some(program) = wave.spawn_program() else {
+        let has_required = wave.slots().iter().any(|slot| slot.required_for_victory());
+        return if has_required {
+            Ok(!has_required_living(catalog, txn)?)
+        } else {
+            Ok(!has_living_present(
+                txn,
+                TeamSide::Enemy,
+                Some(txn.state.encounter.number),
+            ))
+        };
+    };
+    match program.end() {
+        SpawnEndPolicy::DefeatQuota(quota) => Ok(txn.state.encounter.spawn_defeats >= quota),
+        SpawnEndPolicy::RequiredSlotsDefeated => Ok(!has_required_living(catalog, txn)?),
+    }
+}
+
+fn has_required_living(
+    catalog: &CombatCatalog,
+    txn: &Transaction<'_>,
+) -> Result<bool, BattleFault> {
+    let wave = catalog
+        .encounter(txn.state.encounter.definition)
+        .and_then(|encounter| encounter.wave(txn.state.encounter.number))
+        .ok_or_else(|| action_fault(42))?;
+    Ok(txn.state.units.iter_by_id().any(|unit| {
+        unit.side == TeamSide::Enemy
+            && unit.entry_wave == txn.state.encounter.number
+            && unit.life == LifeState::Alive
+            && unit.presence.is_active()
+            && wave.slots().iter().any(|slot| {
+                slot.required_for_victory()
+                    && slot
+                        .formation()
+                        .is_none_or(|formation| formation == unit.formation)
+                    && matches!(unit.source, ParticipantSource::EncounterEnemy(enemy) if enemy == slot.enemy())
+            })
+    }))
+}
+
 pub(super) fn settle_wave_boundary(
     catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
@@ -93,7 +200,7 @@ pub(super) fn settle_wave_boundary(
         .encounter(txn.state.encounter.definition)
         .ok_or_else(|| action_fault(42))?;
     if encounter.wave_transition() != boundary
-        || has_living_present(txn, TeamSide::Enemy, Some(txn.state.encounter.number))
+        || !wave_complete(catalog, txn)?
         || txn.state.encounter.number == txn.state.encounter.total_waves
     {
         return Ok(parent);
@@ -111,7 +218,7 @@ pub(super) fn request_explicit_wave_transition(
         .encounter(txn.state.encounter.definition)
         .ok_or_else(|| action_fault(42))?;
     if encounter.wave_transition() != WaveTransitionPolicy::Explicit
-        || has_living_present(txn, TeamSide::Enemy, Some(txn.state.encounter.number))
+        || !wave_complete(catalog, txn)?
         || txn.state.encounter.number == txn.state.encounter.total_waves
     {
         return Err(action_fault(43));
@@ -190,6 +297,7 @@ fn transition_wave(
     }
     let wave = txn.allocate_wave();
     txn.set_encounter_wave(wave, next);
+    parent = clock::reset_wave_window(txn, cause, parent)?;
     txn.reset_rule_slots(SlotResetPoint::WaveStart, None);
     parent = txn.emit(
         cause.with_parent(parent),

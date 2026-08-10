@@ -1,12 +1,13 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleBuildErrorKind,
+    AbilityId, ActionEventData, ActionOrigin, ActionValue, ActionValueClockSpec, AssemblyDigest,
+    Battle, BattleBuildErrorKind, BattleClockEventData, BattleClockExpiry, BattleClockSpec,
     BattleEventData, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecError,
     CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
-    DecisionEventData, DecisionId, DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId,
-    FormationIndex, HitEventData, Hp, LifeState, ParticipantInitialState, ParticipantSource,
-    ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
+    CycleClockSpec, DecisionEventData, DecisionId, DecisionKind, DecisionOwner, EncounterId,
+    EnemyDefinitionId, FormationIndex, HitEventData, Hp, LifeState, ParticipantInitialState,
+    ParticipantSource, ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitDefinitionId,
     UnitId, UnitLevel,
     catalog::{
@@ -170,6 +171,99 @@ fn valid_spec() -> BattleSpec {
     )
 }
 
+#[test]
+fn cycle_clock_expires_before_the_selected_turn_and_records_exact_action_value() {
+    let clock = CycleClockSpec::new(
+        1,
+        ActionValue::from_scaled(50_000_000).unwrap(),
+        ActionValue::from_scaled(100_000_000).unwrap(),
+        true,
+        BattleClockExpiry::Lose,
+    )
+    .unwrap();
+    let mut battle = Battle::create(
+        catalog(),
+        valid_spec().with_clock(BattleClockSpec::Cycles(clock)),
+        BattleSeed::new([0x74; 32]),
+    )
+    .unwrap();
+
+    let resolution = battle
+        .apply(Command::StartBattle {
+            decision: runtime(1),
+        })
+        .unwrap();
+
+    assert_eq!(resolution.phase(), BattlePhase::Lost);
+    assert_eq!(resolution.timeline_elapsed_scaled(), 50_000_000);
+    let clock = battle.view().clock().unwrap();
+    assert_eq!(clock.remaining_cycles(), Some(0));
+    assert_eq!(clock.cycle_index(), Some(1));
+    assert_eq!(clock.elapsed_in_window_scaled(), Some(0));
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Clock(BattleClockEventData::CycleTicked {
+                cycle_index: 1,
+                before: 1,
+                after: 0,
+            })
+        )
+    }));
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Clock(BattleClockEventData::Expired {
+                expiry: BattleClockExpiry::Lose,
+            })
+        )
+    }));
+    assert!(!resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Turn(TurnEventData::Started { .. })
+        )
+    }));
+}
+
+#[test]
+fn action_value_clock_finalizes_without_claiming_victory_or_loss() {
+    let clock = ActionValueClockSpec::new(
+        ActionValue::from_scaled(75_000_000).unwrap(),
+        BattleClockExpiry::Finalize,
+    )
+    .unwrap();
+    let mut battle = Battle::create(
+        catalog(),
+        valid_spec().with_clock(BattleClockSpec::ActionValue(clock)),
+        BattleSeed::new([0x75; 32]),
+    )
+    .unwrap();
+
+    let resolution = battle
+        .apply(Command::StartBattle {
+            decision: runtime(1),
+        })
+        .unwrap();
+
+    assert_eq!(resolution.phase(), BattlePhase::Finalized);
+    assert_eq!(resolution.timeline_elapsed_scaled(), 75_000_000);
+    assert_eq!(
+        battle
+            .view()
+            .clock()
+            .unwrap()
+            .remaining_action_value_scaled(),
+        Some(0)
+    );
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Battle(BattleEventData::Finalized)
+        )
+    }));
+}
+
 #[derive(Debug, Eq, PartialEq)]
 struct ObservableSnapshot {
     phase: BattlePhase,
@@ -321,8 +415,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            196, 81, 142, 246, 235, 85, 135, 23, 233, 134, 37, 222, 81, 185, 60, 164, 6, 247, 122,
-            2, 125, 128, 204, 195, 66, 136, 213, 43, 148, 224, 211, 131,
+            222, 198, 122, 63, 27, 186, 143, 201, 26, 163, 150, 195, 200, 134, 225, 216, 112, 225,
+            96, 5, 152, 126, 25, 222, 25, 59, 131, 98, 132, 20, 172, 226,
         ]
     );
     let before = snapshot(&battle);

@@ -496,6 +496,87 @@ pub enum WaveTransitionPolicy {
     Explicit,
 }
 
+/// Boundary at which a continuous-spawn wave may refill defeated slots.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum SpawnRefillTiming {
+    /// Settle all defeats from the current action, then refill in authored slot order.
+    AfterDefeatSettlement,
+}
+
+/// Stable ordering used when several refillable slots are defeated together.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum SpawnOrdering {
+    AuthoredSlot,
+}
+
+/// Terminal condition for one continuous-spawn wave.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum SpawnEndPolicy {
+    /// End after this many refillable occurrences have been defeated.
+    DefeatQuota(u16),
+    /// End when every slot marked `required_for_victory` is defeated.
+    RequiredSlotsDefeated,
+}
+
+/// Bounded continuous-refill policy attached to one authored encounter wave.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SpawnProgramDefinition {
+    refill_timing: SpawnRefillTiming,
+    ordering: SpawnOrdering,
+    maximum_simultaneous: u16,
+    refill_slots: Box<[FormationIndex]>,
+    end: SpawnEndPolicy,
+}
+
+impl SpawnProgramDefinition {
+    #[must_use]
+    pub fn new(
+        refill_timing: SpawnRefillTiming,
+        ordering: SpawnOrdering,
+        maximum_simultaneous: u16,
+        mut refill_slots: Vec<FormationIndex>,
+        end: SpawnEndPolicy,
+    ) -> Option<Self> {
+        refill_slots.sort_unstable();
+        if maximum_simultaneous == 0
+            || refill_slots.is_empty()
+            || refill_slots.len() > usize::from(maximum_simultaneous)
+            || refill_slots.windows(2).any(|pair| pair[0] == pair[1])
+            || matches!(end, SpawnEndPolicy::DefeatQuota(0))
+        {
+            return None;
+        }
+        Some(Self {
+            refill_timing,
+            ordering,
+            maximum_simultaneous,
+            refill_slots: refill_slots.into_boxed_slice(),
+            end,
+        })
+    }
+
+    #[must_use]
+    pub const fn refill_timing(&self) -> SpawnRefillTiming {
+        self.refill_timing
+    }
+    #[must_use]
+    pub const fn ordering(&self) -> SpawnOrdering {
+        self.ordering
+    }
+    #[must_use]
+    pub const fn maximum_simultaneous(&self) -> u16 {
+        self.maximum_simultaneous
+    }
+    #[must_use]
+    pub fn refill_slots(&self) -> &[FormationIndex] {
+        &self.refill_slots
+    }
+    #[must_use]
+    pub const fn end(&self) -> SpawnEndPolicy {
+        self.end
+    }
+}
+
 /// Carry/reset behavior for one state family between waves.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum WaveCarryPolicy {
@@ -605,6 +686,7 @@ pub struct EncounterWaveDefinition {
     exit_program: Option<ProgramId>,
     carry: WaveCarry,
     slots: Box<[WaveSlotDefinition]>,
+    spawn_program: Option<SpawnProgramDefinition>,
 }
 
 impl EncounterWaveDefinition {
@@ -634,7 +716,35 @@ impl EncounterWaveDefinition {
             exit_program,
             carry,
             slots: slots.into_boxed_slice(),
+            spawn_program: None,
         })
+    }
+
+    /// Attaches a validated continuous-refill policy to this wave.
+    #[must_use]
+    pub fn with_spawn_program(mut self, program: SpawnProgramDefinition) -> Option<Self> {
+        let refill_slots_valid = program.refill_slots().iter().all(|formation| {
+            self.slots
+                .iter()
+                .any(|slot| slot.formation() == Some(*formation) && !slot.required_for_victory())
+        });
+        let required_count = self
+            .slots
+            .iter()
+            .filter(|slot| slot.required_for_victory())
+            .count();
+        let terminal_valid = match program.end() {
+            SpawnEndPolicy::DefeatQuota(_) => required_count == 0,
+            SpawnEndPolicy::RequiredSlotsDefeated => required_count > 0,
+        };
+        if !refill_slots_valid
+            || !terminal_valid
+            || self.slots.len() > usize::from(program.maximum_simultaneous())
+        {
+            return None;
+        }
+        self.spawn_program = Some(program);
+        Some(self)
     }
     #[must_use]
     pub const fn id(&self) -> EncounterWaveId {
@@ -659,5 +769,9 @@ impl EncounterWaveDefinition {
     #[must_use]
     pub fn slots(&self) -> &[WaveSlotDefinition] {
         &self.slots
+    }
+    #[must_use]
+    pub const fn spawn_program(&self) -> Option<&SpawnProgramDefinition> {
+        self.spawn_program.as_ref()
     }
 }

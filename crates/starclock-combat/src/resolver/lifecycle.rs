@@ -1,9 +1,10 @@
 use crate::{
-    ActionGauge, DurationClock, EffectEventData, EffectTeardownPolicy, FaultBoundary, FaultKind,
-    FaultPolicy, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedUnitDefinition, OperationId,
-    OwnerLinkPolicy, ParticipantSource, PresenceState, RawToughness, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, ReviveGaugePolicy, Rounding, RuleBundleId, Scalar, Speed,
-    StatValue, TimelineActorId, TransformEndPolicy, TransformationDefinition, WaveLinkPolicy,
+    ActionGauge, DurationClock, EffectEventData, EffectTeardownPolicy, Energy, FaultBoundary,
+    FaultKind, FaultPolicy, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedUnitDefinition,
+    OperationId, OwnerLinkPolicy, ParticipantSource, PresenceState, RawToughness,
+    ResolvedCombatantSpec, ResolvedDefinitionBindings, ReviveGaugePolicy, Rounding, RuleBundleId,
+    Scalar, Speed, StatValue, TeamSide, TimelineActorId, TransformEndPolicy,
+    TransformationDefinition, WaveLinkPolicy,
     actor::store::{
         CharacterResourceState, EnemyRuntimeState, FormationEntry, LinkState, TimelineActorState,
         TransformationState, UnitState,
@@ -705,6 +706,110 @@ pub(super) fn execute_revive(
             }),
         );
     }
+    Ok(parent)
+}
+
+pub(super) fn refill_spawn_unit(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    unit: UnitId,
+    wave_defeats: u16,
+) -> Result<EventId, BattleFault> {
+    let state = txn.state.units.get(unit).ok_or_else(|| action_fault(121))?;
+    if state.side != TeamSide::Enemy
+        || state.life == LifeState::Alive
+        || state.entry_wave != txn.state.encounter.number
+    {
+        return Err(action_fault(122));
+    }
+    let maximum_hp = state.maximum_hp;
+    let toughness = state
+        .toughness_layers
+        .iter()
+        .map(|layer| (layer.spec.key(), layer.spec.maximum()))
+        .collect::<Vec<_>>();
+    let source = state.source;
+    let formation = state.formation;
+    let effects = txn
+        .state
+        .effects
+        .iter_by_id()
+        .filter(|effect| effect.target == unit || effect.applier == unit)
+        .map(|effect| effect.id)
+        .collect::<Vec<_>>();
+    for effect in effects {
+        if let Some(removed) = txn.state.effects.remove(effect) {
+            txn.remove_effect_attachments(effect);
+            txn.record_effect_change(u64::from(removed.stacks), 0, effect.get());
+        }
+    }
+    for change in txn.state.shields.remove_owner(unit) {
+        txn.record_shield_change(change.before, change.after);
+    }
+    let cleared_breaks = txn.state.break_effects.clear_for_spawn(unit);
+    if cleared_breaks > 0 {
+        txn.record_break_effect_change(cleared_breaks as u64, 0);
+    }
+    txn.reset_owner_rules_for_spawn(unit);
+    txn.reset_unit_transients_for_spawn(unit)?;
+    txn.set_hp(unit, maximum_hp)?;
+    txn.set_energy(unit, Energy::ZERO)?;
+    txn.set_life(unit, LifeState::Alive)?;
+    txn.set_presence(unit, PresenceState::Present)?;
+    for (key, maximum) in toughness {
+        txn.set_toughness(unit, key, maximum)?;
+    }
+    txn.set_weakness_broken(unit, false)?;
+    if let Some(actor) = txn.state.actors.any_id_for_unit(unit) {
+        txn.set_actor_active(actor, true)?;
+        txn.set_actor_gauge(actor, base_gauge()?)?;
+    }
+    if let ParticipantSource::EncounterEnemy(enemy_id) = source {
+        let encounter = catalog
+            .encounter(txn.state.encounter.definition)
+            .ok_or_else(|| action_fault(123))?;
+        let slot = encounter
+            .wave(txn.state.encounter.number)
+            .and_then(|wave| {
+                wave.slots()
+                    .iter()
+                    .find(|slot| slot.enemy() == enemy_id && slot.formation() == Some(formation))
+            })
+            .ok_or_else(|| action_fault(124))?;
+        let enemy = catalog.enemy(enemy_id).ok_or_else(|| action_fault(125))?;
+        let phase = slot.initial_phase();
+        let graph = phase
+            .and_then(|phase| enemy.phases().iter().find(|item| item.id() == phase))
+            .map_or_else(|| enemy.ai_graph(), |phase| Some(phase.ai_graph()));
+        if let Some(graph) = graph {
+            let ai_state = catalog
+                .ai_graph(graph)
+                .ok_or_else(|| action_fault(126))?
+                .initial_state();
+            txn.set_enemy_runtime(
+                unit,
+                EnemyRuntimeState {
+                    definition: enemy_id,
+                    graph,
+                    state: ai_state,
+                    turn_counter: 0,
+                    phase,
+                },
+            )?;
+        }
+    }
+    let spawn = txn.allocate_spawn();
+    txn.set_spawn_sequence(unit, spawn)?;
+    parent = txn.emit(
+        cause.with_parent(parent).with_primary_target(Some(unit)),
+        BattleEventKind::Unit(UnitEventData::Refilled {
+            unit,
+            spawn,
+            wave_defeats,
+        }),
+    );
     Ok(parent)
 }
 

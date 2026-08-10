@@ -130,6 +130,7 @@ pub enum RuleEventKind {
     Wave,
     Resource,
     Rule,
+    Clock,
     Fault,
 }
 
@@ -170,6 +171,8 @@ pub enum RuleEventPoint {
     UnitTransformed,
     PresenceChanged,
     EncounterTransition,
+    /// A cycle clock crossed into the next cycle before the following turn.
+    CycleStarted,
     RuleStateChanged,
     DecisionRequested,
     FaultRaised,
@@ -515,6 +518,8 @@ pub enum ConditionExpr {
     CurrentTargetIsBroken,
     /// Every selected unit has the authored encounter rank.
     EnemyRank(SelectorId, EnemyRank),
+    /// Every selected unit is either Elite or Boss rank.
+    EnemyRankEliteOrBoss(SelectorId),
     /// Every selected unit is currently in a Freeze-compatible control state.
     IsFrozen(SelectorId),
 }
@@ -611,6 +616,17 @@ pub enum RuleOperationTemplate {
         exclude_event_element: bool,
         can_crit: bool,
         can_defeat: bool,
+    },
+    /// Repeats bounded True DMG against one independently sampled target. The
+    /// amount is the target's authored base HP multiplied by its rank branch.
+    RandomRepeatedTrueDamage {
+        selector: SelectorId,
+        repetitions: ValueExpr,
+        maximum_repetitions: u16,
+        normal_coefficient: Scalar,
+        elite_coefficient: Scalar,
+        boss_coefficient: Scalar,
+        target_rng_purpose: DrawPurpose,
     },
     TrueDamage {
         selector: SelectorId,
@@ -976,6 +992,16 @@ pub enum RuleEmission {
         exclude_event_element: bool,
         can_crit: bool,
         can_defeat: bool,
+        current_target: Option<UnitId>,
+    },
+    RandomRepeatedTrueDamage {
+        selector: SelectorId,
+        repetitions: RuleValue,
+        maximum_repetitions: u16,
+        normal_coefficient: Scalar,
+        elite_coefficient: Scalar,
+        boss_coefficient: Scalar,
+        target_rng_purpose: DrawPurpose,
         current_target: Option<UnitId>,
     },
     TrueDamage {

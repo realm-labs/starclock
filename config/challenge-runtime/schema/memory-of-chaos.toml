@@ -1,0 +1,637 @@
+[[enums]]
+name = "ChallengeClockExpiry"
+values = ["Lose", "Finalize"]
+
+[[enums]]
+name = "ChallengeObjectiveKind"
+values = ["Complete", "NoDefeatedParticipants", "RemainingCyclesAtLeast", "ScoreAtLeast"]
+
+[[enums]]
+name = "ChallengePolicyConfidence"
+values = ["Low", "Medium", "High"]
+
+[[enums]]
+name = "ChallengeEnemyRank"
+values = ["Normal", "Elite", "Boss"]
+
+[[enums]]
+name = "ChallengeCombatElement"
+values = ["Physical", "Fire", "Ice", "Lightning", "Wind", "Quantum", "Imaginary"]
+
+[[tables]]
+name = "MocRuntimeProfiles"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Profiles"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "initial_cycles"
+type = "i32"
+range = [1, 65535]
+[[tables.fields]]
+name = "first_window_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "later_window_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "reset_window_on_wave"
+type = "bool"
+[[tables.fields]]
+name = "expiry"
+type = "enum<ChallengeClockExpiry>"
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeStages"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Stages"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<MocRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "upstream_stage_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "floor"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "initial_cycles"
+type = "i32"
+range = [1, 65535]
+[[tables.fields]]
+name = "turbulence_upstream_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeNodes"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Nodes"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stage_id"
+type = "ref<MocRuntimeStages.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "node_index"
+type = "i32"
+range = [1, 3]
+[[tables.fields]]
+name = "team_index"
+type = "i32"
+range = [0, 2]
+[[tables.fields]]
+name = "upstream_encounter_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_stage_and_index"
+fields = ["stage_id", "node_index"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeObjectives"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Objectives"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<MocRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "kind"
+type = "enum<ChallengeObjectiveKind>"
+[[tables.fields]]
+name = "threshold"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "MocRuntimePolicies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Policies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<MocRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "known_facts"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "selected_behavior"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "rejected_alternatives"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+[[tables.fields]]
+name = "rationale"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "affected_tests"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 64]
+[[tables.fields]]
+name = "confidence"
+type = "enum<ChallengePolicyConfidence>"
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeEnemyBindings"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "EnemyBindings"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "upstream_variant_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "behavior_source_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "behavior_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_upstream_variant"
+fields = ["upstream_variant_id"]
+unique = true
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeEncounters"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Encounters"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "node_id"
+type = "ref<MocRuntimeNodes.id>"
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 95]
+[[tables.fields]]
+name = "hard_level_group"
+type = "i32"
+range = [0, 1000]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_node"
+fields = ["node_id"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeWaves"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "Waves"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "encounter_id"
+type = "ref<MocRuntimeEncounters.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_encounter_and_sequence"
+fields = ["encounter_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "MocRuntimeEnemySlots"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "MemoryOfChaosRuntime.xlsx"
+sheet = "EnemySlots"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "wave_id"
+type = "ref<MocRuntimeWaves.id>"
+[[tables.fields]]
+name = "enemy_binding_id"
+type = "ref<MocRuntimeEnemyBindings.id>"
+[[tables.fields]]
+name = "spawn_sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "formation_index"
+type = "i32"
+range = [0, 31]
+[[tables.fields]]
+name = "rank"
+type = "enum<ChallengeEnemyRank>"
+[[tables.fields]]
+name = "weaknesses"
+type = "optional<list<enum<ChallengeCombatElement>>>"
+parser = { kind = "split", separator = "|" }
+length = [0, 7]
+[[tables.fields]]
+name = "maximum_hp_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "attack_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "defense_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "speed_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "effect_hit_rate_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "effect_resistance_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "toughness_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "source_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "source_revision"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1024]
+[[tables.fields]]
+name = "evidence_digest"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "mechanism_quality"
+type = "string"
+length = [1, 128]
+[[tables.indexes]]
+name = "by_wave_and_spawn"
+fields = ["wave_id", "spawn_sequence"]
+unique = true
+[[tables.indexes]]
+name = "by_wave_and_formation"
+fields = ["wave_id", "formation_index"]
+unique = true

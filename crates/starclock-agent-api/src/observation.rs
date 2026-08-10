@@ -34,6 +34,7 @@ pub enum AgentBattleStatus {
     Won,
     Lost,
     Faulted,
+    Finalized,
     Closed,
 }
 
@@ -45,6 +46,7 @@ pub enum AgentBattlePhase {
     Won,
     Lost,
     Faulted,
+    Finalized,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -131,12 +133,29 @@ pub struct AgentTimelineView {
     pub speed_scaled: AgentSInt,
 }
 
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum AgentBattleClockKind {
+    Cycles,
+    ActionValue,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentBattleClockView {
+    pub kind: AgentBattleClockKind,
+    pub remaining_cycles: Option<AgentUInt>,
+    pub cycle_index: Option<AgentUInt>,
+    pub elapsed_in_window_scaled: Option<AgentSInt>,
+    pub remaining_action_value_scaled: Option<AgentSInt>,
+}
+
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentBattleView {
     pub phase: AgentBattlePhase,
     pub committed_revision: AgentUInt,
     pub rng_draw_count: AgentUInt,
     pub wave: AgentWaveView,
+    pub clock: Option<AgentBattleClockView>,
     pub teams: Box<[AgentTeamView]>,
     pub units: Box<[AgentUnitView]>,
     pub effects: Box<[AgentEffectView]>,
@@ -249,6 +268,7 @@ pub fn project_player_visible(view: BattleView<'_>) -> Result<AgentBattleView, P
         BattlePhase::Won => AgentBattlePhase::Won,
         BattlePhase::Lost => AgentBattlePhase::Lost,
         BattlePhase::Faulted => AgentBattlePhase::Faulted,
+        BattlePhase::Finalized => AgentBattlePhase::Finalized,
         BattlePhase::Initializing | BattlePhase::Resolving => {
             return Err(ProjectionError::UnstableBoundary);
         }
@@ -319,6 +339,24 @@ pub fn project_player_visible(view: BattleView<'_>) -> Result<AgentBattleView, P
         });
     }
     let encounter = view.encounter();
+    let clock = view.clock().map(|clock| {
+        let remaining_cycles = clock.remaining_cycles();
+        AgentBattleClockView {
+            kind: if remaining_cycles.is_some() {
+                AgentBattleClockKind::Cycles
+            } else {
+                AgentBattleClockKind::ActionValue
+            },
+            remaining_cycles: remaining_cycles.map(|value| AgentUInt::from_u64(u64::from(value))),
+            cycle_index: clock
+                .cycle_index()
+                .map(|value| AgentUInt::from_u64(u64::from(value))),
+            elapsed_in_window_scaled: clock.elapsed_in_window_scaled().map(AgentSInt::from_i64),
+            remaining_action_value_scaled: clock
+                .remaining_action_value_scaled()
+                .map(AgentSInt::from_i64),
+        }
+    });
     Ok(AgentBattleView {
         phase,
         committed_revision: AgentUInt::from_u64(view.committed_revision()),
@@ -327,6 +365,7 @@ pub fn project_player_visible(view: BattleView<'_>) -> Result<AgentBattleView, P
             number: AgentUInt::from_u64(u64::from(encounter.number())),
             total: AgentUInt::from_u64(u64::from(encounter.total_waves())),
         },
+        clock,
         teams: [team(view, TeamSide::Player), team(view, TeamSide::Enemy)].into(),
         units: units.into_boxed_slice(),
         effects: effects.into_boxed_slice(),

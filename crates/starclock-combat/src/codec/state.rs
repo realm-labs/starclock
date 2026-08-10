@@ -380,6 +380,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     e.u64(state.encounter.wave.get());
     e.u16(state.encounter.number);
     e.u16(state.encounter.total_waves);
+    e.u16(state.encounter.spawn_defeats);
     encode_timeline(&mut e, state);
     encode_reactions(&mut e, state);
     e.u8(match state.concede {
@@ -392,6 +393,47 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     }
     e.u64(state.committed_revision);
     encode_action_frame(&mut e, state);
+    if state.clock.is_some() {
+        encode_clock(&mut e, state);
+    }
+}
+
+fn encode_clock<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
+    use crate::battle::state::BattleClockState;
+
+    match state.clock {
+        None => e.u8(0),
+        Some(BattleClockState::Cycles {
+            initial_cycles,
+            remaining_cycles,
+            cycle_index,
+            elapsed_in_window_scaled,
+            first_window_scaled,
+            later_window_scaled,
+            reset_window_on_wave,
+            expiry,
+        }) => {
+            e.u8(1);
+            e.u16(initial_cycles);
+            e.u16(remaining_cycles);
+            e.u32(cycle_index);
+            e.i64(elapsed_in_window_scaled);
+            e.i64(first_window_scaled);
+            e.i64(later_window_scaled);
+            e.u8(u8::from(reset_window_on_wave));
+            e.u8(expiry as u8);
+        }
+        Some(BattleClockState::ActionValue {
+            initial_scaled,
+            remaining_scaled,
+            expiry,
+        }) => {
+            e.u8(2);
+            e.i64(initial_scaled);
+            e.i64(remaining_scaled);
+            e.u8(expiry as u8);
+        }
+    }
 }
 
 fn encode_reactions<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
@@ -733,7 +775,8 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.i64(unit.maximum_energy.scaled());
     e.u8(match unit.rank {
         EnemyRank::Normal => 0,
-        EnemyRank::EliteOrBoss => 1,
+        EnemyRank::Elite => 1,
+        EnemyRank::Boss => 2,
     });
     e.length(unit.weaknesses.len());
     for weakness in &unit.weaknesses {

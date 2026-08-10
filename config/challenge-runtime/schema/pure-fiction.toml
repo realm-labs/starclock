@@ -1,0 +1,462 @@
+[[enums]]
+name = "PureFictionSpawnEnd"
+values = ["DefeatQuota", "RequiredSlots"]
+
+[[tables]]
+name = "PfRuntimeProfiles"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Profiles"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "first_window_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "later_window_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "expiry"
+type = "enum<ChallengeClockExpiry>"
+[[tables.fields]]
+name = "node_score_maximum"
+type = "i32"
+range = [1, 100000]
+[[tables.fields]]
+name = "stage_score_maximum"
+type = "i32"
+range = [1, 200000]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfRuntimeStages"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Stages"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<PfRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "upstream_stage_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "floor"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "initial_cycles"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "clear_score"
+type = "i32"
+range = [1, 200000]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfRuntimeNodes"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Nodes"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stage_id"
+type = "ref<PfRuntimeStages.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "node_index"
+type = "i32"
+range = [1, 3]
+[[tables.fields]]
+name = "team_index"
+type = "i32"
+range = [0, 2]
+[[tables.fields]]
+name = "encounter_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "whimsicality_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_stage_and_index"
+fields = ["stage_id", "node_index"]
+unique = true
+
+[[tables]]
+name = "PfRuntimeObjectives"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Objectives"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<PfRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "kind"
+type = "enum<ChallengeObjectiveKind>"
+[[tables.fields]]
+name = "threshold"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+
+[[tables]]
+name = "PfRuntimeCacophonies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Cacophonies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<PfRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "upstream_buff_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "binding_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "parameters"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 16]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfRuntimePolicies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Policies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<PfRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "known_facts"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "selected_behavior"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "rejected_alternatives"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+[[tables.fields]]
+name = "rationale"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "affected_tests"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 64]
+[[tables.fields]]
+name = "confidence"
+type = "enum<ChallengePolicyConfidence>"
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfRuntimeEnemies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Enemies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "upstream_monster_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "behavior_source_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "behavior_exact"
+type = "bool"
+[[tables.fields]]
+name = "rank"
+type = "enum<ChallengeEnemyRank>"
+[[tables.fields]]
+name = "weaknesses"
+type = "optional<list<enum<ChallengeCombatElement>>>"
+parser = { kind = "split", separator = "|" }
+length = [0, 7]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_upstream_monster"
+fields = ["upstream_monster_id"]
+unique = true
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfRuntimeEncounters"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Encounters"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "node_id"
+type = "optional<ref<PfRuntimeNodes.id>>"
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "battle_event_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+
+[[tables]]
+name = "PfRuntimeWaves"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "Waves"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "encounter_id"
+type = "ref<PfRuntimeEncounters.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 3]
+[[tables.fields]]
+name = "spawn_end"
+type = "enum<PureFictionSpawnEnd>"
+[[tables.fields]]
+name = "defeat_quota"
+type = "optional<i32>"
+range = [1, 1000]
+[[tables.fields]]
+name = "refill_source_wave"
+type = "optional<i32>"
+range = [1, 3]
+[[tables.fields]]
+name = "maximum_simultaneous"
+type = "i32"
+range = [1, 5]
+[[tables.fields]]
+name = "score_cap"
+type = "i32"
+range = [1, 40000]
+[[tables.fields]]
+name = "normal_defeat_true_damage_scaled"
+type = "i64"
+range = [0, 1000000]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_encounter_and_sequence"
+fields = ["encounter_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "PfRuntimeEnemySlots"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionRuntime.xlsx"
+sheet = "EnemySlots"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "wave_id"
+type = "ref<PfRuntimeWaves.id>"
+[[tables.fields]]
+name = "enemy_id"
+type = "ref<PfRuntimeEnemies.id>"
+[[tables.fields]]
+name = "spawn_sequence"
+type = "i32"
+range = [1, 64]
+[[tables.fields]]
+name = "formation_index"
+type = "i32"
+range = [0, 4]
+[[tables.fields]]
+name = "maximum_hp"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "attack_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "defense_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "speed_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "effect_hit_rate_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "effect_resistance_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "toughness_scaled"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 4096]
+[[tables.indexes]]
+name = "by_wave_and_formation"
+fields = ["wave_id", "formation_index"]
+unique = true

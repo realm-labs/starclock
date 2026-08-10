@@ -62,6 +62,7 @@ fn owned_views_have_stable_field_order_and_string_only_authoritative_numbers() {
             number: AgentUInt::from_u64(1),
             total: AgentUInt::from_u64(2),
         },
+        clock: None,
         teams: vec![AgentTeamView {
             side: AgentTeamSide::Player,
             skill_points: AgentUInt::from_u64(3),

@@ -166,6 +166,7 @@ impl RuleEventPoint {
             | Self::RuleStateChanged
             | Self::InformationalRule => RuleEventKind::Rule,
             Self::ResourceChanged => RuleEventKind::Resource,
+            Self::CycleStarted => RuleEventKind::Clock,
             Self::UnitDowned
             | Self::UnitDefeated
             | Self::UnitSummoned

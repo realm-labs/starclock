@@ -998,6 +998,7 @@ dependencies = [
  "starclock-activity",
  "starclock-build",
  "starclock-combat",
+ "starclock-mode-challenge",
  "starclock-mode-standard",
  "starclock-rules",
  "zstd",
@@ -1024,6 +1025,14 @@ dependencies = [
  "starclock-agent-api",
  "tokio",
  "tower",
+]
+
+[[package]]
+name = "starclock-mode-challenge"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
 ]
 
 [[package]]

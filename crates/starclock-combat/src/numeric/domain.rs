@@ -115,6 +115,30 @@ impl ActionGauge {
     }
 }
 
+/// Non-negative fixed-point elapsed or remaining timeline Action Value.
+///
+/// This is distinct from [`ActionGauge`]: gauges belong to individual timeline
+/// actors, while Action Value is the shared elapsed-time domain used by
+/// challenge clocks and result metrics.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct ActionValue(Scalar);
+
+impl ActionValue {
+    /// Zero elapsed Action Value.
+    pub const ZERO: Self = Self(Scalar::ZERO);
+
+    /// Creates Action Value from canonical non-negative millionths.
+    pub fn from_scaled(raw: i64) -> Result<Self, NumericError> {
+        non_negative_scalar(raw).map(Self)
+    }
+
+    /// Returns canonical millionths.
+    #[must_use]
+    pub fn scaled(self) -> i64 {
+        self.0.scaled()
+    }
+}
+
 /// Non-negative fixed-point personal Energy value.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct Energy(Scalar);

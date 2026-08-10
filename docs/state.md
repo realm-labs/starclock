@@ -19,8 +19,18 @@ Git history is the only historical record.
 
 - `starclock-combat` owns deterministic single-battle execution.
 - `starclock-activity` owns deterministic cross-battle orchestration.
-- Standard battle, Standard Universe, Gold and Gears, and Swarm Disaster use the
-  shared combat/activity kernels.
+- Standard battle, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, Standard
+  Universe, Gold and Gears, and Swarm Disaster use the shared combat/activity
+  kernels.
+- The Version 4.4 challenge bundle contains 13 Memory stages (including one
+  three-node Starward stage), five Pure Fiction stages and five Apocalyptic
+  stages. Their typed attempts support two or three locked teams, battle
+  handoff, score/objective projection, canonical Activity state and an owned
+  `ActivityDebugView` for adapter-side inspection.
+- `starclock challenge config validate` lowers all three production profiles
+  and compiles all 43 challenge encounters over the production combat catalog.
+  Temporary enemy behavior donors and all unverified mechanics remain visible
+  as generated `ProjectPolicy` rows.
 - Combat resolution stops at stable boundaries between independent actions.
   `Advance` resumes deterministic work; adapters may submit it automatically
   when no ready Ultimate needs to be exposed. If a normal decision already

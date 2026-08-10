@@ -25,6 +25,7 @@ pub enum SnapshotSection {
     Lifecycle,
     Decision,
     Encounter,
+    Clock,
     Formations,
     Links,
     Timeline,
@@ -145,6 +146,9 @@ impl BattleSnapshotDiff {
         }
         if before.encounter != after.encounter {
             sections.push(SnapshotSection::Encounter);
+        }
+        if before.clock != after.clock {
+            sections.push(SnapshotSection::Clock);
         }
         if before.formations != after.formations {
             sections.push(SnapshotSection::Formations);

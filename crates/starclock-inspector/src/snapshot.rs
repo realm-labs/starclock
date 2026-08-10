@@ -27,6 +27,7 @@ pub struct BattleSnapshot {
     pub committed_revision: u64,
     pub rng_draw_count: u64,
     pub encounter: EncounterSnapshot,
+    pub clock: Option<BattleClockSnapshot>,
     pub units: Box<[UnitSnapshot]>,
     pub formations: Box<[FormationSnapshot]>,
     pub timeline_actors: Box<[TimelineActorSnapshot]>,
@@ -71,7 +72,14 @@ impl BattleSnapshot {
                 wave: encounter.wave(),
                 number: encounter.number(),
                 total_waves: encounter.total_waves(),
+                spawn_defeats: encounter.spawn_defeats(),
             },
+            clock: view.clock().map(|clock| BattleClockSnapshot {
+                remaining_cycles: clock.remaining_cycles(),
+                cycle_index: clock.cycle_index(),
+                elapsed_in_window_scaled: clock.elapsed_in_window_scaled(),
+                remaining_action_value_scaled: clock.remaining_action_value_scaled(),
+            }),
             units: view.units_by_id().map(UnitSnapshot::capture).collect(),
             formations: [TeamSide::Player, TeamSide::Enemy]
                 .into_iter()
@@ -231,6 +239,15 @@ impl BattleSnapshot {
     }
 }
 
+/// ID-free authoritative challenge-clock values at one stable boundary.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BattleClockSnapshot {
+    pub remaining_cycles: Option<u16>,
+    pub cycle_index: Option<u32>,
+    pub elapsed_in_window_scaled: Option<i64>,
+    pub remaining_action_value_scaled: Option<i64>,
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BattleIdentitySnapshot {
     pub catalog_digest: CatalogDigest,
@@ -245,6 +262,7 @@ pub struct EncounterSnapshot {
     pub wave: WaveInstanceId,
     pub number: u16,
     pub total_waves: u16,
+    pub spawn_defeats: u16,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

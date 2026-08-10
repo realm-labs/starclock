@@ -1,0 +1,283 @@
+{
+  "table": {
+    "name": "ApsRuntimePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "apocalyptic_shadow::tests::scores_terminal_boss_progress"
+              },
+              {
+                "String": "apocalyptic_runtime::tests::aggregates_two_node_scores"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "known_facts": {
+            "String": "Released structured data retains scoring items 90004/90005, the 2000-point constants, all-wave boss HP inputs and global Action Value updates. Public released guidance confirms up to 2000 boss-progress points plus remaining AV only after defeat. The opcode evaluator itself is not documented."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "This is the narrowest deterministic formula matching released constants and public behavior."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "claim undocumented postfix opcodes are exact"
+              },
+              {
+                "String": "award remaining AV on timeout"
+              },
+              {
+                "String": "round boss progress to nearest"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when the released postfix evaluator and dynamic-hash mapping are independently decoded and fixture-tested."
+          },
+          "selected_behavior": {
+            "String": "Floor 2000 * depleted included-boss HP / included-boss maximum HP. On victory add floor remaining Action Value, clamped to 0..2000; otherwise add zero."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"$\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2\",\"source_id\":\"src.program.StrongChallenge_Scoring_Ability\"}"
+          },
+          "stable_key": {
+            "String": "policy.apocalyptic.score-postfix-lowering"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "apocalyptic_shadow::tests::scores_terminal_boss_progress"
+              },
+              {
+                "String": "challenge::tests::production_apocalyptic_profile_lowers"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "known_facts": {
+            "String": "Candidate data identifies each primary boss and one Stage 30194 auxiliary-scoring-boss; the source program also contains boss-specific summon adjustments."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "Rank closure is stable, inspectable and includes the one exact active auxiliary binding without content-ID branches in Combat."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "ignore auxiliary scoring bosses"
+              },
+              {
+                "String": "infer undocumented summon IDs at runtime"
+              },
+              {
+                "String": "include ordinary summons"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace with typed per-encounter include/exclude selectors when every active summon adjustment is decoded."
+          },
+          "selected_behavior": {
+            "String": "Include every retained enemy unit authored as Boss rank in the score HP closure; the explicit auxiliary slot is authored as Boss."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=300402104\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"63b13fb1751a9c0dddca21ffd01ae4c47c8ab2155a644d4249cccea65804233a\",\"source_id\":\"src.enemy.300402104\"}"
+          },
+          "stable_key": {
+            "String": "policy.apocalyptic.boss-score-closure"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_apocalyptic_combat_definitions_lower"
+              },
+              {
+                "String": "challenge_combat::tests::apocalyptic_catalog_composes_all_playable_encounters"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "known_facts": {
+            "String": "The Candidate package proves nine ordinary boss slots, exact variant identities, roles and weaknesses, but does not publish executable AI/phase programs or a node-local level/stat projection."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The mode remains runnable and every guessed value is centralized in typed authored data instead of hidden in Combat branches."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "parse Candidate JSON at runtime"
+              },
+              {
+                "String": "silently omit encounters"
+              },
+              {
+                "String": "present placeholder AI or stats as observed parity"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace each row when released event-owned phase expansion, exact occurrence stats and reviewed ability programs are lowered."
+          },
+          "selected_behavior": {
+            "String": "Use explicit same-rank production behavior donors and deterministic floor-scaled placeholder stats: levels 65/75/85/95 and primary HP 0.5m/1m/2m/4m; the auxiliary has 1m HP."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=3003015\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e4e82ba8ff1df72321a880a63226a3e2ac291b7043e96c56e89f44a691ddc5f2\",\"source_id\":\"src.enemy.3003015\"}"
+          },
+          "stable_key": {
+            "String": "policy.apocalyptic.enemy-behavior-and-stats"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "apocalyptic_mechanics::tests::active_definitions_cover_every_released_bundle"
+              },
+              {
+                "String": "challenge_combat::tests::apocalyptic_catalog_composes_all_encounters"
+              },
+              {
+                "String": "apocalyptic_runtime::tests::starward_runs_three_independent_nodes"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "known_facts": {
+            "String": "Released rows prove Ruinous Embers parameters 0.25/0.15 and nine selectable Axiom IDs/parameters. Released 4.4 public descriptions independently establish every trigger, target and cap."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The exact released effects now execute through generic operations; three unsupported predicates are isolated, inspectable ProjectPolicy choices."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "leave selected buffs inactive"
+              },
+              {
+                "String": "add content IDs to Combat resolver branches"
+              },
+              {
+                "String": "add build-catalog queries to Combat"
+              },
+              {
+                "String": "invent boss-specific armor effects absent from placeholder AI"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the three approximations when combat specs retain Path, reviewed boss armor effects are executable, and non-Energy Ultimate readiness resources are authored."
+          },
+          "selected_behavior": {
+            "String": "Execute all nine selectable Axioms and Ruinous Embers in mode-owned Rule IR. Unconditionally apply Knowledge and Decorum after selection because ResolvedCombatantSpec does not retain Path; approximate Oppose With Tenderness armor break as a boss Weakness Break; activate Energy-based Ultimates by setting Energy to maximum and do not invent non-Energy readiness resources."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3110006\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e51e38f7b21c572b3edfde9a83419d4e5f5488b28da5dd22c5a663af6dbb175e\",\"source_id\":\"src.buff.3110006\"}|{\"path_or_page\":\"Finality's Axiom and Ruinous Embers 4.4 tables\",\"quality\":\"ReleasedPublicCrossCheck\",\"repository_or_url\":\"https://www.gamsgo.com/blog/hsr-apocalyptic-shadow-teams\",\"revision_or_access_date\":\"2026-08-11\"}"
+          },
+          "stable_key": {
+            "String": "policy.apocalyptic.axioms-and-embers"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_apocalyptic_profile_lowers"
+              },
+              {
+                "String": "apocalyptic_runtime::tests::starward_runs_three_independent_nodes"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "known_facts": {
+            "String": "Released Tierce data selects Stage 30195 after 30194, exposes one third node, and publishes aggregate thresholds 6000/7800/9900. Released public guidance confirms Starward Difficulty 4 has three nodes."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "This preserves the exact predecessor relationship, node count, thresholds and ordinary node semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "replace ordinary Difficulty 4"
+              },
+              {
+                "String": "score Tierce alone against aggregate thresholds"
+              },
+              {
+                "String": "share one AV clock between nodes"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace only if released runtime evidence proves a different carry or aggregate rule."
+          },
+          "selected_behavior": {
+            "String": "Represent Starward as a fifth three-node stage containing both Difficulty-4 nodes followed by Tierce; use one independent team, battle, clock and 4000-point score closure per node."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"GroupID=3019\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeBossGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2070b86dc168c94d61c2991c92d7d4e8e0910c4056abbc85d52364fb15cb3869\",\"source_id\":\"src.group.3019\"}|{\"path_or_page\":\"Starward Mode released tutorial text\",\"quality\":\"ReleasedPublicCrossCheck\",\"repository_or_url\":\"https://honkai-star-rail.fandom.com/wiki/Apocalyptic_Shadow\",\"revision_or_access_date\":\"2026-08-11\"}"
+          },
+          "stable_key": {
+            "String": "policy.apocalyptic.starward-composition"
+          }
+        }
+      }
+    ]
+  }
+}

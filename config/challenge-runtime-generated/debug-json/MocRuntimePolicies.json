@@ -1,0 +1,568 @@
+{
+  "table": {
+    "name": "MocRuntimePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "fixture.cycle-first-av-window.150-then-100"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "evidence_digest": {
+            "String": "a6d43b2ec16ce5bea2cdceaa7d2d048c051f40b05641754105c488bf38620a1c"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "known_facts": {
+            "String": "The challenge architecture records the commonly observed 150/100 cycle preset but requires each profile to select it; no active Version 4.4 row or program in the frozen closure explicitly selects the numeric preset."
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The explicit preset is implementation-ready while the parity limitation and stronger-evidence trigger remain visible."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "100 AV for every cycle"
+              },
+              {
+                "String": "carry a partial AV window across nodes"
+              },
+              {
+                "String": "leave the battle scheduler without a window"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace."
+          },
+          "selected_behavior": {
+            "String": "Select 150 AV for the first cycle of each fresh node battle and 100 AV afterward as a deterministic Candidate reference policy."
+          },
+          "source_locator": {
+            "String": "included-content:first-cycle-av-window"
+          },
+          "source_path": {
+            "String": "docs/goals/17-memory-of-chaos-reference-data.md"
+          },
+          "source_revision": {
+            "String": "2026-08-01"
+          },
+          "source_url": {
+            "String": "https://github.com/realm-labs/starclock.git"
+          },
+          "stable_key": {
+            "String": "policy.clock.first-cycle-av-window.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "fixture.cycle-node-wave-carry.tick-before-cycle-start"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "evidence_digest": {
+            "String": "2a02eea73f802e06a743adf037960931df63a91635be73f828329d3a41da80a9"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "known_facts": {
+            "String": "Memory Turbulence is described and programmed at cycle start; released rows do not encode its order relative to Activity clock decrement and reaction draining."
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "A single typed boundary preserves command/event ordering and prevents expired clocks from producing another cycle-start effect."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "decrement during an action"
+              },
+              {
+                "String": "execute Turbulence before expiry"
+              },
+              {
+                "String": "let interrupts decrement cycles directly"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order."
+          },
+          "selected_behavior": {
+            "String": "Commit the decrement after prior-cycle reactions drain and before any next-cycle Turbulence callback."
+          },
+          "source_locator": {
+            "String": "included-content:cycle-tick-boundary"
+          },
+          "source_path": {
+            "String": "docs/goals/17-memory-of-chaos-reference-data.md"
+          },
+          "source_revision": {
+            "String": "2026-08-01"
+          },
+          "source_url": {
+            "String": "https://github.com/realm-labs/starclock.git"
+          },
+          "stable_key": {
+            "String": "policy.clock.cycle-tick-boundary.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "fixture.cycle-node-wave-carry.node2-fresh-window"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "evidence_digest": {
+            "String": "0ccbb70765fa44d707ea04d3353b04f14cf7177276a910a4720ed94a01045e03"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "known_facts": {
+            "String": "The normative Memory profile owns one stage clock across nodes and creates a fresh battle/timeline for Node 2; released Version 4.4 rows do not expose partial-window carry."
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "Integer-only Activity projection keeps battle timelines independent and makes the unresolved client boundary explicit."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "reset Node 2 to 30"
+              },
+              {
+                "String": "carry Node 1 partial AV"
+              },
+              {
+                "String": "carry Node 1 battle state"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace partial-window behavior with a released cross-node gauge/countdown trace."
+          },
+          "selected_behavior": {
+            "String": "Carry only the finalized integer remaining-cycle slot, then initialize Node 2 with the explicit first-cycle AV window."
+          },
+          "source_locator": {
+            "String": "included-content:node-cycle-carry"
+          },
+          "source_path": {
+            "String": "docs/goals/17-memory-of-chaos-reference-data.md"
+          },
+          "source_revision": {
+            "String": "2026-08-01"
+          },
+          "source_url": {
+            "String": "https://github.com/realm-labs/starclock.git"
+          },
+          "stable_key": {
+            "String": "policy.clock.node-carry.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "fixture.cycle-node-wave-carry.wave-av-reset"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "evidence_digest": {
+            "String": "69c034ec26d0e9fe5866fca43dcbb485497189a7ca41978f3319a87cc33313fa"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicCrossCheckWithProjectPolicyBoundary"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "known_facts": {
+            "String": "All selected StageConfig rows declare two waves; independent released public evidence says remaining Cycles are shared while elapsed Action Value resets at a new wave or battle."
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "This separates the shared Activity clock from the battle-local wave Action Value window and follows the strongest available released cross-check."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "carry partial elapsed AV"
+              },
+              {
+                "String": "decrement once solely because a wave ended"
+              },
+              {
+                "String": "reset the stage budget"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch."
+          },
+          "selected_behavior": {
+            "String": "Carry the Section remaining-cycle integer and initialize the new wave with the 150-AV first window."
+          },
+          "source_locator": {
+            "String": "included-content:wave-cycle-carry"
+          },
+          "source_path": {
+            "String": "docs/goals/17-memory-of-chaos-reference-data.md"
+          },
+          "source_revision": {
+            "String": "2026-08-01"
+          },
+          "source_url": {
+            "String": "https://github.com/realm-labs/starclock.git"
+          },
+          "stable_key": {
+            "String": "policy.clock.wave-carry.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "fixture.cycle-node-wave-carry.expiry-before-start-rules"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "evidence_digest": {
+            "String": "7d296b87e0721d103bc73a3ea7a50da492a5c3bb7ccab798b8569736274cbd36"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "known_facts": {
+            "String": "ChallengeCountDown is 30 and the challenge design states that a failed node terminates the attempt; the source closure does not expose the exact zero-boundary callback order."
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "Fail-before-new-work ordering is deterministic and prevents post-expiry mutations while remaining replaceable by stronger traces."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "allow a full zero-labelled cycle"
+              },
+              {
+                "String": "run Turbulence after expiry"
+              },
+              {
+                "String": "transition nodes and then fail"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary."
+          },
+          "selected_behavior": {
+            "String": "Expire on the tick that produces zero, before cycle-start effects, wave transitions or Node 2 entry."
+          },
+          "source_locator": {
+            "String": "included-content:expiry-failure-order"
+          },
+          "source_path": {
+            "String": "docs/goals/17-memory-of-chaos-reference-data.md"
+          },
+          "source_revision": {
+            "String": "2026-08-01"
+          },
+          "source_url": {
+            "String": "https://github.com/realm-labs/starclock.git"
+          },
+          "stable_key": {
+            "String": "policy.clock.expiry-failure.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_memory_combat_definitions_lower_exact_closure"
+              },
+              {
+                "String": "challenge_combat::tests::memory_combat_catalog_composes_all_playable_encounters"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "evidence_digest": {
+            "String": "b6c034999f38ea3c517b3afed128fdc9bf57a8019ac0940971afef1417a728a5"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "known_facts": {
+            "String": "The released Version 4.4 rows prove 41 enemy identities reachable from 25 playable encounters, 50 waves and 99 slots. The shared executable catalog currently contains reviewed behavior for 19 identities; 22 normalized ability programs are reference-only and are not yet lowered."
+          },
+          "mechanism_quality": {
+            "String": "ExactInheritedDefinition"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "This keeps battles deterministic and runnable without crossing the Sora runtime boundary, and makes every temporary behavior substitution visible by ID."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "parse Candidate payload_json at runtime"
+              },
+              {
+                "String": "silently drop missing enemies"
+              },
+              {
+                "String": "claim normalized reference programs are executable parity"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace each donor binding when its exact Version 4.4 enemy ability, AI, summon and phase closure is reviewed and lowered into the shared executable catalog."
+          },
+          "selected_behavior": {
+            "String": "Keep every exact encounter identity and placement. For each of the 22 missing executable variants, clone the explicitly authored same-rank behavior_source_key while retaining a distinct mode-owned EnemyDefinitionId."
+          },
+          "source_locator": {
+            "String": "MonsterID=1003010"
+          },
+          "source_path": {
+            "String": "ExcelOutput/MonsterConfig.json"
+          },
+          "source_revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "source_url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata.git"
+          },
+          "stable_key": {
+            "String": "policy.memory.enemy-behavior-donors"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_memory_profile_lowers_all_active_stages_and_policies"
+              },
+              {
+                "String": "memory_runtime::tests::starward_carries_cycles_through_three_nodes"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "evidence_digest": {
+            "String": "8b9a3f7d8c8f3feb702759575ffbb7d9cd2887cc1d9e8ed57c8016b3cf1122da"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "known_facts": {
+            "String": "Released Tierce 5213 selects encounter 30123123 after floor 12, publishes a 45-cycle clock and objectives at 15/30 remaining cycles plus no defeated participants. Released public guidance confirms three teams share 45 cycles."
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "This matches the released predecessor, encounter, clock, objective and public three-team behavior; Turbulence dispatch to Tierce remains the one inferred edge."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "run Tierce as an unrelated one-team activity"
+              },
+              {
+                "String": "give each node 45 cycles"
+              },
+              {
+                "String": "silently omit Memory Turbulence from the third node"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the Turbulence inference when a released Tierce battle-creation trace or decoded MazeBuff dispatch field proves its exact attachment."
+          },
+          "selected_behavior": {
+            "String": "Represent Starward as a thirteenth three-node stage containing both floor-12 nodes followed by Tierce. Carry one 45-cycle Activity clock through all three battles and apply the active Memory Turbulence to Tierce."
+          },
+          "source_locator": {
+            "String": "PHFMCACHFIJ=5213"
+          },
+          "source_path": {
+            "String": "ExcelOutput/ChallengeMazeTierce.json"
+          },
+          "source_revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "source_url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata.git"
+          },
+          "stable_key": {
+            "String": "policy.memory.starward-composition"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_memory_combat_definitions_lower_exact_closure"
+              },
+              {
+                "String": "challenge_combat::tests::memory_combat_catalog_composes_all_playable_encounters"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "evidence_digest": {
+            "String": "c4bbef035620dbe8dea25cf9c83e6a7986166dd5dcd66e132d207a86e58c053f"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "known_facts": {
+            "String": "The released office-staff template has no numeric base Toughness in the normalized Version 4.4 row. Its encounter identity, level, formation and other stats are exact."
+          },
+          "mechanism_quality": {
+            "String": "ExactInheritedDefinition"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The donor already supplies this temporary boss behavior, and reusing its reviewed Toughness is deterministic and easier to replace than an unrelated literal."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "invent a new boss Toughness value"
+              },
+              {
+                "String": "create no Toughness layer"
+              },
+              {
+                "String": "parse an undocumented runtime object graph"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the donor value when a released numeric base Toughness or decoded shared-Toughness phase definition for the office-staff boss is available."
+          },
+          "selected_behavior": {
+            "String": "Use the 180 base Toughness of its explicit Great Septimus behavior donor, then apply the exact encounter EliteGroup and HardLevelGroup Stance ratios."
+          },
+          "source_locator": {
+            "String": "MonsterID=3004020"
+          },
+          "source_path": {
+            "String": "ExcelOutput/MonsterConfig.json"
+          },
+          "source_revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "source_url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata.git"
+          },
+          "stable_key": {
+            "String": "policy.memory.office-staff-toughness-donor"
+          }
+        }
+      }
+    ]
+  }
+}

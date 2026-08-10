@@ -1,7 +1,6 @@
 use super::*;
 use starclock_combat::{
     ParticipantInitialState,
-    formula::toughness::EnemyRank,
     modifier::model::{FormulaStage, StatKind},
     rule::model::{ConditionExpr, ProgramStep, RuleEventPoint, RuleValue, ValueExpr},
 };
@@ -227,7 +226,7 @@ fn program_has_elite_rank(
         matches!(
             step,
             ProgramStep::If {
-                condition: ConditionExpr::EnemyRank(_, EnemyRank::EliteOrBoss),
+                condition: ConditionExpr::EnemyRankEliteOrBoss(_),
                 ..
             }
         )

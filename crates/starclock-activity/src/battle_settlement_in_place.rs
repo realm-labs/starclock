@@ -143,7 +143,7 @@ impl ActivityTransactionState {
                 .map_err(|error| settlement(ActivityBattleSettlementError::ActivityFault(error)))?;
         }
         let terminal = match outcome {
-            BattleOutcome::Won => None,
+            BattleOutcome::Won | BattleOutcome::Finalized => None,
             BattleOutcome::Lost => Some(ActivityTerminalOutcome::Failed),
             BattleOutcome::Faulted => Some(ActivityTerminalOutcome::Faulted),
         };

@@ -1,13 +1,14 @@
 //! Authoritative dispatch from committed event facts into battle-owned Rule IR.
 
 use crate::{
-    AbilityId, ActionEventData, ActionId, ActionOrigin, BattleEvent, BattleEventData,
-    BattleEventKind, BattleFault, BreakDamageKind, ControlledAction, DecisionEventData,
-    DurationClock, EffectCategory, EffectDefinitionId, EffectEventData, EffectRuntimeDefinition,
-    EffectRuntimeTemplate, EventId, FaultBoundary, FaultKind, FaultPolicy, HitEventData, LifeState,
-    PhaseEventData, PresenceState, Ratio, ResourceEventData, RuleId, RuleInstanceId, Scalar,
-    SelectorId, ShieldEventData, SourceDefinitionId, StateSlotDefinitionId, TeamSide,
-    ToughnessEventData, TurnEventData, UnitDefinitionId, UnitEventData, UnitId, WaveEventData,
+    AbilityId, ActionEventData, ActionId, ActionOrigin, BattleClockEventData, BattleEvent,
+    BattleEventData, BattleEventKind, BattleFault, BreakDamageKind, ControlledAction,
+    DecisionEventData, DurationClock, EffectCategory, EffectDefinitionId, EffectEventData,
+    EffectRuntimeDefinition, EffectRuntimeTemplate, EventId, FaultBoundary, FaultKind, FaultPolicy,
+    HitEventData, LifeState, PhaseEventData, PresenceState, Ratio, ResourceEventData, RuleId,
+    RuleInstanceId, Scalar, SelectorId, ShieldEventData, SourceDefinitionId, StateSlotDefinitionId,
+    TeamSide, ToughnessEventData, TurnEventData, UnitDefinitionId, UnitEventData, UnitId,
+    WaveEventData,
     action::model::ActionOrigin as ModelActionOrigin,
     catalog::{
         CombatCatalog,
@@ -393,6 +394,13 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
         BattleEventKind::Battle(BattleEventData::Won) => RuleEventPoint::BattleWon,
         BattleEventKind::Battle(BattleEventData::Lost)
         | BattleEventKind::Battle(BattleEventData::Conceded { .. }) => RuleEventPoint::BattleLost,
+        BattleEventKind::Battle(BattleEventData::Finalized) => {
+            return None;
+        }
+        BattleEventKind::Clock(BattleClockEventData::CycleTicked { .. }) => {
+            RuleEventPoint::CycleStarted
+        }
+        BattleEventKind::Clock(_) => return None,
         BattleEventKind::Decision(DecisionEventData::Offered { .. }) => {
             RuleEventPoint::DecisionRequested
         }
@@ -433,6 +441,7 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
         BattleEventKind::Unit(UnitEventData::Downed { .. }) => RuleEventPoint::UnitDowned,
         BattleEventKind::Unit(UnitEventData::Defeated { .. }) => RuleEventPoint::UnitDefeated,
         BattleEventKind::Unit(UnitEventData::Summoned { .. }) => RuleEventPoint::UnitSummoned,
+        BattleEventKind::Unit(UnitEventData::Refilled { .. }) => RuleEventPoint::UnitSummoned,
         BattleEventKind::Unit(UnitEventData::Revived { .. }) => RuleEventPoint::UnitRevived,
         BattleEventKind::Unit(UnitEventData::Transformed { .. })
         | BattleEventKind::Unit(UnitEventData::TransformationEnded { .. }) => {

@@ -24,6 +24,17 @@ pub(crate) struct BreakEffectStore {
 }
 
 impl BreakEffectStore {
+    pub(crate) fn clear_for_spawn(&mut self, unit: UnitId) -> usize {
+        let mut cleared = 0;
+        for effect in &mut self.entries {
+            if effect.remaining_turns > 0 && (effect.owner == unit || effect.applier == unit) {
+                effect.remaining_turns = 0;
+                cleared += 1;
+            }
+        }
+        cleared
+    }
+
     pub(crate) fn insert(&mut self, state: BreakEffectState) {
         assert!(
             self.entries

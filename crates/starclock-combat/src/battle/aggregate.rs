@@ -41,7 +41,7 @@ use super::{
     model::{BattlePhase, Resolution, ResolutionBoundary},
     spec,
     spec::{BattleSeed, BattleSpec, TeamSide},
-    state::{BattleIdentity, BattleState, EncounterState, SequenceState},
+    state::{BattleClockState, BattleIdentity, BattleState, EncounterState, SequenceState},
     view::BattleView,
 };
 
@@ -286,7 +286,9 @@ impl Battle {
                         .len(),
                 )
                 .expect("catalog encounter wave count is bounded by u16"),
+                spawn_defeats: 0,
             },
+            clock: spec.clock().map(BattleClockState::from_spec),
             timeline: TimelineState::default(),
             reactions: ReactionQueue::default(),
             concede: spec.concede_policy(),

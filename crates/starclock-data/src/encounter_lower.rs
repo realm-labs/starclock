@@ -204,9 +204,8 @@ fn lower_enemy_profiles(
             .ok_or_else(|| domain_fail("enemy profile has no template"))?;
         let rank = match template.rank {
             Rank::Normal | Rank::Minion => starclock_combat::formula::toughness::EnemyRank::Normal,
-            Rank::Elite | Rank::Boss => {
-                starclock_combat::formula::toughness::EnemyRank::EliteOrBoss
-            }
+            Rank::Elite => starclock_combat::formula::toughness::EnemyRank::Elite,
+            Rank::Boss => starclock_combat::formula::toughness::EnemyRank::Boss,
         };
         let mut weaknesses = config
             .enemy_weakness()

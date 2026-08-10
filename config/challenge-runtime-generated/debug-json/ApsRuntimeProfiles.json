@@ -1,0 +1,35 @@
+{
+  "table": {
+    "name": "ApsRuntimeProfiles",
+    "rows": [
+      {
+        "values": {
+          "action_value_score_maximum": {
+            "Integer": 2000
+          },
+          "boss_progress_maximum": {
+            "Integer": 2000
+          },
+          "expiry": {
+            "String": "Finalize"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_action_value_scaled": {
+            "Integer": 2000000000
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"$\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"\",\"path_or_page\":\"Config/ConfigAbility/BattleEvent/StrongChallenge_Scoring_Ability.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"98628a378b3e2ea0846b36843d4302e1927674d3e9179dc97b6be31a7809c4b2\",\"source_id\":\"src.program.StrongChallenge_Scoring_Ability\"}"
+          },
+          "stable_key": {
+            "String": "profile.apocalyptic-shadow.v4.4"
+          }
+        }
+      }
+    ]
+  }
+}

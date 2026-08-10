@@ -9,7 +9,7 @@ use super::{
         AssemblyDigest, BattleSeed, CombatInputDigest, CombatantSpecDigest, FormationIndex,
         ParticipantSource, TeamSide, UnitLevel,
     },
-    state::BattleState,
+    state::{BattleClockState, BattleState},
 };
 
 use super::spec as parent_spec;
@@ -64,6 +64,14 @@ impl<'a> BattleView<'a> {
     pub const fn phase(self) -> BattlePhase {
         self.state.phase
     }
+    /// Returns the optional authoritative battle-local challenge clock.
+    #[must_use]
+    pub const fn clock(self) -> Option<BattleClockView<'a>> {
+        match self.state.clock.as_ref() {
+            Some(clock) => Some(BattleClockView { clock }),
+            None => None,
+        }
+    }
     /// Returns the persisted terminal fault, if resolution faulted.
     #[must_use]
     pub const fn fault(self) -> Option<BattleFault> {
@@ -97,6 +105,7 @@ impl<'a> BattleView<'a> {
             wave: self.state.encounter.wave,
             number: self.state.encounter.number,
             total_waves: self.state.encounter.total_waves,
+            spawn_defeats: self.state.encounter.spawn_defeats,
         }
     }
     /// Iterates active unit records in stable runtime-ID order.
@@ -251,6 +260,53 @@ impl<'a> BattleView<'a> {
     #[must_use]
     pub const fn sequence_cursors(self) -> SequenceCursorsView {
         SequenceCursorsView::new(self.state.sequences.canonical_next_values())
+    }
+}
+
+/// Borrowed clock projection without mode-specific presentation metadata.
+#[derive(Clone, Copy)]
+pub struct BattleClockView<'a> {
+    clock: &'a BattleClockState,
+}
+
+impl BattleClockView<'_> {
+    #[must_use]
+    pub const fn remaining_cycles(self) -> Option<u16> {
+        match self.clock {
+            BattleClockState::Cycles {
+                remaining_cycles, ..
+            } => Some(*remaining_cycles),
+            BattleClockState::ActionValue { .. } => None,
+        }
+    }
+
+    #[must_use]
+    pub const fn cycle_index(self) -> Option<u32> {
+        match self.clock {
+            BattleClockState::Cycles { cycle_index, .. } => Some(*cycle_index),
+            BattleClockState::ActionValue { .. } => None,
+        }
+    }
+
+    #[must_use]
+    pub const fn elapsed_in_window_scaled(self) -> Option<i64> {
+        match self.clock {
+            BattleClockState::Cycles {
+                elapsed_in_window_scaled,
+                ..
+            } => Some(*elapsed_in_window_scaled),
+            BattleClockState::ActionValue { .. } => None,
+        }
+    }
+
+    #[must_use]
+    pub const fn remaining_action_value_scaled(self) -> Option<i64> {
+        match self.clock {
+            BattleClockState::Cycles { .. } => None,
+            BattleClockState::ActionValue {
+                remaining_scaled, ..
+            } => Some(*remaining_scaled),
+        }
     }
 }
 
@@ -1161,6 +1217,7 @@ pub struct EncounterView {
     wave: WaveInstanceId,
     number: u16,
     total_waves: u16,
+    spawn_defeats: u16,
 }
 
 impl EncounterView {
@@ -1183,5 +1240,10 @@ impl EncounterView {
     #[must_use]
     pub const fn total_waves(self) -> u16 {
         self.total_waves
+    }
+    /// Returns refillable occurrences defeated in the current spawn-program wave.
+    #[must_use]
+    pub const fn spawn_defeats(self) -> u16 {
+        self.spawn_defeats
     }
 }

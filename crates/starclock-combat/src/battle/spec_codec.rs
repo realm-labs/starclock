@@ -10,8 +10,8 @@ use crate::{
 };
 
 use super::spec::{
-    CombatInputDigest, ConcedePolicy, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
-    TeamResourceSpec, TeamResourceWavePolicy, TeamSide,
+    BattleClockExpiry, BattleClockSpec, CombatInputDigest, ConcedePolicy, ParticipantSource,
+    ParticipantSpec, ResolvedCombatantSpec, TeamResourceSpec, TeamResourceWavePolicy, TeamSide,
 };
 
 const INPUT_MAGIC: &[u8; 4] = b"SCBI";
@@ -22,6 +22,7 @@ pub(super) fn combat_input_digest(
     player_resources: &TeamResourceSpec,
     enemy_resources: &TeamResourceSpec,
     concede: ConcedePolicy,
+    clock: Option<BattleClockSpec>,
 ) -> CombatInputDigest {
     let mut encoder = Encoder(Sha256::new());
     encoder.raw(INPUT_MAGIC);
@@ -35,7 +36,34 @@ pub(super) fn combat_input_digest(
     encoder.u8(match concede {
         ConcedePolicy::Allowed => 0,
     });
+    encode_clock(&mut encoder, clock);
     CombatInputDigest::from_computed(encoder.0.finalize().into())
+}
+
+fn encode_clock(encoder: &mut Encoder, clock: Option<BattleClockSpec>) {
+    match clock {
+        None => {}
+        Some(BattleClockSpec::Cycles(clock)) => {
+            encoder.u8(1);
+            encoder.u16(clock.remaining_cycles());
+            encoder.i64(clock.first_window().scaled());
+            encoder.i64(clock.later_window().scaled());
+            encoder.bool(clock.reset_window_on_wave());
+            encoder.u8(expiry_tag(clock.expiry()));
+        }
+        Some(BattleClockSpec::ActionValue(clock)) => {
+            encoder.u8(2);
+            encoder.i64(clock.remaining().scaled());
+            encoder.u8(expiry_tag(clock.expiry()));
+        }
+    }
+}
+
+const fn expiry_tag(expiry: BattleClockExpiry) -> u8 {
+    match expiry {
+        BattleClockExpiry::Lose => 0,
+        BattleClockExpiry::Finalize => 1,
+    }
 }
 
 struct Encoder(Sha256);
@@ -116,7 +144,8 @@ fn encode_combatant(encoder: &mut Encoder, combatant: &ResolvedCombatantSpec) {
     encoder.i64(combatant.maximum_energy().scaled());
     encoder.u8(match combatant.rank() {
         EnemyRank::Normal => 0,
-        EnemyRank::EliteOrBoss => 1,
+        EnemyRank::Elite => 1,
+        EnemyRank::Boss => 2,
     });
     encode_ids(encoder, combatant.weaknesses(), |value| *value as u32);
     encoder.length(combatant.toughness_layers().len());

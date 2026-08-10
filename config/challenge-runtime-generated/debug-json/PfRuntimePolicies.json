@@ -1,0 +1,277 @@
+{
+  "table": {
+    "name": "PfRuntimePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "combat_damage_lifecycle::continuous_spawn_refills_in_slot_order_until_the_authored_quota"
+              },
+              {
+                "String": "pure_fiction_runtime::tests::aggregates_two_independent_nodes"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "known_facts": {
+            "String": "Released data proves an infinite group, five initial wave-1 slots, one wave-2/3 scoring target and after-defeat refill. Public released guidance confirms continuous replenishment, 20 wave-1 defeats and required targets in waves 2/3. Dynamic occurrence identity and hidden pool cursor are not exposed."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The policy is bounded, replayable, inspectable and isolates the only unavailable identity detail without content-ID branches in Combat."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "ordinary next-wave victory without refill"
+              },
+              {
+                "String": "unbounded dynamic catalog lookup"
+              },
+              {
+                "String": "preallocate an arbitrary number of hidden units"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace runtime-slot reuse and the derived refill pool when released engine traces expose occurrence allocation and pool cursor semantics."
+          },
+          "selected_behavior": {
+            "String": "Refill in stable formation order after each action. Reuse the defeated runtime UnitId, allocate a fresh SpawnSequence, fully reset occurrence state, and derive four wave-2/3 normal refill slots from wave 1 while reserving formation 4 for the scoring target."
+          },
+          "source_ref": {
+            "String": "[{\"evidence_digest\":\"845f35fc44d5cf0e52f88a29c8b913249615209d31027736c8bcd9f3934fa107\",\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"id\":\"source.pf.contract.spawn_policy\",\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"note\":\"Stable challenge-family reference obligation\",\"path_or_page\":\"ExcelOutput/ChallengeStoryMazeConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"GroupID=2024\",\"schema_revision\":\"starclock.pure-fiction-source.v1\"}]|{\"path_or_page\":\"Node Format, scoring, clocks and Grit Effect\",\"quality\":\"ReleasedPublicCrossCheck\",\"repository_or_url\":\"https://honkai-star-rail.fandom.com/wiki/Pure_Fiction\",\"revision_or_access_date\":\"2026-08-11\"}"
+          },
+          "stable_key": {
+            "String": "policy.pure-fiction.spawn-runtime-identity"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "pure_fiction::tests::scores_three_wave_progress"
+              },
+              {
+                "String": "pure_fiction_runtime::tests::aggregates_two_independent_nodes"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "known_facts": {
+            "String": "Public released guidance gives 400 points per wave-1 defeat up to 8000, and 40 points per 0.25% scoring-target HP lost in waves 2/3 up to 16000 each. Candidate data proves 30000 ordinary clear score and 40000/50000/60000 objectives."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "This directly follows released score units and keeps applied state/events authoritative."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "score displayed rounded damage"
+              },
+              {
+                "String": "award full wave score on timeout"
+              },
+              {
+                "String": "round partial target progress to nearest"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace only if a pinned released scoring program demonstrates different integer boundary ordering."
+          },
+          "selected_behavior": {
+            "String": "Read the authoritative per-wave continuous-spawn defeat counter, which is incremented by committed Defeated events, and floor each scoring target's depleted-HP ratio at a 16000-point cap. Sum three wave scores, then sum two node scores."
+          },
+          "source_ref": {
+            "String": "[{\"evidence_digest\":\"845f35fc44d5cf0e52f88a29c8b913249615209d31027736c8bcd9f3934fa107\",\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"id\":\"source.pf.contract.score_aggregation\",\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"note\":\"Stable challenge-family reference obligation\",\"path_or_page\":\"ExcelOutput/ChallengeStoryMazeConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"GroupID=2024\",\"schema_revision\":\"starclock.pure-fiction-source.v1\"}]|{\"path_or_page\":\"Node Format, scoring, clocks and Grit Effect\",\"quality\":\"ReleasedPublicCrossCheck\",\"repository_or_url\":\"https://honkai-star-rail.fandom.com/wiki/Pure_Fiction\",\"revision_or_access_date\":\"2026-08-11\"}"
+          },
+          "stable_key": {
+            "String": "policy.pure-fiction.score-lowering"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_pure_fiction_combat_definitions_lower"
+              },
+              {
+                "String": "pure_fiction_combat::tests::production_pure_fiction_catalog_composes_all_playable_encounters"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "known_facts": {
+            "String": "Candidate data proves 42 variants, 41 templates, exact levels, base stats, ratios, weaknesses and 63 authored slots. Not every normalized AI/ability program is executable in the shared production catalog."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "Every identity and stat stays exact while temporary behavior substitutions remain visible in typed data."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "parse Candidate JSON at runtime"
+              },
+              {
+                "String": "drop unavailable enemies"
+              },
+              {
+                "String": "claim donor behavior is observed parity"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace each donor when that variant's reviewed ability, AI, summon and phase closure is executable."
+          },
+          "selected_behavior": {
+            "String": "Project exact occurrence stats through HardLevelGroup and use explicit same-rank reviewed behavior donors only for missing executable variants."
+          },
+          "source_ref": {
+            "String": "[{\"evidence_digest\":\"9a85d1fe2cb9ddcbd9fc59efd7d9b17fb9bfbc7829259210925f1196bb5e3766\",\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"id\":\"source.pf.enemy.1002011\",\"mechanism_quality\":\"Exact\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"MonsterID=1002011\",\"schema_revision\":\"starclock.pure-fiction-source.v1\"}]"
+          },
+          "stable_key": {
+            "String": "policy.pure-fiction.enemy-behavior-donors"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "pure_fiction_combat::tests::production_pure_fiction_catalog_composes_all_playable_encounters"
+              },
+              {
+                "String": "challenge::tests::production_pure_fiction_profile_lowers_all_playable_stages"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "known_facts": {
+            "String": "Released public text and exact MazeBuff parameters prove Grit and Resurging Tide caps, the speed-100 Surging Grit countdown, 80% entry-damage parameter, 50% vulnerability, 1% two-turn Dejection with 20 stacks, the per-enemy 10-trigger debuff cap, and all three Cacophonies. Released material does not expose the fixed-damage level curve, equal-boundary ordering, a generic per-applier Indulgence key, or the shared Punchline cap."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The released descriptions and exact parameters support typed rules, while the four unavailable engine joins remain deterministic, inspectable and replaceable without adding mode IDs to Combat."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "leave the seasonal mechanic silently inactive"
+              },
+              {
+                "String": "guess from parameter vectors without public text"
+              },
+              {
+                "String": "put mode IDs in the shared resolver"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace host-ATK entry damage, event aggregation/order, per-action Indulgence identity or Punchline cap when a released ability graph or reproducible public trace proves the corresponding engine behavior."
+          },
+          "selected_behavior": {
+            "String": "Apply negative-effect triggers in committed event order and track their 10-use cap on each enemy. Aggregate Surging entry damage into one true-damage event per enemy at 80% of the mode-rule host's base ATK for each current Debuff, Control or DoT stack. Use a speed-100 countdown, apply Dejection at one stack or Toccata's two stacks, and convert up to 30 Tide on exit. Model Indulgence as an independent two-turn instance per Elation action and create a missing shared Punchline resource with cap 999 before Mirthful Cadence grants 40."
+          },
+          "source_ref": {
+            "String": "[{\"evidence_digest\":\"7f1f614dba6e610b95ee9c897c8024f7cc03a85df91b94ce6fb70a0bba430da9\",\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"id\":\"source.pf.buff.3031220\",\"mechanism_quality\":\"Exact\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=3031220\",\"schema_revision\":\"starclock.pure-fiction-source.v1\"}]|{\"path_or_page\":\"Node Format, scoring, clocks and Grit Effect\",\"quality\":\"ReleasedPublicCrossCheck\",\"repository_or_url\":\"https://honkai-star-rail.fandom.com/wiki/Pure_Fiction\",\"revision_or_access_date\":\"2026-08-11\"}"
+          },
+          "stable_key": {
+            "String": "policy.pure-fiction.grit-fever-and-cacophony"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge::tests::production_pure_fiction_profile_lowers_all_playable_stages"
+              },
+              {
+                "String": "pure_fiction_runtime_tests::tests::starward_runs_three_independent_nodes"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Medium"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "known_facts": {
+            "String": "Candidate data proves Tierce encounter 30322043, predecessor stage 20244, clear score 45000 and target IDs 4001/4002/4003. Released public guidance proves Starward Stage 4 uses three independent teams/nodes with 60000/75000/90000 star targets and retains the best score per node."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The three-node topology and thresholds are public and the encounter identity is exact; only the omitted Tierce Whimsicality join remains replaceable policy."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "silently exclude released Starward"
+              },
+              {
+                "String": "treat Tierce as a standalone one-team stage"
+              },
+              {
+                "String": "share one battle clock across all three teams"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the inherited Tierce Whimsicality or target-ID mapping when a released selector row or decoded schema provides exact joins."
+          },
+          "selected_behavior": {
+            "String": "Expose Starward as a fifth selectable runtime stage composed from ordinary Stage 4 nodes plus Tierce, with three Section-locked teams, independent four-cycle battles, 45000 clear score and 60000/75000/90000 objectives. Reuse the active seasonal Whimsicality for Tierce because its exact row omits a separate selector."
+          },
+          "source_ref": {
+            "String": "[{\"evidence_digest\":\"af857b708b680e2d9cd1590462cb28b030d1d5404c372e9e880c7807e660d95f\",\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"id\":\"source.pf.stage-config.30322043\",\"mechanism_quality\":\"Exact\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"StageID=30322043\",\"schema_revision\":\"starclock.pure-fiction-source.v1\"}]|{\"path_or_page\":\"Starward Mode\",\"quality\":\"ReleasedPublicCrossCheck\",\"repository_or_url\":\"https://honkai-star-rail.fandom.com/wiki/Pure_Fiction\",\"revision_or_access_date\":\"2026-08-11\"}"
+          },
+          "stable_key": {
+            "String": "policy.pure-fiction.tierce-starward-exclusion"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -16,6 +16,7 @@ pub enum BattleOutcome {
     Won = 0,
     Lost = 1,
     Faulted = 2,
+    Finalized = 3,
 }
 
 impl From<BattleOutcome> for TerminalOutcome {
@@ -24,6 +25,7 @@ impl From<BattleOutcome> for TerminalOutcome {
             BattleOutcome::Won => Self::Complete,
             BattleOutcome::Lost => Self::Failed,
             BattleOutcome::Faulted => Self::Faulted,
+            BattleOutcome::Finalized => Self::Complete,
         }
     }
 }

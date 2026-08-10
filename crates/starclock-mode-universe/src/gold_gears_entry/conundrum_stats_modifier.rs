@@ -55,9 +55,9 @@ impl GoldAndGearsStatsConundrumActivation {
     pub fn is_active(self, rank: EnemyRank, berserk_stacks: u8, received_attack: bool) -> bool {
         match self {
             Self::EveryEnemy => true,
-            Self::EliteOrBossWhileBerserk => rank == EnemyRank::EliteOrBoss && berserk_stacks > 0,
+            Self::EliteOrBossWhileBerserk => rank.is_elite_or_boss() && berserk_stacks > 0,
             Self::EliteOrBossAfterReceivedAttackWhileBerserk => {
-                rank == EnemyRank::EliteOrBoss && berserk_stacks > 0 && received_attack
+                rank.is_elite_or_boss() && berserk_stacks > 0 && received_attack
             }
         }
     }

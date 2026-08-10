@@ -22,13 +22,18 @@ pub enum BattlePhase {
     Lost = 5,
     /// Deterministic internal fault; terminal for the rules revision.
     Faulted = 6,
+    /// An authored score/clock boundary finalized the battle without victory or defeat.
+    Finalized = 7,
 }
 
 impl BattlePhase {
     /// Returns whether no further external command can be accepted.
     #[must_use]
     pub const fn is_terminal(self) -> bool {
-        matches!(self, Self::Won | Self::Lost | Self::Faulted)
+        matches!(
+            self,
+            Self::Won | Self::Lost | Self::Faulted | Self::Finalized
+        )
     }
 }
 

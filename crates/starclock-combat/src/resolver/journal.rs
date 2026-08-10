@@ -42,6 +42,7 @@ pub(crate) enum MutationField {
     CommittedRevision,
     Fault,
     Timeline,
+    BattleClock,
     ActionGauge,
     Speed,
     TeamSkillPoints,
@@ -70,6 +71,8 @@ pub(crate) enum MutationField {
     ActorActive,
     Transformation,
     EnemyOrchestration,
+    SpawnProgress,
+    SpawnSequence,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

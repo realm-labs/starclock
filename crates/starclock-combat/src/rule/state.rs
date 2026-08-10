@@ -34,6 +34,24 @@ pub(crate) enum RuleStateError {
 }
 
 impl RuleStateStore {
+    pub(crate) fn reset_owner_for_spawn(&mut self, owner: UnitId) -> usize {
+        let mut count = 0;
+        for state in self
+            .entries
+            .values_mut()
+            .filter(|state| state.owner == Some(owner))
+        {
+            for (definition, value) in &mut state.slots {
+                if value != definition.initial() {
+                    value.clone_from(definition.initial());
+                    count += 1;
+                }
+            }
+            state.ledger = evaluate::TriggerLedger::default();
+        }
+        count
+    }
+
     pub(crate) fn insert(
         &mut self,
         id: RuleInstanceId,

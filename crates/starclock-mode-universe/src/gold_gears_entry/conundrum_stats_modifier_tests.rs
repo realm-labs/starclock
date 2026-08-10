@@ -84,7 +84,7 @@ fn stats_fixture_executes_all_active_modifiers_through_combat_resolver() {
         .unwrap();
     let unit = UnitId::new(1).unwrap();
     let registry = registry(&set);
-    let instances = active_instances(&set, unit, EnemyRank::EliteOrBoss, 2, true);
+    let instances = active_instances(&set, unit, EnemyRank::Elite, 2, true);
     let bases = BTreeMap::from([
         ((unit, StatKind::Hp), scalar(10_000_000)),
         ((unit, StatKind::Atk), scalar(2_000_000)),
@@ -184,16 +184,16 @@ fn rank_berserk_and_received_attack_activation_is_fail_closed() {
             GoldAndGearsStatsConundrumModifierRole::EnemySpeedRatio,
         ])
     );
-    let dormant = roles(EnemyRank::EliteOrBoss, 0, true);
+    let dormant = roles(EnemyRank::Elite, 0, true);
     assert_eq!(dormant, normal);
-    let active = roles(EnemyRank::EliteOrBoss, 1, false);
+    let active = roles(EnemyRank::Elite, 1, false);
     assert!(active.contains(&GoldAndGearsStatsConundrumModifierRole::BerserkAttackRatioPerStack));
     assert!(active.contains(&GoldAndGearsStatsConundrumModifierRole::EliteBossToughnessRatio));
     assert!(
         !active
             .contains(&GoldAndGearsStatsConundrumModifierRole::EliteBossReceivedAttackAdvanceRatio)
     );
-    let response = roles(EnemyRank::EliteOrBoss, 1, true);
+    let response = roles(EnemyRank::Elite, 1, true);
     assert!(
         response
             .contains(&GoldAndGearsStatsConundrumModifierRole::EliteBossReceivedAttackAdvanceRatio)

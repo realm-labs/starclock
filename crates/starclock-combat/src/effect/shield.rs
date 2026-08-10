@@ -40,6 +40,22 @@ pub(crate) struct ShieldStateRef<'a> {
 }
 
 impl ShieldStore {
+    pub(crate) fn remove_owner(&mut self, owner: UnitId) -> Vec<ShieldChange> {
+        let Some(shields) = self.by_owner.remove(&owner) else {
+            return Vec::new();
+        };
+        let zero = ShieldAmount::new(0).expect("zero shield amount is valid");
+        shields
+            .instances
+            .into_iter()
+            .map(|state| ShieldChange {
+                id: state.id,
+                before: state.remaining,
+                after: zero,
+            })
+            .collect()
+    }
+
     pub(crate) fn effective_remaining(&self, owner: UnitId) -> Result<ShieldAmount, NumericError> {
         let Some(shields) = self.by_owner.get(&owner) else {
             return ShieldAmount::new(0);

@@ -39,6 +39,12 @@ execution, and replay verification. JSON output is deterministic and uses
 canonical strings for authoritative numbers and hashes. Human output is a
 readable projection of the same result.
 
+`starclock challenge config validate [--json]` loads the current challenge
+bundle, lowers Memory of Chaos, Pure Fiction and Apocalyptic Shadow, and
+compiles each mode-owned combat catalog over the production catalog. It is a
+read-only preflight for adapters and UI; it does not synthesize player builds
+or mutate an Activity.
+
 CLI flags may select current content, seeds and output paths. They do not alter
 rounding, RNG mapping, event ordering or transaction semantics. Exit codes
 distinguish usage, configuration, replay divergence, invalid scenarios,

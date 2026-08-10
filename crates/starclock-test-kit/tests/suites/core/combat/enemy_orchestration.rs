@@ -236,7 +236,7 @@ fn battle() -> Battle {
 fn battle_with_player_ability(ability: u32) -> Battle {
     let enemy = combatant(2, 2, 1_000_000, 0x22)
         .with_toughness(
-            EnemyRank::EliteOrBoss,
+            EnemyRank::Elite,
             vec![CombatElement::Fire],
             vec![
                 ToughnessLayerSpec::ordinary(1, starclock_combat::RawToughness::new(60).unwrap())

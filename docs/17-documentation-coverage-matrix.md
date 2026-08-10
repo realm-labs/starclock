@@ -2,8 +2,9 @@
 
 This matrix reports the Goal 01 release boundary. Rust code, Excel workbooks,
 Sora bundles and the frozen Version 4.4 Goal 01 content scope are implemented;
-future universe, relic/planar and rotating-challenge datasets remain explicitly
-outside this release.
+future universe and relic/planar datasets remain explicitly outside this
+release. The current Version 4.4 rotating-challenge dataset is imported with
+explicit non-parity policies for unresolved behavior.
 
 ## Status vocabulary
 
@@ -31,7 +32,7 @@ outside this release.
 | Enemy AI/encounters | `13` | Goal 01 subset implemented | 17 frozen variants, six encounters and six scenarios execute. |
 | Activity core/mode extension | `19`, `26`, `29` | Sequential runtime and current-state nested-battle assembly implemented; extension evolution normative | Generic graph/scope/roster/persistence tests plus ordered task-set, logical-scope, composed-registry and alternate-executor revisions before dependent modes release. |
 | Universe profiles | `14`, `19` | Standard SU implemented; other families data pending | One complete manifest and seeded golden activity per additional supported family. |
-| Standard/challenge profiles | `18`, `19` | Normative profile design; seasonal data pending | Standard golden activities plus active 4.4 manifests/golden stages for all three challenge families. |
+| Standard/challenge profiles | `18`, `19` | Standard plus all three Version 4.4 challenge families implemented | Production Sora lowering, two/three-node Activity tests, catalog compilation, mechanics tests and challenge CLI validation. |
 | Content/provenance/coverage | `15`, `26` | Released core and Standard SU implemented; experimental lane specified | Generated digest-addressed released reports; experimental rows remain excluded from production coverage. |
 | Replay/CLI/engine adapters | `16`, `29` | CLI and component replay v3 implemented; engine adapter future | Replay v3 reconstructs every dynamic assembly and reports ordered first divergence; historical v2 remains verifiable. |
 
@@ -49,13 +50,15 @@ outside this release.
 | Unknowable Domain | System boundary documented | Not imported | Full Scepter/Component/alignment/stage data and seeded golden run. |
 | Divergent Universe 4.4 | Snapshot boundary documented | Not imported | Frozen current-only manifest, full mechanical data and seeded golden run. |
 | Standard battle | Default profile implemented | Six frozen encounters and scenarios imported and seeded to `Won` | Goal 01 Standard gate complete. |
-| Memory of Chaos 4.4 | Family, clock, node, and objective contracts documented | Not imported | Active season stages, encounters, turbulence, clock/objective data and golden stage. |
-| Pure Fiction 4.4 | Family, spawn, clock, buff, and score contracts documented | Not imported | Active season stages, Whimsicality/Cacophony, spawn/score data and golden stage. |
-| Apocalyptic Shadow 4.4 | Family, boss-progress, AV, buff, and score contracts documented | Not imported | Active season boss variants, Embers/Axiom, AV/score data and golden stage. |
+| Memory of Chaos 4.4 | 12 ordinary stages plus three-node Starward, shared cycle clock, objectives and Turbulence | 25 encounters, 50 waves, 99 slots and 41 enemy bindings imported; 22 behavior donors and eight explicit policies | Replace donor programs and the inferred Tierce Turbulence join when exact released closures are available. |
+| Pure Fiction 4.4 | Four ordinary stages plus three-node Starward, continuous spawn, scoring, Grit and three Cacophonies | Nine encounters and 63 slots imported; executable refill/score/rule programs and five explicit policies | Replace documented fixed-damage/order/resource approximations with observed exact behavior. |
+| Apocalyptic Shadow 4.4 | Four ordinary stages plus three-node Starward, AV scoring, Ruinous Embers and nine Axioms | Nine encounters imported; executable scoring/rule programs and five explicit policies | Replace boss AI/stat donors and documented Path/War-Armor/readiness approximations with exact released closures. |
 | Future activity archetypes | Generic contracts documented | No profiles imported | Golden survival, defense, boss-rush, trial/borrow, draft/ban, multi-team fork/join, and endless-under-budget fixtures without `starclock-combat` changes. |
 
 Rows that remain “Not imported” are outside Goal 01 and may not be described as
-implemented or complete in release notes, README badges or CLI output.
+implemented or complete in release notes, README badges or CLI output. Imported
+challenge rows may be described as runnable only together with their explicit
+`ProjectPolicy` non-parity boundary.
 
 ## Formula confidence work queue
 

@@ -93,7 +93,7 @@ fn drive_to_pending(activity: &mut starclock_mode_universe::runtime::StandardUni
 
 #[test]
 fn pending_encounter_is_assembled_and_sealed_from_one_current_snapshot() {
-    let (mut activity, assembler) = activity_and_assembler(0x6023);
+    let (mut activity, assembler) = activity_and_assembler(1);
     let initial_bytes = activity.graph().canonical_state_bytes();
     assert!(matches!(
         assembler.start_pending_battle(&mut activity),
@@ -164,7 +164,7 @@ fn pending_encounter_is_assembled_and_sealed_from_one_current_snapshot() {
 
 #[test]
 fn stale_invalid_and_budget_failures_preserve_state_and_retry_cleanly() {
-    let (mut activity, assembler) = activity_and_assembler(0x6023);
+    let (mut activity, assembler) = activity_and_assembler(1);
     let initial = activity.view();
     activity
         .choose_option(

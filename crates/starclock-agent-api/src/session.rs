@@ -694,6 +694,7 @@ impl AgentSession {
             BattlePhase::Won => AgentBattleStatus::Won,
             BattlePhase::Lost => AgentBattleStatus::Lost,
             BattlePhase::Faulted => AgentBattleStatus::Faulted,
+            BattlePhase::Finalized => AgentBattleStatus::Finalized,
             BattlePhase::Initializing | BattlePhase::Resolving => {
                 return Err(agent_error(
                     AgentErrorCode::AdapterFailure,
@@ -1039,6 +1040,7 @@ fn replay_phase(phase: BattlePhase) -> Result<AgentBattlePhase, AgentError> {
         BattlePhase::Won => Ok(AgentBattlePhase::Won),
         BattlePhase::Lost => Ok(AgentBattlePhase::Lost),
         BattlePhase::Faulted => Ok(AgentBattlePhase::Faulted),
+        BattlePhase::Finalized => Ok(AgentBattlePhase::Finalized),
         BattlePhase::Initializing | BattlePhase::Resolving => Err(agent_error(
             AgentErrorCode::ReplayDiverged,
             "The verified replay ended outside a stable external boundary.",
@@ -1101,7 +1103,8 @@ fn static_condition(condition: &ConditionExpr) -> Option<bool> {
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
-        | ConditionExpr::EnemyRank { .. } => None,
+        | ConditionExpr::EnemyRank { .. }
+        | ConditionExpr::EnemyRankEliteOrBoss { .. } => None,
     }
 }
 

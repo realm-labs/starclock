@@ -382,6 +382,7 @@ fn collect_condition_queries(
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
         | ConditionExpr::EnemyRank { .. }
+        | ConditionExpr::EnemyRankEliteOrBoss { .. }
         | ConditionExpr::SelectorCardinality { .. } => {}
     }
 }

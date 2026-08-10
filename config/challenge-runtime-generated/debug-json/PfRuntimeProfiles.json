@@ -1,0 +1,38 @@
+{
+  "table": {
+    "name": "PfRuntimeProfiles",
+    "rows": [
+      {
+        "values": {
+          "expiry": {
+            "String": "Finalize"
+          },
+          "first_window_scaled": {
+            "Integer": 150000000
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "later_window_scaled": {
+            "Integer": 100000000
+          },
+          "node_score_maximum": {
+            "Integer": 40000
+          },
+          "source_ref": {
+            "String": "[{\"evidence_digest\":\"1192b5a9637fd44c981d5c883100c533f3809237d0173c32fd8e48a155d5d74f\",\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"id\":\"source.pf.clock.20241\",\"mechanism_quality\":\"Exact\",\"note\":\"\",\"path_or_page\":\"ExcelOutput/ChallengeStoryMazeExtra.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"row_locator\":\"ID=20241\",\"schema_revision\":\"starclock.pure-fiction-source.v1\"}]"
+          },
+          "stable_key": {
+            "String": "profile.pure-fiction.v4.4"
+          },
+          "stage_score_maximum": {
+            "Integer": 120000
+          }
+        }
+      }
+    ]
+  }
+}

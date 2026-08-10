@@ -361,6 +361,31 @@ fn validate_operation(
                 );
             }
         }
+        RuleOperationTemplate::RandomRepeatedTrueDamage {
+            selector,
+            repetitions,
+            maximum_repetitions,
+            normal_coefficient,
+            elite_coefficient,
+            boss_coefficient,
+            ..
+        } => {
+            require_selector(catalog, *selector)?;
+            if infer_value(catalog, runtime, repetitions, 0)? != RuleValueKind::Integer {
+                return Err(
+                    "random repeated true damage requires an integer repetition count".into(),
+                );
+            }
+            if !(1..=64).contains(maximum_repetitions) {
+                return Err("random repeated true damage bound must be within 1..=64".into());
+            }
+            if [normal_coefficient, elite_coefficient, boss_coefficient]
+                .into_iter()
+                .any(|coefficient| coefficient.scaled() < 0)
+            {
+                return Err("random repeated true damage coefficients must be non-negative".into());
+            }
+        }
         RuleOperationTemplate::QueueAction {
             actor_selector,
             target_selector,
@@ -758,7 +783,8 @@ fn validate_condition(
         | ConditionExpr::IsFrozen(selector)
         | ConditionExpr::HasWeakness { selector, .. }
         | ConditionExpr::IsBroken(selector)
-        | ConditionExpr::EnemyRank(selector, _) => require_selector(catalog, *selector)?,
+        | ConditionExpr::EnemyRank(selector, _)
+        | ConditionExpr::EnemyRankEliteOrBoss(selector) => require_selector(catalog, *selector)?,
         ConditionExpr::EffectExists { selector, effect } => {
             require_selector(catalog, *selector)?;
             if catalog.effect(*effect).is_none() {

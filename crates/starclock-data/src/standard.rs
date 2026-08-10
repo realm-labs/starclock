@@ -433,32 +433,32 @@ mod tests {
             (
                 SCENARIOS[0].0,
                 161,
-                "bc675b17a0b641155e3ad6fc102a1d2b5921923049cee22e3a830cc2a8d14c06",
+                "25c066d087f0c807c5454cdab688799697bbafaab8d92dd563f17716751d602c",
             ),
             (
                 SCENARIOS[1].0,
                 32,
-                "e94d2bfc03d1dc87ae00e74308afd561bd3332e251327480b3a6f9124298d495",
+                "ca2d4bc3b9d0b5a0a6e32ee5bb27550180f8b3c3c76f932cc41c67b88583dca5",
             ),
             (
                 SCENARIOS[2].0,
                 113,
-                "43cfe5278265a9c34ccacae26a74ee9a18d41673b4d67ab0ebcebfe6c25c4751",
+                "f129ebd3ddea5877324533fa6390c4d5f65761c8de6fa84b29635a2fce57e7ed",
             ),
             (
                 SCENARIOS[3].0,
                 48,
-                "3d5243c9353346cbf12bd8ee1d20c654f9ccd15a4c322e0236a9189f2e6d95b2",
+                "70f68ece3d724b47df613b6a28609da844128f26a8ebda78133a0852ec3ece20",
             ),
             (
                 SCENARIOS[4].0,
                 331,
-                "b0c88f4615017232bb3031b3087efb1f1f578e4f5bb2b963641a3813c20d6730",
+                "71a785f6a12a571b48df0fa9042edb3a3e00a621d4a86641c97882ec7a60a1ea",
             ),
             (
                 SCENARIOS[5].0,
                 441,
-                "5d40133446e3b05af214e6fbf9520a1ddda2fa46d819280c9c9f8d16d548db7a",
+                "97c06c924a87a5b28922cce75a7029c5927e70f7fe97ecfebd49b9a5d013d94a",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

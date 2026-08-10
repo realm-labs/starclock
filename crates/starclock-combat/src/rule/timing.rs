@@ -21,6 +21,7 @@ impl RuleEventPoint {
         match self {
             P::BattleStarted
             | P::WaveStarted
+            | P::CycleStarted
             | P::TurnStarted
             | P::ActionDeclared
             | P::ActionStarted

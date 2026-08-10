@@ -687,6 +687,7 @@ fn decode_projected(
             0 => BattleOutcome::Won,
             1 => BattleOutcome::Lost,
             2 => BattleOutcome::Faulted,
+            3 => BattleOutcome::Finalized,
             other => return Err(ActivityCommandPayloadError::UnknownOutcome(other)),
         })),
         1 => Ok(ProjectedValue::FinalStateHash(BattleStateHash::from_bytes(

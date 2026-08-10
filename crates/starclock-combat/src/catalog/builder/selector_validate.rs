@@ -230,7 +230,8 @@ fn historical_condition_safe(condition: &ConditionExpr) -> bool {
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
-        | ConditionExpr::EnemyRank { .. } => false,
+        | ConditionExpr::EnemyRank { .. }
+        | ConditionExpr::EnemyRankEliteOrBoss { .. } => false,
         ConditionExpr::Not(value) => historical_condition_safe(value),
         ConditionExpr::All(values) | ConditionExpr::Any(values) => {
             values.iter().all(historical_condition_safe)

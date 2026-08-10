@@ -21,7 +21,7 @@ const EXPECTED_TOOLS: [&str; 13] = [
     "starclock_verify_replay",
 ];
 const BASIC_SCENARIO: &str = "scenario.standard.basic-single-wave";
-const BASIC_FINAL_HASH: &str = "bc675b17a0b641155e3ad6fc102a1d2b5921923049cee22e3a830cc2a8d14c06";
+const BASIC_FINAL_HASH: &str = "25c066d087f0c807c5454cdab688799697bbafaab8d92dd563f17716751d602c";
 
 fn spawn_server() -> std::process::Child {
     Command::new(env!("CARGO_BIN_EXE_starclock"))

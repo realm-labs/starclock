@@ -342,7 +342,8 @@ fn condition_dependencies(condition: &ConditionExpr, output: &mut BTreeSet<Selec
         | ConditionExpr::IsFrozen(selector)
         | ConditionExpr::HasWeakness { selector, .. }
         | ConditionExpr::IsBroken(selector)
-        | ConditionExpr::EnemyRank(selector, _) => {
+        | ConditionExpr::EnemyRank(selector, _)
+        | ConditionExpr::EnemyRankEliteOrBoss(selector) => {
             output.insert(*selector);
         }
         ConditionExpr::Literal(_)

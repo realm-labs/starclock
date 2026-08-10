@@ -1,5 +1,4 @@
 use super::*;
-use starclock_combat::formula::toughness::EnemyRank;
 
 const EMPYREAN_IMPERIUM: &str = "StageAbility_61243001";
 const EMPYREAN_IMPERIUM_ENHANCED: &str = "StageAbility_61243002";
@@ -241,7 +240,7 @@ fn sovereign_skybreaker(
     })];
     if enhanced {
         break_steps.push(ProgramStep::If {
-            condition: ConditionExpr::EnemyRank(target, EnemyRank::EliteOrBoss),
+            condition: ConditionExpr::EnemyRankEliteOrBoss(target),
             then_program: elite_program,
             else_program: None,
         });

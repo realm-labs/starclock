@@ -4,6 +4,7 @@ mod emission;
 pub(super) mod fault;
 mod random_damage;
 mod random_grouped_effect;
+mod random_true_damage;
 mod resource;
 mod value;
 
@@ -406,6 +407,34 @@ fn execute_emission(
                 can_crit,
                 can_defeat,
                 current_target,
+                scratch,
+            );
+        }
+        RuleEmission::RandomRepeatedTrueDamage {
+            selector,
+            repetitions,
+            maximum_repetitions,
+            normal_coefficient,
+            elite_coefficient,
+            boss_coefficient,
+            target_rng_purpose,
+            ..
+        } => {
+            return random_true_damage::execute(
+                catalog,
+                txn,
+                cause,
+                parent,
+                random_true_damage::Request {
+                    context,
+                    resolved,
+                    selector,
+                    repetitions,
+                    maximum_repetitions,
+                    coefficients: [normal_coefficient, elite_coefficient, boss_coefficient],
+                    target_rng_purpose,
+                    current_target,
+                },
                 scratch,
             );
         }

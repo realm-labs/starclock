@@ -60,6 +60,8 @@ const activity = packages.find((entry) => entry.name === "starclock-activity");
 assert(activity.dependencies.every((dependency) => dependency.kind === "dev" ? dependency.name === "allocation-counter" : ["rand", "sha2", "starclock-combat"].includes(dependency.name)), "starclock-activity may depend only on combat domain types, the reviewed private RNG/hash backends and the benchmark-only allocator counter");
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
+const challenge = packages.find((entry) => entry.name === "starclock-mode-challenge");
+assert(challenge.dependencies.every((dependency) => ["starclock-activity", "starclock-combat"].includes(dependency.name)), "starclock-mode-challenge may depend only on the generic Activity and combat domains");
 const universe = packages.find((entry) => entry.name === "starclock-mode-universe");
 assert(universe.dependencies.every((dependency) => ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-replay", "serde", "serde_json", "sha2", "zstd"].includes(dependency.name)), "starclock-mode-universe may use only generic Activity/combat/AI/replay boundaries, the reviewed build compiler, stable data catalogs and generated-reader transport/hash dependencies");
 const replay = packages.find((entry) => entry.name === "starclock-replay");

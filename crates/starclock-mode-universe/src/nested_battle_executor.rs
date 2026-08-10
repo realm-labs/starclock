@@ -602,7 +602,8 @@ fn static_condition(condition: &ConditionExpr) -> bool {
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
-        | ConditionExpr::EnemyRank { .. } => false,
+        | ConditionExpr::EnemyRank { .. }
+        | ConditionExpr::EnemyRankEliteOrBoss { .. } => false,
     }
 }
 
@@ -617,6 +618,7 @@ pub(crate) fn project_result(
         BattlePhase::Won => BattleOutcome::Won,
         BattlePhase::Lost => BattleOutcome::Lost,
         BattlePhase::Faulted => BattleOutcome::Faulted,
+        BattlePhase::Finalized => BattleOutcome::Finalized,
         BattlePhase::Initializing
         | BattlePhase::ReadyToAdvance
         | BattlePhase::AwaitingCommand
@@ -886,6 +888,7 @@ fn event_family(kind: &starclock_combat::BattleEventKind) -> u8 {
         starclock_combat::BattleEventKind::RuleSignal(_) => 18,
         starclock_combat::BattleEventKind::Fault(_) => 19,
         starclock_combat::BattleEventKind::ActionBoundary(_) => 20,
+        starclock_combat::BattleEventKind::Clock(_) => 21,
         _ => u8::MAX,
     }
 }

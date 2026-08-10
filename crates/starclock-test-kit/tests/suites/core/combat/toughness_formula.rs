@@ -126,11 +126,11 @@ fn all_seven_base_break_effects_retain_their_distinct_rules() {
         .unwrap()
     };
     let physical_normal = make(CombatElement::Physical, EnemyRank::Normal);
-    let physical_elite = make(CombatElement::Physical, EnemyRank::EliteOrBoss);
+    let physical_elite = make(CombatElement::Physical, EnemyRank::Elite);
     let fire = make(CombatElement::Fire, EnemyRank::Normal);
     let ice = make(CombatElement::Ice, EnemyRank::Normal);
     let lightning = make(CombatElement::Lightning, EnemyRank::Normal);
-    let wind = make(CombatElement::Wind, EnemyRank::EliteOrBoss);
+    let wind = make(CombatElement::Wind, EnemyRank::Elite);
     let quantum = make(CombatElement::Quantum, EnemyRank::Normal);
     let imaginary = make(CombatElement::Imaginary, EnemyRank::Normal);
     assert_eq!(physical_normal.base_damage.unwrap().scaled(), 1_600_000_000);

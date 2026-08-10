@@ -21,8 +21,8 @@ use starclock_agent_api::{
 
 use crate::server::StarclockMcp;
 
-const FINAL_STATE: &str = "34d0130061cbab8aa0e95f7cb818b072f9e8cc4d07b5da44ad28b1677329939c";
-const REPLAY_SHA256: &str = "7ba8def9f8ebac8495865ba9d9e4b6e6ae727c0527cd3bb610c35e0d49afdc77";
+const FINAL_STATE: &str = "76eb1fd029c7fe8b792c5e329164060950aee563b336679d2b0d8cabded94983";
+const REPLAY_SHA256: &str = "684ee7f7af73c885de65d39286971bab019437b0b1ed3e34fe3178800ef21861";
 
 struct TestClock;
 impl OperationalClock for TestClock {

@@ -123,6 +123,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<U
         | RuleEmission::UltimateDamageFromActorBasicElement { current_target, .. }
         | RuleEmission::UnboostedDamage { current_target, .. }
         | RuleEmission::RandomRepeatedDamage { current_target, .. }
+        | RuleEmission::RandomRepeatedTrueDamage { current_target, .. }
         | RuleEmission::TrueDamage { current_target, .. }
         | RuleEmission::Heal { current_target, .. }
         | RuleEmission::Shield { current_target, .. }

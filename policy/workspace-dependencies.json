@@ -53,7 +53,7 @@
     },
     {
       "name": "starclock-data",
-      "local": ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"],
+      "local": ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-challenge", "starclock-mode-standard", "starclock-rules"],
       "external": [
         { "name": "serde", "requirement": "=1.0.228", "features": ["derive", "rc", "std"] },
         { "name": "sha2", "requirement": "=0.11.0", "features": [] },
@@ -78,6 +78,11 @@
         { "name": "tokio", "requirement": "=1.53.1", "features": ["io-util", "macros", "net", "rt-multi-thread", "signal", "sync", "time"] },
         { "name": "tower", "requirement": "=0.5.3", "features": ["util"], "kind": "dev" }
       ]
+    },
+    {
+      "name": "starclock-mode-challenge",
+      "local": ["starclock-activity", "starclock-combat"],
+      "external": []
     },
     {
       "name": "starclock-mode-standard",

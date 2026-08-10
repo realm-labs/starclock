@@ -97,6 +97,10 @@ gate, not an active Goal 01 blocker.
 | [HoYoLAB — Pure Fiction overview](https://www.hoyolab.com/article/24179984) | Two nodes/two teams, Whimsicality, selectable Cacophony, continuous enemies, limited Cycles, damage/defeat points, and summed node score | Primary publisher announcement. Exact active Version 4.4 spawn, score, clock, threshold, and buff rows require snapshot-specific evidence. |
 | [HoYoLAB — Apocalyptic Shadow overview](https://www.hoyolab.com/article_pre/15111) | Two nodes, selectable Finality's Axiom per team, boss traits, Action Value timer, and boss-progress/remaining-AV scoring | Primary publisher announcement. Exact active Version 4.4 boss variants, AV values, thresholds, Ruinous Embers, and Axiom effects require snapshot-specific evidence. |
 | [HoYoLAB — Version 2.3 update](https://www.hoyolab.com/article_pre/15243) | Publisher confirmation that Memory of Chaos, Pure Fiction, and Apocalyptic Shadow are the coordinated rotating challenge set | Primary release note; reward amounts and UI/rotation behavior are outside the simulation scope. |
+| [HoYoLAB — Version 4.3 update details](https://www.hoyolab.com/article/45284705) | Released Starward-mode boundary: all three rotating challenges use three teams for three independently restartable stages at the highest difficulty | Primary publisher release note reviewed 2026-08-11. It confirms topology and availability, while exact score/cycle thresholds still come from released structured rows and current in-game transcriptions. |
+| [Star Rail Wiki — Forgotten Hall](https://honkai-star-rail.fandom.com/wiki/Forgotten_Hall) and [Icy Veins — Memory of Chaos](https://www.icy-veins.com/honkai-star-rail/memory-of-chaos) | Shared cycle ownership/reset behavior and released Starward Stage 12 availability | Current community cross-checks reviewed 2026-08-11. The exact 45-cycle and 15/30 remaining-cycle rows are bound to the pinned released structured source. |
+| [Star Rail Wiki — Pure Fiction](https://honkai-star-rail.fandom.com/wiki/Pure_Fiction) and [Icy Veins — Pure Fiction](https://www.icy-veins.com/honkai-star-rail/pure-fiction) | Released three-node Starward topology, independent retained node scores, 45,000 clear threshold, 60,000/75,000/90,000 objectives and separate 99,000 Prismatic Star | Independent current community cross-checks reviewed 2026-08-11; exact encounter, spawn and buff rows remain pinned structured evidence. |
+| [Star Rail Wiki — Apocalyptic Shadow](https://honkai-star-rail.fandom.com/wiki/Apocalyptic_Shadow) and [GamsGo — Version 4.4 Apocalyptic Shadow](https://www.gamsgo.com/blog/hsr-apocalyptic-shadow-teams) | Released three-node Starward topology and current Ruinous Embers/Finality's Axiom descriptions | Community cross-checks reviewed 2026-08-11. GamsGo is used only to corroborate released player-facing text; exact IDs and numeric parameters come from the pinned released data. |
 
 ## Character catalog references
 
@@ -142,7 +146,12 @@ Do not present these as exact parity until tested against captured game observat
 - current-version limits for RES, mitigation, and unusual negative/overflow stats;
 - mode-specific replacements for Energy, cycles, defeat, or wave rules.
 - complete Version 4.4 row catalogs and exact values for all enemies, equipment, and permanent universe-mode content; these remain a data-import task until coverage reports mark them `DataReady`.
-- active Version 4.4 stage, clock, spawn, score, objective, and rotating-buff rows for Memory of Chaos, Pure Fiction, and Apocalyptic Shadow.
+- exact AI/ability/phase programs for the challenge enemy identities currently
+  bound to explicit behavior donors;
+- the challenge policies listed in the generated `MocRuntimePolicies`,
+  `PfRuntimePolicies` and `ApsRuntimePolicies` tables, including Memory Tierce
+  Turbulence attachment, Pure Fiction fixed-damage/order/resource edges and
+  Apocalyptic Path/War-Armor/non-Energy-readiness edges.
 
 The architecture documents deliberately turn these into explicit authored policies and test points.
 

@@ -316,7 +316,15 @@ pub fn break_effect_damage(
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum EnemyRank {
     Normal,
-    EliteOrBoss,
+    Elite,
+    Boss,
+}
+
+impl EnemyRank {
+    #[must_use]
+    pub const fn is_elite_or_boss(self) -> bool {
+        !matches!(self, Self::Normal)
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

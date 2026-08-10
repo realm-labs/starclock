@@ -19,8 +19,52 @@ use crate::{
 use super::{
     fault::BattleFault,
     model::BattlePhase,
-    spec::{AssemblyDigest, BattleSeed, CombatInputDigest, ConcedePolicy},
+    spec::{
+        AssemblyDigest, BattleClockExpiry, BattleClockSpec, BattleSeed, CombatInputDigest,
+        ConcedePolicy,
+    },
 };
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum BattleClockState {
+    Cycles {
+        initial_cycles: u16,
+        remaining_cycles: u16,
+        cycle_index: u32,
+        elapsed_in_window_scaled: i64,
+        first_window_scaled: i64,
+        later_window_scaled: i64,
+        reset_window_on_wave: bool,
+        expiry: BattleClockExpiry,
+    },
+    ActionValue {
+        initial_scaled: i64,
+        remaining_scaled: i64,
+        expiry: BattleClockExpiry,
+    },
+}
+
+impl BattleClockState {
+    pub(crate) fn from_spec(spec: BattleClockSpec) -> Self {
+        match spec {
+            BattleClockSpec::Cycles(spec) => Self::Cycles {
+                initial_cycles: spec.remaining_cycles(),
+                remaining_cycles: spec.remaining_cycles(),
+                cycle_index: 0,
+                elapsed_in_window_scaled: 0,
+                first_window_scaled: spec.first_window().scaled(),
+                later_window_scaled: spec.later_window().scaled(),
+                reset_window_on_wave: spec.reset_window_on_wave(),
+                expiry: spec.expiry(),
+            },
+            BattleClockSpec::ActionValue(spec) => Self::ActionValue {
+                initial_scaled: spec.remaining().scaled(),
+                remaining_scaled: spec.remaining().scaled(),
+                expiry: spec.expiry(),
+            },
+        }
+    }
+}
 
 #[derive(Clone, Debug)]
 pub(crate) struct BattleIdentity {
@@ -36,6 +80,7 @@ pub(crate) struct EncounterState {
     pub(crate) wave: WaveInstanceId,
     pub(crate) number: u16,
     pub(crate) total_waves: u16,
+    pub(crate) spawn_defeats: u16,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -232,6 +277,7 @@ pub(crate) struct BattleState {
     pub(crate) rules: RuleStateStore,
     pub(crate) modifiers: ModifierStore,
     pub(crate) encounter: EncounterState,
+    pub(crate) clock: Option<BattleClockState>,
     pub(crate) timeline: TimelineState,
     pub(crate) reactions: ReactionQueue,
     pub(crate) concede: ConcedePolicy,
@@ -262,6 +308,7 @@ impl BattleState {
             rules: self.rules.clone(),
             modifiers: self.modifiers.clone(),
             encounter: self.encounter,
+            clock: self.clock,
             timeline: self.timeline.clone(),
             reactions: self.reactions.clone(),
             concede: self.concede,
@@ -289,6 +336,7 @@ impl BattleState {
         self.rules.clone_from(&source.rules);
         self.modifiers.clone_from(&source.modifiers);
         self.encounter = source.encounter;
+        self.clock = source.clock;
         self.timeline.clone_from(&source.timeline);
         self.reactions.clone_from(&source.reactions);
         self.concede = source.concede;

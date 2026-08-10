@@ -2,7 +2,7 @@ use core::fmt;
 
 use super::spec_codec;
 use crate::{
-    LifeState, PresenceState, SourceDefinitionId,
+    ActionValue, LifeState, PresenceState, SourceDefinitionId,
     formula::{model::CombatElement, toughness::EnemyRank},
     id::{
         AbilityId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, RuleBundleId,
@@ -159,6 +159,103 @@ pub enum ConcedePolicy {
     /// Offer concession at player decision points. The no-concession policy is
     /// added only when the normal action pipeline can provide another command.
     Allowed,
+}
+
+/// Terminal treatment selected when an authored battle clock expires.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum BattleClockExpiry {
+    /// Expiry is a failed battle, as in Memory of Chaos.
+    Lose = 0,
+    /// Expiry completes the battle for score projection without declaring a win.
+    Finalize = 1,
+}
+
+/// Remaining-cycle clock with an explicit first and later cycle window.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct CycleClockSpec {
+    remaining_cycles: u16,
+    first_window: ActionValue,
+    later_window: ActionValue,
+    reset_window_on_wave: bool,
+    expiry: BattleClockExpiry,
+}
+
+impl CycleClockSpec {
+    #[must_use]
+    pub fn new(
+        remaining_cycles: u16,
+        first_window: ActionValue,
+        later_window: ActionValue,
+        reset_window_on_wave: bool,
+        expiry: BattleClockExpiry,
+    ) -> Option<Self> {
+        if remaining_cycles == 0 || first_window.scaled() == 0 || later_window.scaled() == 0 {
+            None
+        } else {
+            Some(Self {
+                remaining_cycles,
+                first_window,
+                later_window,
+                reset_window_on_wave,
+                expiry,
+            })
+        }
+    }
+
+    #[must_use]
+    pub const fn remaining_cycles(self) -> u16 {
+        self.remaining_cycles
+    }
+    #[must_use]
+    pub const fn first_window(self) -> ActionValue {
+        self.first_window
+    }
+    #[must_use]
+    pub const fn later_window(self) -> ActionValue {
+        self.later_window
+    }
+    #[must_use]
+    pub const fn reset_window_on_wave(self) -> bool {
+        self.reset_window_on_wave
+    }
+    #[must_use]
+    pub const fn expiry(self) -> BattleClockExpiry {
+        self.expiry
+    }
+}
+
+/// One exact remaining-Action-Value budget.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct ActionValueClockSpec {
+    remaining: ActionValue,
+    expiry: BattleClockExpiry,
+}
+
+impl ActionValueClockSpec {
+    #[must_use]
+    pub fn new(remaining: ActionValue, expiry: BattleClockExpiry) -> Option<Self> {
+        if remaining.scaled() == 0 {
+            None
+        } else {
+            Some(Self { remaining, expiry })
+        }
+    }
+    #[must_use]
+    pub const fn remaining(self) -> ActionValue {
+        self.remaining
+    }
+    #[must_use]
+    pub const fn expiry(self) -> BattleClockExpiry {
+        self.expiry
+    }
+}
+
+/// Optional battle-local clock compiled from an Activity-owned challenge rule.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum BattleClockSpec {
+    Cycles(CycleClockSpec),
+    ActionValue(ActionValueClockSpec),
 }
 
 /// Canonical combat-definition selections produced by an upstream compiler.
@@ -811,6 +908,7 @@ pub struct BattleSpec {
     player_resources: TeamResourceSpec,
     enemy_resources: TeamResourceSpec,
     concede: ConcedePolicy,
+    clock: Option<BattleClockSpec>,
 }
 
 impl BattleSpec {
@@ -857,6 +955,7 @@ impl BattleSpec {
             &player_resources,
             &enemy_resources,
             concede,
+            None,
         );
         Ok(Self {
             combat_input_digest,
@@ -866,7 +965,24 @@ impl BattleSpec {
             player_resources,
             enemy_resources,
             concede,
+            clock: None,
         })
+    }
+
+    /// Attaches one Activity-compiled battle-local challenge clock and refreshes
+    /// the canonical combat input identity.
+    #[must_use]
+    pub fn with_clock(mut self, clock: BattleClockSpec) -> Self {
+        self.clock = Some(clock);
+        self.combat_input_digest = spec_codec::combat_input_digest(
+            self.encounter,
+            &self.participants,
+            &self.player_resources,
+            &self.enemy_resources,
+            self.concede,
+            self.clock,
+        );
+        self
     }
 
     /// Returns the combat-owned canonical input identity.
@@ -901,6 +1017,11 @@ impl BattleSpec {
     #[must_use]
     pub const fn concede_policy(&self) -> ConcedePolicy {
         self.concede
+    }
+    /// Returns the optional battle-local challenge clock.
+    #[must_use]
+    pub const fn clock(&self) -> Option<BattleClockSpec> {
+        self.clock
     }
 }
 

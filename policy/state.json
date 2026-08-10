@@ -10,11 +10,27 @@
     "standard_universe": true,
     "gold_and_gears": true,
     "swarm_disaster": true,
+    "memory_of_chaos": true,
+    "pure_fiction": true,
+    "apocalyptic_shadow": true,
     "replay": true,
     "inspector": true,
     "agent_api": true,
     "mcp": true,
-    "cli": true
+    "cli": true,
+    "challenge_config_validation": true
+  },
+  "challenge": {
+    "game_version": "4.4",
+    "memory_stages": 13,
+    "memory_nodes": 27,
+    "pure_fiction_stages": 5,
+    "pure_fiction_nodes": 11,
+    "apocalyptic_stages": 5,
+    "apocalyptic_nodes": 11,
+    "combat_encounters": 43,
+    "project_policies": 18,
+    "ui": false
   },
   "combat_interrupts": {
     "boundaries": ["before_action", "after_action"],

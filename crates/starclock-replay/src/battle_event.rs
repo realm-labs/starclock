@@ -5,12 +5,13 @@
 //! authoritative value and this codec proves every retained field.
 
 use starclock_combat::{
-    ActionBoundaryEventData, ActionEventData, ActionFrameInput, BattleEvent, BattleEventData,
-    BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
-    DecisionEventData, DecisionKind, DecisionOwner, EffectEventData, EnemyPhaseEventData,
-    FaultEventData, HealEventData, HitEventData, HpConsumptionEventData, LinkedEntity,
-    PhaseEventData, ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData,
-    SkillPointPayer, TeamSide, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
+    ActionBoundaryEventData, ActionEventData, ActionFrameInput, BattleClockEventData, BattleEvent,
+    BattleEventData, BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData,
+    DamageKind, DecisionEventData, DecisionKind, DecisionOwner, EffectEventData,
+    EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData, HpConsumptionEventData,
+    LinkedEntity, PhaseEventData, ResourceEventData, RuleSignalEventData, RuleStateEventData,
+    ShieldEventData, SkillPointPayer, TeamSide, ToughnessEventData, TurnEventData, UnitEventData,
+    WaveEventData,
     catalog::{action::AbilityTags, encounter::EnemyPhaseTransitionModel},
     formula::model::{CombatElement, DamageClass},
     rule::model::RuleValue,
@@ -121,9 +122,50 @@ fn encode_kind(
             encoder.u8(20);
             encode_action_boundary(encoder, *value);
         }
+        BattleEventKind::Clock(value) => {
+            encoder.u8(21);
+            encode_clock(encoder, *value);
+        }
         _ => return Err(BattleEventPayloadError::UnsupportedEventFamily),
     }
     Ok(())
+}
+
+fn encode_clock(encoder: &mut Encoder<Vec<u8>>, value: BattleClockEventData) {
+    match value {
+        BattleClockEventData::Advanced {
+            delta_scaled,
+            before_scaled,
+            after_scaled,
+        } => {
+            encoder.u8(0);
+            encoder.i64(delta_scaled);
+            encoder.i64(before_scaled);
+            encoder.i64(after_scaled);
+        }
+        BattleClockEventData::CycleTicked {
+            cycle_index,
+            before,
+            after,
+        } => {
+            encoder.u8(1);
+            encoder.u32(cycle_index);
+            encoder.u16(before);
+            encoder.u16(after);
+        }
+        BattleClockEventData::WaveWindowReset {
+            elapsed_before_scaled,
+            elapsed_after_scaled,
+        } => {
+            encoder.u8(2);
+            encoder.i64(elapsed_before_scaled);
+            encoder.i64(elapsed_after_scaled);
+        }
+        BattleClockEventData::Expired { expiry } => {
+            encoder.u8(3);
+            encoder.u8(expiry as u8);
+        }
+    }
 }
 
 fn encode_action_boundary(encoder: &mut Encoder<Vec<u8>>, value: ActionBoundaryEventData) {
@@ -204,6 +246,7 @@ fn encode_battle(encoder: &mut Encoder<Vec<u8>>, value: BattleEventData) {
         }
         BattleEventData::Won => encoder.u8(2),
         BattleEventData::Lost => encoder.u8(3),
+        BattleEventData::Finalized => encoder.u8(4),
     }
 }
 
@@ -803,6 +846,16 @@ fn encode_unit(encoder: &mut Encoder<Vec<u8>>, value: UnitEventData) {
             encoder.u64(owner.get());
             linked_entity(encoder, entity);
             encoder.u8(policy as u8);
+        }
+        UnitEventData::Refilled {
+            unit,
+            spawn,
+            wave_defeats,
+        } => {
+            encoder.u8(10);
+            encoder.u64(unit.get());
+            encoder.u64(spawn.get());
+            encoder.u16(wave_defeats);
         }
     }
 }

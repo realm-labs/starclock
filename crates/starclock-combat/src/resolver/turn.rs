@@ -33,6 +33,7 @@ use crate::{
 use super::{
     action::drain_reactions,
     action_execution::execute_action_plan,
+    clock::{self, ClockAdvance},
     command_resolution::{action_cause, commit_targets},
     settle::{ActionBoundary, settle_after_action},
     transaction::{Transaction, action_fault},
@@ -123,7 +124,10 @@ fn begin_turn(
     parent: EventId,
 ) -> Result<TurnStartOutcome, BattleFault> {
     let advance = plan_next_turn(&txn.state.units, &txn.state.actors)?;
-    txn.add_timeline_elapsed(advance.elapsed_action_value_scaled)?;
+    let parent = match clock::advance(txn, root, parent, advance.elapsed_action_value_scaled)? {
+        ClockAdvance::Continue(parent) => parent,
+        ClockAdvance::Expired => return Ok(TurnStartOutcome::Boundary),
+    };
     for (actor, gauge) in advance.gauges {
         txn.set_actor_gauge(actor, gauge)?;
     }

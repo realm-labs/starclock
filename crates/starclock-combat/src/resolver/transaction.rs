@@ -924,6 +924,37 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
+    pub(super) fn set_spawn_sequence(
+        &mut self,
+        unit: UnitId,
+        value: SpawnSequence,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(35))?;
+        let before = state.spawn;
+        if before != value {
+            state.spawn = value;
+            self.journal
+                .mutation(MutationField::SpawnSequence, before.get(), value.get());
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_spawn_defeats(&mut self, value: u16) {
+        let before = self.state.encounter.spawn_defeats;
+        if before != value {
+            self.state.encounter.spawn_defeats = value;
+            self.journal.mutation(
+                MutationField::SpawnProgress,
+                u64::from(before),
+                u64::from(value),
+            );
+        }
+    }
+
     pub(super) fn set_encounter_wave(&mut self, wave: WaveInstanceId, number: u16) {
         let before = self.state.encounter.number;
         if self.state.encounter.wave != wave || before != number {
@@ -935,6 +966,7 @@ impl<'a> Transaction<'a> {
                 u64::from(number),
             );
         }
+        self.set_spawn_defeats(0);
     }
 
     pub(super) fn bump_revision(&mut self) -> Result<(), BattleFault> {
@@ -963,6 +995,36 @@ impl<'a> Transaction<'a> {
             self.journal
                 .mutation(MutationField::RuleState, 0, count as u64);
         }
+    }
+
+    pub(super) fn reset_owner_rules_for_spawn(&mut self, owner: UnitId) {
+        let count = self.state.rules.reset_owner_for_spawn(owner);
+        if count > 0 {
+            self.journal
+                .mutation(MutationField::RuleState, count as u64, 0);
+        }
+    }
+
+    pub(super) fn reset_unit_transients_for_spawn(
+        &mut self,
+        unit: UnitId,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(35))?;
+        let temporary_count = state.temporary_weaknesses.len();
+        state.temporary_weaknesses.clear();
+        state.weaknesses = state.permanent_weaknesses.to_vec();
+        for resource in &mut state.resources {
+            resource.current = resource.initial;
+        }
+        if temporary_count > 0 {
+            self.journal
+                .mutation(MutationField::Weakness, temporary_count as u64, 0);
+        }
+        Ok(())
     }
 
     fn commit_fault(mut self, root: CommandId, fault: BattleFault) -> Vec<BattleEvent> {

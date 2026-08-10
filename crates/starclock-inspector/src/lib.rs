@@ -15,12 +15,13 @@ pub use diff::{BattleSnapshotDiff, RuntimeEntityRef, SnapshotSection};
 pub use frame::{InspectorFrame, InspectorFrameError};
 pub use history::{InspectorHistory, InspectorHistoryError, MAX_RETAINED_INSPECTOR_FRAMES};
 pub use snapshot::{
-    ActionBoundarySnapshot, ActionFrameSnapshot, ActiveTurnSnapshot, BattleIdentitySnapshot,
-    BattleSnapshot, BreakEffectSnapshot, CharacterResourceSnapshot, EffectSnapshot,
-    EncounterSnapshot, FormationSnapshot, LinkSnapshot, ModifierSnapshot, PendingExtraTurnSnapshot,
-    PendingReactionSnapshot, PreparedActionSnapshot, RuleInstanceSnapshot, SequenceCursorsSnapshot,
-    ShieldSnapshot, TeamResourceSnapshot, TeamSnapshot, TemporaryWeaknessSnapshot,
-    TimelineActorSnapshot, ToughnessLayerSnapshot, TransformationSnapshot, UnitSnapshot,
+    ActionBoundarySnapshot, ActionFrameSnapshot, ActiveTurnSnapshot, BattleClockSnapshot,
+    BattleIdentitySnapshot, BattleSnapshot, BreakEffectSnapshot, CharacterResourceSnapshot,
+    EffectSnapshot, EncounterSnapshot, FormationSnapshot, LinkSnapshot, ModifierSnapshot,
+    PendingExtraTurnSnapshot, PendingReactionSnapshot, PreparedActionSnapshot,
+    RuleInstanceSnapshot, SequenceCursorsSnapshot, ShieldSnapshot, TeamResourceSnapshot,
+    TeamSnapshot, TemporaryWeaknessSnapshot, TimelineActorSnapshot, ToughnessLayerSnapshot,
+    TransformationSnapshot, UnitSnapshot,
 };
 
 #[cfg(test)]

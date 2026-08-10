@@ -14,7 +14,7 @@
     "event_cursor": { "$ref": "#/$defs/opaqueId" },
     "visibility_policy": { "enum": ["player_visible", "omniscient_debug"] },
     "debug_authorized": { "type": "boolean" },
-    "status": { "enum": ["awaiting_player", "won", "lost", "faulted", "closed"] },
+    "status": { "enum": ["awaiting_player", "won", "lost", "faulted", "finalized", "closed"] },
     "battle": { "$ref": "#/$defs/battle" },
     "legal_actions": { "type": "array", "maxItems": 256, "items": { "$ref": "#/$defs/action" } },
     "events": { "type": "array", "maxItems": 256, "items": { "$ref": "#/$defs/event" } },
@@ -33,16 +33,28 @@
     "opaqueId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,128}$" },
     "battle": {
       "type": "object", "additionalProperties": false,
-      "required": ["phase", "committed_revision", "rng_draw_count", "wave", "teams", "units", "effects", "timeline"],
+      "required": ["phase", "committed_revision", "rng_draw_count", "wave", "clock", "teams", "units", "effects", "timeline"],
       "properties": {
-        "phase": { "enum": ["awaiting_command", "ready_to_advance", "won", "lost", "faulted"] },
+        "phase": { "enum": ["awaiting_command", "ready_to_advance", "won", "lost", "faulted", "finalized"] },
         "committed_revision": { "$ref": "#/$defs/uint" },
         "rng_draw_count": { "$ref": "#/$defs/uint" },
         "wave": { "type": "object", "additionalProperties": false, "required": ["number", "total"], "properties": { "number": { "$ref": "#/$defs/uint" }, "total": { "$ref": "#/$defs/uint" } } },
+        "clock": { "oneOf": [{ "$ref": "#/$defs/clock" }, { "type": "null" }] },
         "teams": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/team" } },
         "units": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/unit" } },
         "effects": { "type": "array", "maxItems": 2048, "items": { "$ref": "#/$defs/effect" } },
         "timeline": { "type": "array", "maxItems": 256, "items": { "$ref": "#/$defs/timeline" } }
+      }
+    },
+    "clock": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "remaining_cycles", "cycle_index", "elapsed_in_window_scaled", "remaining_action_value_scaled"],
+      "properties": {
+        "kind": { "enum": ["cycles", "action_value"] },
+        "remaining_cycles": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] },
+        "cycle_index": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] },
+        "elapsed_in_window_scaled": { "oneOf": [{ "$ref": "#/$defs/sint" }, { "type": "null" }] },
+        "remaining_action_value_scaled": { "oneOf": [{ "$ref": "#/$defs/sint" }, { "type": "null" }] }
       }
     },
     "team": {

@@ -43,8 +43,8 @@ pub use id::{
     TimelineActorId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId, ZeroIdError,
 };
 pub use numeric::domain::{
-    ActionGauge, DamageAmount, Energy, HealingAmount, Hp, Probability, RawToughness, ShieldAmount,
-    Speed, StatValue,
+    ActionGauge, ActionValue, DamageAmount, Energy, HealingAmount, Hp, Probability, RawToughness,
+    ShieldAmount, Speed, StatValue,
 };
 pub use numeric::rounding::{NumericError, Rounding};
 pub use numeric::scalar::{Ratio, Scalar};
@@ -63,16 +63,16 @@ pub use battle::build::{BattleBuildError, BattleBuildErrorKind};
 pub use battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy};
 pub use battle::model::{BattlePhase, Resolution};
 pub use battle::spec::{
-    AssemblyDigest, BattleSeed, BattleSpec, BattleSpecError, CombatInputDigest,
-    CombatantSpecDigest, CombatantSpecError, ConcedePolicy, FormationIndex, KeyedTeamResourceSpec,
-    ParticipantInitialState, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, ResolvedModifierBinding, TeamResourceSpec, TeamResourceWavePolicy,
-    TeamSide, UnitLevel,
+    ActionValueClockSpec, AssemblyDigest, BattleClockExpiry, BattleClockSpec, BattleSeed,
+    BattleSpec, BattleSpecError, CombatInputDigest, CombatantSpecDigest, CombatantSpecError,
+    ConcedePolicy, CycleClockSpec, FormationIndex, KeyedTeamResourceSpec, ParticipantInitialState,
+    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResolvedModifierBinding, TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    ActionBoundaryView, ActionFrameView, ActiveTurnView, BattleIdentityView, BattleView,
-    BreakEffectView, CharacterResourceView, EffectView, EncounterView, FormationView, LinkView,
-    ModifierInstanceView, PendingExtraTurnView, PendingReactionView, PreparedActionView,
+    ActionBoundaryView, ActionFrameView, ActiveTurnView, BattleClockView, BattleIdentityView,
+    BattleView, BreakEffectView, CharacterResourceView, EffectView, EncounterView, FormationView,
+    LinkView, ModifierInstanceView, PendingExtraTurnView, PendingReactionView, PreparedActionView,
     RuleInstanceView, SequenceCursorsView, ShieldView, TeamResourceView, TeamView,
     TemporaryWeaknessView, TimelineActorView, ToughnessLayerView, TransformationView, UnitView,
 };
@@ -95,12 +95,12 @@ pub use effect::model::{
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
-    ActionBoundaryEventData, ActionEventData, ActionGaugeChangeKind, BattleEvent, BattleEventData,
-    BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
-    DecisionEventData, EffectEventData, EnemyPhaseEventData, FaultEventData, HealEventData,
-    HitEventData, HpConsumptionEventData, PhaseEventData, ResourceEventData, RuleSignalEventData,
-    RuleStateEventData, ShieldEventData, SkillPointPayer, ToughnessEventData, TurnEventData,
-    UnitEventData, WaveEventData,
+    ActionBoundaryEventData, ActionEventData, ActionGaugeChangeKind, BattleClockEventData,
+    BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData, BreakDamageKind,
+    DamageEventData, DamageKind, DecisionEventData, EffectEventData, EnemyPhaseEventData,
+    FaultEventData, HealEventData, HitEventData, HpConsumptionEventData, PhaseEventData,
+    ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData, SkillPointPayer,
+    ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
 };
 pub use toughness::model::{
     BreakCreditPolicy, ToughnessLayerKind, ToughnessLayerSpec, ToughnessReductionDefinition,

@@ -66,6 +66,11 @@ impl Transaction<'_> {
             .mutation(MutationField::Effect, encoded_before, encoded_after);
     }
 
+    pub(super) fn record_break_effect_change(&mut self, before: u64, after: u64) {
+        self.journal
+            .mutation(MutationField::BreakEffect, before, after);
+    }
+
     pub(super) fn record_rule_state_change(
         &mut self,
         instance: RuleInstanceId,

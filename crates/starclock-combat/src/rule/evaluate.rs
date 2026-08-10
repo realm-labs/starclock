@@ -493,6 +493,24 @@ fn evaluate_operation(
             can_defeat: *can_defeat,
             current_target,
         },
+        RuleOperationTemplate::RandomRepeatedTrueDamage {
+            selector,
+            repetitions,
+            maximum_repetitions,
+            normal_coefficient,
+            elite_coefficient,
+            boss_coefficient,
+            target_rng_purpose,
+        } => RuleEmission::RandomRepeatedTrueDamage {
+            selector: *selector,
+            repetitions: evaluate_value(repetitions, input, current_target)?,
+            maximum_repetitions: *maximum_repetitions,
+            normal_coefficient: *normal_coefficient,
+            elite_coefficient: *elite_coefficient,
+            boss_coefficient: *boss_coefficient,
+            target_rng_purpose: *target_rng_purpose,
+            current_target,
+        },
         RuleOperationTemplate::TrueDamage { selector, amount } => RuleEmission::TrueDamage {
             selector: *selector,
             amount: evaluate_value(amount, input, current_target)?,
@@ -961,6 +979,19 @@ pub fn evaluate_condition(
                     .battle_query_reader
                     .and_then(|reader| reader.enemy_rank(unit))
                     == Some(*rank)
+            }),
+        ConditionExpr::EnemyRankEliteOrBoss(selector) => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .and_then(|reader| reader.enemy_rank(unit))
+                    .is_some_and(EnemyRank::is_elite_or_boss)
             }),
     })
 }

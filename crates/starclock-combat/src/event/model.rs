@@ -4,7 +4,10 @@ use crate::{
     LinkedEntityKind, OwnerLinkPolicy, PresenceState, Ratio, RawToughness, RuleInstanceId, Scalar,
     ShieldAmount, ShieldInstanceId, SourceDefinitionId, StateSlotDefinitionId, UnitDefinitionId,
     action::model::ActionOrigin,
-    battle::{fault::BattleFault, spec::TeamSide},
+    battle::{
+        fault::BattleFault,
+        spec::{BattleClockExpiry, TeamSide},
+    },
     catalog::{
         action::{AbilityTags, ReactionBoundary},
         encounter::EnemyPhaseTransitionModel,
@@ -13,7 +16,7 @@ use crate::{
     formula::model::{CombatElement, DamageClass},
     id::{
         AbilityId, ActionBoundaryId, ActionFrameId, ActionId, DecisionId, EventId, HitId,
-        OperationId, PhaseId, TimelineActorId, UnitId, WaveInstanceId,
+        OperationId, PhaseId, SpawnSequence, TimelineActorId, UnitId, WaveInstanceId,
     },
     rule::model::RuleValue,
 };
@@ -84,6 +87,8 @@ pub enum BattleEventKind {
     Unit(UnitEventData),
     /// Encounter-wave boundary fact.
     Wave(WaveEventData),
+    /// Authored battle-local challenge-clock mutation fact.
+    Clock(BattleClockEventData),
     /// Authored enemy boss-phase replacement fact.
     EnemyPhase(EnemyPhaseEventData),
     /// Team or personal resource mutation fact.
@@ -384,6 +389,12 @@ pub enum UnitEventData {
         hp: Hp,
         presence: PresenceState,
     },
+    /// A continuous-spawn program reset one defeated runtime slot for a new occurrence.
+    Refilled {
+        unit: UnitId,
+        spawn: SpawnSequence,
+        wave_defeats: u16,
+    },
     /// A linked unit departed and its timeline actor became inactive.
     Despawned { unit: UnitId },
     /// An owner or wave policy settled one explicit link.
@@ -574,6 +585,32 @@ pub enum BattleEventData {
     Won,
     /// No controllable player combatant remained alive.
     Lost,
+    /// A score-bearing challenge battle reached its authored finalization boundary.
+    Finalized,
+}
+
+/// Battle-local challenge clock facts in exact mutation order.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum BattleClockEventData {
+    /// Timeline Action Value was charged to the active clock.
+    Advanced {
+        delta_scaled: i64,
+        before_scaled: i64,
+        after_scaled: i64,
+    },
+    /// One complete cycle window elapsed.
+    CycleTicked {
+        cycle_index: u32,
+        before: u16,
+        after: u16,
+    },
+    /// A wave boundary reset only the current cycle window.
+    WaveWindowReset {
+        elapsed_before_scaled: i64,
+        elapsed_after_scaled: i64,
+    },
+    /// The clock reached its terminal bound.
+    Expired { expiry: BattleClockExpiry },
 }
 
 /// External decision facts emitted in canonical sequence.

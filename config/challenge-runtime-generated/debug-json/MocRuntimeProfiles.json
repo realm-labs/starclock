@@ -1,0 +1,56 @@
+{
+  "table": {
+    "name": "MocRuntimeProfiles",
+    "rows": [
+      {
+        "values": {
+          "evidence_digest": {
+            "String": "a6d43b2ec16ce5bea2cdceaa7d2d048c051f40b05641754105c488bf38620a1c"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "expiry": {
+            "String": "Lose"
+          },
+          "first_window_scaled": {
+            "Integer": 150000000
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_cycles": {
+            "Integer": 30
+          },
+          "later_window_scaled": {
+            "Integer": 100000000
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "reset_window_on_wave": {
+            "Bool": true
+          },
+          "source_locator": {
+            "String": "included-content:first-cycle-av-window"
+          },
+          "source_path": {
+            "String": "docs/goals/17-memory-of-chaos-reference-data.md"
+          },
+          "source_revision": {
+            "String": "2026-08-01"
+          },
+          "source_url": {
+            "String": "https://github.com/realm-labs/starclock.git"
+          },
+          "stable_key": {
+            "String": "profile.memory-of-chaos.v4.4"
+          }
+        }
+      }
+    ]
+  }
+}
