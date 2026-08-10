@@ -1,7 +1,7 @@
 use crate::{
-    ActionCancellationReason, ActionOrigin, ControlledAction, DiagnosticRecord, EffectTickPhase,
-    Energy, FaultBoundary, FaultKind, FaultPolicy, LifeState, Ratio, Rounding, Scalar,
-    SkillPointPayer, UnitId,
+    ActionCancellationReason, ActionOrigin, ControlledAction, DiagnosticRecord, Energy,
+    FaultBoundary, FaultKind, FaultPolicy, LifeState, Ratio, Rounding, Scalar, SkillPointPayer,
+    UnitId,
     action::{
         lower::{QueuedActionContext, lower_queued_action},
         model::{ActionPlan, HitPlan},
@@ -10,44 +10,31 @@ use crate::{
     catalog::{
         CombatCatalog,
         action::{
-            AbilityKind, AbilityProgramTiming, HitCritPolicy, HitOperationDefinition,
-            HitTargetGroup, OrdinaryDamageDefinition, ReactionBoundary, ScalingDamageDefinition,
-            SkillPointPaymentPolicy,
+            AbilityProgramTiming, HitCritPolicy, HitTargetGroup, OrdinaryDamageDefinition,
+            ReactionBoundary, ScalingDamageDefinition, SkillPointPaymentPolicy,
         },
-        encounter::WaveTransitionPolicy,
     },
     command::legal::ability_owner,
     event::{
-        cause::{Cause, CauseActor},
-        model::{
-            ActionEventData, BattleEventKind, HitEventData, PhaseEventData, ResourceEventData,
-        },
+        cause::Cause,
+        model::{ActionEventData, BattleEventKind, ResourceEventData},
     },
     formula::model::DamageClass,
-    id::{CommandId, EventId, SourceDefinitionId},
-    modifier::{model::SnapshotPolicy, resolve::StatResolver},
-    operation::{
-        AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
-        EncounterLifecycleOp, EnemyPhaseOp, HealOp, HitOperationScratch, ModifyStateSlotOp,
-        ModifyTeamResourceOp, Operation, QueueActionOp, ReduceToughnessOp, RemoveEffectsOp,
-        ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
-    },
+    id::EventId,
+    modifier::resolve::StatResolver,
+    operation::HitOperationScratch,
     reaction::queue::QueuedAction,
     resource::check::can_pay_with_policy,
-    rule::model::SlotResetPoint,
     target::model::TargetCommitment,
 };
 
 use super::{
+    action_execution::execute_action_plan,
     command_resolution::action_cause,
-    operation::execute_operation,
     program::{AbilityProgramContext, execute_ability_program},
     transaction::{Transaction, action_fault},
 };
-use super::{
-    effect_boundary, lifecycle, modifier_snapshot, operation, operation_formula, program, rule,
-    settle, stat_input,
-};
+use super::{operation, operation_formula, program, stat_input};
 
 const MAX_REACTIONS_PER_COMMAND: usize = 256;
 
@@ -57,102 +44,131 @@ pub(super) fn drain_reactions(
     boundary: ReactionBoundary,
     mut parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    while let Some(queued) = txn.pop_ready_reaction(boundary) {
-        txn.record_diagnostic(|| DiagnosticRecord::ReactionDequeued {
-            insertion: queued.order.insertion,
-            actor: queued.actor,
-            ability: queued.ability,
-            boundary: queued.order.boundary,
-        });
-        if !txn.consume_reaction_budget(MAX_REACTIONS_PER_COMMAND) {
-            return Err(BattleFault::new(
-                FaultKind::BudgetExceeded,
-                FaultBoundary::Command,
-                FaultPolicy::Rollback,
-                0x3171,
-                Some(MAX_REACTIONS_PER_COMMAND as i64),
-            ));
+    while let Some(work) = dequeue_reaction(catalog, txn, boundary)? {
+        match work {
+            ReactionWork::Cancelled(event) => parent = event,
+            ReactionWork::Execute { queued, plan } => {
+                let resolved =
+                    execute_action_plan(catalog, txn, queued.root, queued.parent, *plan)?;
+                let cause = action_cause(queued.root, &resolved.plan)?;
+                parent =
+                    operation::settle_effects_at_action_end(catalog, txn, cause, resolved.parent)?;
+            }
         }
-        let Some(unit) = txn.state.units.get(queued.actor) else {
-            parent = cancel_queued(txn, &queued, ActionCancellationReason::ActorUnavailable);
-            continue;
-        };
-        if unit.life != LifeState::Alive || !unit.presence.is_active() {
-            parent = cancel_queued(txn, &queued, ActionCancellationReason::ActorUnavailable);
-            continue;
-        }
-        if ability_owner(txn.state, catalog, queued.actor, queued.ability).is_none() {
-            parent = cancel_queued(txn, &queued, ActionCancellationReason::AbilityUnavailable);
-            continue;
-        }
-        if matches!(
-            queued.origin,
-            ActionOrigin::FollowUp | ActionOrigin::Counter
-        ) && txn
-            .state
-            .effects
-            .blocks(queued.actor, ControlledAction::FollowUp)
-        {
-            parent = cancel_queued(txn, &queued, ActionCancellationReason::FollowUpBlocked);
-            continue;
-        }
-        let Some(action) = catalog
-            .ability(queued.ability)
-            .and_then(|ability| ability.action())
-        else {
-            parent = cancel_queued(
-                txn,
-                &queued,
-                ActionCancellationReason::MissingActionDefinition,
-            );
-            continue;
-        };
-        let payment = queued
-            .payment
-            .unwrap_or(action.resources().skill_point_payment());
-        if !can_pay_with_policy(
-            &txn.state.units,
-            &txn.state.teams,
-            queued.actor,
-            action.resources(),
-            payment,
-        ) {
-            parent = cancel_queued(txn, &queued, ActionCancellationReason::ResourceUnavailable);
-            continue;
-        }
-        let mut plan = lower_queued_action(
-            catalog,
-            txn,
-            QueuedActionContext {
-                actor: queued.actor,
-                owner: queued.owner,
-                origin: queued.origin,
-                payment: queued.payment,
-            },
-            queued.ability,
-            queued.targets.clone(),
-        )
-        .ok_or_else(|| action_fault(72))?;
-        let targets_accepted = txn
-            .resolve_hit_targets(plan.actor, &mut plan.targets)
-            .is_ok_and(|targets| !targets.is_empty());
-        txn.record_diagnostic(|| DiagnosticRecord::ReactionTargetsValidated {
-            insertion: queued.order.insertion,
-            targets: (&plan.targets).into(),
-            accepted: targets_accepted,
-        });
-        if !targets_accepted {
-            parent = cancel_queued(txn, &queued, ActionCancellationReason::TargetInvalid);
-            continue;
-        }
-        parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
-        let cause = action_cause(queued.root, &plan)?;
-        parent = operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     }
     Ok(parent)
 }
 
-fn cancel_queued(
+pub(super) enum ReactionWork {
+    Cancelled(EventId),
+    Execute {
+        queued: QueuedAction,
+        plan: Box<ActionPlan>,
+    },
+}
+
+pub(super) fn dequeue_reaction(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    boundary: ReactionBoundary,
+) -> Result<Option<ReactionWork>, BattleFault> {
+    let Some(queued) = txn.pop_ready_reaction(boundary) else {
+        return Ok(None);
+    };
+    txn.record_diagnostic(|| DiagnosticRecord::ReactionDequeued {
+        insertion: queued.order.insertion,
+        actor: queued.actor,
+        ability: queued.ability,
+        boundary: queued.order.boundary,
+    });
+    if !txn.consume_reaction_budget(MAX_REACTIONS_PER_COMMAND) {
+        return Err(BattleFault::new(
+            FaultKind::BudgetExceeded,
+            FaultBoundary::Command,
+            FaultPolicy::Rollback,
+            0x3171,
+            Some(MAX_REACTIONS_PER_COMMAND as i64),
+        ));
+    }
+    let Some(unit) = txn.state.units.get(queued.actor) else {
+        let event = cancel_queued(txn, &queued, ActionCancellationReason::ActorUnavailable);
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    };
+    if unit.life != LifeState::Alive || !unit.presence.is_active() {
+        let event = cancel_queued(txn, &queued, ActionCancellationReason::ActorUnavailable);
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    }
+    if ability_owner(txn.state, catalog, queued.actor, queued.ability).is_none() {
+        let event = cancel_queued(txn, &queued, ActionCancellationReason::AbilityUnavailable);
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    }
+    if matches!(
+        queued.origin,
+        ActionOrigin::FollowUp | ActionOrigin::Counter
+    ) && txn
+        .state
+        .effects
+        .blocks(queued.actor, ControlledAction::FollowUp)
+    {
+        let event = cancel_queued(txn, &queued, ActionCancellationReason::FollowUpBlocked);
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    }
+    let Some(action) = catalog
+        .ability(queued.ability)
+        .and_then(|ability| ability.action())
+    else {
+        let event = cancel_queued(
+            txn,
+            &queued,
+            ActionCancellationReason::MissingActionDefinition,
+        );
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    };
+    let payment = queued
+        .payment
+        .unwrap_or(action.resources().skill_point_payment());
+    if !can_pay_with_policy(
+        &txn.state.units,
+        &txn.state.teams,
+        queued.actor,
+        action.resources(),
+        payment,
+    ) {
+        let event = cancel_queued(txn, &queued, ActionCancellationReason::ResourceUnavailable);
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    }
+    let mut plan = lower_queued_action(
+        catalog,
+        txn,
+        QueuedActionContext {
+            actor: queued.actor,
+            owner: queued.owner,
+            origin: queued.origin,
+            payment: queued.payment,
+        },
+        queued.ability,
+        queued.targets.clone(),
+    )
+    .ok_or_else(|| action_fault(72))?;
+    let targets_accepted = txn
+        .resolve_hit_targets(plan.actor, &mut plan.targets)
+        .is_ok_and(|targets| !targets.is_empty());
+    txn.record_diagnostic(|| DiagnosticRecord::ReactionTargetsValidated {
+        insertion: queued.order.insertion,
+        targets: (&plan.targets).into(),
+        accepted: targets_accepted,
+    });
+    if !targets_accepted {
+        let event = cancel_queued(txn, &queued, ActionCancellationReason::TargetInvalid);
+        return Ok(Some(ReactionWork::Cancelled(event)));
+    }
+    Ok(Some(ReactionWork::Execute {
+        queued,
+        plan: Box::new(plan),
+    }))
+}
+
+pub(super) fn cancel_queued(
     txn: &mut Transaction<'_>,
     queued: &QueuedAction,
     reason: ActionCancellationReason,
@@ -176,391 +192,7 @@ fn cancel_queued(
     )
 }
 
-pub(super) fn execute_action_plan(
-    catalog: &CombatCatalog,
-    txn: &mut Transaction<'_>,
-    root: CommandId,
-    command_parent: EventId,
-    plan: &mut ActionPlan,
-) -> Result<EventId, BattleFault> {
-    debug_assert_eq!(
-        plan.normal_turn.is_some(),
-        plan.origin.owns_timeline_turn()
-            || plan.origin == ActionOrigin::Forced
-                && catalog
-                    .ability(plan.ability)
-                    .and_then(|ability| ability.action())
-                    .is_some_and(|action| { action.kind() == AbilityKind::Basic })
-    );
-    let _selector = plan.selector;
-    let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(7))?;
-    let base = Cause::for_action(
-        root,
-        plan.id,
-        plan.owner,
-        CauseActor::Unit(plan.actor),
-        source,
-    )
-    .with_primary_target(plan.targets.primary)
-    .with_applier(plan.owner);
-    let mut parent = txn.emit(
-        base.with_parent(command_parent),
-        BattleEventKind::Action(ActionEventData::Declared {
-            action: plan.id,
-            actor: plan.actor,
-            ability: plan.ability,
-            origin: plan.origin,
-            tags: plan.tags,
-        }),
-    );
-    parent = run_programs_at(
-        catalog,
-        txn,
-        base.with_applier(plan.owner),
-        parent,
-        plan,
-        AbilityProgramTiming::Entry,
-        None,
-        &mut HitOperationScratch::default(),
-    )?;
-    parent = apply_resource_costs(txn, base, parent, plan)?;
-    modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnActionStart)?;
-    txn.reset_rule_slots(SlotResetPoint::ActionStart, Some(plan.actor));
-    parent = effect_boundary::tick(
-        catalog,
-        txn,
-        base.with_applier(plan.owner),
-        parent,
-        EffectTickPhase::ActionStart,
-        plan.actor,
-    )?;
-    parent = txn.emit(
-        base.with_parent(parent),
-        BattleEventKind::Action(ActionEventData::Started {
-            action: plan.id,
-            actor: plan.actor,
-            ability: plan.ability,
-            origin: plan.origin,
-            tags: plan.tags,
-        }),
-    );
-    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-    parent = run_programs_at(
-        catalog,
-        txn,
-        base.with_applier(plan.owner),
-        parent,
-        plan,
-        AbilityProgramTiming::BeforeHits,
-        None,
-        &mut HitOperationScratch::default(),
-    )?;
-    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-    let phases = plan.phases.clone();
-    for phase in &phases {
-        let phase_cause = base.with_phase(phase.id);
-        modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnPhaseStart)?;
-        parent = txn.emit(
-            phase_cause.with_parent(parent),
-            BattleEventKind::Phase(PhaseEventData::Started {
-                action: plan.id,
-                phase: phase.id,
-            }),
-        );
-        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-        for hit in &phase.hits {
-            txn.reset_rule_slots(SlotResetPoint::HitStart, Some(plan.actor));
-            let mut operation_scratch = HitOperationScratch::default();
-            debug_assert_eq!(hit.invalidation, plan.targets.invalidation);
-            let selected = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
-            let targets =
-                project_hit_targets(txn, plan.actor, &plan.targets, hit.target_group, selected)?;
-            modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnHitStart)?;
-            let hit_cause = phase_cause
-                .with_hit(hit.id)
-                .with_primary_target(plan.targets.primary);
-            parent = txn.emit(
-                hit_cause.with_applier(plan.owner).with_parent(parent),
-                BattleEventKind::Hit(HitEventData::Started {
-                    action: plan.id,
-                    phase: phase.id,
-                    hit: hit.id,
-                    targets: targets.clone(),
-                }),
-            );
-            parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-            parent = run_programs_at(
-                catalog,
-                txn,
-                hit_cause.with_applier(plan.owner),
-                parent,
-                plan,
-                AbilityProgramTiming::Hits,
-                Some(hit),
-                &mut operation_scratch,
-            )?;
-            parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-            for operation in &hit.operations {
-                let request = match &operation.definition {
-                    HitOperationDefinition::ScalingDamage(definition) => {
-                        let formula =
-                            resolve_scaling_damage(catalog, txn, plan.owner, *definition)?;
-                        Operation::Damage(DamageOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            formula,
-                            element: Some(definition.element()),
-                            crit_policy: hit.crit_policy,
-                            apply_source_modifiers: true,
-                            ultimate_semantics: false,
-                            minimum_hp: 0,
-                        })
-                    }
-                    HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
-                        id: operation.id,
-                        targets: targets.clone(),
-                        formula: *formula,
-                        element: None,
-                        crit_policy: hit.crit_policy,
-                        apply_source_modifiers: true,
-                        ultimate_semantics: false,
-                        minimum_hp: 0,
-                    }),
-                    HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {
-                        id: operation.id,
-                        targets: targets.clone(),
-                        formula: *formula,
-                        apply_formula_modifiers: true,
-                    }),
-                    HitOperationDefinition::Shield(formula) => Operation::Shield(ShieldOp {
-                        id: operation.id,
-                        targets: targets.clone(),
-                        formula: *formula,
-                        source_effect: None,
-                    }),
-                    HitOperationDefinition::ConsumeHp(definition) => {
-                        Operation::ConsumeHp(ConsumeHpOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::AddWeakness(definition) => {
-                        Operation::AddWeakness(AddWeaknessOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::ReduceToughness(definition) => {
-                        Operation::ReduceToughness(ReduceToughnessOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::SuperBreak(definition) => {
-                        Operation::SuperBreak(SuperBreakOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::ApplyEffect(definition) => {
-                        Operation::ApplyEffect(ApplyEffectOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                            rng_purpose: None,
-                            resolved_chances: None,
-                            resolved_runtime: None,
-                        })
-                    }
-                    HitOperationDefinition::RemoveEffects(definition) => {
-                        Operation::RemoveEffects(RemoveEffectsOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::DetonateDots(definition) => {
-                        Operation::DetonateDots(DetonateDotsOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::ModifyStateSlot(definition) => {
-                        Operation::ModifyStateSlot(ModifyStateSlotOp {
-                            id: operation.id,
-                            owner: plan.actor,
-                            instance: None,
-                            definition: definition.clone(),
-                        })
-                    }
-                    HitOperationDefinition::ModifyTeamResource(definition) => {
-                        Operation::ModifyTeamResource(ModifyTeamResourceOp {
-                            id: operation.id,
-                            actor: plan.actor,
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::QueueAction(definition) => {
-                        Operation::QueueAction(QueueActionOp {
-                            id: operation.id,
-                            definition: *definition,
-                        })
-                    }
-                    HitOperationDefinition::SummonLinked(definition) => {
-                        Operation::SummonLinked(SummonLinkedOp {
-                            id: operation.id,
-                            owners: vec![plan.actor].into_boxed_slice(),
-                            definition: definition.clone(),
-                        })
-                    }
-                    HitOperationDefinition::ChangePresence(presence) => {
-                        Operation::ChangePresence(ChangePresenceOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            presence: *presence,
-                        })
-                    }
-                    HitOperationDefinition::Transform(definition) => {
-                        Operation::Transform(TransformOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            definition: definition.clone(),
-                        })
-                    }
-                    HitOperationDefinition::EndTransformation => {
-                        Operation::EndTransformation(UnitLifecycleOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                        })
-                    }
-                    HitOperationDefinition::Revive(definition) => Operation::Revive(ReviveOp {
-                        id: operation.id,
-                        targets: targets.clone(),
-                        definition: *definition,
-                    }),
-                    HitOperationDefinition::DespawnLinked => {
-                        Operation::DespawnLinked(UnitLifecycleOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                        })
-                    }
-                    HitOperationDefinition::RequestWaveTransition => {
-                        Operation::RequestWaveTransition(EncounterLifecycleOp { id: operation.id })
-                    }
-                    HitOperationDefinition::TransitionEnemyPhase(phase) => {
-                        Operation::TransitionEnemyPhase(EnemyPhaseOp {
-                            id: operation.id,
-                            targets: targets.clone(),
-                            phase: *phase,
-                        })
-                    }
-                };
-                parent = execute_operation(
-                    catalog,
-                    txn,
-                    hit_cause.with_applier(plan.owner),
-                    parent,
-                    request,
-                    &mut operation_scratch,
-                )?;
-                parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-            }
-            txn.increment_entanglement_for_hit(&targets)?;
-            parent = txn.emit(
-                hit_cause.with_applier(plan.owner).with_parent(parent),
-                BattleEventKind::Hit(HitEventData::Ended {
-                    action: plan.id,
-                    phase: phase.id,
-                    hit: hit.id,
-                    targets,
-                }),
-            );
-            parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-            parent = drain_reactions(catalog, txn, ReactionBoundary::AfterHit, parent)?;
-            parent = settle::settle_wave_boundary(
-                catalog,
-                txn,
-                hit_cause,
-                parent,
-                WaveTransitionPolicy::AfterHit,
-            )?;
-        }
-        parent = run_programs_at(
-            catalog,
-            txn,
-            phase_cause.with_applier(plan.owner),
-            parent,
-            plan,
-            AbilityProgramTiming::AfterHits,
-            None,
-            &mut HitOperationScratch::default(),
-        )?;
-        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-        parent = txn.emit(
-            phase_cause.with_parent(parent),
-            BattleEventKind::Phase(PhaseEventData::Ended {
-                action: plan.id,
-                phase: phase.id,
-            }),
-        );
-        parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-        parent = drain_reactions(catalog, txn, ReactionBoundary::AfterPhase, parent)?;
-        parent = settle::settle_wave_boundary(
-            catalog,
-            txn,
-            phase_cause,
-            parent,
-            WaveTransitionPolicy::AfterPhase,
-        )?;
-    }
-    parent = run_programs_at(
-        catalog,
-        txn,
-        base.with_applier(plan.owner),
-        parent,
-        plan,
-        AbilityProgramTiming::Resolved,
-        None,
-        &mut HitOperationScratch::default(),
-    )?;
-    parent = rule::dispatch_pending_after_events(catalog, txn, parent)?;
-    if plan.origin == ActionOrigin::Countdown
-        && catalog
-            .countdown_for_ability(plan.ability)
-            .is_some_and(|definition| definition.definition().ends_transformation())
-    {
-        let operation = txn.allocate_operation();
-        parent = lifecycle::execute_end_transform(
-            txn,
-            base.with_applier(plan.owner),
-            parent,
-            UnitLifecycleOp {
-                id: operation,
-                targets: vec![plan.owner].into_boxed_slice(),
-            },
-        )?;
-    }
-    parent = apply_resource_gains(catalog, txn, base, parent, plan)?;
-    parent = txn.emit(
-        base.with_parent(parent),
-        BattleEventKind::Action(ActionEventData::Resolved {
-            action: plan.id,
-            actor: plan.actor,
-            ability: plan.ability,
-            origin: plan.origin,
-            tags: plan.tags,
-            targets: plan.targets.targets.clone(),
-        }),
-    );
-    rule::dispatch_pending_after_events(catalog, txn, parent)
-}
-
-fn resolve_scaling_damage(
+pub(super) fn resolve_scaling_damage(
     catalog: &CombatCatalog,
     txn: &Transaction<'_>,
     actor: UnitId,
@@ -599,7 +231,7 @@ fn resolve_scaling_damage(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn run_programs_at(
+pub(super) fn run_programs_at(
     catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
@@ -640,7 +272,7 @@ fn run_programs_at(
     Ok(parent)
 }
 
-fn project_hit_targets(
+pub(super) fn project_hit_targets(
     txn: &mut Transaction<'_>,
     actor: UnitId,
     commitment: &TargetCommitment,
@@ -668,7 +300,7 @@ fn project_hit_targets(
     Ok(targets.into_boxed_slice())
 }
 
-fn apply_resource_costs(
+pub(super) fn apply_resource_costs(
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -809,7 +441,7 @@ fn apply_resource_costs(
     Ok(parent)
 }
 
-fn apply_resource_gains(
+pub(super) fn apply_resource_gains(
     catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,

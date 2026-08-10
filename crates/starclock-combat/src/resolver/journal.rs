@@ -11,6 +11,7 @@ pub(crate) enum AllocationKind {
     Decision,
     ActionBoundary,
     PreparedAction,
+    ActionFrame,
     Event,
     Action,
     Phase,

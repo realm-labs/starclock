@@ -177,24 +177,24 @@ selects an offered value rather than constructing an equivalent payload.
 list of unit IDs. `SelectOption` refers to an authored option ID whose cost,
 program, and target policy are known to the catalog.
 
-A finite `ActionFlowDefinition` may contain only bounded nodes such as
-`RequestInput`, `ExecuteSegment`, `Branch`, bounded `Repeat`, and `Finish`.
-It may not contain callbacks, character IDs, unbounded loops, or adapter state.
-The runtime frame stores IDs, cursor state, prior commitments, and payment state;
-configuration lookup and UI presentation remain outside canonical mutation.
+A finite `SegmentedActionDefinition` is a bounded linear sequence of
+`SelectTarget`, `SelectOption`, and `Automatic` steps. It may not contain
+callbacks, character IDs, nested segmented actions, unbounded loops, or adapter
+state. The runtime frame stores IDs, a cursor, prior commitments, payment state,
+and the suspended continuation; configuration lookup and UI presentation remain
+outside canonical mutation.
 
 ## Consequences for the current baseline
 
-The current prepared-action shape separates Ultimate request from target
-selection, declaration, payment, and execution. One `TargetCommitment` is still
-reused for a complete atomic `ActionPlan`, so it cannot yet faithfully represent
-Acheron's target decisions or Feixiao's per-strike option decisions.
+The prepared-action boundary separates Ultimate request from target selection,
+declaration, payment, and execution. Ordinary actions still use one complete
+atomic `ActionPlan`. The two confirmed segmented families instead declare and
+pay one parent action, execute complete segment plans under its `ActionId`, and
+persist `ActionFrameState` only while the next typed input is pending.
 
-The implementation should therefore add the prepared-action boundary before
-generalizing `ActionFrame`. Only the two confirmed segmented Ultimate families
-need a persistent frame after declaration. Non-turn-ending Skill loops reopen a
-turn decision, and transformations, counters, summons, and extra turns remain in
-their existing effect/reaction/timeline owners.
+Non-turn-ending Skill loops reopen a turn decision, while transformations,
+counters, summons, child actions, and extra turns remain in their existing
+effect/reaction/timeline owners and do not borrow the parent's frame.
 
 ## Implementation acceptance
 
@@ -215,9 +215,10 @@ their existing effect/reaction/timeline owners.
 - canonical codec, replay, state hash, inspector snapshot, and diagnostics expose
   queued/prepared/frame state through IDs and typed cursors without resolving UI
   labels or content records;
-- catalog validation rejects unbounded flow graphs, invalid cursors, unreachable
-  finish nodes, unpaid executable segments, and options whose target/cost programs
-  do not resolve.
+- catalog validation rejects empty or oversized flows, noncanonical options,
+  missing/self/nested segment references, non-extra-action segment abilities,
+  resource-bearing segment templates, and incompatible target or invalidation
+  policies.
 
 ## Open observation requirements
 

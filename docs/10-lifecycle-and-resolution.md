@@ -44,6 +44,7 @@ A decision point contains its kind, controller owner, stable sequence ID, legal 
 - battle start;
 - normal unit action;
 - prepared Ultimate target/variant input;
+- input between complete segments of one already declared action;
 - target or battle-local mode choice required by an authored rule.
 
 Legal commands are values, not callbacks. A controller may select only from this collection. Stable order is part of the replay contract.
@@ -59,13 +60,19 @@ Every action receives an `ActionId`, source, ability, action kind, cause, and op
 3. emit `ActionDeclared`; the timeline scheduler has already crossed the stable boundary at which the action was selected;
 4. pay costs and emit `ActionStarted`;
 5. run ability phases in authored order;
-6. for every operation, apply the atomic-operation sequence below;
+6. for every operation, apply the atomic-operation sequence below; a segmented
+   action may persist its bounded frame and return for exact controller input
+   only after a complete segment;
 7. drain reactions eligible before the next phase;
 8. emit `ActionResolved`, resolve after-action triggers, and drain higher-priority automatic reactions;
 9. persist a stable after-action boundary before performing turn-end ticks owned by this action;
 10. after `Advance`, settle the wave/turn boundary and expose the next decision or stable boundary.
 
-An Ultimate, follow-up, counter, summon action, memosprite action, joint contribution, and extra turn all use this envelope. Their action kind and normal-turn ownership determine which triggers and duration clocks apply.
+An Ultimate, follow-up, counter, summon action, memosprite action, joint
+contribution, and extra turn all use this envelope. Segmented Ultimates still
+declare, pay and resolve one envelope; their internal segments share its
+`ActionId`. Their action kind and normal-turn ownership determine which triggers
+and duration clocks apply.
 
 ## Atomic operation sequence
 

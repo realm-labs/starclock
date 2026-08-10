@@ -668,6 +668,10 @@ mod tests {
                 .legal_commands()
                 .iter()
                 .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
+            DecisionKind::ActionFrame => decision
+                .legal_commands()
+                .iter()
+                .find(|command| matches!(command, Command::CommitActionFrame { .. })),
             DecisionKind::BattleChoice => None,
         };
         selected

@@ -5,12 +5,12 @@
 //! authoritative value and this codec proves every retained field.
 
 use starclock_combat::{
-    ActionBoundaryEventData, ActionEventData, BattleEvent, BattleEventData, BattleEventKind,
-    BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind, DecisionEventData,
-    DecisionKind, DecisionOwner, EffectEventData, EnemyPhaseEventData, FaultEventData,
-    HealEventData, HitEventData, HpConsumptionEventData, LinkedEntity, PhaseEventData,
-    ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData, SkillPointPayer,
-    TeamSide, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
+    ActionBoundaryEventData, ActionEventData, ActionFrameInput, BattleEvent, BattleEventData,
+    BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
+    DecisionEventData, DecisionKind, DecisionOwner, EffectEventData, EnemyPhaseEventData,
+    FaultEventData, HealEventData, HitEventData, HpConsumptionEventData, LinkedEntity,
+    PhaseEventData, ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData,
+    SkillPointPayer, TeamSide, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
     catalog::{action::AbilityTags, encounter::EnemyPhaseTransitionModel},
     formula::model::{CombatElement, DamageClass},
     rule::model::RuleValue,
@@ -155,6 +155,42 @@ fn encode_action_boundary(encoder: &mut Encoder<Vec<u8>>, value: ActionBoundaryE
             encoder.u64(boundary.get());
             encoder.u64(actor.get());
             encoder.u32(ability.get());
+        }
+        ActionBoundaryEventData::ActionFrameOpened {
+            boundary,
+            frame,
+            action,
+        } => {
+            encoder.u8(4);
+            encoder.u64(boundary.get());
+            encoder.u64(frame.get());
+            encoder.u64(action.get());
+        }
+        ActionBoundaryEventData::ActionFrameInputCommitted {
+            frame,
+            action,
+            cursor,
+            input,
+        } => {
+            encoder.u8(5);
+            encoder.u64(frame.get());
+            encoder.u64(action.get());
+            encoder.u16(cursor);
+            match input {
+                ActionFrameInput::Target(target) => {
+                    encoder.u8(0);
+                    encoder.u64(target.get());
+                }
+                ActionFrameInput::Option(ability) => {
+                    encoder.u8(1);
+                    encoder.u32(ability.get());
+                }
+            }
+        }
+        ActionBoundaryEventData::ActionFrameCompleted { frame, action } => {
+            encoder.u8(6);
+            encoder.u64(frame.get());
+            encoder.u64(action.get());
         }
     }
 }
@@ -1049,6 +1085,7 @@ fn decision_kind(encoder: &mut Encoder<Vec<u8>>, value: DecisionKind) {
         DecisionKind::NormalAction => 1,
         DecisionKind::PreparedAction => 2,
         DecisionKind::BattleChoice => 3,
+        DecisionKind::ActionFrame => 4,
     });
 }
 

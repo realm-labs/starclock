@@ -43,6 +43,8 @@ mod combat_rng_golden;
 mod combat_rule_ir_contract;
 #[path = "suites/core/combat/rule_selector_runtime.rs"]
 mod combat_rule_selector_runtime;
+#[path = "suites/core/combat/segmented_actions.rs"]
+mod combat_segmented_actions;
 #[path = "suites/core/combat/toughness_formula.rs"]
 mod combat_toughness_formula;
 

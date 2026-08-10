@@ -2,14 +2,19 @@ use crate::{
     ConcedePolicy, ControlledAction,
     actor::store::{FormationState, TeamStateStore, UnitStore},
     battle::{spec::TeamSide, state::BattleState},
-    catalog::{CombatCatalog, action::AbilityKind},
+    catalog::{
+        CombatCatalog,
+        action::{AbilityKind, ActionSegmentDefinition},
+    },
     effect::state::EffectStore,
     id::{AbilityId, DecisionId, UnitId},
     resource::check::can_pay,
     target::select::legal_primary_targets,
 };
 
-use super::model::{Command, DecisionKind, DecisionOwner, DecisionPoint, UltimateOption};
+use super::model::{
+    ActionFrameInput, Command, DecisionKind, DecisionOwner, DecisionPoint, UltimateOption,
+};
 
 pub(crate) fn battle_start(id: DecisionId) -> DecisionPoint {
     DecisionPoint::new(
@@ -80,6 +85,48 @@ pub(crate) fn prepared_action(
     Some(DecisionPoint::new(
         id,
         DecisionKind::PreparedAction,
+        DecisionOwner::Team(TeamSide::Player),
+        commands,
+    ))
+}
+
+pub(crate) fn action_frame(
+    id: DecisionId,
+    catalog: &CombatCatalog,
+    state: &BattleState,
+) -> Option<DecisionPoint> {
+    let frame = state.timeline.action_frame.as_ref()?;
+    let flow = catalog.ability(frame.ability)?.action()?.segmented_flow()?;
+    let step = flow.steps().get(usize::from(frame.cursor))?;
+    let commands = match step {
+        ActionSegmentDefinition::SelectTarget { ability } => {
+            let selector = catalog
+                .ability(*ability)
+                .and_then(|definition| catalog.selector(definition.selector()))?
+                .unit_targets()?;
+            legal_primary_targets(&state.units, &state.formations, frame.actor, selector)
+                .ok()?
+                .into_iter()
+                .flatten()
+                .map(|target| Command::CommitActionFrame {
+                    decision: id,
+                    input: ActionFrameInput::Target(target),
+                })
+                .collect()
+        }
+        ActionSegmentDefinition::SelectOption { abilities } => abilities
+            .iter()
+            .copied()
+            .map(|ability| Command::CommitActionFrame {
+                decision: id,
+                input: ActionFrameInput::Option(ability),
+            })
+            .collect(),
+        ActionSegmentDefinition::Automatic { .. } => return None,
+    };
+    Some(DecisionPoint::new(
+        id,
+        DecisionKind::ActionFrame,
         DecisionOwner::Team(TeamSide::Player),
         commands,
     ))

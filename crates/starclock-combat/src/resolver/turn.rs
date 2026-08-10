@@ -31,7 +31,8 @@ use crate::{
 };
 
 use super::{
-    action::{drain_reactions, execute_action_plan},
+    action::drain_reactions,
+    action_execution::execute_action_plan,
     command_resolution::{action_cause, commit_targets},
     settle::{ActionBoundary, settle_after_action},
     transaction::{Transaction, action_fault},
@@ -389,7 +390,7 @@ fn execute_automatic_turn(
             .next()
             .flatten();
     let targets = commit_targets(catalog, txn, turn.unit, ability, primary)?;
-    let mut plan = lower_timeline_action(
+    let plan = lower_timeline_action(
         catalog,
         txn,
         TimelineActionContext {
@@ -402,7 +403,7 @@ fn execute_automatic_turn(
         targets,
     )
     .ok_or_else(|| action_fault(98))?;
-    execute_planned_turn(catalog, txn, root, parent, turn, &mut plan)
+    execute_planned_turn(catalog, txn, root, parent, turn, plan)
 }
 
 fn execute_forced_basic_turn(
@@ -479,7 +480,7 @@ fn execute_forced_basic_turn(
         primary,
     )
     .map_err(|_| action_fault(106))?;
-    let mut plan = lower_forced_basic_action(
+    let plan = lower_forced_basic_action(
         catalog,
         txn,
         TimelineActionContext {
@@ -492,7 +493,7 @@ fn execute_forced_basic_turn(
         targets,
     )
     .ok_or_else(|| action_fault(107))?;
-    execute_planned_turn(catalog, txn, root, parent, turn, &mut plan)
+    execute_planned_turn(catalog, txn, root, parent, turn, plan)
 }
 
 fn execute_planned_turn(
@@ -501,11 +502,11 @@ fn execute_planned_turn(
     root: CommandId,
     parent: EventId,
     turn: NormalTurnState,
-    plan: &mut ActionPlan,
+    plan: ActionPlan,
 ) -> Result<(), BattleFault> {
-    let mut parent = execute_action_plan(catalog, txn, root, parent, plan)?;
-    let cause = action_cause(root, plan)?;
-    parent = operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
+    let resolved = execute_action_plan(catalog, txn, root, parent, plan)?;
+    let cause = action_cause(root, &resolved.plan)?;
+    let mut parent = operation::settle_effects_at_action_end(catalog, txn, cause, resolved.parent)?;
     parent = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, parent)?;
     let resets_gauge = txn
         .state

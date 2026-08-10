@@ -1,5 +1,6 @@
 use super::{
-    action::{drain_reactions, execute_action_plan},
+    action::drain_reactions,
+    action_execution::execute_action_plan,
     operation as parent_operation,
     settle::{ActionBoundary, settle_after_action},
     transaction::{FaultInjection, FaultInjectionPoint, Transaction, action_fault},
@@ -8,7 +9,11 @@ use super::{
 use crate::{
     AbilityId, UnitId,
     action::{
-        lower::{TimelineActionContext, lower_normal_action, lower_ultimate_action},
+        lower::{
+            TimelineActionContext, lower_action_segment, lower_normal_action,
+            lower_segmented_ultimate_header, lower_ultimate_action,
+            restore_segmented_ultimate_header,
+        },
         model::ActionPlan,
     },
     battle::{
@@ -16,15 +21,25 @@ use crate::{
         model::BattlePhase,
         spec::TeamSide as SpecTeamSide,
     },
-    catalog::{CombatCatalog, action::ReactionBoundary},
-    command::{legal, validate::ValidatedCommand},
+    catalog::{
+        CombatCatalog,
+        action::{
+            ActionSegmentDefinition, AutomaticSegmentTarget, InitialActionSegment, ReactionBoundary,
+        },
+    },
+    command::{legal, model::ActionFrameInput, validate::ValidatedCommand},
     event::{
         cause::{Cause, CauseActor},
         model::{ActionBoundaryEventData, BattleEventData, BattleEventKind, DecisionEventData},
     },
     id::{CommandId, EventId, SourceDefinitionId},
     target::{model::TargetCommitment, select},
-    timeline::state::PreparedActionState,
+    timeline::state::{ActionFrameState, PreparedActionState},
+};
+
+use super::action_execution::{
+    execute_action_segment, execute_parent_action_segment, finish_action_envelope,
+    start_action_envelope,
 };
 
 pub(super) fn execute(
@@ -60,6 +75,9 @@ pub(super) fn execute(
             commit_prepared_action(catalog, txn, root, primary_target)?;
         }
         ValidatedCommand::CancelPreparedAction => cancel_prepared_action(catalog, txn, root)?,
+        ValidatedCommand::CommitActionFrame { input } => {
+            commit_action_frame(catalog, txn, root, input)?;
+        }
         ValidatedCommand::Concede => concede(txn, root)?,
     }
     maybe_inject(injection, FaultInjectionPoint::AfterCommandMutation)?;
@@ -88,7 +106,7 @@ fn execute_normal_action(
     let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
     let owner =
         legal::ability_owner(txn.state, catalog, actor, ability).ok_or_else(|| action_fault(5))?;
-    let mut plan = lower_normal_action(
+    let plan = lower_normal_action(
         catalog,
         txn,
         TimelineActionContext {
@@ -101,13 +119,13 @@ fn execute_normal_action(
         targets,
     )
     .ok_or_else(|| action_fault(5))?;
-    let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
-    let boundary_cause = action_cause(root, &plan)?;
+    let action_resolved = execute_action_plan(catalog, txn, root, closed, plan)?;
+    let boundary_cause = action_cause(root, &action_resolved.plan)?;
     let action_resolved = parent_operation::settle_effects_at_action_end(
         catalog,
         txn,
         boundary_cause,
-        action_resolved,
+        action_resolved.parent,
     )?;
     let action_resolved =
         drain_reactions(catalog, txn, ReactionBoundary::AfterAction, action_resolved)?;
@@ -185,12 +203,24 @@ fn commit_prepared_action(
     let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
     let owner =
         legal::ability_owner(txn.state, catalog, actor, ability).ok_or_else(|| action_fault(12))?;
-    let mut plan = lower_ultimate_action(catalog, txn, actor, owner, ability, targets)
+    if catalog
+        .ability(ability)
+        .and_then(|definition| definition.action())
+        .and_then(|action| action.segmented_flow())
+        .is_some()
+    {
+        return start_segmented_action(catalog, txn, root, parent, prepared, owner, targets);
+    }
+    let plan = lower_ultimate_action(catalog, txn, actor, owner, ability, targets)
         .ok_or_else(|| action_fault(12))?;
-    let resolved = execute_action_plan(catalog, txn, root, parent, &mut plan)?;
-    let boundary_cause = action_cause(root, &plan)?;
-    let resolved =
-        parent_operation::settle_effects_at_action_end(catalog, txn, boundary_cause, resolved)?;
+    let resolved = execute_action_plan(catalog, txn, root, parent, plan)?;
+    let boundary_cause = action_cause(root, &resolved.plan)?;
+    let resolved = parent_operation::settle_effects_at_action_end(
+        catalog,
+        txn,
+        boundary_cause,
+        resolved.parent,
+    )?;
     let resolved = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, resolved)?;
     if let ActionBoundary::Continue(parent) =
         settle_after_action(catalog, txn, boundary_cause, resolved)?
@@ -202,6 +232,248 @@ fn commit_prepared_action(
             parent,
             prepared.boundary.turn,
             prepared.boundary.continuation,
+        )?;
+    }
+    Ok(())
+}
+
+fn start_segmented_action(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    prepared: PreparedActionState,
+    owner: UnitId,
+    targets: TargetCommitment,
+) -> Result<(), BattleFault> {
+    let ability = prepared.ability;
+    let actor = prepared.actor;
+    let initial = catalog
+        .ability(ability)
+        .and_then(|definition| definition.action())
+        .and_then(|action| action.segmented_flow())
+        .map(|flow| flow.initial())
+        .ok_or_else(|| action_fault(81))?;
+    let header =
+        lower_segmented_ultimate_header(catalog, txn, actor, owner, ability, targets.clone())
+            .ok_or_else(|| action_fault(81))?;
+    let started = start_action_envelope(catalog, txn, root, parent, header)?;
+    let mut frame = ActionFrameState {
+        id: txn.allocate_action_frame(started.plan.id),
+        action: started.plan.id,
+        actor,
+        owner,
+        ability,
+        boundary: prepared.boundary,
+        cursor: 0,
+        retained_targets: targets.clone(),
+        inputs: targets
+            .primary
+            .map(ActionFrameInput::Target)
+            .into_iter()
+            .collect::<Vec<_>>()
+            .into_boxed_slice(),
+        parent: started.parent,
+        paid: true,
+    };
+    frame.parent = txn.emit(
+        Cause::root(root).with_parent(frame.parent),
+        BattleEventKind::ActionBoundary(ActionBoundaryEventData::ActionFrameOpened {
+            boundary: frame.boundary.id,
+            frame: frame.id,
+            action: frame.action,
+        }),
+    );
+    if initial == InitialActionSegment::ExecuteParent {
+        let plan = lower_action_segment(
+            catalog,
+            txn,
+            frame.action,
+            frame.actor,
+            frame.owner,
+            ability,
+            targets,
+        )
+        .ok_or_else(|| action_fault(84))?;
+        frame.parent =
+            execute_parent_action_segment(catalog, txn, root, frame.parent, plan)?.parent;
+    }
+    advance_action_frame(catalog, txn, root, frame)
+}
+
+fn commit_action_frame(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    input: ActionFrameInput,
+) -> Result<(), BattleFault> {
+    let closed = close_active_decision(txn, root)?;
+    let mut frame = txn
+        .state
+        .timeline
+        .action_frame
+        .clone()
+        .ok_or_else(|| action_fault(82))?;
+    txn.set_action_frame(None);
+    frame.parent = closed;
+    let flow = catalog
+        .ability(frame.ability)
+        .and_then(|definition| definition.action())
+        .and_then(|action| action.segmented_flow())
+        .ok_or_else(|| action_fault(82))?;
+    let step = flow
+        .steps()
+        .get(usize::from(frame.cursor))
+        .ok_or_else(|| action_fault(82))?;
+    let (ability, targets) = match (step, input) {
+        (ActionSegmentDefinition::SelectTarget { ability }, ActionFrameInput::Target(target)) => (
+            *ability,
+            commit_targets(catalog, txn, frame.actor, *ability, Some(target))?,
+        ),
+        (
+            ActionSegmentDefinition::SelectOption { abilities },
+            ActionFrameInput::Option(ability),
+        ) if abilities.binary_search(&ability).is_ok() => (ability, frame.retained_targets.clone()),
+        _ => return Err(action_fault(82)),
+    };
+    frame.parent = txn.emit(
+        Cause::root(root).with_parent(frame.parent),
+        BattleEventKind::ActionBoundary(ActionBoundaryEventData::ActionFrameInputCommitted {
+            frame: frame.id,
+            action: frame.action,
+            cursor: frame.cursor,
+            input,
+        }),
+    );
+    frame.parent = execute_segment(catalog, txn, root, frame.parent, &frame, ability, targets)?;
+    let mut inputs = frame.inputs.into_vec();
+    inputs.push(input);
+    frame.inputs = inputs.into_boxed_slice();
+    frame.cursor = frame
+        .cursor
+        .checked_add(1)
+        .ok_or_else(|| action_fault(82))?;
+    advance_action_frame(catalog, txn, root, frame)
+}
+
+fn advance_action_frame(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    mut frame: ActionFrameState,
+) -> Result<(), BattleFault> {
+    loop {
+        let step = catalog
+            .ability(frame.ability)
+            .and_then(|definition| definition.action())
+            .and_then(|action| action.segmented_flow())
+            .and_then(|flow| flow.steps().get(usize::from(frame.cursor)))
+            .cloned();
+        match step {
+            Some(ActionSegmentDefinition::Automatic { ability, target }) => {
+                let targets = match target {
+                    AutomaticSegmentTarget::Retained => frame.retained_targets.clone(),
+                    AutomaticSegmentTarget::AbilitySelector => {
+                        commit_targets(catalog, txn, frame.actor, ability, None)?
+                    }
+                };
+                frame.parent =
+                    execute_segment(catalog, txn, root, frame.parent, &frame, ability, targets)?;
+                frame.cursor = frame
+                    .cursor
+                    .checked_add(1)
+                    .ok_or_else(|| action_fault(83))?;
+            }
+            Some(ActionSegmentDefinition::SelectTarget { .. })
+            | Some(ActionSegmentDefinition::SelectOption { .. }) => {
+                let parent = frame.parent;
+                txn.set_action_frame(Some(frame));
+                let decision = txn.allocate_decision();
+                let offered = legal::action_frame(decision, catalog, txn.state)
+                    .ok_or_else(|| action_fault(83))?;
+                turn::offer_decision(txn, root, Some(parent), offered);
+                return Ok(());
+            }
+            None => return finish_segmented_action(catalog, txn, root, frame),
+        }
+    }
+}
+
+fn execute_segment(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    frame: &ActionFrameState,
+    ability: AbilityId,
+    targets: TargetCommitment,
+) -> Result<EventId, BattleFault> {
+    let plan = lower_action_segment(
+        catalog,
+        txn,
+        frame.action,
+        frame.actor,
+        frame.owner,
+        ability,
+        targets,
+    )
+    .ok_or_else(|| action_fault(84))?;
+    Ok(execute_action_segment(catalog, txn, root, parent, plan)?.parent)
+}
+
+fn finish_segmented_action(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    frame: ActionFrameState,
+) -> Result<(), BattleFault> {
+    debug_assert!(frame.paid);
+    txn.set_action_frame(None);
+    let completed = txn.emit(
+        Cause::root(root).with_parent(frame.parent),
+        BattleEventKind::ActionBoundary(ActionBoundaryEventData::ActionFrameCompleted {
+            frame: frame.id,
+            action: frame.action,
+        }),
+    );
+    let mut targets = frame.retained_targets;
+    let mut all_targets = targets.targets.into_vec();
+    for input in &frame.inputs {
+        if let ActionFrameInput::Target(target) = input
+            && !all_targets.contains(target)
+        {
+            all_targets.push(*target);
+        }
+    }
+    targets.targets = all_targets.into_boxed_slice();
+    let header = restore_segmented_ultimate_header(
+        catalog,
+        frame.action,
+        frame.actor,
+        frame.owner,
+        frame.ability,
+        targets,
+    )
+    .ok_or_else(|| action_fault(85))?;
+    let finished = finish_action_envelope(catalog, txn, root, completed, header)?;
+    let boundary_cause = action_cause(root, &finished.plan)?;
+    let parent = parent_operation::settle_effects_at_action_end(
+        catalog,
+        txn,
+        boundary_cause,
+        finished.parent,
+    )?;
+    let parent = drain_reactions(catalog, txn, ReactionBoundary::AfterAction, parent)?;
+    if let ActionBoundary::Continue(parent) =
+        settle_after_action(catalog, txn, boundary_cause, parent)?
+    {
+        turn::enter_action_boundary(
+            catalog,
+            txn,
+            root,
+            parent,
+            frame.boundary.turn,
+            frame.boundary.continuation,
         )?;
     }
     Ok(())
@@ -243,6 +515,7 @@ fn concede(txn: &mut Transaction<'_>, root: CommandId) -> Result<(), BattleFault
     txn.set_decision(None);
     txn.set_action_boundary(None);
     txn.set_prepared_action(None);
+    txn.set_action_frame(None);
     txn.clear_extra_turns();
     txn.clear_reactions();
     txn.set_phase(BattlePhase::Lost);

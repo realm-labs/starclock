@@ -34,13 +34,13 @@ mod toughness;
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
 pub use id::{
-    AbilityId, ActionBoundaryId, ActionId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId,
-    CommandId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId, EncounterWaveId,
-    EnemyDefinitionId, EnemyPhaseId, EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId,
-    ModifierInstanceId, ModifierStackingGroupId, NativeHandlerId, OperationId, PhaseId,
-    PreparedActionId, ProgramId, RuleBundleId, RuleId, RuleInstanceId, SelectorId,
-    ShieldInstanceId, SourceDefinitionId, SpawnSequence, StateSlotDefinitionId, TimelineActorId,
-    TriggerId, UnitDefinitionId, UnitId, WaveInstanceId, ZeroIdError,
+    AbilityId, ActionBoundaryId, ActionFrameId, ActionId, AiCandidateId, AiGraphId, AiStateId,
+    AiTransitionId, CommandId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId,
+    EncounterWaveId, EnemyDefinitionId, EnemyPhaseId, EventId, HitId, HitPlanDefinitionId,
+    ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, NativeHandlerId,
+    OperationId, PhaseId, PreparedActionId, ProgramId, RuleBundleId, RuleId, RuleInstanceId,
+    SelectorId, ShieldInstanceId, SourceDefinitionId, SpawnSequence, StateSlotDefinitionId,
+    TimelineActorId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId, ZeroIdError,
 };
 pub use numeric::domain::{
     ActionGauge, DamageAmount, Energy, HealingAmount, Hp, Probability, RawToughness, ShieldAmount,
@@ -70,16 +70,16 @@ pub use battle::spec::{
     TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    ActionBoundaryView, ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView,
-    CharacterResourceView, EffectView, EncounterView, FormationView, LinkView,
+    ActionBoundaryView, ActionFrameView, ActiveTurnView, BattleIdentityView, BattleView,
+    BreakEffectView, CharacterResourceView, EffectView, EncounterView, FormationView, LinkView,
     ModifierInstanceView, PendingExtraTurnView, PendingReactionView, PreparedActionView,
     RuleInstanceView, SequenceCursorsView, ShieldView, TeamResourceView, TeamView,
     TemporaryWeaknessView, TimelineActorView, ToughnessLayerView, TransformationView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
-    Command, CommandError, CommandErrorKind, DecisionKind, DecisionOwner, DecisionPoint,
-    UltimateOption,
+    ActionFrameInput, Command, CommandError, CommandErrorKind, DecisionKind, DecisionOwner,
+    DecisionPoint, UltimateOption,
 };
 pub use diagnostic::{
     ActionCancellationReason, BattleDiagnostics, CommittedTargetsDiagnostic, DiagnosticRecord,

@@ -18,7 +18,8 @@ use super::{
 };
 use super::{action, definition, encounter, index, rule_validate, table as parent_table};
 use crate::{
-    ActionOrigin, AiStateId, CountdownCatalogDefinition, LinkedUnitCatalogDefinition, ProgramId,
+    ActionOrigin, AiStateId, CountdownCatalogDefinition, Energy, LinkedUnitCatalogDefinition,
+    ProgramId,
     modifier::{
         model::{ModifierDefinition, ModifierStackingGroup},
         registry::ModifierRegistry,
@@ -460,6 +461,98 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             ));
         }
         if let Some(action) = ability.action() {
+            if let Some(flow) = action.segmented_flow() {
+                let parent_selector = catalog
+                    .selectors
+                    .get(ability.selector())
+                    .and_then(definition::SelectorDefinition::unit_targets)
+                    .expect("executable ability selector was validated above");
+                for step in flow.steps() {
+                    if matches!(step, action::ActionSegmentDefinition::SelectOption { abilities }
+                        if abilities.windows(2).any(|pair| pair[0] >= pair[1]))
+                    {
+                        return Err(error(
+                            CatalogBuildErrorKind::InvalidDefinition,
+                            format!(
+                                "ability definition {} has noncanonical action-segment options",
+                                id.get()
+                            ),
+                        ));
+                    }
+                    for segment_ability in step.abilities() {
+                        let segment = catalog.abilities.get(*segment_ability);
+                        let segment_action =
+                            segment.and_then(definition::AbilityDefinition::action);
+                        let segment_selector = segment
+                            .and_then(|definition| catalog.selectors.get(definition.selector()))
+                            .and_then(definition::SelectorDefinition::unit_targets);
+                        let target_compatible = match (step, segment_selector) {
+                            (
+                                action::ActionSegmentDefinition::SelectTarget { .. },
+                                Some(selector),
+                            ) => {
+                                selector.relation() != action::TargetRelation::SelfUnit
+                                    && selector.pattern() != action::TargetPattern::All
+                            }
+                            (
+                                action::ActionSegmentDefinition::SelectOption { .. }
+                                | action::ActionSegmentDefinition::Automatic {
+                                    target: action::AutomaticSegmentTarget::Retained,
+                                    ..
+                                },
+                                Some(selector),
+                            ) => selector == parent_selector,
+                            (
+                                action::ActionSegmentDefinition::Automatic {
+                                    target: action::AutomaticSegmentTarget::AbilitySelector,
+                                    ..
+                                },
+                                Some(selector),
+                            ) => {
+                                selector.relation() == action::TargetRelation::SelfUnit
+                                    || selector.pattern() == action::TargetPattern::All
+                            }
+                            (_, None) => false,
+                        };
+                        let policy_compatible = !matches!(
+                            step,
+                            action::ActionSegmentDefinition::SelectOption { .. }
+                                | action::ActionSegmentDefinition::Automatic {
+                                    target: action::AutomaticSegmentTarget::Retained,
+                                    ..
+                                }
+                        ) || segment_action
+                            .is_some_and(|segment| segment.invalidation() == action.invalidation());
+                        let resource_neutral = segment_action.is_some_and(|segment| {
+                            let resources = segment.resources();
+                            resources.skill_point_cost() == 0
+                                && resources.skill_point_gain() == 0
+                                && resources.energy_cost() == Energy::ZERO
+                                && resources.energy_gain() == Energy::ZERO
+                                && resources.character_resource_costs().is_empty()
+                                && resources.team_resource_costs().is_empty()
+                        });
+                        let valid = *segment_ability != id
+                            && segment_action.is_some_and(|segment| {
+                                segment.kind() == action::AbilityKind::ExtraAction
+                                    && segment.segmented_flow().is_none()
+                            })
+                            && target_compatible
+                            && policy_compatible
+                            && resource_neutral;
+                        if !valid {
+                            return Err(error(
+                                CatalogBuildErrorKind::InvalidDefinition,
+                                format!(
+                                    "ability definition {} references invalid action segment {}",
+                                    id.get(),
+                                    segment_ability.get()
+                                ),
+                            ));
+                        }
+                    }
+                }
+            }
             for operation in action
                 .hits()
                 .iter()

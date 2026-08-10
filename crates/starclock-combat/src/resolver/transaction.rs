@@ -29,15 +29,18 @@ use crate::{
         model::{BattleEvent, BattleEventKind, FaultEventData},
     },
     id::{
-        ActionBoundaryId, ActionId, CommandId, DecisionId, EffectInstanceId, EventId, HitId,
-        OperationId, PhaseId, PreparedActionId, ShieldInstanceId, TimelineActorId, WaveInstanceId,
+        ActionBoundaryId, ActionFrameId, ActionId, CommandId, DecisionId, EffectInstanceId,
+        EventId, HitId, OperationId, PhaseId, PreparedActionId, ShieldInstanceId, TimelineActorId,
+        WaveInstanceId,
     },
     modifier::model::ActiveModifier,
     numeric::domain::ActionGauge,
     reaction::queue::QueuedAction,
     rng::types::DrawPurpose,
     rule::model::{OnceScope, SlotResetPoint},
-    timeline::state::{ActionBoundaryState, NormalTurnState, PreparedActionState},
+    timeline::state::{
+        ActionBoundaryState, ActionFrameState, NormalTurnState, PreparedActionState,
+    },
 };
 pub(crate) use scratch::ResolutionScratch;
 use std::{collections::BTreeMap, sync::Arc};
@@ -253,6 +256,14 @@ impl<'a> Transaction<'a> {
         self.journal
             .allocation(AllocationKind::PreparedAction, prepared.get());
         prepared
+    }
+
+    pub(super) fn allocate_action_frame(&mut self, action: ActionId) -> ActionFrameId {
+        let frame = ActionFrameId::new(action.get())
+            .expect("an allocated nonzero action identity is a valid frame identity");
+        self.journal
+            .allocation(AllocationKind::ActionFrame, frame.get());
+        frame
     }
 
     pub(super) fn allocate_event(&mut self) -> EventId {
@@ -473,6 +484,21 @@ impl<'a> Transaction<'a> {
         let after = prepared.as_ref().map_or(0, |value| value.id.get());
         if self.state.timeline.prepared_action != prepared {
             self.state.timeline.prepared_action = prepared;
+            self.journal
+                .mutation(MutationField::Timeline, before, after);
+        }
+    }
+
+    pub(super) fn set_action_frame(&mut self, frame: Option<ActionFrameState>) {
+        let before = self
+            .state
+            .timeline
+            .action_frame
+            .as_ref()
+            .map_or(0, |value| value.id.get());
+        let after = frame.as_ref().map_or(0, |value| value.id.get());
+        if self.state.timeline.action_frame != frame {
+            self.state.timeline.action_frame = frame;
             self.journal
                 .mutation(MutationField::Timeline, before, after);
         }
@@ -943,6 +969,7 @@ impl<'a> Transaction<'a> {
         self.set_decision(None);
         self.set_action_boundary(None);
         self.set_prepared_action(None);
+        self.set_action_frame(None);
         self.set_active_turn(None);
         self.clear_reactions();
         self.set_fault(fault);

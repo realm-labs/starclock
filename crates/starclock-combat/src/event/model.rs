@@ -9,11 +9,11 @@ use crate::{
         action::{AbilityTags, ReactionBoundary},
         encounter::EnemyPhaseTransitionModel,
     },
-    command::model::{DecisionKind, DecisionOwner},
+    command::model::{ActionFrameInput, DecisionKind, DecisionOwner},
     formula::model::{CombatElement, DamageClass},
     id::{
-        AbilityId, ActionBoundaryId, ActionId, DecisionId, EventId, HitId, OperationId, PhaseId,
-        TimelineActorId, UnitId, WaveInstanceId,
+        AbilityId, ActionBoundaryId, ActionFrameId, ActionId, DecisionId, EventId, HitId,
+        OperationId, PhaseId, TimelineActorId, UnitId, WaveInstanceId,
     },
     rule::model::RuleValue,
 };
@@ -606,6 +606,24 @@ pub enum ActionBoundaryEventData {
         boundary: ActionBoundaryId,
         actor: UnitId,
         ability: AbilityId,
+    },
+    /// A declared Ultimate paid once and retained a persistent segmented frame.
+    ActionFrameOpened {
+        boundary: ActionBoundaryId,
+        frame: ActionFrameId,
+        action: ActionId,
+    },
+    /// One exact offered input advanced a declared segmented action.
+    ActionFrameInputCommitted {
+        frame: ActionFrameId,
+        action: ActionId,
+        cursor: u16,
+        input: ActionFrameInput,
+    },
+    /// The final segment completed and released the persistent frame.
+    ActionFrameCompleted {
+        frame: ActionFrameId,
+        action: ActionId,
     },
 }
 

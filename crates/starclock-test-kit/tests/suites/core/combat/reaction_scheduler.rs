@@ -124,9 +124,26 @@ fn catalog(
         AbilityDefinition::new(definition(1), definition(1), definition(1), vec![])
             .with_action(action(AbilityKind::Basic, vec![])),
     );
+    let self_chain = origin == ActionOrigin::DelayedAction
+        && boundary == ReactionBoundary::AfterHit
+        && queued_kind == AbilityKind::DelayedAction;
+    let queued_operations = if self_chain {
+        vec![HitOperationDefinition::QueueAction(
+            QueueActionDefinition::new(
+                definition(2),
+                ActionOrigin::DelayedAction,
+                QueuedActor::CauseOwner,
+                QueuedTarget::PrimaryTarget,
+                ReactionBoundary::AfterHit,
+                -100,
+            ),
+        )]
+    } else {
+        Vec::new()
+    };
     builder.add_ability(
         AbilityDefinition::new(definition(2), definition(2), definition(2), vec![])
-            .with_action(action(queued_kind, vec![])),
+            .with_action(action(queued_kind, queued_operations)),
     );
     builder.add_ability(
         AbilityDefinition::new(
@@ -525,4 +542,37 @@ fn invalidated_queued_target_cancels_without_an_implicit_fallback() {
         }) if ability.get() == 2
     )));
     assert_eq!(battle.view().rng_draw_count(), 0);
+}
+
+#[test]
+fn deeply_chained_reactions_fault_at_budget_without_recursive_execution() {
+    let mut battle = battle(
+        false,
+        ReactionBoundary::AfterHit,
+        ActionOrigin::DelayedAction,
+        AbilityKind::DelayedAction,
+        false,
+    );
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    advance_boundary_if_offered(&mut battle);
+    let attack = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(
+            |command| matches!(command, Command::UseAbility { ability, .. } if ability.get() == 3),
+        )
+        .unwrap()
+        .clone();
+    let resolution = battle.apply(attack).unwrap();
+    assert_eq!(resolution.phase(), starclock_combat::BattlePhase::Faulted);
+    assert_eq!(
+        resolution.fault().unwrap().kind(),
+        starclock_combat::FaultKind::BudgetExceeded
+    );
 }

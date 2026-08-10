@@ -33,6 +33,7 @@ pub(super) fn settle_after_action(
         txn.set_decision(None);
         txn.set_action_boundary(None);
         txn.set_prepared_action(None);
+        txn.set_action_frame(None);
         txn.set_active_turn(None);
         txn.clear_extra_turns();
         txn.clear_reactions();
@@ -55,6 +56,7 @@ pub(super) fn settle_after_action(
         txn.set_decision(None);
         txn.set_action_boundary(None);
         txn.set_prepared_action(None);
+        txn.set_action_frame(None);
         txn.set_active_turn(None);
         txn.clear_extra_turns();
         txn.clear_reactions();

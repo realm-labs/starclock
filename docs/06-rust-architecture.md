@@ -266,7 +266,12 @@ struct PendingReaction {
 }
 ```
 
-Resolve one atomic operation, append its events, collect eligible triggers in stable order, enqueue reactions, then pop the highest-priority reaction. Track `(effect_instance, trigger_id, cause_event)` to enforce once-per-event semantics.
+Resolve one atomic operation, append its events, collect eligible triggers in
+stable order, enqueue reactions, then pop the highest-priority reaction. A
+heap-backed execution-frame stack suspends the parent action while a child
+reaction action resolves and then resumes the parent; Rust call-stack depth does
+not grow with reaction depth. Track `(effect_instance, trigger_id, cause_event)`
+to enforce once-per-event semantics.
 
 Define hard budgets for events per command and nested reaction depth. Exceeding a budget deterministically commits a stable fault after completed atomic operations, or rolls back the uncommitted journal and then commits `Faulted` from the pre-command state. It must not return with undocumented partial mutation.
 

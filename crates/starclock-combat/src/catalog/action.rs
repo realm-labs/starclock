@@ -1092,6 +1092,90 @@ impl ActionHitDefinition {
     }
 }
 
+/// Behavior of the initial prepared target when a segmented action is declared.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum InitialActionSegment {
+    /// Execute the parent ability's authored hits as the first complete segment.
+    ExecuteParent,
+    /// Retain the prepared target without executing a segment yet.
+    RetainTarget,
+}
+
+/// Target source for an automatic segmented-action step.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum AutomaticSegmentTarget {
+    /// Reuse the target committed when the parent action was prepared.
+    Retained,
+    /// Resolve the referenced ability selector without a controller target.
+    AbilitySelector,
+}
+
+/// One bounded step in an authored segmented action flow.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum ActionSegmentDefinition {
+    /// Ask for a new legal primary target, then execute the referenced segment ability.
+    SelectTarget { ability: AbilityId },
+    /// Ask for one exact referenced ability option and reuse the retained target.
+    SelectOption { abilities: Box<[AbilityId]> },
+    /// Execute without external input.
+    Automatic {
+        ability: AbilityId,
+        target: AutomaticSegmentTarget,
+    },
+}
+
+impl ActionSegmentDefinition {
+    /// Creates a finite, canonically ordered option step.
+    #[must_use]
+    pub fn select_option(mut abilities: Vec<AbilityId>) -> Option<Self> {
+        abilities.sort_unstable();
+        abilities.dedup();
+        (!abilities.is_empty()).then(|| Self::SelectOption {
+            abilities: abilities.into_boxed_slice(),
+        })
+    }
+
+    /// Returns every referenced executable ability in canonical order.
+    #[must_use]
+    pub fn abilities(&self) -> &[AbilityId] {
+        match self {
+            Self::SelectTarget { ability } | Self::Automatic { ability, .. } => {
+                core::slice::from_ref(ability)
+            }
+            Self::SelectOption { abilities } => abilities,
+        }
+    }
+}
+
+/// Finite segmented flow attached only to an Ultimate action.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SegmentedActionDefinition {
+    initial: InitialActionSegment,
+    steps: Box<[ActionSegmentDefinition]>,
+}
+
+const MAX_ACTION_SEGMENTS: usize = 32;
+
+impl SegmentedActionDefinition {
+    #[must_use]
+    pub fn new(initial: InitialActionSegment, steps: Vec<ActionSegmentDefinition>) -> Option<Self> {
+        (!steps.is_empty() && steps.len() <= MAX_ACTION_SEGMENTS).then(|| Self {
+            initial,
+            steps: steps.into_boxed_slice(),
+        })
+    }
+
+    #[must_use]
+    pub const fn initial(&self) -> InitialActionSegment {
+        self.initial
+    }
+
+    #[must_use]
+    pub fn steps(&self) -> &[ActionSegmentDefinition] {
+        &self.steps
+    }
+}
+
 /// Finite action structure attached to an executable ability.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AbilityActionDefinition {
@@ -1100,6 +1184,7 @@ pub struct AbilityActionDefinition {
     hits: Box<[ActionHitDefinition]>,
     invalidation: TargetInvalidationPolicy,
     resources: ActionResourcePolicy,
+    segmented: Option<SegmentedActionDefinition>,
 }
 
 const MAX_ACTION_HITS: usize = 256;
@@ -1125,6 +1210,7 @@ impl AbilityActionDefinition {
                     .into_boxed_slice(),
                 invalidation,
                 resources,
+                segmented: None,
             })
         }
     }
@@ -1141,6 +1227,16 @@ impl AbilityActionDefinition {
             None
         } else {
             self.hits = hits.into_boxed_slice();
+            Some(self)
+        }
+    }
+    /// Attaches a bounded controller-input flow to an Ultimate action.
+    #[must_use]
+    pub fn with_segmented_flow(mut self, flow: SegmentedActionDefinition) -> Option<Self> {
+        if self.kind != AbilityKind::Ultimate {
+            None
+        } else {
+            self.segmented = Some(flow);
             Some(self)
         }
     }
@@ -1173,6 +1269,11 @@ impl AbilityActionDefinition {
     #[must_use]
     pub const fn resources(&self) -> &ActionResourcePolicy {
         &self.resources
+    }
+    /// Returns the bounded segmented flow, when this Ultimate requires one.
+    #[must_use]
+    pub const fn segmented_flow(&self) -> Option<&SegmentedActionDefinition> {
+        self.segmented.as_ref()
     }
 }
 

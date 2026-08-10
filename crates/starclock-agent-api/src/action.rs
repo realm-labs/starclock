@@ -7,7 +7,7 @@ use core::fmt;
 
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
-use starclock_combat::{ActionBoundaryId, Command, DecisionId, DecisionPoint};
+use starclock_combat::{ActionBoundaryId, ActionFrameInput, Command, DecisionId, DecisionPoint};
 
 use crate::schema::{ActionToken, AgentUInt, SessionId};
 
@@ -22,6 +22,7 @@ pub enum AgentActionKind {
     UseUltimate,
     CommitPreparedAction,
     CancelPreparedAction,
+    CommitActionFrame,
     Advance,
     Concede,
     BattleChoice,
@@ -267,6 +268,22 @@ fn summarize(token: ActionToken, command: &Command) -> Result<OfferedAction, Act
             "Cancel the prepared action before declaration.".to_owned(),
             None,
             None,
+        ),
+        Command::CommitActionFrame { input, .. } => (
+            AgentActionKind::CommitActionFrame,
+            match input {
+                ActionFrameInput::Target(target) => {
+                    format!("Commit segmented-action target {}.", target.get())
+                }
+                ActionFrameInput::Option(ability) => {
+                    format!("Commit segmented-action option {}.", ability.get())
+                }
+            },
+            None,
+            match input {
+                ActionFrameInput::Target(target) => Some(*target),
+                ActionFrameInput::Option(_) => None,
+            },
         ),
         Command::Advance { .. } => (
             AgentActionKind::Advance,

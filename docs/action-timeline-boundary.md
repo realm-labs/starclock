@@ -30,9 +30,12 @@ an actor's pending normal action.
 An Ultimate request records only actor and ability. It closes the current
 boundary, creates `PreparedActionState`, and offers exact target commitments plus
 cancel. Neither request nor cancellation declares the action or pays resources.
-Committing a prepared target executes the action and restores the suspended
-continuation at a newly identified action boundary. The two confirmed segmented
-Ultimate families remain audited in the
+Committing a prepared target normally executes the action and restores the
+suspended continuation at a newly identified action boundary. A bounded
+segmented Ultimate instead declares and pays once, persists an `ActionFrame`
+only between complete segments, and accepts exact offered `CommitActionFrame`
+inputs until its automatic finisher resolves the same action identity. The two
+confirmed segmented families and their input shapes are audited in the
 [character action-flow matrix](characters/action-flow-matrix.md).
 
 ## Structural action lowering

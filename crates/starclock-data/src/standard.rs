@@ -433,32 +433,32 @@ mod tests {
             (
                 SCENARIOS[0].0,
                 161,
-                "2ab5d3937e2dd9d26737cea60270d2fb7997401c37cfbb3fffc23ac9193621e0",
+                "bc675b17a0b641155e3ad6fc102a1d2b5921923049cee22e3a830cc2a8d14c06",
             ),
             (
                 SCENARIOS[1].0,
                 32,
-                "d8ad2d64507d4a1315c100bacd6a07f4671ab8ed6955ec3dca54bbf079ae1baa",
+                "e94d2bfc03d1dc87ae00e74308afd561bd3332e251327480b3a6f9124298d495",
             ),
             (
                 SCENARIOS[2].0,
                 113,
-                "22d2606bcb6bc6f78b1217005f28a8c3967e234f05c1a3d2e5d51b4bfa083118",
+                "43cfe5278265a9c34ccacae26a74ee9a18d41673b4d67ab0ebcebfe6c25c4751",
             ),
             (
                 SCENARIOS[3].0,
                 48,
-                "aedde8bef5f5d70a1f2564d56d9b6598af2211a171453bd2270d808a19ef2706",
+                "3d5243c9353346cbf12bd8ee1d20c654f9ccd15a4c322e0236a9189f2e6d95b2",
             ),
             (
                 SCENARIOS[4].0,
                 331,
-                "b433b0201b13975652cf069daea40bf81de55c7f0c6a2d0bfc6fdbc6044f1a77",
+                "b0c88f4615017232bb3031b3087efb1f1f578e4f5bb2b963641a3813c20d6730",
             ),
             (
                 SCENARIOS[5].0,
                 441,
-                "a1a7a6d3fb577e5b24364bfb7bf74588e03dd23fae24246eb4cf5e3624f7e6ba",
+                "5d40133446e3b05af214e6fbf9520a1ddda2fa46d819280c9c9f8d16d548db7a",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {
@@ -486,6 +486,10 @@ mod tests {
                                 matches!(command, Command::CommitPreparedAction { .. })
                             })
                         }
+                        DecisionKind::ActionFrame => decision
+                            .legal_commands()
+                            .iter()
+                            .find(|command| matches!(command, Command::CommitActionFrame { .. })),
                         DecisionKind::BattleChoice => None,
                     }
                     .cloned()

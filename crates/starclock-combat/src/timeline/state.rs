@@ -1,8 +1,11 @@
 use crate::{
-    AbilityId, ActionBoundaryId, ActionOrigin,
+    AbilityId, ActionBoundaryId, ActionFrameId, ActionId, ActionOrigin,
     battle::spec::{FormationIndex, TeamSide},
+    command::model::ActionFrameInput,
     event::cause::Cause,
+    id::EventId,
     id::{PreparedActionId, SpawnSequence, TimelineActorId, UnitId},
+    target::model::TargetCommitment,
 };
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -44,11 +47,27 @@ pub(crate) struct PreparedActionState {
     pub(crate) boundary: ActionBoundaryState,
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ActionFrameState {
+    pub(crate) id: ActionFrameId,
+    pub(crate) action: ActionId,
+    pub(crate) actor: UnitId,
+    pub(crate) owner: UnitId,
+    pub(crate) ability: AbilityId,
+    pub(crate) boundary: ActionBoundaryState,
+    pub(crate) cursor: u16,
+    pub(crate) retained_targets: TargetCommitment,
+    pub(crate) inputs: Box<[ActionFrameInput]>,
+    pub(crate) parent: EventId,
+    pub(crate) paid: bool,
+}
+
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub(crate) struct TimelineState {
     pub(crate) active_turn: Option<NormalTurnState>,
     pub(crate) boundary: Option<ActionBoundaryState>,
     pub(crate) prepared_action: Option<PreparedActionState>,
+    pub(crate) action_frame: Option<ActionFrameState>,
     pub(crate) extra_turns: Vec<PendingExtraTurn>,
 }
 

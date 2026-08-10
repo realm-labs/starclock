@@ -13,7 +13,7 @@ use crate::{
         spec::{ConcedePolicy, ParticipantSource, TeamSide},
         state::BattleState,
     },
-    command::model::{Command, DecisionKind, DecisionOwner, DecisionPoint},
+    command::model::{ActionFrameInput, Command, DecisionKind, DecisionOwner, DecisionPoint},
 };
 
 use super::BattleStateHash;
@@ -391,6 +391,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u64(next);
     }
     e.u64(state.committed_revision);
+    encode_action_frame(&mut e, state);
 }
 
 fn encode_reactions<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
@@ -624,6 +625,48 @@ fn encode_cause<S: Sink>(e: &mut Encoder<'_, S>, cause: Cause) {
             e.u64(target.get());
         }
     }
+}
+
+fn encode_action_frame<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
+    let Some(frame) = &state.timeline.action_frame else {
+        e.u8(0);
+        return;
+    };
+    e.u8(1);
+    e.u64(frame.id.get());
+    e.u64(frame.action.get());
+    e.u64(frame.actor.get());
+    e.u64(frame.owner.get());
+    e.u32(frame.ability.get());
+    e.u64(frame.boundary.id.get());
+    encode_turn(e, frame.boundary.turn);
+    match frame.boundary.continuation {
+        ResolutionContinuation::ContinueActiveTurn => e.u8(0),
+        ResolutionContinuation::CompleteActiveTurn {
+            cause,
+            ticks_turn_end,
+        } => {
+            e.u8(1);
+            encode_cause(e, cause);
+            e.u8(u8::from(ticks_turn_end));
+        }
+    }
+    e.u16(frame.cursor);
+    e.u8(frame.retained_targets.selector.relation() as u8);
+    e.u8(frame.retained_targets.selector.pattern() as u8);
+    e.u8(u8::from(frame.retained_targets.selector.repeated_targets()));
+    e.u8(frame.retained_targets.invalidation as u8);
+    encode_optional_u64(e, frame.retained_targets.primary.map(|id| id.get()));
+    e.length(frame.retained_targets.targets.len());
+    for target in &frame.retained_targets.targets {
+        e.u64(target.get());
+    }
+    e.length(frame.inputs.len());
+    for input in &frame.inputs {
+        encode_action_frame_input(e, *input);
+    }
+    e.u64(frame.parent.get());
+    e.u8(u8::from(frame.paid));
 }
 
 fn encode_turn<S: Sink>(e: &mut Encoder<'_, S>, turn: NormalTurnState) {
@@ -861,6 +904,7 @@ fn encode_decision<S: Sink>(e: &mut Encoder<'_, S>, decision: Option<&DecisionPo
         DecisionKind::NormalAction => 1,
         DecisionKind::PreparedAction => 2,
         DecisionKind::BattleChoice => 3,
+        DecisionKind::ActionFrame => 4,
     });
     match decision.owner() {
         DecisionOwner::System => e.u8(0),
@@ -912,6 +956,11 @@ fn encode_command<S: Sink>(e: &mut Encoder<'_, S>, command: &Command) {
             e.u8(4);
             e.u64(decision.get());
         }
+        Command::CommitActionFrame { decision, input } => {
+            e.u8(7);
+            e.u64(decision.get());
+            encode_action_frame_input(e, *input);
+        }
         Command::Advance { boundary } => {
             e.u8(5);
             e.u64(boundary.get());
@@ -919,6 +968,19 @@ fn encode_command<S: Sink>(e: &mut Encoder<'_, S>, command: &Command) {
         Command::Concede { decision } => {
             e.u8(6);
             e.u64(decision.get());
+        }
+    }
+}
+
+fn encode_action_frame_input<S: Sink>(e: &mut Encoder<'_, S>, input: ActionFrameInput) {
+    match input {
+        ActionFrameInput::Target(target) => {
+            e.u8(0);
+            e.u64(target.get());
+        }
+        ActionFrameInput::Option(ability) => {
+            e.u8(1);
+            e.u32(ability.get());
         }
     }
 }

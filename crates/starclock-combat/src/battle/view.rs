@@ -14,19 +14,20 @@ use super::{
 
 use super::spec as parent_spec;
 use crate::{
-    ActionId, ActionOrigin, AiGraphId, AiStateId, ControlledAction, DispelCategory, DotDefinition,
-    DurationClock, EffectCategory, EffectDefinitionId, EffectInstanceId, EffectSnapshotPolicy,
-    EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, EnemyDefinitionId, EnemyPhaseId,
-    Energy, LinkedEntity, LinkedEntityKind, ModifierDefinitionId as CrateModifierDefinitionId,
-    ModifierInstanceId, OperationId, OwnerLinkPolicy, RawToughness, RuleId, RuleInstanceId, Scalar,
-    SourceDefinitionId, Speed as CrateSpeed, StatValue, StateSlotDefinitionId, ToughnessLayerKind,
-    ToughnessLayerSpec, WaveLinkPolicy,
+    ActionFrameId, ActionId, ActionOrigin, AiGraphId, AiStateId, ControlledAction, DispelCategory,
+    DotDefinition, DurationClock, EffectCategory, EffectDefinitionId, EffectInstanceId,
+    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase,
+    EnemyDefinitionId, EnemyPhaseId, Energy, EventId, LinkedEntity, LinkedEntityKind,
+    ModifierDefinitionId as CrateModifierDefinitionId, ModifierInstanceId, OperationId,
+    OwnerLinkPolicy, RawToughness, RuleId, RuleInstanceId, Scalar, SourceDefinitionId,
+    Speed as CrateSpeed, StatValue, StateSlotDefinitionId, ToughnessLayerKind, ToughnessLayerSpec,
+    WaveLinkPolicy,
     actor::{
         model::{LifeState, PresenceState},
         store::{FormationEntry, LinkState, TeamState, TimelineActorState, UnitState},
     },
     catalog::CatalogDigest,
-    command::model::DecisionPoint,
+    command::model::{ActionFrameInput, DecisionPoint},
     effect::{break_effect::BreakEffectState, shield::ShieldState, state::EffectState},
     formula::{
         model::CombatElement,
@@ -44,7 +45,7 @@ use crate::{
         model::{OnceKey, RuleValue, SourceClass},
         state::RuleInstanceState,
     },
-    timeline::state::NormalTurnState,
+    timeline::state::{ActionFrameState, NormalTurnState},
     toughness::state::ToughnessLayerState,
 };
 pub use team_resource::TeamResourceView;
@@ -214,6 +215,15 @@ impl<'a> BattleView<'a> {
                 ability: prepared.ability,
                 suspended_boundary: prepared.boundary.id,
             })
+    }
+    /// Returns the declared segmented action currently waiting between segments.
+    #[must_use]
+    pub fn action_frame(self) -> Option<ActionFrameView<'a>> {
+        self.state
+            .timeline
+            .action_frame
+            .as_ref()
+            .map(|frame| ActionFrameView { frame })
     }
     /// Iterates pending extra turns in their authoritative queue order.
     pub fn pending_extra_turns(self) -> impl Iterator<Item = PendingExtraTurnView> + 'a {
@@ -642,6 +652,63 @@ impl PreparedActionView {
     #[must_use]
     pub const fn suspended_boundary(self) -> ActionBoundaryId {
         self.suspended_boundary
+    }
+}
+
+/// Borrowed immutable state for one declared segmented action.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ActionFrameView<'a> {
+    frame: &'a ActionFrameState,
+}
+
+impl<'a> ActionFrameView<'a> {
+    #[must_use]
+    pub const fn id(self) -> ActionFrameId {
+        self.frame.id
+    }
+    #[must_use]
+    pub const fn action(self) -> ActionId {
+        self.frame.action
+    }
+    #[must_use]
+    pub const fn actor(self) -> UnitId {
+        self.frame.actor
+    }
+    #[must_use]
+    pub const fn owner(self) -> UnitId {
+        self.frame.owner
+    }
+    #[must_use]
+    pub const fn ability(self) -> AbilityId {
+        self.frame.ability
+    }
+    #[must_use]
+    pub const fn suspended_boundary(self) -> ActionBoundaryId {
+        self.frame.boundary.id
+    }
+    #[must_use]
+    pub const fn cursor(self) -> u16 {
+        self.frame.cursor
+    }
+    #[must_use]
+    pub const fn retained_primary(self) -> Option<UnitId> {
+        self.frame.retained_targets.primary
+    }
+    #[must_use]
+    pub fn retained_targets(self) -> &'a [UnitId] {
+        &self.frame.retained_targets.targets
+    }
+    #[must_use]
+    pub fn inputs(self) -> &'a [ActionFrameInput] {
+        &self.frame.inputs
+    }
+    #[must_use]
+    pub const fn parent_event(self) -> EventId {
+        self.frame.parent
+    }
+    #[must_use]
+    pub const fn paid(self) -> bool {
+        self.frame.paid
     }
 }
 

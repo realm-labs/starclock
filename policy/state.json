@@ -21,9 +21,10 @@
     "owner": "player",
     "empty_decisions": false,
     "typed_continuation": true,
-    "combined_selection_and_target": true,
-    "prepared_action": false,
-    "segmented_action_frame": false,
+    "combined_selection_and_target": false,
+    "prepared_action": true,
+    "segmented_action_frame": true,
+    "heap_reaction_frames": true,
     "action_flow_audit_forms": 90
   },
   "verification": {

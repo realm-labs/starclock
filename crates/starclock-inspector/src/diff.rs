@@ -155,6 +155,7 @@ impl BattleSnapshotDiff {
         if before.active_turn != after.active_turn
             || before.action_boundary != after.action_boundary
             || before.prepared_action != after.prepared_action
+            || before.action_frame != after.action_frame
             || before.pending_extra_turns != after.pending_extra_turns
             || before.pending_reactions != after.pending_reactions
         {

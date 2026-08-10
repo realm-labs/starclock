@@ -87,6 +87,116 @@ pub(crate) fn lower_ultimate_action(
     )
 }
 
+pub(crate) fn lower_segmented_ultimate_header(
+    catalog: &CombatCatalog,
+    allocator: &mut impl ActionIdentityAllocator,
+    actor: UnitId,
+    owner: UnitId,
+    ability: AbilityId,
+    targets: TargetCommitment,
+) -> Option<ActionPlan> {
+    let definition = catalog.ability(ability)?;
+    let action = definition.action()?;
+    (action.kind() == AbilityKind::Ultimate && action.segmented_flow().is_some()).then_some(())?;
+    let selector = catalog.selector(definition.selector())?.unit_targets()?;
+    (selector == targets.selector && action.invalidation() == targets.invalidation).then_some(())?;
+    Some(ActionPlan {
+        id: allocator.action(),
+        actor,
+        owner,
+        ability,
+        origin: ActionOrigin::UltimateInterrupt,
+        tags: action.tags(),
+        normal_turn: None,
+        selector,
+        targets,
+        resources: action.resources().clone(),
+        programs: definition.programs().into(),
+        phases: Box::new([]),
+    })
+}
+
+pub(crate) fn restore_segmented_ultimate_header(
+    catalog: &CombatCatalog,
+    action_id: ActionId,
+    actor: UnitId,
+    owner: UnitId,
+    ability: AbilityId,
+    targets: TargetCommitment,
+) -> Option<ActionPlan> {
+    let definition = catalog.ability(ability)?;
+    let action = definition.action()?;
+    (action.kind() == AbilityKind::Ultimate && action.segmented_flow().is_some()).then_some(())?;
+    let selector = catalog.selector(definition.selector())?.unit_targets()?;
+    Some(ActionPlan {
+        id: action_id,
+        actor,
+        owner,
+        ability,
+        origin: ActionOrigin::UltimateInterrupt,
+        tags: action.tags(),
+        normal_turn: None,
+        selector,
+        targets,
+        resources: action.resources().clone(),
+        programs: definition.programs().into(),
+        phases: Box::new([]),
+    })
+}
+
+pub(crate) fn lower_action_segment(
+    catalog: &CombatCatalog,
+    allocator: &mut impl ActionIdentityAllocator,
+    action_id: ActionId,
+    actor: UnitId,
+    owner: UnitId,
+    ability: AbilityId,
+    targets: TargetCommitment,
+) -> Option<ActionPlan> {
+    let definition = catalog.ability(ability)?;
+    let action = definition.action()?;
+    let selector = catalog.selector(definition.selector())?.unit_targets()?;
+    (selector == targets.selector && action.invalidation() == targets.invalidation).then_some(())?;
+    let phase_id = allocator.phase();
+    let hits = action
+        .hits()
+        .iter()
+        .map(|hit| HitPlan {
+            id: allocator.hit(),
+            invalidation: action.invalidation(),
+            target_group: hit.target_group(),
+            damage_share: hit.damage_share(),
+            toughness_share: hit.toughness_share(),
+            crit_policy: hit.crit_policy(),
+            operations: hit
+                .operations()
+                .iter()
+                .cloned()
+                .map(|definition| OperationPlan {
+                    id: allocator.operation(),
+                    definition,
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        })
+        .collect::<Vec<_>>()
+        .into_boxed_slice();
+    Some(ActionPlan {
+        id: action_id,
+        actor,
+        owner,
+        ability,
+        origin: ActionOrigin::UltimateInterrupt,
+        tags: action.tags(),
+        normal_turn: None,
+        selector,
+        targets,
+        resources: action.resources().clone(),
+        programs: definition.programs().into(),
+        phases: vec![ActionPhasePlan { id: phase_id, hits }].into_boxed_slice(),
+    })
+}
+
 pub(crate) struct QueuedActionContext {
     pub(crate) actor: UnitId,
     pub(crate) owner: UnitId,

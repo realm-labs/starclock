@@ -15,8 +15,8 @@ use starclock_activity::{
 };
 use starclock_ai::{EnemyController, EnemyDecisionError};
 use starclock_combat::{
-    Battle, BattlePhase, BattleStateHash, Command, DecisionKind, DecisionOwner, LifeState,
-    ParticipantInitialState, ParticipantSpec, TeamSide,
+    ActionFrameInput, Battle, BattlePhase, BattleStateHash, Command, DecisionKind, DecisionOwner,
+    LifeState, ParticipantInitialState, ParticipantSpec, TeamSide,
     catalog::{CombatCatalog, encounter::AiTransitionTiming},
     rng::types::RngSeed,
     rule::model::ConditionExpr,
@@ -484,9 +484,10 @@ fn system_command(
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::StartBattle { .. })),
-        DecisionKind::NormalAction | DecisionKind::PreparedAction | DecisionKind::BattleChoice => {
-            None
-        }
+        DecisionKind::NormalAction
+        | DecisionKind::PreparedAction
+        | DecisionKind::ActionFrame
+        | DecisionKind::BattleChoice => None,
     };
     selected
         .cloned()
@@ -503,6 +504,7 @@ fn player_command(
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
+        DecisionKind::ActionFrame => decision.legal_commands().first(),
         DecisionKind::NormalAction | DecisionKind::BattleChoice => decision
             .legal_commands()
             .iter()
@@ -578,6 +580,7 @@ fn command_actor(command: &Command) -> Option<starclock_combat::UnitId> {
         Command::StartBattle { .. }
         | Command::CommitPreparedAction { .. }
         | Command::CancelPreparedAction { .. }
+        | Command::CommitActionFrame { .. }
         | Command::Advance { .. }
         | Command::Concede { .. } => None,
     }
@@ -923,6 +926,20 @@ fn encode_command(encoder: &mut Encoder, command: &Command) {
         Command::CancelPreparedAction { decision } => {
             encoder.u8(4);
             encoder.u64(decision.get());
+        }
+        Command::CommitActionFrame { decision, input } => {
+            encoder.u8(7);
+            encoder.u64(decision.get());
+            match input {
+                ActionFrameInput::Target(target) => {
+                    encoder.u8(0);
+                    encoder.u64(target.get());
+                }
+                ActionFrameInput::Option(ability) => {
+                    encoder.u8(1);
+                    encoder.u32(ability.get());
+                }
+            }
         }
         Command::Advance { boundary } => {
             encoder.u8(5);

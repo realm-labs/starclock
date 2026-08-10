@@ -5,6 +5,13 @@ use crate::{
     id::{AbilityId, ActionBoundaryId, DecisionId, UnitId},
 };
 
+/// One exact controller value committed between complete action segments.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum ActionFrameInput {
+    Target(UnitId),
+    Option(AbilityId),
+}
+
 /// External intent accepted only when it exactly appears in the current decision.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum Command {
@@ -30,6 +37,11 @@ pub enum Command {
     },
     /// Cancel the currently prepared action before declaration or payment.
     CancelPreparedAction { decision: DecisionId },
+    /// Commit one offered input for an already declared segmented action.
+    CommitActionFrame {
+        decision: DecisionId,
+        input: ActionFrameInput,
+    },
     /// Advance deterministic battle work from the current stable action boundary.
     Advance { boundary: ActionBoundaryId },
     /// End the battle as a player loss when the profile offers concession.
@@ -45,6 +57,7 @@ impl Command {
             | Self::UseAbility { decision, .. }
             | Self::CommitPreparedAction { decision, .. }
             | Self::CancelPreparedAction { decision }
+            | Self::CommitActionFrame { decision, .. }
             | Self::Concede { decision } => Some(*decision),
             Self::RequestUltimate { .. } | Self::Advance { .. } => None,
         }
@@ -59,6 +72,7 @@ impl Command {
             | Self::UseAbility { .. }
             | Self::CommitPreparedAction { .. }
             | Self::CancelPreparedAction { .. }
+            | Self::CommitActionFrame { .. }
             | Self::Concede { .. } => None,
         }
     }
@@ -100,6 +114,10 @@ impl Command {
                 primary_target.map_or(0, UnitId::get),
             ),
             Self::CancelPreparedAction { decision } => (4, decision.get(), 0, 0, 0),
+            Self::CommitActionFrame { decision, input } => match input {
+                ActionFrameInput::Target(target) => (7, decision.get(), 0, 0, target.get()),
+                ActionFrameInput::Option(ability) => (7, decision.get(), 1, ability.get(), 0),
+            },
             Self::Advance { boundary } => (5, boundary.get(), 0, 0, 0),
             Self::Concede { decision } => (6, decision.get(), 0, 0, 0),
         }
@@ -115,6 +133,8 @@ pub enum DecisionKind {
     NormalAction,
     /// Target or variant input for an action selected at an earlier boundary.
     PreparedAction,
+    /// Input between complete segments of one already declared action.
+    ActionFrame,
     /// Typed action target, variant, segment, or battle-local authored choice.
     BattleChoice,
 }

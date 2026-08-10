@@ -3,8 +3,8 @@
 use core::fmt;
 
 use starclock_combat::{
-    AbilityId, ActionBoundaryId, Battle, BattlePhase, BattleStateHash, Command, CommandErrorKind,
-    DecisionId, UnitId,
+    AbilityId, ActionBoundaryId, ActionFrameInput, Battle, BattlePhase, BattleStateHash, Command,
+    CommandErrorKind, DecisionId, UnitId,
 };
 
 use crate::{
@@ -234,6 +234,11 @@ pub fn encode_battle_command_payload(
             encoder.u8(4);
             encoder.u64(decision.get());
         }
+        Command::CommitActionFrame { decision, input } => {
+            encoder.u8(7);
+            encoder.u64(decision.get());
+            encode_action_frame_input(&mut encoder, *input);
+        }
         Command::Advance { boundary } => {
             encoder.u8(5);
             encoder.u64(boundary.get());
@@ -292,6 +297,10 @@ pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleComm
         4 => Command::CancelPreparedAction {
             decision: runtime_id(decoder.u64()?)?,
         },
+        7 => Command::CommitActionFrame {
+            decision: runtime_id(decoder.u64()?)?,
+            input: decode_action_frame_input(&mut decoder)?,
+        },
         5 => Command::Advance {
             boundary: runtime_id(decoder.u64()?)?,
         },
@@ -302,6 +311,31 @@ pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleComm
     };
     decoder.finish()?;
     Ok(command)
+}
+
+fn encode_action_frame_input(encoder: &mut Encoder<Vec<u8>>, input: ActionFrameInput) {
+    match input {
+        ActionFrameInput::Target(target) => {
+            encoder.u8(0);
+            encoder.u64(target.get());
+        }
+        ActionFrameInput::Option(ability) => {
+            encoder.u8(1);
+            encoder.u32(ability.get());
+        }
+    }
+}
+
+fn decode_action_frame_input(
+    decoder: &mut Decoder<'_>,
+) -> Result<ActionFrameInput, BattleCommandPayloadError> {
+    match decoder.u8()? {
+        0 => Ok(ActionFrameInput::Target(runtime_id(decoder.u64()?)?)),
+        1 => Ok(ActionFrameInput::Option(
+            AbilityId::new(decoder.u32()?).ok_or(BattleCommandPayloadError::InvalidId)?,
+        )),
+        value => Err(BattleCommandPayloadError::UnknownActionFrameInput(value)),
+    }
 }
 
 fn encode_optional_target(encoder: &mut Encoder<Vec<u8>>, primary_target: Option<UnitId>) {
@@ -345,6 +379,8 @@ where
 pub enum BattleCommandPayloadError {
     /// The command discriminant is not part of the closed combat command family.
     UnknownCommand(u8),
+    /// The segmented-action input discriminant is not part of the current protocol.
+    UnknownActionFrameInput(u8),
     /// A fixed-width definition/runtime ID was zero or outside its domain.
     InvalidId,
     /// Canonical primitive framing failed.

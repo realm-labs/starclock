@@ -6,7 +6,7 @@ use crate::{
 
 use super::{
     legal,
-    model::{Command, CommandError, CommandErrorKind},
+    model::{ActionFrameInput, Command, CommandError, CommandErrorKind},
 };
 
 pub(crate) enum ValidatedCommand {
@@ -25,6 +25,9 @@ pub(crate) enum ValidatedCommand {
         primary_target: Option<UnitId>,
     },
     CancelPreparedAction,
+    CommitActionFrame {
+        input: ActionFrameInput,
+    },
     Concede,
 }
 
@@ -111,6 +114,11 @@ pub(crate) fn validate(
             if state.timeline.prepared_action.is_some() =>
         {
             Ok(ValidatedCommand::CancelPreparedAction)
+        }
+        (BattlePhase::AwaitingCommand, Command::CommitActionFrame { input, .. })
+            if state.timeline.action_frame.is_some() =>
+        {
+            Ok(ValidatedCommand::CommitActionFrame { input: *input })
         }
         (BattlePhase::AwaitingCommand, Command::Concede { .. }) => Ok(ValidatedCommand::Concede),
         _ => Err(CommandError::new(CommandErrorKind::WrongPhase)),

@@ -101,8 +101,11 @@ Selecting an Ultimate first creates a prepared action that may request its varia
 it does not declare the action or pay its cost merely because the Ultimate icon
 was selected. After the prepared inputs are complete, an ordinary Ultimate runs
 atomically. A genuinely segmented Ultimate may expose another typed input only
-between complete authored segments. When it finishes, the preserved boundary
-continuation re-enumerates remaining legal Ultimates.
+between complete authored segments. Its persistent `ActionFrame` retains the
+single `ActionId`, committed inputs, payment state and suspended continuation.
+Each `CommitActionFrame` command selects an exact offered target or segment
+option; the frame is removed before `ActionResolved`. When it finishes, the
+preserved boundary continuation re-enumerates remaining legal Ultimates.
 
 Non-turn-ending Skills, transformations, counters, summons, and extra turns do
 not reuse this segmented frame. Their exact boundaries and the full 90-form audit

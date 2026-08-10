@@ -1,11 +1,12 @@
 use starclock_combat::{
-    ActionId, ActionOrigin, AiGraphId, AiStateId, AssemblyDigest, Battle, BattleFault, BattlePhase,
-    BattleSeed, BattleStateHash, CombatInputDigest, CombatantSpecDigest,
-    CommittedTargetsDiagnostic, ConcedePolicy, ControlledAction, DecisionPoint, DispelCategory,
-    DotDefinition, DurationClock, EffectCategory, EffectDefinitionId, EffectInstanceId,
-    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, EncounterId,
-    EnemyDefinitionId, EnemyPhaseId, FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind,
-    ModifierDefinitionId, ModifierInstanceId, OperationId, OwnerLinkPolicy, ParticipantSource,
+    AbilityId, ActionBoundaryId, ActionFrameId, ActionFrameInput, ActionId, ActionOrigin,
+    AiGraphId, AiStateId, AssemblyDigest, Battle, BattleFault, BattlePhase, BattleSeed,
+    BattleStateHash, CombatInputDigest, CombatantSpecDigest, CommittedTargetsDiagnostic,
+    ConcedePolicy, ControlledAction, DecisionPoint, DispelCategory, DotDefinition, DurationClock,
+    EffectCategory, EffectDefinitionId, EffectInstanceId, EffectSnapshotPolicy, EffectStackPolicy,
+    EffectTeardownPolicy, EffectTickPhase, EncounterId, EnemyDefinitionId, EnemyPhaseId, EventId,
+    FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind, ModifierDefinitionId,
+    ModifierInstanceId, OperationId, OwnerLinkPolicy, ParticipantSource, PreparedActionId,
     PresenceState, ReactionOrderDiagnostic, RuleBundleId, RuleId, RuleInstanceId, Scalar,
     ShieldAmount, ShieldInstanceId, SourceDefinitionId, SpawnSequence, Speed, StatValue,
     StateSlotDefinitionId, TeamResourceWavePolicy, TeamSide, TimelineActorId, ToughnessLayerSpec,
@@ -39,6 +40,7 @@ pub struct BattleSnapshot {
     pub active_turn: Option<ActiveTurnSnapshot>,
     pub action_boundary: Option<ActionBoundarySnapshot>,
     pub prepared_action: Option<PreparedActionSnapshot>,
+    pub action_frame: Option<ActionFrameSnapshot>,
     pub pending_extra_turns: Box<[PendingExtraTurnSnapshot]>,
     pub pending_reactions: Box<[PendingReactionSnapshot]>,
     pub concede_policy: ConcedePolicy,
@@ -188,6 +190,20 @@ impl BattleSnapshot {
                     ability: prepared.ability(),
                     suspended_boundary: prepared.suspended_boundary(),
                 }),
+            action_frame: view.action_frame().map(|frame| ActionFrameSnapshot {
+                id: frame.id(),
+                action: frame.action(),
+                actor: frame.actor(),
+                owner: frame.owner(),
+                ability: frame.ability(),
+                suspended_boundary: frame.suspended_boundary(),
+                cursor: frame.cursor(),
+                retained_primary: frame.retained_primary(),
+                retained_targets: frame.retained_targets().into(),
+                inputs: frame.inputs().into(),
+                parent_event: frame.parent_event(),
+                paid: frame.paid(),
+            }),
             pending_extra_turns: view
                 .pending_extra_turns()
                 .map(|pending| PendingExtraTurnSnapshot {
@@ -633,10 +649,26 @@ pub struct ActionBoundarySnapshot {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PreparedActionSnapshot {
-    pub id: starclock_combat::PreparedActionId,
+    pub id: PreparedActionId,
     pub actor: UnitId,
-    pub ability: starclock_combat::AbilityId,
-    pub suspended_boundary: starclock_combat::ActionBoundaryId,
+    pub ability: AbilityId,
+    pub suspended_boundary: ActionBoundaryId,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ActionFrameSnapshot {
+    pub id: ActionFrameId,
+    pub action: ActionId,
+    pub actor: UnitId,
+    pub owner: UnitId,
+    pub ability: AbilityId,
+    pub suspended_boundary: ActionBoundaryId,
+    pub cursor: u16,
+    pub retained_primary: Option<UnitId>,
+    pub retained_targets: Box<[UnitId]>,
+    pub inputs: Box<[ActionFrameInput]>,
+    pub parent_event: EventId,
+    pub paid: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

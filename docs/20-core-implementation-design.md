@@ -272,6 +272,7 @@ Commands are external intent values. They contain no precomputed damage, selecto
 - use a currently offered ability with an offered target choice;
 - request a ready Ultimate at the current stable action boundary;
 - commit or cancel its prepared target/variant input;
+- commit one exact input between complete segments of a declared action;
 - advance a stable action boundary's typed continuation;
 - answer a battle-local typed choice emitted by a rule;
 - concede only if the selected profile explicitly offers it.
@@ -485,12 +486,16 @@ backend type through the public API.
 
 ## Queue model
 
-Use explicit queues, never recursive trigger calls:
+Use explicit queues and execution frames, never recursive trigger calls:
 
 - `OperationQueue` executes the current authored action/phase/hit work;
 - `ReactionQueue` holds trigger-produced actions/operations ordered by reaction key;
+- the resolver's heap-backed `ExecutionFrame` stack suspends a parent action at
+  an eligible reaction boundary, executes the child, then resumes the parent;
 - `ActionBoundaryState` stores the active turn and typed continuation resumed by `Advance`;
 - `PreparedActionState` stores an Ultimate request while exact target or variant input is pending;
+- `ActionFrameState` stores a declared segmented action only between complete
+  segments while another exact input is pending;
 - `TimelineQueue` derives the next eligible actor from canonical Action Gauge ordering;
 - encounter boundary requests are collected separately and settled only at allowed boundaries.
 

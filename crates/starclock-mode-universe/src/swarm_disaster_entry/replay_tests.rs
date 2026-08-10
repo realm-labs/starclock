@@ -65,7 +65,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert!(verified.battle_command_count() > 0);
     assert_eq!(
         hex(verified.final_state_hash().bytes()),
-        "3f81a51fa79ddeb1bb5a2d973468d9fe18fd56f4a0c089fc6c3b2bf57420651a"
+        "f378d5a204374c531128db37c835069dcdc373b7839850978e24313f935be065"
     );
 
     let mut replay_digest = Sha256Sink::new();
@@ -79,7 +79,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(replay.records().len(), 240);
     assert_eq!(
         replay_digest,
-        "f301215dd1c8ed07675f07180952ea8b1208f1328a2d42758f7e6a9e3c3c653d"
+        "12aa4bf49ca80dfe46294fab1fec1ac0c49be24aa0f21b5a6763b4b70ece94d2"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
@@ -91,11 +91,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "f0b6e177e774a0bce6a846045686f75ab56ca992e188292d61104ad4610d1caa"
+        "9a1b21ef9c5fb210d09c89ee79cabc19ad936269fe9580fe998623cb06ea408c"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),
-        "c7f03b2c2e4d91ed9a6d88089bd3489ecb40c6eeabf6f61bdde76eff5653598e"
+        "eb08fe0f099b8b6520dfa2cf96165037fea80780321d84139afb90621c6bf1c5"
     );
 
     assert_divergence(

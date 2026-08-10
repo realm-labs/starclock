@@ -441,6 +441,7 @@ fn standard_battle_run(
                     .legal_commands()
                     .iter()
                     .find(|command| matches!(command, Command::CommitPreparedAction { .. })),
+                DecisionKind::ActionFrame => decision.legal_commands().first(),
                 DecisionKind::BattleChoice => None,
             }
             .cloned()

@@ -70,7 +70,7 @@
     },
     "action": {
       "type": "object", "additionalProperties": false, "required": ["token", "kind", "label", "actor_unit_id", "primary_target_unit_id"],
-      "properties": { "token": { "$ref": "#/$defs/opaqueId" }, "kind": { "enum": ["use_ability", "use_ultimate", "commit_prepared_action", "cancel_prepared_action", "advance", "concede", "battle_choice"] }, "label": { "type": "string", "minLength": 1, "maxLength": 256 }, "actor_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] }, "primary_target_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] } }
+      "properties": { "token": { "$ref": "#/$defs/opaqueId" }, "kind": { "enum": ["use_ability", "use_ultimate", "commit_prepared_action", "cancel_prepared_action", "commit_action_frame", "advance", "concede", "battle_choice"] }, "label": { "type": "string", "minLength": 1, "maxLength": 256 }, "actor_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] }, "primary_target_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] } }
     },
     "event": {
       "type": "object", "additionalProperties": false, "required": ["event_id", "kind", "summary"],

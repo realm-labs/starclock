@@ -967,6 +967,7 @@ fn command_actor(command: &Command) -> Option<starclock_combat::UnitId> {
         Command::StartBattle { .. }
         | Command::CommitPreparedAction { .. }
         | Command::CancelPreparedAction { .. }
+        | Command::CommitActionFrame { .. }
         | Command::Advance { .. }
         | Command::Concede { .. } => None,
     }
@@ -1065,9 +1066,10 @@ fn system_command(decision: &starclock_combat::DecisionPoint) -> Result<Command,
             .legal_commands()
             .iter()
             .find(|command| matches!(command, Command::StartBattle { .. })),
-        DecisionKind::NormalAction | DecisionKind::PreparedAction | DecisionKind::BattleChoice => {
-            None
-        }
+        DecisionKind::NormalAction
+        | DecisionKind::PreparedAction
+        | DecisionKind::ActionFrame
+        | DecisionKind::BattleChoice => None,
     };
     selected.cloned().ok_or_else(|| {
         agent_error(

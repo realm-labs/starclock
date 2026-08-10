@@ -172,12 +172,16 @@ Creation and every player action settle until the next external offer boundary:
 4. let authored enemy AI answer enemy-owned decisions;
 5. execute explicitly automatic orchestration decisions;
 6. stop when a player can request an Ultimate, must commit/cancel a prepared
-   action, owns a normal decision, or reaches a terminal/fault outcome.
+   action, must commit an offered segmented-action input, owns a normal decision,
+   or reaches a terminal/fault outcome.
 
 Requesting an Ultimate does not declare the action or pay its costs. It yields a
 prepared-action boundary containing exact target commitments and cancellation.
-The next accepted commit performs the action; cancellation restores the
-suspended action boundary.
+The next accepted commit normally performs the action; cancellation restores
+the suspended action boundary. For a bounded segmented Ultimate, that commit
+declares and pays once, after which each externally visible segment boundary
+offers exact `CommitActionFrame` commands. The adapter exposes those commands
+as ordinary action offers and never fabricates targets or segment options.
 
 All automatically selected commands carry controller identity in replay
 diagnostics. An explicit test policy may expose both sides, but default MCP does

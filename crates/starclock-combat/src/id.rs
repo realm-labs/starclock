@@ -219,6 +219,10 @@ runtime_id!(
     "Battle-local monotonic identity of an action awaiting controller input."
 );
 runtime_id!(
+    ActionFrameId,
+    "Battle-local monotonic identity of a declared segmented action awaiting further input."
+);
+runtime_id!(
     CommandId,
     "Battle-local monotonic identity of one accepted external command."
 );

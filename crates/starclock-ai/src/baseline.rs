@@ -1,5 +1,6 @@
 use starclock_combat::{
-    AbilityId, BattleView, Command, DecisionOwner, DecisionPoint, TeamSide, UnitId,
+    AbilityId, ActionFrameInput, BattleView, Command, DecisionOwner, DecisionPoint, TeamSide,
+    UnitId,
 };
 
 const MAX_COMPONENT: i32 = 1_000_000;
@@ -287,6 +288,14 @@ fn score(
             (50_000_000, empty_components(), *primary_target)
         }
         Command::CancelPreparedAction { .. } => (-50_000_000, empty_components(), None),
+        Command::CommitActionFrame { input, .. } => (
+            50_000_000,
+            empty_components(),
+            match input {
+                ActionFrameInput::Target(target) => Some(*target),
+                ActionFrameInput::Option(_) => None,
+            },
+        ),
         Command::Concede { .. } => (-100_000_000, empty_components(), None),
         Command::UseAbility {
             actor,
