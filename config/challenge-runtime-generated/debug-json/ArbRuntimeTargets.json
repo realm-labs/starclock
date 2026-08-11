@@ -1,0 +1,337 @@
+{
+  "table": {
+    "name": "ArbRuntimeTargets",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-1.battle-target.3001"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "threshold": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c018c830bd7938ea15fbfe67cde2ab8319c07e7486f5a6813280680a282885cb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-1.battle-target.3002"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "threshold": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "NoDefeatedParticipants"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-1.battle-target.3000"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-2.battle-target.3001"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "threshold": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c018c830bd7938ea15fbfe67cde2ab8319c07e7486f5a6813280680a282885cb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-2.battle-target.3002"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "threshold": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "NoDefeatedParticipants"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-2.battle-target.3000"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-3.battle-target.3001"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "threshold": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c018c830bd7938ea15fbfe67cde2ab8319c07e7486f5a6813280680a282885cb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-3.battle-target.3002"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "threshold": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "NoDefeatedParticipants"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"}"
+          },
+          "stable_key": {
+            "String": "stage.knight-3.battle-target.3000"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3003\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d57427589e92aaab6348fe833e44e78ccaba6af1db7ee7226309450a12e540cc\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3003\"}"
+          },
+          "stable_key": {
+            "String": "stage.king-normal.battle-target.3003"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "threshold": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3004\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d04c90f90703eb2d885048b9e519292e22d7faa08d0434564d5dea105721b200\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3004\"}"
+          },
+          "stable_key": {
+            "String": "stage.king-normal.battle-target.3004"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "threshold": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3005\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3b7b3d75037c4ea2733f9cbd4f9374f7d0bd51c16e3f7d979fc2d2df2717fbae\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3005\"}"
+          },
+          "stable_key": {
+            "String": "stage.king-normal.battle-target.3005"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "threshold": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3003\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d57427589e92aaab6348fe833e44e78ccaba6af1db7ee7226309450a12e540cc\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3003\"}"
+          },
+          "stable_key": {
+            "String": "stage.king-plight.battle-target.3003"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "threshold": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3004\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d04c90f90703eb2d885048b9e519292e22d7faa08d0434564d5dea105721b200\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3004\"}"
+          },
+          "stable_key": {
+            "String": "stage.king-plight.battle-target.3004"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "threshold": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "ConsumedCyclesAtMost"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3005\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3b7b3d75037c4ea2733f9cbd4f9374f7d0bd51c16e3f7d979fc2d2df2717fbae\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3005\"}"
+          },
+          "stable_key": {
+            "String": "stage.king-plight.battle-target.3005"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "threshold": {
+            "Integer": 2
+          }
+        }
+      }
+    ]
+  }
+}

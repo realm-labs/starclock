@@ -1,0 +1,13 @@
+[package]
+name = "starclock-mode-fate-night"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+autotests = false
+
+[lints]
+workspace = true
+
+[dependencies]
+starclock-activity = { path = "../starclock-activity" }
+starclock-combat = { path = "../starclock-combat" }

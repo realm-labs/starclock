@@ -1,0 +1,225 @@
+[[enums]]
+name = "AnomalyStageKind"
+values = ["Knight", "KingNormal", "KingPlight"]
+
+[[enums]]
+name = "AnomalyTargetKind"
+values = ["ConsumedCyclesAtMost", "NoDefeatedParticipants"]
+
+[[tables]]
+name = "ArbRuntimeProfiles"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitrationRuntime.xlsx"
+sheet = "Profiles"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "first_window_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "later_window_scaled"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbRuntimeStages"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitrationRuntime.xlsx"
+sheet = "Stages"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "source_stage_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "kind"
+type = "enum<AnomalyStageKind>"
+[[tables.fields]]
+name = "display_order"
+type = "i32"
+range = [1, 5]
+[[tables.fields]]
+name = "team_index"
+type = "i32"
+range = [0, 3]
+[[tables.fields]]
+name = "cycle_limit"
+type = "i32"
+range = [1, 65535]
+[[tables.fields]]
+name = "encounter_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_display_order"
+fields = ["profile_id", "display_order"]
+unique = true
+
+[[tables]]
+name = "ArbRuntimeTargets"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitrationRuntime.xlsx"
+sheet = "Targets"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stage_id"
+type = "ref<ArbRuntimeStages.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "kind"
+type = "enum<AnomalyTargetKind>"
+[[tables.fields]]
+name = "threshold"
+type = "i64"
+range = [0, 65535]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stage_and_id"
+fields = ["stage_id", "id"]
+unique = true
+
+[[tables]]
+name = "ArbRuntimeQuadrants"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitrationRuntime.xlsx"
+sheet = "Quadrants"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "upstream_buff_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "rule_bundle_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "behavior_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbRuntimePolicies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitrationRuntime.xlsx"
+sheet = "Policies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "known_facts"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "selected_behavior"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "rejected_alternatives"
+type = "list<string>"
+length = [1, 8]
+[[tables.fields]]
+name = "rationale"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "affected_tests"
+type = "list<string>"
+length = [1, 32]
+[[tables.fields]]
+name = "confidence"
+type = "enum<ChallengePolicyConfidence>"
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true

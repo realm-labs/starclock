@@ -1,0 +1,522 @@
+[[enums]]
+name = "GbRuntimeProfileKind"
+values = ["Departure", "DemonKing"]
+
+[[enums]]
+name = "GbRuntimeEquipmentKind"
+values = ["StandardWeapon", "LegendaryWeapon", "Accessory"]
+
+[[enums]]
+name = "GbRuntimeInputKind"
+values = ["Equipment", "AnyStandardWeapon"]
+
+[[enums]]
+name = "GbRuntimePeriodRank"
+values = ["First", "Second", "Third", "Extra"]
+
+[[enums]]
+name = "GbRuntimeShopUpgradeKind"
+values = ["AddMazeBuff", "InitWeaponLevel", "AddAccessorySlot"]
+
+[[enums]]
+name = "GbRuntimeStrategyKind"
+values = ["Growth", "Power", "General", "DemonKing"]
+
+[[tables]]
+name = "GbRuntimeProfiles"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "Profiles"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "kind"
+type = "enum<GbRuntimeProfileKind>"
+[[tables.fields]]
+name = "weapon_slots"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "unlocked_weapon_slots"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "accessory_slots"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "unlocked_accessory_slots"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "GbRuntimePolicies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "Policies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "unavailable_fact"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "known_facts"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "selected_behavior"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "rejected_alternatives"
+type = "list<string>"
+length = [1, 16]
+[[tables.fields]]
+name = "rationale"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "affected_tests"
+type = "list<string>"
+length = [1, 16]
+[[tables.fields]]
+name = "confidence"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "GbRuntimeEquipment"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "Equipment"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "kind"
+type = "enum<GbRuntimeEquipmentKind>"
+[[tables.fields]]
+name = "maximum_level"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "profile_ids"
+type = "list<ref<GbRuntimeProfiles.id>>"
+length = [1, 2]
+[[tables.fields]]
+name = "runtime_binding_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "GbRuntimeShopUpgrades"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "ShopUpgrades"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<GbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "source_numeric_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "purchase_level"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "maximum_level"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "kind"
+type = "enum<GbRuntimeShopUpgradeKind>"
+[[tables.fields]]
+name = "currency_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "cost"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "optional<i32>"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "maze_buff_parameters"
+type = "optional<list<string>>"
+length = [0, 16]
+[[tables.fields]]
+name = "shop_parameter_values"
+type = "list<string>"
+length = [1, 16]
+[[tables.fields]]
+name = "runtime_binding_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "GbRuntimeStages"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "Stages"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<GbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "difficulty"
+type = "i32"
+range = [0, 255]
+[[tables.fields]]
+name = "weapon_selectable"
+type = "bool"
+[[tables.fields]]
+name = "initial_weapon_ids"
+type = "optional<list<ref<GbRuntimeEquipment.id>>>"
+length = [0, 8]
+[[tables.fields]]
+name = "rating_thresholds"
+type = "list<i64>"
+length = [5, 5]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "GbRuntimeStagePeriods"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "StagePeriods"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stage_id"
+type = "ref<GbRuntimeStages.id>"
+[[tables.fields]]
+name = "rank"
+type = "enum<GbRuntimePeriodRank>"
+[[tables.fields]]
+name = "encounter_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "battle_event_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "wave_count"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "countdown_by_wave"
+type = "list<i32>"
+length = [1, 32]
+[[tables.fields]]
+name = "period_score"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "stage_score"
+type = "optional<i64>"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "selection_weight"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stage_rank"
+fields = ["stage_id", "rank"]
+
+[[tables]]
+name = "GbRuntimeRecipes"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "Recipes"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<GbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "output_equipment_id"
+type = "ref<GbRuntimeEquipment.id>"
+[[tables.fields]]
+name = "tier"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "GbRuntimeRecipeInputs"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "RecipeInputs"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "recipe_id"
+type = "ref<GbRuntimeRecipes.id>"
+[[tables.fields]]
+name = "input_order"
+type = "i32"
+range = [0, 255]
+[[tables.fields]]
+name = "kind"
+type = "enum<GbRuntimeInputKind>"
+[[tables.fields]]
+name = "equipment_id"
+type = "optional<ref<GbRuntimeEquipment.id>>"
+[[tables.fields]]
+name = "required_level"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "consumed"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "GbRuntimeScoreRules"
+mode = "map"
+key = "profile_id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "ScoreRules"
+[[tables.fields]]
+name = "profile_id"
+type = "ref<GbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "monster_base_score"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "elite_scores"
+type = "list<i64>"
+length = [4, 4]
+[[tables.fields]]
+name = "monster_weights"
+type = "list<i64>"
+length = [5, 5]
+[[tables.fields]]
+name = "score_cap"
+type = "i64"
+range = [1, 9223372036854775807]
+[[tables.fields]]
+name = "final_stage_extra_bonus"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "GbRuntimeStrategies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "Strategies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<GbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "kind"
+type = "enum<GbRuntimeStrategyKind>"
+[[tables.fields]]
+name = "maximum_level"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "unlock_quest_id"
+type = "optional<i32>"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "selectable_periods"
+type = "optional<list<i32>>"
+length = [0, 4]
+[[tables.fields]]
+name = "influence_scope"
+type = "string"
+length = [1, 128]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "maze_buff_parameters"
+type = "optional<list<string>>"
+length = [0, 16]
+[[tables.fields]]
+name = "ability_binding"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "runtime_binding_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "GbRuntimeTeamBonuses"
+mode = "map"
+key = "stage_id"
+[tables.source]
+format = "xlsx"
+file = "GalacticBaseballerRuntime.xlsx"
+sheet = "TeamBonuses"
+[[tables.fields]]
+name = "stage_id"
+type = "ref<GbRuntimeStages.id>"
+[[tables.fields]]
+name = "profile_id"
+type = "ref<GbRuntimeProfiles.id>"
+[[tables.fields]]
+name = "maze_buff_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "parameters"
+type = "list<string>"
+length = [1, 16]
+[[tables.fields]]
+name = "ability_binding"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "runtime_binding_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]

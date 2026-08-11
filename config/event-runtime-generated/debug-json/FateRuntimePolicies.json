@@ -1,0 +1,778 @@
+{
+  "table": {
+    "name": "FateRuntimePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-event-000055 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-event-000055\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-event-000055"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleEvent index:55"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-event-000056 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-event-000056\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-event-000056"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleEvent index:56"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000000 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000000\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000000"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:0"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000001 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000001\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000001"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:1"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000002 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000002\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000002"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:2"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000003 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000003\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000003"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:3"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000004 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000004\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000004"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:4"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000005 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000005\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000005"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:5"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000006 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000006\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000006"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:6"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000007 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000007\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000007"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:7"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000008 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000008\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000008"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:8"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000137 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000137\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000137"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:137"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "known_facts": {
+            "String": "Released obligation shared-battle-target-000138 remains identity-exact while operation semantics are unproven."
+          },
+          "rationale": {
+            "String": "The scalar reference is exact, but no released typed field or program proves its operation semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "AssumeScalarMatchDefinesOperation"
+              },
+              {
+                "String": "DiscardObligation"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released typed reference, configuration program, or reproducible observation proves the operation and ordering semantics."
+          },
+          "selected_behavior": {
+            "String": "IdentityOnlyNoOperationLowering"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"policy_id=fate-star-rail-night.policy.shared-battle-target-000138\",\"path_or_page\":\"content-reference/fate-star-rail-night-v1/research-gaps.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"current-tree\"}"
+          },
+          "stable_key": {
+            "String": "fate-star-rail-night.policy.shared-battle-target-000138"
+          },
+          "unavailable_fact": {
+            "String": "Typed operation meaning for BattleTarget index:138"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "known_facts": {
+            "String": "There are 18 released ordered CaseBoardInfo identities and six released board identities."
+          },
+          "rationale": {
+            "String": "A bounded linear board keeps every released identity reachable without claiming hidden adjacency."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "invent branching edges"
+              },
+              {
+                "String": "discard the released board rows"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when a released edge selector exposes the exact Case Board adjacency and node-kind mapping."
+          },
+          "selected_behavior": {
+            "String": "Group the 18 released CaseBoardInfo rows into six stable three-node boards by authored row order: choice, battle, terminal."
+          },
+          "source_ref": {
+            "String": "{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinCaseBoardInfo.json\",\"sha256\":\"ef15ee4425e4db06cfcf373f9e266a619a0a8c6cfb846cdd1a770bd0b4e75daa\"}"
+          },
+          "stable_key": {
+            "String": "policy.fate.case-board-node-grouping"
+          },
+          "unavailable_fact": {
+            "String": "Released Case Board rows do not expose exact edge selectors or node kinds."
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "known_facts": {
+            "String": "Released card identity, owner, magical-energy cost, rarity and ability-program path are exact; public released observations establish random hands, repeated energy-paid card plays and an explicit end-turn command while ordinary Ultimates remain interruptible."
+          },
+          "rationale": {
+            "String": "Failing closed preserves one authoritative Combat aggregate and prevents identity-only cards from mutating battle state as invented effects."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "run a second mode-local battle command processor"
+              },
+              {
+                "String": "attach no-op card effects"
+              },
+              {
+                "String": "infer operations from localized prose"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace card bindings individually after released ability programs and observed draw/turn fixtures pass shared Combat lowering, replay and hash tests."
+          },
+          "selected_behavior": {
+            "String": "Expose exact card and deck configuration but keep every production runtime binding false and refuse to claim a playable tactical-card battle until shared Combat owns its commands, RNG, state hash and replay."
+          },
+          "source_ref": {
+            "String": "{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinHouguConfig.json\",\"sha256\":\"0be811921375bc010bf6e9f2c3328fdfb094845dc2cec204988fc764c5589e6b\"}"
+          },
+          "stable_key": {
+            "String": "policy.fate.tactical-card-runtime-binding"
+          },
+          "unavailable_fact": {
+            "String": "The 107 released card ability programs and exact draw, discard, refill and end-turn ordering have not been lowered into the shared Combat aggregate."
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_fate_card_surface_lowers_with_policies"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "known_facts": {
+            "String": "Six story fights, four challenge fights and fifteen map fights publish exact battle-event, map-entrance, enemy and optional reward-card locators."
+          },
+          "rationale": {
+            "String": "The custom fight tables prove identity but not the shared BattleSpec assembly needed for an authoritative handoff."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "bind legacy FateActivity StageConfig rows by ID order"
+              },
+              {
+                "String": "treat battle-event IDs as EncounterId"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when released custom battle-event programs lower each fight locator to a validated BattleSpec and semantic fixture."
+          },
+          "selected_behavior": {
+            "String": "Retain the custom fight locators as typed mode data and do not reinterpret the legacy 425001..425008 FateActivity stages as 4.4 Fate/Star Rail NIGHT encounters."
+          },
+          "source_ref": {
+            "String": "{\"locator\":\"index:0\",\"path\":\"ExcelOutput/FateRinStoryFight.json\",\"sha256\":\"f5a2214ca5984058538406488a005517ddf74d2d0c27fbbe731f9676106c7a94\"}"
+          },
+          "stable_key": {
+            "String": "policy.fate.custom-fight-battle-spec-mapping"
+          },
+          "unavailable_fact": {
+            "String": "The custom FateRin battle-event locators are not ordinary StageConfig encounter IDs and their exact BattleSpec assembly mapping is unavailable."
+          }
+        }
+      }
+    ]
+  }
+}

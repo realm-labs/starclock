@@ -19,18 +19,50 @@ Git history is the only historical record.
 
 - `starclock-combat` owns deterministic single-battle execution.
 - `starclock-activity` owns deterministic cross-battle orchestration.
-- Standard battle, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, Standard
-  Universe, Gold and Gears, and Swarm Disaster use the shared combat/activity
-  kernels.
+- Standard battle, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, Anomaly
+  Arbitration, Standard Universe, Gold and Gears, and Swarm Disaster use the
+  shared combat/activity kernels. Galactic Baseballer additionally has a
+  stage-local Activity controller and a persistent-shop Activity controller;
+  Fate/Star Rail NIGHT currently provides a
+  production 4.4 tactical-card catalog, fail-closed loadout validator and shared
+  Activity graph compiler. Neither event mode claims complete battle-effect
+  parity.
 - The Version 4.4 challenge bundle contains 13 Memory stages (including one
   three-node Starward stage), five Pure Fiction stages and five Apocalyptic
-  stages. Their typed attempts support two or three locked teams, battle
+  stages, plus one five-stage Anomaly Arbitration profile. The first three
+  challenge modes support two or three locked teams; all four support battle
   handoff, score/objective projection, canonical Activity state and an owned
   `ActivityDebugView` for adapter-side inspection.
-- `starclock challenge config validate` lowers all three production profiles
-  and compiles all 43 challenge encounters over the production combat catalog.
+- Anomaly Arbitration owns three locked disjoint Knight teams, one King team,
+  arbitrary Knight order/retries, normal-King gating, direct Plight entry,
+  Quadrant selection and max-preserving stage records. Its 150/100 cycle
+  windows, King-protection effect and fixed runtime-roster seam remain three
+  explicit `ProjectPolicy` rows.
+- `starclock challenge config validate` lowers all four production profiles
+  and compiles the 43 Memory/Pure-Fiction/Apocalyptic encounters over the
+  production combat catalog.
   Temporary enemy behavior donors and all unverified mechanics remain visible
   as generated `ProjectPolicy` rows.
+- The event production bundle contains two Galactic Baseballer profiles, 13
+  stage rows, 102 stage-period candidates, 87 equipment identities, 27
+  synthesis recipes, 114 shop price steps, 56 Adventure Strategies, seven
+  stage team bonuses, two score rules and six explicit policies. Its
+  controller compiles two to four authored period ranks, weighted encounter
+  selection, battle handoff, score accumulation, checked
+  acquisition/duplicate-upgrade choices and atomic synthesis. The
+  separate persistent-shop Activity commits checked purchases atomically and
+  projects exact initial-weapon-level and accessory-slot upgrades into later
+  stage state; MazeBuff purchases, Strategies and team bonuses remain typed
+  identity/parameter data with false Combat bindings. The
+  same bundle contains six Fate Case Boards/18 policy-grouped nodes, six owners,
+  four deck profiles, seven recommendations, 107 tactical cards, 6/4/15
+  story/challenge/map fight locators and 16 explicit policies. `starclock event
+  config validate` lowers and validates both catalogs. The legacy 3.4
+  `FateHougu`/`FateReiju` and `425001..425008` Stage rows are not treated as the
+  4.4 battle surface. All 87 Baseballer equipment effects, 102 shop MazeBuff
+  steps, 56 Strategies, seven team bonuses and all 107 Fate card bindings
+  remain non-exact until their ability programs and end-to-end battle fixtures
+  are promoted.
 - Combat resolution stops at stable boundaries between independent actions.
   `Advance` resumes deterministic work; adapters may submit it automatically
   when no ready Ultimate needs to be exposed. If a normal decision already

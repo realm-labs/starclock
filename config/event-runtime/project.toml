@@ -1,0 +1,9 @@
+package = "starclock_event_runtime_config"
+includes = ["schema/galactic-baseballer.toml", "schema/fate-night.toml"]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+
+[codegen.rust]
+runtime_format = "sora"

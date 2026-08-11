@@ -27,7 +27,7 @@ use crate::challenge_generated::{
     runtime::SoraBundle,
 };
 
-const PRODUCTION_BUNDLE: &[u8] =
+pub(crate) const PRODUCTION_BUNDLE: &[u8] =
     include_bytes!("../../../config/challenge-runtime-generated/config.sora");
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -74,6 +74,8 @@ pub fn pure_fiction_combat_definitions() -> Result<PureFictionCombatDefinitions,
 {
     load_pure_fiction_combat_definitions(PRODUCTION_BUNDLE)
 }
+
+pub use crate::challenge_anomaly::{anomaly_arbitration, load_anomaly_arbitration};
 
 pub fn load_pure_fiction(bytes: &[u8]) -> Result<PureFictionProfile, ChallengeDataError> {
     let bundle = SoraBundle::parse(bytes).map_err(error)?;
@@ -891,7 +893,7 @@ fn error(error: impl std::fmt::Display) -> ChallengeDataError {
     message(&error.to_string())
 }
 
-pub(super) fn message(message: &str) -> ChallengeDataError {
+pub(crate) fn message(message: &str) -> ChallengeDataError {
     ChallengeDataError {
         message: message.into(),
     }

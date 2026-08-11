@@ -37,6 +37,7 @@ pub fn config_validate(
     let pure_fiction_catalog =
         PureFictionCombatCatalog::compile(&pure_fiction_definitions, production)
             .map_err(configuration)?;
+    let anomaly = starclock_data::challenge::anomaly_arbitration().map_err(configuration)?;
 
     let memory_nodes = memory
         .stages()
@@ -57,7 +58,7 @@ pub fn config_validate(
 
     if json {
         println!(
-            "{{\"kind\":\"challenge-config-validation\",\"valid\":true,\"bundle_sha256\":\"{bundle_sha256}\",\"modes\":[{{\"mode\":\"memory-of-chaos\",\"stages\":{},\"nodes\":{memory_nodes},\"encounters\":{},\"policies\":{},\"approximate_enemies\":{}}},{{\"mode\":\"apocalyptic-shadow\",\"stages\":{},\"nodes\":{apocalyptic_nodes},\"encounters\":{},\"policies\":{},\"approximate_enemies\":{}}},{{\"mode\":\"pure-fiction\",\"stages\":{},\"nodes\":{pure_fiction_nodes},\"encounters\":{},\"policies\":{},\"approximate_enemies\":{}}}]}}",
+            "{{\"kind\":\"challenge-config-validation\",\"valid\":true,\"bundle_sha256\":\"{bundle_sha256}\",\"modes\":[{{\"mode\":\"memory-of-chaos\",\"stages\":{},\"nodes\":{memory_nodes},\"encounters\":{},\"policies\":{},\"approximate_enemies\":{}}},{{\"mode\":\"apocalyptic-shadow\",\"stages\":{},\"nodes\":{apocalyptic_nodes},\"encounters\":{},\"policies\":{},\"approximate_enemies\":{}}},{{\"mode\":\"pure-fiction\",\"stages\":{},\"nodes\":{pure_fiction_nodes},\"encounters\":{},\"policies\":{},\"approximate_enemies\":{}}},{{\"mode\":\"anomaly-arbitration\",\"stages\":{},\"nodes\":5,\"encounters\":5,\"policies\":{},\"approximate_enemies\":0}}]}}",
             memory.stages().len(),
             memory_definitions.encounters().len(),
             memory.policies().len(),
@@ -70,10 +71,12 @@ pub fn config_validate(
             pure_fiction_definitions.encounters().len(),
             pure_fiction.policies.len(),
             pure_fiction_catalog.approximate_enemy_count(),
+            anomaly.stages.len(),
+            anomaly.policies.len(),
         );
     } else {
         println!(
-            "challenge config valid bundle_sha256={bundle_sha256} memory=({},{} nodes,{} encounters,{} policies,{} approximate enemies) apocalyptic=({},{} nodes,{} encounters,{} policies,{} approximate enemies) pure_fiction=({},{} nodes,{} encounters,{} policies,{} approximate enemies)",
+            "challenge config valid bundle_sha256={bundle_sha256} memory=({},{} nodes,{} encounters,{} policies,{} approximate enemies) apocalyptic=({},{} nodes,{} encounters,{} policies,{} approximate enemies) pure_fiction=({},{} nodes,{} encounters,{} policies,{} approximate enemies) anomaly=({},5 nodes,5 encounters,{} policies,0 approximate enemies)",
             memory.stages().len(),
             memory_nodes,
             memory_definitions.encounters().len(),
@@ -89,6 +92,8 @@ pub fn config_validate(
             pure_fiction_definitions.encounters().len(),
             pure_fiction.policies.len(),
             pure_fiction_catalog.approximate_enemy_count(),
+            anomaly.stages.len(),
+            anomaly.policies.len(),
         );
     }
     Ok(())

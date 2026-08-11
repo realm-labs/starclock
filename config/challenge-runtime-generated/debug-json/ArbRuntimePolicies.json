@@ -1,0 +1,142 @@
+{
+  "table": {
+    "name": "ArbRuntimePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "challenge_anomaly::tests::production_profile_preserves_released_topology|anomaly_runtime::tests::normal_king_requires_three_knight_clears"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "known_facts": {
+            "String": "Released official text states that the first cycle has greater total action value than later cycles, without a numeric constant."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The standard challenge clock requires exact integer windows; 150/100 preserves the only released ordering and matches the shared cycle convention."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "omit the stage clock|use equal cycle windows"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace with a released configuration constant or reproducible action-value trace."
+          },
+          "selected_behavior": {
+            "String": "Use 150 action value for the first cycle and 100 for later cycles, while preserving one stage-local clock across waves."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The first cycle has greatly increased total action value.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"0830209f326ec452f9349d82a6534ca0fd76cd32a753106212e9e219a6205d18\",\"source_id\":\"official:hoyolab:anomaly-arbitration:first-cycle-action-value\"}"
+          },
+          "stable_key": {
+            "String": "policy.anomaly.first-cycle-action-value"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "anomaly_runtime::tests::protection_count_tracks_stage_kind|anomaly_runtime::tests::plight_is_directly_available"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "known_facts": {
+            "String": "Released official text proves that uncleared Knights protect the King and that Plight starts with active protection; no complete numeric effect program is public."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The lifecycle and availability remain executable while combat parity stays explicitly bounded."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "invent three stacking buffs|treat protection as absent"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when released ability programs identify the protection contributions and parameters."
+          },
+          "selected_behavior": {
+            "String": "Track one active protection contribution per uncleared Knight and expose the count to battle assembly without applying invented combat numbers."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"}"
+          },
+          "stable_key": {
+            "String": "policy.anomaly.king-protection-numeric-effects"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "anomaly_runtime::tests::definition_rejects_duplicate_knight_characters|anomaly_runtime::tests::failed_retry_preserves_best_record"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "known_facts": {
+            "String": "Successful Knight clears record participants and account equipment instances; retries may use current progression and have explicit replacement/reset behavior."
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "rationale": {
+            "String": "The current shared participant seam intentionally owns immutable resolved builds and does not expose account inventory identities."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "treat opaque build digests as equipment instance IDs|mutate a sealed participant lock"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when activity preparation accepts a typed account-equipment snapshot and deterministic lock replacement command."
+          },
+          "selected_behavior": {
+            "String": "One runtime instance locks three disjoint Knight teams and one independent King team. A changed build starts a new instance; no account equipment identity is inferred from BuildDigest."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"}"
+          },
+          "stable_key": {
+            "String": "policy.anomaly.fixed-runtime-roster"
+          }
+        }
+      }
+    ]
+  }
+}

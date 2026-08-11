@@ -10,19 +10,20 @@ fn output(args: &[&str]) -> std::process::Output {
 }
 
 #[test]
-fn challenge_configuration_compiles_all_three_production_catalogs() {
+fn challenge_configuration_compiles_all_production_catalogs() {
     let validation = output(&["challenge", "config", "validate", "--json"]);
     assert!(validation.status.success(), "{validation:?}");
     let report: Value = serde_json::from_slice(&validation.stdout).unwrap();
     assert_eq!(report["kind"], "challenge-config-validation");
     assert_eq!(report["valid"], true);
     assert_eq!(report["bundle_sha256"].as_str().unwrap().len(), 64);
-    assert_eq!(report["modes"].as_array().unwrap().len(), 3);
+    assert_eq!(report["modes"].as_array().unwrap().len(), 4);
 
     let expected = [
         ("memory-of-chaos", 13, 27, 25, 8, 22),
         ("apocalyptic-shadow", 5, 11, 9, 5, 10),
         ("pure-fiction", 5, 11, 9, 5, 30),
+        ("anomaly-arbitration", 5, 5, 5, 3, 0),
     ];
     for (mode, stages, nodes, encounters, policies, approximate_enemies) in expected {
         let actual = report["modes"]

@@ -13,6 +13,10 @@ mod generated;
 #[path = "../../../config/challenge-runtime-generated/readers/rust/mod.rs"]
 mod challenge_generated;
 
+#[allow(clippy::enum_variant_names)]
+#[path = "../../../config/event-runtime-generated/readers/rust/mod.rs"]
+mod event_generated;
+
 mod build_lower;
 pub mod bundle;
 pub mod catalog;
@@ -20,11 +24,13 @@ mod catalog_lookup;
 mod catalog_manifest;
 mod catalog_support;
 pub mod challenge;
+mod challenge_anomaly;
 mod challenge_combat;
 pub mod coverage;
 mod domain_catalog;
 mod effect_lower;
 mod encounter_lower;
+pub mod event;
 mod lifecycle_lower;
 mod light_cone_lower;
 mod modifier_lower;

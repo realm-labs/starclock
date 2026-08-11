@@ -1,0 +1,307 @@
+{
+  "table": {
+    "name": "GbRuntimePolicies",
+    "rows": [
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "runtime::tests::reward_offer_uses_bounded_uniform_stable_options"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "known_facts": {
+            "String": "only legal profile-owned candidates may be offered | duplicate and maximum-level eligibility are state dependent"
+          },
+          "rationale": {
+            "String": "uniform stable-ID sampling is deterministic, neutral and does not manufacture hidden rarity weights"
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "infer weights from rarity or display position"
+              },
+              {
+                "String": "reuse upstream table iteration order as a probability distribution"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "replace when released structured weights or a reproducible released-version observation establishes the complete distribution"
+          },
+          "selected_behavior": {
+            "String": "sample uniformly by project integer sampling from eligible stable IDs sorted lexicographically"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"id=gb.policy.upgrade-candidate-weight\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"explicit replaceable deterministic boundary\",\"path_or_page\":\"content-manifests/galactic-baseballer-v1/approximation-register.json\",\"replacement_condition\":\"replace when released structured weights or a reproducible released-version observation establishes the complete distribution\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"starclock.galactic-baseballer-approximation-register.v1\",\"sha256\":\"bcca00979305aecf1179f4d439ada9937fe5e6ca04292dd9d760c88666961497\",\"source_id\":\"source.goal16.policy.bcca00979305aecf\"}"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.approximation.gb.policy.upgrade-candidate-weight"
+          },
+          "unavailable_fact": {
+            "String": "released sources do not expose a complete authoritative draw weight for every eligible offer"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "inventory::tests::no_legal_candidate_exposes_only_skip"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "known_facts": {
+            "String": "an illegal candidate cannot be selected | rejected choices must not mutate authoritative state"
+          },
+          "rationale": {
+            "String": "bounded explicit failure preserves state and avoids nontermination"
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "retry an unbounded random draw"
+              },
+              {
+                "String": "silently replace or downgrade an owned maximum-level item"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "replace when released structured logic or reproducible observation defines each empty-candidate branch"
+          },
+          "selected_behavior": {
+            "String": "emit a ReferenceOnly no-candidate outcome, consume no inventory resource and continue at the next declared lifecycle boundary"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"id=gb.policy.no-legal-candidate\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"explicit replaceable deterministic boundary\",\"path_or_page\":\"content-manifests/galactic-baseballer-v1/approximation-register.json\",\"replacement_condition\":\"replace when released structured logic or reproducible observation defines each empty-candidate branch\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"starclock.galactic-baseballer-approximation-register.v1\",\"sha256\":\"306f321f959303fdc73827efbc5c3eaf019eeedbc177d288cb9d50a89dbd8de7\",\"source_id\":\"source.goal16.policy.306f321f959303fd\"}"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.approximation.gb.policy.no-legal-candidate"
+          },
+          "unavailable_fact": {
+            "String": "released text does not define every empty-pool/full-inventory combination"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "inventory::tests::eligible_synthesis_is_atomic_and_precedes_duplicate_upgrade"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "known_facts": {
+            "String": "recipes require explicit acyclic inputs | inputs may be consumed only after all prerequisites validate"
+          },
+          "rationale": {
+            "String": "tier and stable-ID order is bounded, auditable and keeps recipe consumption atomic"
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "always apply duplicate upgrade before synthesis"
+              },
+              {
+                "String": "choose an eligible recipe using an unlabeled random draw"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+          },
+          "selected_behavior": {
+            "String": "evaluate explicit synthesis candidates first by tier then recipe stable ID; otherwise apply the ordinary duplicate upgrade"
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"id=gb.policy.simultaneous-synthesis-order\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"explicit replaceable deterministic boundary\",\"path_or_page\":\"content-manifests/galactic-baseballer-v1/approximation-register.json\",\"replacement_condition\":\"replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"starclock.galactic-baseballer-approximation-register.v1\",\"sha256\":\"fc2374da41ccb502630bcd9fa80676f5232c889d3f9a7ca74a408232a6dc2511\",\"source_id\":\"source.goal16.policy.fc2374da41ccb502\"}"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.approximation.gb.policy.simultaneous-synthesis-order"
+          },
+          "unavailable_fact": {
+            "String": "the order between a newly eligible synthesis and an ordinary duplicate upgrade in one offer is not public for every recipe tier"
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "progression::tests::purchase_commits_balance_level_and_effect_atomically"
+              },
+              {
+                "String": "progression::tests::rejected_purchase_leaves_state_byte_identical"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "Low"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "known_facts": {
+            "String": "A | l | l |   | 6 | 0 |   | p | r | i | c | e |   | s | t | e | p | s | , |   | l | e | v | e | l | s | , |   | s | h | o | p |   | t | y | p | e | s |   | a | n | d |   | e | f | f | e | c | t | s |   | a | r | e |   | e | x | a | c | t |   | s | t | r | u | c | t | u | r | e | d |   | f | a | c | t | s | ."
+          },
+          "rationale": {
+            "String": "Pre-validation preserves rejected-command byte identity and makes the transaction auditable."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "deduct currency before validating the current level"
+              },
+              {
+                "String": "partially apply the effect on an insufficient-balance rejection"
+              },
+              {
+                "String": "silently clamp purchases at maximum level"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Released transaction logic or reproducible observations close every rejection branch and event order."
+          },
+          "selected_behavior": {
+            "String": "Validate current level and balance before deducting currency; commit cost, level and effect as one ordered operation."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=14;ID=3113815;Season=SecondChapter\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"exact shop type, price level and base parameter\",\"path_or_page\":\"ExcelOutput/EvoBdSCShopConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bd98e735f457b7a8b1a55e65e1f98c2a5be477b4c27c93acd28f824fbd8ad3fc\",\"source_id\":\"source.goal16.bd98e735f457b7a8\"}"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.approximation.shop-transaction-atomicity"
+          },
+          "unavailable_fact": {
+            "String": "The exact rejection event ordering for insufficient balance, wrong current level and maximum level is not published."
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_baseballer_profiles_and_synthesis_lower"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "known_facts": {
+            "String": "Strategy identity, type, unlock quest, selectable period, MazeBuff parameters and structural ability binding are exact released data."
+          },
+          "rationale": {
+            "String": "Identity-only effects must not silently alter authoritative battle state."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "attach no-op effects"
+              },
+              {
+                "String": "infer operations from localized prose"
+              },
+              {
+                "String": "run a mode-local battle processor"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Enable each strategy only after its released ability program lowers to shared Combat operations and passes replay/hash fixtures."
+          },
+          "selected_behavior": {
+            "String": "Expose exact strategy configuration with runtime bindings disabled; do not offer a strategy as an executable stage mutation."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=0;ID=3113703;LvID=31137031;Season=SecondChapter\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"exact strategy identity, unlock and selection-period metadata\",\"path_or_page\":\"ExcelOutput/EvoBdSCCardConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9bbd21ba30aa47093d1160a378cdc6bdfd04cad7bebd22bd28f63437503ca378\",\"source_id\":\"source.goal16.9bbd21ba30aa4709\"}"
+          },
+          "stable_key": {
+            "String": "policy.baseballer.adventure-strategy-runtime-binding"
+          },
+          "unavailable_fact": {
+            "String": "The 56 released Adventure Strategy ability programs have not been lowered into shared Combat operations."
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_tests": {
+            "List": [
+              {
+                "String": "event::tests::production_baseballer_profiles_and_synthesis_lower"
+              }
+            ]
+          },
+          "confidence": {
+            "String": "High"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "known_facts": {
+            "String": "Each stage-to-MazeBuff relation, level, cumulative parameter vector and structural ability binding is exact released data."
+          },
+          "rationale": {
+            "String": "Failing closed preserves exact stage identity without inventing combat semantics."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "attach no-op modifiers"
+              },
+              {
+                "String": "infer formulas from display text"
+              },
+              {
+                "String": "drop stage-to-bonus identity"
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Enable each team bonus only after its released program lowers to shared Combat and semantic fixtures pass."
+          },
+          "selected_behavior": {
+            "String": "Expose exact team-bonus configuration with runtime bindings disabled and refuse to claim the bonus is active in BattleSpec."
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=0;Season=SecondChapter;StageMergedID=424000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"pinned released Version 4.4 structured row\",\"path_or_page\":\"ExcelOutput/EvoBdSCStageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"7bf279a53a71d8d67ac2f66e93d4726576708a300aa73855cd6e852709742230\",\"source_id\":\"source.goal16.7bf279a53a71d8d6\"}"
+          },
+          "stable_key": {
+            "String": "policy.baseballer.team-bonus-runtime-binding"
+          },
+          "unavailable_fact": {
+            "String": "The seven released Demon King stage team-bonus programs have not been lowered into shared Combat operations."
+          }
+        }
+      }
+    ]
+  }
+}

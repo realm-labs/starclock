@@ -1,0 +1,115 @@
+{
+  "table": {
+    "name": "GbRuntimeScoreRules",
+    "rows": [
+      {
+        "values": {
+          "elite_scores": {
+            "List": [
+              {
+                "Integer": 10000
+              },
+              {
+                "Integer": 10000
+              },
+              {
+                "Integer": 0
+              },
+              {
+                "Integer": 0
+              }
+            ]
+          },
+          "final_stage_extra_bonus": {
+            "Integer": 5000
+          },
+          "monster_base_score": {
+            "Integer": 7000
+          },
+          "monster_weights": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "profile_id": {
+            "Integer": 2
+          },
+          "score_cap": {
+            "Integer": 200000
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=19;ConstValueName=EvolveBuildSC_FinalStage_ExtraBonus\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"exact released score constant\",\"path_or_page\":\"ExcelOutput/EvoBdSCConstValueCommon.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"444d009808dc1a192b1acb6d6a9bdbea6e264fe064729f7def9d44ce1e9d9a39\",\"source_id\":\"source.goal16.444d009808dc1a19\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "elite_scores": {
+            "List": [
+              {
+                "Integer": 10000
+              },
+              {
+                "Integer": 10000
+              },
+              {
+                "Integer": 0
+              },
+              {
+                "Integer": 0
+              }
+            ]
+          },
+          "final_stage_extra_bonus": {
+            "Integer": 5000
+          },
+          "monster_base_score": {
+            "Integer": 7000
+          },
+          "monster_weights": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "score_cap": {
+            "Integer": 200000
+          },
+          "source_ref": {
+            "String": "{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=15;ConstValueName=EvolveBuild_FinalStage_ExtraBonus\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"exact released score constant\",\"path_or_page\":\"ExcelOutput/EvolveBuildConstValueCommon.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"420006727dfb92ab06df0c5344fc5d423763687bb7040911c289c83cb2626cc9\",\"source_id\":\"source.goal16.420006727dfb92ab\"}"
+          }
+        }
+      }
+    ]
+  }
+}

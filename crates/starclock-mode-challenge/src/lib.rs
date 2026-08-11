@@ -6,6 +6,8 @@
 
 #![forbid(unsafe_code)]
 
+mod anomaly_arbitration;
+mod anomaly_runtime;
 mod apocalyptic_catalog;
 mod apocalyptic_mechanics;
 mod apocalyptic_projection;
@@ -30,6 +32,14 @@ pub mod apocalyptic_shadow;
 pub mod memory_of_chaos;
 pub mod pure_fiction;
 
+pub use anomaly_arbitration::{
+    AnomalyProfile, AnomalyQuadrant, AnomalyStage, AnomalyStageKind, AnomalyTarget,
+    AnomalyTargetKind, anomaly_clock,
+};
+pub use anomaly_runtime::{
+    ANOMALY_STARS_KEY, ANOMALY_WON_KEY, AnomalyArbitration, AnomalyArbitrationDefinition,
+    AnomalyArbitrationError, AnomalyStageRecord,
+};
 pub use apocalyptic_catalog::{
     ApocalypticCombatDefinitions, ApocalypticEncounter, ApocalypticEnemyBinding,
     ApocalypticEnemySlot,
@@ -51,8 +61,8 @@ pub use apocalyptic_shadow::{
 };
 pub use clock::{ActionValueClockRule, CycleClockRule};
 pub use id::{
-    ApocalypticEnemyBindingId, ChallengeNodeId, ChallengeProfileId, ChallengeStageId,
-    MemoryEnemyBindingId, ObjectiveId, PureFictionEnemyBindingId,
+    AnomalyQuadrantId, ApocalypticEnemyBindingId, ChallengeNodeId, ChallengeProfileId,
+    ChallengeStageId, MemoryEnemyBindingId, ObjectiveId, PureFictionEnemyBindingId,
 };
 pub use memory_catalog::{
     MemoryCombatDefinitions, MemoryEncounter, MemoryEnemyBinding, MemoryEnemySlot,
@@ -94,4 +104,5 @@ pub enum ChallengeFamily {
     MemoryOfChaos = 0,
     ApocalypticShadow = 1,
     PureFiction = 2,
+    AnomalyArbitration = 3,
 }

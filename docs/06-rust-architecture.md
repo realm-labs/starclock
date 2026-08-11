@@ -46,6 +46,8 @@ The project, repository, and command-line executable are named **Starclock** / `
 | Standard activity profiles | `starclock-mode-standard` | `starclock_mode_standard` |
 | Challenge activity profiles | `starclock-mode-challenge` | `starclock_mode_challenge` |
 | Universe activity profiles | `starclock-mode-universe` | `starclock_mode_universe` |
+| Galactic Baseballer activity definitions | `starclock-mode-baseballer` | `starclock_mode_baseballer` |
+| Fate/Star Rail NIGHT activity definitions | `starclock-mode-fate-night` | `starclock_mode_fate_night` |
 | Headless CLI | `starclock-cli` | `starclock` binary |
 | Optional Bevy adapter | `starclock-bevy` | `starclock_bevy` |
 
@@ -108,7 +110,8 @@ crates/
   starclock-mode-standard/
   starclock-mode-challenge/
   starclock-mode-universe/
-  starclock-mode-event/             # add when the first reusable event profile is implemented
+  starclock-mode-baseballer/
+  starclock-mode-fate-night/
   starclock-cli/
   starclock-bevy/          # add only when integration begins
 config/
@@ -121,11 +124,12 @@ config/
     config.sora
 ```
 
-Goal 01 created the nine in-scope crate boundaries before content import:
-combat, build, data, replay, AI, rules, activity, Standard mode and CLI. The
-challenge, universe, event and Bevy crates shown as future extensions above are
-not workspace members. The exact current graph is verified from Cargo metadata
-by `tools/workspace/verify-dependencies.mjs` and by a workspace integration test.
+The exact current graph is verified from Cargo metadata by
+`tools/workspace/verify-dependencies.mjs` and by a workspace integration test.
+Mode-specific crates contribute profiles, validated catalogs, generic Activity
+graphs and rule-bundle identities; they do not create a catch-all event crate
+or own shared execution machinery. The Bevy crate remains optional until
+engine integration begins.
 
 All handwritten Rust follows [Rust engineering standards](08-engineering-standards.md). In particular, files are split by responsibility before they exceed 1,200 physical lines, visibility defaults to private, and `pub use` is reserved for a small intentional facade or a documented technical requirement.
 

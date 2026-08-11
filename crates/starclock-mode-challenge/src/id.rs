@@ -39,3 +39,7 @@ id_type!(
     PureFictionEnemyBindingId,
     "Stable Pure Fiction enemy behavior binding identity."
 );
+id_type!(
+    AnomalyQuadrantId,
+    "Stable Anomaly Arbitration Quadrant option identity."
+);

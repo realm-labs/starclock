@@ -3,6 +3,7 @@
 #![forbid(unsafe_code)]
 
 mod challenge;
+mod event;
 mod gold_gears;
 mod standard;
 mod swarm_disaster;
@@ -65,6 +66,11 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             let production = starclock_data::catalog::load(PRODUCTION_BUNDLE)?;
             challenge::config_validate(rest, &production).map_err(CliError::Challenge)
         }
+        [group, scope, command, rest @ ..]
+            if group == "event" && scope == "config" && command == "validate" =>
+        {
+            event::config_validate(rest).map_err(CliError::Event)
+        }
         [group, command, rest @ ..] if group == "catalog" && command == "coverage" => {
             catalog_coverage(rest)
         }
@@ -121,7 +127,7 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
+            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
@@ -753,6 +759,7 @@ enum CliError {
     Mcp(starclock_mcp::stdio::StdioServeError),
     McpHttp(starclock_mcp::http::HttpServeError),
     Challenge(challenge::ChallengeCliError),
+    Event(event::EventCliError),
     Universe(universe::UniverseCliError),
     GoldAndGears(gold_gears::GoldAndGearsCliError),
     SwarmDisaster(swarm_disaster::SwarmDisasterCliError),
@@ -769,6 +776,7 @@ impl CliError {
             Self::Io(_) => 7,
             Self::Mcp(_) | Self::McpHttp(_) => 8,
             Self::Challenge(error) => error.exit_code(),
+            Self::Event(error) => error.exit_code(),
             Self::Universe(error) => error.exit_code(),
             Self::GoldAndGears(error) => error.exit_code(),
             Self::SwarmDisaster(error) => error.exit_code(),
@@ -813,6 +821,7 @@ impl fmt::Display for CliError {
             Self::Mcp(error) => write!(formatter, "MCP service error: {error}"),
             Self::McpHttp(error) => write!(formatter, "MCP service error: {error}"),
             Self::Challenge(error) => error.fmt(formatter),
+            Self::Event(error) => error.fmt(formatter),
             Self::Universe(error) => error.fmt(formatter),
             Self::GoldAndGears(error) => error.fmt(formatter),
             Self::SwarmDisaster(error) => error.fmt(formatter),

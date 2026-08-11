@@ -137,6 +137,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 116. [Gold and Gears public API migration](gold-and-gears-public-api-migration.md) — pre-1.0 facade contraction, retained caller surface and exact public re-export drift enforcement.
 117. [Goal 20 coverage and release contract](goal-20-coverage-and-release.md) — frozen Swarm Disaster matrix, policy owners, performance workloads, native CI and release gates.
 118. [Goal 20 release contract](goal-20-release-contract.md) — complete Swarm Disaster runtime coverage, replay/surface parity, hardening, performance and immutable completion boundary.
+119. [Retained event modes](30-retained-event-modes.md) — Anomaly Arbitration runtime plus Galactic Baseballer and Fate/Star Rail NIGHT production catalogs, Activity graph compilers, policies and exactness boundaries.
 
 ## Delivery boundary
 

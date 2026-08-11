@@ -2,6 +2,8 @@
 
 #![allow(dead_code)]
 
+pub mod anomaly_stage_kind;
+pub mod anomaly_target_kind;
 pub mod aps_runtime_encounters;
 pub mod aps_runtime_enemies;
 pub mod aps_runtime_enemy_slots;
@@ -10,6 +12,11 @@ pub mod aps_runtime_objectives;
 pub mod aps_runtime_policies;
 pub mod aps_runtime_profiles;
 pub mod aps_runtime_stages;
+pub mod arb_runtime_policies;
+pub mod arb_runtime_profiles;
+pub mod arb_runtime_quadrants;
+pub mod arb_runtime_stages;
+pub mod arb_runtime_targets;
 pub mod challenge_clock_expiry;
 pub mod challenge_combat_element;
 pub mod challenge_enemy_rank;
@@ -38,7 +45,7 @@ pub mod pure_fiction_spawn_end;
 pub mod runtime;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "29200a2d5ee8ade0";
+pub const SCHEMA_FINGERPRINT: &str = "f9c872d27e1f01b9";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -124,7 +131,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(27);
+            sora_map_with_capacity(32);
         tables.insert(
             moc_runtime_profiles::MocRuntimeProfilesTable::NAME,
             Box::new(moc_runtime_profiles::MocRuntimeProfilesTable::from_rows(
@@ -357,6 +364,46 @@ impl SoraConfig {
                 )?,
             )?),
         );
+        tables.insert(
+            arb_runtime_profiles::ArbRuntimeProfilesTable::NAME,
+            Box::new(arb_runtime_profiles::ArbRuntimeProfilesTable::from_rows(
+                source.decode_table::<arb_runtime_profiles::ArbRuntimeProfiles>(
+                    arb_runtime_profiles::ArbRuntimeProfilesTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            arb_runtime_stages::ArbRuntimeStagesTable::NAME,
+            Box::new(arb_runtime_stages::ArbRuntimeStagesTable::from_rows(
+                source.decode_table::<arb_runtime_stages::ArbRuntimeStages>(
+                    arb_runtime_stages::ArbRuntimeStagesTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            arb_runtime_targets::ArbRuntimeTargetsTable::NAME,
+            Box::new(arb_runtime_targets::ArbRuntimeTargetsTable::from_rows(
+                source.decode_table::<arb_runtime_targets::ArbRuntimeTargets>(
+                    arb_runtime_targets::ArbRuntimeTargetsTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            arb_runtime_quadrants::ArbRuntimeQuadrantsTable::NAME,
+            Box::new(arb_runtime_quadrants::ArbRuntimeQuadrantsTable::from_rows(
+                source.decode_table::<arb_runtime_quadrants::ArbRuntimeQuadrants>(
+                    arb_runtime_quadrants::ArbRuntimeQuadrantsTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            arb_runtime_policies::ArbRuntimePoliciesTable::NAME,
+            Box::new(arb_runtime_policies::ArbRuntimePoliciesTable::from_rows(
+                source.decode_table::<arb_runtime_policies::ArbRuntimePolicies>(
+                    arb_runtime_policies::ArbRuntimePoliciesTable::NAME,
+                )?,
+            )?),
+        );
         Ok(Self { tables })
     }
 
@@ -487,6 +534,26 @@ impl SoraConfig {
 
     pub fn pf_runtime_enemy_slots(&self) -> &pf_runtime_enemy_slots::PfRuntimeEnemySlotsTable {
         self.table(pf_runtime_enemy_slots::PfRuntimeEnemySlotsTable::NAME)
+    }
+
+    pub fn arb_runtime_profiles(&self) -> &arb_runtime_profiles::ArbRuntimeProfilesTable {
+        self.table(arb_runtime_profiles::ArbRuntimeProfilesTable::NAME)
+    }
+
+    pub fn arb_runtime_stages(&self) -> &arb_runtime_stages::ArbRuntimeStagesTable {
+        self.table(arb_runtime_stages::ArbRuntimeStagesTable::NAME)
+    }
+
+    pub fn arb_runtime_targets(&self) -> &arb_runtime_targets::ArbRuntimeTargetsTable {
+        self.table(arb_runtime_targets::ArbRuntimeTargetsTable::NAME)
+    }
+
+    pub fn arb_runtime_quadrants(&self) -> &arb_runtime_quadrants::ArbRuntimeQuadrantsTable {
+        self.table(arb_runtime_quadrants::ArbRuntimeQuadrantsTable::NAME)
+    }
+
+    pub fn arb_runtime_policies(&self) -> &arb_runtime_policies::ArbRuntimePoliciesTable {
+        self.table(arb_runtime_policies::ArbRuntimePoliciesTable::NAME)
     }
 }
 

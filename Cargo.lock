@@ -998,7 +998,9 @@ dependencies = [
  "starclock-activity",
  "starclock-build",
  "starclock-combat",
+ "starclock-mode-baseballer",
  "starclock-mode-challenge",
+ "starclock-mode-fate-night",
  "starclock-mode-standard",
  "starclock-rules",
  "zstd",
@@ -1028,7 +1030,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "starclock-mode-baseballer"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
+]
+
+[[package]]
 name = "starclock-mode-challenge"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-mode-fate-night"
 version = "0.1.0"
 dependencies = [
  "starclock-activity",

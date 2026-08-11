@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_challenge_runtime_config",
-  "fingerprint": "29200a2d5ee8ade0",
+  "fingerprint": "f9c872d27e1f01b9",
   "schema": {
     "package": "starclock_challenge_runtime_config",
     "enums": [
@@ -84,6 +84,31 @@
         "values": [
           "DefeatQuota",
           "RequiredSlots"
+        ]
+      },
+      {
+        "name": "AnomalyStageKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Knight",
+          "KingNormal",
+          "KingPlight"
+        ]
+      },
+      {
+        "name": "AnomalyTargetKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "ConsumedCyclesAtMost",
+          "NoDefeatedParticipants"
         ]
       }
     ],
@@ -6142,6 +6167,890 @@
             "fields": [
               "wave_id",
               "formation_index"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ArbRuntimeProfiles",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "AnomalyArbitrationRuntime.xlsx",
+          "sheet": "Profiles"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              128
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "game_version",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "first_window_scaled",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "later_window_scaled",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ArbRuntimeStages",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "AnomalyArbitrationRuntime.xlsx",
+          "sheet": "Stages"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "ArbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              128
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_stage_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "AnomalyStageKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "display_order",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              5
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "team_index",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              3
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "cycle_limit",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "encounter_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          },
+          {
+            "name": "by_display_order",
+            "fields": [
+              "profile_id",
+              "display_order"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ArbRuntimeTargets",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "AnomalyArbitrationRuntime.xlsx",
+          "sheet": "Targets"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stage_id",
+            "ty": {
+              "Ref": {
+                "table": "ArbRuntimeStages",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              128
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "AnomalyTargetKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "threshold",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stage_and_id",
+            "fields": [
+              "stage_id",
+              "id"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ArbRuntimeQuadrants",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "AnomalyArbitrationRuntime.xlsx",
+          "sheet": "Quadrants"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              128
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "upstream_buff_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rule_bundle_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "behavior_exact",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ArbRuntimePolicies",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "AnomalyArbitrationRuntime.xlsx",
+          "sheet": "Policies"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "ArbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "known_facts",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "selected_behavior",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rejected_alternatives",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rationale",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "affected_tests",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "confidence",
+            "ty": {
+              "Enum": "ChallengePolicyConfidence"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
             ],
             "unique": true
           }

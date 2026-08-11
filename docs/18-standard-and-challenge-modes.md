@@ -1,6 +1,10 @@
 # Standard Battle and Challenge Modes
 
-This document defines the default non-roguelike battle profile and the three classic rotating challenge families: Memory of Chaos, Pure Fiction, and Apocalyptic Shadow. It specifies simulation behavior, clocks, scoring, node aggregation, and seasonal rule injection. UI, matchmaking, account rewards, unlock quests, and calendar scheduling are outside the combat runtime.
+This document defines the default non-roguelike battle profile and four
+challenge families: Memory of Chaos, Pure Fiction, Apocalyptic Shadow and
+Anomaly Arbitration. It specifies simulation behavior, clocks, scoring, node
+aggregation and seasonal rule injection. UI, matchmaking, account rewards,
+unlock quests and calendar scheduling are outside the combat runtime.
 
 ## Architecture boundary
 
@@ -18,7 +22,7 @@ Challenge.xlsx + Activity.xlsx
         starclock-activity ---- BattleSpec/Result ---- starclock-combat
 ```
 
-`starclock-activity` owns team locking, section/node/attempt progression, shared or independent clocks, score/objective aggregation, decisions, result verification, and hashes. `starclock-mode-challenge` supplies Standard, Forgotten Hall/Memory of Chaos, Pure Fiction, and Apocalyptic Shadow profiles and validation. It does not fork graph execution, damage, timeline, enemy AI, effect, or Toughness logic.
+`starclock-activity` owns team locking, section/node/attempt progression, shared or independent clocks, score/objective aggregation, decisions, result verification, and hashes. `starclock-mode-challenge` supplies Standard, Forgotten Hall/Memory of Chaos, Pure Fiction, Apocalyptic Shadow and Anomaly Arbitration profiles and validation. It does not fork graph execution, damage, timeline, enemy AI, effect, or Toughness logic.
 
 A production ordinary battle is a one-Battle-node Standard activity. Formula tests and low-level tools may still construct `Battle` directly.
 
@@ -178,6 +182,28 @@ Boss-specific mechanics use normal enemy phases, linked actors, Toughness
 layers, and rule IR. Axiom or Ruinous Embers effects do not bypass ordinary
 event attribution merely because they are mode rules.
 
+## Anomaly Arbitration
+
+The current Anomaly Arbitration profile uses one retryable Activity hub, three
+Knight battles and two King routes. Knight stages may be attempted in any
+order; normal King is offered after all three have clear records, while Plight
+King is available directly. The three Knight teams and one King team are
+locked for the Activity, and character identities must be disjoint across the
+Knight teams.
+
+Each stage owns a cycle clock and max-preserving clear/star record. King routes
+require exactly one of three Quadrants. Battle assembly must compile the
+selected Quadrant rule bundle into the immutable King `BattleSpec`; the
+Activity does not modify a live battle. Failed Knight attempts return to the
+hub without erasing a prior best result. Plight records three King-protection
+contributions without inventing their currently unverified numerical effect.
+
+The exact topology, result projection and roster constraints are executable.
+The 150/100 first/later cycle windows and the unresolved protection effect are
+explicit `ProjectPolicy` boundaries. See
+[Retained event modes](30-retained-event-modes.md) for the production counts
+and replacement conditions.
+
 ## Seasonal content separation
 
 Stable family rules and rotating content are separate:
@@ -217,7 +243,7 @@ The configuration boundary adds focused tables:
 | `MetricObjective` | Completion, survival, clock, score terms, thresholds, caps, and rounding. |
 | `SpawnProgram` / `SpawnGroup` | Continuous refill and finite group ordering. |
 | `ChallengeSeason/StageAlias/NodeProfile` | Stable challenge family and rotating user-facing content over generic activity IDs. |
-| `ChallengeBuffOption` | Memory Turbulence, Whimsicality, Cacophony, Ruinous Embers, and Finality's Axiom rule references. |
+| `ChallengeBuffOption` | Memory Turbulence, Whimsicality, Cacophony, Ruinous Embers, Finality's Axiom and Anomaly Quadrant rule references. |
 
 Do not store a score formula or spawn script as arbitrary code/JSON in one cell. It compiles from generic typed Activity child rows and shared battle/activity IR. `Challenge.xlsx` must not redefine graph, clock, metric, objective, participant, or result-projection semantics.
 
@@ -227,7 +253,7 @@ The Version 4.4 content manifest tracks:
 
 - one stable Standard profile plus representative standard encounter archetypes;
 - static Forgotten Hall rules only where needed for the shared challenge contract;
-- the active 4.4 Memory of Chaos, Pure Fiction, and Apocalyptic Shadow seasons, stages, nodes, buffs, objectives, score/clock programs, enemies, and encounters;
+- the active 4.4 Memory of Chaos, Pure Fiction, Apocalyptic Shadow and Anomaly Arbitration profiles, stages, nodes, buffs, objectives, score/clock programs, enemies and encounters;
 - exact provenance and coverage state for every enabled row.
 
 Past rotating seasons and account reward schedules are excluded from active completeness. They may be retained only as archived replay dependencies.
@@ -238,10 +264,11 @@ The production adapter validates the complete challenge bundle with:
 starclock challenge config validate [--json]
 ```
 
-Validation lowers all three profiles and compiles their complete mode-owned
-combat catalogs over the production catalog. It therefore rejects missing
-behavior donors, malformed encounters and invalid rule composition before a UI
-creates an attempt.
+Validation lowers all four profiles. It compiles the complete mode-owned combat
+catalogs for Memory of Chaos, Pure Fiction and Apocalyptic Shadow over the
+production catalog, and validates Anomaly Arbitration topology, clocks,
+targets, Quadrants and policies. Anomaly encounter battle assembly remains a
+caller boundary until its complete combat catalog is promoted.
 
 ## Required tests
 
@@ -252,6 +279,7 @@ creates an attempt.
 - cycle tick/turbulence order is stable at action, wave, and node boundaries;
 - Pure Fiction refill order, simultaneous defeats, score caps, timeout, and early final-group completion are deterministic;
 - Apocalyptic Shadow defeated and undefeated score paths use the configured logical boss-HP progress and remaining AV;
+- Anomaly normal King unlocks only after all three Knight clears, Plight is directly reachable and duplicate Knight character identities are rejected;
 - every selectable buff is offered only for its authored node/season;
 - stage objective/score aggregation is independent of UI ordering;
 - battle, node, stage, and season digests reproduce across platforms.

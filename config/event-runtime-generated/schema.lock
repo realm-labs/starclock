@@ -1,0 +1,3742 @@
+{
+  "version": 1,
+  "package": "starclock_event_runtime_config",
+  "fingerprint": "347ab81fa32a1a66",
+  "schema": {
+    "package": "starclock_event_runtime_config",
+    "enums": [
+      {
+        "name": "GbRuntimeProfileKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Departure",
+          "DemonKing"
+        ]
+      },
+      {
+        "name": "GbRuntimeEquipmentKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "StandardWeapon",
+          "LegendaryWeapon",
+          "Accessory"
+        ]
+      },
+      {
+        "name": "GbRuntimeInputKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Equipment",
+          "AnyStandardWeapon"
+        ]
+      },
+      {
+        "name": "GbRuntimePeriodRank",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "First",
+          "Second",
+          "Third",
+          "Extra"
+        ]
+      },
+      {
+        "name": "GbRuntimeShopUpgradeKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "AddMazeBuff",
+          "InitWeaponLevel",
+          "AddAccessorySlot"
+        ]
+      },
+      {
+        "name": "GbRuntimeStrategyKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Growth",
+          "Power",
+          "General",
+          "DemonKing"
+        ]
+      },
+      {
+        "name": "FateRuntimeCardOwner",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Trailblazer",
+          "Gilgamesh",
+          "Archer",
+          "Saber",
+          "Rin",
+          "Neutral"
+        ]
+      },
+      {
+        "name": "FateRuntimeCardRarity",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "R",
+          "SR",
+          "Ssr"
+        ]
+      },
+      {
+        "name": "FateRuntimeDeckKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Base",
+          "Final"
+        ]
+      },
+      {
+        "name": "FateRuntimeBoardNodeKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Choice",
+          "Battle",
+          "Completed"
+        ]
+      }
+    ],
+    "structs": [],
+    "unions": [],
+    "tables": [
+      {
+        "name": "GbRuntimeProfiles",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "Profiles"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              128
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "GbRuntimeProfileKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "weapon_slots",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              8
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "unlocked_weapon_slots",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              8
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "accessory_slots",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              8
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "unlocked_accessory_slots",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              8
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "GbRuntimePolicies",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "Policies"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "unavailable_fact",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "known_facts",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "selected_behavior",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rejected_alternatives",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rationale",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "affected_tests",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "confidence",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "GbRuntimeEquipment",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "Equipment"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              160
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "GbRuntimeEquipmentKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maximum_level",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "GbRuntimeProfiles",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              2
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "runtime_binding_exact",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "GbRuntimeShopUpgrades",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "ShopUpgrades"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_numeric_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "purchase_level",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maximum_level",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "GbRuntimeShopUpgradeKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "currency_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "cost",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_id",
+            "ty": {
+              "Optional": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_parameters",
+            "ty": {
+              "Optional": {
+                "List": "String"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              0,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "shop_parameter_values",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "runtime_binding_exact",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "GbRuntimeStages",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "Stages"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "difficulty",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "weapon_selectable",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "initial_weapon_ids",
+            "ty": {
+              "Optional": {
+                "List": {
+                  "Ref": {
+                    "table": "GbRuntimeEquipment",
+                    "field": "id"
+                  }
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              0,
+              8
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rating_thresholds",
+            "ty": {
+              "List": "I64"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              5,
+              5
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "GbRuntimeStagePeriods",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "StagePeriods"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stage_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeStages",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rank",
+            "ty": {
+              "Enum": "GbRuntimePeriodRank"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "encounter_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "battle_event_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "wave_count",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "countdown_by_wave",
+            "ty": {
+              "List": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "period_score",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stage_score",
+            "ty": {
+              "Optional": "I64"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "selection_weight",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stage_rank",
+            "fields": [
+              "stage_id",
+              "rank"
+            ],
+            "unique": false
+          }
+        ]
+      },
+      {
+        "name": "GbRuntimeRecipes",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "Recipes"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              180
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "output_equipment_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeEquipment",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "tier",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "GbRuntimeRecipeInputs",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "RecipeInputs"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "recipe_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeRecipes",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "input_order",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "GbRuntimeInputKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "equipment_id",
+            "ty": {
+              "Optional": {
+                "Ref": {
+                  "table": "GbRuntimeEquipment",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "required_level",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "consumed",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "GbRuntimeScoreRules",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "profile_id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "ScoreRules"
+        },
+        "fields": [
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "monster_base_score",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "elite_scores",
+            "ty": {
+              "List": "I64"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              4,
+              4
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "monster_weights",
+            "ty": {
+              "List": "I64"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              5,
+              5
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "score_cap",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "final_stage_extra_bonus",
+            "ty": "I64",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              9223372036854775807
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "GbRuntimeStrategies",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "Strategies"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "GbRuntimeStrategyKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maximum_level",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "unlock_quest_id",
+            "ty": {
+              "Optional": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "selectable_periods",
+            "ty": {
+              "Optional": {
+                "List": "I32"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              0,
+              4
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "influence_scope",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              128
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_parameters",
+            "ty": {
+              "Optional": {
+                "List": "String"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              0,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ability_binding",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "runtime_binding_exact",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "GbRuntimeTeamBonuses",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "stage_id",
+        "source": {
+          "format": "xlsx",
+          "file": "GalacticBaseballerRuntime.xlsx",
+          "sheet": "TeamBonuses"
+        },
+        "fields": [
+          {
+            "name": "stage_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeStages",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_id",
+            "ty": {
+              "Ref": {
+                "table": "GbRuntimeProfiles",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "level",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "parameters",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ability_binding",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "runtime_binding_exact",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeProfiles",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "Profiles"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              1
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              160
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeOwners",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "Owners"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner",
+            "ty": {
+              "Enum": "FateRuntimeCardOwner"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeCards",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "Cards"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              180
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner",
+            "ty": {
+              "Enum": "FateRuntimeCardOwner"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "magical_energy_cost",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rarity",
+            "ty": {
+              "Enum": "FateRuntimeCardRarity"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ability_program",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              512
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "runtime_binding_exact",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeDecks",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "Decks"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              180
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner",
+            "ty": {
+              "Enum": "FateRuntimeCardOwner"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "presentation_locator",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "action_locator",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeDeckRecommendations",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "DeckRecommendations"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner",
+            "ty": {
+              "Enum": "FateRuntimeCardOwner"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "FateRuntimeDeckKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner_card_ids",
+            "ty": {
+              "List": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "neutral_card_ids",
+            "ty": {
+              "List": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              64
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeBoards",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "Boards"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              180
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeBoardNodes",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "BoardNodes"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "board_id",
+            "ty": {
+              "Ref": {
+                "table": "FateRuntimeBoards",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "sequence",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              255
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "FateRuntimeBoardNodeKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeStoryFights",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "StoryFights"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "battle_event_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "map_entrance_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeChallengeFights",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "ChallengeFights"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "battle_event_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "map_entrance_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "enemy_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "buff_ids",
+            "ty": {
+              "List": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimeMapFights",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "MapFights"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "battle_event_ids",
+            "ty": {
+              "List": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              3
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "map_entrance_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "reward_card_id",
+            "ty": {
+              "Optional": "I32"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "terminal",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "enemy_id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "relation",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "FateRuntimePolicies",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "FateNightRuntime.xlsx",
+          "sheet": "Policies"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              256
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "unavailable_fact",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "known_facts",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "selected_behavior",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rejected_alternatives",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rationale",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "affected_tests",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "confidence",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4096
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ref",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              8192
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,355 @@
+[[tables]]
+name = "FateRuntimeProfiles"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "Profiles"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 1]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[enums]]
+name = "FateRuntimeCardOwner"
+values = ["Trailblazer", "Gilgamesh", "Archer", "Saber", "Rin", "Neutral"]
+
+[[enums]]
+name = "FateRuntimeCardRarity"
+values = ["R", "SR", "Ssr"]
+
+[[enums]]
+name = "FateRuntimeDeckKind"
+values = ["Base", "Final"]
+
+[[tables]]
+name = "FateRuntimeOwners"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "Owners"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "owner"
+type = "enum<FateRuntimeCardOwner>"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeCards"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "Cards"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "owner"
+type = "enum<FateRuntimeCardOwner>"
+[[tables.fields]]
+name = "magical_energy_cost"
+type = "i32"
+range = [1, 65535]
+[[tables.fields]]
+name = "rarity"
+type = "enum<FateRuntimeCardRarity>"
+[[tables.fields]]
+name = "ability_program"
+type = "optional<string>"
+length = [1, 512]
+[[tables.fields]]
+name = "runtime_binding_exact"
+type = "bool"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeDecks"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "Decks"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "owner"
+type = "enum<FateRuntimeCardOwner>"
+[[tables.fields]]
+name = "presentation_locator"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "action_locator"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeDeckRecommendations"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "DeckRecommendations"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "owner"
+type = "enum<FateRuntimeCardOwner>"
+[[tables.fields]]
+name = "kind"
+type = "enum<FateRuntimeDeckKind>"
+[[tables.fields]]
+name = "owner_card_ids"
+type = "list<i32>"
+length = [1, 32]
+[[tables.fields]]
+name = "neutral_card_ids"
+type = "list<i32>"
+length = [1, 64]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[enums]]
+name = "FateRuntimeBoardNodeKind"
+values = ["Choice", "Battle", "Completed"]
+
+[[tables]]
+name = "FateRuntimeBoards"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "Boards"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeBoardNodes"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "BoardNodes"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "board_id"
+type = "ref<FateRuntimeBoards.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 255]
+[[tables.fields]]
+name = "kind"
+type = "enum<FateRuntimeBoardNodeKind>"
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeStoryFights"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "StoryFights"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "battle_event_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "map_entrance_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeChallengeFights"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "ChallengeFights"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "battle_event_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "map_entrance_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "enemy_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "buff_ids"
+type = "list<i32>"
+length = [1, 32]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimeMapFights"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "MapFights"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "battle_event_ids"
+type = "list<i32>"
+length = [1, 3]
+[[tables.fields]]
+name = "map_entrance_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "reward_card_id"
+type = "optional<i32>"
+[[tables.fields]]
+name = "terminal"
+type = "bool"
+[[tables.fields]]
+name = "enemy_id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "relation"
+type = "optional<string>"
+length = [1, 32]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]
+
+[[tables]]
+name = "FateRuntimePolicies"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "FateNightRuntime.xlsx"
+sheet = "Policies"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 256]
+[[tables.fields]]
+name = "unavailable_fact"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "known_facts"
+type = "string"
+length = [1, 8192]
+[[tables.fields]]
+name = "selected_behavior"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "rejected_alternatives"
+type = "list<string>"
+length = [1, 16]
+[[tables.fields]]
+name = "rationale"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "affected_tests"
+type = "list<string>"
+length = [1, 16]
+[[tables.fields]]
+name = "confidence"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4096]
+[[tables.fields]]
+name = "source_ref"
+type = "string"
+length = [1, 8192]

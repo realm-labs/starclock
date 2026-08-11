@@ -45,6 +45,13 @@ pub struct ObjectiveEvaluation {
 
 impl ObjectiveEvaluation {
     #[must_use]
+    pub(crate) fn from_awarded(awarded: Vec<ObjectiveId>) -> Self {
+        Self {
+            awarded: awarded.into_boxed_slice(),
+        }
+    }
+
+    #[must_use]
     pub fn evaluate(objectives: &[Objective], input: ObjectiveInput) -> Self {
         let awarded = objectives
             .iter()
