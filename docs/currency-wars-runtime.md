@@ -8,6 +8,10 @@ the generated Currency Wars Sora bundle and returns one immutable mode catalog.
 Individual fights remain opaque `BattleSpec`/`BattleResult` handoffs owned by
 `starclock-combat`.
 
+This document describes the current vertical runtime skeleton, not complete
+gameplay parity. The ordered completion plan is
+[`Goal 21 — Complete Currency Wars Runtime`](goals/21-currency-wars-runtime.md).
+
 ## Production data
 
 The production authoring surface is the three workbooks under

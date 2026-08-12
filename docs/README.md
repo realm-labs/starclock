@@ -139,6 +139,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 118. [Goal 20 release contract](goal-20-release-contract.md) — complete Swarm Disaster runtime coverage, replay/surface parity, hardening, performance and immutable completion boundary.
 119. [Retained event modes](30-retained-event-modes.md) — Anomaly Arbitration runtime plus Galactic Baseballer and Fate/Star Rail NIGHT production catalogs, Activity graph compilers, policies and exactness boundaries.
 120. [Currency Wars runtime](currency-wars-runtime.md) — production 4.4 catalog lowering, shared Activity flow, economy/roster/deployment commands, battle handoff, policy gaps and ID-only debug surfaces.
+121. [Goal 21 Currency Wars runtime plan](goals/21-currency-wars-runtime.md) — exact-once completion plan for production lowering, complete mechanics, real battles, adapters, replay, hardening and release.
 
 ## Delivery boundary
 
