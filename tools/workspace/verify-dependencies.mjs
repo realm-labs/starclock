@@ -59,9 +59,11 @@ assert(combat.dependencies.every((dependency) => dependency.kind === "dev" ? dep
 const activity = packages.find((entry) => entry.name === "starclock-activity");
 assert(activity.dependencies.every((dependency) => dependency.kind === "dev" ? dependency.name === "allocation-counter" : ["rand", "sha2", "starclock-combat"].includes(dependency.name)), "starclock-activity may depend only on combat domain types, the reviewed private RNG/hash backends and the benchmark-only allocator counter");
 const data = packages.find((entry) => entry.name === "starclock-data");
-assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
+assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "serde_json", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
 const challenge = packages.find((entry) => entry.name === "starclock-mode-challenge");
 assert(challenge.dependencies.every((dependency) => ["starclock-activity", "starclock-combat"].includes(dependency.name)), "starclock-mode-challenge may depend only on the generic Activity and combat domains");
+const currencyWars = packages.find((entry) => entry.name === "starclock-mode-currency-wars");
+assert(currencyWars.dependencies.every((dependency) => ["starclock-activity", "starclock-combat"].includes(dependency.name)), "starclock-mode-currency-wars may depend only on the generic Activity and combat domains");
 const baseballer = packages.find((entry) => entry.name === "starclock-mode-baseballer");
 assert(baseballer.dependencies.every((dependency) => ["starclock-activity", "starclock-combat"].includes(dependency.name)), "starclock-mode-baseballer may depend only on the generic Activity and combat domains");
 const fateNight = packages.find((entry) => entry.name === "starclock-mode-fate-night");

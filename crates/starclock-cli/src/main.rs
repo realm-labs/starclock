@@ -3,6 +3,7 @@
 #![forbid(unsafe_code)]
 
 mod challenge;
+mod currency_wars;
 mod event;
 mod gold_gears;
 mod standard;
@@ -71,6 +72,14 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
         {
             event::config_validate(rest).map_err(CliError::Event)
         }
+        [group, scope, command, rest @ ..]
+            if group == "currency-wars" && scope == "config" && command == "validate" =>
+        {
+            currency_wars::config_validate(rest).map_err(CliError::CurrencyWars)
+        }
+        [group, command, rest @ ..] if group == "currency-wars" && command == "inspect" => {
+            currency_wars::inspect(rest).map_err(CliError::CurrencyWars)
+        }
         [group, command, rest @ ..] if group == "catalog" && command == "coverage" => {
             catalog_coverage(rest)
         }
@@ -127,7 +136,7 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
+            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | currency-wars config validate [--json] | currency-wars inspect --route ID [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
@@ -763,6 +772,7 @@ enum CliError {
     Universe(universe::UniverseCliError),
     GoldAndGears(gold_gears::GoldAndGearsCliError),
     SwarmDisaster(swarm_disaster::SwarmDisasterCliError),
+    CurrencyWars(currency_wars::CurrencyWarsCliError),
 }
 
 impl CliError {
@@ -780,6 +790,7 @@ impl CliError {
             Self::Universe(error) => error.exit_code(),
             Self::GoldAndGears(error) => error.exit_code(),
             Self::SwarmDisaster(error) => error.exit_code(),
+            Self::CurrencyWars(error) => error.exit_code(),
         }
     }
 }
@@ -825,6 +836,7 @@ impl fmt::Display for CliError {
             Self::Universe(error) => error.fmt(formatter),
             Self::GoldAndGears(error) => error.fmt(formatter),
             Self::SwarmDisaster(error) => error.fmt(formatter),
+            Self::CurrencyWars(error) => error.fmt(formatter),
         }
     }
 }

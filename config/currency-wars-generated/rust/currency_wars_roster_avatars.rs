@@ -33,10 +33,14 @@ pub struct CurrencyWarsRosterAvatars {
     pub avatar_id: Option<String>,
     #[serde(rename = "cost")]
     pub cost: Option<String>,
+    #[serde(rename = "rarity")]
+    pub rarity: Option<String>,
     #[serde(rename = "role_id")]
     pub role_id: Option<String>,
     #[serde(rename = "build_mapping_id")]
     pub build_mapping_id: Option<String>,
+    #[serde(rename = "position_kind")]
+    pub position_kind: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRosterAvatars {
@@ -57,8 +61,10 @@ impl super::runtime::SoraDecode for CurrencyWarsRosterAvatars {
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             cost: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            rarity: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             role_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             build_mapping_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            position_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

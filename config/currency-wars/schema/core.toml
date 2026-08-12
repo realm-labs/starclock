@@ -875,6 +875,34 @@ length = [1, 32767]
 name = "room_pool_id"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "node_template_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "stage_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "node_type"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "parameter_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "penalty_bonus_rule_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "basic_gold_reward"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "next_node_id"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1435,11 +1463,19 @@ name = "cost"
 type = "optional<string>"
 length = [1, 32767]
 [[tables.fields]]
+name = "rarity"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "role_id"
 type = "optional<string>"
 length = [1, 32767]
 [[tables.fields]]
 name = "build_mapping_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "position_kind"
 type = "optional<string>"
 length = [1, 32767]
 [[tables.indexes]]
@@ -1760,6 +1796,10 @@ type = "optional<string>"
 length = [1, 32767]
 [[tables.fields]]
 name = "bench_cap"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "next_level_experience"
 type = "optional<string>"
 length = [1, 32767]
 [[tables.fields]]

@@ -27,6 +27,13 @@ Git history is the only historical record.
   production 4.4 tactical-card catalog, fail-closed loadout validator and shared
   Activity graph compiler. Neither event mode claims complete battle-effect
   parity.
+- Currency Wars has a production 4.4 catalog and shared-Activity controller for
+  26 routes/493 nodes, Standard and Overclock progression, weighted shop
+  refresh, purchases/sales, star synthesis, deployment, bond recomputation,
+  team leveling, Squad HP loss continuation and battle handoff. Its 834
+  investment identities and 12 policy gaps remain visible; configuration
+  programs, enemy scaling/build assembly and investment battle effects are not
+  claimed exact.
 - The Version 4.4 challenge bundle contains 13 Memory stages (including one
   three-node Starward stage), five Pure Fiction stages and five Apocalyptic
   stages, plus one five-stage Anomaly Arbitration profile. The first three
@@ -84,6 +91,9 @@ Git history is the only historical record.
   allocator cursors, plus diffs and optional bounded resolver diagnostics
   without presentation metadata.
 - CLI, Agent API and MCP are current adapters over the domain crates.
+- `starclock currency-wars config validate` validates the production bundle;
+  `starclock currency-wars inspect --route ID` emits ID-only route data for
+  debugging and future presentation adapters.
 
 ## Verification
 

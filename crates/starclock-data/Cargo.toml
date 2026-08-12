@@ -11,12 +11,14 @@ workspace = true
 [dependencies]
 sha2.workspace = true
 serde.workspace = true
+serde_json.workspace = true
 starclock-activity = { path = "../starclock-activity" }
 starclock-build = { path = "../starclock-build" }
 starclock-combat = { path = "../starclock-combat" }
 starclock-mode-standard = { path = "../starclock-mode-standard" }
 starclock-mode-challenge = { path = "../starclock-mode-challenge" }
 starclock-mode-baseballer = { path = "../starclock-mode-baseballer" }
+starclock-mode-currency-wars = { path = "../starclock-mode-currency-wars" }
 starclock-mode-fate-night = { path = "../starclock-mode-fate-night" }
 starclock-rules = { path = "../starclock-rules" }
 zstd.workspace = true

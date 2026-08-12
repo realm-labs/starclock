@@ -35,6 +35,8 @@ pub struct CurrencyWarsTeamSizeStates {
     pub field_cap: Option<String>,
     #[serde(rename = "bench_cap")]
     pub bench_cap: Option<String>,
+    #[serde(rename = "next_level_experience")]
+    pub next_level_experience: Option<String>,
     #[serde(rename = "transition_rules")]
     pub transition_rules: Option<String>,
 }
@@ -58,6 +60,7 @@ impl super::runtime::SoraDecode for CurrencyWarsTeamSizeStates {
             level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             field_cap: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             bench_cap: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            next_level_experience: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             transition_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

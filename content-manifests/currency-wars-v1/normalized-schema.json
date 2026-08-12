@@ -407,7 +407,14 @@
         "layer_id",
         "ordinal",
         "domain_composition_id",
-        "room_pool_id"
+        "room_pool_id",
+        "node_template_id",
+        "stage_id",
+        "node_type",
+        "parameter_ids",
+        "penalty_bonus_rule_id",
+        "basic_gold_reward",
+        "next_node_id"
       ]
     },
     {
@@ -515,8 +522,10 @@
       "required_domain_fields": [
         "avatar_id",
         "cost",
+        "rarity",
         "role_id",
-        "build_mapping_id"
+        "build_mapping_id",
+        "position_kind"
       ]
     },
     {
@@ -578,6 +587,7 @@
         "level",
         "field_cap",
         "bench_cap",
+        "next_level_experience",
         "transition_rules"
       ]
     },

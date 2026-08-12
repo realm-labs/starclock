@@ -131,6 +131,16 @@ pub enum ActivityOperation {
         key: u64,
         delta: ActivityExpression,
     },
+    /// Replaces a complete canonical counter map at one atomic command boundary.
+    SetCounterMap {
+        slot: ActivitySlotId,
+        values: Box<[(u64, i64)]>,
+    },
+    /// Replaces a complete canonical stable-ID set at one atomic command boundary.
+    SetOrderedIdSet {
+        slot: ActivitySlotId,
+        values: Box<[u64]>,
+    },
     /// Inserts one non-zero stable ID while preserving canonical set order.
     ///
     /// Inserting an existing ID is an accepted no-op.
@@ -266,6 +276,26 @@ fn validate_bindings(
                 if definition.kind() != SlotValueKind::BoundedCounterMap
                     || expression_type(delta, state)? != ActivityValueType::Integer
                 {
+                    return Err(ActivityProgramBindingError::TypeMismatch(*slot));
+                }
+            }
+            ActivityOperation::SetCounterMap { slot, .. } => {
+                let definition = state
+                    .slots()
+                    .iter()
+                    .find(|item| item.id() == *slot)
+                    .ok_or(ActivityProgramBindingError::MissingSlot(*slot))?;
+                if definition.kind() != SlotValueKind::BoundedCounterMap {
+                    return Err(ActivityProgramBindingError::TypeMismatch(*slot));
+                }
+            }
+            ActivityOperation::SetOrderedIdSet { slot, .. } => {
+                let definition = state
+                    .slots()
+                    .iter()
+                    .find(|item| item.id() == *slot)
+                    .ok_or(ActivityProgramBindingError::MissingSlot(*slot))?;
+                if definition.kind() != SlotValueKind::OrderedIdSet {
                     return Err(ActivityProgramBindingError::TypeMismatch(*slot));
                 }
             }
@@ -556,6 +586,18 @@ fn validate_operations(
             }
             ActivityOperation::InsertOrderedId { id, .. } => {
                 if *id == 0 {
+                    return Err(ActivityProgramDefinitionError::InvalidStableId);
+                }
+            }
+            ActivityOperation::SetCounterMap { values, .. } => {
+                if values.iter().any(|(key, _)| *key == 0)
+                    || values.windows(2).any(|pair| pair[0].0 >= pair[1].0)
+                {
+                    return Err(ActivityProgramDefinitionError::InvalidStableId);
+                }
+            }
+            ActivityOperation::SetOrderedIdSet { values, .. } => {
+                if values.contains(&0) || values.windows(2).any(|pair| pair[0] >= pair[1]) {
                     return Err(ActivityProgramDefinitionError::InvalidStableId);
                 }
             }

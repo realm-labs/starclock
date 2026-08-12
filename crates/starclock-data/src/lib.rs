@@ -17,6 +17,11 @@ mod challenge_generated;
 #[path = "../../../config/event-runtime-generated/readers/rust/mod.rs"]
 mod event_generated;
 
+#[allow(clippy::enum_variant_names)]
+#[rustfmt::skip]
+#[path = "../../../config/currency-wars-generated/rust/mod.rs"]
+mod currency_wars_generated;
+
 mod build_lower;
 pub mod bundle;
 pub mod catalog;
@@ -27,6 +32,7 @@ pub mod challenge;
 mod challenge_anomaly;
 mod challenge_combat;
 pub mod coverage;
+pub mod currency_wars;
 mod domain_catalog;
 mod effect_lower;
 mod encounter_lower;

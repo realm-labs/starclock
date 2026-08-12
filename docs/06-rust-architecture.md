@@ -48,6 +48,7 @@ The project, repository, and command-line executable are named **Starclock** / `
 | Universe activity profiles | `starclock-mode-universe` | `starclock_mode_universe` |
 | Galactic Baseballer activity definitions | `starclock-mode-baseballer` | `starclock_mode_baseballer` |
 | Fate/Star Rail NIGHT activity definitions | `starclock-mode-fate-night` | `starclock_mode_fate_night` |
+| Currency Wars activity definitions | `starclock-mode-currency-wars` | `starclock_mode_currency_wars` |
 | Headless CLI | `starclock-cli` | `starclock` binary |
 | Optional Bevy adapter | `starclock-bevy` | `starclock_bevy` |
 
@@ -112,6 +113,7 @@ crates/
   starclock-mode-universe/
   starclock-mode-baseballer/
   starclock-mode-fate-night/
+  starclock-mode-currency-wars/
   starclock-cli/
   starclock-bevy/          # add only when integration begins
 config/

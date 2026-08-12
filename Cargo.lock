@@ -994,12 +994,14 @@ name = "starclock-data"
 version = "0.1.0"
 dependencies = [
  "serde",
+ "serde_json",
  "sha2",
  "starclock-activity",
  "starclock-build",
  "starclock-combat",
  "starclock-mode-baseballer",
  "starclock-mode-challenge",
+ "starclock-mode-currency-wars",
  "starclock-mode-fate-night",
  "starclock-mode-standard",
  "starclock-rules",
@@ -1039,6 +1041,14 @@ dependencies = [
 
 [[package]]
 name = "starclock-mode-challenge"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-mode-currency-wars"
 version = "0.1.0"
 dependencies = [
  "starclock-activity",

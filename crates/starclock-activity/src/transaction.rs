@@ -710,6 +710,22 @@ impl ActivityTransactionState {
             ActivityOperation::AddCounter { slot, key, delta } => {
                 self.add_counter(*slot, *key, integer(&self.evaluate(delta)?)?, cause, events)?
             }
+            ActivityOperation::SetCounterMap { slot, values } => {
+                self.set_slot(*slot, ActivityValue::BoundedCounterMap(values.clone()))?;
+                push(
+                    events,
+                    cause,
+                    ActivityTransactionEventKind::SlotChanged(*slot),
+                );
+            }
+            ActivityOperation::SetOrderedIdSet { slot, values } => {
+                self.set_slot(*slot, ActivityValue::OrderedIdSet(values.clone()))?;
+                push(
+                    events,
+                    cause,
+                    ActivityTransactionEventKind::SlotChanged(*slot),
+                );
+            }
             ActivityOperation::InsertOrderedId { slot, id } => {
                 self.insert_ordered_id(*slot, *id, cause, events)?
             }

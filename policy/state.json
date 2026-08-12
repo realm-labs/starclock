@@ -21,13 +21,18 @@
     "fate_star_rail_night_catalog": true,
     "fate_star_rail_night_card_loadout_validation": true,
     "fate_star_rail_night_playable_run": false,
+    "currency_wars_catalog": true,
+    "currency_wars_activity_controller": true,
+    "currency_wars_battle_handoff": true,
+    "currency_wars_exact_investment_bindings": false,
     "replay": true,
     "inspector": true,
     "agent_api": true,
     "mcp": true,
     "cli": true,
     "challenge_config_validation": true,
-    "event_config_validation": true
+    "event_config_validation": true,
+    "currency_wars_config_validation": true
   },
   "challenge": {
     "game_version": "4.4",
@@ -67,6 +72,19 @@
     "fate_map_fights": 15,
     "fate_exact_effect_bindings": 0,
     "fate_project_policies": 16,
+    "ui": false
+  },
+  "currency_wars": {
+    "game_version": "4.4",
+    "routes": 26,
+    "nodes": 493,
+    "difficulties": 97,
+    "roles": 77,
+    "main_bonds": 33,
+    "subtrait_bonds": 16,
+    "investments": 834,
+    "exact_investment_bindings": 0,
+    "project_policies": 12,
     "ui": false
   },
   "combat_interrupts": {

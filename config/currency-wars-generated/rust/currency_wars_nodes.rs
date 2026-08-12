@@ -39,6 +39,20 @@ pub struct CurrencyWarsNodes {
     pub domain_composition_id: Option<String>,
     #[serde(rename = "room_pool_id")]
     pub room_pool_id: Option<String>,
+    #[serde(rename = "node_template_id")]
+    pub node_template_id: Option<String>,
+    #[serde(rename = "stage_id")]
+    pub stage_id: Option<String>,
+    #[serde(rename = "node_type")]
+    pub node_type: Option<String>,
+    #[serde(rename = "parameter_ids")]
+    pub parameter_ids: Option<String>,
+    #[serde(rename = "penalty_bonus_rule_id")]
+    pub penalty_bonus_rule_id: Option<String>,
+    #[serde(rename = "basic_gold_reward")]
+    pub basic_gold_reward: Option<String>,
+    #[serde(rename = "next_node_id")]
+    pub next_node_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsNodes {
@@ -62,6 +76,13 @@ impl super::runtime::SoraDecode for CurrencyWarsNodes {
             ordinal: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             domain_composition_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             room_pool_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            node_template_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            stage_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            node_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameter_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            penalty_bonus_rule_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            basic_gold_reward: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            next_node_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }
