@@ -161,7 +161,11 @@ fn cocolia_complete_materializes_world_six_and_three_phase_control_cycle() {
     );
     assert_eq!(
         freeze
-            .resolve(Some(1), starclock_combat::Scalar::from_scaled(1_125_000))
+            .resolve(
+                Some(1),
+                starclock_combat::Scalar::from_scaled(1_125_000),
+                None,
+            )
             .expect("damaging Freeze")
             .dot()
             .expect("Freeze delayed damage")

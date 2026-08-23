@@ -1,5 +1,6 @@
 use starclock_combat::{
-    ProgramId, SelectorId, SourceDefinitionId, StateSlotDefinitionId, UnitId,
+    ActionGaugeChangeKind, ProgramId, Scalar, SelectorId, SourceDefinitionId,
+    StateSlotDefinitionId, UnitId,
     catalog::{
         action::AbilityTag,
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
@@ -8,11 +9,12 @@ use starclock_combat::{
             SelectorDefinition,
         },
     },
+    modifier::model::{FormulaPurpose, FormulaStage, StatKind, StatQuerySubject},
     rule::{
         evaluate::{
-            EvaluationBudget, ResourceQueryReader, RuleEvaluationErrorKind, TriggerLedger,
-            evaluate_condition, evaluate_program, evaluate_replacement_program, evaluate_value,
-            matches_filter,
+            EvaluationBudget, ResourceQueryReader, RuleEvaluationError, RuleEvaluationErrorKind,
+            StatQueryReader, TriggerLedger, evaluate_condition, evaluate_program,
+            evaluate_replacement_program, evaluate_value, matches_filter,
         },
         model::{
             BattleRuleDefinition, BattleRuleScope, CauseAncestry, Comparison, ConditionExpr,
@@ -170,6 +172,75 @@ impl ResourceQueryReader for FixedSkillPoints {
         (subject == runtime(2) && resource == &RuleResourceKind::SkillPoints)
             .then_some(RuleValue::Integer(4))
     }
+}
+
+struct FixedFormulaStage;
+
+impl StatQueryReader for FixedFormulaStage {
+    fn query_stat(
+        &self,
+        _origin: StatQuerySubject,
+        _subject: UnitId,
+        _stat: StatKind,
+        _purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        Ok(Scalar::ZERO)
+    }
+
+    fn query_formula_stage(
+        &self,
+        origin: StatQuerySubject,
+        subject: UnitId,
+        stage: FormulaStage,
+        purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        assert_eq!(origin, StatQuerySubject::Actor);
+        assert_eq!(subject, runtime(2));
+        assert_eq!(stage, FormulaStage::Mitigation);
+        assert_eq!(purpose, FormulaPurpose::OrdinaryDamage);
+        Ok(Scalar::from_scaled(200_000))
+    }
+}
+
+#[test]
+fn formula_stage_queries_and_timeline_filters_preserve_exact_typed_context() {
+    let selector = definition(1);
+    let reader = FixedFormulaStage;
+    let mut context = input(&[], selector, &[]);
+    context.stat_reader = Some(&reader);
+    assert_eq!(
+        evaluate_value(
+            &ValueExpr::QueryFormulaStage {
+                subject: StatQuerySubject::Actor,
+                stage: FormulaStage::Mitigation,
+                purpose: FormulaPurpose::OrdinaryDamage,
+            },
+            context,
+            None,
+        )
+        .unwrap(),
+        RuleValue::Scalar(Scalar::from_scaled(200_000))
+    );
+
+    let filter = EventFilter {
+        action_gauge_change: Some(ActionGaugeChangeKind::Advance),
+        ..EventFilter::default()
+    };
+    let facts = RuleEventFacts {
+        point: Some(RuleEventPoint::TimelineChanged),
+        action_gauge_change: Some(ActionGaugeChangeKind::Advance),
+        ..RuleEventFacts::default()
+    };
+    context.event_kind = RuleEventKind::Turn;
+    context.event_facts = &facts;
+    assert!(matches_filter(&filter, context));
+    let delayed = RuleEventFacts {
+        point: Some(RuleEventPoint::TimelineChanged),
+        action_gauge_change: Some(ActionGaugeChangeKind::Delay),
+        ..RuleEventFacts::default()
+    };
+    context.event_facts = &delayed;
+    assert!(!matches_filter(&filter, context));
 }
 
 #[test]

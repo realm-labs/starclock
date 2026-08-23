@@ -28,12 +28,359 @@ Git history is the only historical record.
   Activity graph compiler. Neither event mode claims complete battle-effect
   parity.
 - Currency Wars has a production 4.4 catalog and shared-Activity controller for
-  26 routes/493 nodes, Standard and Overclock progression, weighted shop
-  refresh, purchases/sales, star synthesis, deployment, bond recomputation,
-  team leveling, Squad HP loss continuation and battle handoff. Its 834
-  investment identities and 12 policy gaps remain visible; configuration
-  programs, enemy scaling/build assembly and investment battle effects are not
-  claimed exact.
+  26 routes/493 nodes, Standard and Overclock progression, economy, roster,
+  builds, Bonds, all 834 investment lifecycles, services, encounters, immutable
+  battle assembly, battle settlement and transition replay. All 2,367 mechanic
+  programs now have terminal typed dispositions. Exact authored behavior and
+  executable `VersionedProjectPolicy` boundaries remain distinguishable. Run,
+  replay, adapters, hardening, performance, repository audits and exact
+  coverage and fresh local macOS ARM64 clean-checkout acceptance are complete;
+  only the hosted Windows x64, Linux x64 and macOS ARM64 native matrix remains.
+- The active Currency Wars runtime foundation freezes 19,250 source
+  obligations, 2,367 mechanic programs, 28 semantic fixture families and 12
+  policy gaps. Generated exact-once dispositions currently classify 726
+  evidence-only obligations as excluded, 2,260 source obligations as
+  metadata-only and 16,264 as integrated. All 19,250 obligations are terminal,
+  alongside all 529
+  executable Activity/Rule-IR programs and all 1,838 structurally audited
+  metadata-only programs are terminal. The generated
+  execution ledger contains 43 bounded mechanic partitions (11 Activity and 32
+  battle). The release state is
+  `RuntimeCoverageCompletePendingNativeRelease`. The frozen
+  Goal 21 coverage contract contains 97 complete-run targets covering
+  all routes, difficulties, Gambits and focal roles, plus exact target fixtures
+  for all 834 investments, 152 Bond levels, 683 Bond contributions, encounter
+  axes, mechanic partitions, semantic families and policies. It also freezes
+  the first Standard vertical slice, nine-component fresh replay identity,
+  eight performance workload shapes and three native runtime runners. All 97
+  legal matrix runs execute real battles and verify fresh replay, and every
+  assigned axis fixture has production behavior evidence. Goal 21 foundation
+  is complete through `G21-P0-B6` and runtime execution through `G21-P8-B4`;
+  generated verification
+  scaffolding binds all batches to owners, prerequisites,
+  package-scoped commands, assigned denominator counts and terminal evidence.
+  `G21-P1-B1` validates all 111 private generated tables and 78,607 rows before
+  returning a catalog candidate, binding schema fingerprint, schema-lock
+  digest, exact bundle digest and stable table-inventory content digest.
+  `G21-P1-B2` now lowers and validates the complete flow catalog: one profile,
+  four modules, two entries, two Gambits, 135 finish conditions, one area group,
+  26 routes, 75 layers, five rooms, five domain compositions, 493 nodes and
+  stage-flow rows, 97 difficulties and 56 rank-progression rows. Empty
+  carry/reset sets remain explicit in lowered data; the later executable
+  P3-B1 policy declares cross-Plane behavior separately. The generated row
+  surface remains private. `G21-P1-B3` now lowers the complete economy
+  catalog: one run currency and economy rule, 10 offer levels, five typed
+  buy/sell price tiers, 10 Experience/team-size levels, three position
+  definitions, 295 star states (266 role and 29 servant states), 189
+  three-copy combination rules, three lifecycle rules, one Squad HP boundary,
+  two action-value limits and two battle-result projections. Unknown policy
+  text is rejected instead of being inferred, and roster-role star identity is
+  kept distinct from servant star identity. `G21-P1-B4` now lowers all 77
+  role/build mappings and references, twelve pinned Build source files, two Build
+  substitution policies, 520 equipment definitions, 417 off-field conversions,
+  4,784 Character Empowerments (4,652 role-position rows and 132 servant-skill
+  rows), 341 battle overrides, 49 Bonds, 152 Bond levels and all 683 Bond
+  contributions. The Bond catalog preserves the distinction
+  between the 152 contributions explicitly listed by Bond definitions and 501
+  auxiliary trait-effect/MazeBuff contribution rows instead of inventing
+  parent links. The
+  exact-once ledger now records 13,111 catalog obligations as lowered, 726
+  evidence-only obligations as excluded with proof, and 5,413 later catalog
+  obligations as pending. `G21-P1-B5` lowers all 834 investment definitions
+  with their authored effect and lifecycle payloads plus 1,392 supporting rows
+  for MazeBuff bindings, season membership, formula/blessing empty closure,
+  occurrences/variants/choices, workbenches, services and offer candidates.
+  Occurrence choices retain whether they point to a variant or directly to an
+  occurrence, and those references are validated as a closed graph. This is
+  catalog evidence only; the existing false runtime-binding flag remains until
+  the assigned P5 execution batches. The ledger now records 15,218 exact
+  catalog obligations, 726 exclusions and 3,306 pending obligations.
+  `G21-P1-B6` lowers 25 encounter groups, 861 explicit source obligations,
+  five formation waves, 306 enemy slots, 721 enemy affixes and 10 bounded boss
+  pools. It also joins every one of the 2,367 mechanic-rule rows to exactly one
+  pinned source path/digest and preserves its scope, trigger, ordered operation
+  payload, lifecycle and current lowering disposition. Exactly 85 reviewed
+  Activity progression rows now carry `runtime_lowered = true`; unresolved
+  programs retain `false`. Phase 1 is
+  therefore catalog-complete: all 18,524 runtime-owned source obligations are
+  exactly lowered and all 726 evidence-only obligations are excluded with
+  proof; no source catalog obligation remains pending. Remaining mechanic
+  execution is pending in its generated P5-P6 partitions. `G21-P2-B1` now
+  verifies all
+  2,367 mechanism source records against the pinned Version 4.4 revision and
+  inventories all 529 executable programs without treating the 1,838 audited
+  metadata-only records as executable; every program now has a terminal
+  disposition. The generated inventory covers 435
+  configuration types across 2,541 structural variants, 176 expression shapes
+  including 163 distinct postfix byte sequences and ten distinct opcode bytes,
+  785 selector shapes, 131 trigger shapes, 198 state shapes and 18 lifecycle
+  shapes. Every shape maps to an existing shared primitive, a named missing
+  capability or a non-authoritative presentation boundary. `G21-P2-B2` adds a
+  six-operator typed Activity comparison, four bounded collection/state reads,
+  and atomic replacement operations for one counter entry, ordered-set member,
+  inventory count and modifier stack count. Their definition-time type checks,
+  runtime bounds, canonical ordering, events and rollback behavior are covered
+  by the shared Activity transaction suite. Every Activity source shape now has
+  sufficient generic primitives; source-program lowering remains assigned to
+  its generated execution partition and earns no execution credit here. The
+  `G21-P2-B3` adds a stable first-occurrence selector-union input, persistent
+  effect-owned HP floors computed from maximum HP with explicit ceiling, and
+  transactional Skill Point-cap mutation with clamping and ordinary resource
+  events. Existing typed trigger phases, event filters, conditions, state
+  slots, effects, operations and battle-result metric projections cover the
+  remaining Combat shapes compositionally; source opcodes are not copied into
+  the core. Pure formation/performance operations remain non-authoritative.
+  `G21-P2-B4` adds catalog-owned generic Build contributions with stable IDs,
+  exact source attribution, Any/Form/Path applicability and typed Build patches.
+  Build specs select contribution IDs; compilation applies them in canonical
+  order, rejects unknown, inapplicable or conflicting selections, and includes
+  both definitions and selections in current digests. Owned/trial shapes remain
+  ordinary character definitions and named presets, while dynamic battle state
+  stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
+  named shared-capability gap and remain explicitly unresolved rather than
+  inferred from historical independent analysis. `G21-P2-B5` executes four
+  shared capability probes, audits 206 Activity/Build/Combat/Rules Rust files
+  for mode-ID branches, confirms zero admitted native handlers and freezes all
+  43 generated partitions covering 2,367 programs with deterministic digests.
+  Its configuration-program `VersionedProjectPolicy` affects 156 expression
+  shapes in 194 programs: production must lower reviewed high-level source
+  structure directly to typed IR, must not interpret raw postfix bytes, and
+  cannot claim observed opcode parity. All affected programs now have terminal
+  typed high-level lowerings; the replacement trigger remains released evidence
+  for all ten opcode semantics. `G21-P3-B1` now executes
+  Standard and Overclock entry checks, all 26 route topologies, 49 explicit
+  Plane transitions, six settlement conditions and three production fixture
+  families. Its terminal evidence covers 50 source obligations: 29 exact
+  executable records and 21 audited metadata exclusions. Released data does
+  not expose a route-to-Gambit selector or a per-slot Plane carry/reset table,
+  so two executable VersionedProjectPolicy rows make those choices explicit:
+  both Gambits use the complete route set, run and participant state carry,
+  node-scoped offers reset at `NodeStart`, and a new run starts fresh. Phase 3
+  continues with `G21-P3-B2`, which executes all 114 released battle-penalty
+  rules through one typed boundary compiler: 89 finite action-value clocks and
+  25 unlimited rules. Battle results project progress and remaining action
+  value rather than caller-computed Squad HP loss. Victory precedes a
+  same-boundary timeout; otherwise the executable VersionedProjectPolicy adds
+  base loss, ceiling-rounded uncleared-progress loss and any threshold-failure
+  extra, clamps Squad HP at zero, and atomically continues or fails through the
+  automatic checkpoint. Two production fixture families cover malformed-result
+  rollback, victory, timeout recovery and zero-HP run failure. `G21-P3-B3`
+  executes the five-slot finite-pool shop, stable weighted offers, lock/carry,
+  purchase, sale, direct Experience, battle income and pre-reward interest.
+  Its generated audit terminalizes 29 exact source rows plus 25 metadata-only
+  rows and proves that failed paid refreshes restore Gold, state and RNG.
+  `G21-P3-B4` executes all 77 roles, 266 role-owned star states and 189
+  three-copy transitions, including post-combination capacity checks, sale and
+  maximum-star shop teardown. The 2,121 shared star/battle rows were retained
+  intact for P4-B6. `G21-P3-B5` executes all ten team-level deployment caps,
+  Front 1/4 and Back 6/9 boundaries, off-position eligibility, battle-entry
+  Front minimum and same-boundary synthesis reconciliation. Five exact capacity
+  constants are terminal; P4-B6 retains the ten shared team-level rows in the
+  battle contribution snapshot. P5-B6 now consumes the separate 100-unit
+  non-shop service overflow constant while ordinary shop/deployment mutations
+  retain the nine-unit waiting-area cap. `G21-P3-B6` runs frozen seed 21000501
+  through the production
+  Standard route 100: paid refresh/purchase, deployment/Bond reconciliation,
+  23 authored nodes, 20 validated battle handoffs/results, one recoverable
+  non-victory checkpoint, three Supply decisions, all three Planes and terminal
+  SSS settlement. The battle specifications remain explicit boundary stubs, so
+  production build/enemy assembly, Combat execution and replay receive no early
+  credit. `G21-P4-B1` now resolves every one of the 77 roles through its
+  explicit `SpecialAvatarID` to a world-level 6 trial build, then joins the
+  shared character and Light Cone by their source locators. It compiles exact
+  progression, abilities, traces, Eidolon, Light Cone, relic main/sub
+  aggregates and statically declared relic-set properties into immutable
+  generic combat values. Owned builds are supplied as caller snapshots and
+  selected field-wise without Activity/combat account queries or account
+  mutation. The dynamic relic-set `AbilityName` and parameters remain retained
+  for their P6 battle-program owners. `G21-P4-B2` now lowers all 148 usable
+  equipment definitions into typed eligibility, dress-rule and category data;
+  enforces three ordinary slots plus the released independent one-implant
+  limit; and commits inventory replacement, unequip and role-sale teardown as
+  atomic Activity operations. Role-only and trait-only rules use explicit
+  roster relationships. All 252 backend-rank conversions join through the
+  role's authored `BackendRankList` and apply cumulatively through selected
+  Eidolon, while all 165 signature Light Cone conversions join the shared
+  Light Cone identity and select exactly the equipped superimposition. Both
+  conversion kinds activate only for Back roles. Selected equipment definitions
+  and their static contribution inputs now cross the P4-B6 immutable boundary;
+  battle-program effects are executed by their terminal P6 partitions, while
+  upgrade/crafting rows are executed by P5-B6. `G21-P4-B3` now derives Character
+  Empowerment as an immutable
+  deployment snapshot rather than duplicate Activity state. Each matching
+  deployed role resolves its exact Front/Back display and current role-star
+  execution-skill IDs; 154 display rows, 4,052 Front skill rows and 446 Back
+  skill rows are closed over all 266 role-star states. Empty-position
+  relocation is one atomic Activity boundary, rejected relocation preserves
+  state, and moving off-position or undeploying tears down the contribution on
+  the next snapshot. Back execution skill lists remain distinct from shorter
+  display-only lists. P4-B6 now resolves each stable shared Ability to its final
+  effective level; battle operation execution remains owned by P6.
+  `G21-P4-B4` now resolves all
+  33 main Bonds, 16 subtraits and 152 authored levels from one immutable
+  post-mutation snapshot. Subtrait selectors are typed as deployed-role,
+  equipped-equipment, granted-front-trait, default-module or exact-module
+  rules; module selection is automatic while roster/equipment selectors use an
+  explicit Activity command. Parent deactivation or selector loss tears down
+  the child level and contribution in the same transaction. The 187 direct
+  layer properties are closed over 16 fixed-point property kinds and carry
+  resolved role targets into the snapshot. `G21-P4-B5` resolves all 341 battle
+  overrides: automatic Front Techniques, defeat-Energy scaling, lethal
+  rescue/countdown reduction, Back battle events, Front special resources,
+  global modifiers, Rank edits, summon replacements and Cyrene provider edits.
+  Its only unresolved observed value is the lethal-rescue HP amount; the
+  executable policy restores maximum HP and keeps the replacement trigger
+  explicit. `G21-P4-B6` materializes one immutable battle contribution snapshot
+  containing selected builds and effective Ability levels, all role/servant
+  star data and 1,596 Rank attachments, team-level properties, equipment, 683
+  Bond contributions, investments, seven influence rules, 254 exact
+  contribution parameters and the resolved overrides. Snapshot identity binds
+  Activity definition/config/state plus dynamic selections and the exact
+  configuration digest; no Activity catalog lookup occurs after the boundary.
+  `G21-P5-B1` now closes 334 Augments, 334 exact season memberships,
+  seven selected Enhancements, ten remarks and three module-ban joins as a
+  typed catalog. Explicit mode-program boundaries generate stable three-card
+  offers from the Reward RNG after filtering by season, Plane, quality,
+  Gambit, module and owned IDs. Selection clears the offer atomically;
+  replacement names the old stable ID explicitly and never infers a category
+  relationship. Selected Enhancements require an active authored Bond trait
+  effect, derive `MaxStar` from the authoritative roster, charge configured
+  Gold and cross the immutable contribution boundary. Public evidence does
+  not establish automatic node scheduling, so the current executable policy
+  leaves offer timing with explicit node/mode programs. `G21-P5-B2` additionally
+  closes 84 Portal buffs, 376 Orbs, two Projections, 13 permanent Talents,
+  40 season Talents, 11 maze-buff rows, four Orb displays, seven Portal remarks,
+  83 Portal season memberships and two Portal module bans. Portal eligibility
+  checks season, Gambit and module; Projection eligibility checks the owned
+  role; both Talent graphs enforce authored prerequisites atomically. Released
+  structured rows provide Talent costs but no currency key, so the executable
+  boundary requires caller-confirmed payment and does not infer Gold.
+  `G21-P5-B3` executes the Activity lifecycle for all 834 investment identities:
+  stable ordering, eligibility, stacking/replacement and contribution refresh
+  are atomic, while their battle-effect programs are executed by the terminal
+  P6 source partitions.
+  `G21-P5-B4` preserves the source-proven empty Blessing and Formula families
+  as zero and carries the seven exact maze-buff Enhancement rows to battle
+  assembly without inventing identities. `G21-P5-B5` validates 167
+  Occurrences, 150 variants and 90 choices, resolves released costs and ordered
+  outcomes, and keeps external progress and tutorial-program execution at
+  explicit typed boundaries. `G21-P5-B6` executes 165 items, seven consumables,
+  nine managed functions, 43 special goods, 811 direct rewards, 110 weighted
+  reward pools, 57 recipes, 37 upgrades, ten forge definitions and 14 typed
+  service constants. Empty gamble, curse-chest, Hex and Curio families remain
+  explicitly empty; no Universe content is imported. Shop poems permit one
+  purchase per node, the five Cyrene three-star poems are non-shop activations,
+  and service role grants use the separately bounded 100-unit overflow policy.
+  Phase 5 fixed batches are complete through `G21-P5-B6`. `G21-P5-A01` audits
+  its 64 assigned `TutorialTask` programs as presentation-only metadata rather
+  than installing UI waits or input locks in Activity. The authoring generator
+  proves the closed operation vocabulary from exact source files, records
+  ordered-shape digests and zero authoritative operations, and production Sora
+  lowering exposes typed audit records. Across the complete tutorial family,
+  76 programs contain 683 configuration-type occurrences and 168 tutorial-op
+  occurrences; the remaining twelve are terminal metadata members of
+  `G21-P5-A02`. That partition also audits the exact GridFight console world-
+  prop graph: its 46 configuration nodes only switch prop presentation,
+  interaction buttons, sound and the entrance UI, so the graph lowers to the
+  typed `WorldPropAndUiEntry` metadata category instead of creating a second
+  Activity entry state machine. `G21-P5-A03` and `G21-P5-A04` then lower all
+  five `GridFightExpertRestrict` rows and all 80
+  `GridFightSeasonExpScore` rows. Role cost tiers are filtered from shop
+  candidates by Standard/Overclock run position. Current chapter and section
+  are stored in Activity slots, so exact season score/experience projection is
+  still queryable after completion or failure. Authored percentage values use
+  an explicit `/100` formula boundary and remain exact fixed-point values; no
+  unproved integer payout rounding is applied. `G21-P5-A05` through
+  `G21-P5-A07` then classify 95 character overrides: 51 exact role, servant or
+  summon bindings enter immutable contribution snapshots and 44 unreachable
+  files remain metadata-only; all 459 decoder-layout programs are audited.
+  `G21-P5-A08` adds the remaining bound Silver Wolf override and, with
+  `G21-P5-A09`, executes two module role bans, the exact 77-role season pool,
+  32 season/trait pools and 77 reference scores while auditing ten localized
+  role labels. `G21-P5-A10` and `G21-P5-A11` classify NPC, world-prop/entity and
+  animation audio/effect rows as presentation metadata. Their review proves
+  that `GlobalTaskListTemplate_GridFight` is battle-owned because it contains
+  wave/alive predicates, combat targets and modifier applications; the scope
+  denominator is corrected to 520 Activity and 1,847 battle programs without
+  changing the 2,367 total. All 249 executable Activity programs are terminal.
+  `G21-P6-B1` terminally executes all 939 assigned source obligations: 25 Camp
+  rows, five FormationWave rows, 160 GridFightMonster rows, 146 EliteGroup
+  rows and 603 EnemyDifficulty rows. Production battle assembly now treats
+  released StageConfig enemies as the level/wave/formation skeleton and fills
+  those slots from the selected Camp or BossPool with stable GridFightMonster
+  identities. It preloads all 2,400 monster/Stage-level combat inputs, applies
+  exact per-monster star scaling and exact chapter/difficulty scaling, binds
+  the selected roster into the bounded assembly-cache identity, and validates
+  every assembled `BattleSpec` by constructing combat state. Exact reachability
+  records 152 Camp-reachable monsters, eight current Camp-unreachable monsters,
+  eight referenced EliteGroup definitions and 138 current unreachable
+  EliteGroup definitions. Boss identity, Camp roster draw, enemy-star mapping
+  and FormationWave selection remain explicit replaceable project policies.
+  `G21-P6-B2` terminally executes the next 414 source obligations: 51 Affix
+  definitions, 67 Affix MazeBuff rows and 296 stage, difficulty/rank and Action
+  Value inputs. All 51 Affix semantics compile before battle creation into
+  typed stat scaling, Activity-boundary changes or generic combat modifiers,
+  selectors, effects, triggers and operations; no Affix content ID appears in
+  shared resolver branches. Enervation's under-equipped owner modifier is
+  inherited by subsequently created memosprites. Time Assassin spawning and
+  otherwise unproved equal-value tie breaks remain explicit replaceable
+  project policies. `G21-P6-B3` then terminally binds 1,340 integrated and 88
+  excluded assembly rows into immutable contribution snapshots and a bounded
+  assembly cache. Front `EnergyBar`/`MaxSP` properties project to personal
+  current/maximum Energy rather than team Skill Points; selected C04 abilities
+  declare a bounded persistent `assist-use` team resource before battle
+  creation. Finite Action Value battles alone install lethal rescue, lost
+  results project zero remaining Action Value, and Energy Disappearance spends
+  at most the attacker's current Energy. `G21-P6-B4` executes 1,122 node,
+  Stage, route and bonus rows
+  through atomic battle-result settlement, while `G21-P6-B5` proves stale and
+  rejected assembly/settlement rollback plus fresh transition replay.
+  `G21-P6-M01` through `M09` execute 263 reviewed high-level battle programs as
+  explicit `VersionedProjectPolicy` Rule IR and terminally audit 285
+  presentation-only programs. `M10` through `M13` add 17 exact enemy, AI and
+  global-task-template programs and 147 metadata-only programs. Finally,
+  `M14` through `M32` sequentially bind exact-once receipts for 1,135
+  metadata-only records: 93 skill-description modifications, 997 skill-icon
+  routes and 45 resource-preload files, all with zero authoritative operations.
+  All 32 battle mechanic partitions and all 43 mechanic partitions overall are
+  terminal. `G21-P7-B1` adds a deterministic `starclock-ai` controller that
+  consumes only offered Activity and battle commands, executes catalog enemy
+  AI, preserves exact command/event/state-hash traces and completes real
+  seven-battle Standard and Overclock runs. A same-seed Standard pair produces
+  identical reports. The production run also closed generic keyed Toughness-
+  layer create/remove execution and transitive nested-program selector
+  resolution. `G21-P7-B2` adds `currency-wars coverage` and production
+  Standard/Overclock CLI runs with canonical replay export. The replay records
+  Activity decisions, nested battle commands, states and events, and fresh
+  verification reconstructs immutable Sora-backed inputs before requiring
+  exact byte equality. The initial four consumed components remain a strict
+  subset of the frozen nine-component P7-B5 target, which also owns
+  first-divergence diagnostics. Existing validation and route inspection are
+  covered by the same adapter regression suite. `G21-P7-B3` adds bounded
+  Currency Wars Agent manifests and sessions over the shared Activity registry.
+  The public surface exposes 26 route summaries, 97 difficulty summaries,
+  configuration/content digests, player-visible Activity state and opaque
+  current legal actions; it does not expose generated rows, debug state or the
+  private combat catalog. Encounter and preparation remain distinct actions,
+  with preparation settling exactly one real nested battle through the shared
+  deterministic controller. `G21-P7-B4` exposes the same registry session via
+  MCP mode `currency-wars`, with bounded manifest/rules resources, existing
+  Activity OAuth scopes, exact tenant/principal ownership, response-loss
+  idempotency and explicit close-as-cancel behavior. MCP cancellation followed
+  by retry cannot duplicate a commit. Activity event cursors page accepted-
+  action summaries at 256 entries from an 8,192-entry retained window and
+  reject future or expired cursors. MCP owns no second runtime state. Runtime
+  `G21-P7-B5` binds all nine replay components and first-divergence reporting,
+  while `G21-P7-B6` executes all 97 legal matrix entries through real nested
+  battles and fresh replay without concession; a battle fault fails the
+  matrix, while an ordinary failed run remains a lawful terminal result.
+  `G21-P8-B1` and `B2` close hardening and eight
+  measured workloads; `B3` passes dependency, architecture, generated-data,
+  provenance and workbook audits; `B4` closes all source/program/fixture/policy
+  dispositions. Runtime execution is complete through `G21-P8-B4`; the local
+  macOS ARM64 clean-checkout half of `G21-P8-B5` passes on the current tree,
+  while the hosted Windows x64, Linux x64 and macOS ARM64 native matrix remains
+  the final release gate.
 - The Version 4.4 challenge bundle contains 13 Memory stages (including one
   three-node Starward stage), five Pure Fiction stages and five Apocalyptic
   stages, plus one five-stage Anomaly Arbitration profile. The first three
@@ -103,6 +450,11 @@ workspace suite runs in CI and locally only for shared-boundary changes or an
 explicit merge check. Current Sora/workbook/data validators run only when their
 owned inputs change. Seeded matrices, large property corpora and performance
 workloads are explicit exhaustive checks rather than default edit-loop gates.
+
+The current authoring toolchain is checksum-bound Sora 0.6.1. Its capability
+golden and Currency Wars project use stable project/view identities and
+schema-local table IDs; the Currency Wars workbook metadata, generated reader
+and 78,607-row bundle have been regenerated under that contract.
 
 The default test profile minimizes compilation and linking for workspace
 crates. Third-party dependencies and the combat hot loop retain light

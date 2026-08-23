@@ -1,3 +1,8 @@
+mod definition_validation;
+
+pub use definition_validation::ActivityProgramDefinitionError;
+use definition_validation::validate_operations;
+
 use crate::{
     ActivityEdgeId, ActivityGraphDefinition, ActivityInventoryId, ActivityModifierId,
     ActivityOptionId, ActivityProgramId, ActivitySlotId, ActivityStateDefinition,
@@ -28,10 +33,14 @@ pub enum ActivityExpression {
         slot: ActivitySlotId,
         key: u64,
     },
+    CounterEntryCount(ActivitySlotId),
+    OrderedIdSetCount(ActivitySlotId),
     InventoryCount {
         inventory: ActivityInventoryId,
         content: u64,
     },
+    InventoryEntryCount(ActivityInventoryId),
+    ModifierStacks(ActivityModifierId),
     Add(Box<ActivityExpression>, Box<ActivityExpression>),
     Subtract(Box<ActivityExpression>, Box<ActivityExpression>),
     Multiply(Box<ActivityExpression>, Box<ActivityExpression>),
@@ -41,11 +50,26 @@ pub enum ActivityExpression {
     Negate(Box<ActivityExpression>),
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum ActivityComparison {
+    Equal,
+    NotEqual,
+    Less,
+    LessOrEqual,
+    Greater,
+    GreaterOrEqual,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ActivityCondition {
     Boolean(ActivityExpression),
     Equal(ActivityExpression, ActivityExpression),
     LessThan(ActivityExpression, ActivityExpression),
+    Compare {
+        left: ActivityExpression,
+        operator: ActivityComparison,
+        right: ActivityExpression,
+    },
     /// Tests membership in a canonically ordered stable-ID set.
     OrderedIdSetContains {
         slot: ActivitySlotId,
@@ -131,6 +155,11 @@ pub enum ActivityOperation {
         key: u64,
         delta: ActivityExpression,
     },
+    SetCounter {
+        slot: ActivitySlotId,
+        key: u64,
+        value: ActivityExpression,
+    },
     /// Replaces a complete canonical counter map at one atomic command boundary.
     SetCounterMap {
         slot: ActivitySlotId,
@@ -148,6 +177,13 @@ pub enum ActivityOperation {
         slot: ActivitySlotId,
         id: u64,
     },
+    /// Removes one stable ID while preserving canonical set order.
+    ///
+    /// Removing an absent ID is an accepted no-op.
+    RemoveOrderedId {
+        slot: ActivitySlotId,
+        id: u64,
+    },
     AddInventory {
         inventory: ActivityInventoryId,
         content: u64,
@@ -158,7 +194,16 @@ pub enum ActivityOperation {
         content: u64,
         count: ActivityExpression,
     },
+    SetInventoryCount {
+        inventory: ActivityInventoryId,
+        content: u64,
+        count: ActivityExpression,
+    },
     AddModifier {
+        modifier: ActivityModifierId,
+        stacks: ActivityExpression,
+    },
+    SetModifierStacks {
         modifier: ActivityModifierId,
         stacks: ActivityExpression,
     },
@@ -267,7 +312,10 @@ fn validate_bindings(
                     return Err(ActivityProgramBindingError::TypeMismatch(*slot));
                 }
             }
-            ActivityOperation::AddCounter { slot, delta, .. } => {
+            ActivityOperation::AddCounter { slot, delta, .. }
+            | ActivityOperation::SetCounter {
+                slot, value: delta, ..
+            } => {
                 let definition = state
                     .slots()
                     .iter()
@@ -299,7 +347,8 @@ fn validate_bindings(
                     return Err(ActivityProgramBindingError::TypeMismatch(*slot));
                 }
             }
-            ActivityOperation::InsertOrderedId { slot, .. } => {
+            ActivityOperation::InsertOrderedId { slot, .. }
+            | ActivityOperation::RemoveOrderedId { slot, .. } => {
                 let definition = state
                     .slots()
                     .iter()
@@ -314,6 +363,9 @@ fn validate_bindings(
             }
             | ActivityOperation::RemoveInventory {
                 inventory, count, ..
+            }
+            | ActivityOperation::SetInventoryCount {
+                inventory, count, ..
             } => {
                 if !state
                     .inventories()
@@ -326,7 +378,8 @@ fn validate_bindings(
                     return Err(ActivityProgramBindingError::InventoryCountType(*inventory));
                 }
             }
-            ActivityOperation::AddModifier { modifier, stacks } => {
+            ActivityOperation::AddModifier { modifier, stacks }
+            | ActivityOperation::SetModifierStacks { modifier, stacks } => {
                 if !state.modifiers().iter().any(|item| item.id() == *modifier) {
                     return Err(ActivityProgramBindingError::MissingModifier(*modifier));
                 }
@@ -419,6 +472,23 @@ fn expression_type(
             }
             Ok(ActivityValueType::Integer)
         }
+        ActivityExpression::CounterEntryCount(slot)
+        | ActivityExpression::OrderedIdSetCount(slot) => {
+            let expected = match expression {
+                ActivityExpression::CounterEntryCount(_) => SlotValueKind::BoundedCounterMap,
+                ActivityExpression::OrderedIdSetCount(_) => SlotValueKind::OrderedIdSet,
+                _ => unreachable!("matched collection count expression"),
+            };
+            let definition = state
+                .slots()
+                .iter()
+                .find(|item| item.id() == *slot)
+                .ok_or(ActivityProgramBindingError::MissingSlot(*slot))?;
+            if definition.kind() != expected {
+                return Err(ActivityProgramBindingError::TypeMismatch(*slot));
+            }
+            Ok(ActivityValueType::Integer)
+        }
         ActivityExpression::InventoryCount { inventory, content } => {
             if *content == 0
                 || !state
@@ -427,6 +497,26 @@ fn expression_type(
                     .any(|definition| definition.id() == *inventory)
             {
                 return Err(ActivityProgramBindingError::MissingInventory(*inventory));
+            }
+            Ok(ActivityValueType::Integer)
+        }
+        ActivityExpression::InventoryEntryCount(inventory) => {
+            if !state
+                .inventories()
+                .iter()
+                .any(|definition| definition.id() == *inventory)
+            {
+                return Err(ActivityProgramBindingError::MissingInventory(*inventory));
+            }
+            Ok(ActivityValueType::Integer)
+        }
+        ActivityExpression::ModifierStacks(modifier) => {
+            if !state
+                .modifiers()
+                .iter()
+                .any(|definition| definition.id() == *modifier)
+            {
+                return Err(ActivityProgramBindingError::MissingModifier(*modifier));
             }
             Ok(ActivityValueType::Integer)
         }
@@ -489,6 +579,24 @@ pub(crate) fn condition_type(
                 return Err(ActivityProgramBindingError::ExpressionTypeMismatch);
             }
         }
+        ActivityCondition::Compare {
+            left,
+            operator,
+            right,
+        } => {
+            let left = expression_type(left, state)?;
+            if left != expression_type(right, state)?
+                || (!matches!(
+                    operator,
+                    ActivityComparison::Equal | ActivityComparison::NotEqual
+                ) && !matches!(
+                    left,
+                    ActivityValueType::Integer | ActivityValueType::FixedScalar
+                ))
+            {
+                return Err(ActivityProgramBindingError::ExpressionTypeMismatch);
+            }
+        }
         ActivityCondition::OrderedIdSetContains { slot, id } => {
             if *id == 0 {
                 return Err(ActivityProgramBindingError::UnsupportedExpressionType);
@@ -524,182 +632,6 @@ const fn value_type(kind: SlotValueKind) -> Option<ActivityValueType> {
         SlotValueKind::OptionalId => Some(ActivityValueType::OptionalId),
         SlotValueKind::OrderedIdSet | SlotValueKind::BoundedCounterMap => None,
     }
-}
-
-fn validate_operations(
-    operations: &[ActivityOperation],
-    depth: usize,
-    operation_count: &mut usize,
-) -> Result<(), ActivityProgramDefinitionError> {
-    if depth > MAX_ACTIVITY_PROGRAM_DEPTH {
-        return Err(ActivityProgramDefinitionError::ProgramTooDeep);
-    }
-    *operation_count = operation_count
-        .checked_add(operations.len())
-        .ok_or(ActivityProgramDefinitionError::TooManyOperations)?;
-    if *operation_count > MAX_ACTIVITY_PROGRAM_OPERATIONS {
-        return Err(ActivityProgramDefinitionError::TooManyOperations);
-    }
-    let mut has_boundary = false;
-    for (index, operation) in operations.iter().enumerate() {
-        if has_boundary {
-            return Err(ActivityProgramDefinitionError::OperationAfterBoundary(
-                index,
-            ));
-        }
-        match operation {
-            ActivityOperation::Offer { options, .. } => {
-                if options.is_empty() || options.len() > MAX_ACTIVITY_OPTIONS {
-                    return Err(ActivityProgramDefinitionError::InvalidOptionCount);
-                }
-                if options
-                    .windows(2)
-                    .any(|pair| (pair[0].priority, pair[0].id) >= (pair[1].priority, pair[1].id))
-                {
-                    return Err(ActivityProgramDefinitionError::NonCanonicalOptions);
-                }
-                for option in options.iter() {
-                    validate_condition(&option.enabled, 0)?;
-                    validate_operations(&option.operations, depth + 1, operation_count)?;
-                }
-                has_boundary = true;
-            }
-            ActivityOperation::Conditional {
-                condition,
-                if_true,
-                if_false,
-            } => {
-                validate_condition(condition, 0)?;
-                validate_operations(if_true, depth + 1, operation_count)?;
-                validate_operations(if_false, depth + 1, operation_count)?;
-                has_boundary = true;
-            }
-            ActivityOperation::Terminal(_) => has_boundary = true,
-            ActivityOperation::Require(condition) => validate_condition(condition, 0)?,
-            ActivityOperation::SetSlot { value, .. }
-            | ActivityOperation::AddToSlot { delta: value, .. }
-            | ActivityOperation::AddCounter { delta: value, .. }
-            | ActivityOperation::AddInventory { count: value, .. }
-            | ActivityOperation::RemoveInventory { count: value, .. }
-            | ActivityOperation::AddModifier { stacks: value, .. } => {
-                validate_expression(value, 0)?;
-            }
-            ActivityOperation::InsertOrderedId { id, .. } => {
-                if *id == 0 {
-                    return Err(ActivityProgramDefinitionError::InvalidStableId);
-                }
-            }
-            ActivityOperation::SetCounterMap { values, .. } => {
-                if values.iter().any(|(key, _)| *key == 0)
-                    || values.windows(2).any(|pair| pair[0].0 >= pair[1].0)
-                {
-                    return Err(ActivityProgramDefinitionError::InvalidStableId);
-                }
-            }
-            ActivityOperation::SetOrderedIdSet { values, .. } => {
-                if values.contains(&0) || values.windows(2).any(|pair| pair[0] >= pair[1]) {
-                    return Err(ActivityProgramDefinitionError::InvalidStableId);
-                }
-            }
-            ActivityOperation::RestoreParticipant { hp_ratio, .. }
-            | ActivityOperation::HealParticipantMaximumHpRatio { hp_ratio, .. }
-            | ActivityOperation::LoseParticipantCurrentHpRatio { hp_ratio, .. } => {
-                if *hp_ratio <= Ratio::ZERO || *hp_ratio > Ratio::ONE {
-                    return Err(ActivityProgramDefinitionError::InvalidParticipantRestoration);
-                }
-            }
-            ActivityOperation::SetParticipantEnergy { .. }
-            | ActivityOperation::RemoveModifier { .. }
-            | ActivityOperation::Traverse(_)
-            | ActivityOperation::Relocate(_) => {}
-        }
-    }
-    Ok(())
-}
-
-fn validate_expression(
-    expression: &ActivityExpression,
-    depth: usize,
-) -> Result<(), ActivityProgramDefinitionError> {
-    if depth > MAX_ACTIVITY_PROGRAM_DEPTH {
-        return Err(ActivityProgramDefinitionError::ExpressionTooDeep);
-    }
-    match expression {
-        ActivityExpression::Literal(
-            ActivityValue::OrderedIdSet(_) | ActivityValue::BoundedCounterMap(_),
-        ) => {
-            return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
-        }
-        ActivityExpression::Literal(_) | ActivityExpression::Slot(_) => {}
-        ActivityExpression::CounterValue { key, .. } => {
-            if *key == 0 {
-                return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
-            }
-        }
-        ActivityExpression::InventoryCount { content, .. } => {
-            if *content == 0 {
-                return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
-            }
-        }
-        ActivityExpression::Add(left, right)
-        | ActivityExpression::Subtract(left, right)
-        | ActivityExpression::Multiply(left, right)
-        | ActivityExpression::Divide(left, right)
-        | ActivityExpression::Minimum(left, right)
-        | ActivityExpression::Maximum(left, right) => {
-            validate_expression(left, depth + 1)?;
-            validate_expression(right, depth + 1)?;
-        }
-        ActivityExpression::Negate(value) => validate_expression(value, depth + 1)?,
-    }
-    Ok(())
-}
-
-fn validate_condition(
-    condition: &ActivityCondition,
-    depth: usize,
-) -> Result<(), ActivityProgramDefinitionError> {
-    if depth > MAX_ACTIVITY_PROGRAM_DEPTH {
-        return Err(ActivityProgramDefinitionError::ConditionTooDeep);
-    }
-    match condition {
-        ActivityCondition::Boolean(value) => validate_expression(value, 0)?,
-        ActivityCondition::Equal(left, right) | ActivityCondition::LessThan(left, right) => {
-            validate_expression(left, 0)?;
-            validate_expression(right, 0)?;
-        }
-        ActivityCondition::OrderedIdSetContains { id, .. } => {
-            if *id == 0 {
-                return Err(ActivityProgramDefinitionError::InvalidStableId);
-            }
-        }
-        ActivityCondition::ParticipantDefeated(_) => {}
-        ActivityCondition::Not(value) => validate_condition(value, depth + 1)?,
-        ActivityCondition::All(values) | ActivityCondition::Any(values) => {
-            if values.is_empty() {
-                return Err(ActivityProgramDefinitionError::EmptyConditionSet);
-            }
-            for value in values.iter() {
-                validate_condition(value, depth + 1)?;
-            }
-        }
-    }
-    Ok(())
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum ActivityProgramDefinitionError {
-    TooManyOperations,
-    ProgramTooDeep,
-    ExpressionTooDeep,
-    ConditionTooDeep,
-    EmptyConditionSet,
-    CollectionLiteralNotScalar,
-    InvalidStableId,
-    InvalidOptionCount,
-    NonCanonicalOptions,
-    InvalidParticipantRestoration,
-    OperationAfterBoundary(usize),
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

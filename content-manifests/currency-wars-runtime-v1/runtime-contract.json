@@ -1,0 +1,629 @@
+{
+  "schema_revision": "starclock.currency-wars-runtime-contract.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P0-B4",
+  "status": "FrozenTargetBoundary",
+  "architecture": {
+    "production_path": [
+      "Currency Wars workbooks",
+      "Sora 0.6.1 production bundle",
+      "starclock-data private lowering",
+      "immutable mode catalogs and typed programs",
+      "GraphActivity accepted command",
+      "immutable contribution snapshot",
+      "BattleSpec and battle commands",
+      "verified BattleResult",
+      "atomic Activity settlement"
+    ],
+    "forbidden_paths": [
+      "runtime workbook or normalized JSON loading",
+      "combat catalog lookup by Currency Wars content ID",
+      "battle mutation of live Activity state",
+      "Activity mutation of a live battle",
+      "mode-specific command processor or battle state machine",
+      "global mutable registration or filesystem-discovered handlers"
+    ]
+  },
+  "public_api": {
+    "assembly_owner": "starclock-data",
+    "facade_owner": "starclock-mode-currency-wars",
+    "target_types": [
+      "CurrencyWarsRuntimeFactory",
+      "CurrencyWarsEntry",
+      "CurrencyWarsRuntime",
+      "CurrencyWarsObservation",
+      "CurrencyWarsOfferedCommand",
+      "CurrencyWarsRuntimeError"
+    ],
+    "generic_types_reused": [
+      "GraphActivityCommand",
+      "ActivityPlayerView",
+      "ActivityDebugView",
+      "ActivityBattleHandoff",
+      "BattleSpec",
+      "BattleResult",
+      "ConfigurationComponentSet"
+    ],
+    "public_data": [
+      "stable IDs and bounded mode-owned observations",
+      "currently offered commands with state hash and decision ID",
+      "opaque component identities and digests",
+      "battle handoff and result contracts",
+      "typed errors and first-divergence reports"
+    ],
+    "private_data": [
+      "generated Sora row types",
+      "raw configuration programs and source-cache paths",
+      "lowering intermediates and private catalogs",
+      "handler payloads and internal slot allocation",
+      "presentation text and ID dereferencing"
+    ],
+    "mutation_rule": "Every adapter mutation applies one offered GraphActivityCommand; convenience methods may only construct such commands and may not bypass apply."
+  },
+  "scopes": [
+    {
+      "authored": "Run",
+      "generic": "Activity"
+    },
+    {
+      "authored": "Plane",
+      "generic": "Section"
+    },
+    {
+      "authored": "NodeVisit",
+      "generic": "Node"
+    },
+    {
+      "authored": "BattleOrExternalAttempt",
+      "generic": "Attempt"
+    }
+  ],
+  "slot_families": [
+    {
+      "name": "entry_profile",
+      "value_kind": "StableId",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "gambit",
+      "value_kind": "StableId",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "difficulty",
+      "value_kind": "StableId",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "route",
+      "value_kind": "StableId",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "gold",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "experience",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "team_level",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "back_capacity",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "shop_locked",
+      "value_kind": "Boolean",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "locked_shop_offers",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "squad_hp",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "roster",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "deployment",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "equipment",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "bond_levels",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "empowerments",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "investments",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "investment_state",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Private",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "formula_state",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Private",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "permanent_progression",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "run_flags",
+      "value_kind": "OrderedIdSet",
+      "visibility": "DebugOnly",
+      "carry": "CarryExact",
+      "owner": "Activity",
+      "resets": [
+        "ActivityStart"
+      ]
+    },
+    {
+      "name": "plane",
+      "value_kind": "StableId",
+      "visibility": "Player",
+      "carry": "Replace",
+      "owner": "Section",
+      "resets": [
+        "SectionStart"
+      ]
+    },
+    {
+      "name": "rank",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "CarryExact",
+      "owner": "Section",
+      "resets": [
+        "SectionStart"
+      ]
+    },
+    {
+      "name": "plane_carry",
+      "value_kind": "BoundedCounterMap",
+      "visibility": "Private",
+      "carry": "CarryExact",
+      "owner": "Section",
+      "resets": [
+        "SectionStart"
+      ]
+    },
+    {
+      "name": "plane_flags",
+      "value_kind": "OrderedIdSet",
+      "visibility": "DebugOnly",
+      "carry": "Reset",
+      "owner": "Section",
+      "resets": [
+        "SectionStart"
+      ]
+    },
+    {
+      "name": "node",
+      "value_kind": "StableId",
+      "visibility": "Player",
+      "carry": "Replace",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "room",
+      "value_kind": "OptionalId",
+      "visibility": "Player",
+      "carry": "Replace",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "domain",
+      "value_kind": "OptionalId",
+      "visibility": "Player",
+      "carry": "Replace",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "shop_offers",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "Reset",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "service_offers",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "Reset",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "occurrence_choices",
+      "value_kind": "OrderedIdSet",
+      "visibility": "Player",
+      "carry": "Reset",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "node_flags",
+      "value_kind": "OrderedIdSet",
+      "visibility": "DebugOnly",
+      "carry": "Reset",
+      "owner": "Node",
+      "resets": [
+        "NodeStart"
+      ]
+    },
+    {
+      "name": "battle_sequence",
+      "value_kind": "BoundedInteger",
+      "visibility": "DebugOnly",
+      "carry": "Replace",
+      "owner": "Attempt",
+      "resets": [
+        "AttemptStart"
+      ]
+    },
+    {
+      "name": "last_squad_hp_loss",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "Reset",
+      "owner": "Attempt",
+      "resets": [
+        "AttemptStart"
+      ]
+    },
+    {
+      "name": "last_action_value_remaining",
+      "value_kind": "BoundedInteger",
+      "visibility": "Player",
+      "carry": "Reset",
+      "owner": "Attempt",
+      "resets": [
+        "AttemptStart"
+      ]
+    },
+    {
+      "name": "external_outcome",
+      "value_kind": "OptionalId",
+      "visibility": "DebugOnly",
+      "carry": "Reset",
+      "owner": "Attempt",
+      "resets": [
+        "AttemptStart"
+      ]
+    },
+    {
+      "name": "attempt_flags",
+      "value_kind": "OrderedIdSet",
+      "visibility": "DebugOnly",
+      "carry": "Reset",
+      "owner": "Attempt",
+      "resets": [
+        "AttemptStart"
+      ]
+    }
+  ],
+  "command_contract": {
+    "envelope": [
+      "expected_state_hash",
+      "decision_id",
+      "kind"
+    ],
+    "kinds": [
+      "ChooseOption",
+      "StartBattle",
+      "SubmitBattleResult",
+      "SubmitExternalOutcome",
+      "Abandon"
+    ],
+    "decisions": [
+      "Choice",
+      "Route",
+      "Encounter",
+      "Preparation",
+      "Reward",
+      "Shop",
+      "Service",
+      "Roster",
+      "ExternalOutcome",
+      "BattleReady",
+      "Checkpoint",
+      "Abandon"
+    ],
+    "adapter_rule": "Adapters may submit only commands present in the current bounded observation.",
+    "rejection_rule": "Unknown, disabled, stale, duplicate, malformed or wrong-phase commands preserve canonical Activity bytes, state hash, events and every RNG draw counter.",
+    "acceptance_rule": "Accepted commands commit one ordered event/operation transaction or enter the documented deterministic Activity fault state."
+  },
+  "external_outcomes": {
+    "boundary": "SubmitExternalOutcome",
+    "use": "Only an authored interaction whose result is produced outside deterministic Activity mechanics may cross this boundary.",
+    "validation": [
+      "outcome must be currently offered",
+      "payload and component identity are bounded",
+      "a typed static handler must be present in the immutable registry",
+      "optional random policy names one Activity RNG label, purpose and candidate count"
+    ]
+  },
+  "battle_contract": {
+    "assembly_input": [
+      "route, difficulty, Gambit, Plane, node, attempt and battle sequence",
+      "participant lock and deployment positions",
+      "resolved builds, equipment, stars and Character Empowerments",
+      "Bond levels and contributions",
+      "investment, formula, progression and node contributions",
+      "encounter waves, enemy definitions, affixes, scaling and boss selection"
+    ],
+    "snapshot_rule": "Assembly consumes one immutable canonical contribution snapshot; no live Activity lookup is allowed after BattleSpec construction begins.",
+    "identity": [
+      "activity definition and configuration digests",
+      "participant lock digest",
+      "combat input digest",
+      "assembly digest",
+      "scope identity and battle sequence",
+      "purpose-derived Battle seed"
+    ],
+    "required_result_fields": [
+      "Outcome",
+      "FinalStateHash",
+      "EventDigest",
+      "TerminalFault",
+      "ParticipantState for every locked participant",
+      "currency_wars_battle_progress ratio metric",
+      "currency_wars_action_value_remaining action-value metric"
+    ],
+    "settlement_rule": "A result is accepted only for the exact pending handoff identity and is projected, carried, rewarded and traversed in one Activity transaction."
+  },
+  "component_set": [
+    {
+      "kind": "CombatCatalog",
+      "id": "combat-catalog",
+      "digest_source": "current combat catalog"
+    },
+    {
+      "kind": "BuildCatalog",
+      "id": "build-catalog",
+      "digest_source": "current build catalog"
+    },
+    {
+      "kind": "ActivityCore",
+      "id": "currency-wars-activity",
+      "digest_source": "compiled graph, state and programs"
+    },
+    {
+      "kind": "ModeProfile",
+      "id": "currency-wars-profile",
+      "digest_source": "entry, route and policy profile"
+    },
+    {
+      "kind": "ModeContent",
+      "id": "currency-wars-content",
+      "digest_source": "exact production Sora bundle and lowering"
+    },
+    {
+      "kind": "ActivityHandlerRegistry",
+      "id": "currency-wars-activity-handlers",
+      "digest_source": "immutable composed registry"
+    },
+    {
+      "kind": "CombatRuleRegistry",
+      "id": "currency-wars-combat-rules",
+      "digest_source": "immutable mode combat-rule bundle"
+    },
+    {
+      "kind": "EncounterOverlay",
+      "id": "currency-wars-encounter-overlay",
+      "digest_source": "encounter and enemy assembly inputs"
+    },
+    {
+      "kind": "Controller",
+      "id": "currency-wars-baseline-controller",
+      "digest_source": "caller-selected controller identity"
+    }
+  ],
+  "rng": {
+    "labels": [
+      "Graph",
+      "Encounter",
+      "Reward",
+      "Shop",
+      "Occurrence",
+      "Spawn",
+      "ExternalOutcomeTest",
+      "Battle"
+    ],
+    "rule": "Each draw uses a named label, non-zero purpose and stable ordered candidate set; empty candidates consume no draw and rejected commands restore all counters."
+  },
+  "handler_admission": {
+    "default_admitted": 0,
+    "registry": "bounded immutable static registry",
+    "requirements": [
+      "the generated opcode/capability audit proves shared typed IR cannot express the behavior",
+      "one reviewed source-program set and owner batch are named",
+      "inputs and outputs are bounded typed values or operations",
+      "trigger, phase, priority, snapshot and once-scope are explicit",
+      "determinism, rejection inertness and production execution fixtures pass",
+      "content-ID resolver branching, no-op output and runtime registration are forbidden"
+    ]
+  },
+  "failure_semantics": [
+    {
+      "boundary": "CatalogOrLowering",
+      "behavior": "Fail before a run exists; no partial factory is returned."
+    },
+    {
+      "boundary": "CommandValidation",
+      "behavior": "Reject with byte-, hash-, event- and RNG-inert authoritative state."
+    },
+    {
+      "boundary": "AcceptedExecution",
+      "behavior": "Commit ordered events atomically or enter a deterministic terminal fault."
+    },
+    {
+      "boundary": "BattleAssembly",
+      "behavior": "Reject stale or invalid snapshots without changing Activity state or cache authority."
+    },
+    {
+      "boundary": "NestedBattleInfrastructure",
+      "behavior": "Restore the pre-start Activity identity and append no battle report."
+    },
+    {
+      "boundary": "CombatFault",
+      "behavior": "Settle only through the sealed declared BattleResult terminal-fault field."
+    },
+    {
+      "boundary": "BattleSettlement",
+      "behavior": "Reject mismatched, duplicate or malformed results without mutation."
+    },
+    {
+      "boundary": "ReplayVerification",
+      "behavior": "Reconstruct fresh immutable inputs, report first divergence and never mutate a live session."
+    }
+  ]
+}

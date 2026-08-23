@@ -17,7 +17,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -59,7 +59,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -89,8 +89,8 @@
     "kind": "CurrencyWarsResearchGap",
     "name_en": "Research gap: configuration-program-semantics",
     "name_zh_cn": "研究缺口：configuration-program-semantics",
-    "summary_en": "All direct mechanic rows and 984 GridFight configuration files are hash-frozen. Preserve exact program boundaries without runtime lowering or inferred operations.",
-    "summary_zh_cn": "已知事实与选定策略：All direct mechanic rows and 984 GridFight configuration files are hash-frozen. Preserve exact program boundaries without runtime lowering or inferred operations.",
+    "summary_en": "All direct mechanic rows and 984 GridFight configuration files are hash-frozen; released service tables preserve weighted reward budgets, Avatar selectors, equipment categories and stable candidate identities, while the source does not publish every random-selection order or multi-variant Avatar tie-break. Lower reviewed high-level behavior to typed Activity or Rule IR without interpreting raw postfix bytes. Reward pools repeatedly draw a legal candidate in authored order with authored weight and maximum, subtract its positive budget cost, and stop without state or RNG mutation when no candidate fits. Specific Avatar rewards select the lowest stable matching Role ID, equipment rerolls stay within the authored category, and generated offers use stable candidate order.",
+    "summary_zh_cn": "已知事实与选定策略：All direct mechanic rows and 984 GridFight configuration files are hash-frozen; released service tables preserve weighted reward budgets, Avatar selectors, equipment categories and stable candidate identities, while the source does not publish every random-selection order or multi-variant Avatar tie-break. Lower reviewed high-level behavior to typed Activity or Rule IR without interpreting raw postfix bytes. Reward pools repeatedly draw a legal candidate in authored order with authored weight and maximum, subtract its positive budget cost, and stop without state or RNG mutation when no candidate fits. Specific Avatar rewards select the lowest stable matching Role ID, equipment rerolls stay within the authored category, and generated offers use stable candidate order.",
     "ownership": "CurrencyWars",
     "coverage_state": "Researched",
     "evidence_quality": "ProjectPolicy",
@@ -101,7 +101,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -116,14 +116,17 @@
     ],
     "field": "mechanic.configuration_program",
     "known_facts": [
-      "All direct mechanic rows and 984 GridFight configuration files are hash-frozen."
+      "All direct mechanic rows and 984 GridFight configuration files are hash-frozen; released service tables preserve weighted reward budgets, Avatar selectors, equipment categories and stable candidate identities, while the source does not publish every random-selection order or multi-variant Avatar tie-break."
     ],
-    "selected_policy": "Preserve exact program boundaries without runtime lowering or inferred operations.",
+    "selected_policy": "Lower reviewed high-level behavior to typed Activity or Rule IR without interpreting raw postfix bytes. Reward pools repeatedly draw a legal candidate in authored order with authored weight and maximum, subtract its positive budget cost, and stop without state or RNG mutation when no candidate fits. Specific Avatar rewards select the lowest stable matching Role ID, equipment rerolls stay within the authored category, and generated offers use stable candidate order.",
     "alternatives": [
       "execute untyped JSON",
-      "translate names into handlers"
+      "translate names into handlers",
+      "treat Avatar IDs as Role IDs",
+      "retry or consume RNG when no legal candidate exists",
+      "use collection iteration order"
     ],
-    "replacement_condition": "A later runtime goal supplies reviewed typed lowering with semantic fixture evidence."
+    "replacement_condition": "Released operation programs or reproducible seeded traces prove all postfix opcodes, reward-pool ordering, equipment-reroll selection and multi-variant Avatar resolution."
   },
   {
     "id": "currency-wars.research-gap.cross-node-carry-reset",
@@ -143,7 +146,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -185,7 +188,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -227,7 +230,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -269,7 +272,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -311,7 +314,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -353,7 +356,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -383,8 +386,8 @@
     "kind": "CurrencyWarsResearchGap",
     "name_en": "Research gap: position-and-rescue-order",
     "name_zh_cn": "研究缺口：position-and-rescue-order",
-    "summary_en": "Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete. Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
-    "summary_zh_cn": "已知事实与选定策略：Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete. Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
+    "summary_en": "Position contributions, automatic front Techniques, defeat-energy ratio, role-star battle events and per-node countdown loss are exact; released text says lethal rescue restores only an unspecified amount of HP. Keep omitted positions dual-candidate. On lethal damage, prevent incapacitation, restore maximum HP, deduct the current node's configured rescue action value with a floor at zero, then expire the battle clock if it reaches zero.",
+    "summary_zh_cn": "已知事实与选定策略：Position contributions, automatic front Techniques, defeat-energy ratio, role-star battle events and per-node countdown loss are exact; released text says lethal rescue restores only an unspecified amount of HP. Keep omitted positions dual-candidate. On lethal damage, prevent incapacitation, restore maximum HP, deduct the current node's configured rescue action value with a floor at zero, then expire the battle clock if it reaches zero.",
     "ownership": "CurrencyWars",
     "coverage_state": "Researched",
     "evidence_quality": "ProjectPolicy",
@@ -395,7 +398,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -410,14 +413,15 @@
     ],
     "field": "position.automatic_technique_rescue",
     "known_facts": [
-      "Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete."
+      "Position contributions, automatic front Techniques, defeat-energy ratio, role-star battle events and per-node countdown loss are exact; released text says lethal rescue restores only an unspecified amount of HP."
     ],
-    "selected_policy": "Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
+    "selected_policy": "Keep omitted positions dual-candidate. On lethal damage, prevent incapacitation, restore maximum HP, deduct the current node's configured rescue action value with a floor at zero, then expire the battle clock if it reaches zero.",
     "alternatives": [
       "decode omitted enum",
-      "invent rescue HP"
+      "restore one HP",
+      "restore an inferred fixed ratio"
     ],
-    "replacement_condition": "Released enum metadata or reproducible lethal-boundary observations become available."
+    "replacement_condition": "Released structured rescue healing data or a reproducible Version 4.4 lethal-boundary observation publishes the restored HP amount or a different operation order."
   },
   {
     "id": "currency-wars.research-gap.role-build-join",
@@ -425,41 +429,195 @@
     "kind": "CurrencyWarsResearchGap",
     "name_en": "Research gap: role-build-join",
     "name_zh_cn": "研究缺口：role-build-join",
-    "summary_en": "Mode role identities and shared build sources are exact; their role-level join is absent. Keep shared builds fail closed and preserve account state unchanged.",
-    "summary_zh_cn": "已知事实与选定策略：Mode role identities and shared build sources are exact; their role-level join is absent. Keep shared builds fail closed and preserve account state unchanged.",
+    "summary_en": "Every released GridFightRoleBasicInfo row explicitly binds SpecialAvatarID, and each selected world-level 6 SpecialAvatar row binds the source avatar, Light Cone and relic selectors. Compile the explicit released join as an immutable trial minimum and preserve account state unchanged.",
+    "summary_zh_cn": "已知事实与选定策略：Every released GridFightRoleBasicInfo row explicitly binds SpecialAvatarID, and each selected world-level 6 SpecialAvatar row binds the source avatar, Light Cone and relic selectors. Compile the explicit released join as an immutable trial minimum and preserve account state unchanged.",
     "ownership": "CurrencyWars",
-    "coverage_state": "Researched",
-    "evidence_quality": "ProjectPolicy",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
-        "repository": "starclock",
-        "revision": "starclock.currency-wars-normalized-schema.v1",
-        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
-        "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "source_id": "source.goal12.exceloutput-gridfightrolebasicinfo-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRoleBasicInfo.json",
+        "locator": "0",
+        "sha256": "16de63d67950bd0323b2a4829a09d7eb6263ee99ca2b3e9f9591184063275d50",
         "access_date": "2026-07-22",
         "game_version": "4.4",
-        "evidence_quality": "ProjectPolicy",
-        "mechanism_quality": "PolicyBound",
-        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
-        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-specialavatar-json.3195",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatar.json",
+        "locator": "3195",
+        "sha256": "061877d38ab4852e59609b36c093a3e216800944e76e6eb77c65e64c6f71bb49",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-specialavatarrelicmainvalue-json.24241",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelicMainValue.json",
+        "locator": "24241",
+        "sha256": "a748658de6b557e4a78e68048fa871f0daad68d9e52f5fa80dcd7d8b1b77023b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-specialavatarrelicsubvalue-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelicSubValue.json",
+        "locator": "52",
+        "sha256": "80ed15acd1bc32ee2d9d251cfb1b574e432ec783731808d84557b954c5d0328d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-specialavatarrelic-json.467",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelic.json",
+        "locator": "467",
+        "sha256": "0d3818847de9b15fcd6f15403924fb8fddc6c091b0b6cabd01ae1e241940fddd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicconfig-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "35",
+        "sha256": "3c553a5ec75901974d81d6462ea2e0f1fc0e4b01f3e367bafe1ac2fa4839e570",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicconfig-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "39",
+        "sha256": "ee59e5a1a595e8d8726e3a51f91294168817c6dddb7bfffc75e059c1674791ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicconfig-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "43",
+        "sha256": "d18b72cd9dceec9603614dd6ac50bcc24254006941ff4bc86c67101dc67605b4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicconfig-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "47",
+        "sha256": "fb8356144e79cef1de9ae547f5a7c2639181701ee57f55e8dd7c23a8a232a4d1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicsetskillconfig-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicSetSkillConfig.json",
+        "locator": "5",
+        "sha256": "e31eeb20e1d364b9c03894d87569b3c1e0579ebfec90cb0515c240ce2428aa2b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-specialavatarrelic-json.937",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelic.json",
+        "locator": "937",
+        "sha256": "6f6d496687cf3269c8debf453aa66cc4d65b2ea62be56907e843b794e36e9238",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicconfig-json.219",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "219",
+        "sha256": "6c233aae25b92f57e40b47eb4384da17641dcc4ac9e16ce818956938d9e9c432",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicconfig-json.223",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "223",
+        "sha256": "763a172893cb8f5554c7f906518c502e3c201f358bf650c50d19972907f47f68",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-relicsetskillconfig-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicSetSkillConfig.json",
+        "locator": "27",
+        "sha256": "ec1b6676888d2862751a909108f9a4ba7a5f9b4fa28c04d7159652ff1e22fcf1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
       }
     ],
     "tags": [
-      "nonblocking",
-      "research-gap"
+      "exact-role-join",
+      "resolved-research-gap"
     ],
     "field": "build.role_to_shared_build",
     "known_facts": [
-      "Mode role identities and shared build sources are exact; their role-level join is absent."
+      "Every released GridFightRoleBasicInfo row explicitly binds SpecialAvatarID, and each selected world-level 6 SpecialAvatar row binds the source avatar, Light Cone and relic selectors."
     ],
-    "selected_policy": "Keep shared builds fail closed and preserve account state unchanged.",
+    "selected_policy": "Compile the explicit released join as an immutable trial minimum and preserve account state unchanged.",
     "alternatives": [
       "join by name",
       "join by numeric adjacency"
     ],
-    "replacement_condition": "A released role-to-build selector or reproducible owned/trial substitution observation is available."
+    "replacement_condition": "Replace only if a later released Currency Wars version changes the explicit role or trial-build join fields."
   },
   {
     "id": "currency-wars.research-gap.squad-boundary-order",
@@ -467,8 +625,8 @@
     "kind": "CurrencyWarsResearchGap",
     "name_en": "Research gap: squad-boundary-order",
     "name_zh_cn": "研究缺口：squad-boundary-order",
-    "summary_en": "Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not. Use the reviewed victory-first policy only in reference fixtures.",
-    "summary_zh_cn": "已知事实与选定策略：Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not. Use the reviewed victory-first policy only in reference fixtures.",
+    "summary_en": "Victory preservation, non-victory loss, configured base/threshold/progress penalties and zero-HP failure are exact; simultaneous precedence and fractional progress-penalty rounding are not. Resolve victory first; otherwise add the configured base loss, ceiling-rounded uncleared-progress coefficient and below-threshold extra loss, then clamp Squad HP and test run failure.",
+    "summary_zh_cn": "已知事实与选定策略：Victory preservation, non-victory loss, configured base/threshold/progress penalties and zero-HP failure are exact; simultaneous precedence and fractional progress-penalty rounding are not. Resolve victory first; otherwise add the configured base loss, ceiling-rounded uncleared-progress coefficient and below-threshold extra loss, then clamp Squad HP and test run failure.",
     "ownership": "CurrencyWars",
     "coverage_state": "Researched",
     "evidence_quality": "ProjectPolicy",
@@ -479,7 +637,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "phase-2-pack-policy",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -494,13 +652,14 @@
     ],
     "field": "squad_hp.same_boundary_order",
     "known_facts": [
-      "Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not."
+      "Victory preservation, non-victory loss, configured base/threshold/progress penalties and zero-HP failure are exact; simultaneous precedence and fractional progress-penalty rounding are not."
     ],
-    "selected_policy": "Use the reviewed victory-first policy only in reference fixtures.",
+    "selected_policy": "Resolve victory first; otherwise add the configured base loss, ceiling-rounded uncleared-progress coefficient and below-threshold extra loss, then clamp Squad HP and test run failure.",
     "alternatives": [
       "timeout first",
-      "simultaneous merge"
+      "simultaneous merge",
+      "floor fractional progress penalty"
     ],
-    "replacement_condition": "A reproducible last-enemy and timeout same-boundary observation is available."
+    "replacement_condition": "A released program or reproducible boundary observation publishes simultaneous precedence and fractional progress-penalty rounding."
   }
 ]

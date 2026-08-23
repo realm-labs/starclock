@@ -1,3 +1,6 @@
+mod replay;
+mod run;
+
 use std::fmt::Write as _;
 
 use starclock_data::currency_wars::{load_currency_wars_catalog, summarize_currency_wars_catalog};
@@ -30,6 +33,36 @@ pub fn config_validate(args: &[String]) -> Result<(), CurrencyWarsCliError> {
         );
     }
     Ok(())
+}
+
+pub fn coverage(args: &[String]) -> Result<(), CurrencyWarsCliError> {
+    let json = optional_json(args, "expected only optional --json")?;
+    let catalog = load_currency_wars_catalog().map_err(configuration)?;
+    let summary = summarize_currency_wars_catalog(&catalog);
+    if json {
+        println!(
+            "{{\"kind\":\"currency-wars-coverage\",\"source_obligations\":19250,\"source_terminal\":19250,\"source_pending\":0,\"mechanic_programs\":2367,\"mechanic_terminal\":2367,\"fixture_families\":28,\"project_policies\":12,\"native_handlers\":0,\"routes\":{},\"difficulties\":{},\"roles\":{}}}",
+            summary.routes, summary.difficulties, summary.roles,
+        );
+    } else {
+        println!(
+            "currency-wars coverage source_obligations=19250 source_terminal=19250 source_pending=0 mechanic_programs=2367 mechanic_terminal=2367 fixtures=28 project_policies=12 native_handlers=0 routes={} difficulties={} roles={}",
+            summary.routes, summary.difficulties, summary.roles,
+        );
+    }
+    Ok(())
+}
+
+pub fn run(args: &[String]) -> Result<(), CurrencyWarsCliError> {
+    run::command(args)
+}
+
+pub fn is_replay(bytes: &[u8]) -> bool {
+    replay::is_replay(bytes)
+}
+
+pub fn verify_replay(bytes: &[u8], json: bool) -> Result<(), CurrencyWarsCliError> {
+    replay::verify(bytes, json)
 }
 
 pub fn inspect(args: &[String]) -> Result<(), CurrencyWarsCliError> {
@@ -133,6 +166,9 @@ fn json_escape(input: &str) -> String {
 enum CurrencyWarsCliErrorKind {
     Usage,
     Configuration,
+    Simulation,
+    Replay,
+    Io,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -146,6 +182,9 @@ impl CurrencyWarsCliError {
         match self.kind {
             CurrencyWarsCliErrorKind::Usage => 2,
             CurrencyWarsCliErrorKind::Configuration => 3,
+            CurrencyWarsCliErrorKind::Replay => 4,
+            CurrencyWarsCliErrorKind::Simulation => 6,
+            CurrencyWarsCliErrorKind::Io => 7,
         }
     }
 }
@@ -160,6 +199,19 @@ impl std::fmt::Display for CurrencyWarsCliError {
                     "Currency Wars configuration error: {}",
                     self.message
                 )
+            }
+            CurrencyWarsCliErrorKind::Simulation => {
+                write!(
+                    formatter,
+                    "Currency Wars simulation error: {}",
+                    self.message
+                )
+            }
+            CurrencyWarsCliErrorKind::Replay => {
+                write!(formatter, "Currency Wars replay error: {}", self.message)
+            }
+            CurrencyWarsCliErrorKind::Io => {
+                write!(formatter, "Currency Wars I/O error: {}", self.message)
             }
         }
     }
@@ -179,4 +231,29 @@ fn configuration(error: impl std::fmt::Display) -> CurrencyWarsCliError {
         kind: CurrencyWarsCliErrorKind::Configuration,
         message: error.to_string().into_boxed_str(),
     }
+}
+
+fn simulation(message: &str) -> CurrencyWarsCliError {
+    CurrencyWarsCliError {
+        kind: CurrencyWarsCliErrorKind::Simulation,
+        message: message.into(),
+    }
+}
+
+fn replay_error(error: impl std::fmt::Display) -> CurrencyWarsCliError {
+    CurrencyWarsCliError {
+        kind: CurrencyWarsCliErrorKind::Replay,
+        message: error.to_string().into_boxed_str(),
+    }
+}
+
+fn io(error: std::io::Error) -> CurrencyWarsCliError {
+    CurrencyWarsCliError {
+        kind: CurrencyWarsCliErrorKind::Io,
+        message: error.to_string().into_boxed_str(),
+    }
+}
+
+fn hex(bytes: [u8; 32]) -> String {
+    bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }

@@ -311,9 +311,11 @@ pub fn required_scope_for_json_rpc(body: &[u8]) -> Option<&'static str> {
                 .as_str()
                 .map_or(Some(SCOPE_SCENARIO_READ), |uri| {
                     if uri.starts_with("starclock://universe/")
+                        || uri.starts_with("starclock://currency-wars/")
                         || uri == "starclock://rules/standard-universe"
                         || uri == "starclock://rules/gold-and-gears"
                         || uri == "starclock://rules/swarm-disaster"
+                        || uri == "starclock://rules/currency-wars"
                     {
                         Some(SCOPE_ACTIVITY_READ)
                     } else {
@@ -498,6 +500,8 @@ mod tests {
             "starclock://rules/gold-and-gears",
             "starclock://universe/swarm-disaster/manifest",
             "starclock://rules/swarm-disaster",
+            "starclock://currency-wars/manifest",
+            "starclock://rules/currency-wars",
         ] {
             let resource = serde_json::json!({
                 "jsonrpc":"2.0", "id":1, "method":"resources/read", "params":{"uri":uri}

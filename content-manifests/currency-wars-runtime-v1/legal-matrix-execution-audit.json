@@ -1,0 +1,31 @@
+{
+  "schema_revision": "starclock.currency-wars-legal-matrix-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P7-B6",
+  "result": "Pass",
+  "assigned_source_rows": 194,
+  "generated_entries": 97,
+  "axes": {
+    "routes": 26,
+    "difficulties": 97,
+    "gambits": 2,
+    "fixture_roles": 77,
+    "investment_identities": 834,
+    "semantic_fixture_families": 28,
+    "project_policies": 12
+  },
+  "execution": {
+    "production_catalog_and_battle_resources": true,
+    "offered_activity_commands_only": true,
+    "offered_battle_commands_only": true,
+    "real_nested_battle_per_entry": true,
+    "concession_disabled_for_axis_runs": true,
+    "terminal_outcomes_include_completed_and_failed": true,
+    "faulted_terminal_rejected": true,
+    "fresh_replay_per_terminal_report": true
+  },
+  "behavioral_evidence": [
+    "currency_wars_matrix::generated_legal_matrix_completes_real_battles_and_fresh_replay"
+  ],
+  "verification_command": "cargo test --release -p starclock-ai --test currency_wars_matrix -- --ignored --exact generated_legal_matrix_completes_real_battles_and_fresh_replay"
+}

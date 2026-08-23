@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsAreaGroups {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            area_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            selection_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            transition_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            area_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            selection_policy: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            transition_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -17,10 +17,10 @@ const encounters = read("encounters.json");
 const packIndex = read("pack-index.json");
 const manifest = read("manifest.json");
 
-expectCount("characters", characters, 88);
-expectCount("character abilities", abilities, 583);
-expectCount("character Traces", traces, 1618);
-expectCount("character Eidolons", eidolons, 528);
+expectCount("characters", characters, 90);
+expectCount("character abilities", abilities, 599);
+expectCount("character Traces", traces, 1654);
+expectCount("character Eidolons", eidolons, 540);
 expectCount("Light Cones", lightCones, 165);
 expectCount("enemy templates", enemyTemplates, 613);
 expectCount("enemy variants", enemyVariants, 2591);
@@ -139,7 +139,7 @@ function verifyPackIndex(index) {
 function verifySourceManifest(value) {
   const expected = new Map([
     ["dimbreath-turnbasedgamedata", "fd978d6ef09f941fba644c731ab54abd6f7c3568"],
-    ["mar-7th-star-rail-res", "7b349e39ee0f6f3bf814567995829b99c95e7a93"],
+    ["mar-7th-star-rail-res", "b95e75c7e1273d819d20c530c0b7e13a3ef19fb4"],
   ]);
   for (const repository of value.repositories ?? []) {
     const revision = expected.get(repository.id);

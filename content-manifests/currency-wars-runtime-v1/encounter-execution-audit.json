@@ -1,0 +1,96 @@
+{
+  "schema_revision": "starclock.currency-wars-encounter-execution-audit.v1",
+  "batch": "G21-P6-B1",
+  "status": "Complete",
+  "source_closure": {
+    "obligations": 939,
+    "path_counts": {
+      "ExcelOutput/GridFightCamp.json": 25,
+      "ExcelOutput/GridFightEliteGroup.json": 146,
+      "ExcelOutput/GridFightEnemyDifficultyLv.json": 603,
+      "ExcelOutput/GridFightFormationWave.json": 5,
+      "ExcelOutput/GridFightMonster.json": 160
+    },
+    "runtime_status": {
+      "Terminal": 939
+    }
+  },
+  "immutable_runtime_inputs": {
+    "encounter_groups": 25,
+    "formation_waves": 5,
+    "gridfight_monsters": 160,
+    "elite_scaling_groups": 146,
+    "enemy_difficulty_rows": 603,
+    "boss_pools": 10,
+    "released_stage_variants": 840,
+    "released_stage_levels": 15,
+    "preloaded_monster_level_inputs": 2400
+  },
+  "exact_reachability": {
+    "camp_reachable_monsters": 152,
+    "current_camp_unreachable_monsters": 8,
+    "monster_referenced_elite_scaling_groups": 8,
+    "current_monster_unreachable_elite_scaling_groups": 138,
+    "formation_slot_counts": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "note": "Unreachable definitions remain validated immutable source definitions and are not presented as executed battle candidates."
+  },
+  "runtime_binding": {
+    "stage_config_role": "level, ordered wave count and ordered formation-slot skeleton",
+    "enemy_identity_role": "GridFightCamp MonsterList resolved through stable shared enemy keys",
+    "boss_boundary_role": "exact BossBattleArea and candidate Stage closure with policy-owned Camp-wide boss identity",
+    "star_scaling_role": "selected GridFightMonster Star1-4 EliteGroup3 joined to five exact stat ratios",
+    "difficulty_scaling_role": "chapter and enemy-difficulty exact HP, Attack, Defence, Speed and Stance ratios",
+    "cache_identity_binds_selected_roster_and_scaling": true
+  },
+  "versioned_project_policies": [
+    {
+      "field": "encounter.boss_identity",
+      "selected_behavior": "Select the exact Camp and BattleArea/Stage boundary from released rows, use each StageConfig wave only as the released level, wave-count and formation-slot skeleton, and fill those slots without replacement from the Camp MonsterList. Boss nodes use the exact BossBattleArea but retain the Camp-wide candidate set because no released BattleArea-to-GridFightMonster identity join exists.",
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "A released BattleArea-to-GridFightMonster join or reproducible boss observation is available."
+    },
+    {
+      "field": "encounter.camp_enemy_roster",
+      "selected_behavior": "Draw without replacement per ordered Stage wave from the authored Camp/BossPool candidate order, using a labeled digest when IfRandomEnabled is true and InitialRandomCode rotation otherwise.",
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "Replace when released executable evidence identifies the exact GridFightCamp MonsterList draw algorithm."
+    },
+    {
+      "field": "encounter.enemy_star",
+      "selected_behavior": "Use Plane 1-3 as enemy stars 1-3 and star 4 for Boss nodes.",
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "Replace when released executable evidence identifies the enemy-star selection input."
+    },
+    {
+      "field": "encounter.formation_wave",
+      "selected_behavior": "Match each released StageConfig wave slot count to the exact GridFightFormationWave 1-5 boundary.",
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "Replace when released executable evidence identifies a different GridFightFormationWave selector."
+    }
+  ],
+  "fixture_family": "currency-wars.fixture-family.encounter-wave-elite-and-boss-binding",
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/encounter_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly.rs",
+    "crates/starclock-data/src/currency_wars_encounter.rs",
+    "crates/starclock-data/src/currency_wars_combat.rs",
+    "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+    "evidence/currency-wars-runtime-v1/encounter-execution-audit.json"
+  ],
+  "deferred_boundaries": [
+    {
+      "owner": "G21-P6-B2",
+      "boundary": "enemy affixes, stage limits and boss phases"
+    },
+    {
+      "owner": "G21-P6-Mxx",
+      "boundary": "exact battle-visible enemy behavior programs replacing explicit donor fallbacks"
+    }
+  ]
+}

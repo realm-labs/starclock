@@ -255,167 +255,6 @@
       {
         "values": {
           "id": {
-            "Integer": 1020561
-          },
-          "node": {
-            "Object": {
-              "type": {
-                "String": "Constant"
-              },
-              "value": {
-                "Bool": true
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s05.condition.always"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 1020562
-          },
-          "node": {
-            "Object": {
-              "effect_id": {
-                "Integer": 1020503
-              },
-              "selector_id": {
-                "Integer": 1020404
-              },
-              "type": {
-                "String": "EffectExists"
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s05.condition.core-wind"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 1020563
-          },
-          "node": {
-            "Object": {
-              "effect_id": {
-                "Integer": 1020504
-              },
-              "selector_id": {
-                "Integer": 1020404
-              },
-              "type": {
-                "String": "EffectExists"
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s05.condition.core-lightning"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 1020564
-          },
-          "node": {
-            "Object": {
-              "effect_id": {
-                "Integer": 1020505
-              },
-              "selector_id": {
-                "Integer": 1020404
-              },
-              "type": {
-                "String": "EffectExists"
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s05.condition.core-imaginary"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 1020565
-          },
-          "node": {
-            "Object": {
-              "maximum_count": {
-                "Integer": 0
-              },
-              "minimum_count": {
-                "Integer": 0
-              },
-              "selector_id": {
-                "Integer": 1020411
-              },
-              "type": {
-                "String": "SelectorCardinality"
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s05.condition.no-flying-swords"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 1030561
-          },
-          "node": {
-            "Object": {
-              "type": {
-                "String": "Constant"
-              },
-              "value": {
-                "Bool": true
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s06.condition.always"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 1030562
-          },
-          "node": {
-            "Object": {
-              "maximum_count": {
-                "Integer": 2
-              },
-              "minimum_count": {
-                "Integer": 1
-              },
-              "selector_id": {
-                "Integer": 1030411
-              },
-              "type": {
-                "String": "SelectorCardinality"
-              }
-            }
-          },
-          "stable_key": {
-            "String": "goal07.enemy.s06.condition.adjacent-frozen"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
             "Integer": 1040561
           },
           "node": {
@@ -1299,6 +1138,141 @@
       {
         "values": {
           "id": {
+            "Integer": 1154801
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s18.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1020561
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1020562
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1020503
+              },
+              "selector_id": {
+                "Integer": 1020404
+              },
+              "type": {
+                "String": "EffectExists"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.condition.core-wind"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1020563
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1020504
+              },
+              "selector_id": {
+                "Integer": 1020404
+              },
+              "type": {
+                "String": "EffectExists"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.condition.core-lightning"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1020564
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1020505
+              },
+              "selector_id": {
+                "Integer": 1020404
+              },
+              "type": {
+                "String": "EffectExists"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.condition.core-imaginary"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1020565
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 0
+              },
+              "minimum_count": {
+                "Integer": 0
+              },
+              "selector_id": {
+                "Integer": 1020411
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.condition.no-flying-swords"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
             "Integer": 1144801
           },
           "node": {
@@ -1319,7 +1293,7 @@
       {
         "values": {
           "id": {
-            "Integer": 1154801
+            "Integer": 1030561
           },
           "node": {
             "Object": {
@@ -1332,7 +1306,33 @@
             }
           },
           "stable_key": {
-            "String": "goal07.enemy.s18.condition.always"
+            "String": "goal07.enemy.s06.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1030562
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 2
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1030411
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.condition.adjacent-frozen"
           }
         }
       }

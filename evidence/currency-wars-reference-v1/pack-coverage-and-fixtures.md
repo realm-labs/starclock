@@ -1,8 +1,8 @@
 # Currency Wars pack, coverage and semantic fixtures
 
-Batch `G12-P2-B6` closes Phase 2 with a canonical normalized-pack index,
-exact-once manifest coverage and reference-only semantic fixtures. It does not
-lower or execute runtime behavior.
+The current canonical normalized pack keeps exact-once manifest coverage,
+typed mechanic dispositions and reference semantic fixtures together. Runtime
+execution evidence remains owned by Goal 21's Rust tests and execution ledger.
 
 ## Exact-once coverage
 
@@ -23,16 +23,18 @@ imported by earlier batches.
 
 ## Mechanic source boundary
 
-All 2,367 non-presentation mechanic obligations generate both:
+All 2,367 mechanic obligations generate both:
 
 - an exact source-program dossier; and
-- a reference-only mechanic-rule boundary.
+- a typed mechanic-rule boundary.
 
-Every rule has `runtime_lowered = false`. Its sole operation preserves the
-exact source contribution for later typed review. Seventeen presentation-only
-mechanic obligations remain explicit exclusions. This records complete source
-ownership without interpreting untyped configuration JSON as executable
-Starclock behavior.
+Eighty-five reviewed Activity progression rules have
+`runtime_lowered = true`: five role-cost availability rows and 80 season
+score/experience rows. Seventy-seven tutorial or world-prop presentation
+programs carry closed typed audits with zero authoritative operations. The
+remaining 2,205 rules preserve their exact source contribution for later typed
+review. This records complete source ownership without interpreting unproved
+configuration JSON as executable Starclock behavior.
 
 Twelve remaining semantic uncertainties are nonblocking `ProjectPolicy`
 research rows. Each records known facts, the selected deterministic policy,

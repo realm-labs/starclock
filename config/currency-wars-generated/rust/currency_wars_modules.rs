@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsModules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            sub_mode: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            tourn_mode: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            main_tourn_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            sub_tourn_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            sub_mode: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            tourn_mode: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            main_tourn_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            sub_tourn_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -24,6 +24,8 @@ const GOLD_AND_GEARS_URI: &str = "starclock://universe/gold-and-gears/manifest";
 const GOLD_AND_GEARS_RULES_URI: &str = "starclock://rules/gold-and-gears";
 const SWARM_DISASTER_URI: &str = "starclock://universe/swarm-disaster/manifest";
 const SWARM_DISASTER_RULES_URI: &str = "starclock://rules/swarm-disaster";
+const CURRENCY_WARS_URI: &str = "starclock://currency-wars/manifest";
+const CURRENCY_WARS_RULES_URI: &str = "starclock://rules/currency-wars";
 const SCENARIO_PREFIX: &str = "starclock://scenario/";
 const CHARACTER_PREFIX: &str = "starclock://character/";
 const USAGE_PROMPT: &str = "starclock_battle_loop";
@@ -90,6 +92,14 @@ pub(crate) fn list_resources() -> ListResourcesResult {
             .with_mime_type(MIME_JSON),
         Resource::new(SWARM_DISASTER_RULES_URI, "swarm-disaster-rules")
             .with_title("Starclock Swarm Disaster Activity rules")
+            .with_description("Concise shared authority, settlement and replay invariants.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(CURRENCY_WARS_URI, "currency-wars-manifest")
+            .with_title("Starclock Currency Wars manifest")
+            .with_description("Bounded route, difficulty, Gambit and configuration summaries.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(CURRENCY_WARS_RULES_URI, "currency-wars-rules")
+            .with_title("Starclock Currency Wars Activity rules")
             .with_description("Concise shared authority, settlement and replay invariants.")
             .with_mime_type(MIME_JSON),
     ])
@@ -178,6 +188,23 @@ pub(crate) fn read_resource(
                 replay_authority: "accepted_activity_actions_nested_battle_commands_events_and_state_hashes",
             },
         )?,
+        CURRENCY_WARS_URI => resource_json(
+            "currency_wars_manifest",
+            activity_registry
+                .currency_wars_manifest()
+                .map_err(agent_adapter_error)?,
+        )?,
+        CURRENCY_WARS_RULES_URI => resource_json(
+            "currency_wars_rules",
+            UniverseRulesResource {
+                exact_number_encoding: "canonical_decimal_strings",
+                external_decision_owner: "activity_player",
+                action_authority: "currently_offered_opaque_token",
+                settlement_boundary: "next_external_activity_decision_or_terminal",
+                nested_battle_policy: "one_authoritative_real_combat_settlement_after_preparation",
+                replay_authority: "component_addressed_agent_reconstruction_is_not_exposed_at_this_boundary",
+            },
+        )?,
         _ if uri.starts_with(SCENARIO_PREFIX) => {
             let raw = &uri[SCENARIO_PREFIX.len()..];
             let scenario = ScenarioId::parse(raw).map_err(|_| resource_not_found())?;
@@ -255,6 +282,7 @@ mod tests {
 
     use super::*;
     use starclock_agent_api::{
+        currency_wars_activity_session::CurrencyWarsActivityAgentSessionFactory,
         error::AgentError,
         gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
         schema::SessionId,
@@ -281,10 +309,13 @@ mod tests {
         let activity_factory = ActivityAgentSessionFactory::load_production().unwrap();
         let gold_factory = GoldAndGearsActivityAgentSessionFactory::load_production().unwrap();
         let swarm_factory = SwarmDisasterActivityAgentSessionFactory::load_production().unwrap();
-        let activity_registry = ActivityAgentSessionRegistry::new_with_modes(
+        let currency_wars_factory =
+            CurrencyWarsActivityAgentSessionFactory::load_production().unwrap();
+        let activity_registry = ActivityAgentSessionRegistry::new_with_all_modes(
             activity_factory.clone(),
             gold_factory,
             swarm_factory,
+            currency_wars_factory,
             Arc::new(Clock),
             Arc::new(Ids),
         );
@@ -299,6 +330,8 @@ mod tests {
             GOLD_AND_GEARS_RULES_URI,
             SWARM_DISASTER_URI,
             SWARM_DISASTER_RULES_URI,
+            CURRENCY_WARS_URI,
+            CURRENCY_WARS_RULES_URI,
         ] {
             let result =
                 read_resource(&factory, &activity_factory, &activity_registry, uri).unwrap();

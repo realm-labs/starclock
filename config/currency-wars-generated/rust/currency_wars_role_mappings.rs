@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsRoleMappings {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            position_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            empowerment_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            position_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            empowerment_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

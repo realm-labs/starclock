@@ -243,6 +243,7 @@ fn lower_enemy_profiles(
                         .map_err(|_| domain_fail("enemy Toughness sequence is negative"))?,
                     maximum,
                 )
+                .and_then(|layer| layer.with_stable_key(row.layer_key.clone()))
                 .map(|layer| {
                     layer
                         .with_kind(match row.kind {

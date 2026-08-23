@@ -1,0 +1,90 @@
+{
+  "schema_revision": "starclock.currency-wars-battle-assembly-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-B3",
+  "result": "Pass",
+  "production_denominators": {
+    "source_rows": 1428,
+    "integrated_source_rows": 1340,
+    "excluded_source_rows": 88,
+    "source_path_counts": {
+      "ExcelOutput/GridFightBackBEData.json": 120,
+      "ExcelOutput/GridFightBackServant.json": 265,
+      "ExcelOutput/GridFightBackSkillExtraDesc.json": 450,
+      "ExcelOutput/GridFightElationEquip.json": 126,
+      "ExcelOutput/GridFightEquipMazebuff.json": 6,
+      "ExcelOutput/GridFightGenderOverride.json": 6,
+      "ExcelOutput/GridFightOverrideRoleVO.json": 82,
+      "ExcelOutput/GridFightRolePropertyConfig.json": 55,
+      "ExcelOutput/GridFightRoleSwitchConfig.json": 2,
+      "ExcelOutput/GridFightTraitMazebuff.json": 158,
+      "ExcelOutput/GridFightTraitMazebuffPlus.json": 154,
+      "ExcelOutput/GridFightTraitSPBattleArea.json": 4
+    },
+    "source_category_counts": {
+      "bonds_members_levels": 316,
+      "build_mappings_equipment_conversions": 6,
+      "positions_character_empowerments": 1106
+    }
+  },
+  "exact_behavior": {
+    "immutable_snapshot_only": true,
+    "live_activity_lookup_after_assembly": false,
+    "static_contributions": [
+      "Front Power",
+      "role/star/Eidolon properties",
+      "equipped-item properties",
+      "active Bond properties",
+      "all-member off-field conversions",
+      "entry Energy"
+    ],
+    "front_power_formula": "base / 100 * (1 + the exact sum of additive Front Power contributions)",
+    "entry_energy": "ExtraInitSP is applied to each resolved role's Energy and clamped to its maximum",
+    "battle_validation": "every cache miss validates the assembled BattleSpec through Battle::create",
+    "cache_capacity": "caller-selected integer from 1 through 256",
+    "cache_eviction": "deterministic insertion-order FIFO",
+    "cache_identity": [
+      "runtime resource digest",
+      "immutable contribution snapshot digest",
+      "encounter catalog and selection identity",
+      "enemy scaling identity"
+    ],
+    "contribution_receipt_retained": true,
+    "resolver_content_id_branches": 0
+  },
+  "public_cross_checks": [
+    {
+      "subject": "position power and independent damage multiplier",
+      "url": "https://wiki.biligame.com/sr/%E8%B4%A7%E5%B8%81%E6%88%98%E4%BA%89/%E4%BC%A4%E5%AE%B3%E4%B9%98%E5%8C%BA",
+      "accessed": "2026-08-20"
+    },
+    {
+      "subject": "released positioning, empowerment, Bond and star-level rules",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/6564/detail",
+      "accessed": "2026-08-20"
+    },
+    {
+      "subject": "released Currency Wars gameplay overview",
+      "url": "https://www.hoyolab.com/article/42136581",
+      "accessed": "2026-08-20"
+    }
+  ],
+  "fixture_family": "currency-wars.fixture-family.battle-visible-rule-contribution",
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/contribution.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly/static_contribution.rs",
+    "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+    "content-manifests/currency-wars-runtime-v1/battle-assembly-execution-audit.json"
+  ],
+  "deferred_boundaries": [
+    {
+      "owner": "G21-P6-Mxx",
+      "boundary": "opaque skill, maze-buff and battle-event programs retained by the immutable snapshot"
+    },
+    {
+      "owner": "G21-P6-Mxx",
+      "boundary": "back-role owner-only runtime behavior and character-specific multi-step execution"
+    }
+  ]
+}

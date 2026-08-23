@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsLayers {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            layer_number: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_node_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            plane_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            layer_number: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            ordered_node_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

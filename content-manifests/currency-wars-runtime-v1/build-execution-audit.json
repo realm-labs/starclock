@@ -1,0 +1,55 @@
+{
+  "schema_revision": "starclock.currency-wars-build-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P4-B1",
+  "result": "Pass",
+  "production_denominators": {
+    "roles": 77,
+    "role_mappings": 77,
+    "build_references": 77,
+    "exact_trial_builds": 77,
+    "build_source_files": 12,
+    "explicit_role_join_source_files": 6
+  },
+  "exact_behavior": {
+    "role_join": "GridFightRoleBasicInfo.SpecialAvatarID",
+    "trial_selection": "SpecialAvatar world level 6, falling back only to the released world-level-independent row",
+    "character_join": "SpecialAvatar.AvatarID -> shared Character.source_avatar_id",
+    "light_cone_join": "SpecialAvatar.EquipmentID -> shared LightCone.source_equipment_id",
+    "relic_stats": "SpecialAvatarRelic main/sub aggregates plus statically declared RelicSetSkillConfig properties",
+    "owned_trial_substitution": "caller-snapshotted field-wise immutable selection",
+    "account_query_or_mutation": false
+  },
+  "deferred_dynamic_relic_set_programs": {
+    "retained_in_trial_build_rows": true,
+    "execution_owner": "G21-P6 battle-visible mechanic partitions",
+    "reason": "Relic set AbilityName programs are battle-visible trigger behavior, not static build arithmetic."
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.owned-trial-build-substitution-and-removal"
+  ],
+  "policy_resolution": {
+    "field": "build.role_to_shared_build",
+    "owner_batch": "G21-P4-B1",
+    "current_accuracy": "ExactEvidence",
+    "status": "ExactEvidenceExecutable",
+    "replacement_condition": "Replace only if a later released Currency Wars version changes the explicit GridFightRoleBasicInfo.SpecialAvatarID or SpecialAvatar world-level build rows.",
+    "selected_behavior": "Join each released GridFight role through its explicit SpecialAvatarID to the world-level 6 SpecialAvatar progression, source-avatar character, source-equipment Light Cone, relic aggregates and relic-set threshold closure. Resolve a caller-snapshotted owned build field-wise over that immutable mapped minimum without querying or mutating account state.",
+    "rejected_alternatives": [
+      "join roles and builds by localized name",
+      "join by adjacent numeric ranges",
+      "query account inventory from combat or Activity",
+      "treat relic selector IDs as executable stats without resolving their released rows"
+    ],
+    "confidence": "ExactReleasedStructuredJoin",
+    "terminal_evidence": "executable behavior plus replacement-trigger test"
+  },
+  "behavioral_evidence": [
+    "crates/starclock-build/src/spec.rs",
+    "crates/starclock-build/src/substitution.rs",
+    "crates/starclock-data/src/currency_wars_build.rs",
+    "crates/starclock-mode-currency-wars/src/build_catalog.rs",
+    "content-reference/currency-wars-v1/trial-builds.json",
+    "evidence/currency-wars-runtime-v1/build-execution-audit.json"
+  ]
+}

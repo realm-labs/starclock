@@ -38,7 +38,8 @@ impl RuleEventPoint {
             | P::EncounterTransition => END,
             P::ActionResolved => ACTION_END,
             P::UnitDefeated => DEFEAT,
-            P::BattleFaulted | P::DamageCalculated | P::TimelineChanged => UNOBSERVED,
+            P::BattleFaulted | P::DamageCalculated => UNOBSERVED,
+            P::TimelineChanged => POST,
             _ => POST,
         }
     }

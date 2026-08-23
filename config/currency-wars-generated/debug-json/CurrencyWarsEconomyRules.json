@@ -8,7 +8,7 @@
             "String": "DataReady"
           },
           "currency_ids": {
-            "String": "[\"currency-wars.currency.gold-coins\"]"
+            "String": "[\"currency-wars.currency.gold-coin\"]"
           },
           "evidence_quality": {
             "String": "ProjectPolicy"
@@ -18,6 +18,9 @@
           },
           "id": {
             "Integer": 1
+          },
+          "interest_rules": {
+            "String": "{\"deposit_per_interest\":\"10\",\"overclock_max_interest\":\"0\",\"standard_max_interest\":\"5\"}"
           },
           "kind": {
             "String": "CurrencyWarsEconomyRule"
@@ -32,13 +35,13 @@
             "String": "CurrencyWars"
           },
           "refresh_rules": {
-            "String": "{\"cards_per_refresh\":\"5\",\"refresh_gold\":\"2\"}"
+            "String": "{\"cards_per_refresh\":\"5\",\"copies_per_role_by_rarity\":[\"30\",\"25\",\"18\",\"10\",\"9\"],\"maximum_stolen_same_card_by_rarity\":[\"10\",\"8\",\"6\",\"3\",\"3\"],\"refresh_gold\":\"2\",\"role_initial_weight\":\"100\",\"stolen_pool_refund_hold\":\"2\",\"stolen_pool_refund_initial_purchase\":\"4\",\"stolen_pool_refund_sell\":\"2\"}"
           },
           "schema_revision": {
             "String": "starclock.currency-wars-row.v1"
           },
           "source_refs_json": {
-            "String": "[\"currency-wars.source.685a8e7e701c19384d3886a06014eef6\",\"currency-wars.source.2fc9e8f2a60de3818003c71af05ccc39\",\"currency-wars.source.41173942d97a177a6508f2b535bce997\",\"currency-wars.source.1cc783634df23c9959b09e6034ba5d0e\",\"currency-wars.source.2339f8d47c238a141bce2f2844b0e927\",\"currency-wars.source.ffd7173f7d9cfc156054094736336d99\",\"currency-wars.source.1678d913fcc98ffbeaceab1a2c768ee6\",\"currency-wars.source.ecc7f3d3ba83e58a6b8765788a632f3e\",\"currency-wars.source.0f5e2a48b9cf9bea41f7ee647b893110\",\"currency-wars.source.119d32daace5d6ec7ae3818ec12faf02\",\"currency-wars.source.286ff8ec62424d218924e7b6e5d5cfbb\",\"currency-wars.source.172a2828d00566cabbfeeae67c8e1c3a\",\"currency-wars.source.eaef73cf6f7d3b25617b68f027981312\",\"currency-wars.source.5a77c3e1a06f80a3635a0cc271a8d39f\",\"currency-wars.source.353abcd72c11ba9382cc65cbeeadc09a\",\"currency-wars.source.7deef2f8a23bc5a8bd95a1992caa2ad8\",\"currency-wars.source.441e46f3e5e146060a632e2012d5e4ed\",\"currency-wars.source.dde8767f1330f58a5b3538a576163130\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.71c60603fee3538880d7f6f58652c12c\"]"
+            "String": "[\"currency-wars.source.685a8e7e701c19384d3886a06014eef6\",\"currency-wars.source.2fc9e8f2a60de3818003c71af05ccc39\",\"currency-wars.source.41173942d97a177a6508f2b535bce997\",\"currency-wars.source.1cc783634df23c9959b09e6034ba5d0e\",\"currency-wars.source.2339f8d47c238a141bce2f2844b0e927\",\"currency-wars.source.ffd7173f7d9cfc156054094736336d99\",\"currency-wars.source.1678d913fcc98ffbeaceab1a2c768ee6\",\"currency-wars.source.ecc7f3d3ba83e58a6b8765788a632f3e\",\"currency-wars.source.0f5e2a48b9cf9bea41f7ee647b893110\",\"currency-wars.source.119d32daace5d6ec7ae3818ec12faf02\",\"currency-wars.source.286ff8ec62424d218924e7b6e5d5cfbb\",\"currency-wars.source.172a2828d00566cabbfeeae67c8e1c3a\",\"currency-wars.source.eaef73cf6f7d3b25617b68f027981312\",\"currency-wars.source.5a77c3e1a06f80a3635a0cc271a8d39f\",\"currency-wars.source.353abcd72c11ba9382cc65cbeeadc09a\",\"currency-wars.source.7deef2f8a23bc5a8bd95a1992caa2ad8\",\"currency-wars.source.441e46f3e5e146060a632e2012d5e4ed\",\"currency-wars.source.dde8767f1330f58a5b3538a576163130\",\"currency-wars.source.6f4d1ac22e3e42e83ffd91a6a5c709b8\",\"currency-wars.source.b6443899137cb2aa500c331c3e4c9e7a\",\"currency-wars.source.3954135b2b55219d99e28adf032b43c5\",\"currency-wars.source.31d082259971a798442fa38958aca56e\",\"currency-wars.source.c37580d5a1e510cd2757c9efae94092c\",\"currency-wars.source.7009656ab8f82ebb67277253948d3073\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.98aec8a15a4cfb01e15880223fac7331\"]"
           },
           "stable_key": {
             "String": "currency-wars.economy.gridfight"

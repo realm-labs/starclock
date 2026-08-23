@@ -80,12 +80,12 @@ assert(unique(assigned) && setEqual(new Set(assigned), new Set(fileNames)),
 assert(
   authoring.authority.authoritative_format === "xlsx"
     && authoring.authority.editor === "python-openpyxl"
-    && authoring.authority.schema_exporter_version === "0.3.0"
+    && authoring.authority.schema_exporter_version === "0.6.1"
     && authoring.authority.runtime_loading === false,
   "Excel/openpyxl/Sora authority drift",
 );
 assert(
-  authoring.isolation.project === "config/currency-wars/project.toml"
+  authoring.isolation.project === "config/currency-wars-project.toml"
     && authoring.isolation.generated_reader_root
       === "config/currency-wars-generated/reader/"
     && authoring.isolation.forbidden_outputs.includes("config/generated/")
@@ -191,26 +191,18 @@ for (const checkpoint of checkpoints) {
   assert(expected && Object.entries(expected).every(
     ([field, value]) => checkpoint[field] === value),
   `${checkpoint.goal} reconciliation checkpoint drift`);
-  if (checkpoint.remote_ancestor)
-    execFileSync(
-      "git",
-      ["merge-base", "--is-ancestor", checkpoint.commit, checkpoint.remote_ancestor],
-      { cwd: root, stdio: "ignore" },
-    );
-  else {
-    assert(checkpoint.remote_witness,
-      `${checkpoint.goal} lacks a remote checkpoint witness`);
-    execFileSync(
-      "git",
-      [
-        "merge-base",
-        "--is-ancestor",
-        checkpoint.remote_witness.commit,
-        checkpoint.remote_witness.remote_ancestor,
-      ],
-      { cwd: root, stdio: "ignore" },
-    );
-  }
+  execFileSync("git", ["cat-file", "-e", `${checkpoint.commit}^{commit}`], {
+    cwd: root,
+    stdio: "ignore",
+  });
+  const manifestPath = `content-manifests/${checkpoint.goal.replace("-reference-v1", "-v1")}/content-manifest.json`;
+  const committedManifest = execFileSync(
+    "git",
+    ["show", `${checkpoint.commit}:${manifestPath}`],
+    { cwd: root, maxBuffer: 100 * 1024 * 1024 },
+  );
+  assert(digestBytes(committedManifest) === checkpoint.manifest_sha256,
+    `${checkpoint.goal} committed manifest digest drift`);
 }
 assert(
   schema.reconciliation_policy.join_key.join(",")

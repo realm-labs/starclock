@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 from pathlib import Path
@@ -361,3 +362,45 @@ def entry_rule_overrides(stable_ids: dict[str, int], resolved: dict[str, dict[st
         stable_ids["character.kafka.ability.gentle-but-cruel.skillp01"]: resolved["kafka-dot"]["8"],
         stable_ids["character.clara.ability.because-were-family.skillp01"]: resolved["clara-counter"]["5"],
     }
+
+
+def production_stable_ids() -> dict[str, int]:
+    from character_workbook_support import workbook_rows
+
+    _, rows = workbook_rows("ContentIdentity")
+    return {str(row["stable_key"]): int(row["id"]) for row in rows}
+
+
+def merged_promoted_selectors(stable_ids: dict[str, int]) -> list[dict[str, Any]]:
+    from character_workbook_support import workbook_rows
+
+    promoted = generate(stable_ids)[0]["Selector"]
+    promoted_ids = {int(row["id"]) for row in promoted}
+    if len(promoted_ids) != len(promoted):
+        raise ValueError("promoted probe selector IDs are not unique")
+    _, existing = workbook_rows("Selector")
+    existing_ids = {int(row["id"]) for row in existing}
+    missing = promoted_ids - existing_ids
+    if missing:
+        raise ValueError(f"production Selector.xlsx lacks promoted IDs {sorted(missing)}")
+    retained = [dict(row) for row in existing if int(row["id"]) not in promoted_ids]
+    return sorted(retained + promoted, key=lambda row: int(row["id"]))
+
+
+def main() -> None:
+    from character_workbook_support import check_exact, write_rows
+
+    parser = argparse.ArgumentParser()
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--write-selectors", action="store_true")
+    mode.add_argument("--check-selectors", action="store_true")
+    arguments = parser.parse_args()
+    expected = merged_promoted_selectors(production_stable_ids())
+    if arguments.write_selectors:
+        write_rows("Selector", expected)
+    check_exact("Selector", expected)
+    print("Promoted representative probe selectors match their production workbook rows.")
+
+
+if __name__ == "__main__":
+    main()

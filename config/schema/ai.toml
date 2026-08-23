@@ -1,16 +1,17 @@
+
 [[enums]]
 name = "AiCandidateSelection"
-values = ["FirstLegal", "WeightedDraw"]
+values = [{ id = 0, name = "FirstLegal" }, { id = 1, name = "WeightedDraw" }]
 
 [[enums]]
 name = "AiNoTargetFallback"
-values = ["UseFallbackAbility", "StayInState", "Transition", "SkipAction", "Fault"]
+values = [{ id = 0, name = "UseFallbackAbility" }, { id = 1, name = "StayInState" }, { id = 2, name = "Transition" }, { id = 3, name = "SkipAction" }, { id = 4, name = "Fault" }]
 
 [[enums]]
 name = "AiTransitionTiming"
-values = ["AutomaticBeforeDecision", "AfterAction", "AfterPhase", "Explicit"]
-
+values = [{ id = 0, name = "AutomaticBeforeDecision" }, { id = 1, name = "AfterAction" }, { id = 2, name = "AfterPhase" }, { id = 3, name = "Explicit" }]
 [[tables]]
+id = "ai-graph"
 name = "AiGraph"
 mode = "map"
 key = "id"
@@ -33,6 +34,7 @@ type = "i32"
 range = [1, 100]
 
 [[tables]]
+id = "ai-state"
 name = "AiState"
 mode = "map"
 key = "id"
@@ -73,6 +75,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "ai-candidate"
 name = "AiCandidate"
 mode = "map"
 key = "id"
@@ -148,6 +151,7 @@ fields = ["state_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "ai-transition"
 name = "AiTransition"
 mode = "map"
 key = "id"

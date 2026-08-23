@@ -1,10 +1,10 @@
 //! Exact normalized build selection accepted by the compiler.
 
-use starclock_combat::{UnitDefinitionId, UnitLevel};
+use starclock_combat::{Scalar, UnitDefinitionId, UnitLevel};
 
 use crate::{
     ability::AbilityInvestment,
-    id::{LightConeId, TraceNodeId},
+    id::{BuildContributionId, LightConeId, TraceNodeId},
     light_cone::{LightConeLevel, Superimposition},
 };
 
@@ -52,6 +52,134 @@ pub struct LightConeLoadout {
     superimposition: Superimposition,
 }
 
+/// Exact aggregate stats contributed by selected relic-like equipment.
+///
+/// This value contains only generic numeric build input. Set identities and
+/// battle-visible set abilities remain in their owning content/runtime layer.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RelicStatContribution {
+    hp_flat: Scalar,
+    attack_flat: Scalar,
+    defense_flat: Scalar,
+    speed_flat: Scalar,
+    hp_ratio: Scalar,
+    attack_ratio: Scalar,
+    defense_ratio: Scalar,
+    speed_ratio: Scalar,
+    critical_rate: Scalar,
+    critical_damage: Scalar,
+    effect_hit_rate: Scalar,
+    effect_resistance: Scalar,
+    break_effect: Scalar,
+    energy_regeneration_rate: Scalar,
+    outgoing_healing: Scalar,
+    element_damage_boosts: [Scalar; 7],
+}
+
+impl Default for RelicStatContribution {
+    fn default() -> Self {
+        Self::new(
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            [Scalar::ZERO; 7],
+        )
+    }
+}
+
+impl RelicStatContribution {
+    #[allow(clippy::too_many_arguments)]
+    #[must_use]
+    pub const fn new(
+        hp_flat: Scalar,
+        attack_flat: Scalar,
+        defense_flat: Scalar,
+        speed_flat: Scalar,
+        hp_ratio: Scalar,
+        attack_ratio: Scalar,
+        defense_ratio: Scalar,
+        speed_ratio: Scalar,
+        critical_rate: Scalar,
+        critical_damage: Scalar,
+        effect_hit_rate: Scalar,
+        effect_resistance: Scalar,
+        break_effect: Scalar,
+        energy_regeneration_rate: Scalar,
+        outgoing_healing: Scalar,
+        element_damage_boosts: [Scalar; 7],
+    ) -> Self {
+        Self {
+            hp_flat,
+            attack_flat,
+            defense_flat,
+            speed_flat,
+            hp_ratio,
+            attack_ratio,
+            defense_ratio,
+            speed_ratio,
+            critical_rate,
+            critical_damage,
+            effect_hit_rate,
+            effect_resistance,
+            break_effect,
+            energy_regeneration_rate,
+            outgoing_healing,
+            element_damage_boosts,
+        }
+    }
+
+    #[must_use]
+    pub const fn base_flats(self) -> [Scalar; 4] {
+        [
+            self.hp_flat,
+            self.attack_flat,
+            self.defense_flat,
+            self.speed_flat,
+        ]
+    }
+
+    #[must_use]
+    pub const fn base_ratios(self) -> [Scalar; 4] {
+        [
+            self.hp_ratio,
+            self.attack_ratio,
+            self.defense_ratio,
+            self.speed_ratio,
+        ]
+    }
+
+    #[must_use]
+    pub const fn secondary(self) -> [Scalar; 7] {
+        [
+            self.critical_rate,
+            self.critical_damage,
+            self.effect_hit_rate,
+            self.effect_resistance,
+            self.break_effect,
+            self.energy_regeneration_rate,
+            self.outgoing_healing,
+        ]
+    }
+
+    /// Returns Physical, Fire, Ice, Lightning, Wind, Quantum and Imaginary.
+    #[must_use]
+    pub const fn element_damage_boosts(self) -> [Scalar; 7] {
+        self.element_damage_boosts
+    }
+}
+
 impl LightConeLoadout {
     #[must_use]
     pub const fn new(
@@ -95,6 +223,8 @@ pub struct CombatantBuildSpec {
     traces: Box<[TraceNodeId]>,
     eidolon: EidolonLevel,
     light_cone: Option<LightConeLoadout>,
+    contributions: Box<[BuildContributionId]>,
+    relic_stats: RelicStatContribution,
 }
 
 impl CombatantBuildSpec {
@@ -108,6 +238,8 @@ impl CombatantBuildSpec {
             traces: Box::new([]),
             eidolon: EidolonLevel::E0,
             light_cone: None,
+            contributions: Box::new([]),
+            relic_stats: RelicStatContribution::default(),
         }
     }
     pub fn with_ability_levels(
@@ -142,6 +274,22 @@ impl CombatantBuildSpec {
         self.light_cone = Some(light_cone);
         self
     }
+    pub fn with_contributions(
+        mut self,
+        mut contributions: Vec<BuildContributionId>,
+    ) -> Result<Self, BuildSpecError> {
+        contributions.sort_unstable();
+        if contributions.windows(2).any(|pair| pair[0] == pair[1]) {
+            return Err(BuildSpecError::DuplicateContribution);
+        }
+        self.contributions = contributions.into_boxed_slice();
+        Ok(self)
+    }
+    #[must_use]
+    pub const fn with_relic_stats(mut self, relic_stats: RelicStatContribution) -> Self {
+        self.relic_stats = relic_stats;
+        self
+    }
     #[must_use]
     pub const fn form(&self) -> UnitDefinitionId {
         self.form
@@ -170,12 +318,21 @@ impl CombatantBuildSpec {
     pub const fn light_cone(&self) -> Option<LightConeLoadout> {
         self.light_cone
     }
+    #[must_use]
+    pub fn contributions(&self) -> &[BuildContributionId] {
+        &self.contributions
+    }
+    #[must_use]
+    pub const fn relic_stats(&self) -> RelicStatContribution {
+        self.relic_stats
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BuildSpecError {
     DuplicateAbilityFamily,
     DuplicateTrace,
+    DuplicateContribution,
 }
 
 impl std::fmt::Display for BuildSpecError {

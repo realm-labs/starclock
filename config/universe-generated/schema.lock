@@ -1,306 +1,574 @@
 {
-  "version": 1,
-  "package": "starclock_universe_reference_config",
-  "fingerprint": "a9cf52766c2e44f2",
+  "version": 3,
+  "project_id": "starclock_universe_reference_config",
+  "contract_id": "starclock_universe_reference_config/default",
+  "view": "default",
+  "fingerprint": "4ed68d7c314c607b",
   "schema": {
-    "package": "starclock_universe_reference_config",
+    "project_id": "starclock_universe_reference_config",
+    "contract_id": "starclock_universe_reference_config/default",
+    "view": "default",
     "enums": [
       {
         "name": "UniverseDifficultyKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Tutorial",
-          "Standard"
+          {
+            "id": 0,
+            "name": "Tutorial"
+          },
+          {
+            "id": 1,
+            "name": "Standard"
+          }
         ]
       },
       {
         "name": "UniverseDomainKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "CombatPrimary",
-          "CombatSecondary",
-          "Occurrence",
-          "Encounter",
-          "Respite",
-          "Elite",
-          "Boss",
-          "Transaction",
-          "Adventure"
+          {
+            "id": 0,
+            "name": "CombatPrimary"
+          },
+          {
+            "id": 1,
+            "name": "CombatSecondary"
+          },
+          {
+            "id": 2,
+            "name": "Occurrence"
+          },
+          {
+            "id": 3,
+            "name": "Encounter"
+          },
+          {
+            "id": 4,
+            "name": "Respite"
+          },
+          {
+            "id": 5,
+            "name": "Elite"
+          },
+          {
+            "id": 6,
+            "name": "Boss"
+          },
+          {
+            "id": 7,
+            "name": "Transaction"
+          },
+          {
+            "id": 8,
+            "name": "Adventure"
+          }
         ]
       },
       {
         "name": "UniverseDecisionPolicy",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "BattleHandoff",
-          "ExternalCommand"
+          {
+            "id": 0,
+            "name": "BattleHandoff"
+          },
+          {
+            "id": 1,
+            "name": "ExternalCommand"
+          }
         ]
       },
       {
         "name": "UniverseEnemyRole",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Boss",
-          "Elite"
+          {
+            "id": 0,
+            "name": "Boss"
+          },
+          {
+            "id": 1,
+            "name": "Elite"
+          }
         ]
       },
       {
         "name": "UniverseRoomContentKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "EncounterGroup",
-          "FixedContent",
-          "ExternalDecision"
+          {
+            "id": 0,
+            "name": "EncounterGroup"
+          },
+          {
+            "id": 1,
+            "name": "FixedContent"
+          },
+          {
+            "id": 2,
+            "name": "ExternalDecision"
+          }
         ]
       },
       {
         "name": "UniverseResonanceKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Resonance",
-          "Formation"
+          {
+            "id": 0,
+            "name": "Resonance"
+          },
+          {
+            "id": 1,
+            "name": "Formation"
+          }
         ]
       },
       {
         "name": "UniverseCurioStateKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Active",
-          "Repairing",
-          "Fixed"
+          {
+            "id": 0,
+            "name": "Active"
+          },
+          {
+            "id": 1,
+            "name": "Repairing"
+          },
+          {
+            "id": 2,
+            "name": "Fixed"
+          }
         ]
       },
       {
         "name": "UniverseServiceKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Currency",
-          "ResetBlessing",
-          "Reviver",
-          "Downloader",
-          "RespiteOffers",
-          "EnhanceBlessing",
-          "BlessingShop",
-          "CurioShop",
-          "TrailblazeBonus"
+          {
+            "id": 0,
+            "name": "Currency"
+          },
+          {
+            "id": 1,
+            "name": "ResetBlessing"
+          },
+          {
+            "id": 2,
+            "name": "Reviver"
+          },
+          {
+            "id": 3,
+            "name": "Downloader"
+          },
+          {
+            "id": 4,
+            "name": "RespiteOffers"
+          },
+          {
+            "id": 5,
+            "name": "EnhanceBlessing"
+          },
+          {
+            "id": 6,
+            "name": "BlessingShop"
+          },
+          {
+            "id": 7,
+            "name": "CurioShop"
+          },
+          {
+            "id": 8,
+            "name": "TrailblazeBonus"
+          }
         ]
       },
       {
         "name": "UniverseServiceProfileOwner",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Standard",
-          "SwarmDisaster",
-          "GoldAndGears",
-          "DivergentUniverse"
+          {
+            "id": 0,
+            "name": "Standard"
+          },
+          {
+            "id": 1,
+            "name": "SwarmDisaster"
+          },
+          {
+            "id": 2,
+            "name": "GoldAndGears"
+          },
+          {
+            "id": 3,
+            "name": "DivergentUniverse"
+          }
         ]
       },
       {
         "name": "UniverseAbilityEffectClass",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Run",
-          "Battle",
-          "RunAndBattle"
+          {
+            "id": 0,
+            "name": "Run"
+          },
+          {
+            "id": 1,
+            "name": "Battle"
+          },
+          {
+            "id": 2,
+            "name": "RunAndBattle"
+          }
         ]
       },
       {
         "name": "UniverseAbilityOperation",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Unlock",
-          "AddStat",
-          "UnlockFormationSlot",
-          "Set",
-          "AddLimit",
-          "Enable",
-          "AddCurrency",
-          "AddChoice",
-          "AddResource",
-          "SetRatio"
+          {
+            "id": 0,
+            "name": "Unlock"
+          },
+          {
+            "id": 1,
+            "name": "AddStat"
+          },
+          {
+            "id": 2,
+            "name": "UnlockFormationSlot"
+          },
+          {
+            "id": 3,
+            "name": "Set"
+          },
+          {
+            "id": 4,
+            "name": "AddLimit"
+          },
+          {
+            "id": 5,
+            "name": "Enable"
+          },
+          {
+            "id": 6,
+            "name": "AddCurrency"
+          },
+          {
+            "id": 7,
+            "name": "AddChoice"
+          },
+          {
+            "id": 8,
+            "name": "AddResource"
+          },
+          {
+            "id": 9,
+            "name": "SetRatio"
+          }
         ]
       },
       {
         "name": "UniverseAbilityValueUnit",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Boolean",
-          "Flat",
-          "Count",
-          "Ratio"
+          {
+            "id": 0,
+            "name": "Boolean"
+          },
+          {
+            "id": 1,
+            "name": "Flat"
+          },
+          {
+            "id": 2,
+            "name": "Count"
+          },
+          {
+            "id": 3,
+            "name": "Ratio"
+          }
         ]
       },
       {
         "name": "UniversePoolKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Blessing",
-          "Curio",
-          "Occurrence",
-          "Encounter",
-          "Shop",
-          "TrailblazeBonus"
+          {
+            "id": 0,
+            "name": "Blessing"
+          },
+          {
+            "id": 1,
+            "name": "Curio"
+          },
+          {
+            "id": 2,
+            "name": "Occurrence"
+          },
+          {
+            "id": 3,
+            "name": "Encounter"
+          },
+          {
+            "id": 4,
+            "name": "Shop"
+          },
+          {
+            "id": 5,
+            "name": "TrailblazeBonus"
+          }
         ]
       },
       {
         "name": "UniverseSelectionPolicy",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "SelectExactConditionKeyThenWeightedStableOrder",
-          "ResolveWorldDifficultyBossEliteBinding",
-          "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          {
+            "id": 0,
+            "name": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          {
+            "id": 1,
+            "name": "ResolveWorldDifficultyBossEliteBinding"
+          },
+          {
+            "id": 2,
+            "name": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          }
         ]
       },
       {
         "name": "UniverseWavePolicy",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "SingleWave",
-          "AuthoredSequentialWaves"
+          {
+            "id": 0,
+            "name": "SingleWave"
+          },
+          {
+            "id": 1,
+            "name": "AuthoredSequentialWaves"
+          }
         ]
       },
       {
         "name": "UniverseBossPhasePolicy",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "EnemyAuthoredLifecycle"
+          {
+            "id": 0,
+            "name": "EnemyAuthoredLifecycle"
+          }
         ]
       },
       {
         "name": "UniverseMechanicRuleKind",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "PathResonance",
-          "BlessingDefinition",
-          "BlessingLevel",
-          "CurioDefinition",
-          "CurioState",
-          "RunService",
-          "AbilityTreeContribution"
+          {
+            "id": 0,
+            "name": "PathResonance"
+          },
+          {
+            "id": 1,
+            "name": "BlessingDefinition"
+          },
+          {
+            "id": 2,
+            "name": "BlessingLevel"
+          },
+          {
+            "id": 3,
+            "name": "CurioDefinition"
+          },
+          {
+            "id": 4,
+            "name": "CurioState"
+          },
+          {
+            "id": 5,
+            "name": "RunService"
+          },
+          {
+            "id": 6,
+            "name": "AbilityTreeContribution"
+          }
         ]
       },
       {
         "name": "UniverseActivityDecision",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "BattleCommand",
-          "RunCommand",
-          "ExternalOutcome"
+          {
+            "id": 0,
+            "name": "BattleCommand"
+          },
+          {
+            "id": 1,
+            "name": "RunCommand"
+          },
+          {
+            "id": 2,
+            "name": "ExternalOutcome"
+          }
         ]
       },
       {
         "name": "UniverseModeOwner",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Standard",
-          "Shared",
-          "EvidenceOnly"
+          {
+            "id": 0,
+            "name": "Standard"
+          },
+          {
+            "id": 1,
+            "name": "Shared"
+          },
+          {
+            "id": 2,
+            "name": "EvidenceOnly"
+          }
         ]
       },
       {
         "name": "UniverseDataQuality",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "ExactStructured",
-          "ExactPublicText",
-          "Observed",
-          "ApproximateFromReleasedText",
-          "ProjectPolicy"
+          {
+            "id": 0,
+            "name": "ExactStructured"
+          },
+          {
+            "id": 1,
+            "name": "ExactPublicText"
+          },
+          {
+            "id": 2,
+            "name": "Observed"
+          },
+          {
+            "id": 3,
+            "name": "ApproximateFromReleasedText"
+          },
+          {
+            "id": 4,
+            "name": "ProjectPolicy"
+          }
         ]
       },
       {
         "name": "UniverseCoverageState",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Cataloged",
-          "Researched",
-          "DataReady",
-          "GoldenVerified",
-          "Blocked"
+          {
+            "id": 0,
+            "name": "Cataloged"
+          },
+          {
+            "id": 1,
+            "name": "Researched"
+          },
+          {
+            "id": 2,
+            "name": "DataReady"
+          },
+          {
+            "id": 3,
+            "name": "GoldenVerified"
+          },
+          {
+            "id": 4,
+            "name": "Blocked"
+          }
         ]
       }
     ],
@@ -308,10 +576,12 @@
     "unions": [],
     "tables": [
       {
+        "id": "universe-profile",
         "name": "UniverseProfile",
-        "scope": {
+        "canonical_name": "UniverseProfile",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -325,9 +595,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -344,9 +614,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -363,9 +633,9 @@
           {
             "name": "game_version",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -382,9 +652,9 @@
           {
             "name": "snapshot_date",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -401,9 +671,9 @@
           {
             "name": "content_manifest_sha256",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -420,9 +690,9 @@
           {
             "name": "pack_sha256",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -439,9 +709,9 @@
           {
             "name": "world_count",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -458,9 +728,9 @@
           {
             "name": "path_count",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -477,9 +747,9 @@
           {
             "name": "runtime_loading",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -505,10 +775,12 @@
         ]
       },
       {
+        "id": "universe-world",
         "name": "UniverseWorld",
-        "scope": {
+        "canonical_name": "UniverseWorld",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -522,9 +794,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -546,9 +818,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -562,9 +834,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -581,9 +853,9 @@
           {
             "name": "world_number",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -600,9 +872,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -619,9 +891,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -638,9 +910,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -657,9 +929,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -676,9 +948,9 @@
           {
             "name": "entry_rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -695,9 +967,9 @@
           {
             "name": "terminal_rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -731,10 +1003,12 @@
         ]
       },
       {
+        "id": "universe-difficulty",
         "name": "UniverseDifficulty",
-        "scope": {
+        "canonical_name": "UniverseDifficulty",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -748,9 +1022,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -767,9 +1041,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -791,9 +1065,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -807,9 +1081,9 @@
           {
             "name": "source_area_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -826,9 +1100,9 @@
           {
             "name": "difficulty",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -847,9 +1121,9 @@
             "ty": {
               "Enum": "UniverseDifficultyKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -863,9 +1137,9 @@
           {
             "name": "recommended_level",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -884,9 +1158,9 @@
             "ty": {
               "List": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -908,9 +1182,9 @@
           {
             "name": "score_curve_json",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -929,9 +1203,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -961,10 +1235,12 @@
         ]
       },
       {
+        "id": "universe-difficulty-enemy",
         "name": "UniverseDifficultyEnemy",
-        "scope": {
+        "canonical_name": "UniverseDifficultyEnemy",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -983,9 +1259,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -999,9 +1275,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1020,9 +1296,9 @@
             "ty": {
               "Enum": "UniverseEnemyRole"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1036,9 +1312,9 @@
           {
             "name": "source_monster_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1055,9 +1331,9 @@
           {
             "name": "enemy_variant_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1074,9 +1350,9 @@
           {
             "name": "level",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1103,10 +1379,12 @@
         ]
       },
       {
+        "id": "universe-domain",
         "name": "UniverseDomain",
-        "scope": {
+        "canonical_name": "UniverseDomain",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -1120,9 +1398,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -1139,9 +1417,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1158,9 +1436,9 @@
           {
             "name": "source_type",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1179,9 +1457,9 @@
             "ty": {
               "Enum": "UniverseDomainKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1197,9 +1475,9 @@
             "ty": {
               "Enum": "UniverseDecisionPolicy"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1213,9 +1491,9 @@
           {
             "name": "terminal",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1229,9 +1507,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1248,9 +1526,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1267,9 +1545,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1286,9 +1564,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1321,10 +1599,12 @@
         ]
       },
       {
+        "id": "universe-map-node",
         "name": "UniverseMapNode",
-        "scope": {
+        "canonical_name": "UniverseMapNode",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -1338,9 +1618,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -1357,9 +1637,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1376,9 +1656,9 @@
           {
             "name": "source_map_id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1395,9 +1675,9 @@
           {
             "name": "source_node_id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1414,9 +1694,9 @@
           {
             "name": "is_start",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1430,9 +1710,9 @@
           {
             "name": "position_x",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1449,9 +1729,9 @@
           {
             "name": "position_y",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1485,10 +1765,12 @@
         ]
       },
       {
+        "id": "universe-map-edge",
         "name": "UniverseMapEdge",
-        "scope": {
+        "canonical_name": "UniverseMapEdge",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -1507,9 +1789,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1523,9 +1805,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1547,9 +1829,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1573,10 +1855,12 @@
         ]
       },
       {
+        "id": "universe-room",
         "name": "UniverseRoom",
-        "scope": {
+        "canonical_name": "UniverseRoom",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -1590,9 +1874,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -1609,9 +1893,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1633,9 +1917,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1649,9 +1933,9 @@
           {
             "name": "source_room_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1668,9 +1952,9 @@
           {
             "name": "map_entrance",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1687,9 +1971,9 @@
           {
             "name": "source_group_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1708,9 +1992,9 @@
             "ty": {
               "List": "I32"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1748,10 +2032,12 @@
         ]
       },
       {
+        "id": "universe-room-content",
         "name": "UniverseRoomContent",
-        "scope": {
+        "canonical_name": "UniverseRoomContent",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -1770,9 +2056,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1786,9 +2072,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1805,9 +2091,9 @@
           {
             "name": "condition_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1824,9 +2110,9 @@
           {
             "name": "source_content_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1845,9 +2131,9 @@
             "ty": {
               "Enum": "UniverseRoomContentKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1868,9 +2154,9 @@
                 }
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1894,10 +2180,12 @@
         ]
       },
       {
+        "id": "universe-path",
         "name": "UniversePath",
-        "scope": {
+        "canonical_name": "UniversePath",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -1911,9 +2199,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -1930,9 +2218,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1949,9 +2237,9 @@
           {
             "name": "buff_type",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1968,9 +2256,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -1987,9 +2275,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2006,9 +2294,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2025,9 +2313,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2044,9 +2332,9 @@
           {
             "name": "unlock_policy_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2079,10 +2367,12 @@
         ]
       },
       {
+        "id": "universe-path-blessing",
         "name": "UniversePathBlessing",
-        "scope": {
+        "canonical_name": "UniversePathBlessing",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -2101,9 +2391,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2117,9 +2407,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2136,9 +2426,9 @@
           {
             "name": "blessing_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2165,10 +2455,12 @@
         ]
       },
       {
+        "id": "universe-resonance",
         "name": "UniverseResonance",
-        "scope": {
+        "canonical_name": "UniverseResonance",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -2182,9 +2474,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -2201,9 +2493,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2225,9 +2517,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2243,9 +2535,9 @@
             "ty": {
               "Enum": "UniverseResonanceKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2259,9 +2551,9 @@
           {
             "name": "threshold",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2278,9 +2570,9 @@
           {
             "name": "energy_max_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2297,9 +2589,9 @@
           {
             "name": "initial_energy_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2316,9 +2608,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2335,9 +2627,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2354,9 +2646,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2373,9 +2665,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2396,9 +2688,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2420,9 +2712,9 @@
           {
             "name": "source_binding_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2439,9 +2731,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2467,10 +2759,12 @@
         ]
       },
       {
+        "id": "universe-resonance-parameter",
         "name": "UniverseResonanceParameter",
-        "scope": {
+        "canonical_name": "UniverseResonanceParameter",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -2489,9 +2783,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2505,9 +2799,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2524,9 +2818,9 @@
           {
             "name": "value_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2553,10 +2847,12 @@
         ]
       },
       {
+        "id": "universe-blessing",
         "name": "UniverseBlessing",
-        "scope": {
+        "canonical_name": "UniverseBlessing",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -2570,9 +2866,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -2589,9 +2885,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2613,9 +2909,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2629,9 +2925,9 @@
           {
             "name": "rarity",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2648,9 +2944,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2667,9 +2963,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2686,9 +2982,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2705,9 +3001,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2728,9 +3024,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2756,9 +3052,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2780,9 +3076,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2799,9 +3095,9 @@
           {
             "name": "source_description_sha256_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2818,9 +3114,9 @@
           {
             "name": "source_description_sha256_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2846,10 +3142,12 @@
         ]
       },
       {
+        "id": "universe-blessing-prerequisite",
         "name": "UniverseBlessingPrerequisite",
-        "scope": {
+        "canonical_name": "UniverseBlessingPrerequisite",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -2868,9 +3166,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2884,9 +3182,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2903,9 +3201,9 @@
           {
             "name": "prerequisite_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2932,10 +3230,12 @@
         ]
       },
       {
+        "id": "universe-blessing-level",
         "name": "UniverseBlessingLevel",
-        "scope": {
+        "canonical_name": "UniverseBlessingLevel",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -2949,9 +3249,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -2968,9 +3268,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -2992,9 +3292,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3008,9 +3308,9 @@
           {
             "name": "level",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3027,9 +3327,9 @@
           {
             "name": "source_binding_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3046,9 +3346,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3065,9 +3365,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3084,9 +3384,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3103,9 +3403,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3122,9 +3422,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3158,10 +3458,12 @@
         ]
       },
       {
+        "id": "universe-blessing-parameter",
         "name": "UniverseBlessingParameter",
-        "scope": {
+        "canonical_name": "UniverseBlessingParameter",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -3180,9 +3482,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3196,9 +3498,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3215,9 +3517,9 @@
           {
             "name": "value_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3244,10 +3546,12 @@
         ]
       },
       {
+        "id": "universe-curio",
         "name": "UniverseCurio",
-        "scope": {
+        "canonical_name": "UniverseCurio",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -3261,9 +3565,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -3280,9 +3584,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3299,9 +3603,9 @@
           {
             "name": "initial_state_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3318,9 +3622,9 @@
           {
             "name": "handbook_order",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3337,9 +3641,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3356,9 +3660,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3375,9 +3679,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3394,9 +3698,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3417,9 +3721,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3445,9 +3749,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3469,9 +3773,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3497,10 +3801,12 @@
         ]
       },
       {
+        "id": "universe-curio-state",
         "name": "UniverseCurioState",
-        "scope": {
+        "canonical_name": "UniverseCurioState",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -3514,9 +3820,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -3533,9 +3839,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3557,9 +3863,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3575,9 +3881,9 @@
             "ty": {
               "Enum": "UniverseCurioStateKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3593,9 +3899,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3612,9 +3918,9 @@
           {
             "name": "charge_parameter_index",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3638,9 +3944,9 @@
                 }
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3661,9 +3967,9 @@
                 }
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3684,9 +3990,9 @@
                 }
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3700,9 +4006,9 @@
           {
             "name": "source_effect_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3719,9 +4025,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3738,9 +4044,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3757,9 +4063,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3776,9 +4082,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3795,9 +4101,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3823,10 +4129,12 @@
         ]
       },
       {
+        "id": "universe-curio-parameter",
         "name": "UniverseCurioParameter",
-        "scope": {
+        "canonical_name": "UniverseCurioParameter",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -3845,9 +4153,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3861,9 +4169,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3880,9 +4188,9 @@
           {
             "name": "value_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3909,10 +4217,12 @@
         ]
       },
       {
+        "id": "universe-occurrence",
         "name": "UniverseOccurrence",
-        "scope": {
+        "canonical_name": "UniverseOccurrence",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -3926,9 +4236,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -3945,9 +4255,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3964,9 +4274,9 @@
           {
             "name": "choice_graph_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -3987,9 +4297,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4011,9 +4321,9 @@
           {
             "name": "index_only",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4027,9 +4337,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4046,9 +4356,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4065,9 +4375,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4084,9 +4394,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4112,10 +4422,12 @@
         ]
       },
       {
+        "id": "universe-occurrence-variant",
         "name": "UniverseOccurrenceVariant",
-        "scope": {
+        "canonical_name": "UniverseOccurrenceVariant",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -4129,9 +4441,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -4148,9 +4460,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4172,9 +4484,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4188,9 +4500,9 @@
           {
             "name": "entry_node_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4211,9 +4523,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4235,9 +4547,9 @@
           {
             "name": "source_dialogue_type",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4254,9 +4566,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4273,9 +4585,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4292,9 +4604,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4311,9 +4623,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4339,10 +4651,12 @@
         ]
       },
       {
+        "id": "universe-occurrence-choice",
         "name": "UniverseOccurrenceChoice",
-        "scope": {
+        "canonical_name": "UniverseOccurrenceChoice",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -4356,9 +4670,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -4375,9 +4689,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4399,9 +4713,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4419,9 +4733,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4445,9 +4759,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4461,9 +4775,9 @@
           {
             "name": "parameter_vectors_json",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4480,9 +4794,9 @@
           {
             "name": "choice_label_sha256_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4499,9 +4813,9 @@
           {
             "name": "choice_label_sha256_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4518,9 +4832,9 @@
           {
             "name": "result_sha256_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4537,9 +4851,9 @@
           {
             "name": "result_sha256_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4556,9 +4870,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4575,9 +4889,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4594,9 +4908,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4613,9 +4927,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4641,10 +4955,12 @@
         ]
       },
       {
+        "id": "universe-occurrence-cost",
         "name": "UniverseOccurrenceCost",
-        "scope": {
+        "canonical_name": "UniverseOccurrenceCost",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -4663,9 +4979,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4679,9 +4995,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4698,9 +5014,9 @@
           {
             "name": "kind",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4721,9 +5037,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4755,10 +5071,12 @@
         ]
       },
       {
+        "id": "universe-occurrence-outcome",
         "name": "UniverseOccurrenceOutcome",
-        "scope": {
+        "canonical_name": "UniverseOccurrenceOutcome",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -4777,9 +5095,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4793,9 +5111,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4814,9 +5132,9 @@
             "ty": {
               "List": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4842,9 +5160,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4870,9 +5188,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4898,9 +5216,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4926,9 +5244,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4952,9 +5270,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -4978,10 +5296,12 @@
         ]
       },
       {
+        "id": "universe-service",
         "name": "UniverseService",
-        "scope": {
+        "canonical_name": "UniverseService",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -4995,9 +5315,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -5014,9 +5334,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5035,9 +5355,9 @@
             "ty": {
               "Enum": "UniverseServiceKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5053,9 +5373,9 @@
             "ty": {
               "Enum": "UniverseServiceProfileOwner"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5071,9 +5391,9 @@
             "ty": {
               "Optional": "I32"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5089,9 +5409,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5107,9 +5427,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5125,9 +5445,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5141,9 +5461,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5160,9 +5480,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5179,9 +5499,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5198,9 +5518,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5217,9 +5537,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5245,10 +5565,12 @@
         ]
       },
       {
+        "id": "universe-service-parameter",
         "name": "UniverseServiceParameter",
-        "scope": {
+        "canonical_name": "UniverseServiceParameter",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -5267,9 +5589,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5283,9 +5605,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5302,9 +5624,9 @@
           {
             "name": "key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5321,9 +5643,9 @@
           {
             "name": "value",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5350,10 +5672,12 @@
         ]
       },
       {
+        "id": "universe-ability-tree-node",
         "name": "UniverseAbilityTreeNode",
-        "scope": {
+        "canonical_name": "UniverseAbilityTreeNode",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -5367,9 +5691,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -5386,9 +5710,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5405,9 +5729,9 @@
           {
             "name": "important",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5423,9 +5747,9 @@
             "ty": {
               "Enum": "UniverseAbilityEffectClass"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5439,9 +5763,9 @@
           {
             "name": "effect_tag_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5458,9 +5782,9 @@
           {
             "name": "effect_tag_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5481,9 +5805,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5505,9 +5829,9 @@
           {
             "name": "rule_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5524,9 +5848,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5543,9 +5867,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5562,9 +5886,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5581,9 +5905,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5609,10 +5933,12 @@
         ]
       },
       {
+        "id": "universe-ability-tree-edge",
         "name": "UniverseAbilityTreeEdge",
-        "scope": {
+        "canonical_name": "UniverseAbilityTreeEdge",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -5631,9 +5957,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5647,9 +5973,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5671,9 +5997,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5697,10 +6023,12 @@
         ]
       },
       {
+        "id": "universe-ability-tree-cost",
         "name": "UniverseAbilityTreeCost",
-        "scope": {
+        "canonical_name": "UniverseAbilityTreeCost",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -5719,9 +6047,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5735,9 +6063,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5754,9 +6082,9 @@
           {
             "name": "source_item_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5773,9 +6101,9 @@
           {
             "name": "amount_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5802,10 +6130,12 @@
         ]
       },
       {
+        "id": "universe-ability-tree-effect",
         "name": "UniverseAbilityTreeEffect",
-        "scope": {
+        "canonical_name": "UniverseAbilityTreeEffect",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -5824,9 +6154,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5840,9 +6170,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5861,9 +6191,9 @@
             "ty": {
               "Enum": "UniverseAbilityOperation"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5877,9 +6207,9 @@
           {
             "name": "target",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5896,9 +6226,9 @@
           {
             "name": "value_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5917,9 +6247,9 @@
             "ty": {
               "Enum": "UniverseAbilityValueUnit"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5935,9 +6265,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5961,10 +6291,12 @@
         ]
       },
       {
+        "id": "universe-ability-tree-parameter",
         "name": "UniverseAbilityTreeParameter",
-        "scope": {
+        "canonical_name": "UniverseAbilityTreeParameter",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -5983,9 +6315,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -5999,9 +6331,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6018,9 +6350,9 @@
           {
             "name": "value_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6047,10 +6379,12 @@
         ]
       },
       {
+        "id": "universe-content-pool",
         "name": "UniverseContentPool",
-        "scope": {
+        "canonical_name": "UniverseContentPool",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -6064,9 +6398,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -6083,9 +6417,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6104,9 +6438,9 @@
             "ty": {
               "Enum": "UniversePoolKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6120,9 +6454,9 @@
           {
             "name": "ordering",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6139,9 +6473,9 @@
           {
             "name": "replacement",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6164,10 +6498,12 @@
         ]
       },
       {
+        "id": "universe-content-pool-entry",
         "name": "UniverseContentPoolEntry",
-        "scope": {
+        "canonical_name": "UniverseContentPoolEntry",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -6186,9 +6522,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6202,9 +6538,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6221,9 +6557,9 @@
           {
             "name": "content_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6240,9 +6576,9 @@
           {
             "name": "weight_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6261,9 +6597,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6287,10 +6623,12 @@
         ]
       },
       {
+        "id": "universe-encounter-group",
         "name": "UniverseEncounterGroup",
-        "scope": {
+        "canonical_name": "UniverseEncounterGroup",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -6304,9 +6642,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -6323,9 +6661,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6342,9 +6680,9 @@
           {
             "name": "source_group_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6363,9 +6701,9 @@
             "ty": {
               "Enum": "UniverseWavePolicy"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6381,9 +6719,9 @@
             "ty": {
               "Enum": "UniverseBossPhasePolicy"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6397,9 +6735,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6416,9 +6754,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6435,9 +6773,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6454,9 +6792,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6489,10 +6827,12 @@
         ]
       },
       {
+        "id": "universe-encounter-member",
         "name": "UniverseEncounterMember",
-        "scope": {
+        "canonical_name": "UniverseEncounterMember",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -6506,9 +6846,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -6530,9 +6870,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6546,9 +6886,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6565,9 +6905,9 @@
           {
             "name": "source_rogue_monster_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6584,9 +6924,9 @@
           {
             "name": "source_primary_monster_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6603,9 +6943,9 @@
           {
             "name": "source_stage_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6622,9 +6962,9 @@
           {
             "name": "weight_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6641,9 +6981,9 @@
           {
             "name": "stage_level",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6660,9 +7000,9 @@
           {
             "name": "hard_level_group",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6683,9 +7023,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6709,9 +7049,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6735,10 +7075,12 @@
         ]
       },
       {
+        "id": "universe-encounter-wave",
         "name": "UniverseEncounterWave",
-        "scope": {
+        "canonical_name": "UniverseEncounterWave",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -6752,9 +7094,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -6776,9 +7118,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6792,9 +7134,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6821,10 +7163,12 @@
         ]
       },
       {
+        "id": "universe-encounter-wave-enemy",
         "name": "UniverseEncounterWaveEnemy",
-        "scope": {
+        "canonical_name": "UniverseEncounterWaveEnemy",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -6843,9 +7187,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6859,9 +7203,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6878,9 +7222,9 @@
           {
             "name": "slot",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6897,9 +7241,9 @@
           {
             "name": "source_monster_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6916,9 +7260,9 @@
           {
             "name": "enemy_variant_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -6945,10 +7289,12 @@
         ]
       },
       {
+        "id": "universe-encounter-pool",
         "name": "UniverseEncounterPool",
-        "scope": {
+        "canonical_name": "UniverseEncounterPool",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -6962,9 +7308,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -6981,9 +7327,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7005,9 +7351,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7023,9 +7369,9 @@
             "ty": {
               "Enum": "UniverseDomainKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7039,9 +7385,9 @@
           {
             "name": "map_entrance",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7060,9 +7406,9 @@
             "ty": {
               "Enum": "UniverseSelectionPolicy"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7076,9 +7422,9 @@
           {
             "name": "source_primary_condition_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7095,9 +7441,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7114,9 +7460,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7133,9 +7479,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7152,9 +7498,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7187,10 +7533,12 @@
         ]
       },
       {
+        "id": "universe-encounter-pool-group",
         "name": "UniverseEncounterPoolGroup",
-        "scope": {
+        "canonical_name": "UniverseEncounterPoolGroup",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -7209,9 +7557,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7225,9 +7573,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7244,9 +7592,9 @@
           {
             "name": "condition_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7268,9 +7616,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7284,9 +7632,9 @@
           {
             "name": "weight_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7313,10 +7661,12 @@
         ]
       },
       {
+        "id": "universe-encounter-pool-fixed",
         "name": "UniverseEncounterPoolFixed",
-        "scope": {
+        "canonical_name": "UniverseEncounterPoolFixed",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -7335,9 +7685,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7351,9 +7701,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7370,9 +7720,9 @@
           {
             "name": "condition_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7389,9 +7739,9 @@
           {
             "name": "source_content_id",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7418,10 +7768,12 @@
         ]
       },
       {
+        "id": "universe-mechanic-rule",
         "name": "UniverseMechanicRule",
-        "scope": {
+        "canonical_name": "UniverseMechanicRule",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -7435,9 +7787,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -7454,9 +7806,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7473,9 +7825,9 @@
           {
             "name": "source_record_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7492,9 +7844,9 @@
           {
             "name": "source_file",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7513,9 +7865,9 @@
             "ty": {
               "Enum": "UniverseMechanicRuleKind"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7531,9 +7883,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7549,9 +7901,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7565,9 +7917,9 @@
           {
             "name": "parameter_values_json",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7588,9 +7940,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7614,9 +7966,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7630,9 +7982,9 @@
           {
             "name": "name_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7649,9 +8001,9 @@
           {
             "name": "name_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7668,9 +8020,9 @@
           {
             "name": "summary_en",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7687,9 +8039,9 @@
           {
             "name": "summary_zh_cn",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7715,10 +8067,12 @@
         ]
       },
       {
+        "id": "universe-activity-binding",
         "name": "UniverseActivityBinding",
-        "scope": {
+        "canonical_name": "UniverseActivityBinding",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -7732,9 +8086,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -7751,9 +8105,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7775,9 +8129,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7791,9 +8145,9 @@
           {
             "name": "activity_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7810,9 +8164,9 @@
           {
             "name": "participant_digest_locked",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7826,9 +8180,9 @@
           {
             "name": "scoped_slots_supported",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7842,9 +8196,9 @@
           {
             "name": "fork_join_reserved",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7858,9 +8212,9 @@
           {
             "name": "battle_handoff_contract",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7877,9 +8231,9 @@
           {
             "name": "external_outcome_contract",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7905,10 +8259,12 @@
         ]
       },
       {
+        "id": "universe-activity-domain-binding",
         "name": "UniverseActivityDomainBinding",
-        "scope": {
+        "canonical_name": "UniverseActivityDomainBinding",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -7927,9 +8283,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7943,9 +8299,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7967,9 +8323,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -7985,9 +8341,9 @@
             "ty": {
               "Enum": "UniverseActivityDecision"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8011,10 +8367,12 @@
         ]
       },
       {
+        "id": "universe-source-record",
         "name": "UniverseSourceRecord",
-        "scope": {
+        "canonical_name": "UniverseSourceRecord",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -8028,9 +8386,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -8047,9 +8405,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8066,9 +8424,9 @@
           {
             "name": "source_kind",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8085,9 +8443,9 @@
           {
             "name": "repository_or_url",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8104,9 +8462,9 @@
           {
             "name": "revision_or_access_date",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8123,9 +8481,9 @@
           {
             "name": "game_version",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8142,9 +8500,9 @@
           {
             "name": "relative_path_or_page",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8161,9 +8519,9 @@
           {
             "name": "row_locator",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8180,9 +8538,9 @@
           {
             "name": "evidence_sha256",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8201,9 +8559,9 @@
             "ty": {
               "Enum": "UniverseDataQuality"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8217,9 +8575,9 @@
           {
             "name": "license_note",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8236,9 +8594,9 @@
           {
             "name": "note",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8264,10 +8622,12 @@
         ]
       },
       {
+        "id": "universe-content-audit",
         "name": "UniverseContentAudit",
-        "scope": {
+        "canonical_name": "UniverseContentAudit",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -8281,9 +8641,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -8300,9 +8660,9 @@
           {
             "name": "content_stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8319,9 +8679,9 @@
           {
             "name": "source_file",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8338,9 +8698,9 @@
           {
             "name": "enabled",
             "ty": "Bool",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8356,9 +8716,9 @@
             "ty": {
               "Enum": "UniverseModeOwner"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8374,9 +8734,9 @@
             "ty": {
               "Enum": "UniverseDataQuality"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8392,9 +8752,9 @@
             "ty": {
               "Enum": "UniverseDataQuality"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8410,9 +8770,9 @@
             "ty": {
               "Enum": "UniverseCoverageState"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8433,9 +8793,9 @@
                 }
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8461,9 +8821,9 @@
                 "List": "String"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8487,9 +8847,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8512,10 +8872,12 @@
         ]
       },
       {
+        "id": "universe-coverage",
         "name": "UniverseCoverage",
-        "scope": {
+        "canonical_name": "UniverseCoverage",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -8529,9 +8891,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -8548,9 +8910,9 @@
           {
             "name": "category",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8567,9 +8929,9 @@
           {
             "name": "source_file",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8586,9 +8948,9 @@
           {
             "name": "required",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8605,9 +8967,9 @@
           {
             "name": "accounted",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8624,9 +8986,9 @@
           {
             "name": "data_ready",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8643,9 +9005,9 @@
           {
             "name": "coverage_percent_decimal",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8671,10 +9033,12 @@
         ]
       },
       {
+        "id": "universe-review-fixture",
         "name": "UniverseReviewFixture",
-        "scope": {
+        "canonical_name": "UniverseReviewFixture",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -8688,9 +9052,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -8707,9 +9071,9 @@
           {
             "name": "stable_key",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8726,9 +9090,9 @@
           {
             "name": "mechanic_family",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8747,9 +9111,9 @@
             "ty": {
               "List": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8771,9 +9135,9 @@
           {
             "name": "initial_state_json",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8790,9 +9154,9 @@
           {
             "name": "commands_json",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8809,9 +9173,9 @@
           {
             "name": "expected_facts_json",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8830,9 +9194,9 @@
             "ty": {
               "Enum": "UniverseDataQuality"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8853,9 +9217,9 @@
                 }
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8893,10 +9257,12 @@
         ]
       },
       {
+        "id": "universe-pack-file",
         "name": "UniversePackFile",
-        "scope": {
+        "canonical_name": "UniversePackFile",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -8910,9 +9276,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -8929,9 +9295,9 @@
           {
             "name": "relative_path",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8948,9 +9314,9 @@
           {
             "name": "bytes",
             "ty": "I64",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8967,9 +9333,9 @@
           {
             "name": "rows",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -8986,9 +9352,9 @@
           {
             "name": "sha256",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,

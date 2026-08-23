@@ -55,10 +55,10 @@
             "String": "SourcePayload"
           },
           "note": {
-            "String": "Deterministically normalized Version 4.4 reference pack used by executable Standard-v1 rows."
+            "String": "Deterministically normalized current Version 4.4 reference pack used by production rows."
           },
           "sha256": {
-            "String": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a"
+            "String": "b237477309589c82a3866e553d8cdf4486f7027c25fb95ae7bf633f539424a7c"
           },
           "source_record_id": "Null",
           "stable_key": {
@@ -151,50 +151,6 @@
           },
           "stable_key": {
             "String": "evidence.goal07.enemy.s04.numeric-anchors"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 8
-          },
-          "kind": {
-            "String": "SourcePayload"
-          },
-          "note": {
-            "String": "Committed exact public per-level numeric anchors for Goal 07 S05."
-          },
-          "sha256": {
-            "String": "26675eafbb7481936c53e20fcc1a6ea7ae50a79452be337ed618da75fb7d753b"
-          },
-          "source_record_id": {
-            "Integer": 7
-          },
-          "stable_key": {
-            "String": "evidence.goal07.enemy.s05.numeric-anchors"
-          }
-        }
-      },
-      {
-        "values": {
-          "id": {
-            "Integer": 9
-          },
-          "kind": {
-            "String": "SourcePayload"
-          },
-          "note": {
-            "String": "Committed exact public per-level numeric anchors for Goal 07 S06."
-          },
-          "sha256": {
-            "String": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
-          },
-          "source_record_id": {
-            "Integer": 8
-          },
-          "stable_key": {
-            "String": "evidence.goal07.enemy.s06.numeric-anchors"
           }
         }
       },
@@ -421,6 +377,50 @@
       {
         "values": {
           "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "SourcePayload"
+          },
+          "note": {
+            "String": "Committed per-variant numeric anchors for Goal 07 S18."
+          },
+          "sha256": {
+            "String": "fd4802d9930af4aaddb2a6a9d843574536cfea13ee2dc651fc3f304f571dba31"
+          },
+          "source_record_id": {
+            "Integer": 20
+          },
+          "stable_key": {
+            "String": "evidence.goal07.enemy.s18.numeric-anchors"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SourcePayload"
+          },
+          "note": {
+            "String": "Committed exact public per-level numeric anchors for Goal 07 S05."
+          },
+          "sha256": {
+            "String": "26675eafbb7481936c53e20fcc1a6ea7ae50a79452be337ed618da75fb7d753b"
+          },
+          "source_record_id": {
+            "Integer": 7
+          },
+          "stable_key": {
+            "String": "evidence.goal07.enemy.s05.numeric-anchors"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
             "Integer": 20
           },
           "kind": {
@@ -443,22 +443,22 @@
       {
         "values": {
           "id": {
-            "Integer": 21
+            "Integer": 9
           },
           "kind": {
             "String": "SourcePayload"
           },
           "note": {
-            "String": "Committed per-variant numeric anchors for Goal 07 S18."
+            "String": "Committed exact public per-level numeric anchors for Goal 07 S06."
           },
           "sha256": {
-            "String": "fd4802d9930af4aaddb2a6a9d843574536cfea13ee2dc651fc3f304f571dba31"
+            "String": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
           },
           "source_record_id": {
-            "Integer": 20
+            "Integer": 8
           },
           "stable_key": {
-            "String": "evidence.goal07.enemy.s18.numeric-anchors"
+            "String": "evidence.goal07.enemy.s06.numeric-anchors"
           }
         }
       }

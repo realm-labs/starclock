@@ -5,20 +5,27 @@ use starclock_combat::{
     ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
     DecisionKind, DecisionOwner, Energy, FormationIndex, HitEventData, Hp, ParticipantSource,
-    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, ResourceEventData, Speed,
-    TeamResourceSpec, TeamSide, TurnEventData, UnitLevel,
+    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, ResourceEventData, Scalar,
+    Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, ActionResourcePolicy, CharacterResourceCost,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
+            ActionResourcePolicy, CharacterResourceCost, TargetInvalidationPolicy, TargetPattern,
+            TargetRelation, UnitTargetSelector,
         },
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
             AbilityDefinition, CharacterResourceDefinition, EncounterDefinition, EnemyDefinition,
             ProgramDefinition, SelectorDefinition, UnitDefinition,
         },
+        selector::{
+            RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorReference, RuleSelectorSide,
+            RuleUnitSelector,
+        },
     },
+    rule::model::{ProgramStep, RuleOperationTemplate, RuleResourceKind, RuleValue, ValueExpr},
 };
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
@@ -172,6 +179,43 @@ fn catalog() -> Arc<CombatCatalog> {
             vec![],
         ));
     }
+    builder.add_selector(
+        SelectorDefinition::new(definition(5)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::Owner,
+                RuleSelectorSide::Same,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::CurrentState,
+                RuleSelectorOrdering::StableId,
+                1,
+                1,
+                RuleEmptyPoolPolicy::Fault,
+                RuleSelectorChoice::First,
+                None,
+                false,
+            )
+            .unwrap(),
+        ),
+    );
+    builder.add_program(
+        ProgramDefinition::new(
+            definition(5),
+            Vec::new(),
+            vec![definition(5)],
+            Vec::new(),
+            Vec::new(),
+        )
+        .with_steps(vec![ProgramStep::Operation(
+            RuleOperationTemplate::EmitRuleEvent {
+                code: 708,
+                value: Some(ValueExpr::ReadResource {
+                    selector: definition(5),
+                    resource: RuleResourceKind::Energy,
+                }),
+            },
+        )]),
+    );
     let zero = Energy::ZERO;
     let energy_20 = Energy::from_scaled(20_000_000).unwrap();
     let energy_30 = Energy::from_scaled(30_000_000).unwrap();
@@ -197,14 +241,16 @@ fn catalog() -> Arc<CombatCatalog> {
         ),
     );
     builder.add_ability(
-        AbilityDefinition::new(definition(3), definition(3), definition(3), vec![]).with_action(
-            action(
+        AbilityDefinition::new(definition(3), definition(3), definition(3), vec![])
+            .with_action(action(
                 AbilityKind::Ultimate,
                 2,
                 TargetInvalidationPolicy::RetargetPrimaryThenRebuildPattern,
                 ActionResourcePolicy::new(0, 0, energy_100, zero),
-            ),
-        ),
+            ))
+            .with_programs(vec![
+                AbilityProgramBinding::new(1, AbilityProgramTiming::Entry, definition(5)).unwrap(),
+            ]),
     );
     builder.add_ability(
         AbilityDefinition::new(definition(4), definition(4), definition(4), vec![]).with_action(
@@ -326,8 +372,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            72, 243, 80, 155, 32, 98, 47, 156, 86, 191, 132, 136, 133, 183, 138, 68, 171, 38, 128,
-            245, 5, 60, 154, 254, 156, 224, 64, 255, 0, 149, 210, 109,
+            253, 6, 204, 82, 67, 70, 145, 65, 98, 26, 211, 10, 105, 177, 147, 165, 2, 124, 138, 41,
+            199, 151, 175, 198, 6, 180, 17, 252, 12, 221, 36, 158,
         ]
     );
     assert!(matches!(
@@ -335,6 +381,24 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
         BattleEventKind::Resource(ResourceEventData::Energy { before, after, .. })
             if before.scaled() == 100_000_000 && *after == Energy::ZERO
     ));
+    let resource_index = resolution
+        .events()
+        .iter()
+        .position(|event| matches!(event.kind(), BattleEventKind::Resource(_)))
+        .unwrap();
+    let entry_index = resolution
+        .events()
+        .iter()
+        .position(|event| {
+            matches!(
+                event.kind(),
+                BattleEventKind::RuleSignal(signal)
+                    if signal.code == 708
+                        && signal.value == Some(RuleValue::Scalar(Scalar::ZERO))
+            )
+        })
+        .unwrap();
+    assert!(resource_index < entry_index);
     let ultimate_targets = resolution
         .events()
         .iter()
@@ -394,8 +458,8 @@ fn ultimate_and_skill_resources_gate_offers_and_multi_hit_target_locks() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            167, 48, 146, 39, 197, 3, 200, 71, 9, 249, 147, 14, 37, 104, 217, 80, 77, 175, 52, 2,
-            178, 51, 19, 79, 89, 56, 19, 150, 254, 151, 79, 31,
+            153, 130, 135, 247, 237, 212, 39, 110, 224, 199, 149, 91, 147, 244, 157, 29, 239, 115,
+            36, 20, 189, 219, 113, 202, 159, 240, 230, 89, 138, 105, 79, 148,
         ]
     );
     assert!(matches!(

@@ -1,63 +1,29 @@
+//! Line-limit exception: the closed Rule IR vocabulary remains one exhaustive model contract.
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
 use crate::{
-    AbilityId, ActionId, CommandId, EffectCategory, EffectDefinitionId, EffectRemovalOrder,
-    EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness,
-    Rounding, RuleId, RuleInstanceId, Scalar, SelectorId, SourceDefinitionId,
-    StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
+    AbilityId, ActionGaugeChangeKind, ActionId, CommandId, EffectCategory, EffectDefinitionId,
+    EffectRemovalOrder, EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState,
+    ProgramId, RawToughness, Rounding, RuleId, RuleInstanceId, Scalar, SelectorId,
+    SourceDefinitionId, StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
     catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
     formula::{
         model::{CombatElement, DamageClass},
         toughness::EnemyRank,
     },
-    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
+    modifier::model::{FormulaPurpose, FormulaStage, StatKind, StatQuerySubject},
     rng::types::DrawPurpose,
 };
+mod resource;
+mod source;
 mod state_slot;
 mod support;
+pub use resource::{
+    ResourceMaximumUpdateKind, ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy,
+    RuleResourceKind,
+};
+pub use source::{RuleSource, RuleValue, RuleValueKind, SourceClass};
 include!("model/runtime.rs");
-/// Stable generic semantic class for rule attribution and filtering.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub enum SourceClass {
-    Unit,
-    Ability,
-    Effect,
-    Equipment,
-    Progression,
-    Enemy,
-    Encounter,
-    Activity,
-    Mode,
-    Synthetic,
-}
-/// Immutable generic source identity retained by a rule definition.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RuleSource {
-    definition: SourceDefinitionId,
-    class: SourceClass,
-    tags: Box<[SourceDefinitionId]>,
-    digest: [u8; 32],
-}
-/// Runtime value kind declared by a state slot or expression.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub enum RuleValueKind {
-    Integer,
-    Scalar,
-    Boolean,
-    StableId,
-    OptionalStableId,
-    OrderedStableIdSet,
-}
-/// Closed value carried by typed expressions and state-slot emissions.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub enum RuleValue {
-    Integer(i64),
-    Scalar(Scalar),
-    Boolean(bool),
-    StableId(u64),
-    OptionalStableId(Option<u64>),
-    OrderedStableIdSet(Box<[u64]>),
-}
 
 /// Battle-owned lifetime scope for a rule slot.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -179,6 +145,8 @@ pub enum RuleEventPoint {
     InformationalRule,
     /// A linked combat unit entered the battlefield after battle start.
     UnitSummoned,
+    /// A battle-owned lethal-rescue policy restored a downed unit.
+    LethalRescued,
 }
 
 /// Generic action family accepted by authored event filters.
@@ -217,6 +185,8 @@ pub enum RuleDamageClass {
 pub enum RuleToughnessEventKind {
     WeaknessAdded,
     WeaknessRemoved,
+    LayerCreated,
+    LayerRemoved,
     LayerReduced,
     LayerDepleted,
     LayerRestored,
@@ -281,6 +251,7 @@ pub struct RuleEventFacts {
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
+    pub action_gauge_change: Option<ActionGaugeChangeKind>,
     pub damage_amount: Option<Scalar>,
     pub damage_raw_amount: Option<Scalar>,
     pub hp_change_amount: Option<Scalar>,
@@ -369,6 +340,7 @@ pub struct EventFilter {
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
+    pub action_gauge_change: Option<ActionGaugeChangeKind>,
     /// Optional requirement for an observed event to belong to an action.
     pub has_action: Option<bool>,
     pub cause_ancestry: CauseAncestry,
@@ -403,6 +375,12 @@ pub enum ValueExpr {
     QueryStat {
         subject: StatQuerySubject,
         stat: StatKind,
+        purpose: FormulaPurpose,
+    },
+    /// Reads the combined contribution at one non-stat formula stage.
+    QueryFormulaStage {
+        subject: StatQuerySubject,
+        stage: FormulaStage,
         purpose: FormulaPurpose,
     },
     /// Reads the authored pre-modifier value for one stat.
@@ -516,6 +494,9 @@ pub enum ConditionExpr {
     IsBroken(SelectorId),
     /// The current unit bound by the enclosing `ForEach` is Weakness Broken.
     CurrentTargetIsBroken,
+    /// The selected subject has the greatest credited damage on its side.
+    /// Equal totals are resolved by formation and then runtime unit identity.
+    HighestDamageDealer(StatQuerySubject),
     /// Every selected unit has the authored encounter rank.
     EnemyRank(SelectorId, EnemyRank),
     /// Every selected unit is either Elite or Boss rank.
@@ -632,6 +613,11 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         amount: ValueExpr,
     },
+    /// True damage that clamps every selected target to at least one HP.
+    NonlethalTrueDamage {
+        selector: SelectorId,
+        amount: ValueExpr,
+    },
     Heal {
         selector: SelectorId,
         amount: ValueExpr,
@@ -651,6 +637,12 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         amount: ValueExpr,
         floor: ValueExpr,
+    },
+    /// Reduces battle-local maximum HP while preserving an initial-HP ratio floor.
+    ReduceMaximumHp {
+        selector: SelectorId,
+        amount: ValueExpr,
+        minimum_ratio: ValueExpr,
     },
     ReduceToughness {
         selector: SelectorId,
@@ -696,6 +688,17 @@ pub enum RuleOperationTemplate {
         amount: ValueExpr,
         scales_with_regeneration: bool,
         rounding: Rounding,
+    },
+    /// Changes the team Skill Point cap and clamps the current value when the
+    /// new cap is lower. The selected units identify affected teams.
+    ModifySkillPointMaximum {
+        selector: SelectorId,
+        update: ResourceMaximumUpdateKind,
+        amount: ValueExpr,
+    },
+    /// Deducts exact scaled Action Value from an active battle-local clock.
+    DeductActionValue {
+        amount: ValueExpr,
     },
     ApplyEffect {
         selector: SelectorId,
@@ -811,40 +814,6 @@ pub enum RuleOperationTemplate {
         handler: NativeHandlerId,
         arguments: Box<[ValueExpr]>,
     },
-}
-
-/// Closed personal-resource mutation semantics used by evaluated proposals.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub enum ResourceUpdateKind {
-    Spend,
-    Reserve,
-    Gain,
-    Set,
-}
-
-/// Closed resource address emitted by Rule IR.
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub enum RuleResourceKind {
-    Energy,
-    SkillPoints,
-    Character(Box<str>),
-    Team(Box<str>),
-}
-
-/// Cause-relative attribution retained by a queued Rule IR action.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub enum RuleActionOwner {
-    Actor,
-    CauseOwner,
-    CauseApplier,
-}
-
-/// Explicit payer for a queued action's authored Skill Point cost.
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub enum RuleActionPaymentPolicy {
-    TeamSkillPoints,
-    Suppressed,
-    TeamResource(Box<str>),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -1009,6 +978,11 @@ pub enum RuleEmission {
         amount: RuleValue,
         current_target: Option<UnitId>,
     },
+    NonlethalTrueDamage {
+        selector: SelectorId,
+        amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
     Heal {
         selector: SelectorId,
         amount: RuleValue,
@@ -1030,6 +1004,12 @@ pub enum RuleEmission {
         selector: SelectorId,
         amount: RuleValue,
         floor: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    ReduceMaximumHp {
+        selector: SelectorId,
+        amount: RuleValue,
+        minimum_ratio: RuleValue,
         current_target: Option<UnitId>,
     },
     ReduceToughness {
@@ -1083,6 +1063,16 @@ pub enum RuleEmission {
         amount: RuleValue,
         scales_with_regeneration: bool,
         rounding: Rounding,
+        current_target: Option<UnitId>,
+    },
+    ModifySkillPointMaximum {
+        selector: SelectorId,
+        update: ResourceMaximumUpdateKind,
+        amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    DeductActionValue {
+        amount: RuleValue,
         current_target: Option<UnitId>,
     },
     ApplyEffect {

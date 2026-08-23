@@ -24,7 +24,7 @@ const outputRoot = path.join(root, "content-reference/currency-wars-v1");
 const expected = {
   "bonds.json": 49,
   "bond-levels.json": 152,
-  "bond-contributions.json": 653,
+  "bond-contributions.json": 683,
 };
 const rowsByFile = Object.fromEntries(Object.keys(expected)
   .map((file) => [file, json(path.join(outputRoot, file))]));
@@ -55,6 +55,14 @@ assert(bonds.every((row) =>
   unique(row.member_ids) && unique(row.level_ids)
     && unique(row.contribution_ids)),
 "GridFight Bond member/level/contribution IDs drift");
+const subTraits = bonds.filter(({ id }) => id.includes(".subtrait."));
+assert(subTraits.every((row) => row.member_ids.length === 0
+  && Array.isArray(row.selection_rules))
+  && subTraits.flatMap(({ selection_rules: rules }) => rules).length === 18
+  && subTraits.flatMap(({ selection_rules: rules }) => rules)
+    .every(({ kind }) => ["DeployedRole", "EquippedEquipment",
+      "GrantedFrontTrait", "DefaultModule", "Module"].includes(kind)),
+"GridFight sub-trait typed selection-rule closure drift");
 
 const levels = rowsByFile["bond-levels.json"];
 assert(sourceLocators(levels,
@@ -68,6 +76,7 @@ const contributions = rowsByFile["bond-contributions.json"];
 const sourceCounts = {
   "ExcelOutput/GridFightTraitLayer.json": 152,
   "ExcelOutput/GridFightTraitBonus.json": 32,
+  "ExcelOutput/GridFightTraitBonusAddRule.json": 3,
   "ExcelOutput/GridFightTraitThreshold.json": 27,
   "ExcelOutput/GridFightTraitEffect.json": 24,
   "ExcelOutput/GridFightTraitEffectLayerPa.json": 74,
@@ -95,7 +104,7 @@ for (const file of Object.keys(rowsByFile).sort(compare))
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
   `Currency Wars Bonds verified (${allRows.length} rows; 49 Bonds; ` +
-  `152 levels; 653 contributions; digest ${digest.digest("hex")}).`,
+  `152 levels; 683 contributions; digest ${digest.digest("hex")}).`,
 );
 
 function valueAfter(flag) {

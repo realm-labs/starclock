@@ -90,14 +90,14 @@ const expectedCounts = {
   "blessing-levels": 7,
   "blessing-paths": 1,
   blessings: 0,
-  "bond-contributions": 653,
+  "bond-contributions": 683,
   "bond-levels": 152,
   bonds: 49,
   "boss-pools": 10,
   "build-mappings": 77,
-  "build-source-files": 6,
+  "build-source-files": 12,
   "build-substitution-rules": 2,
-  "character-empowerments": 4652,
+  "character-empowerments": 4784,
   "curio-groups": 0,
   "curio-lifecycle-rules": 0,
   "curio-states": 0,
@@ -110,8 +110,8 @@ const expectedCounts = {
   "enemy-slots": 306,
   enhancements: 25,
   entries: 2,
-  equipment: 519,
-  "finish-conditions": 21,
+  equipment: 520,
+  "finish-conditions": 135,
   "formula-contributions": 0,
   "formula-randomizers": 0,
   "formula-recipes": 0,
@@ -131,7 +131,7 @@ const expectedCounts = {
   "portal-buffs": 84,
   positions: 3,
   projections: 2,
-  "rank-gambit-progression": 56,
+  "rank-gambit-progression": 108,
   "role-mappings": 77,
   rooms: 5,
   "roster-avatars": 77,
@@ -178,11 +178,63 @@ assert(equipmentSlotCap.eligibility.maximum_count === "3",
   "three-equipment-slot cap drift");
 
 const mechanicRules = rows("mechanic-rules");
-assert(mechanicRules.every((row) =>
-  row.runtime_lowered === false
-    && row.ordered_operations.length > 0
-    && row.state_lifecycle === "ReferenceOnlyExactSourceBoundary"),
-"mechanic reference-only boundary drift");
+const mechanicDispositionContracts = new Map([
+  ["PreserveExactSourceContribution",
+    [false, "ReferenceOnlyExactSourceBoundary"]],
+  ["AuditPresentationOnly",
+    [false, "PresentationOnlyNoAuthoritativeState"]],
+  ["AuditLayoutDescriptor", [false, "MetadataOnlyNoAuthoritativeState"]],
+  ["AuditUnreachableCharacterOverride",
+    [false, "MetadataOnlyNoAuthoritativeState"]],
+  ["AuditUnreachableBattleConfiguration",
+    [false, "MetadataOnlyNoAuthoritativeState"]],
+  ["AuditEmptyConfigurationProgram",
+    [false, "MetadataOnlyNoAuthoritativeState"]],
+  ["LowerBattleBehaviorPolicy",
+    [true, "BattleOwnedTypedEnemyBehaviorPolicy"]],
+  ["LowerAvatarBattleBehaviorPolicy",
+    [true, "BattleOwnedTypedAvatarBehaviorPolicy"]],
+  ["LowerBattleConfigurationPolicy",
+    [true, "BattleOwnedTypedConfigurationFamilyPolicy"]],
+  ["LowerBondBattleBehaviorPolicy",
+    [true, "BattleOwnedTypedBondBehaviorPolicy"]],
+  ["LowerBattleProgramBindingPolicy",
+    [true, "BattleOwnedTypedProgramBindingPolicy"]],
+  ["LowerEnemyCharacterConfiguration",
+    [true, "BattleOwnedTypedEnemyCharacterConfiguration"]],
+  ["LowerGlobalComplexAiFactors",
+    [true, "BattleOwnedTypedComplexAiFactorPolicy"]],
+  ["LowerEnemyAiConfiguration",
+    [true, "BattleOwnedTypedEnemyAiConfiguration"]],
+  ["LowerGlobalTaskTemplates",
+    [true, "BattleOwnedTypedGlobalTaskTemplateLibrary"]],
+  ["BindCharacterOverride",
+    [true, "ContributionSnapshotCharacterOverrideSelection"]],
+  ["ScoreSeasonRole", [true, "ControllerRoleReferenceRanking"]],
+  ["ApplyRoleCostAvailability",
+    [true, "ShopCandidateEligibilityByRunPosition"]],
+  ["ProjectSeasonScoreAndExperience",
+    [true, "SettlementProjectionNoRunMutation"]],
+  ["BindSeasonTraitRolePool", [true, "ControllerRoleTraitIndex"]],
+  ["AuditRolePresentationMetadata",
+    [false, "MetadataOnlyNoAuthoritativeState"]],
+  ["AuditStructuredPresentationMetadata",
+    [false, "MetadataOnlyNoAuthoritativeState"]],
+  ["BindSeasonRolePool",
+    [true, "ShopAndRosterRoleEligibilityBySeason"]],
+  ["ApplyModuleRoleBan",
+    [true, "ShopAndRosterRoleEligibilityByModule"]],
+]);
+assert(mechanicRules.every((row) => {
+  if (row.ordered_operations.length !== 1) return false;
+  const [operation] = row.ordered_operations;
+  const contract = mechanicDispositionContracts.get(operation.kind);
+  return contract
+    && row.runtime_lowered === contract[0]
+    && row.state_lifecycle === contract[1]
+    && (operation.kind !== "AuditPresentationOnly"
+      || operation.authoritative_operation_count === 0);
+}), "mechanic disposition boundary drift");
 const mechanicScopes = countBy(mechanicRules, "scope");
 
 const serviceRules = rows("service-offer-rules");
@@ -214,7 +266,7 @@ const cases = [
   ]),
   result("bond-membership-threshold-and-recompute", [
     "bonds.json:49", "bond-levels.json:152",
-    "bond-contributions.json:653", "policy:bond.simultaneous_recompute",
+    "bond-contributions.json:683", "policy:bond.simultaneous_recompute",
   ]),
   result("candidate-order-and-no-legal-result", [
     "service-offer-rules.json:164 explicit fallbacks",
@@ -232,14 +284,14 @@ const cases = [
   ]),
   result("field-bench-position-and-empowerment", [
     "role-mappings.json:77", "positions.json:3",
-    "character-empowerments.json:4652 with teardown",
+    "character-empowerments.json:4784 with teardown",
   ]),
   result("formula-recipe-progress-and-contribution", [
     "formulas.json:1 proven-empty closure",
     "formula-recipes/formula-contributions:0 reachable rows",
   ]),
   result("gambit-rank-and-enemy-affix", [
-    "gambit-modes.json:2", "rank-gambit-progression.json:56",
+    "gambit-modes.json:2", "rank-gambit-progression.json:108",
     "enemy-affixes.json:721",
   ]),
   result("goal11-selector-separation-reconciliation", [
@@ -273,12 +325,12 @@ const cases = [
   ]),
   result("owned-trial-build-substitution-and-removal", [
     "build-mappings.json:77 account_mutation=false",
-    "build-source-files.json:6 fail-closed shared sources",
+    "build-source-files.json:12 fail-closed shared sources",
     "build-substitution-rules.json:2 teardown rules",
   ]),
   result("profile-gambit-entry-and-terminal", [
     "profiles.json:1 runtime disabled", "gambit-modes.json:2",
-    "entries.json:2", "finish-conditions.json:21",
+    "entries.json:2", "finish-conditions.json:135",
   ]),
   result("roster-offer-cost-purchase-sale-and-cap", [
     "roster-avatars.json:77", "roster-offers.json:10",
@@ -357,15 +409,20 @@ const gapResults = gaps.sort((left, right) => compare(left.field, right.field))
     assert(mappedFamilies?.length > 0
       && mappedFamilies.every((family) => contractById.has(family)),
     `${gap.field}: orphan replacement condition`);
-    assert(gap.coverage_state === "Researched"
-      && gap.evidence_quality === "ProjectPolicy"
+    const exactBuildJoin = gap.field === "build.role_to_shared_build";
+    assert((exactBuildJoin
+      ? gap.coverage_state === "DataReady"
+        && gap.evidence_quality === "ExactStructured"
+      : gap.coverage_state === "Researched"
+        && gap.evidence_quality === "ProjectPolicy")
       && gap.known_facts.length > 0
       && gap.selected_policy
       && gap.alternatives.length > 0
       && gap.replacement_condition,
     `${gap.field}: unbounded approximation`);
-    assert(gap.source_refs.some((ref) =>
-      ref.evidence_quality === "ProjectPolicy"
+    assert(gap.source_refs.some((ref) => exactBuildJoin
+      ? ref.evidence_quality === "ExactStructured"
+      : ref.evidence_quality === "ProjectPolicy"
         && ref.note && ref.replacement_condition),
     `${gap.field}: missing policy evidence boundary`);
     return {
@@ -408,7 +465,7 @@ const report = {
   },
   mechanic_coverage: {
     total: mechanicRules.length,
-    runtime_lowered: 0,
+    runtime_lowered: mechanicRules.filter(({ runtime_lowered: lowered }) => lowered).length,
     scope_counts: sortedObject(mechanicScopes),
     fixture_assignments: {
       BattleVisibleOrBattleBoundary:
@@ -419,7 +476,8 @@ const report = {
   approximation_coverage: {
     total: gapResults.length,
     orphan_count: 0,
-    bounded_project_policy_count: gapResults.length,
+    bounded_project_policy_count: gapResults.length - 1,
+    exact_resolved_count: 1,
     results: gapResults,
   },
   fixture_results: cases,

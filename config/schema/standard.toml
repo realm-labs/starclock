@@ -1,8 +1,9 @@
+
 [[enums]]
 name = "StandardExpectedOutcome"
-values = ["Won", "Lost", "Faulted"]
-
+values = [{ id = 0, name = "Won" }, { id = 1, name = "Lost" }, { id = 2, name = "Faulted" }]
 [[tables]]
+id = "standard-profile"
 name = "StandardProfile"
 mode = "map"
 key = "id"
@@ -37,6 +38,7 @@ name = "default_wave_transition"
 type = "enum<WaveTransitionPolicy>"
 
 [[tables]]
+id = "standard-scenario"
 name = "StandardScenario"
 mode = "map"
 key = "id"

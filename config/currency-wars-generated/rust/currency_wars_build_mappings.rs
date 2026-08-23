@@ -29,6 +29,8 @@ pub struct CurrencyWarsBuildMappings {
     pub source_refs_json: String,
     #[serde(rename = "tags_json")]
     pub tags_json: String,
+    #[serde(rename = "source_id")]
+    pub source_id: Option<String>,
     #[serde(rename = "avatar_id")]
     pub avatar_id: Option<String>,
     #[serde(rename = "level")]
@@ -39,6 +41,10 @@ pub struct CurrencyWarsBuildMappings {
     pub light_cone: Option<String>,
     #[serde(rename = "relics")]
     pub relics: Option<String>,
+    #[serde(rename = "account_mutation")]
+    pub account_mutation: Option<String>,
+    #[serde(rename = "special_avatar_id")]
+    pub special_avatar_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBuildMappings {
@@ -57,11 +63,14 @@ impl super::runtime::SoraDecode for CurrencyWarsBuildMappings {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            trace_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            light_cone: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            relics: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            avatar_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            level: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            trace_state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            light_cone: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            relics: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            account_mutation: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            special_avatar_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -884,16 +884,20 @@ mod tests {
 
     #[test]
     fn laurel_crown_converts_non_boss_defeat_to_full_restore_and_destroys_itself() {
-        let (mut activity, _) = activity_with_seed(9_700_091);
+        let (mut activity, _) = activity();
         let crown = CurioId::new(49).unwrap();
         acquire_with_blessings(&mut activity, crown, &[]);
         let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
             Ok(alive_result(handoff, BattleOutcome::Lost, 0, 1))
         };
         run_until_battle(&mut activity, &mut executor);
-        assert!(activity.view().participant_carry().iter().all(|state| {
-            state.life() == LifeState::Alive && state.current_hp() == state.maximum_hp()
-        }));
+        assert!(
+            activity.view().participant_carry().iter().all(|state| {
+                state.life() == LifeState::Alive && state.current_hp() == state.maximum_hp()
+            }),
+            "carry={:?}",
+            activity.view().participant_carry()
+        );
         assert!(
             activity
                 .curio_contributions()

@@ -2,6 +2,174 @@ use super::*;
 use crate::ActivityRngLabel;
 
 impl GraphActivity {
+    /// Atomically settles a battle, applies its state-only boundary program,
+    /// advances the graph, then generates one RNG-backed follow-up program.
+    ///
+    /// The generator observes the post-transition player view. Any settlement,
+    /// generation, follow-up mutation or pump error restores both state and RNG.
+    pub fn submit_pending_battle_result_with_generated_follow_up(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        result: BattleResult,
+        boundary_program: Option<&ActivityProgramDefinition>,
+        follow_up_program_id: ActivityProgramId,
+        generate: impl FnOnce(
+            &ActivityPlayerView,
+            &mut ActivityRngStreams,
+        ) -> Result<Vec<ActivityOperation>, GraphActivityCommandError>,
+    ) -> Result<GraphActivityBattleResolution, GraphActivityBattleError> {
+        if boundary_program.is_some_and(|program| {
+            program
+                .validate_against(&self.definition.state, &self.definition.graph)
+                .is_err()
+                || contains_boundary_operation(program.operations())
+        }) {
+            return Err(GraphActivityBattleError::Runtime(
+                GraphActivityRuntimeError::InvalidBoundaryProgram,
+            ));
+        }
+        let original_state = self.state.transaction_copy();
+        let original_rng = self.rng.transaction_copy();
+        let outcome = (|| {
+            let settlement = self
+                .state
+                .submit_pending_battle_result(
+                    self.definition.identity,
+                    &self.definition.graph,
+                    self.instance,
+                    &self.rng,
+                    ActivityBattleResultSubmission::new(expected_state_hash, result),
+                )
+                .map_err(GraphActivityBattleError::Settlement)?;
+            let mut events = Vec::new();
+            if let Some(program) = boundary_program {
+                let cause = ActivityCause::new(
+                    self.state.command_sequence().saturating_add(1),
+                    program.id(),
+                    self.state.current_node(),
+                )
+                .ok_or(GraphActivityBattleError::Runtime(
+                    GraphActivityRuntimeError::InvalidBoundaryProgram,
+                ))?;
+                events.extend(
+                    committed_runtime(self.state.apply_settlement_extension_program(
+                        program,
+                        cause,
+                        &self.definition.graph,
+                    ))
+                    .map_err(GraphActivityBattleError::Runtime)?,
+                );
+            }
+            events.extend(self.pump().map_err(GraphActivityBattleError::Runtime)?);
+            let operations = generate(&self.player_view(), &mut self.rng)
+                .map_err(GraphActivityBattleError::GeneratedBoundary)?;
+            if !operations.is_empty() {
+                let program = ActivityProgramDefinition::new(follow_up_program_id, operations)
+                    .map_err(|_| invalid_random_boundary())
+                    .map_err(GraphActivityBattleError::GeneratedBoundary)?;
+                if program
+                    .validate_against(&self.definition.state, &self.definition.graph)
+                    .is_err()
+                    || contains_boundary_operation(program.operations())
+                {
+                    return Err(GraphActivityBattleError::Runtime(
+                        GraphActivityRuntimeError::InvalidBoundaryProgram,
+                    ));
+                }
+                let cause = ActivityCause::new(
+                    self.state.command_sequence().saturating_add(1),
+                    program.id(),
+                    self.state.current_node(),
+                )
+                .ok_or(GraphActivityBattleError::Runtime(
+                    GraphActivityRuntimeError::InvalidBoundaryProgram,
+                ))?;
+                events.extend(
+                    committed_runtime(self.state.apply_extension_program(
+                        &program,
+                        cause,
+                        &self.definition.graph,
+                    ))
+                    .map_err(GraphActivityBattleError::Runtime)?,
+                );
+                events.extend(self.pump().map_err(GraphActivityBattleError::Runtime)?);
+            }
+            Ok(GraphActivityBattleResolution {
+                settlement,
+                events: events.into_boxed_slice(),
+                state_hash: self.state_hash(),
+            })
+        })();
+        if outcome.is_err() {
+            self.state = original_state;
+            self.rng = original_rng;
+        }
+        outcome
+    }
+
+    /// Atomically generates and applies one RNG-backed state program.
+    ///
+    /// The generator receives the authoritative Activity RNG streams and must
+    /// return both the ordered operations and its caller-owned result. Any
+    /// generation, validation or mutation error restores state and RNG to the
+    /// exact command-boundary snapshot.
+    pub fn apply_generated_boundary<T>(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        program_id: ActivityProgramId,
+        generate: impl FnOnce(
+            &mut ActivityRngStreams,
+        ) -> Result<(Vec<ActivityOperation>, T), GraphActivityCommandError>,
+    ) -> Result<ActivityGeneratedBoundaryResolution<T>, GraphActivityCommandError> {
+        if expected_state_hash != self.state_hash() {
+            return Err(GraphActivityCommandError::StaleStateHash);
+        }
+        let original_state = self.state.transaction_copy();
+        let original_rng = self.rng.transaction_copy();
+        let outcome = (|| {
+            let (operations, value) = generate(&mut self.rng)?;
+            let program = ActivityProgramDefinition::new(program_id, operations)
+                .map_err(|_| invalid_random_boundary())?;
+            if program
+                .validate_against(&self.definition.state, &self.definition.graph)
+                .is_err()
+                || contains_boundary_operation(program.operations())
+            {
+                return Err(invalid_random_boundary());
+            }
+            let cause = ActivityCause::new(
+                self.state.command_sequence().saturating_add(1),
+                program.id(),
+                self.state.current_node(),
+            )
+            .ok_or_else(invalid_random_boundary)?;
+            let mut events =
+                match self
+                    .state
+                    .apply_extension_program(&program, cause, &self.definition.graph)
+                {
+                    ActivityTransactionOutcome::Committed(events) => events.into_vec(),
+                    ActivityTransactionOutcome::Rejected(rejection) => {
+                        return Err(GraphActivityCommandError::Rejected(rejection));
+                    }
+                    ActivityTransactionOutcome::Faulted(_, _) => {
+                        return Err(invalid_random_boundary());
+                    }
+                };
+            events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
+            Ok(ActivityGeneratedBoundaryResolution {
+                value,
+                events: events.into_boxed_slice(),
+                state_hash: self.state_hash(),
+            })
+        })();
+        if outcome.is_err() {
+            self.state = original_state;
+            self.rng = original_rng;
+        }
+        outcome
+    }
+
     /// Atomically applies one state-only extension program at the current
     /// command boundary and resumes automatic graph execution.
     pub fn apply_boundary_program(

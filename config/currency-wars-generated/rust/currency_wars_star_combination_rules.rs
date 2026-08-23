@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsStarCombinationRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            input_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            required_copies: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            output_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            overflow_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            input_state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            required_copies: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            output_state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            overflow_rule: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -77,7 +77,7 @@ fn ordinary_enemy_batch_s18_retains_trampler_windspawn_and_warden_boundaries() {
         assert!(effect.rules().is_empty());
         let runtime = effect.runtime_template().expect("S18 effect runtime");
         let resolved = runtime
-            .resolve(Some(2), starclock_combat::Scalar::ONE)
+            .resolve(Some(2), starclock_combat::Scalar::ONE, None)
             .expect("S18 resolved effect");
         assert_eq!(resolved.duration(), Some(2));
         if effect_id == 1_155_003 {

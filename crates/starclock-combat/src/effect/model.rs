@@ -196,10 +196,16 @@ mod tests {
         )
         .unwrap()
         .with_damage_guard(EffectDamageGuard::ShieldOverflowOnce)
+        .with_hp_floor(ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(
+            250_000,
+        ))))
         .with_application_guard(EffectApplicationGuard::NegativeEffectOnce)
         .with_toughness_protection()
         .with_specific_resistance(StatKind::FreezeResistance);
-        let runtime = template.resolve(Some(2), Scalar::ZERO).unwrap();
+        assert!(template.hp_floor_expression().is_some());
+        let runtime = template
+            .resolve(Some(2), Scalar::ZERO, Some(Ratio::from_scaled(250_000)))
+            .unwrap();
         assert_eq!(
             runtime.damage_guard(),
             EffectDamageGuard::ShieldOverflowOnce
@@ -213,6 +219,7 @@ mod tests {
             EffectApplicationGuard::NegativeEffectOnce
         );
         assert!(runtime.prevents_toughness_reduction());
+        assert_eq!(runtime.hp_floor(), Some(Ratio::from_scaled(250_000)));
     }
 
     #[test]
@@ -243,7 +250,7 @@ mod tests {
         .unwrap()
         .with_forced_normal_action(ForcedNormalAction::BasicAttackRandomAlly)
         .unwrap()
-        .resolve(Some(2), Scalar::ZERO)
+        .resolve(Some(2), Scalar::ZERO, None)
         .unwrap();
         assert_eq!(
             control.forced_normal_action(),
@@ -270,7 +277,7 @@ mod tests {
         .unwrap()
         .with_dot(CombatElement::Ice, None)
         .unwrap()
-        .resolve(Some(1), Scalar::from_scaled(1_200_000))
+        .resolve(Some(1), Scalar::from_scaled(1_200_000), None)
         .unwrap();
 
         assert_eq!(
@@ -302,6 +309,7 @@ pub struct EffectRuntimeDefinition {
     controlled_actions: Box<[ControlledAction]>,
     dot: Option<DotDefinition>,
     damage_guard: EffectDamageGuard,
+    hp_floor: Option<Ratio>,
     application_guard: EffectApplicationGuard,
     prevents_toughness_reduction: bool,
     forced_normal_action: Option<ForcedNormalAction>,
@@ -325,6 +333,7 @@ pub struct EffectRuntimeTemplate {
     controlled_actions: Box<[ControlledAction]>,
     dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
     damage_guard: EffectDamageGuard,
+    hp_floor: Option<ValueExpr>,
     application_guard: EffectApplicationGuard,
     prevents_toughness_reduction: bool,
     forced_normal_action: Option<ForcedNormalAction>,
@@ -360,6 +369,7 @@ impl EffectRuntimeTemplate {
             controlled_actions: Box::new([]),
             dot: None,
             damage_guard: EffectDamageGuard::None,
+            hp_floor: None,
             application_guard: EffectApplicationGuard::None,
             prevents_toughness_reduction: false,
             forced_normal_action: None,
@@ -399,6 +409,13 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn with_damage_guard(mut self, guard: EffectDamageGuard) -> Self {
         self.damage_guard = guard;
+        self
+    }
+    /// Keeps the affected unit at or above this fraction of maximum HP while
+    /// the effect remains active.
+    #[must_use]
+    pub fn with_hp_floor(mut self, floor: ValueExpr) -> Self {
+        self.hp_floor = Some(floor);
         self
     }
     #[must_use]
@@ -441,6 +458,10 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn damage_guard(&self) -> EffectDamageGuard {
         self.damage_guard
+    }
+    #[must_use]
+    pub const fn hp_floor_expression(&self) -> Option<&ValueExpr> {
+        self.hp_floor.as_ref()
     }
     #[must_use]
     pub const fn application_guard(&self) -> EffectApplicationGuard {
@@ -502,6 +523,7 @@ impl EffectRuntimeTemplate {
         &self,
         duration: Option<u16>,
         magnitude: Scalar,
+        hp_floor: Option<Ratio>,
     ) -> Option<EffectRuntimeDefinition> {
         let mut runtime = EffectRuntimeDefinition::new(
             self.category,
@@ -517,6 +539,9 @@ impl EffectRuntimeTemplate {
         .with_teardown(self.teardown_policy)
         .with_damage_guard(self.damage_guard)
         .with_application_guard(self.application_guard);
+        if let Some(floor) = hp_floor {
+            runtime = runtime.with_hp_floor(floor)?;
+        }
         if self.prevents_toughness_reduction {
             runtime = runtime.with_toughness_protection();
         }
@@ -575,6 +600,7 @@ impl EffectRuntimeDefinition {
             controlled_actions: Box::new([]),
             dot: None,
             damage_guard: EffectDamageGuard::None,
+            hp_floor: None,
             application_guard: EffectApplicationGuard::None,
             prevents_toughness_reduction: false,
             forced_normal_action: None,
@@ -620,6 +646,16 @@ impl EffectRuntimeDefinition {
     pub const fn with_damage_guard(mut self, guard: EffectDamageGuard) -> Self {
         self.damage_guard = guard;
         self
+    }
+    /// Keeps the affected unit at or above this fraction of maximum HP while
+    /// the effect remains active.
+    #[must_use]
+    pub fn with_hp_floor(mut self, floor: Ratio) -> Option<Self> {
+        if !(Ratio::ZERO..=Ratio::ONE).contains(&floor) {
+            return None;
+        }
+        self.hp_floor = Some(floor);
+        Some(self)
     }
     #[must_use]
     pub const fn with_application_guard(mut self, guard: EffectApplicationGuard) -> Self {
@@ -723,6 +759,10 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn damage_guard(&self) -> EffectDamageGuard {
         self.damage_guard
+    }
+    #[must_use]
+    pub const fn hp_floor(&self) -> Option<Ratio> {
+        self.hp_floor
     }
     #[must_use]
     pub const fn application_guard(&self) -> EffectApplicationGuard {

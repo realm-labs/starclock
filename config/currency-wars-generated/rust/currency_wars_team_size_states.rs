@@ -39,6 +39,8 @@ pub struct CurrencyWarsTeamSizeStates {
     pub next_level_experience: Option<String>,
     #[serde(rename = "transition_rules")]
     pub transition_rules: Option<String>,
+    #[serde(rename = "general_properties")]
+    pub general_properties: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsTeamSizeStates {
@@ -57,11 +59,12 @@ impl super::runtime::SoraDecode for CurrencyWarsTeamSizeStates {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            field_cap: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            bench_cap: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            next_level_experience: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            transition_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            level: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            field_cap: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            bench_cap: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            next_level_experience: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            transition_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            general_properties: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

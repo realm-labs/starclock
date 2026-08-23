@@ -1,5 +1,2189 @@
 [
   {
+    "id": "currency-wars.rank.binary-difficulty.1.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 1, quality 1",
+    "name_zh_cn": "二元难度规则 1，品质 1",
+    "summary_en": "Binary difficulty rule 1 quality 1 adds 0 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 1 的品质 1 增加 0 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "0",
+        "sha256": "34c81c1ced77f5d2e0839857d9b56c84dacbfc4bd2bfef0703260499a888dc40",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:1",
+    "rank": {
+      "rule_id": "1",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "0"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.1.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 1, quality 2",
+    "name_zh_cn": "二元难度规则 1，品质 2",
+    "summary_en": "Binary difficulty rule 1 quality 2 adds 5 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 1 的品质 2 增加 5 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "1",
+        "sha256": "10178fde5873a09ef7b5541855bf4c272f3b25ddeadf2dd84f99d99bf6e03d84",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:2",
+    "rank": {
+      "rule_id": "1",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "5"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.1.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 1, quality 3",
+    "name_zh_cn": "二元难度规则 1，品质 3",
+    "summary_en": "Binary difficulty rule 1 quality 3 adds 10 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 1 的品质 3 增加 10 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "2",
+        "sha256": "26450f5a41060aff5db27b286947e6833ee8c20ffa8d6fc57e5336b7edec140d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:3",
+    "rank": {
+      "rule_id": "1",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "10"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.1.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 1, quality 4",
+    "name_zh_cn": "二元难度规则 1，品质 4",
+    "summary_en": "Binary difficulty rule 1 quality 4 adds 20 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 1 的品质 4 增加 20 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "3",
+        "sha256": "8323c9d02c525f87a2f0de9265b077a469575117ff2177df5fcda12b9556f10f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:4",
+    "rank": {
+      "rule_id": "1",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "20"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.2.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 2, quality 1",
+    "name_zh_cn": "二元难度规则 2，品质 1",
+    "summary_en": "Binary difficulty rule 2 quality 1 adds 0 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 2 的品质 1 增加 0 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "4",
+        "sha256": "470b0f970aaf90aa8eb01e20feb4c81fadc7c338507838bcab63956b77966e2b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "2:1",
+    "rank": {
+      "rule_id": "2",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "0"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.2.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 2, quality 2",
+    "name_zh_cn": "二元难度规则 2，品质 2",
+    "summary_en": "Binary difficulty rule 2 quality 2 adds 10 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 2 的品质 2 增加 10 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "5",
+        "sha256": "bfdf76a590dbe10490f29aea5e686c45bfc5f046e12aebd40d5c9fe8c7547356",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "2:2",
+    "rank": {
+      "rule_id": "2",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "10"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.2.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 2, quality 3",
+    "name_zh_cn": "二元难度规则 2，品质 3",
+    "summary_en": "Binary difficulty rule 2 quality 3 adds 20 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 2 的品质 3 增加 20 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "6",
+        "sha256": "27c8969864a5bfc3a11c4ec25fc6820bbd539a2a5a01e6893793781a329d718e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "2:3",
+    "rank": {
+      "rule_id": "2",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "20"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-difficulty.2.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary difficulty rule 2, quality 4",
+    "name_zh_cn": "二元难度规则 2，品质 4",
+    "summary_en": "Binary difficulty rule 2 quality 4 adds 30 enemy difficulty level(s).",
+    "summary_zh_cn": "二元难度规则 2 的品质 4 增加 30 级敌人难度。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarydiffaddrule-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryDiffAddRule.json",
+        "locator": "7",
+        "sha256": "f7d3d4bc7dd8d6a80a5430588c03459ba911680ada1fc80f31ecc6b18464f52c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-difficulty",
+      "enemy-scaling",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "2:4",
+    "rank": {
+      "rule_id": "2",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryDifficultyAddition",
+    "entry_boundary": {
+      "enemy_difficulty_level_add": "30"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 1",
+    "name_zh_cn": "二元节点规则 1",
+    "summary_en": "Binary node rule 1 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 1 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "0",
+        "sha256": "ac4803514689263e444743fd1cff1cef040593925f2f18c2bed057fcf41a1872",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "1",
+    "rank": {
+      "rule_id": "1",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.10301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 10301",
+    "name_zh_cn": "二元节点规则 10301",
+    "summary_en": "Binary node rule 10301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 10301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "4",
+        "sha256": "23e114bebdd065f7395493ea03349dceb756bccaa572776be5ffd41f7d48612e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "10301",
+    "rank": {
+      "rule_id": "10301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.10302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 10302",
+    "name_zh_cn": "二元节点规则 10302",
+    "summary_en": "Binary node rule 10302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 10302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "5",
+        "sha256": "4b060776d61c50fd6ba4fcdcb91f4fe8ecebc36f326ee7623d97e2f4ef3c1eb0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "10302",
+    "rank": {
+      "rule_id": "10302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.10303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 10303",
+    "name_zh_cn": "二元节点规则 10303",
+    "summary_en": "Binary node rule 10303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 10303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "6",
+        "sha256": "4a5bd3a274136981c39eacb53e7eb40795592c11d485fa1bc40a1bd86b7353a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "10303",
+    "rank": {
+      "rule_id": "10303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.10304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 10304",
+    "name_zh_cn": "二元节点规则 10304",
+    "summary_en": "Binary node rule 10304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 10304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "7",
+        "sha256": "1a306da641ab12cdc54b13406f6178822243748744690d9a641481c663e95e16",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "10304",
+    "rank": {
+      "rule_id": "10304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.11301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 11301",
+    "name_zh_cn": "二元节点规则 11301",
+    "summary_en": "Binary node rule 11301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 11301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "16",
+        "sha256": "b7c3699c535df517555281b41bf9848659d2d70a77a6cfca112d96870f5d1842",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "11301",
+    "rank": {
+      "rule_id": "11301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.11302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 11302",
+    "name_zh_cn": "二元节点规则 11302",
+    "summary_en": "Binary node rule 11302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 11302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "17",
+        "sha256": "7b98294b500f24b3d59a3dad57de603145460afed4b9ed1b357f61d821cb81e3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "11302",
+    "rank": {
+      "rule_id": "11302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.11303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 11303",
+    "name_zh_cn": "二元节点规则 11303",
+    "summary_en": "Binary node rule 11303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 11303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "18",
+        "sha256": "08eef7e122afa351e5592c2b872789ef3e4d99fa3ba70c00c2f7ead240f428ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "11303",
+    "rank": {
+      "rule_id": "11303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.11304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 11304",
+    "name_zh_cn": "二元节点规则 11304",
+    "summary_en": "Binary node rule 11304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 11304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "19",
+        "sha256": "7e12350e3f47ace26cc69de9598f86b4010be3c8c231bbbfe8970a2a43502139",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "11304",
+    "rank": {
+      "rule_id": "11304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.12301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 12301",
+    "name_zh_cn": "二元节点规则 12301",
+    "summary_en": "Binary node rule 12301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 12301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "28",
+        "sha256": "cd782909c74366bd29fb490e04a47f7dfd5ddf4f704b9c2f1ba2bab40144b559",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "12301",
+    "rank": {
+      "rule_id": "12301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.12302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 12302",
+    "name_zh_cn": "二元节点规则 12302",
+    "summary_en": "Binary node rule 12302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 12302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "29",
+        "sha256": "f1291a24a2374aebab2fa224355243aa90df8bdf5dc74d8359d245bf8f39b014",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "12302",
+    "rank": {
+      "rule_id": "12302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.12303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 12303",
+    "name_zh_cn": "二元节点规则 12303",
+    "summary_en": "Binary node rule 12303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 12303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "30",
+        "sha256": "74026d8806e132e7deb9cbe30aca227d6ff50bf48808fc441c6af310444eaaa6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "12303",
+    "rank": {
+      "rule_id": "12303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.12304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 12304",
+    "name_zh_cn": "二元节点规则 12304",
+    "summary_en": "Binary node rule 12304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 12304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "31",
+        "sha256": "912f2a46214c1b6960b30085b1e7b5334b7b7b0bdcd4cc87b336457800b78d4d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "12304",
+    "rank": {
+      "rule_id": "12304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 2",
+    "name_zh_cn": "二元节点规则 2",
+    "summary_en": "Binary node rule 2 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 2 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "1",
+        "sha256": "bbbe69e5cc39e17c08a51a36d989c42b38e9f77cade520e279c30372bcab865d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "2",
+    "rank": {
+      "rule_id": "2",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.20301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 20301",
+    "name_zh_cn": "二元节点规则 20301",
+    "summary_en": "Binary node rule 20301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 20301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "8",
+        "sha256": "389e5e2596698a647bfda9bd9d64e15818a18bd6b821e69e0bdb0ad665c8df03",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "20301",
+    "rank": {
+      "rule_id": "20301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.20302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 20302",
+    "name_zh_cn": "二元节点规则 20302",
+    "summary_en": "Binary node rule 20302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 20302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "9",
+        "sha256": "afd3858de62457d99f3cb7f5c7a5fb8d444f2f7731b6ef92ce58387e396602fa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "20302",
+    "rank": {
+      "rule_id": "20302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.20303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 20303",
+    "name_zh_cn": "二元节点规则 20303",
+    "summary_en": "Binary node rule 20303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 20303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "10",
+        "sha256": "f7dbe8b102096b3440c504016493a97dd950e992dc946b88a3e3a094d97bd63f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "20303",
+    "rank": {
+      "rule_id": "20303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.20304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 20304",
+    "name_zh_cn": "二元节点规则 20304",
+    "summary_en": "Binary node rule 20304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 20304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "11",
+        "sha256": "64fb0cea6ab29cc5e879eda15ae98d70a7fd7903911087a594bde2ef962eb256",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "20304",
+    "rank": {
+      "rule_id": "20304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.21301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 21301",
+    "name_zh_cn": "二元节点规则 21301",
+    "summary_en": "Binary node rule 21301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 21301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "20",
+        "sha256": "f5b023892533781dacf8835f110553a21c19d6ae83e2b1e99de2a7ac943c3a08",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "21301",
+    "rank": {
+      "rule_id": "21301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.21302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 21302",
+    "name_zh_cn": "二元节点规则 21302",
+    "summary_en": "Binary node rule 21302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 21302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "21",
+        "sha256": "55666af41f6e1f0ef6503196c108dbcde1ca0f56f28efd06d97e268f46150c0d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "21302",
+    "rank": {
+      "rule_id": "21302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.21303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 21303",
+    "name_zh_cn": "二元节点规则 21303",
+    "summary_en": "Binary node rule 21303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 21303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "22",
+        "sha256": "b60ea0c8342eb78747c4e1d220cd048d9ef0c9d5b7482061db117935e1764310",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "21303",
+    "rank": {
+      "rule_id": "21303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.21304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 21304",
+    "name_zh_cn": "二元节点规则 21304",
+    "summary_en": "Binary node rule 21304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 21304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "23",
+        "sha256": "988f4679d99b13111b3761a9683cc8170c96670a7a227f209e0105124743d61b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "21304",
+    "rank": {
+      "rule_id": "21304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.22301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 22301",
+    "name_zh_cn": "二元节点规则 22301",
+    "summary_en": "Binary node rule 22301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 22301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "32",
+        "sha256": "59efff2a00cf3ec379954c9e009217e5ca8fbb7e12ecd43ee9e63febd23997ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "22301",
+    "rank": {
+      "rule_id": "22301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.22302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 22302",
+    "name_zh_cn": "二元节点规则 22302",
+    "summary_en": "Binary node rule 22302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 22302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "33",
+        "sha256": "16bf4ce25ac6cf0b89d4abf63b03d1465e212d208a7beb1899d7acb77d6e7353",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "22302",
+    "rank": {
+      "rule_id": "22302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.22303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 22303",
+    "name_zh_cn": "二元节点规则 22303",
+    "summary_en": "Binary node rule 22303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 22303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "34",
+        "sha256": "3b09f9fbd7024e43c1cc7dad47685a48636aa3ff2e5f3a1ec8fa9c9b8d3843dc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "22303",
+    "rank": {
+      "rule_id": "22303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.22304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 22304",
+    "name_zh_cn": "二元节点规则 22304",
+    "summary_en": "Binary node rule 22304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 22304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "35",
+        "sha256": "cbc1fb2a09d340ea3b41ef2882ddaf31ca6a243dba774aebc36c98e76635c2e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "22304",
+    "rank": {
+      "rule_id": "22304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 3",
+    "name_zh_cn": "二元节点规则 3",
+    "summary_en": "Binary node rule 3 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 3 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "2",
+        "sha256": "b8335306f8198596065cca8350a47942f601f8b26041fc7611e465ee0fa19c00",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "3",
+    "rank": {
+      "rule_id": "3",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.30301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 30301",
+    "name_zh_cn": "二元节点规则 30301",
+    "summary_en": "Binary node rule 30301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 30301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "12",
+        "sha256": "b3ccd152dd005b48c8b5100f3916f26fffaf08ecf57a65e679799b2e63a03b69",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "30301",
+    "rank": {
+      "rule_id": "30301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.30302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 30302",
+    "name_zh_cn": "二元节点规则 30302",
+    "summary_en": "Binary node rule 30302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 30302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "13",
+        "sha256": "ea0bf2788c9c9a681f52a4c970e8a660f1469c09721813ea699d158fdf682a44",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "30302",
+    "rank": {
+      "rule_id": "30302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.30303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 30303",
+    "name_zh_cn": "二元节点规则 30303",
+    "summary_en": "Binary node rule 30303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 30303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "14",
+        "sha256": "cef5e17716d97ba623a7fe0ff63171aa860433d24bf78d4ccc567307bfe11778",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "30303",
+    "rank": {
+      "rule_id": "30303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.30304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 30304",
+    "name_zh_cn": "二元节点规则 30304",
+    "summary_en": "Binary node rule 30304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 30304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "15",
+        "sha256": "abb7196ca50c337175b8ce9ba3777235d1ae579125e08024954f7e44a73b6c5d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "30304",
+    "rank": {
+      "rule_id": "30304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.31301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 31301",
+    "name_zh_cn": "二元节点规则 31301",
+    "summary_en": "Binary node rule 31301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 31301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "24",
+        "sha256": "b8d7f8bf365d2cdcdaa86a8a12f84c66e50c3c082d81baad64bd05a78723af41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "31301",
+    "rank": {
+      "rule_id": "31301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.31302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 31302",
+    "name_zh_cn": "二元节点规则 31302",
+    "summary_en": "Binary node rule 31302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 31302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "25",
+        "sha256": "07cabf54a85e0676d1510aef6cf83c9cbe1c6fe91763aa5a47736e46092286b9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "31302",
+    "rank": {
+      "rule_id": "31302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.31303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 31303",
+    "name_zh_cn": "二元节点规则 31303",
+    "summary_en": "Binary node rule 31303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 31303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "26",
+        "sha256": "a8d21ffc93c10d68725aa3d8d77ec1c12435f81019156460d3b4bccf9209c37d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "31303",
+    "rank": {
+      "rule_id": "31303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.31304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 31304",
+    "name_zh_cn": "二元节点规则 31304",
+    "summary_en": "Binary node rule 31304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 31304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "27",
+        "sha256": "3cad1eb7ce65e8b6910b9f625952b4d960982a9fd72585e2a5cfd01f234d6a2d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "31304",
+    "rank": {
+      "rule_id": "31304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.32301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 32301",
+    "name_zh_cn": "二元节点规则 32301",
+    "summary_en": "Binary node rule 32301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 32301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "36",
+        "sha256": "6036d9076a9199f382040725a8f5053a5d6d814ace7477312c06bd99e5602b1c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "32301",
+    "rank": {
+      "rule_id": "32301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.32302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 32302",
+    "name_zh_cn": "二元节点规则 32302",
+    "summary_en": "Binary node rule 32302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 32302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "37",
+        "sha256": "86eb874980485e37954d5aeab1d31197f317aa88276a0ade956c284bc591debb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "32302",
+    "rank": {
+      "rule_id": "32302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.32303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 32303",
+    "name_zh_cn": "二元节点规则 32303",
+    "summary_en": "Binary node rule 32303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 32303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "38",
+        "sha256": "ece49e172ee8d437ad9531647a5030d764205fd9e17819f1d1a86a0a3c3a4183",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "32303",
+    "rank": {
+      "rule_id": "32303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.32304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 32304",
+    "name_zh_cn": "二元节点规则 32304",
+    "summary_en": "Binary node rule 32304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 32304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "39",
+        "sha256": "8dd5123d2dcda0f71e89cfc1003d4c3a5dfa7e16b308ed42d7b0ff527db67442",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "32304",
+    "rank": {
+      "rule_id": "32304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.33301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 33301",
+    "name_zh_cn": "二元节点规则 33301",
+    "summary_en": "Binary node rule 33301 maps quality 1 to perform level 1.",
+    "summary_zh_cn": "二元节点规则 33301 将品质 1 映射到表现等级 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "40",
+        "sha256": "663b22945fb9d7a3121d81a784a266ce9d607144b4b1dc75d587003254194bd8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "33301",
+    "rank": {
+      "rule_id": "33301",
+      "quality": "1"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "1"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.33302",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 33302",
+    "name_zh_cn": "二元节点规则 33302",
+    "summary_en": "Binary node rule 33302 maps quality 2 to perform level 2.",
+    "summary_zh_cn": "二元节点规则 33302 将品质 2 映射到表现等级 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "41",
+        "sha256": "f51140214679ffd81c5973f8984a2547d2c3a0272ef1ed40b009821c987e232c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "33302",
+    "rank": {
+      "rule_id": "33302",
+      "quality": "2"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "2"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.33303",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 33303",
+    "name_zh_cn": "二元节点规则 33303",
+    "summary_en": "Binary node rule 33303 maps quality 3 to perform level 3.",
+    "summary_zh_cn": "二元节点规则 33303 将品质 3 映射到表现等级 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "42",
+        "sha256": "c6b68f5bfa42f371668520ada9c65cd386edae161b595c25eadcd95efaafbe8e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "33303",
+    "rank": {
+      "rule_id": "33303",
+      "quality": "3"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "3"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.33304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 33304",
+    "name_zh_cn": "二元节点规则 33304",
+    "summary_en": "Binary node rule 33304 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 33304 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "43",
+        "sha256": "327f2873b9dac970dfb9dd274222cc66d2959a795c82560aae38bf2a0ebf3c09",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "33304",
+    "rank": {
+      "rule_id": "33304",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.binary-node.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Binary node rule 4",
+    "name_zh_cn": "二元节点规则 4",
+    "summary_en": "Binary node rule 4 maps quality 4 to perform level 4.",
+    "summary_zh_cn": "二元节点规则 4 将品质 4 映射到表现等级 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightbinarynoderule-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightBinaryNodeRule.json",
+        "locator": "3",
+        "sha256": "83b3e12110d2bd441f2b081ab9311d049bb001590392220b884579c2b10e4dfe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "binary-node",
+      "gridfight",
+      "perform-level",
+      "rank-progression"
+    ],
+    "source_id": "4",
+    "rank": {
+      "rule_id": "4",
+      "quality": "4"
+    },
+    "gambit_mode": "BinaryNodePerformLevel",
+    "entry_boundary": {
+      "perform_level": "4"
+    },
+    "enemy_affix_ids": []
+  },
+  {
     "id": "currency-wars.rank.division.1.0",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsRankGambitProgression",

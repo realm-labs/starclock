@@ -62,6 +62,8 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
             BuildValidationStage::TraceSelection,
             BuildValidationStage::EidolonSelection,
             BuildValidationStage::LightConeSelection,
+            BuildValidationStage::ContributionSelection,
+            BuildValidationStage::RelicSelection,
             BuildValidationStage::CombatBindings,
             BuildValidationStage::CombatantConstruction,
         ]

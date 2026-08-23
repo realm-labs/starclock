@@ -1,0 +1,67 @@
+{
+  "schema_revision": "starclock.currency-wars-contribution-snapshot-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P4-B6",
+  "result": "Pass",
+  "production_denominators": {
+    "role_star_states": 266,
+    "servant_star_states": 29,
+    "rank_attachments": 1596,
+    "influence_property_rules": 7,
+    "bond_contributions": 683,
+    "contribution_parameters": 254,
+    "combination_bonus_parameters": 230,
+    "named_runtime_constants": 24,
+    "integrated_source_rows": 2582,
+    "metadata_source_rows": 287,
+    "excluded_source_rows": 198,
+    "terminal_source_rows": 3067
+  },
+  "immutable_boundary": {
+    "activity_state": [
+      "route",
+      "difficulty",
+      "gambit",
+      "node",
+      "team level",
+      "Squad HP"
+    ],
+    "role_state": [
+      "deployment",
+      "role definition",
+      "selected role/star and servant/star states",
+      "owned/trial Build receipt",
+      "effective Ability levels",
+      "selected equipment definitions",
+      "off-field conversions",
+      "selected Character Empowerment"
+    ],
+    "shared_state": [
+      "active Bond snapshot",
+      "complete Bond contribution registry",
+      "selected investment definitions",
+      "influence property registry",
+      "contribution parameter registry",
+      "battle override snapshot"
+    ],
+    "identity": "SHA-256 binds Activity definition/config/state identity plus every dynamic selection; static definitions are bound by the exact configuration digest retained in the snapshot identity.",
+    "catalog_lookup_after_materialization": false
+  },
+  "evidence_boundary": {
+    "combination_bonus_consumer": "No released external key was found between GridFightCombinationBonus and team/star property rows; the snapshot retains exact ordered pairs and only resolves them from an authored BonusID reference.",
+    "inferred_numeric_adjacency": false,
+    "recommendation_rows": "MetadataOnly",
+    "obsolete_role_rows": "ExcludedWithProof",
+    "static_battle_operation_installation": "G21-P6-B3",
+    "complex_battle_program_installation": "G21-P6-Mxx"
+  },
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/contribution.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_economy.rs",
+    "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+    "content-reference/currency-wars-v1/contribution-parameters.json",
+    "content-reference/currency-wars-v1/influence-properties.json",
+    "content-manifests/currency-wars-runtime-v1/contribution-snapshot-execution-audit.json"
+  ]
+}

@@ -1,17 +1,20 @@
 use super::fault::{invariant_fault, numeric_fault};
 
 use crate::{
-    HealingAmount, Hp, LifeState, ShieldAmount,
+    HealingAmount, Hp, LifeState, Rounding, Scalar, ShieldAmount,
     battle::fault::BattleFault,
     catalog::CombatCatalog,
     effect::shield::ShieldState,
     event::{
         cause::Cause,
-        model::{BattleEventKind, HealEventData, HpConsumptionEventData, ShieldEventData},
+        model::{
+            BattleEventKind, HealEventData, HpConsumptionEventData, ResourceEventData,
+            ShieldEventData,
+        },
     },
     formula::{self, sustain::healing},
     id::EventId,
-    operation::{ConsumeHpOp, HealOp, RemoveShieldsOp, ShieldOp},
+    operation::{ConsumeHpOp, HealOp, ReduceMaximumHpOp, RemoveShieldsOp, ShieldOp},
     resolver::{operation_formula::FormulaInputs, transaction::Transaction},
 };
 
@@ -110,6 +113,47 @@ pub(super) fn execute_hp_consumption(
                 overflow: result.overflow,
                 hp_before: result.before,
                 hp_after: result.after,
+            }),
+        );
+    }
+    Ok(parent)
+}
+
+pub(super) fn execute_maximum_hp_reduction(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: ReduceMaximumHpOp,
+) -> Result<EventId, BattleFault> {
+    for target in operation.targets {
+        let (initial, before, current_before) = txn
+            .state
+            .units
+            .get(target)
+            .map(|unit| (unit.initial_maximum_hp, unit.maximum_hp, unit.current_hp))
+            .ok_or_else(|| invariant_fault(5))?;
+        let initial_scalar = Scalar::checked_from_integer(initial.get())
+            .map_err(|_| numeric_fault(18, initial.get()))?;
+        let floor_scalar = initial_scalar
+            .checked_mul(operation.minimum_ratio, Rounding::Ceil)
+            .map_err(|_| numeric_fault(19, operation.minimum_ratio.scaled()))?;
+        let floor = Hp::from_scalar(floor_scalar, Rounding::Ceil)
+            .map_err(|_| numeric_fault(19, floor_scalar.scaled()))?;
+        let reduced = before.get().saturating_sub(operation.reduction.get());
+        let after = Hp::new(reduced.max(floor.get())).map_err(|_| numeric_fault(20, reduced))?;
+        let current_after = Hp::new(current_before.get().min(after.get()))
+            .map_err(|_| numeric_fault(21, current_before.get()))?;
+        txn.set_maximum_hp(target, after)?;
+        txn.set_hp(target, current_after)?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Resource(ResourceEventData::MaximumHp {
+                unit: target,
+                initial,
+                before,
+                after,
+                current_before,
+                current_after,
             }),
         );
     }

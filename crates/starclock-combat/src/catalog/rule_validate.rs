@@ -317,6 +317,7 @@ fn validate_operation(
             selector, amount, ..
         }
         | RuleOperationTemplate::TrueDamage { selector, amount }
+        | RuleOperationTemplate::NonlethalTrueDamage { selector, amount }
         | RuleOperationTemplate::Heal {
             selector, amount, ..
         }
@@ -327,15 +328,19 @@ fn validate_operation(
             selector,
             multiplier: amount,
         }
-        | RuleOperationTemplate::CreateToughnessLayer {
-            selector,
-            maximum: amount,
-            ..
-        }
         | RuleOperationTemplate::AdvanceAction { selector, amount }
         | RuleOperationTemplate::DelayAction { selector, amount } => {
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
+        }
+        RuleOperationTemplate::CreateToughnessLayer {
+            selector,
+            layer_key,
+            maximum,
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, maximum)?;
+            require_toughness_layer_key(layer_key)?;
         }
         RuleOperationTemplate::RandomRepeatedDamage {
             selector,
@@ -480,9 +485,15 @@ fn validate_operation(
             }
         }
         RuleOperationTemplate::Break { selector, .. }
-        | RuleOperationTemplate::RemoveWeakness { selector, .. }
-        | RuleOperationTemplate::RemoveToughnessLayer { selector, .. } => {
+        | RuleOperationTemplate::RemoveWeakness { selector, .. } => {
             require_selector(catalog, *selector)?;
+        }
+        RuleOperationTemplate::RemoveToughnessLayer {
+            selector,
+            layer_key,
+        } => {
+            require_selector(catalog, *selector)?;
+            require_toughness_layer_key(layer_key)?;
         }
         RuleOperationTemplate::Shield {
             selector,
@@ -513,6 +524,15 @@ fn validate_operation(
             require_scalar(catalog, runtime, amount)?;
             require_scalar(catalog, runtime, floor)?;
         }
+        RuleOperationTemplate::ReduceMaximumHp {
+            selector,
+            amount,
+            minimum_ratio,
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+            require_scalar(catalog, runtime, minimum_ratio)?;
+        }
         RuleOperationTemplate::ModifyResource {
             selector,
             resource,
@@ -529,6 +549,15 @@ fn validate_operation(
             {
                 return Err("only gained Energy can scale with energy regeneration".into());
             }
+        }
+        RuleOperationTemplate::ModifySkillPointMaximum {
+            selector, amount, ..
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+        }
+        RuleOperationTemplate::DeductActionValue { amount } => {
+            require_scalar(catalog, runtime, amount)?;
         }
         RuleOperationTemplate::ApplyEffect {
             selector,
@@ -758,7 +787,8 @@ fn validate_condition(
     match condition {
         ConditionExpr::Literal(_)
         | ConditionExpr::EventKind(_)
-        | ConditionExpr::CurrentTargetIsBroken => {}
+        | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_) => {}
         ConditionExpr::Not(value) => validate_condition(catalog, runtime, value, depth + 1)?,
         ConditionExpr::All(values) | ConditionExpr::Any(values) => {
             if values.is_empty() {
@@ -852,6 +882,7 @@ fn infer_value(
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget => RuleValueKind::OptionalStableId,
         ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryHp { .. }
@@ -944,6 +975,13 @@ fn slot_kind(
 fn require_selector(catalog: &CombatCatalog, id: SelectorId) -> Result<(), String> {
     if catalog.selectors.get(id).is_none() {
         return Err(format!("missing selector {}", id.get()));
+    }
+    Ok(())
+}
+
+fn require_toughness_layer_key(stable_key: &str) -> Result<(), String> {
+    if stable_key.trim().is_empty() || stable_key.len() > 128 {
+        return Err("Toughness layer key must contain 1..=128 UTF-8 bytes".into());
     }
     Ok(())
 }

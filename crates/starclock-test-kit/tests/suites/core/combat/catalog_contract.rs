@@ -369,6 +369,29 @@ fn validated_catalog_can_be_composed_without_exposing_private_tables() {
 }
 
 #[test]
+fn catalog_composition_replaces_only_an_existing_ability_parameter() {
+    let base = complete_catalog(false);
+    let replacement = AbilityParameterDefinition::new(
+        id(1),
+        "coefficient",
+        RuleValue::Scalar(Scalar::from_scaled(2_000_000)),
+    )
+    .unwrap();
+    let mut builder = CombatCatalogBuilder::from_catalog(&base, [0x6d; 32]);
+    assert!(builder.replace_ability_parameter(replacement));
+    assert!(!builder.replace_ability_parameter(
+        AbilityParameterDefinition::new(id(1), "missing", RuleValue::Scalar(Scalar::ONE),).unwrap()
+    ));
+
+    let composed = builder.build().expect("parameter overlay validates");
+    assert_eq!(
+        composed.ability_parameter(id(1), "coefficient"),
+        Some(&RuleValue::Scalar(Scalar::from_scaled(2_000_000)))
+    );
+    assert!(composed.ability_parameter(id(1), "missing").is_none());
+}
+
+#[test]
 fn source_effect_stack_slots_require_one_effect_owner() {
     let base = complete_catalog(false);
     let mut builder = CombatCatalogBuilder::from_catalog(&base, [0x6c; 32]);

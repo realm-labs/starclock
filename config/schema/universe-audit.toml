@@ -1,16 +1,17 @@
+
 [[enums]]
 name = "UniverseModeOwner"
-values = ["Standard", "Shared", "EvidenceOnly"]
+values = [{ id = 0, name = "Standard" }, { id = 1, name = "Shared" }, { id = 2, name = "EvidenceOnly" }]
 
 [[enums]]
 name = "UniverseDataQuality"
-values = ["ExactStructured", "ExactPublicText", "Observed", "ApproximateFromReleasedText", "ProjectPolicy"]
+values = [{ id = 0, name = "ExactStructured" }, { id = 1, name = "ExactPublicText" }, { id = 2, name = "Observed" }, { id = 3, name = "ApproximateFromReleasedText" }, { id = 4, name = "ProjectPolicy" }]
 
 [[enums]]
 name = "UniverseCoverageState"
-values = ["Cataloged", "Researched", "DataReady", "GoldenVerified", "Blocked"]
-
+values = [{ id = 0, name = "Cataloged" }, { id = 1, name = "Researched" }, { id = 2, name = "DataReady" }, { id = 3, name = "GoldenVerified" }, { id = 4, name = "Blocked" }]
 [[tables]]
+id = "universe-source-record"
 name = "UniverseSourceRecord"
 mode = "map"
 key = "id"
@@ -71,6 +72,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-content-audit"
 name = "UniverseContentAudit"
 mode = "map"
 key = "id"
@@ -124,6 +126,7 @@ fields = ["content_stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-coverage"
 name = "UniverseCoverage"
 mode = "map"
 key = "id"
@@ -165,6 +168,7 @@ fields = ["category"]
 unique = true
 
 [[tables]]
+id = "universe-review-fixture"
 name = "UniverseReviewFixture"
 mode = "map"
 key = "id"
@@ -219,6 +223,7 @@ fields = ["mechanic_family"]
 unique = true
 
 [[tables]]
+id = "universe-pack-file"
 name = "UniversePackFile"
 mode = "map"
 key = "id"

@@ -1,4 +1,6 @@
-package = "starclock_production_config"
+project = { id = "starclock_production_config" }
+groups = { common = { default = true } }
+views = { default = { contract = "starclock_production_config/default", groups = ["common"] } }
 includes = [
   "schema/common.toml",
   "schema/ability.toml",
@@ -21,12 +23,13 @@ includes = [
 [build]
 default_source_format = "xlsx"
 data_root = "data"
+view = "default"
 schema_lock = "generated/schema.lock"
 excel_templates = "generated/templates"
 
 [[build.codegen]]
 target = "rust"
-out = "generated/rust"
+out = "generated/core-rust"
 format = "never"
 
 [[build.exports]]

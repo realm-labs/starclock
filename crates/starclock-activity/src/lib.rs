@@ -70,9 +70,9 @@ pub use graph::{
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use graph_activity::{
-    ActivityRandomBoundaryResolution, GraphActivity, GraphActivityBattleResolution,
-    GraphActivityDefinition, GraphActivityNodeProgram, GraphActivityPreparationResolution,
-    GraphActivityResolution,
+    ActivityGeneratedBoundaryResolution, ActivityRandomBoundaryResolution, GraphActivity,
+    GraphActivityBattleResolution, GraphActivityDefinition, GraphActivityNodeProgram,
+    GraphActivityPreparationResolution, GraphActivityResolution,
 };
 pub use graph_command::{GraphActivityCommand, GraphActivityCommandKind};
 pub use graph_error::{
@@ -109,10 +109,10 @@ pub use participant::{
     ParticipantLockError, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
 };
 pub use program::{
-    ActivityCondition, ActivityDecisionKind, ActivityExpression, ActivityOperation,
-    ActivityOptionDefinition, ActivityProgramBindingError, ActivityProgramDefinition,
-    ActivityProgramDefinitionError, ActivityValueType, MAX_ACTIVITY_OPTIONS,
-    MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
+    ActivityComparison, ActivityCondition, ActivityDecisionKind, ActivityExpression,
+    ActivityOperation, ActivityOptionDefinition, ActivityProgramBindingError,
+    ActivityProgramDefinition, ActivityProgramDefinitionError, ActivityValueType,
+    MAX_ACTIVITY_OPTIONS, MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
 };
 pub use projection::{
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultIdentity,

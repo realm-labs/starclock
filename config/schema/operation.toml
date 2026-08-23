@@ -1,59 +1,59 @@
+
 [[enums]]
 name = "OperationFaultPolicy"
-values = ["Rollback", "CommitFault"]
+values = [{ id = 0, name = "Rollback" }, { id = 1, name = "CommitFault" }]
 
 [[enums]]
 name = "LinkedUnitKind"
-values = ["Summon", "Memosprite", "SharedActor"]
+values = [{ id = 0, name = "Summon" }, { id = 1, name = "Memosprite" }, { id = 2, name = "SharedActor" }]
 
 [[enums]]
 name = "OwnerLinkPolicy"
-values = ["Persist", "Depart", "Defeat"]
+values = [{ id = 0, name = "Persist" }, { id = 1, name = "Depart" }, { id = 2, name = "Defeat" }]
 
 [[enums]]
 name = "WaveLinkPolicy"
-values = ["Persist", "ResetGauge", "Depart"]
+values = [{ id = 0, name = "Persist" }, { id = 1, name = "ResetGauge" }, { id = 2, name = "Depart" }]
 
 [[enums]]
 name = "SnapshotBoundary"
-values = ["Dynamic", "OnApplication", "OnActionStart", "OnPhaseStart", "OnHitStart", "EventSnapshot"]
+values = [{ id = 0, name = "Dynamic" }, { id = 1, name = "OnApplication" }, { id = 2, name = "OnActionStart" }, { id = 3, name = "OnPhaseStart" }, { id = 4, name = "OnHitStart" }, { id = 5, name = "EventSnapshot" }]
 
 [[enums]]
 name = "EffectChancePolicy"
-values = ["Guaranteed", "Fixed", "Resistible"]
+values = [{ id = 0, name = "Guaranteed" }, { id = 1, name = "Fixed" }, { id = 2, name = "Resistible" }]
 
 [[enums]]
 name = "ResourceUpdateKind"
-values = ["Spend", "Reserve", "Gain", "Set"]
+values = [{ id = 0, name = "Spend" }, { id = 1, name = "Reserve" }, { id = 2, name = "Gain" }, { id = 3, name = "Set" }]
 
 [[enums]]
 name = "StateSlotUpdateKind"
-values = ["Set", "Add", "Subtract", "Minimum", "Maximum"]
+values = [{ id = 0, name = "Set" }, { id = 1, name = "Add" }, { id = 2, name = "Subtract" }, { id = 3, name = "Minimum" }, { id = 4, name = "Maximum" }]
 
 [[enums]]
 name = "BattleDecisionKind"
-values = ["TargetChoice", "ModeChoice", "RuleChoice"]
+values = [{ id = 0, name = "TargetChoice" }, { id = 1, name = "ModeChoice" }, { id = 2, name = "RuleChoice" }]
 
 [[enums]]
 name = "EncounterTransitionKind"
-values = ["BossPhase", "Wave"]
+values = [{ id = 0, name = "BossPhase" }, { id = 1, name = "Wave" }]
 
 [[enums]]
 name = "QueuedActionOwnerPolicy"
-values = ["Actor", "CauseOwner", "CauseApplier"]
+values = [{ id = 0, name = "Actor" }, { id = 1, name = "CauseOwner" }, { id = 2, name = "CauseApplier" }]
 
 [[enums]]
 name = "QueuedActionPaymentPolicy"
-values = ["TeamSkillPoints", "Suppressed", "TeamResource"]
+values = [{ id = 0, name = "TeamSkillPoints" }, { id = 1, name = "Suppressed" }, { id = 2, name = "TeamResource" }]
 
 [[enums]]
 name = "ReactionBoundary"
-values = ["AfterHit", "AfterPhase", "AfterAction", "BeforeTimeline"]
+values = [{ id = 0, name = "AfterHit" }, { id = 1, name = "AfterPhase" }, { id = 2, name = "AfterAction" }, { id = 3, name = "BeforeTimeline" }]
 
 [[enums]]
 name = "ReplacementProposalKind"
-values = ["PreventDefeat", "RedirectDamage", "ReplaceValue", "ReplaceTarget", "CancelOperation"]
-
+values = [{ id = 0, name = "PreventDefeat" }, { id = 1, name = "RedirectDamage" }, { id = 2, name = "ReplaceValue" }, { id = 3, name = "ReplaceTarget" }, { id = 4, name = "CancelOperation" }]
 [[unions]]
 name = "ProgramStepNode"
 tag = "type"
@@ -459,6 +459,7 @@ name = "native_handler_id"
 type = "ref<NativeHandler.id>"
 
 [[tables]]
+id = "program"
 name = "Program"
 mode = "map"
 key = "id"
@@ -476,6 +477,7 @@ name = "domain"
 type = "enum<RuleDomain>"
 
 [[tables]]
+id = "program-step"
 name = "ProgramStep"
 mode = "list"
 
@@ -502,6 +504,7 @@ fields = ["program_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "operation"
 name = "Operation"
 mode = "map"
 key = "id"
@@ -554,6 +557,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "linked-unit-definition"
 name = "LinkedUnitDefinition"
 mode = "map"
 key = "id"
@@ -656,6 +660,7 @@ type = "string"
 length = [64, 64]
 
 [[tables]]
+id = "countdown-definition"
 name = "CountdownDefinition"
 mode = "map"
 key = "code"
@@ -700,6 +705,7 @@ name = "end_transformation"
 type = "bool"
 
 [[tables]]
+id = "operation-native-argument"
 name = "OperationNativeArgument"
 mode = "list"
 

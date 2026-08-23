@@ -286,6 +286,7 @@ fn start_action(
             tags: plan.tags,
         }),
     );
+    parent = apply_resource_costs(txn, base, parent, plan)?;
     parent = run_programs_at(
         catalog,
         txn,
@@ -296,7 +297,6 @@ fn start_action(
         None,
         &mut HitOperationScratch::default(),
     )?;
-    parent = apply_resource_costs(txn, base, parent, plan)?;
     modifier_snapshot::refresh(catalog, txn, SnapshotPolicy::OnActionStart)?;
     txn.reset_rule_slots(SlotResetPoint::ActionStart, Some(plan.actor));
     parent = effect_boundary::tick(
@@ -569,11 +569,11 @@ fn lower_operation(
             definition: *definition,
         }),
         HitOperationDefinition::SummonLinked(definition) => {
-            Operation::SummonLinked(SummonLinkedOp {
+            Operation::SummonLinked(Box::new(SummonLinkedOp {
                 id: operation_plan.id,
                 owners: vec![plan.actor].into_boxed_slice(),
-                definition: definition.clone(),
-            })
+                definition: definition.as_ref().clone(),
+            }))
         }
         HitOperationDefinition::ChangePresence(presence) => {
             Operation::ChangePresence(ChangePresenceOp {

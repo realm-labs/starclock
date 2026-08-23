@@ -59,8 +59,8 @@ mod tests {
     fn production_bundle_exposes_the_standard_metadata_boundary() {
         let metadata = inspect(PRODUCTION_BUNDLE).expect("production bundle must load");
         assert_eq!(metadata.game_version, "4.4");
-        assert_eq!(metadata.identity_count, 6719);
-        assert_eq!(metadata.enabled_identity_count, 6719);
+        assert_eq!(metadata.identity_count, 6807);
+        assert_eq!(metadata.enabled_identity_count, 6807);
     }
 
     #[test]

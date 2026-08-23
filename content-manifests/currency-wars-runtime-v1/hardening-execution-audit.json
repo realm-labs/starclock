@@ -1,0 +1,20 @@
+{
+  "schema_revision": "starclock.currency-wars-hardening-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P8-B1",
+  "result": "Pass",
+  "suites": {
+    "malformed_input": "currency_wars_hardening::malformed_replay_corpus_is_bounded_and_never_mutates_a_live_session",
+    "stale_and_idempotency": "currency_wars_hardening::stale_and_idempotency_conflict_rejections_are_state_inert",
+    "rng_isolation": "currency_wars_hardening::same_seed_sessions_keep_rng_and_observation_identity_isolated",
+    "empty_pool": "runtime_tests::proven_empty_service_and_occurrence_pools_use_typed_fallbacks",
+    "overflow": "runtime_tests::checked_currency_team_level_and_investment_boundaries_reject_overflow",
+    "recursion_budget": "currency_wars_matrix::generated_legal_matrix_completes_real_battles_and_fresh_replay",
+    "replay_corruption": "currency_wars_baseline::currency_wars_replay_binds_nine_components_and_reports_first_divergence"
+  },
+  "bounded_runtime_changes": {
+    "retained_link_history_limit": 4096,
+    "baseline_concede_command_limit": 64,
+    "battle_fault_projects_to_activity_fault_terminal": true
+  }
+}

@@ -33,6 +33,8 @@ pub struct CurrencyWarsEconomyRules {
     pub currency_ids: Option<String>,
     #[serde(rename = "experience_rules")]
     pub experience_rules: Option<String>,
+    #[serde(rename = "interest_rules")]
+    pub interest_rules: Option<String>,
     #[serde(rename = "refresh_rules")]
     pub refresh_rules: Option<String>,
     #[serde(rename = "team_size_rules")]
@@ -55,10 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsEconomyRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            currency_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            experience_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            refresh_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            team_size_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            currency_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            experience_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            interest_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            refresh_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            team_size_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

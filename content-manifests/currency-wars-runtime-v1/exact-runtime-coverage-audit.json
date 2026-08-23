@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.currency-wars-exact-runtime-coverage-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P8-B4",
+  "result": "Pass",
+  "denominators": {
+    "source_obligations": 19250,
+    "mechanic_programs": 2367,
+    "semantic_fixture_families": 28,
+    "project_policies": 12
+  },
+  "terminal_counts": {
+    "source_obligations": 19250,
+    "mechanic_programs": 2367,
+    "semantic_fixture_families": 28,
+    "project_policies": 12
+  },
+  "source_dispositions": {
+    "Excluded": 726,
+    "Integrated": 16264,
+    "MetadataOnly": 2260
+  },
+  "mechanic_executions": {
+    "ExactActivityProgram": 249,
+    "ExactRuleIr": 17,
+    "MetadataOnly": 1838,
+    "PolicyRuleIr": 263
+  },
+  "matrix_source_rows": 194,
+  "semantic_source_rows": 28,
+  "fixture_evidence_paths": 204,
+  "policies_with_replacement_conditions": 12,
+  "forbidden_states": {
+    "pending": 0,
+    "blocked": 0,
+    "catalog_only": 0,
+    "identity_only": 0,
+    "no_op_handler": 0,
+    "inherited_policy": 0,
+    "assigned_pending_resolution": 0
+  },
+  "verification_commands": [
+    "node tools/currency-wars-runtime/verify-dispositions.mjs",
+    "node tools/currency-wars-runtime/verify-coverage-and-release.mjs",
+    "node tools/currency-wars-runtime/verify-verification-scaffold.mjs"
+  ]
+}

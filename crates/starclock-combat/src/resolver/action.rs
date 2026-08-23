@@ -293,7 +293,11 @@ pub(super) fn project_hit_targets(
             .collect(),
         HitTargetGroup::Selected | HitTargetGroup::All => selected.into_vec(),
         HitTargetGroup::BounceDraw => {
-            vec![txn.draw_bounce_target(actor, commitment.selector.relation())?]
+            if selected.is_empty() {
+                Vec::new()
+            } else {
+                vec![txn.draw_bounce_target(actor, commitment.selector.relation())?]
+            }
         }
         HitTargetGroup::SelfTarget => vec![actor],
     };
@@ -333,9 +337,15 @@ pub(super) fn apply_resource_costs(
                     .keyed(resource)
                     .ok_or_else(|| action_fault(31))?
                     .current;
-                let after = before
-                    .checked_sub(attempted)
-                    .ok_or_else(|| action_fault(32))?;
+                let after = before.checked_sub(attempted).ok_or_else(|| {
+                    BattleFault::new(
+                        FaultKind::InvariantViolation,
+                        FaultBoundary::Command,
+                        FaultPolicy::Rollback,
+                        0x3120,
+                        Some(i64::from(plan.ability.get())),
+                    )
+                })?;
                 txn.set_team_resource(side, resource, after)?;
                 (
                     SkillPointPayer::TeamResource(resource),

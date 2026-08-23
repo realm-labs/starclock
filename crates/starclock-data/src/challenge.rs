@@ -10,12 +10,11 @@ use starclock_mode_challenge::{
     ApocalypticEnemyBinding, ApocalypticEnemyBindingId, ApocalypticEnemySlot, ApocalypticNode,
     ApocalypticProfile, ApocalypticStage, ChallengeNodeId, ChallengeProfileId, ChallengeStageId,
     CycleClockRule, MemoryCombatDefinitions, MemoryEncounter, MemoryEnemyBinding,
-    MemoryEnemyBindingId, MemoryEnemySlot, MemoryEnemyStats, MemoryEnemyStatsInput, MemoryWave,
-    Objective, ObjectiveId, ObjectiveKind, PolicyConfidence, ProjectPolicy,
-    PureFictionCombatDefinitions, PureFictionEncounter, PureFictionEnemyBinding,
-    PureFictionEnemyBindingId, PureFictionEnemySlot, PureFictionNode, PureFictionProfile,
-    PureFictionSpawnEnd, PureFictionStage, PureFictionWave,
-    memory_of_chaos::{MemoryNode, MemoryProfile, MemoryStage},
+    MemoryEnemyBindingId, MemoryEnemySlot, MemoryEnemyStats, MemoryEnemyStatsInput, MemoryNode,
+    MemoryProfile, MemoryStage, MemoryWave, Objective, ObjectiveId, ObjectiveKind,
+    PolicyConfidence, ProjectPolicy, PureFictionCombatDefinitions, PureFictionEncounter,
+    PureFictionEnemyBinding, PureFictionEnemyBindingId, PureFictionEnemySlot, PureFictionNode,
+    PureFictionProfile, PureFictionSpawnEnd, PureFictionStage, PureFictionWave,
 };
 
 use crate::challenge_generated::{

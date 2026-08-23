@@ -4,7 +4,7 @@
 
 The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
-**Current repository status:** See [Repository state](current-state.md). Git records
+**Current repository status:** See [Repository state](state.md). Git records
 past iterations; this documentation describes the current mechanics, content,
 architecture and authoring model only.
 
@@ -46,7 +46,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 24. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, engine-feature matrix, and 90-form action-flow audit.
 25. [Combat content reference pack](content-reference/README.md) — prepared Version 4.4 character, Trace, Eidolon, Light Cone, enemy, ability, and ordinary-encounter facts used before Excel/Sora authoring.
 26. [Dependency and tool policy](dependency-and-tool-policy.md) — exact active package/tool versions, licenses, deterministic impact, compile-cost records and rejected alternatives.
-27. [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md) — checksum-bound installation, executed CLI/schema/codegen/export surface and pinned limitations.
+27. [Sora 0.6.1 capability lock](sora-0.6.1-capability-lock.md) — checksum-bound installation, executed CLI/schema/codegen/export surface and pinned limitations.
 28. [CI verification](ci-platform-matrix.md) — direct Cargo formatting, lint and workspace-test commands for the current tree.
 29. [Common configuration schema](common-configuration-schema.md) — stable identity, localization, version, provenance, evidence and canonical-decimal transport contracts.
 30. [Character and build configuration schema](character-build-configuration-schema.md) — Sora contracts for abilities, hit plans, characters, Traces, Eidolons, build patches and Light Cones.
@@ -94,14 +94,14 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 73. [Goal 06 Phase 0 baseline](goal-06-phase0-baseline.md) — frozen replay v2/v3 compatibility, assembly/cache performance workloads, dependency identity and release scaffold.
 74. [Goal 06 combat-input identity evidence](goal-06-combat-input-identity.md) — combat-owned canonical input codec, computed digest and separate opaque assembly provenance.
 75. [Goal 06 Activity battle identity evidence](goal-06-activity-battle-identity.md) — dual-digest pending handoff, battle seed, result and settlement identity with Activity state v3/v5.
-76. [Goal 06 replay v3 evidence](goal-06-replay-v3.md) — component-addressed replay v3, six-field nested identity and ordered first-divergence verification.
+76. [Goal 06 replay reconstruction and surface parity](goal-06-replay-reconstruction-surface-parity.md) — component-addressed replay v3, six-field nested identity and ordered first-divergence verification.
 77. [Goal 06 construction and event codec](goal-06-construction-and-event-codec.md) — unified battle construction and replay event-payload v2 migration.
 78. [Goal 06 assembly key and cache](goal-06-battle-assembly-key-and-cache.md) — immutable catalog composition, canonical assembly keys and bounded non-authoritative caching.
 79. [Goal 06 current Activity snapshot](goal-06-current-activity-battle-snapshot.md) — typed contribution, lifecycle, progression and participant-carry projection.
 80. [Goal 06 atomic dynamic battle start](goal-06-atomic-dynamic-battle-start.md) — snapshot assembly and atomic pending-battle sealing.
 81. [Goal 06 assembly failure hardening](goal-06-assembly-failure-and-cache-hardening.md) — stale, invalid, budget, cache and retry state/RNG preservation.
 82. [Goal 06 transition battle fixtures](goal-06-transition-battle-fixtures.md) — representative inventory, lifecycle, progression, carry and provenance transitions.
-83. [Goal 06 dynamic CLI and replay](goal-06-dynamic-baseline-cli-replay-v3.md) — dynamic-only baseline execution and CLI replay-v3 round trips.
+83. [Baseline controller execution](baseline-controller-execution.md) — dynamic-only baseline execution and CLI replay-v3 round trips.
 84. [Goal 06 Agent and MCP migration](goal-06-agent-mcp-dynamic-assembly.md) — shared per-battle assembly without changing transport authority.
 85. [Goal 06 replay reconstruction parity](goal-06-replay-reconstruction-surface-parity.md) — fresh per-battle reconstruction and CLI/Agent/MCP trace parity.
 86. [Goal 06 performance hardening](goal-06-performance-and-source-hardening.md) — identity, cold/warm assembly, eviction and concurrent-service baselines.
@@ -140,6 +140,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 119. [Retained event modes](30-retained-event-modes.md) — Anomaly Arbitration runtime plus Galactic Baseballer and Fate/Star Rail NIGHT production catalogs, Activity graph compilers, policies and exactness boundaries.
 120. [Currency Wars runtime](currency-wars-runtime.md) — production 4.4 catalog lowering, shared Activity flow, economy/roster/deployment commands, battle handoff, policy gaps and ID-only debug surfaces.
 121. [Goal 21 Currency Wars runtime plan](goals/21-currency-wars-runtime.md) — exact-once completion plan for production lowering, complete mechanics, real battles, adapters, replay, hardening and release.
+122. [Currency Wars coverage and release contract](currency-wars-coverage-and-release.md) — generated legal matrix, first vertical slice, executable fixture axes, replay identity, performance workloads and native CI target.
 
 ## Delivery boundary
 

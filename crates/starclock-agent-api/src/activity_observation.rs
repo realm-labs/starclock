@@ -8,13 +8,14 @@ use starclock_combat::{LifeState, PresenceState};
 
 use crate::{
     activity_action::OfferedActivityAction,
-    schema::{AgentHash, AgentSInt, AgentUInt, SessionId},
+    schema::{ActionToken, AgentHash, AgentSInt, AgentUInt, EventCursor, SessionId},
 };
 
 pub const RESPONSIBILITY: &str = "owned player-visible Activity projections";
 pub const MAX_ACTIVITY_SLOT_ENTRIES: usize = 4_096;
 pub const MAX_ACTIVITY_INVENTORY_ENTRIES: usize = 4_096;
 pub const MAX_ACTIVITY_PARTICIPANTS: usize = 8;
+pub const MAX_ACTIVITY_EVENTS_PER_PAGE: usize = 256;
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -126,6 +127,38 @@ pub struct AgentActivityObservation {
     pub inventories: Box<[AgentActivityInventoryView]>,
     pub participants: Box<[AgentActivityParticipantView]>,
     pub legal_actions: Box<[OfferedActivityAction]>,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum AgentActivityEventKind {
+    ActionAccepted,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentActivityEventSummary {
+    pub event_id: AgentUInt,
+    pub kind: AgentActivityEventKind,
+    pub action_token: ActionToken,
+    pub command_sequence: AgentUInt,
+    pub resulting_state_hash: AgentHash,
+    pub accepted_activity_actions: AgentUInt,
+    pub nested_battles: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentActivityEventPage {
+    pub events: Box<[AgentActivityEventSummary]>,
+    pub next_cursor: EventCursor,
+    pub truncated: bool,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentActivityObservationPage {
+    pub observation: AgentActivityObservation,
+    pub event_cursor: EventCursor,
+    pub events: Box<[AgentActivityEventSummary]>,
+    pub events_truncated: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -5,7 +5,7 @@
 
 #![forbid(unsafe_code)]
 
-#[path = "../../../config/generated/rust/universe_reference/mod.rs"]
+#[path = "../../../config/universe-generated/rust/mod.rs"]
 mod generated;
 #[path = "../../../config/gold-and-gears-generated/rust/mod.rs"]
 mod gold_gears_generated;

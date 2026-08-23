@@ -65,8 +65,9 @@ pub use battle::model::{BattlePhase, Resolution};
 pub use battle::spec::{
     ActionValueClockSpec, AssemblyDigest, BattleClockExpiry, BattleClockSpec, BattleSeed,
     BattleSpec, BattleSpecError, CombatInputDigest, CombatantSpecDigest, CombatantSpecError,
-    ConcedePolicy, CycleClockSpec, FormationIndex, KeyedTeamResourceSpec, ParticipantInitialState,
-    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ConcedePolicy, CycleClockSpec, FormationIndex, KeyedTeamResourceSpec, LethalRescueHpPolicy,
+    ParticipantInitialState, ParticipantSource, ParticipantSpec, PlayerLethalRescueSpec,
+    ResolvedBuildBonuses, ResolvedCombatantSpec, ResolvedDefinitionBindings,
     ResolvedModifierBinding, TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
 };
 pub use battle::view::{

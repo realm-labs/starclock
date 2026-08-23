@@ -38731,6 +38731,1186 @@
     "quality": "ExactStructured"
   },
   {
+    "id": "character.gilgamesh.ability.amuse-me-to-the-fullest.talent",
+    "character_id": "character.gilgamesh",
+    "name_en": "\"Amuse Me to the Fullest\"",
+    "name_zh_cn": "「尽情取悦本王吧」",
+    "source_skill_ids": [
+      "150904"
+    ],
+    "kind": "Talent",
+    "effect_category": "Enhance",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "Self",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "3",
+          "10",
+          "0.2",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "3",
+          "10",
+          "0.22",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "3",
+          "10",
+          "0.24",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "3",
+          "10",
+          "0.26",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "3",
+          "10",
+          "0.28",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "3",
+          "10",
+          "0.3",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "3",
+          "10",
+          "0.325",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "3",
+          "10",
+          "0.35",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "3",
+          "10",
+          "0.375",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "3",
+          "10",
+          "0.4",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "3",
+          "10",
+          "0.42",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "3",
+          "10",
+          "0.44",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "3",
+          "10",
+          "0.46",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "3",
+          "10",
+          "0.48",
+          "0.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "3",
+          "10",
+          "0.5",
+          "0.1"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "Self",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "transform"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "83b7afb371d1deaae8ed8edf253e529bc26986307b3e759a2e803d57149c065f",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.attack.mazenormal",
+    "character_id": "character.gilgamesh",
+    "name_en": "Attack",
+    "name_zh_cn": "攻击",
+    "source_skill_ids": [
+      "150906"
+    ],
+    "kind": "MazeNormal",
+    "effect_category": "MazeAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "MazeAttack",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 1,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "debuff",
+        "toughness"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "0aad46999bc29a752f784221ca8e8c48488d71faafc207066ee9cf8ea3c92050",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.enkidu.maze",
+    "character_id": "character.gilgamesh",
+    "name_en": "Enkidu",
+    "name_zh_cn": "天之锁",
+    "source_skill_ids": [
+      "150907"
+    ],
+    "kind": "Maze",
+    "effect_category": "Impair",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "AllEnemies",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 1,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "10",
+          "2",
+          "3"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "damage",
+        "transform"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "4071847859cc5fe7824d5f15d1f35f1365ef05da35a2eaf7d4fca6b25fc3e85f",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.enuma-elish.ultra",
+    "character_id": "character.gilgamesh",
+    "name_en": "Enuma Elish",
+    "name_zh_cn": "天地乖离•开辟之星",
+    "source_skill_ids": [
+      "150903"
+    ],
+    "kind": "Ultra",
+    "effect_category": "AoEAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "AllEnemies",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "2",
+          "0.5",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "2.2",
+          "0.55",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "2.4",
+          "0.6",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "2.6",
+          "0.65",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "2.8",
+          "0.7",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "3",
+          "0.75",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "3.25",
+          "0.8125",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "3.5",
+          "0.875",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "3.75",
+          "0.9375",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "4",
+          "1",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "4.2",
+          "1.05",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "4.4",
+          "1.1",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "4.6",
+          "1.15",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "4.8",
+          "1.2",
+          "10"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "5",
+          "1.25",
+          "10"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "72e8f7de4d3bb37e1e75f847c5999fc5287b96d9edb86302022cc7ede0347088",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.gate-of-babylon.bpskill",
+    "character_id": "character.gilgamesh",
+    "name_en": "Gate of Babylon",
+    "name_zh_cn": "王之财宝",
+    "source_skill_ids": [
+      "150902"
+    ],
+    "kind": "BPSkill",
+    "effect_category": "Blast",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "Blast",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "1.4",
+          "0.7",
+          "0.1",
+          "10",
+          "0.15",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "1.54",
+          "0.77",
+          "0.11",
+          "10",
+          "0.165",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "1.68",
+          "0.84",
+          "0.12",
+          "10",
+          "0.18",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "1.82",
+          "0.91",
+          "0.13",
+          "10",
+          "0.195",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "1.96",
+          "0.98",
+          "0.14",
+          "10",
+          "0.21",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "2.1",
+          "1.05",
+          "0.15",
+          "10",
+          "0.225",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "2.275",
+          "1.1375",
+          "0.1625",
+          "10",
+          "0.2437",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "2.45",
+          "1.225",
+          "0.175",
+          "10",
+          "0.2625",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "2.625",
+          "1.3125",
+          "0.1875",
+          "10",
+          "0.2812",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "2.8",
+          "1.4",
+          "0.2",
+          "10",
+          "0.3",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "2.94",
+          "1.47",
+          "0.21",
+          "10",
+          "0.315",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "3.08",
+          "1.54",
+          "0.22",
+          "10",
+          "0.33",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "3.22",
+          "1.61",
+          "0.23",
+          "10",
+          "0.345",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "3.36",
+          "1.68",
+          "0.24",
+          "10",
+          "0.36",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "3.5",
+          "1.75",
+          "0.25",
+          "10",
+          "0.375",
+          "3",
+          "2"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "Blast",
+      "operation_tags": [
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "4e605205e07a20923ad6dfbcbde811ddf86af275b1f400becd7668d289e97e63",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.halfhearted-blow.bpskill",
+    "character_id": "character.gilgamesh",
+    "name_en": "Halfhearted Blow",
+    "name_zh_cn": "漫不经心",
+    "source_skill_ids": [
+      "150909"
+    ],
+    "kind": "BPSkill",
+    "effect_category": "SingleAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "SingleAttack",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 10,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.5"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "0.6"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "0.7"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "0.8"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "0.9"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "1.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "1.2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "1.3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "1.4"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.halfhearted-blow.normal",
+    "character_id": "character.gilgamesh",
+    "name_en": "Halfhearted Blow",
+    "name_zh_cn": "漫不经心",
+    "source_skill_ids": [
+      "150901"
+    ],
+    "kind": "Normal",
+    "effect_category": "SingleAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "SingleEnemy",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 10,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.5"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "0.6"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "0.7"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "0.8"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "0.9"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "1.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "1.2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "1.3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "1.4"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "SingleEnemy",
+      "operation_tags": [
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "cc210408208569f5d9ea17ae97464a72f9dff50604e180e4e9951a9dd35159ea",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.ability.i-grant-you-permission-to-strike.talent",
+    "character_id": "character.gilgamesh",
+    "name_en": "\"I Grant You Permission To Strike\"",
+    "name_zh_cn": "「本王允许你进攻」",
+    "source_skill_ids": [
+      "150905"
+    ],
+    "kind": "Talent",
+    "effect_category": "AoEAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "AllEnemies",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "2",
+          "3",
+          "3",
+          "120",
+          "8",
+          "1.2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "2.2",
+          "3.3",
+          "3",
+          "120",
+          "8",
+          "1.28"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "2.4",
+          "3.6",
+          "3",
+          "120",
+          "8",
+          "1.36"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "2.6",
+          "3.9",
+          "3",
+          "120",
+          "8",
+          "1.44"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "2.8",
+          "4.2",
+          "3",
+          "120",
+          "8",
+          "1.52"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "3",
+          "4.5",
+          "3",
+          "120",
+          "8",
+          "1.6"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "3.25",
+          "4.875",
+          "3",
+          "120",
+          "8",
+          "1.7"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "3.5",
+          "5.25",
+          "3",
+          "120",
+          "8",
+          "1.8"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "3.75",
+          "5.625",
+          "3",
+          "120",
+          "8",
+          "1.9"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "4",
+          "6",
+          "3",
+          "120",
+          "8",
+          "2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "4.2",
+          "6.3",
+          "3",
+          "120",
+          "8",
+          "2.08"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "4.4",
+          "6.6",
+          "3",
+          "120",
+          "8",
+          "2.16"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "4.6",
+          "6.9",
+          "3",
+          "120",
+          "8",
+          "2.24"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "4.8",
+          "7.2",
+          "3",
+          "120",
+          "8",
+          "2.32"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "5",
+          "7.5",
+          "3",
+          "120",
+          "8",
+          "2.4"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "178573773b2043032928ba1fb8c54af96c9f4b573abd712fa99d61eb6603a992",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
     "id": "character.guinaifen.ability.attack.mazenormal",
     "character_id": "character.guinaifen",
     "name_en": "Attack",
@@ -75937,6 +77117,1284 @@
       "emitted": false
     },
     "mechanism_quality": "ExactStructured",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.an-gal-ta-ki-gal-s-e.ultra",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "An Gal Ta Ki Gal Šè",
+    "name_zh_cn": "山脉震撼•明星之薪",
+    "source_skill_ids": [
+      "150803"
+    ],
+    "kind": "Ultra",
+    "effect_category": "AoEAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "AllEnemies",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "3",
+          "1",
+          "12",
+          "1",
+          "0.1",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "3.3",
+          "1.1",
+          "12",
+          "1",
+          "0.11",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "3.6",
+          "1.2",
+          "12",
+          "1",
+          "0.12",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "3.9",
+          "1.3",
+          "12",
+          "1",
+          "0.13",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "4.2",
+          "1.4",
+          "12",
+          "1",
+          "0.14",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "4.5",
+          "1.5",
+          "12",
+          "1",
+          "0.15",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "4.875",
+          "1.625",
+          "12",
+          "1",
+          "0.1625",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "5.25",
+          "1.75",
+          "12",
+          "1",
+          "0.175",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "5.625",
+          "1.875",
+          "12",
+          "1",
+          "0.1875",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "6",
+          "2",
+          "12",
+          "1",
+          "0.2",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "6.3",
+          "2.1",
+          "12",
+          "1",
+          "0.21",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "6.6",
+          "2.2",
+          "12",
+          "1",
+          "0.22",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "6.9",
+          "2.3",
+          "12",
+          "1",
+          "0.23",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "7.2",
+          "2.4",
+          "12",
+          "1",
+          "0.24",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "7.5",
+          "2.5",
+          "12",
+          "1",
+          "0.25",
+          "3"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "badb4bf1df72e7a510ec89040471b1a0e9b1eb680292f698c4f262438ec3aada",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.attack.mazenormal",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Attack",
+    "name_zh_cn": "攻击",
+    "source_skill_ids": [
+      "150806"
+    ],
+    "kind": "MazeNormal",
+    "effect_category": "MazeAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "MazeAttack",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 1,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "debuff",
+        "toughness"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "0aad46999bc29a752f784221ca8e8c48488d71faafc207066ee9cf8ea3c92050",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.bajiquan.normal",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Bajiquan",
+    "name_zh_cn": "八极拳",
+    "source_skill_ids": [
+      "150801"
+    ],
+    "kind": "Normal",
+    "effect_category": "SingleAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "SingleEnemy",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 10,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.5"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "0.6"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "0.7"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "0.8"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "0.9"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "1.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "1.2"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "1.3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "1.4"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "SingleEnemy",
+      "operation_tags": [
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "2bded7d87a663d9e45d2070179dafc6b3f0283cb583167b50393bd7e3596ae7d",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.conversion-charge.maze",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Conversion Charge",
+    "name_zh_cn": "转换充能",
+    "source_skill_ids": [
+      "150807"
+    ],
+    "kind": "Maze",
+    "effect_category": "Enhance",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "Enhance",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 1,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "10",
+          "2",
+          "2"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "507ad55488c737cbc262a9bcaf44763ce87f2baf26658f711b37cf362fbe86cb",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.freeform-tohsaka-style.talent",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Freeform Tohsaka Style",
+    "name_zh_cn": "自在远坂流",
+    "source_skill_ids": [
+      "150805"
+    ],
+    "kind": "Talent",
+    "effect_category": "AoEAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "AllEnemies",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "1.5",
+          "4",
+          "3",
+          "1.5"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "1.65",
+          "4",
+          "3",
+          "1.65"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "1.8",
+          "4",
+          "3",
+          "1.8"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "1.95",
+          "4",
+          "3",
+          "1.95"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "2.1",
+          "4",
+          "3",
+          "2.1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "2.25",
+          "4",
+          "3",
+          "2.25"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "2.4375",
+          "4",
+          "3",
+          "2.4375"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "2.625",
+          "4",
+          "3",
+          "2.625"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "2.8125",
+          "4",
+          "3",
+          "2.8125"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "3",
+          "4",
+          "3",
+          "3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "3.15",
+          "4",
+          "3",
+          "3.15"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "3.3",
+          "4",
+          "3",
+          "3.3"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "3.45",
+          "4",
+          "3",
+          "3.45"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "3.6",
+          "4",
+          "3",
+          "3.6"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "3.75",
+          "4",
+          "3",
+          "3.75"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "d3f89f619c0f2b4ea2b17b10bbba365d1a7a1897baeb383f97471d89dfeaf363",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.gem-magecraft.talent",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Gem Magecraft",
+    "name_zh_cn": "宝石魔术",
+    "source_skill_ids": [
+      "150804"
+    ],
+    "kind": "Talent",
+    "effect_category": "Enhance",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "Enhance",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "20",
+          "2",
+          "0.35",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "20",
+          "2",
+          "0.385",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "20",
+          "2",
+          "0.42",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "20",
+          "2",
+          "0.455",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "20",
+          "2",
+          "0.49",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "20",
+          "2",
+          "0.525",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "20",
+          "2",
+          "0.5687",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "20",
+          "2",
+          "0.6125",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "20",
+          "2",
+          "0.6562",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "20",
+          "2",
+          "0.7",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "20",
+          "2",
+          "0.735",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "20",
+          "2",
+          "0.77",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "20",
+          "2",
+          "0.805",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "20",
+          "2",
+          "0.84",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "20",
+          "2",
+          "0.875",
+          "7",
+          "15",
+          "999"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "009b2b0dc018417706e12c7c9dc17a93576c317aa36a0a3f1fc5d024bcab3412",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.jeweled-sword-zelretch.bpskill",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Jeweled Sword Zelretch",
+    "name_zh_cn": "宝石剑•泽尔里奇",
+    "source_skill_ids": [
+      "150802"
+    ],
+    "kind": "BPSkill",
+    "effect_category": "SingleAttack",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "SingleEnemy",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.9"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "0.99"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "1.08"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "1.17"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "1.26"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "1.35"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "1.4625"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "1.575"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "1.6875"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "1.8"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "1.89"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "1.98"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "2.07"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "2.16"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "2.25"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "SingleEnemy",
+      "operation_tags": [
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "2bded7d87a663d9e45d2070179dafc6b3f0283cb583167b50393bd7e3596ae7d",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.ability.second-magic-experiment.bpskill",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Second Magic Experiment",
+    "name_zh_cn": "第二魔法实验",
+    "source_skill_ids": [
+      "150809"
+    ],
+    "kind": "BPSkill",
+    "effect_category": "Bounce",
+    "trigger_key": "",
+    "use_type": "",
+    "target": {
+      "target_type": "AllEnemies",
+      "details": {
+        "evidence": "released_text_inference"
+      }
+    },
+    "entry_ability": "",
+    "source_ability_files": [],
+    "operation_types": [],
+    "max_level": 15,
+    "energy_gain": null,
+    "skill_point_cost": null,
+    "initial_cooldown": null,
+    "cooldown": null,
+    "delay_ratio": null,
+    "display_toughness": [],
+    "display_damage": [],
+    "display_heal": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.45",
+          "3",
+          "0.45",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 2,
+        "parameters": [
+          "0.495",
+          "3",
+          "0.495",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 3,
+        "parameters": [
+          "0.54",
+          "3",
+          "0.54",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 4,
+        "parameters": [
+          "0.585",
+          "3",
+          "0.585",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 5,
+        "parameters": [
+          "0.63",
+          "3",
+          "0.63",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 6,
+        "parameters": [
+          "0.675",
+          "3",
+          "0.675",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 7,
+        "parameters": [
+          "0.7312",
+          "3",
+          "0.7312",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 8,
+        "parameters": [
+          "0.7875",
+          "3",
+          "0.7875",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 9,
+        "parameters": [
+          "0.8438",
+          "3",
+          "0.8438",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 10,
+        "parameters": [
+          "0.9",
+          "3",
+          "0.9",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 11,
+        "parameters": [
+          "0.945",
+          "3",
+          "0.945",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 12,
+        "parameters": [
+          "0.99",
+          "3",
+          "0.99",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 13,
+        "parameters": [
+          "1.035",
+          "3",
+          "1.035",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 14,
+        "parameters": [
+          "1.08",
+          "3",
+          "1.08",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      },
+      {
+        "level": 15,
+        "parameters": [
+          "1.125",
+          "3",
+          "1.125",
+          "2",
+          "2",
+          "33",
+          "0",
+          "1"
+        ],
+        "simple_parameters": []
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "126443b86756d07d3d875d7f9c6028e85079cc315b6964211a0ba5aa639b339f",
+      "emitted": false
+    },
+    "mechanism_quality": "ApproximateFromReleasedText",
     "quality": "ExactStructured"
   },
   {

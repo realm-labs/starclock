@@ -29,6 +29,8 @@ pub struct CurrencyWarsOffFieldConversions {
     pub source_refs_json: String,
     #[serde(rename = "tags_json")]
     pub tags_json: String,
+    #[serde(rename = "source_id")]
+    pub source_id: Option<String>,
     #[serde(rename = "source_kind")]
     pub source_kind: Option<String>,
     #[serde(rename = "eligibility")]
@@ -55,10 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsOffFieldConversions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            conversion: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            destination_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            source_kind: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            eligibility: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            conversion: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            destination_state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

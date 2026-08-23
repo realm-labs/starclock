@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.currency-wars-runtime-dispositions.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P0-B3",
+  "release_state": "RuntimeCoverageCompletePendingNativeRelease",
+  "input_digests": {
+    "foundation": {
+      "path": "content-manifests/currency-wars-runtime-v1/foundation.json",
+      "sha256": "98c097ae45ad22463a90e3d174ccf556ab40f3b84309789de65a29a942d52822"
+    },
+    "content_manifest": {
+      "path": "content-manifests/currency-wars-v1/content-manifest.json",
+      "sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef"
+    },
+    "coverage": {
+      "path": "content-reference/currency-wars-v1/coverage.json",
+      "sha256": "200b70bc1c96d74cc65f6a886b90187bf6718e26f792713e882c41851cccb89f"
+    },
+    "mechanic_rules": {
+      "path": "content-reference/currency-wars-v1/mechanic-rules.json",
+      "sha256": "a91de7efc4086c0a8e91b4e5c82532d41874d1ec07d7a2284c300488bc925edc"
+    },
+    "fixture_families": {
+      "path": "content-reference/currency-wars-v1/semantic-fixture-families.json",
+      "sha256": "cc836c84af7c154b97a10ae15aea0f922ce9d5ca49f885ee3ae0701a62151ca3"
+    },
+    "policy_gaps": {
+      "path": "content-reference/currency-wars-v1/research-gaps.json",
+      "sha256": "b3ecb0835d42d1c787e71421df3a8f6093045ad26f3536ea5ba637d58ba30865"
+    }
+  },
+  "artifact_digests": {
+    "agent-api-execution-audit.json": "919c5228137535f6b039b2dd7fc3dbd405adf99da875f970b8eb5ab38ca29d1f",
+    "augment-execution-audit.json": "31332a8800657719d0c3e309f87e3b1bcf73d8c22565cfb6d9a0e7355a5eaf41",
+    "avatar-battle-behavior-m03-execution-audit.json": "c22d3616b3052bef07eb8caf02ee321859b07359fc108ce2efb27db1ac1791da",
+    "avatar-battle-behavior-policy-execution-audit.json": "f19027bc0eab7d516267118338a77b514b905784d455cde0499f96387a3b96c4",
+    "baseline-controller-execution-audit.json": "fc5649f7c139d6b0f185a7d0714f616b14b9eb7c1751d4a506a3e84085408c7f",
+    "batch-ledger.json": "08222bec501adb76a9f76072247bd72b768b1299626685533a8704d62e821363",
+    "battle-ai-program-m12-execution-audit.json": "6953edd78313f14ad7e070ac533ea62a3bafdb2c9c842af9e0bdf2b5a1d48d72",
+    "battle-assembly-execution-audit.json": "7c870e5edb893a6db9a31c9da0b46495d847fcbf3ad6b373ea5a51019b50b460",
+    "battle-avatar-program-m07-execution-audit.json": "87ab231914f9bad78b9ce9dce38a2623f6f84830948d1bf5367828bae7c3aebb",
+    "battle-avatar-program-m08-execution-audit.json": "b3b2033656449ed6efa4309daa95999f05bb5d82d44def12c18df29980644f50",
+    "battle-avatar-program-m09-execution-audit.json": "a6ab8441d0de6993e879b43b58d4dd44710ef013bbd5295e1e1f2a9fb505ca1d",
+    "battle-behavior-policy-execution-audit.json": "d2108f0f46b2bff514d634b29ca3583bdd9dfbb8dc3058c7c950e2b531c9c67d",
+    "battle-boundary-execution-audit.json": "170337b4d15b89ab84fef25cf1783ad2aef9c7e985ec2e14e9e58e6b11bd1319",
+    "battle-configuration-m04-execution-audit.json": "4cd21092069543f8c29a5636c92e2e717ecad92c6105a4ba173b0d0d99a09169",
+    "battle-override-execution-audit.json": "1a5314f29bb4734f4d53b92157dd6fc37a19a7e12d9faa87e54600c60899866e",
+    "battle-program-binding-m06-execution-audit.json": "326482a677b65551a5dd24f84e7fd642d2ab8f50a7bbb0a7d77bb9322b514689",
+    "battle-settlement-execution-audit.json": "37d963c3b8fed18eac694df54f5261508e32dc0e84d0b2269f6b44ceb4a6b0ad",
+    "blessing-formula-execution-audit.json": "8fe48b68a1864ed8d3833dfd9599fbf49711c6b2d1ec0b4db0e6f5b026947a3b",
+    "bond-battle-behavior-m05-execution-audit.json": "c9d1c1098c56fec245070d59f2cdbf9b0722d036ff1ec9cc5add1e47a6ab9af0",
+    "bond-execution-audit.json": "aa291d3eabff9c6866076e03da0de8a1d62d41c737079f1953d137942f459343",
+    "build-execution-audit.json": "b9515f3b01636447d2563f8c81a0d48ede73ed21615ede1315490b2b142e12b5",
+    "cli-replay-execution-audit.json": "4feab8a483e821f872de6d689233b8ac8271fbbc7fe971a553f94403217d8178",
+    "complex-ai-global-factor-m11-execution-audit.json": "f7cdb433e9413e1bc08e1870ba1fff0afb738f14145a7063e96268a32fadf470",
+    "contribution-snapshot-execution-audit.json": "1b0f381ea271b6092ef2dcee414ef043ec859fe2bee98910b13d93908c38e2b5",
+    "cross-investment-execution-audit.json": "d9a2c863c950b4f42a3ab500fa2cbab0b67b45d51cf5807c1903f305285e1959",
+    "deployment-execution-audit.json": "6addd91de5f6f0d143be06c28d919a1fe2843a81132387a7c6685be3ab486fb4",
+    "economy-execution-audit.json": "e83e5097ced4bcb2a60c5c69190f1a2c63c43f0235805a9c5b7e1b4f2b555092",
+    "empowerment-execution-audit.json": "c65f8a5c3b79ed81bc1557fb6c949566c9a32a6baf83ef3021ce42a3bac2ac1d",
+    "encounter-execution-audit.json": "98f4eb8d9d44531d70c1bced58874120d81fa1c1e3e1c56879c5f3db4a984e63",
+    "enemy-affix-execution-audit.json": "228210233af3d768361aa5814ddbb1e32bdf4dfeae31e6f2cdc979dd4890e2b8",
+    "enemy-character-program-m10-execution-audit.json": "63aa392cfc4b1cc163f6b26f3d034f744572ff65c7c239624628aa7be3cc3954",
+    "equipment-execution-audit.json": "868911ab872997c969e6997a625156eb20975c19495e67758212ab1d67e4b59b",
+    "exact-runtime-coverage-audit.json": "99ff8f1e18e93f95dc255e185f349aca3fb92f3b0340002de4b540f09246379d",
+    "flow-execution-audit.json": "5f17581c917d88a27da4674b72e22c2bcefc299779099ebea62da6567e0ba477",
+    "global-task-template-m13-execution-audit.json": "2e7a2f55c322a31ed8a1dc12faeb99b0416fb96d967a7f661bad4409b046d9c5",
+    "hardening-execution-audit.json": "c5138f90455662fe482264e48a09fe351b57ab8daec104856c7031de100c0b48",
+    "investment-lifecycle-execution-audit.json": "44f8ed13afb1b8e3731b8ab2673353d0891f0c7c12eb2b229121f3f9c8efa71a",
+    "legal-matrix-execution-audit.json": "de95aa15fd9258d0de9f0240a08ea339b192133fc2b13bf5454c176ff2841cf0",
+    "mcp-execution-audit.json": "86938cd572fbe6ed2475bfa1c82933e0ac38d97620efa17c134cbfce6ea4bc41",
+    "mechanic-dispositions.json": "025c3f3c26cd03fd1d55c4e0894d7818e9b00016ce12088a95f5de70e2a9bcad",
+    "mechanic-partitions.json": "36f2abdea0e99523fb704640b3aef1762c711291f1a6f115bfa5776645dd9b56",
+    "metadata-mechanic-partition-execution-audit.json": "66d003e3417afebee1111b7fcbc115ec1d9e1b8ef482022bc2d01328a804a40c",
+    "occurrence-execution-audit.json": "8a166244b58a3ee85fe09c1cf800a8f955615a4854a1d835356f1969df7c3396",
+    "performance-execution-audit.json": "b18c77c3ebed9058cb4e9b33c37953fccde65bf6e6e19985f8875fcb78770bde",
+    "replay-execution-audit.json": "a4b6dc181405fa9a3b68d24b0597b5e86b5285837ee0ad0bf8efd84b243bb1c4",
+    "repository-release-audit.json": "c636f81d69f9044c280f86d1e32728b06bf9a507b37c65f8cabf85d0195dc5d7",
+    "roster-execution-audit.json": "5e30bfcecd5bc48b8ec46a88b015f3f0fe72ee8d8ac2cf72baae30568c1d1135",
+    "service-execution-audit.json": "379d6e028212c684dd49fe2c3f6d4c08ddcf3ea82cc61e2bce1daed48c9d0706",
+    "source-dispositions.json": "94046db687e254877407ab3f3f7b296c2e7e44210f6a50ceff7acfefe31c232f",
+    "transition-replay-execution-audit.json": "2a8f0b042f7476f39c0028c89b72b81af5b44ceb08f764c94c284c392dc7aae0",
+    "vertical-slice-execution-audit.json": "66ec6d5e21949cc94a4829d6eefd06e2b1618666669de3fae8703981b7a8511e"
+  },
+  "summary": {
+    "source_obligations": 19250,
+    "source_target_dispositions": {
+      "Excluded": 726,
+      "Integrated": 16264,
+      "MetadataOnly": 2260
+    },
+    "mechanic_programs": 2367,
+    "mechanic_target_execution": {
+      "ExactActivityProgram": 249,
+      "ExactRuleIr": 17,
+      "MetadataOnly": 1838,
+      "PolicyRuleIr": 263
+    },
+    "semantic_fixture_families": 28,
+    "policy_gaps": 12,
+    "mechanic_partitions": 43,
+    "native_handlers_admitted": 0,
+    "pending_source_obligations": 0,
+    "pending_catalog_obligations": 0,
+    "pending_mechanic_programs": 0
+  }
+}

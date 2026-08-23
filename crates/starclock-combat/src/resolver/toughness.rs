@@ -2,8 +2,11 @@
 
 use crate::{
     EffectInstanceId, OperationId, Ratio, RawToughness, Rounding, Scalar, UnitId,
-    actor::store::TemporaryWeaknessState, battle::fault::BattleFault,
-    effect::break_effect::BreakEffectState, formula::model::CombatElement,
+    actor::store::TemporaryWeaknessState,
+    battle::fault::BattleFault,
+    effect::break_effect::BreakEffectState,
+    formula::model::CombatElement,
+    toughness::{model::ToughnessLayerSpec, state::ToughnessLayerState},
 };
 
 use super::{
@@ -12,6 +15,78 @@ use super::{
 };
 
 impl Transaction<'_> {
+    pub(super) fn create_toughness_layer(
+        &mut self,
+        unit: UnitId,
+        stable_key: &str,
+        maximum: RawToughness,
+    ) -> Result<Option<u32>, BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(147))?;
+        if state
+            .toughness_layers
+            .iter()
+            .any(|layer| layer.spec.stable_key() == Some(stable_key))
+        {
+            return Ok(None);
+        }
+        let mut key = 1_u32;
+        while state
+            .toughness_layers
+            .iter()
+            .any(|layer| layer.spec.key() == key)
+        {
+            key = key.checked_add(1).ok_or_else(|| action_fault(148))?;
+        }
+        let spec = ToughnessLayerSpec::ordinary(key, maximum)
+            .and_then(|layer| layer.with_stable_key(stable_key))
+            .map_err(|_| action_fault(149))?;
+        let before = state.toughness_layers.len() as u64;
+        state
+            .toughness_layers
+            .push(ToughnessLayerState::from_spec(spec));
+        self.journal.mutation(
+            MutationField::ToughnessLayer,
+            before,
+            state.toughness_layers.len() as u64,
+        );
+        Ok(Some(key))
+    }
+
+    pub(super) fn remove_toughness_layer(
+        &mut self,
+        unit: UnitId,
+        stable_key: &str,
+    ) -> Result<Option<(u32, RawToughness, RawToughness)>, BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(150))?;
+        let Some(index) = state
+            .toughness_layers
+            .iter()
+            .position(|layer| layer.spec.stable_key() == Some(stable_key))
+        else {
+            return Ok(None);
+        };
+        let before = state.toughness_layers.len() as u64;
+        let removed = state.toughness_layers.remove(index);
+        self.journal.mutation(
+            MutationField::ToughnessLayer,
+            before,
+            state.toughness_layers.len() as u64,
+        );
+        Ok(Some((
+            removed.spec.key(),
+            removed.current,
+            removed.spec.maximum(),
+        )))
+    }
+
     pub(super) fn add_weakness(
         &mut self,
         unit: UnitId,

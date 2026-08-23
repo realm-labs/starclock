@@ -33,6 +33,12 @@ pub struct CurrencyWarsDifficulties {
     pub rank_bounds: Option<String>,
     #[serde(rename = "enemy_scaling_refs")]
     pub enemy_scaling_refs: Option<String>,
+    #[serde(rename = "enemy_scaling")]
+    pub enemy_scaling: Option<String>,
+    #[serde(rename = "enemy_affix_choice_counts")]
+    pub enemy_affix_choice_counts: Option<String>,
+    #[serde(rename = "binary_difficulty_rule")]
+    pub binary_difficulty_rule: Option<String>,
     #[serde(rename = "gambit_rules")]
     pub gambit_rules: Option<String>,
 }
@@ -53,9 +59,12 @@ impl super::runtime::SoraDecode for CurrencyWarsDifficulties {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rank_bounds: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_scaling_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            gambit_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            rank_bounds: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            enemy_scaling_refs: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            enemy_scaling: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            enemy_affix_choice_counts: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            binary_difficulty_rule: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            gambit_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

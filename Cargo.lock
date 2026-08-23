@@ -942,6 +942,7 @@ dependencies = [
  "starclock-ai",
  "starclock-combat",
  "starclock-data",
+ "starclock-mode-currency-wars",
  "starclock-mode-universe",
  "starclock-replay",
 ]
@@ -950,7 +951,13 @@ dependencies = [
 name = "starclock-ai"
 version = "0.1.0"
 dependencies = [
+ "serde_json",
+ "sha2",
+ "starclock-activity",
  "starclock-combat",
+ "starclock-data",
+ "starclock-mode-currency-wars",
+ "starclock-replay",
 ]
 
 [[package]]
@@ -973,6 +980,7 @@ dependencies = [
  "starclock-combat",
  "starclock-data",
  "starclock-mcp",
+ "starclock-mode-currency-wars",
  "starclock-mode-standard",
  "starclock-mode-universe",
  "starclock-replay",
@@ -1051,7 +1059,9 @@ dependencies = [
 name = "starclock-mode-currency-wars"
 version = "0.1.0"
 dependencies = [
+ "sha2",
  "starclock-activity",
+ "starclock-build",
  "starclock-combat",
 ]
 

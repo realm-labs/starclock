@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.currency-wars-blessing-formula-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P5-B4",
+  "result": "Pass",
+  "production_denominators": {
+    "blessing_identities": 0,
+    "blessing_groups": 0,
+    "formula_identities": 0,
+    "formula_recipes": 0,
+    "formula_progress_states": 0,
+    "formula_randomizers": 0,
+    "formula_contributions": 0,
+    "maze_buff_enhancements": 7,
+    "terminal_source_rows": 7,
+    "enemy_affix_rows_executed_by_p6_b2": 118
+  },
+  "executable_behavior": {
+    "zero_families": "validated from explicit generated-closure sentinels and empty Sora tables",
+    "invented_identity_count": 0,
+    "maze_buff_enhancements": "seven typed source IDs, canonical decimal parameter vectors and ability contribution IDs",
+    "contribution_snapshot": "the complete immutable enhancement registry is carried to the battle assembly boundary"
+  },
+  "completion_boundary": {
+    "maze_buff_ability_program_installation": "G21-P6-B3",
+    "enemy_affix_execution": "G21-P6-B2",
+    "empty_family_catalog_rows_counted_as_mechanics": false
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.blessing-level-offer-and-enhancement",
+    "currency-wars.fixture-family.formula-recipe-progress-and-contribution"
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/blessing_formula_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/contribution.rs",
+    "crates/starclock-data/src/currency_wars_blessing_formula.rs",
+    "crates/starclock-data/src/currency_wars.rs",
+    "content-reference/currency-wars-v1/blessing-levels.json",
+    "content-reference/currency-wars-v1/blessing-paths.json",
+    "content-reference/currency-wars-v1/formulas.json",
+    "content-manifests/currency-wars-runtime-v1/blessing-formula-execution-audit.json"
+  ]
+}

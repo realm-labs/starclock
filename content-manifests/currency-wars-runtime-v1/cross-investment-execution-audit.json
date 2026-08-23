@@ -1,0 +1,56 @@
+{
+  "schema_revision": "starclock.currency-wars-cross-investment-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P5-B2",
+  "result": "Pass",
+  "production_denominators": {
+    "portals": 84,
+    "orbs": 376,
+    "projections": 2,
+    "permanent_talents": 13,
+    "season_portal_memberships": 83,
+    "season_talents": 40,
+    "portal_maze_buffs": 6,
+    "projection_maze_buffs": 2,
+    "talent_maze_buffs": 3,
+    "portal_remarks": 7,
+    "orb_displays": 4,
+    "portal_module_bans": 2,
+    "terminal_source_rows": 622
+  },
+  "executable_behavior": {
+    "typed_catalogs": [
+      "Portal",
+      "Orb",
+      "Projection",
+      "PermanentTalent",
+      "SeasonTalent"
+    ],
+    "portal_eligibility": [
+      "season membership",
+      "Gambit",
+      "module ban"
+    ],
+    "projection_eligibility": "required owned role",
+    "talent_graphs": "stable prerequisite IDs with atomic rejection",
+    "maze_buffs": "typed immutable registry; only explicit authored effect references are joined",
+    "contribution_identity": "owned typed investments and selected season Talents are snapshotted and hashed"
+  },
+  "policy_boundary": {
+    "talent_payment_currency": "not present in released structured rows",
+    "executable_policy": "the caller must confirm the configured cost was paid at the owning activity boundary",
+    "inferred_currency": false,
+    "replacement_condition": "replace payment confirmation when a released currency key or reproducible transaction trace becomes available"
+  },
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/cross_investment_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/runtime/investment.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_cross_investment.rs",
+    "content-reference/currency-wars-v1/portal-buffs.json",
+    "content-reference/currency-wars-v1/orbs.json",
+    "content-reference/currency-wars-v1/projections.json",
+    "content-reference/currency-wars-v1/talents.json",
+    "content-manifests/currency-wars-runtime-v1/cross-investment-execution-audit.json"
+  ]
+}

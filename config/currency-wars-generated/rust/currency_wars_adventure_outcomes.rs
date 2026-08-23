@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsAdventureOutcomes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            adventure_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            parameter_group_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            abstract_outcome: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            adventure_type: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            parameter_group_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            abstract_outcome: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

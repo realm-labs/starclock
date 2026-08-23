@@ -1,0 +1,29 @@
+{
+  "schema_revision": "starclock.currency-wars-native-evidence.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "runtime_targets": [
+    "x86_64-pc-windows-msvc",
+    "x86_64-unknown-linux-gnu",
+    "aarch64-apple-darwin"
+  ],
+  "compile_only_targets": [
+    "aarch64-pc-windows-msvc",
+    "aarch64-unknown-linux-gnu",
+    "x86_64-apple-darwin"
+  ],
+  "equality": {
+    "matrix_sha256": "0e6b64edac6ed3fb6e9ece8b1c6fe4c408795c6b2d1d5fd28085633ce3487ad4",
+    "runtime_contract_sha256": "18cf457ca6bfaa9b4e9544f8753a7f394213e0ef27f0f497a669ac5a70a27012",
+    "exact_coverage_sha256": "99ff8f1e18e93f95dc255e185f349aca3fb92f3b0340002de4b540f09246379d",
+    "standard": {
+      "run_report_sha256": "033074256eed896da730f84b330ef597b22fba89eec702edfc2690e77182245b",
+      "replay_sha256": "b62258c5f4bb5cb644133f87e3160f56d73dbddb0b9a0491dbe86126e701317b",
+      "verification_report_sha256": "80a6bf003bf52ba23e22ddc377445776c4366f4cbe2cbe85ff6c93a60edc2b35"
+    },
+    "overclock": {
+      "run_report_sha256": "9a5e5d6f52d24d46234e68c1eecdc6003512ea64613a941c008201442a41b6af",
+      "replay_sha256": "0ea08402d4992b178b60d0a599e3503a2bf6fecc74a57ec1cb3009b185ecee84",
+      "verification_report_sha256": "19e8704100d6f7ac26403b5ec74f7b19a991ca03320564b20e2517083a4f2d8c"
+    }
+  }
+}

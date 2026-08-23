@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsFormulaRecipes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            required_path_counts: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            required_blessing_states: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            completion_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            required_path_counts: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            required_blessing_states: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            completion_rule: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

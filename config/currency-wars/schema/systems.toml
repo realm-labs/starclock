@@ -2,6 +2,7 @@
 # Goal 12 P3-B2; source-shaped authoring rows remain runtime-neutral.
 
 [[tables]]
+id = "role-mappings"
 name = "CurrencyWarsRoleMappings"
 mode = "map"
 key = "id"
@@ -79,6 +80,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "positions"
 name = "CurrencyWarsPositions"
 mode = "map"
 key = "id"
@@ -160,6 +162,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "character-empowerments"
 name = "CurrencyWarsCharacterEmpowerments"
 mode = "map"
 key = "id"
@@ -220,6 +223,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "avatar_id"
 type = "optional<string>"
 length = [1, 32767]
@@ -239,12 +246,41 @@ length = [1, 32767]
 name = "teardown"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "category_tags"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "skill_level"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "cooldown"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "initial_cooldown"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "sp_multiple_ratio"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "delay_ratio"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "parameter_values"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "battle-overrides"
 name = "CurrencyWarsBattleOverrides"
 mode = "map"
 key = "id"
@@ -305,6 +341,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "rule_kind"
 type = "optional<string>"
 length = [1, 32767]
@@ -330,6 +370,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "bonds"
 name = "CurrencyWarsBonds"
 mode = "map"
 key = "id"
@@ -390,6 +431,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "member_ids"
 type = "optional<string>"
 length = [1, 32767]
@@ -405,12 +450,33 @@ length = [1, 32767]
 name = "contribution_ids"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "activation_type"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "battle_event_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "trait_effect_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "parent_bond_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "selection_rules"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "bond-levels"
 name = "CurrencyWarsBondLevels"
 mode = "map"
 key = "id"
@@ -471,6 +537,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "bond_id"
 type = "optional<string>"
 length = [1, 32767]
@@ -483,7 +553,31 @@ name = "threshold"
 type = "optional<string>"
 length = [1, 32767]
 [[tables.fields]]
+name = "threshold_semantics"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "effect_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "property_bind_type"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "trait_member_properties"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "all_member_properties"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "override_battle_event_properties"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "property_parameters"
 type = "optional<string>"
 length = [1, 32767]
 [[tables.indexes]]
@@ -492,6 +586,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "bond-contributions"
 name = "CurrencyWarsBondContributions"
 mode = "map"
 key = "id"
@@ -552,6 +647,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "bond_id"
 type = "optional<string>"
 length = [1, 32767]
@@ -571,12 +670,17 @@ length = [1, 32767]
 name = "ordered_effects"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "parameters"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "star-states"
 name = "CurrencyWarsStarStates"
 mode = "map"
 key = "id"
@@ -652,12 +756,277 @@ length = [1, 32767]
 name = "scaling_refs"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "rank_attachments"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "battle_event_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "skill_override_source_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "skill_override_destination_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "front_skill_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "back_execution_skill_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "back_skill_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "back_ability_name"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "config_path"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "ai_path"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "property_modifiers"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "servant_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "front_power_base"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "back_power_base"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "luck_chance"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "luck_damage"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "extra_heal_base"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "extra_shield_base"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "hp_base"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "hp_inherit"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "hp_skill_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "speed_base"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "speed_inherit"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "speed_skill_id"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "influence-properties"
+name = "CurrencyWarsInfluenceProperties"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "CurrencyWars.xlsx"
+sheet = "InfluenceProperties"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "ownership"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "coverage_state"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "source_refs_json"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "tags_json"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "subject_kind"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "subject_level"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "properties"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+id = "contribution-parameters"
+name = "CurrencyWarsContributionParameters"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "CurrencyWars.xlsx"
+sheet = "ContributionParameters"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "ownership"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "coverage_state"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "source_refs_json"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "tags_json"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "source_kind"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "consumer_policy"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "combination_ids"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "bonus_numbers"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "value"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+id = "star-combination-rules"
 name = "CurrencyWarsStarCombinationRules"
 mode = "map"
 key = "id"
@@ -739,6 +1108,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "star-lifecycle-rules"
 name = "CurrencyWarsStarLifecycleRules"
 mode = "map"
 key = "id"
@@ -820,6 +1190,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "build-reference-avatars"
 name = "CurrencyWarsBuildReferenceAvatars"
 mode = "map"
 key = "id"
@@ -901,6 +1272,157 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "trial-builds"
+name = "CurrencyWarsTrialBuilds"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "CurrencyWars.xlsx"
+sheet = "TrialBuilds"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "ownership"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "coverage_state"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "evidence_quality"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "source_refs_json"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "tags_json"
+type = "string"
+length = [1, 32767]
+[[tables.fields]]
+name = "role_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "avatar_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "special_avatar_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "world_level"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "level"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "promotion"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "eidolon"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "skill_tree_template"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "skill_tree_key"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "equipment_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "equipment_level"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "equipment_promotion"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "equipment_rank"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "source_ability_bindings"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_property_type"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_property_type_extra"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_main_value"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_sub_value"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_main_properties"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_sub_properties"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "relic_sets"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+id = "build-source-files"
 name = "CurrencyWarsBuildSourceFiles"
 mode = "map"
 key = "id"
@@ -982,6 +1504,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "build-mappings"
 name = "CurrencyWarsBuildMappings"
 mode = "map"
 key = "id"
@@ -1042,6 +1565,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "avatar_id"
 type = "optional<string>"
 length = [1, 32767]
@@ -1061,12 +1588,21 @@ length = [1, 32767]
 name = "relics"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "account_mutation"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
+name = "special_avatar_id"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "build-substitution-rules"
 name = "CurrencyWarsBuildSubstitutionRules"
 mode = "map"
 key = "id"
@@ -1148,6 +1684,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "off-field-conversions"
 name = "CurrencyWarsOffFieldConversions"
 mode = "map"
 key = "id"
@@ -1208,6 +1745,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "source_kind"
 type = "optional<string>"
 length = [1, 32767]
@@ -1229,6 +1770,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equipment"
 name = "CurrencyWarsEquipment"
 mode = "map"
 key = "id"
@@ -1289,6 +1831,10 @@ name = "tags_json"
 type = "string"
 length = [1, 32767]
 [[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+length = [1, 32767]
+[[tables.fields]]
 name = "slot"
 type = "optional<string>"
 length = [1, 32767]
@@ -1304,12 +1850,17 @@ length = [1, 32767]
 name = "replacement_rule"
 type = "optional<string>"
 length = [1, 32767]
+[[tables.fields]]
+name = "parameters"
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "augment-definitions"
 name = "CurrencyWarsAugmentDefinitions"
 mode = "map"
 key = "id"
@@ -1399,6 +1950,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "augment-maze-buffs"
 name = "CurrencyWarsAugmentMazeBuffs"
 mode = "map"
 key = "id"
@@ -1484,6 +2036,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "augment-monster-rules"
 name = "CurrencyWarsAugmentMonsterRules"
 mode = "map"
 key = "id"
@@ -1561,6 +2114,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "augment-remarks"
 name = "CurrencyWarsAugmentRemarks"
 mode = "map"
 key = "id"
@@ -1634,6 +2188,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "enhancements"
 name = "CurrencyWarsEnhancements"
 mode = "map"
 key = "id"
@@ -1715,6 +2270,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "module-ban-rules"
 name = "CurrencyWarsModuleBanRules"
 mode = "map"
 key = "id"
@@ -1792,6 +2348,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "orbs"
 name = "CurrencyWarsOrbs"
 mode = "map"
 key = "id"
@@ -1869,6 +2426,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "orb-displays"
 name = "CurrencyWarsOrbDisplays"
 mode = "map"
 key = "id"
@@ -1942,6 +2500,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "portal-buffs"
 name = "CurrencyWarsPortalBuffs"
 mode = "map"
 key = "id"
@@ -2023,6 +2582,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "portal-maze-buffs"
 name = "CurrencyWarsPortalMazeBuffs"
 mode = "map"
 key = "id"
@@ -2108,6 +2668,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "portal-remarks"
 name = "CurrencyWarsPortalRemarks"
 mode = "map"
 key = "id"
@@ -2181,6 +2742,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "projection-maze-buffs"
 name = "CurrencyWarsProjectionMazeBuffs"
 mode = "map"
 key = "id"
@@ -2266,6 +2828,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "projections"
 name = "CurrencyWarsProjections"
 mode = "map"
 key = "id"
@@ -2347,6 +2910,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "season-augment-memberships"
 name = "CurrencyWarsSeasonAugmentMemberships"
 mode = "map"
 key = "id"
@@ -2420,6 +2984,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "season-portal-memberships"
 name = "CurrencyWarsSeasonPortalMemberships"
 mode = "map"
 key = "id"
@@ -2493,6 +3058,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "season-talents"
 name = "CurrencyWarsSeasonTalents"
 mode = "map"
 key = "id"
@@ -2582,6 +3148,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "selected-enhancements"
 name = "CurrencyWarsSelectedEnhancements"
 mode = "map"
 key = "id"
@@ -2663,6 +3230,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "talents"
 name = "CurrencyWarsTalents"
 mode = "map"
 key = "id"
@@ -2748,6 +3316,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "talent-maze-buffs"
 name = "CurrencyWarsTalentMazeBuffs"
 mode = "map"
 key = "id"
@@ -2833,6 +3402,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "rank-gambit-progression"
 name = "CurrencyWarsRankGambitProgression"
 mode = "map"
 key = "id"
@@ -2914,6 +3484,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "enemy-affixes"
 name = "CurrencyWarsEnemyAffixes"
 mode = "map"
 key = "id"
@@ -2991,6 +3562,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "permanent-progression"
 name = "CurrencyWarsPermanentProgression"
 mode = "map"
 key = "id"

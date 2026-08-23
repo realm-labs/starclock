@@ -1,9 +1,9 @@
 use crate::{
     AbilityId, ActionOrigin, CountdownDefinition, DotDetonationDefinition,
     EffectApplicationDefinition, EffectChancePolicy, EffectDefinitionId, EffectRemovalDefinition,
-    EffectRuntimeDefinition, EnemyPhaseId, LinkedUnitDefinition, PresenceState, RawToughness,
-    ReviveDefinition, RuleId, RuleInstanceId, SourceDefinitionId, ToughnessReductionDefinition,
-    TransformationDefinition, TriggerId, UnitId,
+    EffectRuntimeDefinition, EnemyPhaseId, Hp, LinkedUnitDefinition, PresenceState, RawToughness,
+    ReviveDefinition, RuleId, RuleInstanceId, Scalar, SourceDefinitionId,
+    ToughnessReductionDefinition, TransformationDefinition, TriggerId, UnitId,
     catalog::action::{
         HealingDefinition, HitCritPolicy, HpConsumptionDefinition, OrdinaryDamageDefinition,
         QueueActionDefinition, ReactionBoundary, ShieldDefinition, SkillPointPaymentPolicy,
@@ -23,8 +23,11 @@ pub(crate) enum Operation {
     Shield(ShieldOp),
     RemoveShields(RemoveShieldsOp),
     ConsumeHp(ConsumeHpOp),
+    ReduceMaximumHp(ReduceMaximumHpOp),
     AddWeakness(AddWeaknessOp),
     AddWeaknessFromAlliedElements(AddWeaknessFromAlliedElementsOp),
+    CreateToughnessLayer(CreateToughnessLayerOp),
+    RemoveToughnessLayer(RemoveToughnessLayerOp),
     ReduceToughness(ReduceToughnessOp),
     ForceBreak(ForceBreakOp),
     SuperBreak(SuperBreakOp),
@@ -33,9 +36,10 @@ pub(crate) enum Operation {
     DetonateDots(DetonateDotsOp),
     ModifyStateSlot(ModifyStateSlotOp),
     ModifyTeamResource(ModifyTeamResourceOp),
+    DeductActionValue(DeductActionValueOp),
     QueueAction(QueueActionOp),
     QueueRuleAction(QueueRuleActionOp),
-    SummonLinked(SummonLinkedOp),
+    SummonLinked(Box<SummonLinkedOp>),
     CreateCountdown(CreateCountdownOp),
     ChangePresence(ChangePresenceOp),
     Transform(TransformOp),
@@ -54,8 +58,11 @@ impl Operation {
             Self::Shield(operation) => operation.id,
             Self::RemoveShields(operation) => operation.id,
             Self::ConsumeHp(operation) => operation.id,
+            Self::ReduceMaximumHp(operation) => operation.id,
             Self::AddWeakness(operation) => operation.id,
             Self::AddWeaknessFromAlliedElements(operation) => operation.id,
+            Self::CreateToughnessLayer(operation) => operation.id,
+            Self::RemoveToughnessLayer(operation) => operation.id,
             Self::ReduceToughness(operation) => operation.id,
             Self::ForceBreak(operation) => operation.id,
             Self::SuperBreak(operation) => operation.id,
@@ -64,6 +71,7 @@ impl Operation {
             Self::DetonateDots(operation) => operation.id,
             Self::ModifyStateSlot(operation) => operation.id,
             Self::ModifyTeamResource(operation) => operation.id,
+            Self::DeductActionValue(operation) => operation.id,
             Self::QueueAction(operation) => operation.id,
             Self::QueueRuleAction(operation) => operation.id,
             Self::SummonLinked(operation) => operation.id,
@@ -217,6 +225,21 @@ pub(crate) struct AddWeaknessFromAlliedElementsOp {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct CreateToughnessLayerOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) stable_key: Box<str>,
+    pub(crate) maximum: RawToughness,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct RemoveToughnessLayerOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) stable_key: Box<str>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ReduceToughnessOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
@@ -279,4 +302,18 @@ pub(crate) struct ConsumeHpOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) definition: HpConsumptionDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ReduceMaximumHpOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) reduction: Hp,
+    pub(crate) minimum_ratio: Scalar,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct DeductActionValueOp {
+    pub(crate) id: OperationId,
+    pub(crate) amount_scaled: i64,
 }

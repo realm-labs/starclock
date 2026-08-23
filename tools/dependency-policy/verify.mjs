@@ -46,8 +46,8 @@ assert(run("rustfmt", ["--version"]) === "rustfmt 1.9.0-stable (2d8144b788 2026-
 assert(run("cargo", ["clippy", "--version"]) === "clippy 0.1.97 (2d8144b788 2026-07-07)", "active Clippy differs from policy");
 assert(run("node", ["--version"]) === "v24.15.0", "active Node differs from policy");
 const soraEntry = policy.tools.find((entry) => entry.name === "sora-cli");
-assert(soraEntry?.version === "0.3.0" && soraEntry.license === soraPolicy.license, "Sora tool inventory differs from its checksum policy");
-assert(soraPolicy.version === "0.3.0" && /^[a-f0-9]{64}$/.test(soraPolicy.crate_sha256), "Sora checksum policy is incomplete");
+assert(soraEntry?.version === "0.6.1" && soraEntry.license === soraPolicy.license, "Sora tool inventory differs from its checksum policy");
+assert(soraPolicy.version === "0.6.1" && /^[a-f0-9]{64}$/.test(soraPolicy.crate_sha256), "Sora checksum policy is incomplete");
 
 const combatSource = path.join(root, "crates", "starclock-combat", "src");
 const rustFiles = walk(combatSource).filter((file) => file.endsWith(".rs"));

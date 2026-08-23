@@ -1,0 +1,41 @@
+{
+  "schema_revision": "starclock.currency-wars-empowerment-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P4-B3",
+  "result": "Pass",
+  "production_denominators": {
+    "role_position_displays": 154,
+    "front_skill_rows": 4184,
+    "back_skill_rows": 446,
+    "role_star_selection_states": 266,
+    "terminal_source_rows": 4784
+  },
+  "exact_behavior": {
+    "activation": "matching deployed position only",
+    "refresh": "derive a fresh immutable snapshot after each deployment boundary",
+    "teardown": "off-position and undeployed roles contribute no active snapshot row",
+    "execution_skill_join": "role/star GridFightRoleStar skill IDs join exact front/back skill families",
+    "back_execution_display_distinction": true,
+    "rejected_relocation_preserves_authoritative_state": true
+  },
+  "deferred_effect_execution": {
+    "selected_skill_level": "G21-P4-B6 immutable contribution snapshot",
+    "static_battle_properties": "G21-P6-B3 BattleSpec assembler",
+    "skill_programs": "G21-P6-Mxx battle-visible mechanic partitions",
+    "battle_overrides": "G21-P4-B5"
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.field-bench-position-and-empowerment"
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/economy.rs",
+    "crates/starclock-mode-currency-wars/src/empowerment_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/runtime.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars.rs",
+    "crates/starclock-data/src/currency_wars_empowerment.rs",
+    "content-reference/currency-wars-v1/character-empowerments.json",
+    "content-reference/currency-wars-v1/star-states.json",
+    "content-manifests/currency-wars-runtime-v1/empowerment-execution-audit.json"
+  ]
+}

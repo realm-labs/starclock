@@ -23,11 +23,12 @@ execFileSync(process.execPath, [
 const outputRoot = path.join(root, "content-reference/currency-wars-v1");
 const expected = {
   "build-reference-avatars.json": 77,
-  "build-source-files.json": 6,
+  "trial-builds.json": 77,
+  "build-source-files.json": 12,
   "build-mappings.json": 77,
   "build-substitution-rules.json": 2,
   "off-field-conversions.json": 417,
-  "equipment.json": 519,
+  "equipment.json": 520,
 };
 const rowsByFile = Object.fromEntries(Object.keys(expected)
   .map((file) => [file, json(path.join(outputRoot, file))]));
@@ -56,9 +57,37 @@ assert(sourceLocators(references,
 "GridFight owned/trial build mapping drift");
 assert(rowsByFile["build-source-files.json"].every((row) =>
   row.ownership === "Shared"
-    && row.disposition === "PendingExplicitRoleRowJoin"
+    && ["PendingExplicitRoleRowJoin", "ExplicitRoleRowJoin"]
+      .includes(row.disposition)
     && /^[0-9a-f]{64}$/u.test(row.source_sha256)),
 "shared build-source fail-closed boundary drift");
+const trials = rowsByFile["trial-builds.json"];
+assert(trials.length === 77
+  && sourceLocators(trials, "ExcelOutput/GridFightRoleBasicInfo.json").size === 77
+  && sourceLocators(trials, "ExcelOutput/SpecialAvatar.json").size === 72
+  && trials.every((row) => row.world_level === "6"
+    && row.level === "80" && row.promotion === "6"
+    && row.equipment_level === "80" && row.equipment_promotion === "6"
+    && Array.isArray(row.source_ability_bindings)
+    && row.source_ability_bindings.every((binding) =>
+      /^\d+$/u.test(binding.source_skill_id)
+      && binding.shared_ability_stable_key.startsWith("character."))
+    && Array.isArray(row.relic_main_properties)
+    && Array.isArray(row.relic_sub_properties)
+    && Array.isArray(row.relic_sets)
+    && row.relic_main_properties.length > 0
+    && row.relic_sub_properties.length > 0
+    && row.relic_sets.length > 0
+    && ["W5_Standard_70-80", "MaxWithInLevel"].includes(row.skill_tree_key)),
+"exact trial-Build row join drift");
+for (const sourcePath of [
+  "ExcelOutput/SpecialAvatarRelic.json",
+  "ExcelOutput/RelicConfig.json",
+  "ExcelOutput/SpecialAvatarRelicMainValue.json",
+  "ExcelOutput/SpecialAvatarRelicSubValue.json",
+  "ExcelOutput/RelicSetSkillConfig.json",
+]) assert(sourceLocators(trials, sourcePath).size > 0,
+  `${sourcePath} trial relic closure drift`);
 
 const conversions = rowsByFile["off-field-conversions.json"];
 assert(sourceLocators(conversions,
@@ -92,8 +121,14 @@ const slotCap = equipment.find(({ id }) =>
   id === "currency-wars.equipment.slot-cap.three-per-character");
 assert(slotCap?.eligibility.maximum_count === "3"
   && slotCap.evidence_quality === "ExactPublicText"
-  && slotCap.source_refs.length === 2,
+  && slotCap.source_refs.length === 3,
 "released three-equipment-slot rule drift");
+const implantCap = equipment.find(({ id }) =>
+  id === "currency-wars.equipment.slot-cap.one-implant-per-character");
+assert(implantCap?.eligibility.maximum_count === "1"
+  && implantCap.evidence_quality === "ExactStructured"
+  && implantCap.source_refs.length === 1,
+"released one-implant-slot rule drift");
 
 const allRows = Object.values(rowsByFile).flat();
 assert(allRows.every((row) => row.source_refs.every((ref) =>
@@ -104,7 +139,7 @@ for (const file of Object.keys(rowsByFile).sort(compare))
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
   `Currency Wars build/equipment verified (${allRows.length} rows; ` +
-  `77 mappings; 417 conversions; 519 equipment rows; digest ` +
+  `77 mappings; 417 conversions; 520 equipment rows; digest ` +
   `${digest.digest("hex")}).`,
 );
 

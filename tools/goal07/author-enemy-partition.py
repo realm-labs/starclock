@@ -5242,8 +5242,17 @@ def owned_rows_s05() -> dict[str, list[dict[str, Any]]]:
             )
         )
 
-    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
-    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    # Yanqing's authored phase transitions transform the same unit while
+    # retaining its abilities. Direct actor and owner selectors must span both
+    # the Present and Transformed presence states.
+    add(
+        "Selector",
+        selector(selectors["actor"], "Actor", "SameSide", presence="Any"),
+    )
+    add(
+        "Selector",
+        selector(selectors["owner"], "Owner", "SameSide", presence="Any"),
+    )
     add("Selector", selector(selectors["applier"], "Applier", "SameSide"))
     add(
         "Selector",
@@ -5328,12 +5337,16 @@ def owned_rows_s05() -> dict[str, list[dict[str, Any]]]:
         ("pair-2-4-random", 2, 4),
         ("pair-1-5-random", 1, 5),
     ]:
+        # VersionedProjectPolicy: a repeated summon program can observe a
+        # partially occupied sword layout. Missing candidates make that mark a
+        # no-op; they do not invalidate the already-mutated summon action.
         selected = selector(
             selectors[selector_name],
             "Actor",
             "SameSide",
-            minimum=1,
+            minimum=0,
             maximum=1,
+            empty="NoOp",
             choice="RngUniform",
         )
         selected["rng_purpose_key"] = "behavior-choice"
@@ -5446,8 +5459,9 @@ def owned_rows_s05() -> dict[str, list[dict[str, Any]]]:
                 selectors[selector_name],
                 "Actor",
                 "SameSide",
-                minimum=1,
+                minimum=0,
                 maximum=1,
+                empty="NoOp",
             ),
         )
         predicates = [
@@ -6840,7 +6854,7 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
         "frozen-all": BASE + 410,
         "adjacent-frozen": BASE + 411,
         "nonfrozen-random": BASE + 412,
-        "actor-summons": BASE + 413,
+        "effect-applier-summons": BASE + 413,
         "event-target": BASE + 414,
     }
     effects = {
@@ -6999,8 +7013,28 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
         )
 
     add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
-    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
-    add("Selector", selector(selectors["applier"], "Applier", "SameSide"))
+    # An effect-attached rule is owned by the afflicted target. Lethal damage
+    # may defeat that target before an after-event continuation is evaluated.
+    add(
+        "Selector",
+        selector(
+            selectors["owner"],
+            "Owner",
+            "SameSide",
+            minimum=0,
+            empty="NoOp",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["applier"],
+            "Applier",
+            "AnySide",
+            minimum=0,
+            empty="NoOp",
+        ),
+    )
     add("Selector", selector(selectors["current-subject"], "CurrentSubject", "AnySide"))
     add("Selector", selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"))
     opposing_random = selector(
@@ -7110,9 +7144,9 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
     add(
         "Selector",
         selector(
-            selectors["actor-summons"],
-            "Actor",
-            "SameSide",
+            selectors["effect-applier-summons"],
+            "Applier",
+            "AnySide",
             minimum=0,
             maximum=3,
             empty="NoOp",
@@ -7122,10 +7156,10 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
     add(
         "SelectorPredicate",
         {
-            "selector_id": selectors["actor-summons"],
+            "selector_id": selectors["effect-applier-summons"],
             "sequence": 1,
             "predicate": json_cell(
-                "OwnedBy", owner_selector_id=selectors["actor"]
+                "OwnedBy", owner_selector_id=selectors["applier"]
             ),
         },
     )
@@ -7731,9 +7765,9 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
         [
             operation_step(
                 apply_effect_op(
-                    "freeze-applied-intensify-owner",
+                    "freeze-applied-intensify-applier",
                     effects["intensifying-cold"],
-                    selectors["owner"],
+                    selectors["applier"],
                     stacks=integer_one,
                 )
             ),
@@ -7741,7 +7775,7 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
                 apply_effect_op(
                     "freeze-applied-intensify-summons",
                     effects["intensifying-cold"],
-                    selectors["actor-summons"],
+                    selectors["effect-applier-summons"],
                     stacks=integer_one,
                     empty="NoOp",
                 )
@@ -7753,13 +7787,13 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
         [
             operation_step(
                 new_operation(
-                    "freeze-removed-weaken-owner",
+                    "freeze-removed-weaken-applier",
                     json_cell(
                         "ModifyEffect",
                         effect_id=effects["intensifying-cold"],
                         stack_delta_expression_id=integer_negative_one,
                     ),
-                    selectors["owner"],
+                    selectors["applier"],
                     "NoOp",
                 )
             ),
@@ -7771,7 +7805,7 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
                         effect_id=effects["intensifying-cold"],
                         stack_delta_expression_id=integer_negative_one,
                     ),
-                    selectors["actor-summons"],
+                    selectors["effect-applier-summons"],
                     "NoOp",
                 )
             ),
@@ -16613,7 +16647,14 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
 
     selector_metadata = {
         "actor": ("Actor", "SameSide", "First", 1, 1, "Fault"),
-        "owner": ("Owner", "SameSide", "First", 1, 1, "Fault"),
+        "owner": (
+            "Owner",
+            "SameSide",
+            "First",
+            0 if PARTITION == "G07-P5-M15-S17" else 1,
+            1,
+            "NoOp" if PARTITION == "G07-P5-M15-S17" else "Fault",
+        ),
         "current-subject": ("CurrentSubject", "AnySide", "First", 1, 1, "Fault"),
         "primary": ("PrimaryTarget", "OpposingSide", "First", 1, 1, "Fault"),
         "random": ("Actor", "OpposingSide", "RngUniform", 1, 1, "Fault"),
@@ -17851,6 +17892,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                         can_crit=False,
                     ),
                     selectors["owner"],
+                    "NoOp",
                 )
             )
         ]

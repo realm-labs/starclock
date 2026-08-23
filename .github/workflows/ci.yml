@@ -33,3 +33,36 @@ jobs:
         run: cargo clippy --workspace --all-targets -- -D warnings
       - name: Run Rust tests
         run: cargo test --workspace
+
+  currency-wars-native:
+    name: Currency Wars native (${{ matrix.target }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-2025
+            target: x86_64-pc-windows-msvc
+            compile_target: aarch64-pc-windows-msvc
+          - runner: ubuntu-24.04
+            target: x86_64-unknown-linux-gnu
+            compile_target: aarch64-unknown-linux-gnu
+          - runner: macos-15
+            target: aarch64-apple-darwin
+            compile_target: x86_64-apple-darwin
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    steps:
+      - name: Check out current commit
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+      - name: Install Rust toolchain and compile-only target
+        run: rustup toolchain install 1.97.0 --profile minimal --component clippy --component rustfmt --target ${{ matrix.compile_target }}
+      - name: Run baseline and replay suite
+        run: cargo test --release -p starclock-ai --test currency_wars_baseline
+      - name: Run the generated legal matrix
+        run: cargo test --release -p starclock-ai --test currency_wars_matrix -- --ignored --exact generated_legal_matrix_completes_real_battles_and_fresh_replay
+      - name: Verify frozen native run and replay evidence
+        run: node tools/currency-wars-runtime/native-evidence.mjs --target ${{ matrix.target }} --check --output evidence/currency-wars-runtime-v1/native-${{ matrix.target }}.json
+      - name: Check the paired compile-only target
+        run: cargo check --workspace --all-targets --target ${{ matrix.compile_target }}

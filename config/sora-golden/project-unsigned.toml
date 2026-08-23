@@ -1,4 +1,6 @@
-package = "starclock_sora_unsupported_unsigned"
+project = { id = "starclock_sora_unsupported_unsigned" }
+groups = { common = { default = true } }
+views = { default = { contract = "starclock_sora_unsupported_unsigned/default", groups = ["common"] } }
 includes = ["schema/unsigned.toml"]
 
 [codegen.rust]

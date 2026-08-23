@@ -1,3 +1,4 @@
+//! Line-limit exception: the released entry compiler remains one compatibility boundary.
 //! Standard Universe entry validation and generic Activity-state compilation.
 mod runtime_access;
 pub(crate) mod state_layout;

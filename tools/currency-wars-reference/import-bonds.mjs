@@ -64,12 +64,30 @@ for (const entry of roleEntries)
     if (!membersByTrait.has(key)) membersByTrait.set(key, []);
     membersByTrait.get(key).push(`currency-wars.roster.role.${entry.row.ID}`);
   }
-const membersBySubTrait = new Map();
+const selectionRulesBySubTrait = new Map();
 for (const entry of [...roleChoose, ...coreRoleChoose]) {
   const key = String(entry.row.SubTraitID);
-  if (!membersBySubTrait.has(key)) membersBySubTrait.set(key, new Set());
-  membersBySubTrait.get(key)
-    .add(`currency-wars.roster.role.${entry.row.Parameter}`);
+  if (!selectionRulesBySubTrait.has(key))
+    selectionRulesBySubTrait.set(key, new Map());
+  const kind = entry.row.Type === "Equip"
+    ? "EquippedEquipment"
+    : entry.row.Type === "GainFrontTrait"
+      ? "GrantedFrontTrait"
+      : "DeployedRole";
+  const rule = { kind, source_id: String(entry.row.Parameter) };
+  selectionRulesBySubTrait.get(key)
+    .set(`${kind}:${rule.source_id}`, rule);
+}
+const moduleSubTraits = await context.table("GridFightModuleSubTrait");
+for (const entry of moduleSubTraits) {
+  const key = String(entry.row.SubTraitID);
+  if (!selectionRulesBySubTrait.has(key))
+    selectionRulesBySubTrait.set(key, new Map());
+  const rule = entry.row.ModuleID === undefined
+    ? { kind: "DefaultModule" }
+    : { kind: "Module", source_id: String(entry.row.ModuleID) };
+  selectionRulesBySubTrait.get(key)
+    .set(`${rule.kind}:${rule.source_id ?? ""}`, rule);
 }
 const layers = await context.table("GridFightTraitLayer");
 const levelsByTrait = Object.groupBy(layers, ({ row }) => String(row.TraitID));
@@ -128,7 +146,11 @@ const bonds = [
       `Sub-Bond ${id}`,
       `子羁绊 ${id}`,
     );
-    const members = [...(membersBySubTrait.get(id) ?? [])].sort(compare);
+    const selectionRules = [...(selectionRulesBySubTrait.get(id)?.values() ?? [])]
+      .sort((left, right) => compare(
+        `${left.kind}:${left.source_id ?? ""}`,
+        `${right.kind}:${right.source_id ?? ""}`,
+      ));
     return {
       ...context.envelope({
         id: `currency-wars.bond.subtrait.${id}`,
@@ -136,9 +158,9 @@ const bonds = [
         nameEn: name.en,
         nameZh: name.zh,
         summaryEn:
-          `Sub-trait ${id} belongs to parent Bond ${entry.row.FatherTraitID} and has ${members.length} explicitly selected role member(s).`,
+          `Sub-trait ${id} belongs to parent Bond ${entry.row.FatherTraitID} and has ${selectionRules.length} typed selection rule(s).`,
         summaryZh:
-          `子羁绊 ${id} 属于父羁绊 ${entry.row.FatherTraitID}，包含 ${members.length} 个明确选择的角色成员。`,
+          `子羁绊 ${id} 属于父羁绊 ${entry.row.FatherTraitID}，包含 ${selectionRules.length} 条类型化选择规则。`,
         sourceRefs: [
           context.sourceRef(entry),
           ...context.bilingualTextRefs(String(entry.row.SubTraitName.Hash)),
@@ -149,7 +171,8 @@ const bonds = [
         tags: ["bond", "gridfight", "subtrait"],
       }),
       source_id: id,
-      member_ids: members,
+      member_ids: [],
+      selection_rules: selectionRules,
       level_ids: (levelsByTrait[id] ?? []).map(({ row }) =>
         `currency-wars.bond-level.${id}.${row.Layer}`),
       recompute_timing:
@@ -262,6 +285,29 @@ const thresholdById = new Map(Object.entries(Object.groupBy(
   thresholds,
   ({ row }) => String(row.ID),
 )));
+for (const entry of thresholds)
+  contributions.push({
+    ...context.envelope({
+      id:
+        `currency-wars.bond-contribution.trait-threshold.${entry.row.ID}.${entry.row.Level}.${entry.locator}`,
+      kind: "CurrencyWarsBondContribution",
+      nameEn: `Trait threshold ${entry.row.ID} level ${entry.row.Level}`,
+      nameZh: `羁绊阈值 ${entry.row.ID} 等级 ${entry.row.Level}`,
+      summaryEn:
+        `Trait threshold family ${entry.row.ID} publishes level ${entry.row.Level}.`,
+      summaryZh:
+        `羁绊阈值族 ${entry.row.ID} 发布等级 ${entry.row.Level}。`,
+      sourceRefs: [context.sourceRef(entry)],
+      tags: ["bond", "contribution", "gridfight", "trait-threshold"],
+    }),
+    source_id: `${entry.row.ID}.${entry.row.Level}`,
+    bond_id: "",
+    level: entry.row.Level,
+    scope: "TraitThreshold",
+    activation: `Trait threshold ${entry.row.ID} reaches level ${entry.row.Level}.`,
+    ordered_effects: ["Retain the exact threshold level for the owning Trait bonus program."],
+    parameters: normalize(entry.row),
+  });
 const bonusEntries = await addContributionTable(
   "GridFightTraitBonus",
   "TraitBonus",
@@ -311,6 +357,20 @@ for (const entry of effectEntries)
     ],
     parameters: normalize(entry.row),
   });
+await addContributionTable(
+  "GridFightTraitBonusAddRule",
+  "TraitBonusAddRule",
+  (row) => ({
+    id: String(row.ID),
+    summaryEn:
+      `Trait bonus add rule ${row.ID} publishes ${row.TraitBonusType ?? "the default"} algorithm and ${row.ParamList.length} parameter(s).`,
+    summaryZh:
+      `羁绊奖励附加规则 ${row.ID} 发布 ${row.TraitBonusType ?? "默认"} 算法与 ${row.ParamList.length} 个参数。`,
+    scope: "TraitBonusAddRule",
+    activation: `Trait effect ${row.ID} requests its authored bonus-add rule.`,
+    effects: ["Apply the exact typed bonus-add algorithm and ordered parameters."],
+  }),
+);
 await addContributionTable(
   "GridFightTraitEffectLayerPa",
   "TraitEffectLayer",

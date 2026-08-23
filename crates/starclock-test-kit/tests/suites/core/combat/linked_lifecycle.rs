@@ -6,9 +6,10 @@ use starclock_combat::{
     CombatantSpecDigest, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
     FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedOwnerScaling,
     LinkedStatScaling, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource, ParticipantSpec,
-    PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, ReviveDefinition,
-    ReviveGaugePolicy, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide, TransformEndPolicy,
-    TransformationDefinition, UnitEventData, UnitLevel, WaveEventData, WaveLinkPolicy,
+    PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResolvedModifierBinding, ReviveDefinition, ReviveGaugePolicy, Scalar, SourceDefinitionId,
+    Speed, StatValue, TeamResourceSpec, TeamSide, TransformEndPolicy, TransformationDefinition,
+    UnitEventData, UnitLevel, WaveEventData, WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
@@ -23,6 +24,11 @@ use starclock_combat::{
             SelectorDefinition, UnitDefinition,
         },
     },
+    modifier::model::{
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        ModifierStackingGroup, SnapshotPolicy, StatKind,
+    },
+    rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
 };
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
@@ -73,6 +79,34 @@ fn combatant(
         StatValue::from_scaled(100_000_000).unwrap(),
         StatValue::from_scaled(50_000_000).unwrap(),
     )
+}
+
+fn combatant_with_linked_subject_modifier() -> ResolvedCombatantSpec {
+    let source = SourceDefinitionId::new(20).unwrap();
+    ResolvedCombatantSpec::new(
+        definition(1),
+        UnitLevel::new(80).unwrap(),
+        Hp::new(1_000).unwrap(),
+        Speed::from_scaled(200_000_000).unwrap(),
+        ResolvedDefinitionBindings::new(vec![definition(1)], vec![], vec![definition(20)]).unwrap(),
+        CombatantSpecDigest::new([0x64; 32]).unwrap(),
+    )
+    .unwrap()
+    .with_base_attack_defense(
+        StatValue::from_scaled(100_000_000).unwrap(),
+        StatValue::from_scaled(50_000_000).unwrap(),
+    )
+    .with_sources(vec![RuleSource::new(
+        source,
+        SourceClass::Progression,
+        vec![],
+        [0x65; 32],
+    )])
+    .unwrap()
+    .with_modifier_bindings(vec![
+        ResolvedModifierBinding::new(definition(20), source).with_linked_subjects(),
+    ])
+    .unwrap()
 }
 
 fn linked(
@@ -156,6 +190,26 @@ fn ability(
 
 fn fixture_catalog() -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new([0x41; 32]);
+    builder.add_modifier_group(ModifierStackingGroup {
+        id: definition(20),
+        aggregation: ModifierAggregation::Sum,
+        comparator: None,
+    });
+    builder.add_modifier(ModifierDefinition {
+        id: definition(20),
+        stat: StatKind::Atk,
+        stage: FormulaStage::DamageBoost,
+        purpose: FormulaPurpose::OrdinaryDamage,
+        value: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(-200_000))),
+        stacking_group: definition(20),
+        priority: 0,
+        floor: None,
+        cap: None,
+        cap_stage: FormulaStage::DamageBoost,
+        snapshot: SnapshotPolicy::Dynamic,
+        source_stack_slot: None,
+        filters: Box::new([]),
+    });
     builder.add_selector(SelectorDefinition::new(definition(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
     ));
@@ -199,11 +253,11 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         1,
         AbilityKind::Basic,
         TargetInvalidationPolicy::CancelRemainingForTarget,
-        vec![HitOperationDefinition::SummonLinked(linked(
+        vec![HitOperationDefinition::SummonLinked(Box::new(linked(
             OwnerLinkPolicy::Persist,
             WaveLinkPolicy::Persist,
             0,
-        ))],
+        )))],
     ));
     builder.add_ability(ability(
         2,
@@ -260,16 +314,18 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         1,
         AbilityKind::Basic,
         TargetInvalidationPolicy::CancelRemainingForTarget,
-        vec![HitOperationDefinition::SummonLinked(owner_scaled_linked())],
+        vec![HitOperationDefinition::SummonLinked(Box::new(
+            owner_scaled_linked(),
+        ))],
     ));
     builder.add_ability(ability(
         12,
         1,
         AbilityKind::Basic,
         TargetInvalidationPolicy::CancelRemainingForTarget,
-        vec![HitOperationDefinition::SummonLinked(
+        vec![HitOperationDefinition::SummonLinked(Box::new(
             minimum_hp_scaled_linked(),
-        )],
+        ))],
     ));
     builder.add_ability(ability(
         3,
@@ -315,11 +371,11 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         AbilityKind::Basic,
         TargetInvalidationPolicy::KeepIfPresent,
         vec![
-            HitOperationDefinition::SummonLinked(linked(
+            HitOperationDefinition::SummonLinked(Box::new(linked(
                 OwnerLinkPolicy::Depart,
                 WaveLinkPolicy::Persist,
                 10_000,
-            )),
+            ))),
             HitOperationDefinition::Damage(all_one_damage(2_000)),
             HitOperationDefinition::Revive(
                 ReviveDefinition::new(
@@ -337,11 +393,11 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         AbilityKind::Basic,
         TargetInvalidationPolicy::CancelRemainingForTarget,
         vec![
-            HitOperationDefinition::SummonLinked(linked(
+            HitOperationDefinition::SummonLinked(Box::new(linked(
                 OwnerLinkPolicy::Persist,
                 WaveLinkPolicy::Depart,
                 0,
-            )),
+            ))),
             HitOperationDefinition::Damage(all_one_damage(2_000)),
         ],
     ));
@@ -434,6 +490,40 @@ fn fixture_battle_with_player_hp(player_hp: i64) -> Battle {
     Battle::create(fixture_catalog(), spec, BattleSeed::new([0x71; 32])).unwrap()
 }
 
+fn fixture_battle_with_linked_subject_modifier() -> Battle {
+    let spec = BattleSpec::new(
+        AssemblyDigest::new([0x52; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                combatant_with_linked_subject_modifier(),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                combatant(4, vec![8], 1_000, 50, 0x66),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(2)),
+                combatant(4, vec![8], 1_000, 50, 0x67),
+            )
+            .with_wave(2)
+            .unwrap(),
+        ],
+        TeamResourceSpec::new(3, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(fixture_catalog(), spec, BattleSeed::new([0x72; 32])).unwrap()
+}
+
 fn open_normal_action(battle: &mut Battle) {
     let start = battle.decision().unwrap().legal_commands()[0].clone();
     battle.apply(start).unwrap();
@@ -489,6 +579,41 @@ fn memosprite_has_distinct_owner_unit_actor_and_automatic_turn() {
         event.kind(),
         BattleEventKind::Action(starclock_combat::ActionEventData::Declared { actor, origin: ActionOrigin::MemospriteAction, .. }) if *actor == memo.id()
     ) && event.cause().owner() == Some(units[0].id())));
+}
+
+#[test]
+fn linked_unit_inherits_only_the_owner_modifiers_marked_for_linked_subjects() {
+    let mut battle = fixture_battle_with_linked_subject_modifier();
+    open_normal_action(&mut battle);
+    let resolution = use_ability(&mut battle, 1);
+    assert!(resolution.fault().is_none());
+
+    let units = battle.view().units_by_id().collect::<Vec<_>>();
+    let owner = units
+        .iter()
+        .copied()
+        .find(|unit| unit.source() == ParticipantSource::Player)
+        .unwrap();
+    let linked = units
+        .iter()
+        .copied()
+        .find(|unit| unit.source() == ParticipantSource::Linked(definition(2)))
+        .unwrap();
+    assert_eq!(owner.linked_subject_modifiers(), [definition(20)]);
+
+    let modifiers = battle
+        .view()
+        .modifier_instances_by_id()
+        .filter(|modifier| modifier.definition() == definition(20))
+        .collect::<Vec<_>>();
+    assert_eq!(modifiers.len(), 2);
+    assert!(modifiers.iter().all(|modifier| {
+        modifier.owner() == owner.id()
+            && modifier.source() == SourceDefinitionId::new(20).unwrap()
+            && modifier.source_effect().is_none()
+    }));
+    assert_eq!(modifiers[0].subject(), owner.id());
+    assert_eq!(modifiers[1].subject(), linked.id());
 }
 
 #[test]

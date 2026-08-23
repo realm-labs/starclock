@@ -29,6 +29,9 @@ pub(super) fn settle_after_action(
     cause: Cause,
     mut parent: EventId,
 ) -> Result<ActionBoundary, BattleFault> {
+    if let Some(parent) = clock::expire_if_depleted(txn, cause, parent)? {
+        return Ok(ActionBoundary::Terminal(parent));
+    }
     if !has_living_present(txn, TeamSide::Player, None) {
         txn.set_decision(None);
         txn.set_action_boundary(None);

@@ -95,7 +95,9 @@ function composeOverlay(sourceFixture) {
 
 function verifySchemaLock(file) {
   const schema = readJson(file).schema;
-  assert(schema.package === "starclock_standard_encounter_schema_fixture", "schema lock package differs");
+  assert(schema.project_id === "starclock_standard_encounter_schema_fixture"
+    && schema.contract_id === "starclock_standard_encounter_schema_fixture/default"
+    && schema.view === "default", "schema lock project/view differs");
   const tables = new Map(schema.tables.map((table) => [table.name, table]));
   for (const name of expectedNewTables()) assert(tables.has(name), `schema lock lacks table ${name}`);
   const projection = schema.unions.find((union) => union.name === "BattleResultProjectionFieldNode");

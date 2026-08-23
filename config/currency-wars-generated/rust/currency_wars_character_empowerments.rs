@@ -29,6 +29,8 @@ pub struct CurrencyWarsCharacterEmpowerments {
     pub source_refs_json: String,
     #[serde(rename = "tags_json")]
     pub tags_json: String,
+    #[serde(rename = "source_id")]
+    pub source_id: Option<String>,
     #[serde(rename = "avatar_id")]
     pub avatar_id: Option<String>,
     #[serde(rename = "position_id")]
@@ -39,6 +41,20 @@ pub struct CurrencyWarsCharacterEmpowerments {
     pub effect_ids: Option<String>,
     #[serde(rename = "teardown")]
     pub teardown: Option<String>,
+    #[serde(rename = "category_tags")]
+    pub category_tags: Option<String>,
+    #[serde(rename = "skill_level")]
+    pub skill_level: Option<String>,
+    #[serde(rename = "cooldown")]
+    pub cooldown: Option<String>,
+    #[serde(rename = "initial_cooldown")]
+    pub initial_cooldown: Option<String>,
+    #[serde(rename = "sp_multiple_ratio")]
+    pub sp_multiple_ratio: Option<String>,
+    #[serde(rename = "delay_ratio")]
+    pub delay_ratio: Option<String>,
+    #[serde(rename = "parameter_values")]
+    pub parameter_values: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCharacterEmpowerments {
@@ -57,11 +73,19 @@ impl super::runtime::SoraDecode for CurrencyWarsCharacterEmpowerments {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            position_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            activation: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            teardown: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            avatar_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            position_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            activation: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            effect_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            teardown: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            category_tags: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            skill_level: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            cooldown: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            initial_cooldown: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            sp_multiple_ratio: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            delay_ratio: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            parameter_values: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

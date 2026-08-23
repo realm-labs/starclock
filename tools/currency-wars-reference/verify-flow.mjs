@@ -28,7 +28,7 @@ const expected = {
   "gambit-modes.json": 2,
   "modules.json": 4,
   "entries.json": 2,
-  "finish-conditions.json": 21,
+  "finish-conditions.json": 135,
   "area-groups.json": 1,
   "areas.json": 26,
   "difficulties.json": 97,
@@ -99,9 +99,12 @@ const finish = rowsByFile["finish-conditions.json"];
 assert(finish.filter(({ condition_kind: kind }) =>
   kind === "BattleStageRule").length === 15
   && finish.filter(({ condition_kind: kind }) =>
+    kind === "BattlePenaltyRule").length === 114
+  && finish.filter(({ condition_kind: kind }) =>
     kind === "SettlementRank").length === 6,
 "GridFight Stage/settlement terminal closure drift");
 assert(sourceLocatorSet(finish, "ExcelOutput/GridFightStage.json").size === 15
+  && sourceLocatorSet(finish, "ExcelOutput/GridFightPenaltyRule.json").size === 114
   && sourceLocatorSet(finish, "ExcelOutput/GridFightSettleRank.json").size === 6,
 "GridFight terminal source exact-once drift");
 
@@ -141,7 +144,10 @@ assert(difficulties.length === 97
   && sourceLocatorSet(difficulties,
     "ExcelOutput/GridFightDivisionStage.json").size === 97
   && difficulties.every((row) =>
-    row.gambit_rules.standard_score_rule
+    Number.isInteger(Number(row.rank_bounds.division_level))
+      && Number(row.rank_bounds.division_level) >= 1
+      && Number(row.rank_bounds.division_level) <= 9
+      && row.gambit_rules.standard_score_rule
       && row.gambit_rules.overclock_score_rule),
 "GridFight Division difficulty closure drift");
 

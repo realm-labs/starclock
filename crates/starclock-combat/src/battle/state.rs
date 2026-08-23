@@ -1,5 +1,5 @@
 use crate::{
-    ModifierInstanceId, RuleInstanceId,
+    Energy, ModifierInstanceId, RuleInstanceId,
     actor::store::{FormationState, LinkStore, TeamStateStore, TimelineActorStore, UnitStore},
     catalog::CatalogDigest,
     command::model::DecisionPoint,
@@ -21,7 +21,7 @@ use super::{
     model::BattlePhase,
     spec::{
         AssemblyDigest, BattleClockExpiry, BattleClockSpec, BattleSeed, CombatInputDigest,
-        ConcedePolicy,
+        ConcedePolicy, PlayerLethalRescueSpec,
     },
 };
 
@@ -278,6 +278,8 @@ pub(crate) struct BattleState {
     pub(crate) modifiers: ModifierStore,
     pub(crate) encounter: EncounterState,
     pub(crate) clock: Option<BattleClockState>,
+    pub(crate) enemy_defeat_energy: Option<Energy>,
+    pub(crate) player_lethal_rescue: Option<PlayerLethalRescueSpec>,
     pub(crate) timeline: TimelineState,
     pub(crate) reactions: ReactionQueue,
     pub(crate) concede: ConcedePolicy,
@@ -309,6 +311,8 @@ impl BattleState {
             modifiers: self.modifiers.clone(),
             encounter: self.encounter,
             clock: self.clock,
+            enemy_defeat_energy: self.enemy_defeat_energy,
+            player_lethal_rescue: self.player_lethal_rescue,
             timeline: self.timeline.clone(),
             reactions: self.reactions.clone(),
             concede: self.concede,
@@ -337,6 +341,8 @@ impl BattleState {
         self.modifiers.clone_from(&source.modifiers);
         self.encounter = source.encounter;
         self.clock = source.clock;
+        self.enemy_defeat_energy = source.enemy_defeat_energy;
+        self.player_lethal_rescue = source.player_lethal_rescue;
         self.timeline.clone_from(&source.timeline);
         self.reactions.clone_from(&source.reactions);
         self.concede = source.concede;

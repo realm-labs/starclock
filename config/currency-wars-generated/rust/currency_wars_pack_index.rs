@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsPackIndex {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            pack_digest: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            file_digests: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            stable_id_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            pack_digest: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            file_digests: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            stable_id_index: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -1,6 +1,6 @@
 {
   "schema_revision": "starclock-dependency-policy-v1",
-  "reviewed_on": "2026-07-22",
+  "reviewed_on": "2026-08-13",
   "rules": [
     "Every direct dependency is pinned with an exact Cargo requirement and committed lockfile.",
     "Every direct and transitive package requires an accepted license and deterministic-impact review.",
@@ -19,7 +19,7 @@
     "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not a stable performance runner)",
     "command": "fresh CARGO_TARGET_DIR cargo check -p starclock-data --all-targets --all-features",
     "elapsed_milliseconds": 18782,
-    "scope": "starclock-data, generated Sora 0.3.0 reader, serde/zstd graph and all local dependencies",
+    "scope": "starclock-data, generated Sora 0.6.1 reader, serde/zstd graph and all local dependencies",
     "classification": "Moderate generated-reader/toolchain cost; no runtime performance claim"
   },
   "rng_hash_compile_cost_measurement": {
@@ -199,7 +199,7 @@
       "features": ["serde:derive,rc,std", "serde_json:std"],
       "default_features": false,
       "source_url": "https://crates.io/",
-      "purpose": "Compile and execute pinned Sora 0.3.0 generated readers for the core and isolated Standard Universe production bundles, then parse schema-authored bounded score-curve, Occurrence-vector and rule-parameter cells into typed domain values.",
+      "purpose": "Compile and execute pinned Sora 0.6.1 generated readers for the core and isolated Standard Universe production bundles, then parse schema-authored bounded score-curve, Occurrence-vector and rule-parameter cells into typed domain values.",
       "deterministic_impact": "Transport and three deny-unknown-fields embedded value decoders only; exact versions remain locked and generated/JSON transport values are converted before crossing a Starclock domain API.",
       "compile_cost": "The prior fresh starclock-data check measured 18,782 ms; G04-P1-B1 reuses the identical locked Serde/Zstd graph in a second private generated reader and adds no registry package.",
       "rejected_alternatives": [
@@ -386,12 +386,12 @@
     },
     {
       "name": "sora-cli",
-      "version": "0.3.0",
+      "version": "0.6.1",
       "license": "MIT OR Apache-2.0",
-      "source_url": "https://github.com/realm-labs/sora/releases/tag/v0.3.0",
+      "source_url": "https://github.com/realm-labs/sora/releases/tag/v0.6.1",
       "purpose": "The sole schema validation, Excel projection/synchronization, Rust code generation and production bundle export tool.",
       "deterministic_impact": "Schema semantics and generated/runtime formats are version-sensitive; the crates.io archive SHA-256, upstream tag identities, command syntax and stable output bytes are committed in the Sora capability lock.",
-      "compile_cost": "A locked local Windows x86_64 MSVC installation under Rust 1.97.0 took 102,500 ms; the tool and its dependency graph remain outside the production workspace.",
+      "compile_cost": "A locked local macOS aarch64 installation under Rust 1.97.0 took 133,000 ms; the tool and its dependency graph remain outside the production workspace.",
       "rejected_alternatives": ["Floating Sora releases: schema and generated output drift.", "JSON-direct runtime or handwritten spreadsheet readers: violate the selected Excel/Sora authority chain.", "A source-build Git checkout: larger mutable trust surface than the checksum-bound crates.io release archive."]
     }
   ]

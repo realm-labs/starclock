@@ -51,8 +51,8 @@ impl super::runtime::SoraDecode for CurrencyWarsSemanticFixtureFamilies {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            minimum_cases: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            must_cover: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            minimum_cases: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            must_cover: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -1,6 +1,6 @@
 #![forbid(unsafe_code)]
 
-#[path = "../../../config/generated/rust/universe_reference/mod.rs"]
+#[path = "../../../config/universe-generated/rust/mod.rs"]
 mod generated;
 
 use generated::{SoraConfig, runtime::SoraBundle};

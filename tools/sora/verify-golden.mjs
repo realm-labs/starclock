@@ -141,8 +141,7 @@ function verifyUnsupportedAssumptions() {
   run(sora, ["--serial", "gen", "--target", "rust", "--project", "./project-unsigned.toml", "--out", "unsupported/unsigned/generated", "--format-code", "never"]);
   for (const name of ["Cargo.toml", "Cargo.lock"]) fs.copyFileSync(path.join(work, "reader", name), path.join(unsignedRoot, name));
   fs.writeFileSync(path.join(unsignedRoot, "main.rs"), "mod generated;\nfn main() {}\n");
-  const unsignedCompile = runFailure("cargo", ["check", "--manifest-path", "unsupported/unsigned/Cargo.toml", "--locked"]);
-  assert(`${unsignedCompile.stdout}\n${unsignedCompile.stderr}`.includes("u32: SoraDecode"), "unsigned Sora Rust decode limitation changed");
+  run("cargo", ["check", "--manifest-path", "unsupported/unsigned/Cargo.toml", "--locked"]);
 }
 function verifyReaderDependencies(policy) {
   const metadata = JSON.parse(runCapture("cargo", ["metadata", "--manifest-path", "reader/Cargo.toml", "--locked", "--format-version", "1"]).stdout);

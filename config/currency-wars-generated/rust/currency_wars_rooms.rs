@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsRooms {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            room_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            reachability_disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            stage_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            room_type: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            reachability_disposition: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            stage_refs: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

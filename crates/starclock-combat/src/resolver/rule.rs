@@ -5,10 +5,10 @@ use crate::{
     BattleEventData, BattleEventKind, BattleFault, BreakDamageKind, ControlledAction,
     DecisionEventData, DurationClock, EffectCategory, EffectDefinitionId, EffectEventData,
     EffectRuntimeDefinition, EffectRuntimeTemplate, EventId, FaultBoundary, FaultKind, FaultPolicy,
-    HitEventData, LifeState, PhaseEventData, PresenceState, Ratio, ResourceEventData, RuleId,
-    RuleInstanceId, Scalar, SelectorId, ShieldEventData, SourceDefinitionId, StateSlotDefinitionId,
-    TeamSide, ToughnessEventData, TurnEventData, UnitDefinitionId, UnitEventData, UnitId,
-    WaveEventData,
+    FormationIndex, HitEventData, LifeState, PhaseEventData, PresenceState, Ratio,
+    ResourceEventData, RuleId, RuleInstanceId, Scalar, SelectorId, ShieldEventData,
+    SourceDefinitionId, StateSlotDefinitionId, TeamSide, ToughnessEventData, TurnEventData,
+    UnitDefinitionId, UnitEventData, UnitId, WaveEventData,
     action::model::ActionOrigin as ModelActionOrigin,
     catalog::{
         CombatCatalog,
@@ -183,6 +183,9 @@ fn evaluate_candidate(
     parent: EventId,
     candidate: Candidate,
 ) -> Result<CandidateResolution, BattleFault> {
+    if candidate.trigger.event_point != event_point {
+        return Ok(CandidateResolution::Completed(parent));
+    }
     let event_cause = event.cause();
     let event_actor = actor_unit(txn, event_cause.actor());
     let owner = candidate
@@ -236,7 +239,7 @@ fn evaluate_candidate(
     };
     let event_order = event_target_order(event);
     let mut resolved: Vec<(SelectorId, Box<[UnitId]>)> = Vec::new();
-    for id in target::ordered_rule_selectors(catalog, program.selectors())? {
+    for id in target::ordered_program_rule_selectors(catalog, program.id())? {
         let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
             continue;
         };
@@ -263,6 +266,7 @@ fn evaluate_candidate(
         };
         let selection = txn.resolve_rule_selector(
             catalog,
+            id,
             selector,
             owner,
             actor,
@@ -417,7 +421,9 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
         BattleEventKind::Turn(TurnEventData::Started { .. }) => RuleEventPoint::TurnStarted,
         BattleEventKind::Turn(TurnEventData::Ended { .. }) => RuleEventPoint::TurnEnded,
         BattleEventKind::Turn(TurnEventData::ExtraTurnGranted { .. }) => return None,
-        BattleEventKind::Turn(TurnEventData::ActionGaugeChanged { .. }) => return None,
+        BattleEventKind::Turn(TurnEventData::ActionGaugeChanged { .. }) => {
+            RuleEventPoint::TimelineChanged
+        }
         BattleEventKind::Action(ActionEventData::Declared { .. }) => RuleEventPoint::ActionDeclared,
         BattleEventKind::Action(ActionEventData::Started { .. }) => RuleEventPoint::ActionStarted,
         BattleEventKind::Action(ActionEventData::Resolved { .. }) => RuleEventPoint::ActionResolved,
@@ -443,6 +449,7 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
         BattleEventKind::Unit(UnitEventData::Summoned { .. }) => RuleEventPoint::UnitSummoned,
         BattleEventKind::Unit(UnitEventData::Refilled { .. }) => RuleEventPoint::UnitSummoned,
         BattleEventKind::Unit(UnitEventData::Revived { .. }) => RuleEventPoint::UnitRevived,
+        BattleEventKind::Unit(UnitEventData::LethalRescued { .. }) => RuleEventPoint::LethalRescued,
         BattleEventKind::Unit(UnitEventData::Transformed { .. })
         | BattleEventKind::Unit(UnitEventData::TransformationEnded { .. }) => {
             RuleEventPoint::UnitTransformed
@@ -509,6 +516,9 @@ fn event_facts(
         ..RuleEventFacts::default()
     };
     match event.kind() {
+        BattleEventKind::Turn(TurnEventData::ActionGaugeChanged { kind, .. }) => {
+            facts.action_gauge_change = Some(*kind);
+        }
         BattleEventKind::Action(data) => {
             let (origin, tags) = match data {
                 ActionEventData::Declared { origin, tags, .. }
@@ -688,6 +698,15 @@ fn event_facts(
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
                 facts.resource_overflow = signed_scalar(i64::from(*overflow));
             }
+            ResourceEventData::SkillPointMaximum { before, after, .. } => {
+                facts.resource = Some(RuleResourceKind::SkillPoints);
+                facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
+                facts.resource_overflow = Some(Scalar::ZERO);
+            }
+            ResourceEventData::MaximumHp { before, after, .. } => {
+                facts.resource_delta = signed_scalar(after.get() - before.get());
+                facts.resource_overflow = Some(Scalar::ZERO);
+            }
         },
         BattleEventKind::RuleSignal(data) => {
             facts.rule_signal_code = Some(data.code);
@@ -803,6 +822,8 @@ fn toughness_kind(data: &ToughnessEventData) -> RuleToughnessEventKind {
     match data {
         Event::WeaknessAdded { .. } => Kind::WeaknessAdded,
         Event::WeaknessRemoved { .. } => Kind::WeaknessRemoved,
+        Event::LayerCreated { .. } => Kind::LayerCreated,
+        Event::LayerRemoved { .. } => Kind::LayerRemoved,
         Event::Reduced { .. } => Kind::LayerReduced,
         Event::LayerDepleted { .. } => Kind::LayerDepleted,
         Event::BaseEffectApplied { .. } => Kind::BaseEffectApplied,
@@ -817,6 +838,7 @@ fn toughness_kind(data: &ToughnessEventData) -> RuleToughnessEventKind {
 #[derive(Clone)]
 struct UnitQuerySnapshot {
     side: TeamSide,
+    formation: FormationIndex,
     life: LifeState,
     presence: PresenceState,
     energy: Scalar,
@@ -827,6 +849,7 @@ struct UnitQuerySnapshot {
     weaknesses: BTreeSet<CombatElement>,
     broken: bool,
     rank: EnemyRank,
+    damage_dealt: i64,
 }
 
 pub(super) struct BattleQuerySnapshot {
@@ -849,6 +872,7 @@ impl BattleQuerySnapshot {
                     unit.id,
                     UnitQuerySnapshot {
                         side: unit.side,
+                        formation: unit.formation,
                         life: unit.life,
                         presence: unit.presence,
                         energy: Scalar::from_scaled(unit.current_energy.scaled()),
@@ -870,6 +894,7 @@ impl BattleQuerySnapshot {
                         weaknesses: unit.weaknesses.iter().copied().collect(),
                         broken: unit.weakness_broken,
                         rank: unit.rank,
+                        damage_dealt: unit.damage_dealt,
                     },
                 )
             })
@@ -977,6 +1002,23 @@ impl BattleQueryReader for BattleQuerySnapshot {
 
     fn is_broken(&self, subject: UnitId) -> bool {
         self.units.get(&subject).is_some_and(|unit| unit.broken)
+    }
+
+    fn is_highest_damage_dealer(&self, subject: UnitId) -> bool {
+        let Some(subject_state) = self.units.get(&subject) else {
+            return false;
+        };
+        self.units
+            .iter()
+            .filter(|(_, unit)| unit.side == subject_state.side)
+            .min_by(|(left_id, left), (right_id, right)| {
+                right
+                    .damage_dealt
+                    .cmp(&left.damage_dealt)
+                    .then(left.formation.cmp(&right.formation))
+                    .then(left_id.cmp(right_id))
+            })
+            .is_some_and(|(unit, _)| *unit == subject)
     }
 
     fn enemy_rank(&self, subject: UnitId) -> Option<EnemyRank> {

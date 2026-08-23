@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.currency-wars-augment-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P5-B1",
+  "result": "Pass",
+  "production_denominators": {
+    "augments": 334,
+    "season_memberships": 334,
+    "selected_enhancements": 7,
+    "remarks": 10,
+    "module_bans": 3,
+    "terminal_source_rows": 688
+  },
+  "executable_behavior": {
+    "eligibility": [
+      "season",
+      "Plane",
+      "quality",
+      "Gambit",
+      "module ban",
+      "owned set"
+    ],
+    "offer_sampling": "Reward RNG, stable candidate order, equal integer weights, three without replacement",
+    "selection": "active-offer validation and atomic offer teardown",
+    "replacement": "caller-explicit old stable ID; category adjacency is never inferred",
+    "selected_enhancement": "active Bond trait effect and authoritative maximum-star state gate; configured Gold cost",
+    "contribution_identity": "owned Augments and selected Enhancements are snapshotted and hashed"
+  },
+  "policy_boundary": {
+    "automatic_offer_timing": "not claimed exact",
+    "selected_behavior": "node or mode programs invoke the explicit offer boundary",
+    "replacement_condition": "replace when released program semantics or reproducible node-entry traces identify automatic scheduling and ordering"
+  },
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/investment_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/runtime/investment.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_investment.rs",
+    "content-reference/currency-wars-v1/augment-definitions.json",
+    "content-reference/currency-wars-v1/selected-enhancements.json",
+    "content-manifests/currency-wars-runtime-v1/augment-execution-audit.json"
+  ]
+}

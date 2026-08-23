@@ -30,6 +30,7 @@ const imports = [
   "curio-hex-closure",
   "events",
   "services",
+  "service-runtime",
   "encounters",
 ];
 const sourceCommands = [

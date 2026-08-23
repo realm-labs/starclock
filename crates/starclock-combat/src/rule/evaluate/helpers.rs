@@ -158,6 +158,9 @@ pub(super) fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_
             .as_ref()
             .is_none_or(|value| input.event_facts.resource.as_ref() == Some(value))
         && filter
+            .action_gauge_change
+            .is_none_or(|value| input.event_facts.action_gauge_change == Some(value))
+        && filter
             .has_action
             .is_none_or(|value| input.event_facts.has_action == value)
         && ancestry_matches(filter.cause_ancestry, input)

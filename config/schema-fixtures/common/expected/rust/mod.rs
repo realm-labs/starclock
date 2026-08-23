@@ -19,7 +19,7 @@ pub mod source_category;
 pub mod source_record;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "8fabf8ae17455ca0";
+pub const SCHEMA_FINGERPRINT: &str = "924f5a723a22fbf8";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

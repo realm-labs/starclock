@@ -13,8 +13,8 @@ use crate::{
 use std::collections::BTreeMap;
 
 use crate::{
-    AbilityId, EffectCategory, EffectDefinitionId, LifeState, PresenceState, Probability, Ratio,
-    Rounding, Scalar, UnitId,
+    AbilityId, DamageAmount, EffectCategory, EffectDefinitionId, LifeState, PresenceState,
+    Probability, Ratio, Rounding, Scalar, UnitId,
     battle::fault::BattleFault,
     catalog::action::{HealingDefinition, OrdinaryDamageDefinition, ShieldDefinition},
     event::cause::{Cause, CauseActor},
@@ -103,6 +103,21 @@ impl FormulaInputs {
                 let mut value =
                     formula_modifier(&resolver, source, stage, purpose, &source_context)?;
                 if stage == FormulaStage::DamageBoost {
+                    if let Some(element) = element {
+                        let build_value = resolver
+                            .query(
+                                StatQuery {
+                                    subject: source,
+                                    stat: element_damage_stat(element),
+                                    purpose,
+                                },
+                                &source_context,
+                            )
+                            .map_err(|_| numeric_fault(70, i64::from(element as u8)))?;
+                        value = value
+                            .checked_add(build_value)
+                            .map_err(|_| numeric_fault(71, build_value.scaled()))?;
+                    }
                     let target_value = formula_modifier(
                         &resolver,
                         target,
@@ -144,8 +159,23 @@ impl FormulaInputs {
                 .with_formula_modifier(stage, value)
                 .map_err(|_| numeric_fault(42, value.scaled()))?;
         }
-        formula::ordinary_damage(formula)
-            .map_err(|_| numeric_fault(1, formula.base_damage().scaled()))
+        let calculated = formula::ordinary_damage(formula)
+            .map_err(|_| numeric_fault(1, formula.base_damage().scaled()))?;
+        let override_amount = formula_modifier(
+            &resolver,
+            source,
+            FormulaStage::DamageOverride,
+            purpose,
+            &source_context,
+        )?;
+        if override_amount.scaled() <= 0 {
+            return Ok(calculated);
+        }
+        Ok(DamageCalculation {
+            raw: override_amount,
+            finalized: DamageAmount::from_scalar(override_amount, Rounding::Floor)
+                .map_err(|_| numeric_fault(76, override_amount.scaled()))?,
+        })
     }
 
     pub(super) fn critical_profile(
@@ -330,6 +360,19 @@ impl FormulaInputs {
             purpose,
             &source_context,
         )?;
+        let break_effect = resolver
+            .query(
+                StatQuery {
+                    subject: source,
+                    stat: StatKind::BreakEffect,
+                    purpose,
+                },
+                &source_context,
+            )
+            .map_err(|_| numeric_fault(72, i64::from(StatKind::BreakEffect as u8)))?;
+        damage_boost = damage_boost
+            .checked_add(break_effect)
+            .map_err(|_| numeric_fault(73, break_effect.scaled()))?;
         let target_context = action_modifier_context(
             catalog,
             cause,
@@ -466,21 +509,35 @@ impl FormulaInputs {
     ) -> Result<HealingCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
         let source = formula_source(txn, cause, FormulaPurpose::Healing)?;
+        let context = modifier_context(
+            txn,
+            source,
+            target,
+            None,
+            formula::model::DamageClass::Direct,
+        )
+        .map(|context| action_modifier_context(catalog, cause, context))?
+        .with_formula_subject(FormulaSubject::Source);
         let outgoing = formula_modifier(
             &resolver,
             source,
             FormulaStage::Healing,
             FormulaPurpose::Healing,
-            &modifier_context(
-                txn,
-                source,
-                target,
-                None,
-                formula::model::DamageClass::Direct,
-            )
-            .map(|context| action_modifier_context(catalog, cause, context))?
-            .with_formula_subject(FormulaSubject::Source),
-        )?;
+            &context,
+        )?
+        .checked_add(
+            resolver
+                .query(
+                    StatQuery {
+                        subject: source,
+                        stat: StatKind::OutgoingHealing,
+                        purpose: FormulaPurpose::Healing,
+                    },
+                    &context,
+                )
+                .map_err(|_| numeric_fault(74, i64::from(StatKind::OutgoingHealing as u8)))?,
+        )
+        .map_err(|_| numeric_fault(75, i64::from(StatKind::OutgoingHealing as u8)))?;
         let incoming = incoming_formula_modifier(
             &resolver,
             catalog,
@@ -822,5 +879,23 @@ const fn damage_purpose(class: formula::model::DamageClass) -> FormulaPurpose {
         formula::model::DamageClass::Dot => FormulaPurpose::Dot,
         formula::model::DamageClass::Additional => FormulaPurpose::AdditionalDamage,
         formula::model::DamageClass::Elation => FormulaPurpose::ElationDamage,
+    }
+}
+
+const fn element_damage_stat(element: formula::model::CombatElement) -> StatKind {
+    use StatKind::{
+        FireDamageBoost, IceDamageBoost, ImaginaryDamageBoost, LightningDamageBoost,
+        PhysicalDamageBoost, QuantumDamageBoost, WindDamageBoost,
+    };
+    use formula::model::CombatElement::{Fire, Ice, Imaginary, Lightning, Physical, Quantum, Wind};
+
+    match element {
+        Physical => PhysicalDamageBoost,
+        Fire => FireDamageBoost,
+        Ice => IceDamageBoost,
+        Lightning => LightningDamageBoost,
+        Wind => WindDamageBoost,
+        Quantum => QuantumDamageBoost,
+        Imaginary => ImaginaryDamageBoost,
     }
 }

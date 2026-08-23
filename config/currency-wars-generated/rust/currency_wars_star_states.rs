@@ -37,6 +37,54 @@ pub struct CurrencyWarsStarStates {
     pub copy_count: Option<String>,
     #[serde(rename = "scaling_refs")]
     pub scaling_refs: Option<String>,
+    #[serde(rename = "rank_attachments")]
+    pub rank_attachments: Option<String>,
+    #[serde(rename = "battle_event_id")]
+    pub battle_event_id: Option<String>,
+    #[serde(rename = "skill_override_source_ids")]
+    pub skill_override_source_ids: Option<String>,
+    #[serde(rename = "skill_override_destination_ids")]
+    pub skill_override_destination_ids: Option<String>,
+    #[serde(rename = "front_skill_ids")]
+    pub front_skill_ids: Option<String>,
+    #[serde(rename = "back_execution_skill_ids")]
+    pub back_execution_skill_ids: Option<String>,
+    #[serde(rename = "back_skill_ids")]
+    pub back_skill_ids: Option<String>,
+    #[serde(rename = "back_ability_name")]
+    pub back_ability_name: Option<String>,
+    #[serde(rename = "config_path")]
+    pub config_path: Option<String>,
+    #[serde(rename = "ai_path")]
+    pub ai_path: Option<String>,
+    #[serde(rename = "property_modifiers")]
+    pub property_modifiers: Option<String>,
+    #[serde(rename = "servant_id")]
+    pub servant_id: Option<String>,
+    #[serde(rename = "front_power_base")]
+    pub front_power_base: Option<String>,
+    #[serde(rename = "back_power_base")]
+    pub back_power_base: Option<String>,
+    #[serde(rename = "luck_chance")]
+    pub luck_chance: Option<String>,
+    #[serde(rename = "luck_damage")]
+    pub luck_damage: Option<String>,
+    #[serde(rename = "extra_heal_base")]
+    pub extra_heal_base: Option<String>,
+    #[serde(rename = "extra_shield_base")]
+    pub extra_shield_base: Option<String>,
+    #[serde(rename = "hp_base")]
+    pub hp_base: Option<String>,
+    #[serde(rename = "hp_inherit")]
+    pub hp_inherit: Option<String>,
+    #[serde(rename = "hp_skill_id")]
+    pub hp_skill_id: Option<String>,
+    #[serde(rename = "speed_base")]
+    pub speed_base: Option<String>,
+    #[serde(rename = "speed_inherit")]
+    pub speed_inherit: Option<String>,
+    #[serde(rename = "speed_skill_id")]
+    pub speed_skill_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsStarStates {
@@ -55,10 +103,34 @@ impl super::runtime::SoraDecode for CurrencyWarsStarStates {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            star_level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            copy_count: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            scaling_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            star_level: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            copy_count: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            scaling_refs: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            rank_attachments: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            battle_event_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            skill_override_source_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            skill_override_destination_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            front_skill_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            back_execution_skill_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            back_skill_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            back_ability_name: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            config_path: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            ai_path: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            property_modifiers: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            servant_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            front_power_base: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            back_power_base: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            luck_chance: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            luck_damage: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            extra_heal_base: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            extra_shield_base: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            hp_base: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            hp_inherit: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            hp_skill_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            speed_base: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            speed_inherit: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            speed_skill_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

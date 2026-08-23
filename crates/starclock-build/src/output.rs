@@ -3,9 +3,11 @@
 use starclock_combat::{CombatantSpecDigest, ResolvedCombatantSpec};
 
 use crate::{
+    ability::AbilityInvestment,
     catalog::BuildCatalog,
     digest::{BuildCatalogDigest, CombatantBuildDigest},
     report::BuildCompilationReport,
+    spec::CombatantBuildSpec,
 };
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -13,6 +15,8 @@ pub struct CompiledBuild {
     combatant: ResolvedCombatantSpec,
     report: BuildCompilationReport,
     build_digest: CombatantBuildDigest,
+    effective_ability_levels: Box<[AbilityInvestment]>,
+    selected_spec: CombatantBuildSpec,
     lock: BuildLock,
 }
 
@@ -22,6 +26,8 @@ impl CompiledBuild {
         report: BuildCompilationReport,
         build_digest: CombatantBuildDigest,
         catalog_digest: BuildCatalogDigest,
+        effective_ability_levels: Box<[AbilityInvestment]>,
+        selected_spec: CombatantBuildSpec,
     ) -> Self {
         let lock = BuildLock {
             catalog_digest,
@@ -32,6 +38,8 @@ impl CompiledBuild {
             combatant,
             report,
             build_digest,
+            effective_ability_levels,
+            selected_spec,
             lock,
         }
     }
@@ -46,6 +54,16 @@ impl CompiledBuild {
     #[must_use]
     pub const fn build_digest(&self) -> CombatantBuildDigest {
         self.build_digest
+    }
+    /// Final selected levels after Trace, Eidolon and contribution adjustments.
+    #[must_use]
+    pub fn effective_ability_levels(&self) -> &[AbilityInvestment] {
+        &self.effective_ability_levels
+    }
+    /// Exact normalized input selected by this compilation.
+    #[must_use]
+    pub const fn selected_spec(&self) -> &CombatantBuildSpec {
+        &self.selected_spec
     }
     #[must_use]
     pub const fn lock(&self) -> &BuildLock {

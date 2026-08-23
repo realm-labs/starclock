@@ -7,7 +7,7 @@ use serde::{Deserialize, Deserializer, Serialize, de::Error as _};
 pub const RESPONSIBILITY: &str = "exact agent values";
 /// Schema/golden bundle identity.
 pub const AGENT_SCHEMA_BUNDLE_SHA256: &str =
-    "52f09f8eca07eb22fea51c63ca268d4814b1edaa3104a3aeb8ae594d7c5049c0";
+    "36ac4ba5207fb81e50beea5fa9bc21e3721fda4ec10f3065b8ee08feb9afb1c1";
 pub const OBSERVATION_SCHEMA_JSON: &str =
     include_str!("../../../schemas/agent-api/observation.schema.json");
 pub const ACTION_SCHEMA_JSON: &str = include_str!("../../../schemas/agent-api/action.schema.json");

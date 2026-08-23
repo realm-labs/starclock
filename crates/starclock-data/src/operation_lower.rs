@@ -13,7 +13,7 @@ use starclock_combat::{
     rule::{
         evaluate::ProgramLookup,
         model::{
-            ProgramStep, ReactionPriority, ResourceUpdateKind, RuleActionOwner,
+            ConditionExpr, ProgramStep, ReactionPriority, ResourceUpdateKind, RuleActionOwner,
             RuleActionPaymentPolicy, RuleEffectChancePolicy, RuleOperationTemplate,
             RuleResourceKind, RuleValue, StateSlotUpdateKind, ValueExpr,
         },
@@ -126,6 +126,10 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
     let mut selectors = BTreeSet::new();
     let mut effects = BTreeSet::new();
     for step in steps {
+        if let ProgramStep::If { condition, .. } = step {
+            condition_references(condition, &mut selectors, &mut effects);
+            continue;
+        }
         if let ProgramStep::ForEach { selector, .. } = step {
             selectors.insert(*selector);
             continue;
@@ -143,8 +147,10 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             | O::RandomRepeatedDamage { selector, .. }
             | O::RandomRepeatedTrueDamage { selector, .. }
             | O::TrueDamage { selector, .. }
+            | O::NonlethalTrueDamage { selector, .. }
             | O::Heal { selector, .. }
             | O::ConsumeHp { selector, .. }
+            | O::ReduceMaximumHp { selector, .. }
             | O::ReduceToughness { selector, .. }
             | O::Break { selector, .. }
             | O::SuperBreak { selector, .. }
@@ -154,6 +160,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             | O::CreateToughnessLayer { selector, .. }
             | O::RemoveToughnessLayer { selector, .. }
             | O::ModifyResource { selector, .. }
+            | O::ModifySkillPointMaximum { selector, .. }
             | O::RemoveEffect { selector, .. }
             | O::Cleanse { selector, .. }
             | O::DetonateDot { selector, .. }
@@ -205,6 +212,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             }
             O::SetSlot { .. }
             | O::AddSlot { .. }
+            | O::DeductActionValue { .. }
             | O::ModifyStateSlot { .. }
             | O::CreateCountdown { .. }
             | O::EmitRuleEvent { .. }
@@ -216,6 +224,109 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
         selectors.into_iter().collect::<Vec<_>>().into_boxed_slice(),
         effects.into_iter().collect::<Vec<_>>().into_boxed_slice(),
     )
+}
+
+fn condition_references(
+    condition: &ConditionExpr,
+    selectors: &mut BTreeSet<SelectorId>,
+    effects: &mut BTreeSet<EffectDefinitionId>,
+) {
+    match condition {
+        ConditionExpr::Not(condition) => condition_references(condition, selectors, effects),
+        ConditionExpr::All(conditions) | ConditionExpr::Any(conditions) => {
+            for condition in conditions {
+                condition_references(condition, selectors, effects);
+            }
+        }
+        ConditionExpr::Compare { lhs, rhs, .. } => {
+            value_references(lhs, selectors, effects);
+            value_references(rhs, selectors, effects);
+        }
+        ConditionExpr::SelectorCardinality { selector, .. }
+        | ConditionExpr::LifePresence { selector, .. }
+        | ConditionExpr::HasWeakness { selector, .. }
+        | ConditionExpr::IsBroken(selector)
+        | ConditionExpr::EnemyRank(selector, _)
+        | ConditionExpr::EnemyRankEliteOrBoss(selector)
+        | ConditionExpr::IsFrozen(selector) => {
+            selectors.insert(*selector);
+        }
+        ConditionExpr::EffectExists { selector, effect } => {
+            selectors.insert(*selector);
+            effects.insert(*effect);
+        }
+        ConditionExpr::Literal(_)
+        | ConditionExpr::EventKind(_)
+        | ConditionExpr::SourceTag(_)
+        | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_) => {}
+    }
+}
+
+fn value_references(
+    value: &ValueExpr,
+    selectors: &mut BTreeSet<SelectorId>,
+    effects: &mut BTreeSet<EffectDefinitionId>,
+) {
+    match value {
+        ValueExpr::ReadResource { selector, .. } | ValueExpr::SelectorCount(selector) => {
+            selectors.insert(*selector);
+        }
+        ValueExpr::SelectorSum { selector, value } => {
+            selectors.insert(*selector);
+            value_references(value, selectors, effects);
+        }
+        ValueExpr::QueryEffectStacks { effect, .. } => {
+            effects.insert(*effect);
+        }
+        ValueExpr::Add(lhs, rhs)
+        | ValueExpr::Subtract(lhs, rhs)
+        | ValueExpr::Multiply { lhs, rhs, .. }
+        | ValueExpr::Divide { lhs, rhs, .. }
+        | ValueExpr::Minimum(lhs, rhs)
+        | ValueExpr::Maximum(lhs, rhs) => {
+            value_references(lhs, selectors, effects);
+            value_references(rhs, selectors, effects);
+        }
+        ValueExpr::Clamp {
+            value,
+            minimum,
+            maximum,
+        } => {
+            value_references(value, selectors, effects);
+            value_references(minimum, selectors, effects);
+            value_references(maximum, selectors, effects);
+        }
+        ValueExpr::Negate(value) | ValueExpr::Convert { value, .. } => {
+            value_references(value, selectors, effects);
+        }
+        ValueExpr::Choose {
+            condition,
+            when_true,
+            when_false,
+        } => {
+            condition_references(condition, selectors, effects);
+            value_references(when_true, selectors, effects);
+            value_references(when_false, selectors, effects);
+        }
+        ValueExpr::Literal(_)
+        | ValueExpr::Slot(_)
+        | ValueExpr::AbilityParameter { .. }
+        | ValueExpr::ReadEventProperty(_)
+        | ValueExpr::EventId
+        | ValueExpr::EventOwner
+        | ValueExpr::EventActor
+        | ValueExpr::EventApplier
+        | ValueExpr::EventTarget
+        | ValueExpr::CurrentTarget
+        | ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryFormulaStage { .. }
+        | ValueExpr::QueryBaseStat { .. }
+        | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryMaximumEnergy(_)
+        | ValueExpr::QueryEffectCategoryStacks { .. } => {}
+    }
 }
 
 fn lower_operation(
@@ -748,5 +859,23 @@ mod tests {
             lowered[2],
             RuleOperationTemplate::GrantExtraTurn { .. }
         ));
+    }
+
+    #[test]
+    fn condition_references_are_part_of_the_program_selector_closure() {
+        let bundle = SoraBundle::parse(PRODUCTION).expect("production Sora bundle");
+        let config = SoraConfig::from_source(&bundle).expect("generated production config");
+        let programs = convert(&config, &BTreeSet::new()).expect("program lowering");
+        let program = programs
+            .iter()
+            .find(|program| program.id.get() == 1_030_308)
+            .expect("released frozen-adjacent program");
+
+        assert!(
+            program
+                .selectors
+                .iter()
+                .any(|selector| selector.get() == 1_030_411)
+        );
     }
 }

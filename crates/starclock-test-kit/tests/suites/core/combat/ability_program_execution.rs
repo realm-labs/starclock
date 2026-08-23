@@ -1,16 +1,17 @@
+//! Line-limit exception: this test-only cross-program corpus shares one deterministic fixture vocabulary.
 use crate::combat_decision::advance_boundary_if_offered;
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionGauge, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
-    CombatantSpecDigest, Command, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
-    DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate,
-    EffectStackPolicy, EffectTickPhase, EncounterWaveId, FormationIndex, Hp, KeyedTeamResourceSpec,
-    LinkedEntityKind, LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy,
-    ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, ResolvedModifierBinding, Rounding, Scalar, SourceDefinitionId,
-    Speed, StatValue, TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
-    WaveLinkPolicy,
+    ActionGauge, ActionValue, ActionValueClockSpec, AssemblyDigest, Battle, BattleClockExpiry,
+    BattleClockSpec, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
+    ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition, DispelCategory, DurationClock,
+    EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate, EffectStackPolicy,
+    EffectTickPhase, EncounterWaveId, FormationIndex, Hp, KeyedTeamResourceSpec, LinkedEntityKind,
+    LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource,
+    ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResolvedModifierBinding, Rounding, Scalar, SourceDefinitionId, Speed, StatValue,
+    TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel, WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
@@ -55,6 +56,8 @@ mod action_break;
 mod queue_action;
 #[path = "ability_program_execution/random_grouped_effect.rs"]
 mod random_grouped_effect;
+#[path = "ability_program_execution/toughness_layers.rs"]
+mod toughness_layers;
 #[path = "ability_program_execution/trigger_phases.rs"]
 mod trigger_phases;
 
@@ -732,7 +735,16 @@ fn battle(
     with_rule: bool,
     with_mechanics: bool,
 ) -> Battle {
-    let spec = BattleSpec::new(
+    Battle::create(
+        catalog,
+        battle_spec(with_modifier, with_rule, with_mechanics),
+        BattleSeed::new([0x47; 32]),
+    )
+    .unwrap()
+}
+
+fn battle_spec(with_modifier: bool, with_rule: bool, with_mechanics: bool) -> BattleSpec {
+    BattleSpec::new(
         AssemblyDigest::new([0x44; 32]).unwrap(),
         id(1),
         vec![
@@ -770,8 +782,21 @@ fn battle(
         TeamResourceSpec::new(0, 0).unwrap(),
         ConcedePolicy::Allowed,
     )
+    .unwrap()
+}
+
+fn battle_with_action_value_clock(catalog: Arc<CombatCatalog>) -> Battle {
+    let clock = ActionValueClockSpec::new(
+        ActionValue::from_scaled(1_000_000_000).unwrap(),
+        BattleClockExpiry::Lose,
+    )
     .unwrap();
-    Battle::create(catalog, spec, BattleSeed::new([0x47; 32])).unwrap()
+    Battle::create(
+        catalog,
+        battle_spec(false, false, false).with_clock(BattleClockSpec::ActionValue(clock)),
+        BattleSeed::new([0x48; 32]),
+    )
+    .unwrap()
 }
 
 fn battle_with_two_enemies(catalog: Arc<CombatCatalog>) -> Battle {
@@ -868,6 +893,10 @@ fn hit_programs_use_authored_selector_order_and_exact_hit_shares() {
             .current_hp()
             .get(),
         800
+    );
+    assert_eq!(
+        battle.view().units_by_id().next().unwrap().damage_dealt(),
+        200
     );
 }
 
@@ -1132,6 +1161,150 @@ fn true_damage_program_emission_executes_authoritatively() {
             .current_hp()
             .get(),
         800
+    );
+    assert_eq!(
+        battle.view().units_by_id().next().unwrap().damage_dealt(),
+        200
+    );
+}
+
+#[test]
+fn deduct_action_value_program_emission_charges_the_battle_clock() {
+    let program = ProgramDefinition::new(id(1), vec![], vec![], vec![], vec![]).with_steps(vec![
+        ProgramStep::Operation(RuleOperationTemplate::DeductActionValue {
+            amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(7_000_000))),
+        }),
+    ]);
+    let mut battle = battle_with_action_value_clock(catalog(program, false, false, false, false));
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    advance_boundary_if_offered(&mut battle);
+    let before = battle
+        .view()
+        .clock()
+        .unwrap()
+        .remaining_action_value_scaled()
+        .unwrap();
+    let command = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(
+            |command| matches!(command, Command::UseAbility { ability, .. } if ability.get() == 1),
+        )
+        .unwrap()
+        .clone();
+    let resolution = battle.apply(command).unwrap();
+    let deductions = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Clock(starclock_combat::BattleClockEventData::Advanced {
+                delta_scaled: 7_000_000,
+                ..
+            }) => Some(7_000_000_i64),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert!(!deductions.is_empty(), "{:#?}", resolution.events());
+    assert_eq!(
+        battle
+            .view()
+            .clock()
+            .unwrap()
+            .remaining_action_value_scaled(),
+        Some(before - deductions.iter().sum::<i64>())
+    );
+}
+
+#[test]
+fn nonlethal_true_damage_program_emission_preserves_one_hp() {
+    let program =
+        ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::NonlethalTrueDamage {
+                selector: id(2),
+                amount: ValueExpr::Literal(RuleValue::Scalar(
+                    Scalar::checked_from_integer(2_000).unwrap(),
+                )),
+            }),
+        ]);
+    let mut battle = battle(
+        catalog(program, false, false, false, false),
+        false,
+        false,
+        false,
+    );
+    let resolution = start_and_use(&mut battle).unwrap();
+
+    assert!(resolution.fault().is_none());
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .nth(1)
+            .unwrap()
+            .current_hp()
+            .get(),
+        1
+    );
+    assert_eq!(
+        resolution
+            .events()
+            .iter()
+            .filter_map(|event| match event.kind() {
+                BattleEventKind::Damage(damage) => Some(damage.applied.get()),
+                _ => None,
+            })
+            .sum::<i64>(),
+        999
+    );
+}
+
+#[test]
+fn maximum_hp_reduction_uses_battle_entry_floor_and_clamps_current_hp() {
+    let floor = ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(400_000)));
+    let reduction = |amount| {
+        ProgramStep::Operation(RuleOperationTemplate::ReduceMaximumHp {
+            selector: id(2),
+            amount: ValueExpr::Literal(RuleValue::Scalar(
+                Scalar::checked_from_integer(amount).unwrap(),
+            )),
+            minimum_ratio: floor.clone(),
+        })
+    };
+    let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![])
+        .with_steps(vec![reduction(200), reduction(500)]);
+    let mut battle = battle(
+        catalog(program, false, false, false, false),
+        false,
+        false,
+        false,
+    );
+    let resolution = start_and_use(&mut battle).unwrap();
+
+    assert!(resolution.fault().is_none());
+    let target = battle.view().units_by_id().nth(1).unwrap();
+    assert_eq!(target.initial_maximum_hp().get(), 1_000);
+    assert_eq!(target.maximum_hp().get(), 400);
+    assert_eq!(target.current_hp().get(), 400);
+    assert_eq!(
+        resolution
+            .events()
+            .iter()
+            .filter_map(|event| match event.kind() {
+                BattleEventKind::Resource(starclock_combat::ResourceEventData::MaximumHp {
+                    before,
+                    after,
+                    ..
+                }) => Some((before.get(), after.get())),
+                _ => None,
+            })
+            .collect::<Vec<_>>(),
+        [(1_000, 800), (800, 400), (400, 400), (400, 400)]
     );
 }
 

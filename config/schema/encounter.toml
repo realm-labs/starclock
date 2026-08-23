@@ -1,20 +1,21 @@
+
 [[enums]]
 name = "WaveTransitionPolicy"
-values = ["AfterAction", "AfterPhase", "AfterHit", "Explicit"]
+values = [{ id = 0, name = "AfterAction" }, { id = 1, name = "AfterPhase" }, { id = 2, name = "AfterHit" }, { id = 3, name = "Explicit" }]
 
 [[enums]]
 name = "EncounterVictoryPolicy"
-values = ["DefeatRequiredHostiles", "ExplicitProgram"]
+values = [{ id = 0, name = "DefeatRequiredHostiles" }, { id = 1, name = "ExplicitProgram" }]
 
 [[enums]]
 name = "EncounterLossPolicy"
-values = ["NoControllableAllies", "ExplicitProgram"]
+values = [{ id = 0, name = "NoControllableAllies" }, { id = 1, name = "ExplicitProgram" }]
 
 [[enums]]
 name = "WaveCarryPolicy"
-values = ["CarryExact", "Reset", "Clear", "ExplicitProgram"]
-
+values = [{ id = 0, name = "CarryExact" }, { id = 1, name = "Reset" }, { id = 2, name = "Clear" }, { id = 3, name = "ExplicitProgram" }]
 [[tables]]
+id = "encounter"
 name = "Encounter"
 mode = "map"
 key = "id"
@@ -65,6 +66,7 @@ name = "loss_policy"
 type = "enum<EncounterLossPolicy>"
 
 [[tables]]
+id = "encounter-rule-binding"
 name = "EncounterRuleBinding"
 mode = "list"
 
@@ -96,6 +98,7 @@ fields = ["encounter_id", "rule_id"]
 unique = true
 
 [[tables]]
+id = "encounter-wave"
 name = "EncounterWave"
 mode = "map"
 key = "id"
@@ -162,6 +165,7 @@ fields = ["encounter_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "wave-slot"
 name = "WaveSlot"
 mode = "list"
 

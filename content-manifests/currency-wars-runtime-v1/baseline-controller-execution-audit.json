@@ -1,0 +1,41 @@
+{
+  "schema_revision": "starclock.currency-wars-baseline-controller-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P7-B1",
+  "result": "Pass",
+  "assigned_source_rows": 0,
+  "controller": {
+    "owner": "starclock-ai",
+    "stable_id": "currency-wars-baseline-controller-v1",
+    "identity_sha256": "34cbc5c79756c63ac3766961bda3943da14dbdbb9725a9170eff62f0e6f54d5b",
+    "activity_step_budget": 1024,
+    "battle_command_budget": 10000,
+    "deterministic_concede_command_limit": 64
+  },
+  "command_contract": {
+    "activity_selection": "only the currently offered Encounter, Shop or Route decision",
+    "battle_selection": "only DecisionPoint.legal_commands or the offered advance command",
+    "player_policy": "deterministic zero-score BaselineController tie-breaking",
+    "enemy_policy": "exact catalog AI graph through EnemyController",
+    "direct_authoritative_mutation": false
+  },
+  "complete_run_evidence": {
+    "route": "currency-wars.area.route.801",
+    "battle_nodes_per_run": 7,
+    "standard_terminal": "Completed",
+    "overclock_terminal": "Completed",
+    "same_seed_report_equality": true,
+    "real_nested_battles": true,
+    "exact_command_event_state_trace": true
+  },
+  "shared_runtime_regressions_closed": [
+    "typed keyed Toughness-layer creation and removal with canonical state/event encoding",
+    "transitive nested-program selector resolution including condition references"
+  ],
+  "behavioral_evidence": [
+    "currency_wars_baseline::production_baseline_controller_completes_a_real_standard_run_deterministically",
+    "currency_wars_baseline::production_baseline_controller_completes_a_real_overclock_run",
+    "combat_ability_program_execution::toughness_layers::keyed_toughness_layer_create_and_remove_are_typed_idempotent_mutations"
+  ],
+  "deferred_boundaries": []
+}

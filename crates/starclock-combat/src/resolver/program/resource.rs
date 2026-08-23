@@ -2,9 +2,10 @@
 
 use super::*;
 use crate::{
-    Energy, EventId, Scalar, UnitId, catalog::CombatCatalog,
+    Energy, EventId, Scalar, TeamSide, UnitId, catalog::CombatCatalog,
     resolver::operation_formula::FormulaInputs,
 };
+use std::collections::BTreeSet;
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn modify_resource(
@@ -147,6 +148,56 @@ pub(super) fn modify_resource(
                 );
             }
         }
+    }
+    Ok(parent)
+}
+
+pub(super) fn modify_skill_point_maximum(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    targets: Box<[UnitId]>,
+    update: ResourceMaximumUpdateKind,
+    amount: RuleValue,
+) -> Result<EventId, BattleFault> {
+    let amount = non_negative_scalar(amount)?
+        .rounded_integer(Rounding::Floor)
+        .map_err(|_| program_fault(32, 0))?;
+    let mut sides = BTreeSet::<TeamSide>::new();
+    for target in targets {
+        let side = txn
+            .state
+            .units
+            .get(target)
+            .map(|unit| unit.side)
+            .ok_or_else(|| program_fault(32, 1))?;
+        sides.insert(side);
+    }
+    for side in sides {
+        let state = txn.state.teams.get(side);
+        let before = state.maximum_skill_points;
+        let current_before = state.skill_points;
+        let after = match update {
+            ResourceMaximumUpdateKind::Add => i64::from(before).checked_add(amount),
+            ResourceMaximumUpdateKind::Subtract => i64::from(before)
+                .checked_sub(amount)
+                .filter(|value| *value >= 0),
+            ResourceMaximumUpdateKind::Set => Some(amount),
+        }
+        .and_then(|value| u16::try_from(value).ok())
+        .ok_or_else(|| program_fault(32, amount))?;
+        let current_after = current_before.min(after);
+        txn.set_skill_point_maximum(side, after, current_after);
+        parent = txn.emit(
+            cause.with_parent(parent),
+            BattleEventKind::Resource(ResourceEventData::SkillPointMaximum {
+                side,
+                before,
+                after,
+                current_before,
+                current_after,
+            }),
+        );
     }
     Ok(parent)
 }

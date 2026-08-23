@@ -1,3 +1,4 @@
+//! Line-limit exception: exhaustive battle-event encoding remains one canonical codec owner.
 //! Payload-direct canonical encoding for authoritative battle events.
 //!
 //! Verification compares these bytes directly. Decoding them back into combat
@@ -761,11 +762,42 @@ fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData) {
             encoder.u64(target.get());
             encoder.i64(effective_reduction.get());
         }
+        ToughnessEventData::LayerCreated {
+            operation,
+            target,
+            layer_key,
+            maximum,
+        } => {
+            encoder.u8(10);
+            encoder.u64(operation.get());
+            encoder.u64(target.get());
+            encoder.u32(layer_key);
+            encoder.i64(maximum.get());
+        }
+        ToughnessEventData::LayerRemoved {
+            operation,
+            target,
+            layer_key,
+            current,
+            maximum,
+        } => {
+            encoder.u8(11);
+            encoder.u64(operation.get());
+            encoder.u64(target.get());
+            encoder.u32(layer_key);
+            encoder.i64(current.get());
+            encoder.i64(maximum.get());
+        }
     }
 }
 
 fn encode_unit(encoder: &mut Encoder<Vec<u8>>, value: UnitEventData) {
     match value {
+        UnitEventData::LethalRescued { unit, hp } => {
+            encoder.u8(11);
+            encoder.u64(unit.get());
+            encoder.i64(hp.get());
+        }
         UnitEventData::Downed { unit } => {
             encoder.u8(0);
             encoder.u64(unit.get());
@@ -981,6 +1013,36 @@ fn encode_resource(
             encoder.u16(*before);
             encoder.u16(*after);
             encoder.u16(*overflow);
+        }
+        ResourceEventData::SkillPointMaximum {
+            side,
+            before,
+            after,
+            current_before,
+            current_after,
+        } => {
+            encoder.u8(4);
+            team_side(encoder, *side);
+            encoder.u16(*before);
+            encoder.u16(*after);
+            encoder.u16(*current_before);
+            encoder.u16(*current_after);
+        }
+        ResourceEventData::MaximumHp {
+            unit,
+            initial,
+            before,
+            after,
+            current_before,
+            current_after,
+        } => {
+            encoder.u8(5);
+            encoder.u64(unit.get());
+            encoder.i64(initial.get());
+            encoder.i64(before.get());
+            encoder.i64(after.get());
+            encoder.i64(current_before.get());
+            encoder.i64(current_after.get());
         }
     }
     Ok(())

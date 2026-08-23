@@ -2,7 +2,7 @@
 
 This isolated non-production probe binds Firefly's normal Skill and Ultimate to
 the frozen Version 4.4 structured records. Production templates materialize its
-reviewed rows as `.xlsx`, pinned Sora 0.3.0 exports them, and the production
+reviewed rows as `.xlsx`, pinned Sora 0.6.1 exports them, and the production
 generated reader lowers the result to typed Rule IR.
 
 The normal Skill program preserves checked 40% Max HP consumption with a one-HP

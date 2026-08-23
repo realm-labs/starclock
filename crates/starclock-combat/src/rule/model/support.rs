@@ -172,7 +172,8 @@ impl RuleEventPoint {
             | Self::UnitSummoned
             | Self::UnitRevived
             | Self::UnitTransformed
-            | Self::PresenceChanged => RuleEventKind::Unit,
+            | Self::PresenceChanged
+            | Self::LethalRescued => RuleEventKind::Unit,
             Self::DecisionRequested => RuleEventKind::Decision,
             Self::FaultRaised => RuleEventKind::Fault,
         }

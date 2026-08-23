@@ -31,7 +31,7 @@ use starclock_replay::{
     digest::{ComponentDigest, EntrySpecDigest},
     entry::ReplayEntry,
     format::{ReplayEnvironment, ReplayHeader, decode_replay},
-    record::RecordKind,
+    record::{RecordKind, RecordRef},
 };
 
 const BATTLE_REPLAY_CORRUPTION_SEED: u64 = 0x6261_7474_6c65_2d31;
@@ -228,6 +228,13 @@ fn unique_offset(bytes: &[u8], needle: &[u8]) -> usize {
     offsets[0]
 }
 
+fn record_payload_offset(bytes: &[u8], record: &RecordRef<'_>) -> usize {
+    let offset = record.payload().as_ptr() as usize - bytes.as_ptr() as usize;
+    assert!(offset <= bytes.len());
+    assert!(record.payload().len() <= bytes.len() - offset);
+    offset
+}
+
 proptest! {
     #![proptest_config(property_config())]
 
@@ -257,20 +264,19 @@ proptest! {
                 let parity = usize::from(corruption - 3);
                 let records = decoded.records().iter().skip(parity).step_by(2).collect::<Vec<_>>();
                 let record = records[selector % records.len()];
-                let offset = unique_offset(&corrupted, record.payload());
+                let offset = record_payload_offset(&original, record);
                 corrupted[offset + selector % record.payload().len()] ^= mask;
             }
             5 => {
                 let record = decoded.records().iter().find(|record| {
                     record.kind() == RecordKind::AcceptedBattleCommand
                 }).unwrap();
-                let payload = record.payload();
-                let offset = unique_offset(&corrupted, payload);
+                let offset = record_payload_offset(&original, record);
                 corrupted[offset..offset + 2].copy_from_slice(&u16::MAX.to_le_bytes());
             }
             6 | 7 => {
                 let record = &decoded.records()[selector % decoded.records().len()];
-                let payload_offset = unique_offset(&corrupted, record.payload());
+                let payload_offset = record_payload_offset(&original, record);
                 let record_offset = payload_offset - 13;
                 if corruption == 6 {
                     corrupted[record_offset] = 0xff;

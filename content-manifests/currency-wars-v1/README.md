@@ -70,10 +70,10 @@ node tools/currency-wars-reference/contracts.mjs --check
 node tools/currency-wars-reference/verify-contracts.mjs
 ```
 
-`normalized-schema.json` freezes 96 normalized file families and their
+`normalized-schema.json` freezes 102 normalized file families and their
 manifest mappings. `authoring-contract.json` assigns every family exactly once
-to `CurrencyWars.xlsx` (54), `CurrencyWarsBindings.xlsx` (32) or
-`CurrencyWarsReview.xlsx` (10), with independent Sora 0.3.0 project, reader
+to `CurrencyWars.xlsx` (60), `CurrencyWarsBindings.xlsx` (32) or
+`CurrencyWarsReview.xlsx` (10), with independent Sora 0.6.1 project, reader
 and generated-output paths. `fixture-contract.json` binds all 28
 non-shrinking semantic fixture families. All three files bind the exact
 content-manifest SHA-256 and must regenerate byte-identically.

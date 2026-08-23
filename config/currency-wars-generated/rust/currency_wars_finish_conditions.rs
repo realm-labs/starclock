@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsFinishConditions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            condition_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            terminal_disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            condition_kind: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            parameters: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            terminal_disposition: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

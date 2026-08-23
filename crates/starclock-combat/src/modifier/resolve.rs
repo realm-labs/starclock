@@ -456,6 +456,28 @@ impl StatQueryReader for StatResolver<'_> {
             .copied()
             .ok_or_else(|| stat_query_error(0x205))
     }
+
+    fn query_formula_stage(
+        &self,
+        _origin: StatQuerySubject,
+        subject: UnitId,
+        stage: FormulaStage,
+        purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        let context = self.context.borrow().clone();
+        self.query_formula(
+            FormulaModifierQuery {
+                subject,
+                stage,
+                purpose,
+            },
+            &context,
+        )
+        .map_err(|error| {
+            *self.deferred_error.borrow_mut() = Some(error);
+            stat_query_error(0x206)
+        })
+    }
 }
 
 struct SnapshotReader<'a, 'b> {
@@ -517,6 +539,17 @@ impl StatQueryReader for SnapshotReader<'_, '_> {
         stat: StatKind,
     ) -> Result<Scalar, RuleEvaluationError> {
         self.resolver.query_base_stat(origin, subject, stat)
+    }
+
+    fn query_formula_stage(
+        &self,
+        origin: StatQuerySubject,
+        subject: UnitId,
+        stage: FormulaStage,
+        purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        self.resolver
+            .query_formula_stage(origin, subject, stage, purpose)
     }
 }
 
@@ -619,6 +652,8 @@ fn product(mut values: impl Iterator<Item = Scalar>) -> Result<Scalar, ModifierQ
 fn combine_stage(stage: FormulaStage, values: &[Scalar]) -> Result<Scalar, ModifierQueryError> {
     if stage == FormulaStage::FinalMultiply {
         product(values.iter().copied())
+    } else if stage == FormulaStage::DamageOverride {
+        Ok(values.iter().copied().max().unwrap_or(Scalar::ZERO))
     } else {
         sum(values.iter().copied())
     }

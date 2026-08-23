@@ -64,7 +64,7 @@ fn advance_action_value(
         }),
     );
     if after == 0 {
-        expire(txn, root, parent, expiry)?;
+        expire(txn, Cause::root(root), parent, expiry)?;
         Ok(ClockAdvance::Expired)
     } else {
         Ok(ClockAdvance::Continue(parent))
@@ -130,7 +130,7 @@ fn advance_cycles(
             }),
         );
         if remaining_cycles == 0 {
-            expire(txn, root, parent, expiry)?;
+            expire(txn, Cause::root(root), parent, expiry)?;
             return Ok(ClockAdvance::Expired);
         }
     }
@@ -165,9 +165,53 @@ pub(super) fn reset_wave_window(
     ))
 }
 
+pub(super) fn deduct_action_value(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    requested_scaled: i64,
+) -> Result<EventId, BattleFault> {
+    let Some(BattleClockState::ActionValue {
+        remaining_scaled, ..
+    }) = txn.state.clock
+    else {
+        return Ok(parent);
+    };
+    let charged = requested_scaled.min(remaining_scaled);
+    let after = remaining_scaled
+        .checked_sub(charged)
+        .ok_or_else(|| action_fault(112))?;
+    txn.add_timeline_elapsed(charged)?;
+    txn.set_action_value_clock(after)?;
+    Ok(txn.emit(
+        cause.with_parent(parent),
+        BattleEventKind::Clock(BattleClockEventData::Advanced {
+            delta_scaled: charged,
+            before_scaled: remaining_scaled,
+            after_scaled: after,
+        }),
+    ))
+}
+
+pub(super) fn expire_if_depleted(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+) -> Result<Option<EventId>, BattleFault> {
+    let Some(BattleClockState::ActionValue {
+        remaining_scaled: 0,
+        expiry,
+        ..
+    }) = txn.state.clock
+    else {
+        return Ok(None);
+    };
+    expire(txn, cause, parent, expiry).map(Some)
+}
+
 fn expire(
     txn: &mut Transaction<'_>,
-    root: CommandId,
+    cause: Cause,
     parent: EventId,
     expiry: BattleClockExpiry,
 ) -> Result<EventId, BattleFault> {
@@ -178,7 +222,6 @@ fn expire(
     txn.set_active_turn(None);
     txn.clear_extra_turns();
     txn.clear_reactions();
-    let cause = Cause::root(root);
     let parent = txn.emit(
         cause.with_parent(parent),
         BattleEventKind::Clock(BattleClockEventData::Expired { expiry }),

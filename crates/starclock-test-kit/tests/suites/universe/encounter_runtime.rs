@@ -235,8 +235,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         overlay.digest().bytes(),
         [
-            40, 124, 104, 202, 44, 79, 242, 219, 31, 3, 107, 124, 121, 242, 157, 174, 86, 220, 195,
-            230, 61, 62, 116, 231, 80, 161, 174, 234, 170, 243, 113, 114,
+            221, 1, 97, 190, 129, 13, 41, 83, 67, 199, 229, 219, 48, 27, 118, 1, 103, 79, 240, 241,
+            166, 130, 191, 136, 13, 71, 28, 62, 169, 191, 166, 48,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -249,7 +249,7 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     let mut activity = compiled
         .start_standard(
             ActivityInstanceId::new(88).unwrap(),
-            ActivityMasterSeed::from_u64(9),
+            ActivityMasterSeed::from_u64(10),
         )
         .unwrap()
         .into_activity();
@@ -387,8 +387,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            40, 53, 67, 126, 236, 122, 255, 51, 154, 84, 184, 45, 48, 37, 37, 66, 92, 184, 0, 64,
-            87, 8, 145, 219, 192, 248, 147, 205, 251, 71, 97, 204,
+            16, 161, 230, 190, 137, 112, 106, 202, 98, 241, 157, 68, 230, 164, 185, 42, 246, 30,
+            214, 103, 224, 144, 88, 198, 165, 34, 223, 165, 124, 141, 226, 22,
         ]
     );
     let reward = activity.view();
@@ -462,8 +462,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            93, 15, 55, 234, 160, 165, 243, 60, 183, 186, 75, 158, 23, 209, 21, 79, 174, 182, 191,
-            27, 31, 65, 181, 228, 96, 61, 113, 19, 66, 101, 177, 111,
+            79, 57, 149, 177, 69, 177, 179, 157, 139, 3, 150, 108, 211, 44, 155, 10, 42, 141, 112,
+            15, 104, 102, 244, 117, 2, 241, 247, 222, 148, 85, 1, 90,
         ]
     );
     let formation = activity.view();
@@ -637,7 +637,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     let mut activity = compiled
         .start_standard(
             ActivityInstanceId::new(88).unwrap(),
-            ActivityMasterSeed::from_u64(9),
+            ActivityMasterSeed::from_u64(10),
         )
         .unwrap()
         .into_activity();
@@ -655,12 +655,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 65);
+    assert_eq!(report.steps().len(), 69);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            78, 130, 84, 134, 11, 199, 158, 36, 240, 213, 16, 28, 27, 236, 73, 147, 242, 25, 197,
-            198, 107, 95, 175, 29, 162, 39, 148, 66, 18, 66, 43, 152,
+            4, 130, 93, 0, 79, 237, 232, 88, 107, 111, 240, 254, 236, 193, 165, 149, 145, 104, 208,
+            243, 147, 32, 213, 63, 95, 145, 59, 62, 253, 173, 36, 223,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -682,7 +682,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        6
+        7
     );
 }
 

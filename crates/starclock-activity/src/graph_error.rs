@@ -80,5 +80,6 @@ pub enum GraphActivityEncounterError {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum GraphActivityBattleError {
     Settlement(ActivityBattleSettlementError),
+    GeneratedBoundary(GraphActivityCommandError),
     Runtime(GraphActivityRuntimeError),
 }

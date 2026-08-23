@@ -244,7 +244,11 @@ fn yanqing_complete_materializes_exact_world_eight_stats_and_sword_formation() {
         starclock_combat::EffectTickPhase::TurnStart
     );
     let freeze_runtime = freeze
-        .resolve(Some(1), starclock_combat::Scalar::from_scaled(1_200_000))
+        .resolve(
+            Some(1),
+            starclock_combat::Scalar::from_scaled(1_200_000),
+            None,
+        )
         .expect("damaging control resolves");
     assert_eq!(
         freeze_runtime

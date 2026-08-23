@@ -2,7 +2,7 @@
 
 use crate::{
     DamageAmount, DamageKind, DotDetonationSelection, EffectApplicationGuard, EffectDamageGuard,
-    EffectDefinitionId, EffectInstanceId, OperationId, Rounding, RuleSignalEventData,
+    EffectDefinitionId, EffectInstanceId, OperationId, Rounding, RuleSignalEventData, Scalar,
     TEAM_DEFEAT_GUARDED_SIGNAL, UnitId,
     battle::fault::BattleFault,
     catalog::{CombatCatalog, action::OrdinaryDamageDefinition, definition::RuleDefinition},
@@ -30,7 +30,7 @@ pub(super) fn apply_damage_guard(
     mut parent: EventId,
     operation: OperationId,
     target: UnitId,
-    calculated: DamageAmount,
+    mut calculated: DamageAmount,
 ) -> Result<(EventId, DamageAmount), BattleFault> {
     let shield = txn
         .state
@@ -64,12 +64,23 @@ pub(super) fn apply_damage_guard(
             DamageAmount::new(shield.get()).map_err(|_| numeric_fault(55, shield.get()))?;
         return Ok((parent, guarded));
     }
-    let (hp, side) = txn
+    let (hp, maximum_hp, side) = txn
         .state
         .units
         .get(target)
-        .map(|unit| (unit.current_hp, unit.side))
+        .map(|unit| (unit.current_hp, unit.maximum_hp, unit.side))
         .ok_or_else(|| invariant_fault(61))?;
+    let floor = persistent_hp_floor(catalog, txn, target, maximum_hp.get())?;
+    if floor > 0 {
+        let maximum_damage = shield
+            .get()
+            .checked_add(hp.get().saturating_sub(floor))
+            .ok_or_else(|| numeric_fault(63, hp.get()))?;
+        if calculated.get() > maximum_damage {
+            calculated =
+                DamageAmount::new(maximum_damage).map_err(|_| numeric_fault(63, maximum_damage))?;
+        }
+    }
     if calculated.get().saturating_sub(shield.get()) < hp.get() {
         return Ok((parent, calculated));
     }
@@ -141,6 +152,33 @@ pub(super) fn apply_damage_guard(
         .ok_or_else(|| numeric_fault(56, calculated.get()))?;
     let guarded = DamageAmount::new(guarded_raw).map_err(|_| numeric_fault(56, guarded_raw))?;
     Ok((parent, guarded))
+}
+
+fn persistent_hp_floor(
+    catalog: &CombatCatalog,
+    txn: &Transaction<'_>,
+    target: UnitId,
+    maximum_hp: i64,
+) -> Result<i64, BattleFault> {
+    let maximum_hp =
+        Scalar::checked_from_integer(maximum_hp).map_err(|_| numeric_fault(64, maximum_hp))?;
+    txn.state
+        .effects
+        .iter_by_id()
+        .filter(|effect| effect.target == target)
+        .filter_map(|effect| {
+            catalog
+                .effect(effect.definition)
+                .and_then(|definition| definition.runtime())
+                .and_then(|runtime| runtime.hp_floor())
+        })
+        .map(|floor| {
+            floor
+                .checked_apply(maximum_hp, Rounding::Ceil)
+                .and_then(|value| value.rounded_integer(Rounding::Ceil))
+                .map_err(|_| numeric_fault(64, floor.scaled()))
+        })
+        .try_fold(0, |current, floor| floor.map(|floor| current.max(floor)))
 }
 
 fn find_damage_guard(

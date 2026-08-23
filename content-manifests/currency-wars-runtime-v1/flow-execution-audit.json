@@ -1,0 +1,53 @@
+{
+  "schema_revision": "starclock.currency-wars-flow-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P3-B1",
+  "result": "Pass",
+  "production_denominators": {
+    "routes": 26,
+    "nodes": 493,
+    "planes": 75,
+    "plane_transitions": 49,
+    "difficulties": 97,
+    "settlement_conditions": 6
+  },
+  "entry": {
+    "gambits": [
+      "Standard",
+      "Overclock"
+    ],
+    "player_level_unlock": 21,
+    "overclock_requires_standard_completion": true,
+    "difficulty_bound_uses_highest_standard_rank": true
+  },
+  "source_obligations": {
+    "owned_terminal": 50,
+    "accuracy": {
+      "ExactEvidence": 21,
+      "ExactExecutable": 29
+    }
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.cross-battle-state-and-reset",
+    "currency-wars.fixture-family.profile-gambit-entry-and-terminal",
+    "currency-wars.fixture-family.three-plane-node-room-flow"
+  ],
+  "policies": [
+    {
+      "field": "flow.carry_reset",
+      "selected_behavior": "Carry authoritative run slots and participant battle state exactly across nodes and Plane boundaries; reset node-scoped offers on NodeStart; create a fresh initial snapshot for every new run.",
+      "replacement_condition": "Replace when released structured data or a reproducible Version 4.4 observation publishes a different per-slot node or Plane carry/reset boundary."
+    },
+    {
+      "field": "route.gambit_membership",
+      "selected_behavior": "Standard and Overclock use the complete released GridFightStageRoute closure; entry unlock and rank caps remain Gambit-specific.",
+      "replacement_condition": "Replace when released structured data directly binds a GridFightStageRoute ID to Standard or Overclock."
+    }
+  ],
+  "behavioral_evidence": [
+    "entry::tests::standard_and_overclock_entry_apply_authored_unlocks_and_rank_caps",
+    "runtime_tests::three_plane_flow_carries_run_state_and_resets_node_offers",
+    "settlement::tests::settlement_intervals_are_inclusive_and_fall_back_to_unranked",
+    "currency_wars::tests::production_bundle_lowers_to_complete_runtime_denominators"
+  ]
+}

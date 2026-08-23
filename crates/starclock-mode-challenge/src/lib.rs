@@ -28,9 +28,9 @@ mod pure_fiction_runtime;
 #[cfg(test)]
 mod pure_fiction_runtime_tests;
 
-pub mod apocalyptic_shadow;
-pub mod memory_of_chaos;
-pub mod pure_fiction;
+mod apocalyptic_shadow;
+mod memory_of_chaos;
+mod pure_fiction;
 
 pub use anomaly_arbitration::{
     AnomalyProfile, AnomalyQuadrant, AnomalyStage, AnomalyStageKind, AnomalyTarget,
@@ -68,6 +68,7 @@ pub use memory_catalog::{
     MemoryCombatDefinitions, MemoryEncounter, MemoryEnemyBinding, MemoryEnemySlot,
     MemoryEnemyStats, MemoryEnemyStatsInput, MemoryWave,
 };
+pub use memory_of_chaos::{MemoryNode, MemoryProfile, MemoryStage};
 pub use memory_projection::{MemoryProjectionError, project_memory_battle_result};
 pub use memory_runtime::{MemoryAttempt, MemoryAttemptDefinition, MemoryAttemptError};
 pub use memory_turbulence::{

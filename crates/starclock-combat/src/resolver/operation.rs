@@ -1,3 +1,4 @@
+//! Line-limit exception: typed operation dispatch remains the single authoritative mutation entry point.
 pub(super) mod fault;
 mod sustain;
 mod weakness;
@@ -5,7 +6,7 @@ mod weakness;
 use super::{operation_formula::FormulaInputs, transaction::Transaction};
 
 use super::{
-    effect_boundary, effect_duration, effect_operation, lifecycle, modifier_snapshot,
+    clock, effect_boundary, effect_duration, effect_operation, lifecycle, modifier_snapshot,
     operation_break, operation_resource, schedule, settle,
 };
 use crate::{
@@ -33,8 +34,8 @@ use crate::{
     id::EventId,
     modifier::model::FormulaStage,
     operation::{
-        ApplyEffectOp, DamageOp, HitOperationScratch, Operation, ReduceToughnessOp,
-        RemoveEffectsOp, SuperBreakOp,
+        ApplyEffectOp, CreateToughnessLayerOp, DamageOp, HitOperationScratch, Operation,
+        ReduceToughnessOp, RemoveEffectsOp, RemoveToughnessLayerOp, SuperBreakOp,
     },
     rng::types::DrawPurpose,
     rule::model::{RuleValue, SlotResetPoint},
@@ -65,11 +66,20 @@ pub(super) fn execute_operation(
         Operation::ConsumeHp(operation) => {
             sustain::execute_hp_consumption(txn, cause, parent, operation)
         }
+        Operation::ReduceMaximumHp(operation) => {
+            sustain::execute_maximum_hp_reduction(txn, cause, parent, operation)
+        }
         Operation::AddWeakness(operation) => {
             weakness::execute_add_weakness(txn, cause, parent, operation)
         }
         Operation::AddWeaknessFromAlliedElements(operation) => {
             weakness::execute_allied_element_weakness(catalog, txn, cause, parent, operation)
+        }
+        Operation::CreateToughnessLayer(operation) => {
+            execute_create_toughness_layer(txn, cause, parent, operation)
+        }
+        Operation::RemoveToughnessLayer(operation) => {
+            execute_remove_toughness_layer(txn, cause, parent, operation)
         }
         Operation::ReduceToughness(operation) => {
             execute_toughness_reduction(catalog, txn, cause, parent, operation, scratch)
@@ -95,6 +105,9 @@ pub(super) fn execute_operation(
         Operation::ModifyTeamResource(operation) => {
             operation_resource::execute_modify_team_resource(txn, cause, parent, operation)
         }
+        Operation::DeductActionValue(operation) => {
+            clock::deduct_action_value(txn, cause, parent, operation.amount_scaled)
+        }
         Operation::QueueAction(operation) => {
             schedule::execute_queue_action(catalog, txn, cause, parent, operation)
         }
@@ -102,7 +115,7 @@ pub(super) fn execute_operation(
             schedule::execute_queue_rule_action(catalog, txn, cause, parent, operation)
         }
         Operation::SummonLinked(operation) => {
-            lifecycle::execute_summon(catalog, txn, cause, parent, operation)
+            lifecycle::execute_summon(catalog, txn, cause, parent, *operation)
         }
         Operation::CreateCountdown(operation) => {
             lifecycle::execute_countdown(catalog, txn, cause, parent, operation)
@@ -127,6 +140,57 @@ pub(super) fn execute_operation(
             lifecycle::execute_enemy_phase(catalog, txn, cause, parent, operation)
         }
     }
+}
+
+fn execute_create_toughness_layer(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: CreateToughnessLayerOp,
+) -> Result<EventId, BattleFault> {
+    for target in operation.targets {
+        let Some(layer_key) =
+            txn.create_toughness_layer(target, &operation.stable_key, operation.maximum)?
+        else {
+            continue;
+        };
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Toughness(ToughnessEventData::LayerCreated {
+                operation: operation.id,
+                target,
+                layer_key,
+                maximum: operation.maximum,
+            }),
+        );
+    }
+    Ok(parent)
+}
+
+fn execute_remove_toughness_layer(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: RemoveToughnessLayerOp,
+) -> Result<EventId, BattleFault> {
+    for target in operation.targets {
+        let Some((layer_key, current, maximum)) =
+            txn.remove_toughness_layer(target, &operation.stable_key)?
+        else {
+            continue;
+        };
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Toughness(ToughnessEventData::LayerRemoved {
+                operation: operation.id,
+                target,
+                layer_key,
+                current,
+                maximum,
+            }),
+        );
+    }
+    Ok(parent)
 }
 
 pub(super) fn execute_toughness_reduction(
@@ -475,6 +539,13 @@ fn apply_break_damage(
     let hp_after =
         Hp::new(hp_before.get() - applied_raw).map_err(|_| numeric_fault(18, hp_before.get()))?;
     txn.set_hp(target, hp_after)?;
+    credit_damage(
+        txn,
+        cause,
+        target,
+        applied.get(),
+        kind == BreakDamageKind::Effect,
+    )?;
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(target)),
         BattleEventKind::BreakDamage(BreakDamageEventData {
@@ -873,6 +944,13 @@ fn apply_ordinary_damage_with_floor(
     let hp_after =
         Hp::new(hp_before.get() - applied_raw).map_err(|_| numeric_fault(3, hp_before.get()))?;
     txn.set_hp(target, hp_after)?;
+    credit_damage(
+        txn,
+        cause,
+        target,
+        applied.get(),
+        kind != DamageKind::Direct,
+    )?;
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(target)),
         BattleEventKind::Damage(DamageEventData {
@@ -896,6 +974,43 @@ fn apply_ordinary_damage_with_floor(
         )?;
     }
     Ok(parent)
+}
+
+fn credit_damage(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    target: UnitId,
+    amount: i64,
+    prefer_applier: bool,
+) -> Result<(), BattleFault> {
+    if amount == 0 {
+        return Ok(());
+    }
+    let actor = match cause.actor() {
+        Some(CauseActor::Unit(unit)) => Some(unit),
+        Some(CauseActor::TimelineActor(actor)) => {
+            txn.state.actors.get(actor).map(|state| state.owner)
+        }
+        None => None,
+    };
+    let source = if prefer_applier {
+        cause.applier().or(cause.owner()).or(actor)
+    } else {
+        cause.owner().or(actor).or(cause.applier())
+    };
+    let Some(source) = source else {
+        return Ok(());
+    };
+    let opposing = txn
+        .state
+        .units
+        .get(source)
+        .zip(txn.state.units.get(target))
+        .is_some_and(|(source, target)| source.side != target.side);
+    if opposing {
+        txn.add_damage_dealt(source, amount)?;
+    }
+    Ok(())
 }
 
 fn execute_apply_effect(

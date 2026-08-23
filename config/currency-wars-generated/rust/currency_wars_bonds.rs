@@ -29,6 +29,8 @@ pub struct CurrencyWarsBonds {
     pub source_refs_json: String,
     #[serde(rename = "tags_json")]
     pub tags_json: String,
+    #[serde(rename = "source_id")]
+    pub source_id: Option<String>,
     #[serde(rename = "member_ids")]
     pub member_ids: Option<String>,
     #[serde(rename = "level_ids")]
@@ -37,6 +39,16 @@ pub struct CurrencyWarsBonds {
     pub recompute_timing: Option<String>,
     #[serde(rename = "contribution_ids")]
     pub contribution_ids: Option<String>,
+    #[serde(rename = "activation_type")]
+    pub activation_type: Option<String>,
+    #[serde(rename = "battle_event_ids")]
+    pub battle_event_ids: Option<String>,
+    #[serde(rename = "trait_effect_ids")]
+    pub trait_effect_ids: Option<String>,
+    #[serde(rename = "parent_bond_id")]
+    pub parent_bond_id: Option<String>,
+    #[serde(rename = "selection_rules")]
+    pub selection_rules: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBonds {
@@ -55,10 +67,16 @@ impl super::runtime::SoraDecode for CurrencyWarsBonds {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            member_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            level_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            recompute_timing: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            contribution_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            member_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            level_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            recompute_timing: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            contribution_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            activation_type: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            battle_event_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            trait_effect_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            parent_bond_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            selection_rules: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

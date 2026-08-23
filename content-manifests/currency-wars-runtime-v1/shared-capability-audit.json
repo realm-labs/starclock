@@ -1,0 +1,884 @@
+{
+  "schema_revision": "starclock.currency-wars-shared-capability-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P2-B5",
+  "status": "Complete",
+  "source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "source_access_date": "2026-08-13",
+  "input_digests": {
+    "capability_inventory": {
+      "path": "content-manifests/currency-wars-runtime-v1/capability-inventory.json",
+      "sha256": "32e5a13027114eab497756588d850711fad2f7debffcb340d0be489e7b8ce648"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/currency-wars-runtime-v1/mechanic-dispositions.json",
+      "sha256": "025c3f3c26cd03fd1d55c4e0894d7818e9b00016ce12088a95f5de70e2a9bcad"
+    },
+    "mechanic_partitions": {
+      "path": "content-manifests/currency-wars-runtime-v1/mechanic-partitions.json",
+      "sha256": "36f2abdea0e99523fb704640b3aef1762c711291f1a6f115bfa5776645dd9b56"
+    },
+    "source_dispositions": {
+      "path": "content-manifests/currency-wars-runtime-v1/source-dispositions.json",
+      "sha256": "94046db687e254877407ab3f3f7b296c2e7e44210f6a50ceff7acfefe31c232f"
+    },
+    "runtime_contract": {
+      "path": "content-manifests/currency-wars-runtime-v1/runtime-contract.json",
+      "sha256": "18cf457ca6bfaa9b4e9544f8753a7f394213e0ef27f0f497a669ac5a70a27012"
+    },
+    "native_handler_audit": {
+      "path": "policy/native-handler-audit.json",
+      "sha256": "a8e5834da70b336cc5929fa5fc847a2e161cd4f974cbc5ae3d1348cb4d239172"
+    }
+  },
+  "capability_probes": [
+    {
+      "id": "activity-collection-and-replacement",
+      "file": "crates/starclock-test-kit/tests/suites/activity/activity/activity_transaction.rs",
+      "required_fragments": [
+        "replacement_operations_and_collection_reads_are_atomic_and_typed",
+        "invalid_replacement_rolls_back_earlier_collection_mutation"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "combat-selector-resource-and-hp-floor",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/rule_selector_runtime.rs",
+      "required_fragments": [
+        "with_candidate_union",
+        "SkillPointMaximum"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "combat-persistent-hp-floor",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/effect_guards.rs",
+      "required_fragments": [
+        "persistent_effect_hp_floor_caps_damage_without_consuming_the_effect"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "build-contribution-selection",
+      "file": "crates/starclock-test-kit/tests/suites/core/build/build_identity.rs",
+      "required_fragments": [
+        "selected_contributions_are_canonical_attributed_and_applicability_checked"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "currency-wars-battle-behavior-policy",
+      "file": "crates/starclock-data/src/currency_wars_combat_policy_tests.rs",
+      "required_fragments": [
+        "every_m01_policy_binding_executes_a_real_enemy_ai_action",
+        "every_m10_enemy_character_configuration_reaches_battle_assembly"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "currency-wars-avatar-battle-behavior-policy",
+      "file": "crates/starclock-data/src/currency_wars_combat_policy_tests.rs",
+      "required_fragments": [
+        "every_avatar_policy_binding_reaches_a_real_battle_owned_execution_path"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "currency-wars-battle-configuration-policy",
+      "file": "crates/starclock-data/src/currency_wars_combat_policy_tests.rs",
+      "required_fragments": [
+        "every_m04_configuration_policy_binds_a_real_materialization_controller"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "currency-wars-bond-battle-behavior-policy",
+      "file": "crates/starclock-data/src/currency_wars_combat_policy_tests.rs",
+      "required_fragments": [
+        "every_m05_bond_policy_binds_a_released_bond_materialization_controller"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "currency-wars-battle-program-binding-policy",
+      "file": "crates/starclock-data/src/currency_wars_combat_policy_tests.rs",
+      "required_fragments": [
+        "every_m06_program_policy_binds_a_released_runtime_controller",
+        "every_m07_avatar_program_policy_binds_a_released_runtime_controller",
+        "every_m08_avatar_and_battle_event_program_binds_a_released_runtime_controller",
+        "every_m09_battle_event_configuration_binds_a_released_runtime_controller"
+      ],
+      "result": "Passed"
+    }
+  ],
+  "configuration_program_policy": {
+    "field": "mechanic.configuration_program",
+    "accuracy": "VersionedProjectPolicy",
+    "state": "VersionedProjectPolicyExecutable",
+    "known_facts": [
+      "Version 4.4 uses postfix Base64 byte sequences with separate fixed-value and dynamic-hash operand pools.",
+      "Released source inventory contains ten distinct opcode bytes and 165 distinct postfix sequences.",
+      "Public independent evidence supports postfix ordering plus byte 0/1 operand references, but not the complete Version 4.4 operator table."
+    ],
+    "unresolved_field": "Complete semantics and numeric behavior of all ten Version 4.4 postfix opcode bytes.",
+    "selected_behavior": "Lower reviewed high-level configuration nodes and named dynamic-value definitions directly into typed Activity or Rule IR. Raw PostfixBase64 is never interpreted by production runtime. G21-P6-M01 binds nine reviewed enemy source shapes to released typed EnemyDefinition execution. G21-P6-M02 binds reviewed Role sources to exact typed BattleEvent linked actors and the Augment controller to the explicit one-percent all-damage-per-selection policy. G21-P6-M03 binds 28 additional Role sources to exact released BattleEvents and keeps four protagonist alternate-form bindings explicitly typed as same-family released-event fallbacks. G21-P6-M04 adds 21 exact Role BattleEvent bindings, eight typed reachable configuration-family controllers with active execution receipts, audits one unbound legacy equipment family as unreachable metadata, and audits two camera programs as presentation metadata. G21-P6-M05 binds 31 Origin programs to released Bond identities and immutable active-Bond materialization receipts while retaining one Origin camera program as presentation metadata. G21-P6-M06 binds 26 mixed released programs to typed character/servant, BattleEvent, Bond, Augment MazeBuff, enemy-Affix MazeBuff and Equipment controllers; it audits the empty Origin Common source plus 37 decoder layouts as metadata. G21-P6-M07 binds 29 additional Avatar programs to typed role/avatar, servant or BattleEvent controllers, binds Avatar Common to the shared battle kernel, and audits two camera programs plus 32 layouts as metadata. G21-P6-M08 binds 15 Avatar abilities and 20 BattleEvent character configurations to typed role/avatar, BattleEvent or Bond controllers, including summoned BattleEvent 11414 and Bond 3001's ability-empty partner envelope; 28 layouts remain metadata. G21-P6-M09 binds 42 additional BattleEvent character and Origin configurations to typed role/avatar or BattleEvent controllers, including The Herta's summoned controller and the shared 43-event no-action-delay controller; 22 layouts remain metadata. Other expressions without released-context proof and a production fixture remain Pending.",
+    "rejected_alternatives": [
+      "copy the source opcode API into a shared or mode-specific runtime interpreter",
+      "infer opcode meanings from frequency, byte position, or old-version examples",
+      "classify an unresolved executable expression as metadata or lower it to a no-op"
+    ],
+    "ordering": "Each generated partition retains source dependency order, then stable mechanic identity; typed lowering owns the final operation order.",
+    "rounding": "No rounding is inferred from opcode bytes; each typed formula boundary must declare project rounding explicitly.",
+    "candidate_set": "Only the expression shapes and mechanic IDs listed by this audit may use the policy guard.",
+    "rng_stream": "No RNG draw is authorized by an unresolved postfix expression.",
+    "confidence": "PolicyOnlyNotObservedParity",
+    "affected_expression_shape_ids": [
+      "currency-wars.capability-expression.0351882e357fc37ffb577630",
+      "currency-wars.capability-expression.052030dd8f6641f693bd731e",
+      "currency-wars.capability-expression.070753ac7c74030765438d2a",
+      "currency-wars.capability-expression.0948dddf09c2678e74736600",
+      "currency-wars.capability-expression.0a71cdd6272d52f88075bea4",
+      "currency-wars.capability-expression.0ba9ca2fc3656c5defa7e285",
+      "currency-wars.capability-expression.123b08b9023ca4a5cfe6a0f5",
+      "currency-wars.capability-expression.133ea1f43efb11224dea8923",
+      "currency-wars.capability-expression.13475e2032ee78edcf1ad459",
+      "currency-wars.capability-expression.13570f306c74be7bb77ba248",
+      "currency-wars.capability-expression.14e56d498af79803c0db5cdc",
+      "currency-wars.capability-expression.1b3fff3adecc869258b8a65a",
+      "currency-wars.capability-expression.1d5f55fabc172b476a2b72e0",
+      "currency-wars.capability-expression.1ddd9c081a9da90f072687ca",
+      "currency-wars.capability-expression.20058ff997fefe36b12702b8",
+      "currency-wars.capability-expression.2135b7ebbe2564fa921d82a4",
+      "currency-wars.capability-expression.21ad91974a30324ffa7b82d9",
+      "currency-wars.capability-expression.21b4888e246b8f2c35697e85",
+      "currency-wars.capability-expression.21eeb508c7dc1881bdf2b851",
+      "currency-wars.capability-expression.224a9e4109a579e243b307e6",
+      "currency-wars.capability-expression.241573f7ff12f60f6e370ad7",
+      "currency-wars.capability-expression.263e4b0cf327c71f8589eb44",
+      "currency-wars.capability-expression.283abf2ea45e1d31477f29c2",
+      "currency-wars.capability-expression.286477e57e274f2be87df81d",
+      "currency-wars.capability-expression.2a4f698851ed7dee48618405",
+      "currency-wars.capability-expression.2c1d3d19bd5b65d2f9e8ccd3",
+      "currency-wars.capability-expression.2ddc983307f17dbda8e3776b",
+      "currency-wars.capability-expression.2ef4ec1559ccd5a17edc42d5",
+      "currency-wars.capability-expression.3024c84df3b7740bba769ccf",
+      "currency-wars.capability-expression.30b7dc93cd2d759e4f38dc69",
+      "currency-wars.capability-expression.335f947758eb77f8854ec359",
+      "currency-wars.capability-expression.3364640704e633b02f1d97ee",
+      "currency-wars.capability-expression.33c07b3c198063210932eb4a",
+      "currency-wars.capability-expression.368240ee064d5b59c28c29d9",
+      "currency-wars.capability-expression.39824db0f10ef58d9e7ea412",
+      "currency-wars.capability-expression.3a1227753cc693e71fd3e049",
+      "currency-wars.capability-expression.3a8f8d1153e67f1f1b33ae74",
+      "currency-wars.capability-expression.3becf18d12d1778133743829",
+      "currency-wars.capability-expression.3ecd7f395622e5a2e4c11795",
+      "currency-wars.capability-expression.41f3490488b41265649824ac",
+      "currency-wars.capability-expression.441bb56bfd7974b9fa743f88",
+      "currency-wars.capability-expression.450260c2beb8881b5364172e",
+      "currency-wars.capability-expression.45a12ec9d562177ad3e9b736",
+      "currency-wars.capability-expression.45cdef1f34a3c2e1714c4299",
+      "currency-wars.capability-expression.4628cce7ab791abffa0e6bb6",
+      "currency-wars.capability-expression.497481af93d9b5c3a4ae6fd9",
+      "currency-wars.capability-expression.4c216563471f34ff4d3b345a",
+      "currency-wars.capability-expression.4c6eb4bdc636962bd4fd2fda",
+      "currency-wars.capability-expression.4cd0981e50782cc792bb92fa",
+      "currency-wars.capability-expression.521be96a42b7257f3af48462",
+      "currency-wars.capability-expression.54104556e4decaa50e71c381",
+      "currency-wars.capability-expression.579173f8bf15217fd0d12dcc",
+      "currency-wars.capability-expression.57acc84edd5a5ff1d83cc89d",
+      "currency-wars.capability-expression.5a98a24f1d90007b45130a1b",
+      "currency-wars.capability-expression.5b41194e134e7d9d2281e8c3",
+      "currency-wars.capability-expression.5bd1aebf1b2f1776d6afb274",
+      "currency-wars.capability-expression.5ded789096b78ee118e3181e",
+      "currency-wars.capability-expression.5ea4ba1328092fb624f1dea4",
+      "currency-wars.capability-expression.603567703fa78daf07fa62bf",
+      "currency-wars.capability-expression.60ee9082f9f9eabde9e85fac",
+      "currency-wars.capability-expression.611455f67ef016f39d30c029",
+      "currency-wars.capability-expression.634882565d38d1d7c5db962c",
+      "currency-wars.capability-expression.637badb16917db7f73f5a1ac",
+      "currency-wars.capability-expression.6441965adadf542a9bca363e",
+      "currency-wars.capability-expression.64f68098f35b0a7410c1d7e1",
+      "currency-wars.capability-expression.6caf53fb0a8898b933404e1a",
+      "currency-wars.capability-expression.6e77cf9e1d52a4fe2f9bb26f",
+      "currency-wars.capability-expression.72ffb3f3772dbfd5ce05cfc8",
+      "currency-wars.capability-expression.73757f051b1561323c9d8ffa",
+      "currency-wars.capability-expression.73e4025e43aca3a4c4fb05c9",
+      "currency-wars.capability-expression.7662ab16718862545517c6dc",
+      "currency-wars.capability-expression.785efb1c4a3b4b76a954337e",
+      "currency-wars.capability-expression.7913c84e7bfa79050a997307",
+      "currency-wars.capability-expression.7a59eff12a9efaab37e391f3",
+      "currency-wars.capability-expression.7ad9b5e6c242c85701a69193",
+      "currency-wars.capability-expression.828182b67b2a9f515724803e",
+      "currency-wars.capability-expression.854802e002f74bb72d20f9e6",
+      "currency-wars.capability-expression.862b359d2c190aad945151d2",
+      "currency-wars.capability-expression.8714bf314904cd66b7d925c7",
+      "currency-wars.capability-expression.87e53617df6e6b1135ae4078",
+      "currency-wars.capability-expression.885d6280593cd43bc0422fc7",
+      "currency-wars.capability-expression.88692aa7c1bdef74fd2fc4ba",
+      "currency-wars.capability-expression.8a5114765716fdb85fbcd817",
+      "currency-wars.capability-expression.8ca4350e8be54be6317a61cd",
+      "currency-wars.capability-expression.8d527617be13f412baa5e28b",
+      "currency-wars.capability-expression.8dd6b0e645e635c528a49ca0",
+      "currency-wars.capability-expression.8e58576f9c173fbf273165be",
+      "currency-wars.capability-expression.8e694f29996eeb0b26e12c78",
+      "currency-wars.capability-expression.90f7f116494f778893ebc107",
+      "currency-wars.capability-expression.913e110775b93f3398302b35",
+      "currency-wars.capability-expression.959c9465566c6eb7e0b4e2c6",
+      "currency-wars.capability-expression.965a057d9d7580b66bf6f4f3",
+      "currency-wars.capability-expression.98777e71c6a3a185bee59b4b",
+      "currency-wars.capability-expression.999c26948f19218e2f75ab5b",
+      "currency-wars.capability-expression.99c1bdcca6f8ce5160a2748c",
+      "currency-wars.capability-expression.9b94d282054886c66bbf4c14",
+      "currency-wars.capability-expression.9cfe2ca82b56d0f15a2cef2d",
+      "currency-wars.capability-expression.9d605736d2ec791ac2270c22",
+      "currency-wars.capability-expression.a07a1324d71b3627b5585315",
+      "currency-wars.capability-expression.a13784d634f2b11442cdc1f1",
+      "currency-wars.capability-expression.a3cb89574ee61a36365cacdb",
+      "currency-wars.capability-expression.a72e054edb8ba1110cb522a7",
+      "currency-wars.capability-expression.a76821ea82eac3734aac624d",
+      "currency-wars.capability-expression.a772a228c4517d9a130d8425",
+      "currency-wars.capability-expression.a7fb92d28fa049e50fd4be9b",
+      "currency-wars.capability-expression.a84a6360825c03d2d2fe035f",
+      "currency-wars.capability-expression.a8d5d0bad990fde02215c295",
+      "currency-wars.capability-expression.a94592bcc900e0975783c1e6",
+      "currency-wars.capability-expression.abb152284aa70d0386b02332",
+      "currency-wars.capability-expression.acef2b3105cc3817874344c6",
+      "currency-wars.capability-expression.ade429181e670f3080a320ab",
+      "currency-wars.capability-expression.ae37c1a787f920ef390248a4",
+      "currency-wars.capability-expression.b6137fb1522c8ac081f2e8ef",
+      "currency-wars.capability-expression.b65815afff3718390b4e2c40",
+      "currency-wars.capability-expression.bcfeb2088f3207f745877524",
+      "currency-wars.capability-expression.c73dcb28085b1c726e10a754",
+      "currency-wars.capability-expression.c7888ca0b7c8578fcc312709",
+      "currency-wars.capability-expression.cb8c30ebf3320be56c0b1edd",
+      "currency-wars.capability-expression.ced3e3d8b3499bd24de124bd",
+      "currency-wars.capability-expression.cfa755523f2071804ea79bac",
+      "currency-wars.capability-expression.d0c5a14e48b93f975d76a431",
+      "currency-wars.capability-expression.d31319e2ae22303e310ab21c",
+      "currency-wars.capability-expression.d364e0c190b8712d23f0270c",
+      "currency-wars.capability-expression.d4d97a4f7880b059815efdac",
+      "currency-wars.capability-expression.d6f7d380162e4d5398344773",
+      "currency-wars.capability-expression.d7828376c7d230d0e54a7d8d",
+      "currency-wars.capability-expression.d94d5c4918657fe3e1c6dcf0",
+      "currency-wars.capability-expression.da2865cbbcca72bb4bd1060f",
+      "currency-wars.capability-expression.daa425103466bc1a6e91999b",
+      "currency-wars.capability-expression.daf4db3867b1206e9f589d2c",
+      "currency-wars.capability-expression.de51207b8338b9caf7ba09c5",
+      "currency-wars.capability-expression.df100fc5ea4461a7cbe449ae",
+      "currency-wars.capability-expression.e145d1804ac6c4933c0ee007",
+      "currency-wars.capability-expression.e3d75f6901cd2fe6bd28227a",
+      "currency-wars.capability-expression.e6437da6d274edad8e3b0349",
+      "currency-wars.capability-expression.e70463b5ebd2557f50314885",
+      "currency-wars.capability-expression.e84feafe7e699bb937b9ed85",
+      "currency-wars.capability-expression.ec05ebd43df71b6eb6db2bfc",
+      "currency-wars.capability-expression.ecb7b8c71653c0d94d94e4d4",
+      "currency-wars.capability-expression.efae54b77df798c1c1f21cac",
+      "currency-wars.capability-expression.efdb8e16a5156200e6b750f6",
+      "currency-wars.capability-expression.f0ad89c8c655539fc9865310",
+      "currency-wars.capability-expression.f10321dc0acd391199f60a19",
+      "currency-wars.capability-expression.f26fa9d4a8e812d2adfe9144",
+      "currency-wars.capability-expression.f4474cbfdc585a91a430b633",
+      "currency-wars.capability-expression.f44c369f841e3a8b7817bbf2",
+      "currency-wars.capability-expression.f65c872db37af2baa7e1fccf",
+      "currency-wars.capability-expression.f75e472ac1de301592ffdac4",
+      "currency-wars.capability-expression.f8f35872b77cdcae35b4de3b",
+      "currency-wars.capability-expression.fa4c71db958d88133cf4bcf3",
+      "currency-wars.capability-expression.fa6f7e80efffeca3fedfc6d1",
+      "currency-wars.capability-expression.fd0d183c116d26c25ad5c767",
+      "currency-wars.capability-expression.fe6327d6eb3cd8a86946ad09"
+    ],
+    "affected_mechanic_ids": [
+      "currency-wars.mechanic-rule.0015bd91349e1231bc537971",
+      "currency-wars.mechanic-rule.004035828065c85ebab39248",
+      "currency-wars.mechanic-rule.011971212f7896f99b0e32d1",
+      "currency-wars.mechanic-rule.051a3cd9980c8e688f07f3c5",
+      "currency-wars.mechanic-rule.0955ff187ee30961e9a90322",
+      "currency-wars.mechanic-rule.09cbb168cf68c49c543577d5",
+      "currency-wars.mechanic-rule.0acd0d36afd47478f5f80511",
+      "currency-wars.mechanic-rule.0af2cfe2e8ac99b484ad5924",
+      "currency-wars.mechanic-rule.0af641bb75137484703d6218",
+      "currency-wars.mechanic-rule.0d181fb716cf3826c05c43b7",
+      "currency-wars.mechanic-rule.0d501465075bcb77a05627b7",
+      "currency-wars.mechanic-rule.0df38cc149e1f046459f285d",
+      "currency-wars.mechanic-rule.0e9db0925c65e31079c63c46",
+      "currency-wars.mechanic-rule.0f445f671c5a1ff9064d014c",
+      "currency-wars.mechanic-rule.1034958eedb4783d50374e86",
+      "currency-wars.mechanic-rule.10b440e712dbfe0cb5679f43",
+      "currency-wars.mechanic-rule.12b9539fb23d1955cc0d8ffe",
+      "currency-wars.mechanic-rule.1319eab1a6a2760574f85f26",
+      "currency-wars.mechanic-rule.158e148abe3a299ba5e5a470",
+      "currency-wars.mechanic-rule.162b328aeff29c8a0798170b",
+      "currency-wars.mechanic-rule.189c0b26f48ea6dd84880be1",
+      "currency-wars.mechanic-rule.19d2fa0a82a47aee4dbbf9e6",
+      "currency-wars.mechanic-rule.1a72d20bf31cb131205be4b9",
+      "currency-wars.mechanic-rule.1aae278788d1896806554a45",
+      "currency-wars.mechanic-rule.1cf1d422917954653087b0af",
+      "currency-wars.mechanic-rule.1de12ae7b4b2df5d478d4a2c",
+      "currency-wars.mechanic-rule.1e1a382a11f660a1c2fa5e95",
+      "currency-wars.mechanic-rule.20282b8795ac2bead762f4b9",
+      "currency-wars.mechanic-rule.20e6162ee27e4a635903ddbb",
+      "currency-wars.mechanic-rule.2162d2c1d7527ad90ea184b0",
+      "currency-wars.mechanic-rule.22403e8589a953dfbbd517a5",
+      "currency-wars.mechanic-rule.244e4e010134cc5f25b1556d",
+      "currency-wars.mechanic-rule.2471e645df0fb7ef1a776f42",
+      "currency-wars.mechanic-rule.257ea68c58a746aaf217a935",
+      "currency-wars.mechanic-rule.27bcc5b708db27f1ace38860",
+      "currency-wars.mechanic-rule.280732ebfafc39a272d5da4e",
+      "currency-wars.mechanic-rule.2e13e7900432cd9e44f70b5b",
+      "currency-wars.mechanic-rule.2e31ef508bd79c1a6ef9a09a",
+      "currency-wars.mechanic-rule.2e770d684e178326fa6fe05d",
+      "currency-wars.mechanic-rule.2e8051133ad1cc07296c498c",
+      "currency-wars.mechanic-rule.31b948e3b7a2afa8a8a72251",
+      "currency-wars.mechanic-rule.340c6560e32fff9d854d5bed",
+      "currency-wars.mechanic-rule.349e2761bb12639895dc278c",
+      "currency-wars.mechanic-rule.352261aab397d8be319fa583",
+      "currency-wars.mechanic-rule.35b79d2450adba148770617d",
+      "currency-wars.mechanic-rule.36197459c919d62604f529fe",
+      "currency-wars.mechanic-rule.362df33375c3b80c7fdfdc34",
+      "currency-wars.mechanic-rule.36a24c40dfa323f770b4799a",
+      "currency-wars.mechanic-rule.36b1d30e190184a4e419cc29",
+      "currency-wars.mechanic-rule.390712a9ad58f2a56e1385c6",
+      "currency-wars.mechanic-rule.3b59e5cf53fe081994a56b5c",
+      "currency-wars.mechanic-rule.3ba74c521ba495222f5fdbc5",
+      "currency-wars.mechanic-rule.3d353f951ac018456c6efff1",
+      "currency-wars.mechanic-rule.3f3e4ba91bf8069f72e2f895",
+      "currency-wars.mechanic-rule.3fcc139fefea77749d5f9344",
+      "currency-wars.mechanic-rule.42c18d2b15ce4cb4ed725fb0",
+      "currency-wars.mechanic-rule.458cb559e56bda123aca3285",
+      "currency-wars.mechanic-rule.4a567f89bd5b179819898101",
+      "currency-wars.mechanic-rule.4c5792295592397eb6702c74",
+      "currency-wars.mechanic-rule.4c59a3d4078fa1e784e8b2b2",
+      "currency-wars.mechanic-rule.5250f8cecc7c5e5825cf3cc3",
+      "currency-wars.mechanic-rule.533253939f70e75c982b5384",
+      "currency-wars.mechanic-rule.538147eb00242154d2c84dd9",
+      "currency-wars.mechanic-rule.538fa4113cb296137b88647b",
+      "currency-wars.mechanic-rule.588e33586eb2d95aee4b0355",
+      "currency-wars.mechanic-rule.5988628e68ea880f58781e87",
+      "currency-wars.mechanic-rule.59e71d53acc4fb95f31fa4de",
+      "currency-wars.mechanic-rule.5bee1536fb020e1f5d64b3ed",
+      "currency-wars.mechanic-rule.5de7e3a30ebf3a62f8683cdf",
+      "currency-wars.mechanic-rule.5f630db6eb9c1675685606c6",
+      "currency-wars.mechanic-rule.6184c7d765920426be21ae2a",
+      "currency-wars.mechanic-rule.64514ba3d1ef31538ea8dbb4",
+      "currency-wars.mechanic-rule.6500c1d8d6d2bd5ed5e4603d",
+      "currency-wars.mechanic-rule.6679ef7ea004a3b246791261",
+      "currency-wars.mechanic-rule.6819ce5d6f4b663c3785d732",
+      "currency-wars.mechanic-rule.6a1e3042a46ef4894b6c82ac",
+      "currency-wars.mechanic-rule.6c270e5c5de574ba6be3f614",
+      "currency-wars.mechanic-rule.6cb01620118fb5508a47bf45",
+      "currency-wars.mechanic-rule.71be49f3380ecca28bc46f5c",
+      "currency-wars.mechanic-rule.72db87717db289c4e7db61cb",
+      "currency-wars.mechanic-rule.74b1e42407148435b73114d5",
+      "currency-wars.mechanic-rule.7aaf3867298ffc8c65fd0aa2",
+      "currency-wars.mechanic-rule.80a50b48952f18d992ef8de1",
+      "currency-wars.mechanic-rule.815dae06af4d441dd3537a44",
+      "currency-wars.mechanic-rule.83367f92ec8e8af58a35dbeb",
+      "currency-wars.mechanic-rule.849cc8e321455571c901c9c9",
+      "currency-wars.mechanic-rule.850dd8bc4fb40eac8bfc1b81",
+      "currency-wars.mechanic-rule.85352a5e5bb793faffd75199",
+      "currency-wars.mechanic-rule.8a5819c461ba8bf608b348a7",
+      "currency-wars.mechanic-rule.8ab0729aa6dd2fca00236c48",
+      "currency-wars.mechanic-rule.8d5ffcde78ab445249335974",
+      "currency-wars.mechanic-rule.8e7a631321aedacf1f8d0e91",
+      "currency-wars.mechanic-rule.8eb300c8a39eda9174c21936",
+      "currency-wars.mechanic-rule.8ef93bb2184e7d43a59bef07",
+      "currency-wars.mechanic-rule.914bb92bebcebe86582847ca",
+      "currency-wars.mechanic-rule.93b2175ad9af7ff7c14fb7c6",
+      "currency-wars.mechanic-rule.9437bbc52d3d5d916a76cb65",
+      "currency-wars.mechanic-rule.94f293d06982ec01518c93c4",
+      "currency-wars.mechanic-rule.96003b0dd00ef81457e8b870",
+      "currency-wars.mechanic-rule.960ebf66705cccdc24ff94cc",
+      "currency-wars.mechanic-rule.96e6977c52a0b820f3fd0c06",
+      "currency-wars.mechanic-rule.96ec193754902548cf7c0198",
+      "currency-wars.mechanic-rule.9721c94adda0da625feef63d",
+      "currency-wars.mechanic-rule.97795b5c3f6eff72100f5ca2",
+      "currency-wars.mechanic-rule.97cd0af5420dd9b68fa06e9c",
+      "currency-wars.mechanic-rule.98b64c395d4fc1ea6d4a763e",
+      "currency-wars.mechanic-rule.990e67c2fc536951ee4e88d6",
+      "currency-wars.mechanic-rule.9aeb7ebe6077e80e2a8f812a",
+      "currency-wars.mechanic-rule.9dc664cd58e608a229314e6b",
+      "currency-wars.mechanic-rule.9e7d219346fa175faec6cbfd",
+      "currency-wars.mechanic-rule.a0752e1c7d18e3dd41660a5b",
+      "currency-wars.mechanic-rule.a097b3e8600ef80440c19c00",
+      "currency-wars.mechanic-rule.a45ea72d1066d06809dbddd7",
+      "currency-wars.mechanic-rule.a4df9c967e74871665cbd29d",
+      "currency-wars.mechanic-rule.a6480d254fbe4de5508e9b41",
+      "currency-wars.mechanic-rule.a80021f03c20a636a1c317fe",
+      "currency-wars.mechanic-rule.aa273f7cc51e349da5d03365",
+      "currency-wars.mechanic-rule.aaf269399d1a4506a8b1fd3c",
+      "currency-wars.mechanic-rule.ac1674693031a67b1dd9635c",
+      "currency-wars.mechanic-rule.acf61b2a091aaeb466321f9c",
+      "currency-wars.mechanic-rule.afaf19c0600a1809a2f93e01",
+      "currency-wars.mechanic-rule.b1d27c1b3452595298ce22cc",
+      "currency-wars.mechanic-rule.b42b75d959c5c877531892f0",
+      "currency-wars.mechanic-rule.b688beb45a56de9603da4bb2",
+      "currency-wars.mechanic-rule.b6f87dbb0dfdc6120f29037d",
+      "currency-wars.mechanic-rule.b808816ebfc14b544cecaf94",
+      "currency-wars.mechanic-rule.b81dffe24d861df8267d2007",
+      "currency-wars.mechanic-rule.b94f00205adfc3d817463c6d",
+      "currency-wars.mechanic-rule.bba34707ad9fd19a41edca28",
+      "currency-wars.mechanic-rule.bca7ce020e4aadaa10f94e19",
+      "currency-wars.mechanic-rule.bda8de26cbcd57b8e76753a4",
+      "currency-wars.mechanic-rule.be0afd0d8874560b0b904a0d",
+      "currency-wars.mechanic-rule.be2272098199b9605c2bb699",
+      "currency-wars.mechanic-rule.c37ca928b590dffb00280070",
+      "currency-wars.mechanic-rule.c47d625c0880b87339974b9f",
+      "currency-wars.mechanic-rule.c5b1768f57ec0724e8c9d284",
+      "currency-wars.mechanic-rule.c77e8c95c3206422099a0fa2",
+      "currency-wars.mechanic-rule.c8b8fed48ad39707be1fd7a0",
+      "currency-wars.mechanic-rule.c981bfc83e97cc922526af22",
+      "currency-wars.mechanic-rule.cb4970a23494ec140b5df94f",
+      "currency-wars.mechanic-rule.cceb7048a2ed96c156cdd1bb",
+      "currency-wars.mechanic-rule.cf603795ef8352c2c84a3572",
+      "currency-wars.mechanic-rule.d1f6369e8c658f769bfb75e9",
+      "currency-wars.mechanic-rule.d2a7025beede12bf1d5decd6",
+      "currency-wars.mechanic-rule.d2ea658e7920a0a80028bc62",
+      "currency-wars.mechanic-rule.d306d2ca62ac2ab058049f5a",
+      "currency-wars.mechanic-rule.d35859e7cded6745e097a8e7",
+      "currency-wars.mechanic-rule.d4868fd72806261e80dbed11",
+      "currency-wars.mechanic-rule.d6b77e9002b17e3bf622ea38",
+      "currency-wars.mechanic-rule.d7a4f4151096aea6302a85c8",
+      "currency-wars.mechanic-rule.da679a2fac8b0b15d495de08",
+      "currency-wars.mechanic-rule.db06fb4cd6e7e72e2dcdf3ad",
+      "currency-wars.mechanic-rule.dda5b97af4ea5ab07baf91a5",
+      "currency-wars.mechanic-rule.defd30eeef6b7f6c50d4ce8b",
+      "currency-wars.mechanic-rule.df67dd029ab87529382218d2",
+      "currency-wars.mechanic-rule.e0765970894b237d09a364d8",
+      "currency-wars.mechanic-rule.e0a3cceac50abd8c22133d10",
+      "currency-wars.mechanic-rule.e46a07373a481b7a76d561dc",
+      "currency-wars.mechanic-rule.e7fcabd001685ee7f0a346fd",
+      "currency-wars.mechanic-rule.e977264dbddeb089e9355d4e",
+      "currency-wars.mechanic-rule.e9f7a628457a91c9781ba453",
+      "currency-wars.mechanic-rule.ea68949741bcc112377309dd",
+      "currency-wars.mechanic-rule.ecec95da2966260fb5b82309",
+      "currency-wars.mechanic-rule.ee0a125f8a6679448ee0bcdd",
+      "currency-wars.mechanic-rule.eea665bdb67b9b89058ed1cb",
+      "currency-wars.mechanic-rule.eeb9117c241be0b9fa62778b",
+      "currency-wars.mechanic-rule.eef89b3c63329c50d5d7e956",
+      "currency-wars.mechanic-rule.efa6508307450fba93802840",
+      "currency-wars.mechanic-rule.f047009f432b6d64b254517c",
+      "currency-wars.mechanic-rule.f1065030e14030a0e66559e2",
+      "currency-wars.mechanic-rule.f1cf5f660332a9d58a945e1f",
+      "currency-wars.mechanic-rule.f1de27e35c6bb4cfae78a747",
+      "currency-wars.mechanic-rule.f21d991ade80007923e086c1",
+      "currency-wars.mechanic-rule.f2a22fd5c6bac3acedc238bb",
+      "currency-wars.mechanic-rule.f2a30ee23947ab4237621bf6",
+      "currency-wars.mechanic-rule.f2e1197cc368ca735b018bde",
+      "currency-wars.mechanic-rule.f47ae4d5168aae4e027f9869",
+      "currency-wars.mechanic-rule.f4b4417352feedd3fe9290c5",
+      "currency-wars.mechanic-rule.f53ade45facd181ecf7447d2",
+      "currency-wars.mechanic-rule.f555fe4ee19af994d3035e36",
+      "currency-wars.mechanic-rule.f604251948da5667e1298f3a",
+      "currency-wars.mechanic-rule.f6a2fd213312d44f7f345909",
+      "currency-wars.mechanic-rule.f708e6ad1b97520b5a3ba2c4",
+      "currency-wars.mechanic-rule.f78ff116508fadc5d483171b",
+      "currency-wars.mechanic-rule.f7a6095a9ffad446957b9493",
+      "currency-wars.mechanic-rule.f9774b81d1edaf53c4fee9cd",
+      "currency-wars.mechanic-rule.f9e1b0a6adac356422a9b0d6",
+      "currency-wars.mechanic-rule.fbaa0761be8af27347363b8f",
+      "currency-wars.mechanic-rule.fc2597db4d2da38e65a6af35",
+      "currency-wars.mechanic-rule.fcd3852c7573f119eee4600f",
+      "currency-wars.mechanic-rule.fe5fe62b8378ea47b4c6bd2e",
+      "currency-wars.mechanic-rule.fe9d4fedd78975f7b3066ccc",
+      "currency-wars.mechanic-rule.ffecdb938a25e47f4b964fc8"
+    ],
+    "affected_partition_ids": [
+      "G21-P5-A01",
+      "G21-P5-A02",
+      "G21-P5-A03",
+      "G21-P5-A04",
+      "G21-P5-A05",
+      "G21-P5-A06",
+      "G21-P5-A07",
+      "G21-P5-A08",
+      "G21-P5-A09",
+      "G21-P5-A10",
+      "G21-P5-A11",
+      "G21-P6-M01",
+      "G21-P6-M02",
+      "G21-P6-M03",
+      "G21-P6-M04",
+      "G21-P6-M05",
+      "G21-P6-M06",
+      "G21-P6-M07",
+      "G21-P6-M08",
+      "G21-P6-M09",
+      "G21-P6-M10",
+      "G21-P6-M11",
+      "G21-P6-M12",
+      "G21-P6-M13",
+      "G21-P6-M14",
+      "G21-P6-M15",
+      "G21-P6-M16",
+      "G21-P6-M17",
+      "G21-P6-M18",
+      "G21-P6-M19",
+      "G21-P6-M20",
+      "G21-P6-M21",
+      "G21-P6-M22",
+      "G21-P6-M23",
+      "G21-P6-M24",
+      "G21-P6-M25",
+      "G21-P6-M26",
+      "G21-P6-M27",
+      "G21-P6-M28",
+      "G21-P6-M29",
+      "G21-P6-M30",
+      "G21-P6-M31",
+      "G21-P6-M32"
+    ],
+    "executable_policy_partitions": [
+      {
+        "batch": "G21-P6-M01",
+        "policy_programs": 9,
+        "metadata_programs": 28,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/battle-behavior-policy-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M02",
+        "policy_programs": 29,
+        "metadata_programs": 35,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/avatar-battle-behavior-policy-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M03",
+        "policy_programs": 32,
+        "metadata_programs": 32,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/avatar-battle-behavior-m03-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M04",
+        "policy_programs": 29,
+        "metadata_programs": 35,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/battle-configuration-m04-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M05",
+        "policy_programs": 31,
+        "metadata_programs": 33,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/bond-battle-behavior-m05-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M06",
+        "policy_programs": 26,
+        "metadata_programs": 38,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/battle-program-binding-m06-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M07",
+        "policy_programs": 30,
+        "metadata_programs": 34,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/battle-avatar-program-m07-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M08",
+        "policy_programs": 35,
+        "metadata_programs": 28,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/battle-avatar-program-m08-execution-audit.json"
+      },
+      {
+        "batch": "G21-P6-M09",
+        "policy_programs": 42,
+        "metadata_programs": 22,
+        "execution_audit": "content-manifests/currency-wars-runtime-v1/battle-avatar-program-m09-execution-audit.json"
+      }
+    ],
+    "replacement_condition": "Released evidence proves all ten Version 4.4 postfix opcode semantics and reviewed typed lowering replaces this structural policy.",
+    "replacement_trigger": "Verification fails if the unresolved capability disappears while this policy remains, or if production Rust contains a raw PostfixExpr/OpCodes/DynamicHashes interpreter.",
+    "evidence": [
+      {
+        "url": "https://www.luogu.com/article/zcvu6fp7",
+        "accessed": "2026-08-13",
+        "quality": "IndependentPublicCrossCheck",
+        "scope": "Postfix order and byte-0/byte-1 operand references only."
+      },
+      {
+        "path": "content-manifests/currency-wars-runtime-v1/capability-inventory.json",
+        "quality": "PinnedReleasedStructuredData",
+        "scope": "Exact Version 4.4 bytes, pools, shapes, source identities and digests."
+      }
+    ]
+  },
+  "content_id_branch_audit": {
+    "roots": [
+      "crates/starclock-activity/src",
+      "crates/starclock-build/src",
+      "crates/starclock-combat/src",
+      "crates/starclock-rules/src"
+    ],
+    "audited_file_count": 206,
+    "audited_tree_sha256": "927b951b2ce845a11985ccc6e5dc7c76f6363b888cf23306033018e4e6b45231",
+    "forbidden_mode_symbols": [
+      "CurrencyWars",
+      "currency_wars",
+      "currency-wars"
+    ],
+    "universal_audit": "node tools/repository-check/verify-native-handlers.mjs",
+    "result": "NoCurrencyWarsBranchInSharedCore"
+  },
+  "native_handler_audit": {
+    "admitted_battle_handlers": 0,
+    "admitted_activity_handlers": 0,
+    "mechanic_static_handler_references": 0,
+    "registry": "crates/starclock-rules/src/registry.rs",
+    "metadata_policy": "policy/native-handler-audit.json",
+    "result": "TypedIrSufficientNoHandlerAdmitted"
+  },
+  "partition_freeze": {
+    "state": "FrozenPendingExecution",
+    "partition_count": 43,
+    "program_count": 2367,
+    "partition_set_sha256": "352596bc94e37147e1d66dbf47fb8232aecb50c4b0f9e0a270aebd0406f2be1d",
+    "partitions": [
+      {
+        "batch": "G21-P5-A01",
+        "program_count": 64,
+        "freeze_sha256": "a3991f4e1de2e824a310e780e6aa2c43f1bb63e15a7af20a73616be8fbe94878"
+      },
+      {
+        "batch": "G21-P5-A02",
+        "program_count": 13,
+        "freeze_sha256": "864951f94803b8d9f7cb4cac54ff294548aeea9ca7dc5be290bf1eb6ef47a636"
+      },
+      {
+        "batch": "G21-P5-A03",
+        "program_count": 64,
+        "freeze_sha256": "21d95707584887a9105991715a1c8ca1d79575cc164500b47bb450f428430288"
+      },
+      {
+        "batch": "G21-P5-A04",
+        "program_count": 21,
+        "freeze_sha256": "193469bfab2e7031b39bb9f6efef4a5c5c077ba01a10318db9adb6e7a8e039ad"
+      },
+      {
+        "batch": "G21-P5-A05",
+        "program_count": 64,
+        "freeze_sha256": "37856e74414d8ad006c46b361e3c88ca9750f17a9ba760e612a20fe0b1228615"
+      },
+      {
+        "batch": "G21-P5-A06",
+        "program_count": 63,
+        "freeze_sha256": "67fd33ef4e3ca0448e2bae548513d69f909d099747e330932461d942f67bd236"
+      },
+      {
+        "batch": "G21-P5-A07",
+        "program_count": 64,
+        "freeze_sha256": "55092cb6c0e378c98f41facf387cfb83a5257e13cf3266e0aa5f338088ecbf7e"
+      },
+      {
+        "batch": "G21-P5-A08",
+        "program_count": 64,
+        "freeze_sha256": "4112fa883c0a0ce7441b0f03ecde3a7cf70805ae397c21bdf500837c040bcbd3"
+      },
+      {
+        "batch": "G21-P5-A09",
+        "program_count": 63,
+        "freeze_sha256": "9286d3d7f552742fa446e1f42f54645c8a916943bd8af0f86cf5754a73673061"
+      },
+      {
+        "batch": "G21-P5-A10",
+        "program_count": 29,
+        "freeze_sha256": "ad7ed01e619a35ed6ff8e544772d5313fcbab0ebfa09a1de929433357bf34f6c"
+      },
+      {
+        "batch": "G21-P5-A11",
+        "program_count": 11,
+        "freeze_sha256": "2c1dd41dfb8f24797adf7b6ace44164344bea5384c287320c881183a56d43ede"
+      },
+      {
+        "batch": "G21-P6-M01",
+        "program_count": 37,
+        "freeze_sha256": "65d38c2983554a6b751c42393570812ad597e6fa76038070b13261f6a9840445"
+      },
+      {
+        "batch": "G21-P6-M02",
+        "program_count": 64,
+        "freeze_sha256": "ab3de63e85fa91a43aba9641e236694b599a89ff3486bd0e663cfbb51ea6efab"
+      },
+      {
+        "batch": "G21-P6-M03",
+        "program_count": 64,
+        "freeze_sha256": "2a485bb3ff81bbe38d3d8ff6a3ef36ad392d06c0756bbea79b5c0899eb06e8bd"
+      },
+      {
+        "batch": "G21-P6-M04",
+        "program_count": 64,
+        "freeze_sha256": "252c50fb6280ae1f74be988c01bc062388a596bbaa01f978e6f477fbab4df27c"
+      },
+      {
+        "batch": "G21-P6-M05",
+        "program_count": 64,
+        "freeze_sha256": "c29fdd27fe500bf64fee3983180b6cb4cb61e45db4e9d551956a12cc0d86410f"
+      },
+      {
+        "batch": "G21-P6-M06",
+        "program_count": 64,
+        "freeze_sha256": "c65ef0299ef002b464157dfb10ea894396f9c544541688ee9050366d8997beed"
+      },
+      {
+        "batch": "G21-P6-M07",
+        "program_count": 64,
+        "freeze_sha256": "e70af00c3d2ec93fbf967895389f9d7ebd3e6d2fea136469d4c6a40f84e46d6e"
+      },
+      {
+        "batch": "G21-P6-M08",
+        "program_count": 63,
+        "freeze_sha256": "bf15ccb85c932b097c5d10e65f2ef547d1aea6d0a1afe85121ca75b434887681"
+      },
+      {
+        "batch": "G21-P6-M09",
+        "program_count": 64,
+        "freeze_sha256": "2b7196c029871f1a2dcb6a311c3de02b83ee658a35e835549b684af1c51f2333"
+      },
+      {
+        "batch": "G21-P6-M10",
+        "program_count": 12,
+        "freeze_sha256": "50b8ac630cc8bb0d2d7c87d6c0a0dec97ecee5e1c043fcef6126bd301d798201"
+      },
+      {
+        "batch": "G21-P6-M11",
+        "program_count": 64,
+        "freeze_sha256": "9131643ae0222ccca63dcee268870241c3739467f3a6232c7cd9dffa23edd98d"
+      },
+      {
+        "batch": "G21-P6-M12",
+        "program_count": 24,
+        "freeze_sha256": "c1425aa29ef09765301f87055e74644f333b878876ace873af2cf3d1ce48a141"
+      },
+      {
+        "batch": "G21-P6-M13",
+        "program_count": 64,
+        "freeze_sha256": "90bc3503fbf1a01d771388956c57c0224313ccbf6d08276a82fc9fa570004cd7"
+      },
+      {
+        "batch": "G21-P6-M14",
+        "program_count": 64,
+        "freeze_sha256": "f1a4da682d5dc2f5afe2ac7e5cd5a003c0ffb8eecea7db9897681aeedaf65ef5"
+      },
+      {
+        "batch": "G21-P6-M15",
+        "program_count": 64,
+        "freeze_sha256": "d30f0f499cff557bcdea9b26fee8d2bd3447096892cc4c45d786256446f93931"
+      },
+      {
+        "batch": "G21-P6-M16",
+        "program_count": 64,
+        "freeze_sha256": "a7b6f5a7292deb54486b5b2a920f46010f811c26be9bdd7a531ae1e335672149"
+      },
+      {
+        "batch": "G21-P6-M17",
+        "program_count": 64,
+        "freeze_sha256": "d58017129ee6aaa5cefa2e47f68cacbd6bd68daf2ec5d6c2765c858b3d59515b"
+      },
+      {
+        "batch": "G21-P6-M18",
+        "program_count": 64,
+        "freeze_sha256": "9183120a12c4bc058ec8fb42e4c49f90aa539e77cd889409b893a1f66204d178"
+      },
+      {
+        "batch": "G21-P6-M19",
+        "program_count": 64,
+        "freeze_sha256": "03721ef1c6a8149b1fd6c6323bc5978ffcc99e8042f174b88a4b914ce7d09f6a"
+      },
+      {
+        "batch": "G21-P6-M20",
+        "program_count": 64,
+        "freeze_sha256": "03f02f53d5c727d0d8367ff4094aa2c1df5e86485b0c23222f3e91052eaca5fc"
+      },
+      {
+        "batch": "G21-P6-M21",
+        "program_count": 64,
+        "freeze_sha256": "7efd5461daa8baa653a3a7078acec82df26effa71efd0ec01ab33cfa07145308"
+      },
+      {
+        "batch": "G21-P6-M22",
+        "program_count": 64,
+        "freeze_sha256": "952d6ccf8318c85f8b4d35f03cb048729094ec37fe1bf9d42bd27e9ef5825581"
+      },
+      {
+        "batch": "G21-P6-M23",
+        "program_count": 64,
+        "freeze_sha256": "b695d37fedca5ac2d692d813e606c1276d62f1cd983ba84b69d87f743b42a86e"
+      },
+      {
+        "batch": "G21-P6-M24",
+        "program_count": 64,
+        "freeze_sha256": "587639f38163fc72b6ac2bc01f0ed9cdbf25730225ab7c443bfeea2c5a18b796"
+      },
+      {
+        "batch": "G21-P6-M25",
+        "program_count": 64,
+        "freeze_sha256": "b1651f3735e7b3f102f1871a4ff2b99777f3527a85019b809b6b830aa9c12e70"
+      },
+      {
+        "batch": "G21-P6-M26",
+        "program_count": 64,
+        "freeze_sha256": "76951dfc8440308601a3ad8594bdf662e503e7f817e68c0b612a4f77572dd036"
+      },
+      {
+        "batch": "G21-P6-M27",
+        "program_count": 64,
+        "freeze_sha256": "cb3fb55878139ecfcfb90fe02403e5d2e01886fb94604cfe0c233470fb3f24a5"
+      },
+      {
+        "batch": "G21-P6-M28",
+        "program_count": 64,
+        "freeze_sha256": "e56400b1e27c88006f1584836c89d889fe0c64c43b33ae2389ef1b4b54901250"
+      },
+      {
+        "batch": "G21-P6-M29",
+        "program_count": 64,
+        "freeze_sha256": "7882c522c50f87380efe796539fe316cab14fc1b6abc88060b198ba81663660f"
+      },
+      {
+        "batch": "G21-P6-M30",
+        "program_count": 64,
+        "freeze_sha256": "59b346916b8cb2bf6cca1ef9ec41b8a901af98ca9c7a072e245e95f609f6cbc9"
+      },
+      {
+        "batch": "G21-P6-M31",
+        "program_count": 2,
+        "freeze_sha256": "0ffe85708b54c127fb4fe443d410c8cdecf2a41fa58ac7b0c553e31cecd433f0"
+      },
+      {
+        "batch": "G21-P6-M32",
+        "program_count": 45,
+        "freeze_sha256": "66a9129f3a9e5a260019d893daf26b46a0d35712f7e04e3b3006c69fd5354eb7"
+      }
+    ]
+  },
+  "excluded_source_closure": {
+    "count": 17,
+    "obligation_ids": [
+      "currency-wars.coverage.mechanic-rules.17b4bf2d1ae3c6104df4cbca",
+      "currency-wars.coverage.mechanic-rules.2c70b30fe0b15d684335516e",
+      "currency-wars.coverage.mechanic-rules.2ffb335e18f68dd812c28782",
+      "currency-wars.coverage.mechanic-rules.43f42c477ba1bb3a12b35184",
+      "currency-wars.coverage.mechanic-rules.46e70219de36fa5a3ed750c6",
+      "currency-wars.coverage.mechanic-rules.4b53a95a45c9c5f7f0f108df",
+      "currency-wars.coverage.mechanic-rules.4f093a70a23ce71a09f198bc",
+      "currency-wars.coverage.mechanic-rules.50b464de44ff64cff04840ea",
+      "currency-wars.coverage.mechanic-rules.51fc741f205bc9ab9771f4b2",
+      "currency-wars.coverage.mechanic-rules.6f1faf3c2b54d07cbf29f873",
+      "currency-wars.coverage.mechanic-rules.a132c225d8f92d8045bb57cc",
+      "currency-wars.coverage.mechanic-rules.b43f05b76cac650e09be87fa",
+      "currency-wars.coverage.mechanic-rules.d2f04f48b1c9d0bf3da6abc4",
+      "currency-wars.coverage.mechanic-rules.dab1d35e2ac0e75f659da9b2",
+      "currency-wars.coverage.mechanic-rules.e206e0dc260422b661b46c3e",
+      "currency-wars.coverage.mechanic-rules.e364cc2d2d4364d721a7fa4a",
+      "currency-wars.coverage.mechanic-rules.f9d0e5475689fbf84018d674"
+    ],
+    "terminal_disposition": "ExcludedWithProof"
+  },
+  "summary": {
+    "probes": 4,
+    "named_missing_capabilities": 1,
+    "unresolved_expression_shapes": 153,
+    "affected_mechanic_programs": 193,
+    "audited_shared_rust_files": 206,
+    "admitted_native_handlers": 0,
+    "frozen_partitions": 43,
+    "frozen_programs": 2367,
+    "terminal_exclusions": 17
+  }
+}

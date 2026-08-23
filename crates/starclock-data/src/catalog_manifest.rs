@@ -5,7 +5,7 @@ use crate::{
 
 pub(super) fn convert_manifest(config: &SoraConfig) -> Result<CatalogManifest, CatalogLoadError> {
     let row = config.config_manifest();
-    if row.sora_cli_version != "0.3.0" {
+    if row.sora_cli_version != "0.6.1" {
         return Err(fail(
             CatalogLoadErrorKind::Manifest,
             format!(

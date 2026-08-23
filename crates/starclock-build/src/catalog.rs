@@ -10,12 +10,13 @@ use starclock_combat::{
 
 use crate::{
     ability::AbilityLevelTable,
+    contribution::{BuildContributionApplicability, BuildContributionDefinition},
     digest::{
         BuildCatalogDigest, BuildDefinitionDigest, catalog_digest, character_digest,
         light_cone_digest,
     },
     eidolon::{EidolonSetDefinition, EidolonSetError},
-    id::{BuildPresetId, LightConeId},
+    id::{BuildContributionId, BuildPresetId, LightConeId},
     light_cone::{CombatPath, LightConeDefinition, LightConeDefinitionError},
     patch::BuildPatch,
     preset::BuildPreset,
@@ -209,6 +210,7 @@ pub struct BuildCatalog {
     characters: Box<[CharacterBuildDefinition]>,
     light_cones: Box<[LightConeDefinition]>,
     presets: Box<[BuildPreset]>,
+    contributions: Box<[BuildContributionDefinition]>,
 }
 
 impl BuildCatalog {
@@ -258,6 +260,18 @@ impl BuildCatalog {
     pub fn preset_ids(&self) -> impl ExactSizeIterator<Item = BuildPresetId> + '_ {
         self.presets.iter().map(BuildPreset::id)
     }
+    #[must_use]
+    pub fn contribution(&self, id: BuildContributionId) -> Option<&BuildContributionDefinition> {
+        self.contributions
+            .binary_search_by_key(&id, BuildContributionDefinition::id)
+            .ok()
+            .map(|index| &self.contributions[index])
+    }
+    pub fn contribution_ids(&self) -> impl ExactSizeIterator<Item = BuildContributionId> + '_ {
+        self.contributions
+            .iter()
+            .map(BuildContributionDefinition::id)
+    }
 }
 
 /// Validated catalog builder; input order is never retained as semantics.
@@ -267,6 +281,7 @@ pub struct BuildCatalogBuilder {
     characters: Vec<CharacterBuildDefinition>,
     light_cones: Vec<LightConeDefinition>,
     presets: Vec<BuildPreset>,
+    contributions: Vec<BuildContributionDefinition>,
 }
 
 impl BuildCatalogBuilder {
@@ -277,6 +292,20 @@ impl BuildCatalogBuilder {
             characters: Vec::new(),
             light_cones: Vec::new(),
             presets: Vec::new(),
+            contributions: Vec::new(),
+        }
+    }
+
+    /// Starts a builder containing every definition from one validated base
+    /// catalog and binds the copy to a compatible composed combat catalog.
+    #[must_use]
+    pub fn from_catalog(base: &BuildCatalog, combat: &CombatCatalog) -> Self {
+        Self {
+            combat_digest: combat.digest(),
+            characters: base.characters.to_vec(),
+            light_cones: base.light_cones.to_vec(),
+            presets: base.presets.to_vec(),
+            contributions: base.contributions.to_vec(),
         }
     }
 
@@ -290,6 +319,10 @@ impl BuildCatalogBuilder {
 
     pub fn add_preset(&mut self, preset: BuildPreset) {
         self.presets.push(preset);
+    }
+
+    pub fn add_contribution(&mut self, contribution: BuildContributionDefinition) {
+        self.contributions.push(contribution);
     }
 
     pub fn build(mut self, combat: &CombatCatalog) -> Result<BuildCatalog, BuildCatalogError> {
@@ -329,6 +362,21 @@ impl BuildCatalogBuilder {
         for definition in &mut self.light_cones {
             validate_light_cone(definition, combat)?;
         }
+        self.contributions
+            .sort_unstable_by_key(BuildContributionDefinition::id);
+        if let Some(pair) = self
+            .contributions
+            .windows(2)
+            .find(|pair| pair[0].id() == pair[1].id())
+        {
+            return Err(contribution_error(
+                BuildCatalogErrorKind::DuplicateContribution,
+                pair[1].id(),
+            ));
+        }
+        for contribution in &self.contributions {
+            validate_contribution(contribution, combat)?;
+        }
         self.presets.sort_unstable_by_key(BuildPreset::id);
         if let Some(pair) = self
             .presets
@@ -356,6 +404,7 @@ impl BuildCatalogBuilder {
             &self.characters,
             &self.light_cones,
             &self.presets,
+            &self.contributions,
         );
         let catalog = BuildCatalog {
             digest,
@@ -363,6 +412,7 @@ impl BuildCatalogBuilder {
             characters: self.characters.into_boxed_slice(),
             light_cones: self.light_cones.into_boxed_slice(),
             presets: self.presets.into_boxed_slice(),
+            contributions: self.contributions.into_boxed_slice(),
         };
         for preset in &catalog.presets {
             let compiled = LoadoutCompiler
@@ -792,6 +842,50 @@ fn validate_light_cone(
     Ok(())
 }
 
+fn validate_contribution(
+    definition: &BuildContributionDefinition,
+    combat: &CombatCatalog,
+) -> Result<(), BuildCatalogError> {
+    if !matches!(
+        definition.source().class(),
+        SourceClass::Equipment | SourceClass::Progression | SourceClass::Mode
+    ) || !valid_source(definition.source(), definition.source().class())
+    {
+        return Err(contribution_error(
+            BuildCatalogErrorKind::InvalidContributionSource,
+            definition.id(),
+        ));
+    }
+    if let BuildContributionApplicability::Form(form) = definition.applicability()
+        && combat.unit(form).is_none()
+    {
+        return Err(contribution_error(
+            BuildCatalogErrorKind::InvalidContributionApplicability,
+            definition.id(),
+        ));
+    }
+    for patch in definition.patches() {
+        let valid = match *patch {
+            BuildPatch::AddAbility(id) => combat.ability(id).is_some(),
+            BuildPatch::AddRuleBundle(id) | BuildPatch::RemoveRuleBundle(id) => {
+                combat.rule_bundle(id).is_some()
+            }
+            BuildPatch::AddModifier(id) => combat.modifier(id).is_some(),
+            BuildPatch::ReplaceAbility { old, new } => {
+                old != new && combat.ability(old).is_some() && combat.ability(new).is_some()
+            }
+            BuildPatch::AdjustAbilityLevel { .. } => true,
+        };
+        if !valid {
+            return Err(contribution_error(
+                BuildCatalogErrorKind::InvalidContributionPatch,
+                definition.id(),
+            ));
+        }
+    }
+    Ok(())
+}
+
 fn valid_source(source: &RuleSource, expected: SourceClass) -> bool {
     source.class() == expected
         && !source.digest().iter().all(|byte| *byte == 0)
@@ -808,6 +902,13 @@ const fn light_cone_error(kind: BuildCatalogErrorKind, id: LightConeId) -> Build
 
 const fn preset_error(kind: BuildCatalogErrorKind, id: BuildPresetId) -> BuildCatalogError {
     BuildCatalogError::new_preset(kind, id)
+}
+
+const fn contribution_error(
+    kind: BuildCatalogErrorKind,
+    id: BuildContributionId,
+) -> BuildCatalogError {
+    BuildCatalogError::new_contribution(kind, id)
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -837,6 +938,10 @@ pub enum BuildCatalogErrorKind {
     DuplicateBuildPreset,
     InvalidBuildPreset,
     BuildPresetDigestMismatch,
+    DuplicateContribution,
+    InvalidContributionSource,
+    InvalidContributionApplicability,
+    InvalidContributionPatch,
     InvalidSourceBinding,
 }
 
@@ -846,6 +951,7 @@ pub struct BuildCatalogError {
     form: Option<UnitDefinitionId>,
     light_cone: Option<LightConeId>,
     preset: Option<BuildPresetId>,
+    contribution: Option<BuildContributionId>,
 }
 
 impl BuildCatalogError {
@@ -855,6 +961,7 @@ impl BuildCatalogError {
             form,
             light_cone: None,
             preset: None,
+            contribution: None,
         }
     }
     const fn new_light_cone(kind: BuildCatalogErrorKind, light_cone: LightConeId) -> Self {
@@ -863,6 +970,7 @@ impl BuildCatalogError {
             form: None,
             light_cone: Some(light_cone),
             preset: None,
+            contribution: None,
         }
     }
     const fn new_preset(kind: BuildCatalogErrorKind, preset: BuildPresetId) -> Self {
@@ -871,6 +979,19 @@ impl BuildCatalogError {
             form: None,
             light_cone: None,
             preset: Some(preset),
+            contribution: None,
+        }
+    }
+    const fn new_contribution(
+        kind: BuildCatalogErrorKind,
+        contribution: BuildContributionId,
+    ) -> Self {
+        Self {
+            kind,
+            form: None,
+            light_cone: None,
+            preset: None,
+            contribution: Some(contribution),
         }
     }
     #[must_use]
@@ -888,6 +1009,10 @@ impl BuildCatalogError {
     #[must_use]
     pub const fn preset(self) -> Option<BuildPresetId> {
         self.preset
+    }
+    #[must_use]
+    pub const fn contribution(self) -> Option<BuildContributionId> {
+        self.contribution
     }
 }
 

@@ -1,52 +1,53 @@
+
 [[enums]]
 name = "AbilityKind"
-values = ["Basic", "Skill", "Ultimate", "Talent", "Technique", "EnhancedBasic", "EnhancedSkill", "FollowUp", "Counter", "Summon", "Memosprite", "Passive", "Entry", "Countdown"]
+values = [{ id = 0, name = "Basic" }, { id = 1, name = "Skill" }, { id = 2, name = "Ultimate" }, { id = 3, name = "Talent" }, { id = 4, name = "Technique" }, { id = 5, name = "EnhancedBasic" }, { id = 6, name = "EnhancedSkill" }, { id = 7, name = "FollowUp" }, { id = 8, name = "Counter" }, { id = 9, name = "Summon" }, { id = 10, name = "Memosprite" }, { id = 11, name = "Passive" }, { id = 12, name = "Entry" }, { id = 13, name = "Countdown" }]
 
 [[enums]]
 name = "TargetPattern"
-values = ["SingleTarget", "Blast", "Aoe", "Bounce", "Support", "Enhance", "None", "ContentDefined"]
+values = [{ id = 0, name = "SingleTarget" }, { id = 1, name = "Blast" }, { id = 2, name = "Aoe" }, { id = 3, name = "Bounce" }, { id = 4, name = "Support" }, { id = 5, name = "Enhance" }, { id = 6, name = "None" }, { id = 7, name = "ContentDefined" }]
 
 [[enums]]
 name = "RetargetPolicy"
-values = ["Locked", "CancelRemaining", "RetargetSameSide", "RecomputeEachHit"]
+values = [{ id = 0, name = "Locked" }, { id = 1, name = "CancelRemaining" }, { id = 2, name = "RetargetSameSide" }, { id = 3, name = "RecomputeEachHit" }]
 
 [[enums]]
 name = "AbilityPhaseKind"
-values = ["Entry", "BeforeHits", "Hits", "AfterHits", "Resolved"]
+values = [{ id = 0, name = "Entry" }, { id = 1, name = "BeforeHits" }, { id = 2, name = "Hits" }, { id = 3, name = "AfterHits" }, { id = 4, name = "Resolved" }]
 
 [[enums]]
 name = "ResourceKind"
-values = ["Energy", "SkillPoints", "Hp", "CharacterResource", "TeamResource"]
+values = [{ id = 0, name = "Energy" }, { id = 1, name = "SkillPoints" }, { id = 2, name = "Hp" }, { id = 3, name = "CharacterResource" }, { id = 4, name = "TeamResource" }]
 
 [[enums]]
 name = "ResourceDeltaKind"
-values = ["Spend", "Reserve", "Gain"]
+values = [{ id = 0, name = "Spend" }, { id = 1, name = "Reserve" }, { id = 2, name = "Gain" }]
 
 [[enums]]
 name = "ResourceTiming"
-values = ["CommandAccepted", "ActionStarted", "PerHit", "AbilityResolved", "ActionFinished"]
+values = [{ id = 0, name = "CommandAccepted" }, { id = 1, name = "ActionStarted" }, { id = 2, name = "PerHit" }, { id = 3, name = "AbilityResolved" }, { id = 4, name = "ActionFinished" }]
 
 [[enums]]
 name = "HitTargetGroup"
-values = ["Primary", "Adjacent", "Selected", "All", "BounceDraw", "SelfTarget"]
+values = [{ id = 0, name = "Primary" }, { id = 1, name = "Adjacent" }, { id = 2, name = "Selected" }, { id = 3, name = "All" }, { id = 4, name = "BounceDraw" }, { id = 5, name = "SelfTarget" }]
 
 [[enums]]
 name = "CritPolicy"
-values = ["PerTarget", "Shared", "Never"]
+values = [{ id = 0, name = "PerTarget" }, { id = 1, name = "Shared" }, { id = 2, name = "Never" }]
 
 [[enums]]
 name = "HitScalingStat"
-values = ["Atk", "Hp", "Def"]
+values = [{ id = 0, name = "Atk" }, { id = 1, name = "Hp" }, { id = 2, name = "Def" }]
 
 [[enums]]
 name = "HitDamageClass"
-values = ["Ordinary", "Dot", "Additional", "Elation"]
+values = [{ id = 0, name = "Ordinary" }, { id = 1, name = "Dot" }, { id = 2, name = "Additional" }, { id = 3, name = "Elation" }]
 
 [[enums]]
 name = "HitElement"
-values = ["Physical", "Fire", "Ice", "Lightning", "Wind", "Quantum", "Imaginary"]
-
+values = [{ id = 0, name = "Physical" }, { id = 1, name = "Fire" }, { id = 2, name = "Ice" }, { id = 3, name = "Lightning" }, { id = 4, name = "Wind" }, { id = 5, name = "Quantum" }, { id = 6, name = "Imaginary" }]
 [[tables]]
+id = "ability"
 name = "Ability"
 mode = "map"
 key = "id"
@@ -91,6 +92,7 @@ name = "entry_rule_identity_id"
 type = "optional<ref<ContentIdentity.id>>"
 
 [[tables]]
+id = "ability-resource-delta"
 name = "AbilityResourceDelta"
 mode = "list"
 
@@ -134,6 +136,7 @@ fields = ["ability_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "ability-level-parameter"
 name = "AbilityLevelParameter"
 mode = "list"
 
@@ -166,6 +169,7 @@ fields = ["ability_id", "effective_level", "parameter_key"]
 unique = true
 
 [[tables]]
+id = "ability-phase"
 name = "AbilityPhase"
 mode = "list"
 
@@ -196,6 +200,7 @@ fields = ["ability_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "hit-plan"
 name = "HitPlan"
 mode = "map"
 key = "id"
@@ -222,6 +227,7 @@ type = "i32"
 range = [1, 100]
 
 [[tables]]
+id = "hit-plan-hit"
 name = "HitPlanHit"
 mode = "list"
 
@@ -281,6 +287,7 @@ fields = ["hit_plan_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "ability-hit-plan-binding"
 name = "AbilityHitPlanBinding"
 mode = "list"
 

@@ -646,11 +646,11 @@ fn convert_metadata(
             stable_key: row.stable_key.clone().into_boxed_str(),
             kind: identity_kind(row.content_kind),
             enabled: row.enabled,
-            // Phase 0 assigned the frozen Goal 01 denominator the permanent
-            // transport IDs 1..=283. Runtime support identities may share a
-            // denominator content kind (for example a transformation-owned
-            // unit definition), but they are not additional manifest entries.
-            goal_category: (id <= 283)
+            // The original manifest identities own permanent IDs 1..=283;
+            // the two post-release forms were appended without renumbering.
+            // Runtime support identities may share a content kind but are not
+            // additional manifest entries.
+            goal_category: (id <= 283 || matches!(id, 1_160_001 | 1_160_002))
                 .then(|| GoalCoverageCategory::from_content_kind(row.content_kind))
                 .flatten(),
             coverage_state: GoalCoverageState::from_generated(row.coverage_state),

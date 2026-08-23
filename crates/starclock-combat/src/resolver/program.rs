@@ -2,6 +2,7 @@
 
 mod emission;
 pub(super) mod fault;
+mod operation_support;
 mod random_damage;
 mod random_grouped_effect;
 mod random_true_damage;
@@ -41,17 +42,18 @@ use crate::{
     modifier::{model::StatKind, resolve::StatResolver},
     operation::{
         AddWeaknessFromAlliedElementsOp, AddWeaknessOp, ChangePresenceOp, ConsumeHpOp,
-        CreateCountdownOp, DamageOp, DetonateDotsOp, ForceBreakOp, HitOperationScratch, Operation,
-        QueueRuleActionOp, ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, ShieldOp,
+        CreateCountdownOp, CreateToughnessLayerOp, DamageOp, DeductActionValueOp, DetonateDotsOp,
+        ForceBreakOp, HitOperationScratch, Operation, QueueRuleActionOp, ReduceMaximumHpOp,
+        ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, RemoveToughnessLayerOp, ShieldOp,
         SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
         model::{
-            ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause,
-            RuleDotSelection, RuleEmission, RuleEvaluationInput, RuleEventFacts, RuleEventKind,
-            RuleEventPoint, RuleOccurrence, RuleResourceKind, RuleValue, SelectorResult,
-            StateSlotUpdateKind,
+            ResourceMaximumUpdateKind, ResourceUpdateKind, RuleActionOwner,
+            RuleActionPaymentPolicy, RuleCause, RuleDotSelection, RuleEmission,
+            RuleEvaluationInput, RuleEventFacts, RuleEventKind, RuleEventPoint, RuleOccurrence,
+            RuleResourceKind, RuleValue, SelectorResult, StateSlotUpdateKind,
         },
     },
 };
@@ -60,9 +62,13 @@ pub(super) use emission::emission_targets;
 use emission::{emission_current_target, healing_operation, slot_operation};
 use fault::emission_code;
 pub(super) use fault::program_fault;
+use operation_support::{
+    queue_origin, queue_owner, queue_payment, replace_ability, shift_action, super_break,
+    toughness_reduction,
+};
 use random_damage::execute_random_repeated_damage;
 use random_grouped_effect::execute_random_grouped_effect;
-use resource::modify_resource;
+use resource::{modify_resource, modify_skill_point_maximum};
 use std::collections::BTreeMap;
 pub(super) use value::{non_negative_scalar, probability, ratio};
 use value::{scale, weakness_duration};
@@ -195,12 +201,12 @@ fn execute_program(
         turn_event: None,
         wave: txn.state.encounter.wave,
     };
-    let program = catalog
+    catalog
         .program(context.program)
         .ok_or_else(|| program_fault(1, i64::from(context.program.get())))?;
     let event_order = context.primary.into_iter().collect::<Vec<_>>();
     let mut owned: Vec<(SelectorId, Box<[UnitId]>)> = Vec::new();
-    for id in target::ordered_rule_selectors(catalog, program.selectors())? {
+    for id in target::ordered_program_rule_selectors(catalog, context.program)? {
         let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
             continue;
         };
@@ -227,6 +233,7 @@ fn execute_program(
         };
         let selection = txn.resolve_rule_selector(
             catalog,
+            id,
             selector,
             context.owner,
             context.actor,
@@ -280,9 +287,11 @@ pub(super) fn stat_bases(
     txn: &Transaction<'_>,
 ) -> Result<BTreeMap<(UnitId, StatKind), Scalar>, BattleFault> {
     use crate::modifier::model::StatKind::{
-        Atk, BreakBaseDamage, CritDamage, CritRate, DebuffDurationMultiplier, Def,
+        Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, DebuffDurationMultiplier, Def,
         DotDurationAddition, EffectHitRate, EffectResistance, EnergyRegenerationRate,
-        FreezeResistance, Hp, Spd, ToughnessDamage, ToughnessRecovery,
+        FireDamageBoost, FreezeResistance, Hp, IceDamageBoost, ImaginaryDamageBoost,
+        LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost, QuantumDamageBoost, Spd,
+        ToughnessDamage, ToughnessRecovery, WindDamageBoost,
     };
 
     let mut bases = BTreeMap::new();
@@ -305,17 +314,49 @@ pub(super) fn stat_bases(
             Scalar::from_scaled(unit.base_speed.scaled()),
         );
         let player = unit.side == TeamSide::Player;
+        let [
+            critical_rate,
+            critical_damage,
+            break_effect,
+            energy_regeneration,
+            outgoing_healing,
+        ] = unit.build_bonuses.secondary();
         bases.insert(
             (unit.id, CritRate),
-            Scalar::from_scaled(if player { 50_000 } else { 0 }),
+            Scalar::from_scaled(if player { 50_000 } else { 0 })
+                .checked_add(critical_rate)
+                .map_err(|_| program_fault(45, critical_rate.scaled()))?,
         );
         bases.insert(
             (unit.id, CritDamage),
-            Scalar::from_scaled(if player { 500_000 } else { 0 }),
+            Scalar::from_scaled(if player { 500_000 } else { 0 })
+                .checked_add(critical_damage)
+                .map_err(|_| program_fault(46, critical_damage.scaled()))?,
         );
         bases.insert((unit.id, EffectHitRate), unit.base_effect_hit_rate);
         bases.insert((unit.id, EffectResistance), unit.base_effect_resistance);
-        bases.insert((unit.id, EnergyRegenerationRate), Scalar::ONE);
+        bases.insert((unit.id, BreakEffect), break_effect);
+        bases.insert(
+            (unit.id, EnergyRegenerationRate),
+            Scalar::ONE
+                .checked_add(energy_regeneration)
+                .map_err(|_| program_fault(47, energy_regeneration.scaled()))?,
+        );
+        bases.insert((unit.id, OutgoingHealing), outgoing_healing);
+        for (stat, value) in [
+            PhysicalDamageBoost,
+            FireDamageBoost,
+            IceDamageBoost,
+            LightningDamageBoost,
+            WindDamageBoost,
+            QuantumDamageBoost,
+            ImaginaryDamageBoost,
+        ]
+        .into_iter()
+        .zip(unit.build_bonuses.element_damage_boosts())
+        {
+            bases.insert((unit.id, stat), value);
+        }
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
         bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
         bases.insert((unit.id, ToughnessRecovery), Scalar::ONE);
@@ -624,6 +665,28 @@ fn execute_emission(
                     minimum_hp: 0,
                 })
             }
+            RuleEmission::NonlethalTrueDamage {
+                selector, amount, ..
+            } => {
+                let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+                let formula = OrdinaryDamageDefinition::new(
+                    amount,
+                    OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                        .expect("neutral multipliers are valid"),
+                )
+                .map_err(|_| program_fault(80, amount.scaled()))?
+                .with_class(DamageClass::Additional);
+                Operation::Damage(DamageOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    formula,
+                    element: None,
+                    crit_policy: HitCritPolicy::Never,
+                    apply_source_modifiers: false,
+                    ultimate_semantics: false,
+                    minimum_hp: 1,
+                })
+            }
             RuleEmission::Heal {
                 selector,
                 amount,
@@ -687,6 +750,32 @@ fn execute_emission(
                     definition: HpConsumptionDefinition::new(requested, floor),
                 })
             }
+            RuleEmission::ReduceMaximumHp {
+                selector,
+                amount,
+                minimum_ratio,
+                ..
+            } => {
+                let reduction = Hp::from_scalar(non_negative_scalar(amount)?, Rounding::Floor)
+                    .map_err(|_| program_fault(89, 0))?;
+                let minimum_ratio = non_negative_scalar(minimum_ratio)?;
+                if minimum_ratio > Scalar::ONE {
+                    return Err(program_fault(90, minimum_ratio.scaled()));
+                }
+                Operation::ReduceMaximumHp(ReduceMaximumHpOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    reduction,
+                    minimum_ratio,
+                })
+            }
+            RuleEmission::DeductActionValue { amount, .. } => {
+                let amount = non_negative_scalar(amount)?;
+                Operation::DeductActionValue(DeductActionValueOp {
+                    id: operation_id,
+                    amount_scaled: amount.scaled(),
+                })
+            }
             RuleEmission::AddWeakness {
                 selector,
                 element,
@@ -713,6 +802,34 @@ fn execute_emission(
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 count,
                 duration_turns,
+            }),
+            RuleEmission::CreateToughnessLayer {
+                selector,
+                layer_key,
+                maximum,
+                ..
+            } => {
+                let maximum_scalar = non_negative_scalar(maximum)?;
+                let maximum = RawToughness::from_scalar(maximum_scalar, Rounding::Floor)
+                    .map_err(|_| program_fault(68, maximum_scalar.scaled()))?;
+                if maximum.get() == 0 {
+                    return Err(program_fault(68, 0));
+                }
+                Operation::CreateToughnessLayer(CreateToughnessLayerOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    stable_key: layer_key,
+                    maximum,
+                })
+            }
+            RuleEmission::RemoveToughnessLayer {
+                selector,
+                layer_key,
+                ..
+            } => Operation::RemoveToughnessLayer(RemoveToughnessLayerOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                stable_key: layer_key,
             }),
             RuleEmission::ReduceToughness {
                 selector,
@@ -968,6 +1085,21 @@ fn execute_emission(
                     rounding,
                 );
             }
+            RuleEmission::ModifySkillPointMaximum {
+                selector,
+                update,
+                amount,
+                ..
+            } => {
+                return modify_skill_point_maximum(
+                    txn,
+                    cause,
+                    parent,
+                    emission_targets(catalog, resolved, selector, current_target)?,
+                    update,
+                    amount,
+                );
+            }
             RuleEmission::ChangePresence {
                 selector, presence, ..
             } => Operation::ChangePresence(ChangePresenceOp {
@@ -983,7 +1115,7 @@ fn execute_emission(
                 owner_selector,
                 unit_definition,
                 ..
-            } => Operation::SummonLinked(SummonLinkedOp {
+            } => Operation::SummonLinked(Box::new(SummonLinkedOp {
                 id: operation_id,
                 owners: emission_targets(catalog, resolved, owner_selector, current_target)?,
                 definition: catalog
@@ -991,7 +1123,7 @@ fn execute_emission(
                     .ok_or_else(|| program_fault(49, i64::from(unit_definition.get())))?
                     .definition()
                     .clone(),
-            }),
+            })),
             RuleEmission::Transform {
                 selector,
                 replacement_definition,
@@ -1058,172 +1190,4 @@ fn execute_emission(
             unsupported => return Err(program_fault(12, emission_code(&unsupported))),
         };
     execute_operation(catalog, txn, cause, parent, request, scratch)
-}
-
-fn queue_owner(
-    cause: Cause,
-    context: &AbilityProgramContext,
-    owner: RuleActionOwner,
-) -> Result<UnitId, BattleFault> {
-    match owner {
-        RuleActionOwner::Actor => Some(context.actor),
-        RuleActionOwner::CauseOwner => cause.owner(),
-        RuleActionOwner::CauseApplier => cause.applier(),
-    }
-    .ok_or_else(|| program_fault(54, 0))
-}
-
-fn queue_payment(
-    txn: &Transaction<'_>,
-    owner: UnitId,
-    payment: Option<RuleActionPaymentPolicy>,
-) -> Result<Option<SkillPointPaymentPolicy>, BattleFault> {
-    payment
-        .map(|payment| match payment {
-            RuleActionPaymentPolicy::TeamSkillPoints => {
-                Ok(SkillPointPaymentPolicy::TeamSkillPoints)
-            }
-            RuleActionPaymentPolicy::Suppressed => Ok(SkillPointPaymentPolicy::Suppressed),
-            RuleActionPaymentPolicy::TeamResource(stable_key) => {
-                let side = txn
-                    .state
-                    .units
-                    .get(owner)
-                    .ok_or_else(|| program_fault(55, 0))?
-                    .side;
-                let id = txn
-                    .state
-                    .teams
-                    .get(side)
-                    .keyed_by_name(&stable_key)
-                    .ok_or_else(|| program_fault(55, 1))?
-                    .id;
-                Ok(SkillPointPaymentPolicy::TeamResource(id))
-            }
-        })
-        .transpose()
-}
-
-fn queue_origin(
-    catalog: &CombatCatalog,
-    ability: AbilityId,
-    forced: bool,
-) -> Result<ActionOrigin, BattleFault> {
-    if forced {
-        return Ok(ActionOrigin::Forced);
-    }
-    let kind = catalog
-        .ability(ability)
-        .and_then(AbilityDefinition::action)
-        .map(AbilityActionDefinition::kind)
-        .ok_or_else(|| program_fault(56, i64::from(ability.get())))?;
-
-    use crate::{ActionOrigin as O, catalog::action::AbilityKind as K};
-    match kind {
-        K::Ultimate => Some(O::UltimateInterrupt),
-        K::FollowUp => Some(O::FollowUp),
-        K::Counter => Some(O::Counter),
-        K::ExtraTurn => Some(O::ExtraTurn),
-        K::ExtraAction => Some(O::ExtraAction),
-        K::DelayedAction => Some(O::DelayedAction),
-        K::Summon => Some(O::SummonAction),
-        K::Memosprite => Some(O::MemospriteAction),
-        K::Countdown => Some(O::Countdown),
-        K::Basic | K::Skill => None,
-    }
-    .ok_or_else(|| program_fault(57, i64::from(ability.get())))
-}
-
-fn shift_action(
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    parent: EventId,
-    targets: Box<[UnitId]>,
-    amount: RuleValue,
-    advance: bool,
-) -> Result<EventId, BattleFault> {
-    program_timeline::shift_actions(txn, cause, parent, targets, ratio(amount)?, advance)
-}
-
-fn replace_ability(
-    catalog: &CombatCatalog,
-    txn: &mut Transaction<'_>,
-    targets: Box<[UnitId]>,
-    old: AbilityId,
-    new: AbilityId,
-    parent: EventId,
-) -> Result<EventId, BattleFault> {
-    if catalog.ability(new).is_none() {
-        return Err(program_fault(29, i64::from(new.get())));
-    }
-    for target in targets {
-        let state = txn
-            .state
-            .units
-            .get(target)
-            .cloned()
-            .ok_or_else(|| program_fault(30, 0))?;
-        let mut abilities = state.abilities.into_vec();
-        if let Ok(index) = abilities.binary_search(&old) {
-            abilities[index] = new;
-            abilities.sort_unstable();
-            abilities.dedup();
-        }
-        txn.set_unit_definition(
-            target,
-            state.form,
-            abilities.into_boxed_slice(),
-            state.presence,
-            state.transformation,
-        )?;
-    }
-    Ok(parent)
-}
-
-fn toughness_reduction(element: CombatElement, base: RawToughness) -> ToughnessReductionDefinition {
-    ToughnessReductionDefinition {
-        element,
-        ignores_weakness: false,
-        reduction: ToughnessReductionContext {
-            base,
-            additive: RawToughness::new(0).expect("zero is valid"),
-            reduction_increase: Ratio::ZERO,
-            weakness_break_efficiency: Ratio::ZERO,
-            weakness_break_efficiency_cap: Ratio::from_scaled(3_000_000),
-            toughness_vulnerability: Ratio::ZERO,
-            ability_multiplier: Ratio::ONE,
-        },
-        break_damage: BreakDamageDefinition {
-            attacker_level_multiplier: Scalar::ONE,
-            ability_multiplier: Ratio::ONE,
-            break_effect: Ratio::ZERO,
-            break_damage_increase: Ratio::ZERO,
-            defense_multiplier: Ratio::ONE,
-            resistance_multiplier: Ratio::ONE,
-            vulnerability_multiplier: Ratio::ONE,
-            mitigation_multiplier: Ratio::ONE,
-            unbroken_multiplier: Ratio::ONE,
-        },
-        break_effect_chance: Probability::ONE,
-    }
-}
-
-fn super_break(
-    _context: &AbilityProgramContext,
-    multiplier: Ratio,
-    element: CombatElement,
-) -> SuperBreakDefinition {
-    SuperBreakDefinition {
-        element,
-        attacker_level_multiplier: Scalar::ONE,
-        ability_multiplier: multiplier,
-        break_effect: Ratio::ZERO,
-        break_damage_increase: Ratio::ZERO,
-        super_break_increase: Ratio::ZERO,
-        defense_multiplier: Ratio::ONE,
-        resistance_multiplier: Ratio::ONE,
-        vulnerability_multiplier: Ratio::ONE,
-        mitigation_multiplier: Ratio::ONE,
-        broken_multiplier: Ratio::ONE,
-    }
 }

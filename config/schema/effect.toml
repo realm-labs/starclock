@@ -1,28 +1,29 @@
+
 [[enums]]
 name = "EffectCategory"
-values = ["Buff", "Debuff", "Control", "Dot", "Mark", "Field", "Shield", "NeutralState"]
+values = [{ id = 0, name = "Buff" }, { id = 1, name = "Debuff" }, { id = 2, name = "Control" }, { id = 3, name = "Dot" }, { id = 4, name = "Mark" }, { id = 5, name = "Field" }, { id = 6, name = "Shield" }, { id = 7, name = "NeutralState" }]
 
 [[enums]]
 name = "DispelCategory"
-values = ["DispellableBuff", "DispellableDebuff", "CleanseableControl", "NonDispellable"]
+values = [{ id = 0, name = "DispellableBuff" }, { id = 1, name = "DispellableDebuff" }, { id = 2, name = "CleanseableControl" }, { id = 3, name = "NonDispellable" }]
 
 [[enums]]
 name = "EffectStackPolicy"
-values = ["Replace", "Refresh", "RefreshAndAddStacks", "StrongestWins", "IndependentBySource", "IndependentInstances", "UniqueGlobal", "UniquePerSource"]
+values = [{ id = 0, name = "Replace" }, { id = 1, name = "Refresh" }, { id = 2, name = "RefreshAndAddStacks" }, { id = 3, name = "StrongestWins" }, { id = 4, name = "IndependentBySource" }, { id = 5, name = "IndependentInstances" }, { id = 6, name = "UniqueGlobal" }, { id = 7, name = "UniquePerSource" }]
 
 [[enums]]
 name = "DurationClock"
-values = ["Permanent", "OwnerTurnStart", "OwnerTurnEnd", "TargetTurnStart", "TargetTurnEnd", "ActionEnd", "WaveEnd", "BattleEnd"]
+values = [{ id = 0, name = "Permanent" }, { id = 1, name = "OwnerTurnStart" }, { id = 2, name = "OwnerTurnEnd" }, { id = 3, name = "TargetTurnStart" }, { id = 4, name = "TargetTurnEnd" }, { id = 5, name = "ActionEnd" }, { id = 6, name = "WaveEnd" }, { id = 7, name = "BattleEnd" }]
 
 [[enums]]
 name = "EffectTickPhase"
-values = ["None", "TurnStart", "TurnEnd", "ActionStart", "ActionEnd", "AfterEvent"]
+values = [{ id = 0, name = "None" }, { id = 1, name = "TurnStart" }, { id = 2, name = "TurnEnd" }, { id = 3, name = "ActionStart" }, { id = 4, name = "ActionEnd" }, { id = 5, name = "AfterEvent" }]
 
 [[enums]]
 name = "EffectTeardownPolicy"
-values = ["RemoveWithOwner", "TransferToTeam", "FreezeSnapshot", "PersistByScope", "ExplicitRule"]
-
+values = [{ id = 0, name = "RemoveWithOwner" }, { id = 1, name = "TransferToTeam" }, { id = 2, name = "FreezeSnapshot" }, { id = 3, name = "PersistByScope" }, { id = 4, name = "ExplicitRule" }]
 [[tables]]
+id = "effect"
 name = "Effect"
 mode = "map"
 key = "id"
@@ -90,6 +91,7 @@ type = "i32"
 range = [-1000000, 1000000]
 
 [[tables]]
+id = "effect-tag"
 name = "EffectTag"
 mode = "list"
 
@@ -122,6 +124,7 @@ fields = ["effect_id", "tag"]
 unique = true
 
 [[tables]]
+id = "effect-modifier-binding"
 name = "EffectModifierBinding"
 mode = "list"
 
@@ -153,6 +156,7 @@ fields = ["effect_id", "modifier_id"]
 unique = true
 
 [[tables]]
+id = "effect-rule-binding"
 name = "EffectRuleBinding"
 mode = "list"
 
@@ -184,6 +188,7 @@ fields = ["effect_id", "rule_id"]
 unique = true
 
 [[tables]]
+id = "effect-granted-ability"
 name = "EffectGrantedAbility"
 mode = "list"
 

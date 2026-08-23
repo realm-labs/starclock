@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsRosterTransactions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            operation: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            price_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_state_changes: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            operation: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            price_rule: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            eligibility: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            ordered_state_changes: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

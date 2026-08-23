@@ -7,6 +7,8 @@ import { spawnSync } from "node:child_process";
 const root = path.resolve(process.argv[2] ?? ".");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 const sora = path.join(root, policy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
+const python = process.env.STARCLOCK_PYTHON
+  ?? "/Users/mikai/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3";
 const project = path.join(root, "config", "universe-project.toml");
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-universe-fixture-"));
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
@@ -23,7 +25,7 @@ function build(name, mode) {
   const data = path.join(temporary, `${name}-data`);
   const bundle = path.join(temporary, `${name}.sora`);
   const debug = path.join(temporary, `${name}-debug`);
-  run("python", ["tools/universe-reference/fixture_workbooks.py", "--root", root, "--output", data, "--mode", mode]);
+  run(python, ["tools/universe-reference/fixture_workbooks.py", "--root", root, "--output", data, "--mode", mode]);
   run(sora, ["--serial", "export", "--format", "binary", "--project", project, "--data-root", data, "--out", bundle]);
   run(sora, ["--serial", "export", "--format", "json-debug", "--project", project, "--data-root", data, "--out", debug]);
   return { bundle, debug };

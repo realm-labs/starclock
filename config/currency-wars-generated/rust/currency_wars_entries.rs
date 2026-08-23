@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsEntries {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            entry_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            module_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            unlock_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            gambit_mode_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            entry_kind: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            module_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            unlock_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            gambit_mode_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

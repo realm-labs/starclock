@@ -1,31 +1,31 @@
+
 [[enums]]
 name = "ActivityNodeKind"
-values = ["Battle", "Terminal"]
+values = [{ id = 0, name = "Battle" }, { id = 1, name = "Terminal" }]
 
 [[enums]]
 name = "ActivityTerminalOutcome"
-values = ["Complete", "Failed", "Faulted"]
+values = [{ id = 0, name = "Complete" }, { id = 1, name = "Failed" }, { id = 2, name = "Faulted" }]
 
 [[enums]]
 name = "ActivityEdgeCondition"
-values = ["BattleWon", "BattleLost", "BattleFaulted"]
+values = [{ id = 0, name = "BattleWon" }, { id = 1, name = "BattleLost" }, { id = 2, name = "BattleFaulted" }]
 
 [[enums]]
 name = "ParticipantUniquenessScope"
-values = ["Team", "Node", "Section", "Activity"]
+values = [{ id = 0, name = "Team" }, { id = 1, name = "Node" }, { id = 2, name = "Section" }, { id = 3, name = "Activity" }]
 
 [[enums]]
 name = "LoadoutLockScope"
-values = ["Activity", "Section", "Node", "Attempt"]
+values = [{ id = 0, name = "Activity" }, { id = 1, name = "Section" }, { id = 2, name = "Node" }, { id = 3, name = "Attempt" }]
 
 [[enums]]
 name = "ParticipantSourceKind"
-values = ["CompiledBuild", "FixedResolved", "Trial", "Synthetic"]
+values = [{ id = 0, name = "CompiledBuild" }, { id = 1, name = "FixedResolved" }, { id = 2, name = "Trial" }, { id = 3, name = "Synthetic" }]
 
 [[enums]]
 name = "ResultMetricValueKind"
-values = ["BoundedInteger", "FixedScalar", "Ratio", "Probability", "ActionValue"]
-
+values = [{ id = 0, name = "BoundedInteger" }, { id = 1, name = "FixedScalar" }, { id = 2, name = "Ratio" }, { id = 3, name = "Probability" }, { id = 4, name = "ActionValue" }]
 [[unions]]
 name = "BattleResultProjectionFieldNode"
 tag = "type"
@@ -53,6 +53,7 @@ name = "value_kind"
 type = "enum<ResultMetricValueKind>"
 
 [[tables]]
+id = "activity-definition"
 name = "ActivityDefinition"
 mode = "map"
 key = "id"
@@ -71,6 +72,7 @@ type = "i32"
 range = [1, 100000]
 
 [[tables]]
+id = "activity-section"
 name = "ActivitySection"
 mode = "map"
 key = "id"
@@ -105,6 +107,7 @@ fields = ["activity_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "activity-node"
 name = "ActivityNode"
 mode = "map"
 key = "id"
@@ -138,6 +141,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "activity-edge"
 name = "ActivityEdge"
 mode = "map"
 key = "id"
@@ -182,6 +186,7 @@ fields = ["source_node_id", "priority"]
 unique = true
 
 [[tables]]
+id = "activity-slot"
 name = "ActivitySlot"
 mode = "map"
 key = "id"
@@ -223,6 +228,7 @@ name = "persistence"
 type = "enum<SlotPersistence>"
 
 [[tables]]
+id = "activity-slot-reset"
 name = "ActivitySlotReset"
 mode = "list"
 [tables.source]
@@ -244,6 +250,7 @@ fields = ["slot_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "participant-policy"
 name = "ParticipantPolicy"
 mode = "map"
 key = "id"
@@ -288,6 +295,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "battle-result-projection"
 name = "BattleResultProjection"
 mode = "map"
 key = "id"
@@ -308,6 +316,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "battle-result-projection-field"
 name = "BattleResultProjectionField"
 mode = "list"
 [tables.source]
@@ -329,6 +338,7 @@ fields = ["projection_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "battle-binding"
 name = "BattleBinding"
 mode = "map"
 key = "id"
@@ -377,6 +387,7 @@ fields = ["node_id"]
 unique = false
 
 [[tables]]
+id = "battle-binding-rule"
 name = "BattleBindingRule"
 mode = "list"
 [tables.source]
@@ -398,6 +409,7 @@ fields = ["battle_binding_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "battle-participant-slot"
 name = "BattleParticipantSlot"
 mode = "list"
 [tables.source]

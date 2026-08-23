@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsEnemyAffixes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rank_bounds: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            difficulty_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            battle_contributions: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            rank_bounds: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            difficulty_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            battle_contributions: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

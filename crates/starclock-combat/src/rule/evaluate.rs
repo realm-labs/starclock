@@ -1,3 +1,4 @@
+//! Line-limit exception: the budgeted pure Rule IR evaluator stays exhaustive in one owner.
 //! Deterministic, budgeted and mutation-free Rule IR evaluation.
 mod arithmetic;
 mod event_property;
@@ -14,7 +15,7 @@ use crate::{
     AbilityId, EffectCategory, EffectDefinitionId, EventId, LifeState, PresenceState, ProgramId,
     RuleId, Scalar, SourceDefinitionId, UnitId,
     formula::{model::CombatElement, toughness::EnemyRank},
-    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
+    modifier::model::{FormulaPurpose, FormulaStage, StatKind, StatQuerySubject},
 };
 use arithmetic::{Arithmetic, arithmetic, convert, extremum};
 use event_property::event_property;
@@ -48,6 +49,14 @@ pub trait StatQueryReader {
         purpose: FormulaPurpose,
     ) -> Result<Scalar, RuleEvaluationError>;
 
+    fn query_formula_stage(
+        &self,
+        origin: StatQuerySubject,
+        subject: UnitId,
+        stage: FormulaStage,
+        purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError>;
+
     /// Reads the authored stat base without applying any modifier stage.
     fn query_base_stat(
         &self,
@@ -77,6 +86,9 @@ pub trait BattleQueryReader {
     fn is_frozen(&self, subject: UnitId) -> bool;
     fn has_weakness(&self, subject: UnitId, element: CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
+    fn is_highest_damage_dealer(&self, _subject: UnitId) -> bool {
+        false
+    }
     fn enemy_rank(&self, _subject: UnitId) -> Option<EnemyRank> {
         None
     }
@@ -516,6 +528,13 @@ fn evaluate_operation(
             amount: evaluate_value(amount, input, current_target)?,
             current_target,
         },
+        RuleOperationTemplate::NonlethalTrueDamage { selector, amount } => {
+            RuleEmission::NonlethalTrueDamage {
+                selector: *selector,
+                amount: evaluate_value(amount, input, current_target)?,
+                current_target,
+            }
+        }
         RuleOperationTemplate::Heal {
             selector,
             amount,
@@ -549,6 +568,16 @@ fn evaluate_operation(
             selector: *selector,
             amount: evaluate_value(amount, input, current_target)?,
             floor: evaluate_value(floor, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::ReduceMaximumHp {
+            selector,
+            amount,
+            minimum_ratio,
+        } => RuleEmission::ReduceMaximumHp {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            minimum_ratio: evaluate_value(minimum_ratio, input, current_target)?,
             current_target,
         },
         RuleOperationTemplate::ReduceToughness {
@@ -623,6 +652,20 @@ fn evaluate_operation(
             amount: evaluate_value(amount, input, current_target)?,
             scales_with_regeneration: *scales_with_regeneration,
             rounding: *rounding,
+            current_target,
+        },
+        RuleOperationTemplate::ModifySkillPointMaximum {
+            selector,
+            update,
+            amount,
+        } => RuleEmission::ModifySkillPointMaximum {
+            selector: *selector,
+            update: *update,
+            amount: evaluate_value(amount, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::DeductActionValue { amount } => RuleEmission::DeductActionValue {
+            amount: evaluate_value(amount, input, current_target)?,
             current_target,
         },
         RuleOperationTemplate::ApplyEffect {
@@ -967,6 +1010,12 @@ pub fn evaluate_condition(
         ConditionExpr::CurrentTargetIsBroken => {
             require_current_target_broken(input, current_target)?
         }
+        ConditionExpr::HighestDamageDealer(subject) => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .is_some_and(|reader| reader.is_highest_damage_dealer(subject))
+        }
         ConditionExpr::EnemyRank(selector, rank) => selector_units(input, *selector)
             .ok_or(RuleEvaluationError {
                 kind: RuleEvaluationErrorKind::MissingValue,
@@ -1085,6 +1134,22 @@ pub fn evaluate_value(
                     context: 0x201,
                 })?
                 .query_stat(origin, subject, *stat, *purpose)
+                .map(RuleValue::Scalar)
+        }
+        ValueExpr::QueryFormulaStage {
+            subject,
+            stage,
+            purpose,
+        } => {
+            let origin = *subject;
+            let subject = query_subject(origin, input, current_target)?;
+            input
+                .stat_reader
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x201,
+                })?
+                .query_formula_stage(origin, subject, *stage, *purpose)
                 .map(RuleValue::Scalar)
         }
         ValueExpr::QueryBaseStat { subject, stat } => {

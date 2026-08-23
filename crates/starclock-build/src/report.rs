@@ -2,7 +2,7 @@
 
 use starclock_combat::{SourceDefinitionId, UnitDefinitionId, UnitLevel};
 
-use crate::id::{EidolonDefinitionId, LightConeId, TraceNodeId};
+use crate::id::{BuildContributionId, EidolonDefinitionId, LightConeId, TraceNodeId};
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
@@ -14,8 +14,10 @@ pub enum BuildValidationStage {
     TraceSelection = 4,
     EidolonSelection = 5,
     LightConeSelection = 6,
-    CombatBindings = 7,
-    CombatantConstruction = 8,
+    ContributionSelection = 7,
+    RelicSelection = 8,
+    CombatBindings = 9,
+    CombatantConstruction = 10,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -139,4 +141,5 @@ pub enum BuildSourceOwner {
     Trace(TraceNodeId),
     Eidolon(EidolonDefinitionId),
     LightCone(LightConeId),
+    Contribution(BuildContributionId),
 }

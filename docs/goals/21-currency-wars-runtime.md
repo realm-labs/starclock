@@ -40,12 +40,12 @@ Goal 12 remains the factual prerequisite. Its current-tree denominators are:
 | Source obligations | 19,250 |
 | Currency Wars obligations | 18,524 |
 | Evidence-only obligations | 726 |
-| Normalized families | 102 |
-| Production Sora tables | 102 |
-| Authored/exported rows | 74,850 |
+| Normalized families | 111 |
+| Production Sora tables | 111 |
+| Authored/exported rows | 78,607 |
 | Mechanic programs | 2,367 |
-| Battle-visible or battle-boundary programs | 1,846 |
-| Cross-battle Activity programs | 521 |
+| Battle-visible or battle-boundary programs | 1,847 |
+| Cross-battle Activity programs | 520 |
 | Semantic fixture families | 28 |
 | Explicit policy gaps | 12 |
 | Routes / nodes | 26 / 493 |
@@ -55,6 +55,11 @@ Goal 12 remains the factual prerequisite. Its current-tree denominators are:
 `G21-P0-B2` must regenerate these values from current authoritative inputs and
 fail if they drift. This document does not authorize shrinking a denominator
 to match the implementation.
+
+The scope split was corrected during `G21-P5-A10`: the released
+`GlobalTaskListTemplate_GridFight` contains battle targets, wave/alive-state
+predicates and modifier operations, so it is battle-owned rather than an
+Activity entity program. The total 2,367-program denominator is unchanged.
 
 ### Sora 0.6.1 prerequisite
 
@@ -285,7 +290,7 @@ number. `G21-P0-B3` freezes the real count before broad implementation begins.
 
 | Batch | Deliverable |
 |---|---|
-| `G21-P1-B1` | Load and validate all 102 production tables and 74,850 rows through private generated readers; bind schema/config/component digests. |
+| `G21-P1-B1` | Load and validate all 111 production tables and the current 78,607 rows through private generated readers; bind schema/config/component digests. |
 | `G21-P1-B2` | Lower profile, Gambits, entries, finish conditions, 26 routes, 493 nodes, layers, rooms, domain compositions, carry/reset and rank progression. |
 | `G21-P1-B3` | Lower currencies, economy, offers, prices, Experience, team size, positions, roster transactions, star states and lifecycle rules. |
 | `G21-P1-B4` | Lower 77 role/build mappings, equipment, off-field conversions, Character Empowerment, 49 Bonds, levels and contributions. |
@@ -334,7 +339,7 @@ number. `G21-P0-B3` freezes the real count before broad implementation begins.
 | `G21-P5-B4` | Execute formula identity/recipe/progress/randomization/contribution families; preserve source-proven zero families as zero rather than inventing content. |
 | `G21-P5-B5` | Execute Occurrence variants/choices/costs/outcomes and explicit external-result boundaries. |
 | `G21-P5-B6` | Execute shops, service offers, workbenches, gamble/curse/Hex/Curio families and proven empty-pool fallbacks without importing unrelated Universe content. |
-| `G21-P5-Axx` | Generated ordered partitions for all 521 cross-battle Activity programs. Each partition lowers and executes its assigned source programs with exact-once receipts. |
+| `G21-P5-Axx` | Generated ordered partitions for all 520 cross-battle Activity programs. Each partition lowers and executes its assigned source programs with exact-once receipts. |
 
 ### Phase 6 — Encounters, battle assembly and battle-visible programs
 
@@ -345,7 +350,7 @@ number. `G21-P0-B3` freezes the real count before broad implementation begins.
 | `G21-P6-B3` | Implement the production Currency Wars BattleSpec assembler and bounded cache over the current Activity contribution snapshot. |
 | `G21-P6-B4` | Execute battle-result projection, Squad HP/action-value settlement, rewards, carry and the next-node transition atomically. |
 | `G21-P6-B5` | Prove rejected/stale assembly and settlement preserve Activity/Battle state, RNG and cache semantics; verify replay reconstruction of transition battles. |
-| `G21-P6-Mxx` | Generated ordered partitions for all 1,846 battle-visible or battle-boundary programs, including production execution fixtures and exact-once receipts. |
+| `G21-P6-Mxx` | Generated ordered partitions for all 1,847 battle-visible or battle-boundary programs, including production execution fixtures and exact-once receipts. |
 
 ### Phase 7 — Complete runs, replay and adapters
 
@@ -455,7 +460,7 @@ iteration.
 
 - Goal 12 inputs and all current denominators regenerate without drift.
 - Production runtime loads no JSON, workbook or raw source program.
-- All 102 Sora tables and 74,850 current rows are privately validated and
+- All 102 Sora tables and 74,852 current rows are privately validated and
   lowered according to their generated dispositions.
 - All 19,250 source obligations and 2,367 mechanic programs have exact-once
   terminal runtime dispositions with no `Blocked`, `Pending`, `CatalogOnly` or

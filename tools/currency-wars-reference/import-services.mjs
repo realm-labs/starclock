@@ -161,26 +161,44 @@ for (const entry of items) {
 }
 
 const specialGoods = await context.table("GridFightSpecialGoods");
+const cyreneThreeStarGoods = new Set(["201", "202", "203", "204", "205"]);
+const cyrenePoemEvidence = {
+  source_id: "source.currency-wars.public.cyrene-poems.bwiki.oldid-95782",
+  repository: "https://wiki.biligame.com/sr/",
+  revision: "oldid=95782",
+  path: "index.php?title=货币战争/羁绊/挚爱之人&oldid=95782",
+  locator: "昔涟的诗篇 table",
+  sha256: "64e00d1cb8ac8bfd6f0d78a156a97f80103703affc6202114f8e7d3dc54ff162",
+  access_date: "2026-08-19",
+  game_version: "4.4",
+  evidence_quality: "ExactPublicText",
+  mechanism_quality: "DirectReleasedText",
+  note: "Public released-game table distinguishes zero-cost shop Poems from the five automatic three-star Cyrene effects and states the one-purchase-per-node rule.",
+};
 for (const entry of specialGoods) {
   const row = entry.row;
   const id = String(row.ID);
+  const threeStarReward = cyreneThreeStarGoods.has(id);
+  const metadata = envelope(entry, {
+    id: `currency-wars.shop-service.special-good.${id}`,
+    kind: "CurrencyWarsShopService",
+    nameEn: display(row.GoodName, "en", `Special Good ${id}`),
+    nameZh: display(row.GoodName, "zh_cn", `特殊商品 ${id}`),
+    summaryEn:
+      `Special Good ${id} belongs to group ${row.GroupID}, quality ${row.Quality}, ${threeStarReward ? "is granted by three-star Cyrene" : `costs ${row.Cost ?? 0}`} and references one mode-owned configuration.`,
+    summaryZh:
+      `特殊商品 ${id} 属于组 ${row.GroupID}、品质 ${row.Quality}，${threeStarReward ? "由三星昔涟直接授予" : `消耗 ${row.Cost ?? 0}`}，并引用一条玩法专属配置。`,
+    textFields: [row.GoodName, row.GoodDesc],
+    tags: ["special-good"],
+  });
   shopServices.push({
-    ...envelope(entry, {
-      id: `currency-wars.shop-service.special-good.${id}`,
-      kind: "CurrencyWarsShopService",
-      nameEn: display(row.GoodName, "en", `Special Good ${id}`),
-      nameZh: display(row.GoodName, "zh_cn", `特殊商品 ${id}`),
-      summaryEn:
-        `Special Good ${id} belongs to group ${row.GroupID}, quality ${row.Quality}, costs ${row.Cost ?? "no authored amount"} and references one mode-owned configuration.`,
-      summaryZh:
-        `特殊商品 ${id} 属于组 ${row.GroupID}、品质 ${row.Quality}，消耗 ${row.Cost ?? "未编写数值"}，并引用一条玩法专属配置。`,
-      textFields: [row.GoodName, row.GoodDesc],
-      tags: ["special-good"],
-    }),
+    ...metadata,
+    source_refs: [...metadata.source_refs, cyrenePoemEvidence],
     source_id: id,
     service_kind: "SpecialGood",
     price_rule: {
-      amount: String(row.Cost ?? ""),
+      acquisition_kind: threeStarReward ? "CyreneThreeStar" : "ShopPurchase",
+      amount: threeStarReward ? "" : String(row.Cost ?? 0),
       currency: "RunLocalSpecialGoodCost",
     },
     inventory_rule: {
@@ -189,7 +207,9 @@ for (const entry of specialGoods) {
       config_path: row.JsonPath,
       effect_parameters: normalize(row.EffectParamList),
     },
-    refresh_rule: "AuthoredByOwningSelectionProgram",
+    refresh_rule: threeStarReward
+      ? "GrantedImmediatelyByCyreneThreeStar"
+      : "AuthoredByOwningSelectionProgramWithOnePurchasePerNode",
   });
 }
 

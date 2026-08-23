@@ -5763,6 +5763,178 @@
     "quality": "ExactStructured"
   },
   {
+    "id": "character.gilgamesh.eidolon.1",
+    "character_id": "character.gilgamesh",
+    "rank": 1,
+    "name_en": "He Who Saw the Deep",
+    "name_zh_cn": "见证一切之人",
+    "source_rank_ids": [
+      "150901"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "efcbb7cf5d6f66c2d1c24b68a982c86590b7754455278e716ccc6c1a2ee39904",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.eidolon.2",
+    "character_id": "character.gilgamesh",
+    "rank": 2,
+    "name_en": "Wisdom That Encompassed All",
+    "name_zh_cn": "通晓万物之智",
+    "source_rank_ids": [
+      "150902"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "Blast",
+      "operation_tags": [
+        "buff",
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "d3ea4a11886eeb4b4b76944f7487d182cae1dae4d81df4c5243c42a5eb24012e",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.eidolon.3",
+    "character_id": "character.gilgamesh",
+    "rank": 3,
+    "name_en": "Journey That Spanned Far",
+    "name_zh_cn": "跋涉千里之旅",
+    "source_rank_ids": [
+      "150903"
+    ],
+    "parameters": [],
+    "skill_level_additions": [
+      {
+        "source_skill_id": "150902",
+        "levels": 2
+      },
+      {
+        "source_skill_id": "150901",
+        "levels": 1
+      }
+    ],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "323e0467442ca319866a71301824b3be50beb42c0a5b3f505c1490382ed37c53",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.eidolon.4",
+    "character_id": "character.gilgamesh",
+    "rank": 4,
+    "name_en": "King Who Bowed to None",
+    "name_zh_cn": "唯我独尊之王",
+    "source_rank_ids": [
+      "150904"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "de05aa0330fc537ca8cd0fec8051cfa1e111a673f3232e6fa00438b800880458",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.eidolon.5",
+    "character_id": "character.gilgamesh",
+    "rank": 5,
+    "name_en": "Sword That Parted Gods from Man",
+    "name_zh_cn": "人神诀别之剑",
+    "source_rank_ids": [
+      "150905"
+    ],
+    "parameters": [],
+    "skill_level_additions": [
+      {
+        "source_skill_id": "150903",
+        "levels": 2
+      },
+      {
+        "source_skill_id": "150904",
+        "levels": 2
+      },
+      {
+        "source_skill_id": "150905",
+        "levels": 2
+      }
+    ],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "c32b3a6b0805260189dea2dc5f731ac3461b4a73828f3a77169f57a523e4ed3d",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.eidolon.6",
+    "character_id": "character.gilgamesh",
+    "rank": 6,
+    "name_en": "Soul That Bore Friendship",
+    "name_zh_cn": "挚友淬锻之魂",
+    "source_rank_ids": [
+      "150906"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "Self",
+      "operation_tags": [
+        "buff",
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "f8ccfc60561f985edc4602615d01051278eafd6f369c97a42f5bce6869662808",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
     "id": "character.guinaifen.eidolon.1",
     "character_id": "character.guinaifen",
     "rank": 1,
@@ -6292,8 +6464,8 @@
     "id": "character.himeko-nova.eidolon.1",
     "character_id": "character.himeko-nova",
     "rank": 1,
-    "name_en": "Eidolon 1",
-    "name_zh_cn": "Eidolon 1",
+    "name_en": "That Which We Stride Is the Trailblaze",
+    "name_zh_cn": "我们称之为路的，是开拓",
     "source_rank_ids": [
       "151001"
     ],
@@ -6307,11 +6479,16 @@
     "ability_names": [],
     "mechanic_hints": {
       "target_hint": "",
-      "operation_tags": []
+      "operation_tags": [
+        "buff",
+        "damage",
+        "debuff",
+        "resource"
+      ]
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "0707fa249c78fb438285b7996f692577f8bab02e891e4fcb8219e3017d8f4928",
       "emitted": false
     },
     "quality": "ExactStructured"
@@ -6320,8 +6497,8 @@
     "id": "character.himeko-nova.eidolon.2",
     "character_id": "character.himeko-nova",
     "rank": 2,
-    "name_en": "Eidolon 2",
-    "name_zh_cn": "Eidolon 2",
+    "name_en": "The Colors We Never Strike",
+    "name_zh_cn": "旗帜，永不降下的帆",
     "source_rank_ids": [
       "151002"
     ],
@@ -6332,11 +6509,14 @@
     "ability_names": [],
     "mechanic_hints": {
       "target_hint": "",
-      "operation_tags": []
+      "operation_tags": [
+        "buff",
+        "damage"
+      ]
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "1d5c70fac9c421ff5666c1f201d9658999c9b7c2cd42d3e039da263caa3b112b",
       "emitted": false
     },
     "quality": "ExactStructured"
@@ -6345,8 +6525,8 @@
     "id": "character.himeko-nova.eidolon.3",
     "character_id": "character.himeko-nova",
     "rank": 3,
-    "name_en": "Eidolon 3",
-    "name_zh_cn": "Eidolon 3",
+    "name_en": "We Who Are Starborn Muse Starward",
+    "name_zh_cn": "星辰之子，也在思索繁星",
     "source_rank_ids": [
       "151003"
     ],
@@ -6380,7 +6560,7 @@
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "5b82b49859c9b502b8bb00bf2300df8abd3c375412e272c5f73e28d2c1a8f2af",
       "emitted": false
     },
     "quality": "ExactStructured"
@@ -6389,8 +6569,8 @@
     "id": "character.himeko-nova.eidolon.4",
     "character_id": "character.himeko-nova",
     "rank": 4,
-    "name_en": "Eidolon 4",
-    "name_zh_cn": "Eidolon 4",
+    "name_en": "Let No Skyward Hand Stay Unheld",
+    "name_zh_cn": "握住所有伸向天空的手",
     "source_rank_ids": [
       "151004"
     ],
@@ -6400,12 +6580,14 @@
     "skill_level_additions": [],
     "ability_names": [],
     "mechanic_hints": {
-      "target_hint": "",
-      "operation_tags": []
+      "target_hint": "AllAllies",
+      "operation_tags": [
+        "buff"
+      ]
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "be8e8c7d980194b223cfd23bb3398dd69b19431f4c157bc2d0fbd2e4806ea7cd",
       "emitted": false
     },
     "quality": "ExactStructured"
@@ -6414,8 +6596,8 @@
     "id": "character.himeko-nova.eidolon.5",
     "character_id": "character.himeko-nova",
     "rank": 5,
-    "name_en": "Eidolon 5",
-    "name_zh_cn": "Eidolon 5",
+    "name_en": "To Cross the Cosmos and Beyond",
+    "name_zh_cn": "去跨越宇宙的全境",
     "source_rank_ids": [
       "151005"
     ],
@@ -6449,7 +6631,7 @@
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "17fa43db1f1ead9f4e0610611db68ac06434276c8c30c14ee80ddfd9e570e292",
       "emitted": false
     },
     "quality": "ExactStructured"
@@ -6458,8 +6640,8 @@
     "id": "character.himeko-nova.eidolon.6",
     "character_id": "character.himeko-nova",
     "rank": 6,
-    "name_en": "Eidolon 6",
-    "name_zh_cn": "Eidolon 6",
+    "name_en": "Ours Is the Oath to Sail Starward",
+    "name_zh_cn": "铭记，终抵群星的誓约",
     "source_rank_ids": [
       "151006"
     ],
@@ -6473,12 +6655,16 @@
     "skill_level_additions": [],
     "ability_names": [],
     "mechanic_hints": {
-      "target_hint": "",
-      "operation_tags": []
+      "target_hint": "AllEnemies",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "73505fe0451d0cca0b976e844fa59de77132944076ceaec9edc8f635c6c6dc78",
       "emitted": false
     },
     "quality": "ExactStructured"
@@ -11023,6 +11209,182 @@
     "source_text": {
       "source_hash": "",
       "sha256": "a8544a8dce39dbfdc9b400dd939664b55c20ccf77155159394896876a054cafe",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.eidolon.1",
+    "character_id": "character.rin-tohsaka",
+    "rank": 1,
+    "name_en": "Zelretch's Apprentice",
+    "name_zh_cn": "宝石翁的学徒",
+    "source_rank_ids": [
+      "150801"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "a6e47ee0a2b0d45c8fcdcfc2c31fa3642015ed5dba4e53e84a2e300a72b61421",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.eidolon.2",
+    "character_id": "character.rin-tohsaka",
+    "rank": 2,
+    "name_en": "Dimensional Traveler",
+    "name_zh_cn": "位面的旅行者",
+    "source_rank_ids": [
+      "150802"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "AllAllies",
+      "operation_tags": [
+        "buff",
+        "damage"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "9138875485ad81de56d5c07e5d9ef07ab07b5c05e5c66a64ce0a71f641250afa",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.eidolon.3",
+    "character_id": "character.rin-tohsaka",
+    "rank": 3,
+    "name_en": "Holy Grail War: Victory Memorial",
+    "name_zh_cn": "圣杯战争：胜利纪念",
+    "source_rank_ids": [
+      "150803"
+    ],
+    "parameters": [],
+    "skill_level_additions": [
+      {
+        "source_skill_id": "150802",
+        "levels": 2
+      },
+      {
+        "source_skill_id": "150801",
+        "levels": 1
+      },
+      {
+        "source_skill_id": "150809",
+        "levels": 2
+      }
+    ],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "323e0467442ca319866a71301824b3be50beb42c0a5b3f505c1490382ed37c53",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.eidolon.4",
+    "character_id": "character.rin-tohsaka",
+    "rank": 4,
+    "name_en": "Red Devil: Triple Speed",
+    "name_zh_cn": "红色•恶魔•三倍速",
+    "source_rank_ids": [
+      "150804"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "6cf7d6269c4e132cd12f8a4edaca34f3bba8dd484b49d174f0c851b74ec7d4fc",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.eidolon.5",
+    "character_id": "character.rin-tohsaka",
+    "rank": 5,
+    "name_en": "Goddess of Venus's Favor",
+    "name_zh_cn": "金星神的青睐",
+    "source_rank_ids": [
+      "150805"
+    ],
+    "parameters": [],
+    "skill_level_additions": [
+      {
+        "source_skill_id": "150803",
+        "levels": 2
+      },
+      {
+        "source_skill_id": "150804",
+        "levels": 2
+      },
+      {
+        "source_skill_id": "150805",
+        "levels": 2
+      }
+    ],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "c32b3a6b0805260189dea2dc5f731ac3461b4a73828f3a77169f57a523e4ed3d",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.eidolon.6",
+    "character_id": "character.rin-tohsaka",
+    "rank": 6,
+    "name_en": "Nailed It This Time!",
+    "name_zh_cn": "这次没掉链子！",
+    "source_rank_ids": [
+      "150806"
+    ],
+    "parameters": [],
+    "skill_level_additions": [],
+    "ability_names": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "f643b12f0af546188b8420324f3bf9ce76c17a6a8d5ccc9f62509325f288485d",
       "emitted": false
     },
     "quality": "ExactStructured"

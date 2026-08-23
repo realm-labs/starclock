@@ -6601,14 +6601,21 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.DisableHeadLookAtOverride",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6631,7 +6638,7 @@
       "sha256": "9360310df23061138d9710cd6bf859cd920dd97da67a3b8aec3395736ee7d25e",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -6643,16 +6650,21 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6685,7 +6697,7 @@
       "sha256": "3e6348ce9e8fe22447228e7af2844759dc7ec7ec5f5f186d32d704e5d0f6198f",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -6697,16 +6709,22 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6748,7 +6766,7 @@
       "sha256": "63dd9803afe7c497e35db877a0a302b56e6296879fe95943743e51ec8010531e",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -6760,16 +6778,24 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.HideLevelStage",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.ShowBattleUI",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6802,7 +6828,7 @@
       "sha256": "531c9bf0befa0dbae7777390c267326413c4c6c8896c182307150fda4d23f833",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -6814,16 +6840,30 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_PassiveSkill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCheckCustomValueBool",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByCompareDynamicValue",
+      "RPG.GameCore.ByCompareHPRatio",
+      "RPG.GameCore.ByCompareModifierValue",
+      "RPG.GameCore.ByCompareMonsterPhase",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveEffect",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerCustomString",
+      "RPG.GameCore.TriggerEffect"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6861,7 +6901,7 @@
       "sha256": "e3aea511a92bc7af9c18e100a199aa87f47ae147f06b5230fb4ed4aec8c3718b",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -6873,16 +6913,23 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6909,7 +6956,7 @@
       "sha256": "12d74898748e5a008e860c54a7d96a0f7e68d15fbf69a46876294e787f6e43b2",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -6921,16 +6968,22 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Pam_00_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-pam-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -6964,7 +7017,7 @@
       "sha256": "926ae795b8ccb44611a505a50035aaf9059285922a8b02e468b3526a38882a0f",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47605,16 +47658,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Boss_Cocolia_RL_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-cocoliap1-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetList",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47639,7 +47698,7 @@
       "sha256": "5c538e55653d0cec8d30d7ca943645b625c5cde38c502fe386a138cea1678761",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47651,16 +47710,21 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Boss_Cocolia_RL_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-cocoliap1-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47689,7 +47753,7 @@
       "sha256": "ff75f5b03be78f40b3830b3622cb7752c18f1f6e5aea1048ca41dd2891bc85c9",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47701,16 +47765,20 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "OpposingTeam",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_PassiveSkill_StanceBreak_Action",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47742,7 +47810,7 @@
       "sha256": "a33c3b8dec8bac394e13c6fcbcd296ab6bb39e7ed43b646d049a679b222c64da",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47754,16 +47822,23 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Boss_Cocolia_RL_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-cocoliap1-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.GlobalMainIntensityEffect",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetPosition",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47784,7 +47859,7 @@
       "sha256": "ece89c24e153aa191ee9ce12617b5a2a95ea48c2216e1574135c3c06cfaf0304",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47796,16 +47871,29 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Boss_Cocolia_RL_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-cocoliap1-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.DefineDynamicValue",
+      "RPG.GameCore.GlobalMainIntensityEffect",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetPosition",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.ScaleCharacterModel",
+      "RPG.GameCore.ShowBattleUI",
+      "RPG.GameCore.SkillExecutionStart",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "20",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47829,7 +47917,7 @@
       "sha256": "c31c3f4cf5bae7cb372b89ea03a43ae6a498b069f27a8d53246f9524a0ee390c",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47841,14 +47929,22 @@
     "trigger_key": "Skill07",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
-      "details": {}
+      "target_type": "EnemySelect",
+      "details": {
+        "SubTargetType": "TargetAdjoinEntity"
+      }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Boss_Cocolia_RL_Skill07_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-cocoliap1-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47874,7 +47970,7 @@
       "sha256": "a4774dd0a30298f8b3d928341adb8ff3570fe3afa9327238e138a151f4b00642",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -47886,16 +47982,26 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Boss_Cocolia_RL_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-cocoliap1-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.DefineDynamicValue",
+      "RPG.GameCore.GlobalMainIntensityEffect",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetPosition",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -47924,7 +48030,7 @@
       "sha256": "6f7a4635004d92eeb5cead03fcc9ae051e411528ef2c956d888418130ab1d9ce",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71482,14 +71588,20 @@
     "trigger_key": "SkillP01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_PassiveSkill_StanceBreak_Action",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -71514,7 +71626,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71526,13 +71638,15 @@
     "trigger_key": "SkillP02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
+    "entry_ability": "Monster_W4_FireProwler_00_IF_SkillP02",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-if-json"
+    ],
     "operation_types": [],
     "energy_on_hit": null,
     "delay_ratio": "1",
@@ -71558,7 +71672,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71570,13 +71684,15 @@
     "trigger_key": "SkillP03",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
+    "entry_ability": "Monster_W4_FireProwler_00_IF_SkillP03",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-if-json"
+    ],
     "operation_types": [],
     "energy_on_hit": null,
     "delay_ratio": "1",
@@ -71599,7 +71715,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71611,16 +71727,29 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W4_FireProwler_00_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCompareModifierValue",
+      "RPG.GameCore.ByCompareStageType",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.SetDynamicValueByModifierValue",
+      "RPG.GameCore.SetTeamRootOffset",
+      "RPG.GameCore.ShowUIPage",
+      "RPG.GameCore.SwitchCaseByDynamicValue",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerEffect"
+    ],
     "energy_on_hit": "20",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -71653,7 +71782,7 @@
       "sha256": "e43e769b50a00c74ca99e75f2e94a23f7387aab34cac826e068f24a187588240",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71665,16 +71794,23 @@
     "trigger_key": "Skill07",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W4_FireProwler_00_Skill07_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -71708,7 +71844,7 @@
       "sha256": "9c55a6095d87afd46b1b5f030079cd7b9ca1beac47c145ef73e181eae0c4911f",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71720,14 +71856,12 @@
     "trigger_key": "Skill072",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_FireProwler_00_IF_Skill07_Phase01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": "15",
@@ -71756,7 +71890,7 @@
       "sha256": "9c55a6095d87afd46b1b5f030079cd7b9ca1beac47c145ef73e181eae0c4911f",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71768,14 +71902,14 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Blast",
+      "target_type": "EnemySelect",
       "details": {
-        "evidence": "released_text_inference"
+        "SubTargetType": "TargetAdjoinEntity"
       }
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_FireProwler_00_Skill01_Phase01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": "10",
@@ -71806,7 +71940,7 @@
       "sha256": "a15362ebe81751d5d0f153acef5e6920d3049e116cefac47f4c4b0439badbfb7",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71818,14 +71952,12 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_FireProwler_00_Skill02_Phase01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": "10",
@@ -71859,7 +71991,7 @@
       "sha256": "b8f723a4202cccbe3fdeae580b91862856eb0f447878462784ca65fbd18376d7",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71871,15 +72003,15 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
+    "entry_ability": "Monster_W4_FireProwler_00_PassiveSkill02",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-json"
+    ],
     "operation_types": [],
     "energy_on_hit": null,
     "delay_ratio": "1",
@@ -71923,7 +72055,7 @@
       "sha256": "3b378e010d2b46b391c31ed85be935faa3fdcc463f4fe325c0ad8187a726307f",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -71935,14 +72067,12 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_FireProwler_00_PassiveSkill01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": null,
@@ -71985,7 +72115,7 @@
       "sha256": "61858f41dab9465d120df67c4d7274fd9d72b584de6a0fcd6a1ca94897eb988f",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -72042,14 +72172,25 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W4_FireProwler_00_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.ByCompareMonsterID",
+      "RPG.GameCore.ByCompareTarget",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -72074,7 +72215,7 @@
       "sha256": "1b67766c1cabd8bd7f21448bb59fd4ee86fe21da58658d2bfae3462dcc1146f4",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -72086,14 +72227,12 @@
     "trigger_key": "Skill08",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_FireProwler_00_IF_PassiveSkillInitiate_LMin_Phase01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": null,
@@ -72124,7 +72263,7 @@
       "sha256": "0fdc6bc47d0ff1b80672ed355dbca2cd22acea6b7be39b0bac8b263d54516ab9",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -72136,14 +72275,24 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "AllTeamMember",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W4_FireProwler_00_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -72177,7 +72326,7 @@
       "sha256": "3ecbe995ae83a70e032c04c3018fcd9518bfa6a5320ebe7829ef674a8aee25e0",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -72189,12 +72338,12 @@
     "trigger_key": "Skill042",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "AllTeamMember",
       "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_FireProwler_00_IF_Skill04_Phase01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": "15",
@@ -72223,7 +72372,7 @@
       "sha256": "3ecbe995ae83a70e032c04c3018fcd9518bfa6a5320ebe7829ef674a8aee25e0",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -72235,16 +72384,20 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W4_FireProwler_00_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w4-fireprowler-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -72274,7 +72427,7 @@
       "sha256": "d45abc4265b7780c55fb32a43816bef2194c75bdf92c5ed1c9d306bb47089184",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82127,12 +82280,12 @@
     "trigger_key": "Skill07",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "EnemySelect",
       "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill07_Phase01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": "10",
@@ -82154,7 +82307,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82166,16 +82319,23 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-gepard-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.MoveToTargetList",
+      "RPG.GameCore.MoveToTargetPosition",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -82199,7 +82359,7 @@
       "sha256": "b57b4246ea68f03cd0d07b3385db7292a609c4a5e795b0d076bfc4218383cc2c",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82211,16 +82371,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-gepard-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetList",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -82245,7 +82411,7 @@
       "sha256": "7bab8bc3c95b2a11f2ae0c5ca66b6e175cd9907bb2d7eff8713196fc9afac0a4",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82257,16 +82423,23 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-gepard-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -82294,7 +82467,7 @@
       "sha256": "2cd1ac9761fcc813144d306461fdb1c38621cd6fafb1eb66bbd86017bfeee8b0",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82306,16 +82479,22 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllAllies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-gepard-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -82344,7 +82523,7 @@
       "sha256": "d52d5adb82c84d36b881ecedff51c692bb1689a59f1bf73c20ec4bf68abb84e0",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82356,16 +82535,21 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-gepard-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -82390,7 +82574,7 @@
       "sha256": "5c538e55653d0cec8d30d7ca943645b625c5cde38c502fe386a138cea1678761",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82402,14 +82586,12 @@
     "trigger_key": "SkillP01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_Gepard_00_SkillP01_Initiate",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": null,
@@ -82431,7 +82613,7 @@
       "sha256": "bc1d5840964ca59bbf3d0507744bc375a26e91872aeedf74200ecc682a75b8a3",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82443,14 +82625,12 @@
     "trigger_key": "SkillP01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_Gepard_00_SkillP01_Initiate",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": null,
@@ -82472,7 +82652,7 @@
       "sha256": "336eba5c4156619352b6b2cf575895c6505e07fd067c25ba278723d2b2200c4d",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -82484,14 +82664,21 @@
     "trigger_key": "Skill08",
     "attack_type": "Normal",
     "damage_type": "Ice",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_Gepard_00_RL_Skill08_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-gepard-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -82514,7 +82701,7 @@
       "sha256": "ebc87eca1182c7490e9a54f83c2dbd19318176bd5c23802eaf53d7665b599e21",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -87995,14 +88182,22 @@
     "trigger_key": "Skill01Pre",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "EnemySelect",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill01Pre_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88020,7 +88215,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88032,16 +88227,21 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88067,7 +88267,7 @@
       "sha256": "6d7d1f5d3001a50310d785a63030f7791939cee6fde8508d6f51eb5c837c5a6b",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88079,16 +88279,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88114,7 +88320,7 @@
       "sha256": "a6c7d098acd34288a42829e72494644788df52a318c5de0a319a4892425d0cb1",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88126,16 +88332,21 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllTeamMember",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88160,7 +88371,7 @@
       "sha256": "2a561351a5eaee0f7e14f6c7b2b2d9d060557f6999e07a4ae66f80ce86370a51",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88172,16 +88383,20 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88207,7 +88422,7 @@
       "sha256": "d5e65ca85bee03c60f2b9deb83c9ab48c458e0ae3d65eee98a33f5f77c9e50c1",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88219,16 +88434,24 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Blast",
+      "target_type": "EnemySelect",
       "details": {
-        "evidence": "released_text_inference"
+        "SubTargetType": "TargetAdjoinEntity"
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88255,7 +88478,7 @@
       "sha256": "3976777b57b6b24e6aa4e60fea3c9e582d77e7a6a437dd5349cbcaf10977874b",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88267,16 +88490,21 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88304,7 +88532,7 @@
       "sha256": "4f967c9dc786ebb72b561f381bb446584feae4eb2ed4265f04ed98e68493ecb1",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88316,14 +88544,20 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_PassiveSkill_StanceBreak_Action",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88347,7 +88581,7 @@
       "sha256": "8a8e50a57e9525390e6059c9eeff705ad3b462b1e5ca61607f621ec47712bf12",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88359,16 +88593,19 @@
     "trigger_key": "PassiveSkill03",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_MuteHitFly",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88397,7 +88634,7 @@
       "sha256": "56efb61f46d1a170360cf9b500c87d11b4f874ce2ee1a7e07fc63674f785a285",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88409,14 +88646,40 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Passive01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareMonsterID",
+      "RPG.GameCore.ByCompareTargetCount",
+      "RPG.GameCore.ByHasSummonRelation",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.CreateBattleEvent",
+      "RPG.GameCore.LockHP",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.PreloadBattleEventByID",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetAttachmentVisibility",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetTargetUniqueName",
+      "RPG.GameCore.ShowBossInfoBar",
+      "RPG.GameCore.ShowUI",
+      "RPG.GameCore.ShowUIPage",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerCustomString",
+      "RPG.GameCore.TurnInsertAbility",
+      "RPG.GameCore.TurnInsertAbilityCondition"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88441,7 +88704,7 @@
       "sha256": "8a906215a48cde3d80510651e2cb688bac9898483c34a20761bbd2be588b6f54",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88453,14 +88716,22 @@
     "trigger_key": "Skill01Pre",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "EnemySelect",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill01Pre_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88478,7 +88749,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88490,16 +88761,21 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88526,7 +88802,7 @@
       "sha256": "6d7d1f5d3001a50310d785a63030f7791939cee6fde8508d6f51eb5c837c5a6b",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88538,16 +88814,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88574,7 +88856,7 @@
       "sha256": "a6c7d098acd34288a42829e72494644788df52a318c5de0a319a4892425d0cb1",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88586,16 +88868,21 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllTeamMember",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88622,7 +88909,7 @@
       "sha256": "2a561351a5eaee0f7e14f6c7b2b2d9d060557f6999e07a4ae66f80ce86370a51",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88634,16 +88921,20 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88670,7 +88961,7 @@
       "sha256": "d5e65ca85bee03c60f2b9deb83c9ab48c458e0ae3d65eee98a33f5f77c9e50c1",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88682,16 +88973,24 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Blast",
+      "target_type": "EnemySelect",
       "details": {
-        "evidence": "released_text_inference"
+        "SubTargetType": "TargetAdjoinEntity"
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88719,7 +89018,7 @@
       "sha256": "3976777b57b6b24e6aa4e60fea3c9e582d77e7a6a437dd5349cbcaf10977874b",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88731,16 +89030,21 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88769,7 +89073,7 @@
       "sha256": "4f967c9dc786ebb72b561f381bb446584feae4eb2ed4265f04ed98e68493ecb1",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88781,14 +89085,20 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_PassiveSkill_StanceBreak_Action",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88813,7 +89123,7 @@
       "sha256": "8a8e50a57e9525390e6059c9eeff705ad3b462b1e5ca61607f621ec47712bf12",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88825,16 +89135,19 @@
     "trigger_key": "PassiveSkill03",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "Self",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_MuteHitFly",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88865,7 +89178,7 @@
       "sha256": "56efb61f46d1a170360cf9b500c87d11b4f874ce2ee1a7e07fc63674f785a285",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -88877,14 +89190,40 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "Fire",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W3_Sam_01_Passive01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w3-sam-01-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareMonsterID",
+      "RPG.GameCore.ByCompareTargetCount",
+      "RPG.GameCore.ByHasSummonRelation",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.CreateBattleEvent",
+      "RPG.GameCore.LockHP",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.PreloadBattleEventByID",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetAttachmentVisibility",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetTargetUniqueName",
+      "RPG.GameCore.ShowBossInfoBar",
+      "RPG.GameCore.ShowUI",
+      "RPG.GameCore.ShowUIPage",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerCustomString",
+      "RPG.GameCore.TurnInsertAbility",
+      "RPG.GameCore.TurnInsertAbilityCondition"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -88910,7 +89249,7 @@
       "sha256": "8a906215a48cde3d80510651e2cb688bac9898483c34a20761bbd2be588b6f54",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123015,14 +123354,20 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_PassiveSkill_StanceBreak_Action",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123047,7 +123392,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123059,16 +123404,21 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Ripper_00_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-ripper-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "20",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123111,7 +123461,7 @@
       "sha256": "42fdcf585df92f89ebe1142293f51eb053cc186622bec1cfab91e89d8e6c2c51",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123123,16 +123473,23 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "RandomEnemy",
+      "target_type": "AllEnemy",
       "details": {
-        "evidence": "released_text_inference"
+        "IsDynamicTarget": true
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Ripper_00_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-ripper-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123187,7 +123544,7 @@
       "sha256": "34b4a403c55cf4e11ac1c133ff019fc5920185eae4fe3d6aa1c8b35849151c42",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123199,14 +123556,21 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Ripper_00_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-ripper-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123234,7 +123598,7 @@
       "sha256": "27cdd15d5d86ecd3550fafa1281d157be7d478526e75d682a333fc3c04a95d0c",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123246,16 +123610,31 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "AllAllies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Ripper_00_Passive01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-ripper-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckCustomValueBool",
+      "RPG.GameCore.ByCompareCharacterID",
+      "RPG.GameCore.ByCompareMonsterID",
+      "RPG.GameCore.ModifyDefaultTeamFormation",
+      "RPG.GameCore.ModifySPNew",
+      "RPG.GameCore.OverrideSelectDarkTeamEntityCamera",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetTargetUniqueName",
+      "RPG.GameCore.ShowBossInfoBar",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerCustomString"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123294,7 +123673,7 @@
       "sha256": "ff683ef686be4da60d5511b14a2cc6b0fe1f962a8ab61c0dd1147547315b19d9",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123306,16 +123685,21 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Ripper_00_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-ripper-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123341,7 +123725,7 @@
       "sha256": "d20bf0bbba74a01eef251c6208eb970ff25fb3eabb842922a442e1564dab9f40",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -123353,16 +123737,23 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
+      "target_type": "AllEnemy",
       "details": {
-        "evidence": "released_text_inference"
+        "IsDynamicTarget": true
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Ripper_00_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-ripper-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -123400,7 +123791,7 @@
       "sha256": "7bc397723815cbb1eb85e61e4381d7f65af337d96dfedfebbd3fc6b8b7fcda23",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149245,16 +149636,27 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.SetEntityVisible",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149280,7 +149682,7 @@
       "sha256": "fd81d7b678d61440eb62182c36257ad2ed8a32d817560054f63121f2568f0335",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149292,16 +149694,37 @@
     "trigger_key": "Skill07",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_Skill07_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "PBEMMHIOJBO",
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByHaveUniqueNameEffect",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.DispelStatus",
+      "RPG.GameCore.ExitBreakState",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveEffect",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.ResetHeadLookAt",
+      "RPG.GameCore.SetSimulationSpeedEnable",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.ShowBattleUI",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerCustomString",
+      "RPG.GameCore.VCameraConfigChange",
+      "RPG.GameCore.WaitCustomString"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149346,7 +149769,7 @@
       "sha256": "f4fcff955fbbb5837893beb89f67eb95f7e61a5cf9de354f367f5e52911e5a3d",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149358,16 +149781,35 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllAllies",
+      "target_type": "Caster",
       "details": {
-        "evidence": "released_text_inference"
+        "AllowEnemyServant": "Forbidden",
+        "IsDynamicTarget": true
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByCompareDynamicValue",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.DispelStatus",
+      "RPG.GameCore.ExitBreakState",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MakeCharacterHUDVisible",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveEffect",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149426,7 +149868,7 @@
       "sha256": "2be64eea53d60cb8f709222bb0108686c4bb65193b0276d7482ebac28b59f9d8",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149508,16 +149950,20 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "AllAllies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "Caster",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_PassiveSkill_StanceBreak_Action",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149551,7 +149997,7 @@
       "sha256": "3ff04faa8470e1b5277c87c9f4364f2d2d733fe11564804e8b2592b5404510d9",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149563,14 +150009,48 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_PassiveSkillInitiate",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckCustomValueBool",
+      "RPG.GameCore.ByCompareDynamicValue",
+      "RPG.GameCore.ByCompareMonsterPhase",
+      "RPG.GameCore.ByCompareMonsterTemplateID",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.CreateBattleEvent",
+      "RPG.GameCore.DefineDynamicValue",
+      "RPG.GameCore.DefineHPSharedGroup",
+      "RPG.GameCore.DispelStatus",
+      "RPG.GameCore.ForceKill",
+      "RPG.GameCore.LevelAudioState",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MakeCharacterHUDVisible",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.PreloadBattleEventByID",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.ResetHeadLookAt",
+      "RPG.GameCore.RetargetList",
+      "RPG.GameCore.SetComfortZoneWidthOverride",
+      "RPG.GameCore.SetMonsterPhase",
+      "RPG.GameCore.SetTargetUniqueName",
+      "RPG.GameCore.ShowBattleEventButton",
+      "RPG.GameCore.ShowBossInfoBar",
+      "RPG.GameCore.ShowUI",
+      "RPG.GameCore.SummonMonster",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TurnInsertAbility"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149605,7 +150085,7 @@
       "sha256": "2eecd585fe8d544b54263fba0025b78fb8d2df7b2cc8bd52f244e67ece80b210",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149617,16 +150097,43 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Battlefield",
+      "target_type": "EnemySelect",
       "details": {
-        "evidence": "released_text_inference"
+        "AllowEnemyServant": "Forbidden",
+        "IsDynamicTarget": true
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_Skill03_Phase00",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.AttachSkillTypeDisable",
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.DispelStatus",
+      "RPG.GameCore.ExitBreakState",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MakeCharacterHUDVisible",
+      "RPG.GameCore.MoveToTargetPosition",
+      "RPG.GameCore.PlayTimeline",
+      "RPG.GameCore.RemoveEffect",
+      "RPG.GameCore.ResetStance",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.SkillPerformFinish",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TargetFetchUniqueNameEntity",
+      "RPG.GameCore.TargetMapTeamFormation",
+      "RPG.GameCore.TargetSequence",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerEffect",
+      "RPG.GameCore.TriggerSound",
+      "RPG.GameCore.TurnInsertAction",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149662,7 +150169,7 @@
       "sha256": "3dea6c76cf89cb334e1ca2a411be5a6250b20919a05fa9977c3af10b455b14ab",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149674,16 +150181,21 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Quantum",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149709,7 +150221,7 @@
       "sha256": "b7f668e7602b55909462609acca1d09dd4c21d605ad38a1994330eb111fc9559",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -149721,14 +150233,23 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
-      "details": {}
+      "target_type": "FriendSelect",
+      "details": {
+        "IsDynamicTarget": true
+      }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W5_Vtuber_00_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w5-vtuber-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -149754,7 +150275,7 @@
       "sha256": "1269845d8a86531afaab83c31af1928dc6fa49bfb9439d6471494fe49ee5d45b",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -153999,16 +154520,24 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
+      "target_type": "EnemySelect",
       "details": {
-        "evidence": "released_text_inference"
+        "SubTargetType": "TargetAdjoinEntity"
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154035,7 +154564,7 @@
       "sha256": "3ff22f261213bdb26f4d1af858dc08a1b5857531dc24a4f50ee6b43dabbfb525",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154047,14 +154576,22 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "EnemySelect",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154077,7 +154614,7 @@
       "sha256": "650b9c57d7b7b598b3b900fbeb3688609838c4959b7e32bae00705a1568ba088",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154089,14 +154626,19 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_MuteHitFly",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154126,7 +154668,7 @@
       "sha256": "18951307dfa6f0798391371492d326dc947e7e5c22855e51cc3e028f3c8a58a7",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154138,16 +154680,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154175,7 +154723,7 @@
       "sha256": "04e1b4d15030a061c296b150cd04ecf5c4179e89d2806b54ec66d5caa5acd331",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154187,16 +154735,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerAnimStateWithMove"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154225,7 +154779,7 @@
       "sha256": "1d363ebaede8c0eb0a17dddefaa2bbfd2e50a69b2ee3e605f750cbc90cc588a4",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154237,16 +154791,26 @@
     "trigger_key": "Skill07",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Battlefield",
+      "target_type": "AllEnemy",
       "details": {
-        "evidence": "released_text_inference"
+        "IsDynamicTarget": true
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_RL_Skill07_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerEffect",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154272,7 +154836,7 @@
       "sha256": "c43cf5e29e4a5a6c694efb4e14b827de873ea13538717f1883970fe2ab9979cb",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154284,16 +154848,25 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
+      "target_type": "AllEnemy",
       "details": {
-        "evidence": "released_text_inference"
+        "IsDynamicTarget": true
       }
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_RL_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154317,7 +154890,7 @@
       "sha256": "db48b4805f12447e417f50c23f8db2da5f5abcb224fe0447044eb776ed63ed96",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154329,16 +154902,23 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Lightning",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.TriggerEffect"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154363,7 +154943,7 @@
       "sha256": "c333fc806b26b35c4d7d039822f61ad515dd0a442326c848a2ab1ceb16d012c2",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154375,16 +154955,22 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W2_Kafka_00_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w2-kafka-00-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetAttachmentScale",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -154412,7 +154998,7 @@
       "sha256": "09fa590f907b887edecd76d4413dce9b1a961954ca156058d2a0783c58b0799d",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -154424,12 +155010,12 @@
     "trigger_key": "PassiveSkill01",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
+    "entry_ability": "Monster_GridFight_Kafka_00_Passive01",
     "source_ability_files": [],
     "operation_types": [],
     "energy_on_hit": null,
@@ -154455,7 +155041,7 @@
       "sha256": "3fdb87934e34312f8904c8f5c34f948fb9e034e7d70dcf28cebcf63f417a43d9",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164690,14 +165276,21 @@
     "trigger_key": "Skill08",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "EnemySelect",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill08_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -164715,7 +165308,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164727,13 +165320,15 @@
     "trigger_key": "PassiveSkill02",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_PassiveSkill02",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
     "operation_types": [],
     "energy_on_hit": null,
     "delay_ratio": "1",
@@ -164756,7 +165351,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164768,14 +165363,20 @@
     "trigger_key": "PassiveSkill04",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_PassiveSkill04",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -164793,7 +165394,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164805,14 +165406,19 @@
     "trigger_key": "PassiveSkill05",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "Passive",
     "target": {
-      "target_type": "",
+      "target_type": "Caster",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_Common_MuteHitFly",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-common-ability-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -164830,7 +165436,7 @@
       "sha256": "",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164842,16 +165448,22 @@
     "trigger_key": "Skill01",
     "attack_type": "Normal",
     "damage_type": "Physical",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill01_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetList",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -164876,7 +165488,7 @@
       "sha256": "8a81e2996a0962dde0846db711c337fbba033d7c2457bb4d84a7bb6065f2a0e8",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164888,16 +165500,24 @@
     "trigger_key": "Skill02",
     "attack_type": "Normal",
     "damage_type": "Physical",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill02_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.StartAim",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": "15",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -164923,7 +165543,7 @@
       "sha256": "76ed45f0a65795cb3427497c9656bab80d1766618663e0de2415ede5f454dc02",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164935,16 +165555,24 @@
     "trigger_key": "Skill05",
     "attack_type": "Normal",
     "damage_type": "Physical",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill05_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.MoveToTargetList",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": "25",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -164966,7 +165594,7 @@
       "sha256": "0a5928b8368e0921e869bd832b02176aea3c24227c2266c70e64b1dc7bad9f62",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -164978,16 +165606,20 @@
     "trigger_key": "Skill10",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill10_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -165007,7 +165639,7 @@
       "sha256": "03a6a509a79c82194c0988deba2448c7690428379f6966bb970f3ea2409e1bc6",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -165019,16 +165651,23 @@
     "trigger_key": "Skill03",
     "attack_type": "Normal",
     "damage_type": "Physical",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "SingleEnemy",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill03_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": "10",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -165051,7 +165690,7 @@
       "sha256": "8bf40b641e6d863c0b8cead52eb9416ff2ce8ceb514c3806d63eca602f427de6",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -165063,14 +165702,27 @@
     "trigger_key": "Skill06",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "",
+      "target_type": "EnemySelect",
       "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill06_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.CharacterChangePhase",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState",
+      "RPG.GameCore.WaitSecond"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -165097,7 +165749,7 @@
       "sha256": "d277d908382b77a580d978f364074fac1c2918da2ea840b3a6daddbcbd3c6746",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -165109,16 +165761,27 @@
     "trigger_key": "Skill04",
     "attack_type": "Normal",
     "damage_type": "Physical",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllEnemies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "AllEnemy",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill04_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.ByCompareCharacterNumber",
+      "RPG.GameCore.GlobalMainIntensityEffect",
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.SetTeamFormation",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TargetFetchCaster",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": "2",
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -165146,7 +165809,7 @@
       "sha256": "1491173a117c8b1ef6ca6f4f5e620369cc7fd091f9820b0eee3e299e6a05d09c",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -165158,16 +165821,22 @@
     "trigger_key": "Skill09",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "AllAllies",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill09_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.LookAt",
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState",
+      "RPG.GameCore.WaitAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -165193,7 +165862,7 @@
       "sha256": "589292b351284fff2952e789d7e4c1c2495ceea7229ddea0c1e7a80b5e87dffa",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {
@@ -165205,16 +165874,20 @@
     "trigger_key": "Skill11",
     "attack_type": "Normal",
     "damage_type": "",
-    "use_type": "",
+    "use_type": "SelectEntity",
     "target": {
-      "target_type": "Battlefield",
-      "details": {
-        "evidence": "released_text_inference"
-      }
+      "target_type": "EnemySelect",
+      "details": {}
     },
-    "entry_ability": "",
-    "source_ability_files": [],
-    "operation_types": [],
+    "entry_ability": "Monster_W1_GS_Svarog_RL_Skill11_Phase01",
+    "source_ability_files": [
+      "source-file.dimbreath-turnbasedgamedata.config-configability-monster-monster-w1-svarog-00-ability-rl-json"
+    ],
+    "operation_types": [
+      "RPG.GameCore.TargetAlias",
+      "RPG.GameCore.TriggerAbility",
+      "RPG.GameCore.TriggerAnimState"
+    ],
     "energy_on_hit": null,
     "delay_ratio": "1",
     "ai_cooldown": 1,
@@ -165234,7 +165907,7 @@
       "sha256": "e9676476e0ce62cacdc1b7966f75b80fc8a81ffb5a6c6f33be40a02a117d49e5",
       "emitted": false
     },
-    "mechanism_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ExactStructured",
     "quality": "ExactStructured"
   },
   {

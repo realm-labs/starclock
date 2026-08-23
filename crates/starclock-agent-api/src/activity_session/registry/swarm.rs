@@ -14,6 +14,7 @@ impl ActivityAgentSessionRegistry {
             factory,
             Some(gold_factory),
             Some(swarm_factory),
+            None,
             clock,
             id_source,
             FROZEN_LIMITS,
@@ -45,9 +46,10 @@ impl ActivityAgentSessionRegistry {
             lane: Mutex::new(SessionLane {
                 created_at: now,
                 last_accessed_at: now,
-                state: SessionLaneState::Active(Box::new(HostedActivitySession::SwarmDisaster(
-                    session,
-                ))),
+                state: SessionLaneState::Active {
+                    session: Box::new(HostedActivitySession::SwarmDisaster(session)),
+                    events: ActivityEventRecorder::default(),
+                },
             }),
         });
         let mut state = lock(&self.inner.state)?;

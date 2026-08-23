@@ -1,0 +1,73 @@
+{
+  "schema_revision": "starclock.currency-wars-battle-override-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P4-B5",
+  "result": "Pass",
+  "production_denominators": {
+    "battle_overrides": 341,
+    "automatic_technique_rules": 1,
+    "defeat_energy_rules": 1,
+    "lethal_rescue_rules": 1,
+    "back_battle_events": 119,
+    "front_special_resource_rules": 24,
+    "role_global_modifiers": 6,
+    "rank_skill_modifiers": 124,
+    "rank_parameter_edits": 150,
+    "summon_battle_event_overrides": 2,
+    "cyrene_skill_modifiers": 63,
+    "cyrene_parameter_edits": 75,
+    "back_battle_event_properties": 322,
+    "role_star_event_states": 265,
+    "terminal_source_rows": 338
+  },
+  "exact_behavior": {
+    "automatic_techniques": "stable deployed Front-position order before battle start",
+    "defeat_energy_scaling": "one half of regular Energy with floor rounding",
+    "role_star_and_bond_events": "deduplicated stable external battle-event identity",
+    "special_resource_and_global_modifiers": "selected by deployed position and role identity",
+    "rank_skill_modifiers": "selected by deployed role and effective build Eidolon",
+    "cyrene_skill_modifiers": "selected only when exact provider and target roles are deployed",
+    "skill_parameter_operators": [
+      "Add",
+      "Mul",
+      "Set"
+    ],
+    "authored_decimal_storage": "exact significand and decimal-place pair",
+    "authoritative_scalar_boundary": "nearest ties to even at six decimal places",
+    "summon_event_overrides": "exact season-scoped event replacement map",
+    "rejected_snapshot_mutation": false
+  },
+  "policy_resolution": {
+    "field": "position.automatic_technique_rescue",
+    "owner_batch": "G21-P4-B5",
+    "current_accuracy": "VersionedProjectPolicy",
+    "status": "VersionedProjectPolicyExecutable",
+    "replacement_condition": "Released structured rescue healing data or a reproducible Version 4.4 lethal-boundary observation publishes the restored HP amount or a different operation order.",
+    "selected_behavior": "Keep omitted positions dual-candidate. On lethal damage, prevent incapacitation, restore maximum HP, deduct the current node's configured rescue action value with a floor at zero, then expire the battle clock if it reaches zero.",
+    "rejected_alternatives": [
+      "decode omitted enum",
+      "restore one HP",
+      "restore an inferred fixed ratio"
+    ],
+    "confidence": "PolicyOnlyNotObservedParity",
+    "terminal_evidence": "executable behavior plus replacement-trigger test"
+  },
+  "deferred_assembly": {
+    "selected_owned_build_eidolon_binding": "G21-P4-B6 immutable contribution snapshot",
+    "battle_spec_and_rule_ir_installation": "G21-P6 battle assembler and battle-visible mechanic partitions"
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.automatic-technique-energy-and-lethal-rescue"
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/battle_override.rs",
+    "crates/starclock-mode-currency-wars/src/runtime.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_build.rs",
+    "crates/starclock-data/src/currency_wars_economy.rs",
+    "crates/starclock-data/src/currency_wars_empowerment.rs",
+    "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+    "content-reference/currency-wars-v1/battle-overrides.json",
+    "content-manifests/currency-wars-runtime-v1/battle-override-execution-audit.json"
+  ]
+}

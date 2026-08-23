@@ -1,14 +1,14 @@
 use starclock_activity::{
-    ActivityCause, ActivityCondition, ActivityEdgeCondition, ActivityEdgeDefinition,
-    ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInventoryDefinition,
-    ActivityInventoryId, ActivityModifierDefinition, ActivityModifierId, ActivityModifierOwner,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramBindingError, ActivityProgramDefinition,
-    ActivityProgramDefinitionError, ActivityProgramId, ActivityScope, ActivitySlotDefinition,
-    ActivitySlotId, ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility,
-    ActivityTerminalOutcome, ActivityTransactionEventKind, ActivityTransactionOutcome,
-    ActivityTransactionRejection, ActivityTransactionState, ActivityValue, NodeId, SectionId,
-    SlotCarryPolicy,
+    ActivityCause, ActivityComparison, ActivityCondition, ActivityEdgeCondition,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityGraphDefinition,
+    ActivityInventoryDefinition, ActivityInventoryId, ActivityModifierDefinition,
+    ActivityModifierId, ActivityModifierOwner, ActivityNodeDefinition, ActivityNodeKind,
+    ActivityOperation, ActivityOptionDefinition, ActivityOptionId, ActivityProgramBindingError,
+    ActivityProgramDefinition, ActivityProgramDefinitionError, ActivityProgramId, ActivityScope,
+    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
+    ActivityStateVisibility, ActivityTerminalOutcome, ActivityTransactionEventKind,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+    ActivityValue, NodeId, SectionId, SlotCarryPolicy,
 };
 
 #[test]
@@ -173,6 +173,127 @@ fn ordered_id_insertion_is_canonical_idempotent_and_queryable() {
         state.apply_program(&duplicate, cause(2), &graph()),
         ActivityTransactionOutcome::Committed(events) if events.is_empty()
     ));
+}
+
+#[test]
+fn replacement_operations_and_collection_reads_are_atomic_and_typed() {
+    let mut state = runtime();
+    let comparisons = [
+        comparison(2, ActivityComparison::Equal, 2),
+        comparison(2, ActivityComparison::NotEqual, 3),
+        comparison(1, ActivityComparison::Less, 2),
+        comparison(2, ActivityComparison::LessOrEqual, 2),
+        comparison(3, ActivityComparison::Greater, 2),
+        comparison(2, ActivityComparison::GreaterOrEqual, 2),
+        comparison_expr(
+            ActivityExpression::CounterEntryCount(slot(2)),
+            ActivityComparison::Equal,
+            integer(1),
+        ),
+        comparison_expr(
+            ActivityExpression::OrderedIdSetCount(slot(3)),
+            ActivityComparison::Equal,
+            integer(1),
+        ),
+        comparison_expr(
+            ActivityExpression::InventoryEntryCount(inventory_id(1)),
+            ActivityComparison::Equal,
+            integer(1),
+        ),
+        comparison_expr(
+            ActivityExpression::ModifierStacks(modifier_id(1)),
+            ActivityComparison::Equal,
+            integer(2),
+        ),
+    ];
+    let program = ActivityProgramDefinition::new(
+        program_id(1),
+        vec![
+            ActivityOperation::SetCounter {
+                slot: slot(2),
+                key: 10,
+                value: integer(3),
+            },
+            ActivityOperation::InsertOrderedId {
+                slot: slot(3),
+                id: 10,
+            },
+            ActivityOperation::InsertOrderedId {
+                slot: slot(3),
+                id: 20,
+            },
+            ActivityOperation::RemoveOrderedId {
+                slot: slot(3),
+                id: 10,
+            },
+            ActivityOperation::SetInventoryCount {
+                inventory: inventory_id(1),
+                content: 100,
+                count: integer(2),
+            },
+            ActivityOperation::SetModifierStacks {
+                modifier: modifier_id(1),
+                stacks: integer(2),
+            },
+            ActivityOperation::Require(ActivityCondition::All(comparisons.into())),
+        ],
+    )
+    .unwrap();
+    program.validate_against(&definition(), &graph()).unwrap();
+    assert!(matches!(
+        state.apply_program(&program, cause(1), &graph()),
+        ActivityTransactionOutcome::Committed(events) if events.len() == 6
+    ));
+    assert_eq!(
+        state.slot(slot(2)),
+        Some(&ActivityValue::BoundedCounterMap(
+            vec![(10, 3)].into_boxed_slice()
+        ))
+    );
+    assert_eq!(
+        state.slot(slot(3)),
+        Some(&ActivityValue::OrderedIdSet(vec![20].into_boxed_slice()))
+    );
+    assert_eq!(
+        state
+            .inventory_entries(inventory_id(1))
+            .unwrap()
+            .collect::<Vec<_>>(),
+        vec![(100, 2)]
+    );
+}
+
+#[test]
+fn invalid_replacement_rolls_back_earlier_collection_mutation() {
+    let mut state = runtime();
+    let program = ActivityProgramDefinition::new(
+        program_id(1),
+        vec![
+            ActivityOperation::SetCounter {
+                slot: slot(2),
+                key: 10,
+                value: integer(3),
+            },
+            ActivityOperation::SetModifierStacks {
+                modifier: modifier_id(1),
+                stacks: integer(4),
+            },
+        ],
+    )
+    .unwrap();
+    assert!(matches!(
+        state.apply_program(&program, cause(1), &graph()),
+        ActivityTransactionOutcome::Faulted(
+            _,
+            starclock_activity::ActivityFault::ModifierBounds(id)
+        ) if id == modifier_id(1)
+    ));
+    assert_eq!(
+        state.slot(slot(2)),
+        Some(&ActivityValue::BoundedCounterMap(
+            Vec::new().into_boxed_slice()
+        ))
+    );
 }
 
 #[test]
@@ -496,6 +617,20 @@ fn cycle_graph() -> ActivityGraphDefinition {
 
 fn integer(value: i64) -> ActivityExpression {
     ActivityExpression::Literal(ActivityValue::BoundedInteger(value))
+}
+fn comparison(left: i64, operator: ActivityComparison, right: i64) -> ActivityCondition {
+    comparison_expr(integer(left), operator, integer(right))
+}
+fn comparison_expr(
+    left: ActivityExpression,
+    operator: ActivityComparison,
+    right: ActivityExpression,
+) -> ActivityCondition {
+    ActivityCondition::Compare {
+        left,
+        operator,
+        right,
+    }
 }
 fn boolean(value: bool) -> ActivityCondition {
     ActivityCondition::Boolean(ActivityExpression::Literal(ActivityValue::Boolean(value)))

@@ -109,7 +109,9 @@ pub(crate) fn resolve_for_hit(
                 commitment.selector.relation(),
             );
             if pool.is_empty() {
-                return Err(TargetError::EmptyPool);
+                commitment.primary = None;
+                commitment.targets = Box::new([]);
+                return Ok(Box::new([]));
             }
             for index in 0..commitment.targets.len() {
                 if !valid(commitment.targets[index]) {
@@ -139,7 +141,9 @@ pub(crate) fn resolve_for_hit(
                 commitment.selector.relation(),
             );
             if pool.is_empty() {
-                return Err(TargetError::EmptyPool);
+                commitment.primary = None;
+                commitment.targets = Box::new([]);
+                return Ok(Box::new([]));
             }
             let primary = match commitment.primary {
                 Some(primary) if valid(primary) => primary,
@@ -273,12 +277,15 @@ mod tests {
             life: LifeState::Alive,
             presence: PresenceState::Present,
             current_hp: Hp::new(100).unwrap(),
+            initial_maximum_hp: Hp::new(100).unwrap(),
             maximum_hp: Hp::new(100).unwrap(),
+            damage_dealt: 0,
             base_attack: StatValue::from_scaled(0).unwrap(),
             base_defense: StatValue::from_scaled(0).unwrap(),
             base_speed: Speed::from_scaled(100_000_000).unwrap(),
             base_effect_hit_rate: Scalar::ZERO,
             base_effect_resistance: Scalar::ZERO,
+            build_bonuses: crate::ResolvedBuildBonuses::default(),
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
             rank: EnemyRank::Normal,
@@ -290,6 +297,7 @@ mod tests {
             abilities: Box::new([]),
             rule_bundles: Box::new([]),
             modifiers: Box::new([]),
+            linked_subject_modifiers: Box::new([]),
             resources: Box::new([]),
             digest: CombatantSpecDigest::new([u8::try_from(id).unwrap(); 32]).unwrap(),
             transformation: None,
@@ -375,5 +383,37 @@ mod tests {
             [runtime(4)]
         );
         assert_eq!(rebuild.primary, Some(runtime(4)));
+    }
+
+    #[test]
+    fn retargeting_cancels_remaining_targets_when_the_current_pool_is_empty() {
+        let (mut units, formations) = stores();
+        let actor = runtime(1);
+        let primary = runtime(3);
+        let selector =
+            UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap();
+
+        for policy in [
+            TargetInvalidationPolicy::RetargetSamePool,
+            TargetInvalidationPolicy::RetargetPrimaryThenRebuildPattern,
+        ] {
+            let mut commitment =
+                commit(&units, &formations, actor, selector, policy, Some(primary)).unwrap();
+            for target in [runtime(2), runtime(3), runtime(4)] {
+                units.get_mut(target).unwrap().life = LifeState::Defeated;
+            }
+
+            assert!(
+                resolve_for_hit(&units, &formations, actor, &mut commitment, |_| Ok(0))
+                    .unwrap()
+                    .is_empty()
+            );
+            assert_eq!(commitment.primary, None);
+            assert!(commitment.targets.is_empty());
+
+            for target in [runtime(2), runtime(3), runtime(4)] {
+                units.get_mut(target).unwrap().life = LifeState::Alive;
+            }
+        }
     }
 }

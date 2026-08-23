@@ -1,0 +1,61 @@
+{
+  "schema_revision": "starclock.currency-wars-repository-release-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P8-B3",
+  "result": "Pass",
+  "sora": {
+    "version": "0.6.1",
+    "generated_tables": 111,
+    "generated_rows": 78607,
+    "workbook_sheets": 111,
+    "visually_reviewed_sheets": 111,
+    "generated_roots": [
+      "config/generated/core-rust",
+      "config/universe-generated/rust",
+      "config/currency-wars-generated/rust"
+    ]
+  },
+  "source_policy": {
+    "handwritten_rust_files": 1056,
+    "explicit_public_reexports": 143,
+    "unsafe_rust_allowed": false,
+    "inline_backend_float_allowed": false,
+    "generated_reader_exclusions": 17
+  },
+  "dependency_policy": {
+    "locked_registry_packages": 136,
+    "pinned_tools": 6,
+    "workspace_crates": 18,
+    "license_policy_checked": true
+  },
+  "architecture": {
+    "native_handler_scopes": 8,
+    "native_handlers_admitted": 0,
+    "resolver_content_id_branches": 0,
+    "prior_release_manifests_verified": 4,
+    "other_mode_rows_promoted": 0
+  },
+  "provenance": {
+    "pinned_source_repositories": 4,
+    "exact_manifest_digests_verified": true,
+    "ambient_branch_state_required": false
+  },
+  "commands": [
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/workspace/verify-dependencies.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/repository-check/verify-native-handlers.mjs",
+    "node tools/repository-check/verify-data.mjs",
+    "node tools/currency-wars-reference/verify-contracts.mjs",
+    "node tools/currency-wars-reference/verify-pack.mjs",
+    "node tools/currency-wars-reference/verify-sora-migration.mjs",
+    "node tools/currency-wars-reference/verify-sora-generated.mjs",
+    "node tools/currency-wars-reference/verify-sora-reader.mjs config/currency-wars-generated/config.sora",
+    "python3 tools/currency-wars-reference/verify-workbooks.py --root . --directory config/currency-wars/data",
+    "node tools/currency-wars-reference/visual-review-workbooks.mjs . config/currency-wars/data evidence/currency-wars-reference-v1/workbook-visual-review"
+  ],
+  "semantic_fixture_evidence": {
+    "goal11_selector_separation_reconciliation": "Executed",
+    "other_mode_ownership_rejection": "Executed"
+  }
+}

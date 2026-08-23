@@ -6,9 +6,10 @@ use starclock_build::{
         CharacterStatRow,
     },
     compiler::{BuildPresetCompileError, LoadoutCompiler},
+    contribution::{BuildContributionApplicability, BuildContributionDefinition},
     digest::CombatantBuildDigest,
     eidolon::{EidolonDefinition, EidolonSetDefinition},
-    id::{BuildPresetId, EidolonDefinitionId, LightConeId, TraceNodeId},
+    id::{BuildContributionId, BuildPresetId, EidolonDefinitionId, LightConeId, TraceNodeId},
     light_cone::{
         CombatPath, LightConeApplicability, LightConeDefinition, LightConeLevel,
         LightConePassiveRank, LightConeStatRow, Superimposition,
@@ -59,7 +60,7 @@ fn canonical_definition_catalog_build_and_spec_digests_are_stable() {
     assert_eq!(compiled, reversed_compiled);
     assert_eq!(
         hex(first.digest().bytes()),
-        "ba16be7a562244218a6db27d53fc27c4a08b1aac0f9f2a201171ebc3aa79989e"
+        "d0077b1a5f5a27db6f35b5c5804f1b40f95c623c32ba0bd844c7d37b37f1f27c"
     );
     assert_eq!(
         hex(first.character_digest(form(1)).unwrap().bytes()),
@@ -71,11 +72,11 @@ fn canonical_definition_catalog_build_and_spec_digests_are_stable() {
     );
     assert_eq!(
         hex(compiled.build_digest().bytes()),
-        "82178b6bcfb4efe6089f0affb7b762ce6feebd1b2e2ead7ec2527c0cf91c67d2"
+        "3c855e78185596d14ad555a27792e88c2dec8c0e9fb44503ae7154f3146479e1"
     );
     assert_eq!(
         hex(compiled.combatant().digest().bytes()),
-        "e2420b5932a723bbe006792d256f4242890ab8530abccec9cac5299ea4d18c42"
+        "c9b1c486f4fb716de809c3b8b38737d835561b710ea0178622516df899dc3e9d"
     );
 }
 
@@ -196,6 +197,90 @@ fn catalog_rejects_duplicate_invalid_and_digest_mismatched_presets() {
     );
 }
 
+#[test]
+fn selected_contributions_are_canonical_attributed_and_applicability_checked() {
+    let combat = combat_catalog();
+    let mut catalog_builder = builder(&combat);
+    catalog_builder.add_character(character(false));
+    catalog_builder.add_light_cone(light_cone(false));
+    catalog_builder.add_contribution(contribution(
+        2,
+        402,
+        BuildContributionApplicability::Form(form(1)),
+        rule(7),
+    ));
+    catalog_builder.add_contribution(contribution(
+        1,
+        401,
+        BuildContributionApplicability::Path(CombatPath::Harmony),
+        rule(6),
+    ));
+    let catalog = catalog_builder.build(&combat).unwrap();
+    let spec = exact_spec(1)
+        .with_contributions(vec![contribution_id(2), contribution_id(1)])
+        .unwrap();
+    let compiled = LoadoutCompiler.compile(&catalog, &combat, &spec).unwrap();
+
+    assert_eq!(
+        compiled.combatant().rule_bundles(),
+        &[rule(1), rule(2), rule(3), rule(4), rule(6), rule(7)]
+    );
+    assert_eq!(
+        compiled
+            .report()
+            .sources()
+            .iter()
+            .map(|source| source.owner())
+            .collect::<Vec<_>>(),
+        vec![
+            BuildSourceOwner::Character(form(1)),
+            BuildSourceOwner::Trace(trace(1)),
+            BuildSourceOwner::Eidolon(eidolon_id(1)),
+            BuildSourceOwner::LightCone(cone_id(1)),
+            BuildSourceOwner::Contribution(contribution_id(1)),
+            BuildSourceOwner::Contribution(contribution_id(2)),
+        ]
+    );
+
+    let duplicate = exact_spec(1).with_contributions(vec![contribution_id(1); 2]);
+    assert!(duplicate.is_err());
+
+    let unknown = exact_spec(1)
+        .with_contributions(vec![contribution_id(99)])
+        .unwrap();
+    assert_eq!(
+        LoadoutCompiler
+            .compile(&catalog, &combat, &unknown)
+            .unwrap_err()
+            .kind(),
+        starclock_build::compiler::BuildCompileErrorKind::UnknownContribution
+    );
+
+    let mut incompatible = builder(&combat);
+    incompatible.add_character(character(false));
+    incompatible.add_light_cone(light_cone(false));
+    incompatible.add_contribution(contribution(
+        1,
+        401,
+        BuildContributionApplicability::Path(CombatPath::Hunt),
+        rule(6),
+    ));
+    let incompatible = incompatible.build(&combat).unwrap();
+    assert_eq!(
+        LoadoutCompiler
+            .compile(
+                &incompatible,
+                &combat,
+                &exact_spec(1)
+                    .with_contributions(vec![contribution_id(1)])
+                    .unwrap(),
+            )
+            .unwrap_err()
+            .kind(),
+        starclock_build::compiler::BuildCompileErrorKind::ContributionNotApplicable
+    );
+}
+
 fn build_error(
     combat: &CombatCatalog,
     preset: BuildPreset,
@@ -308,6 +393,21 @@ fn light_cone(reverse: bool) -> LightConeDefinition {
     )
 }
 
+fn contribution(
+    id: u32,
+    source_id: u32,
+    applicability: BuildContributionApplicability,
+    rule: RuleBundleId,
+) -> BuildContributionDefinition {
+    BuildContributionDefinition::new(
+        contribution_id(id),
+        source(source_id, SourceClass::Equipment),
+        applicability,
+        vec![BuildPatch::AddRuleBundle(rule)],
+    )
+    .unwrap()
+}
+
 fn exact_spec(rank: u8) -> CombatantBuildSpec {
     CombatantBuildSpec::new(form(1), level(80), promotion(6))
         .with_traces(vec![trace(1)])
@@ -393,6 +493,9 @@ fn superimposition(raw: u8) -> Superimposition {
 }
 fn preset_id(raw: u32) -> BuildPresetId {
     BuildPresetId::new(raw).unwrap()
+}
+fn contribution_id(raw: u32) -> BuildContributionId {
+    BuildContributionId::new(raw).unwrap()
 }
 fn eidolon_id(raw: u32) -> EidolonDefinitionId {
     EidolonDefinitionId::new(raw).unwrap()

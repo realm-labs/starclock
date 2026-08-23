@@ -4779,8 +4779,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Holy Grail of Destiny",
     "name_zh_cn": "命运圣杯",
-    "summary_en": "Sub-trait 10131 belongs to parent Bond 1013 and has 0 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 10131 属于父羁绊 1013，包含 0 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 10131 belongs to parent Bond 1013 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 10131 属于父羁绊 1013，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -4829,6 +4829,11 @@
     ],
     "source_id": "10131",
     "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DefaultModule"
+      }
+    ],
     "level_ids": [
       "currency-wars.bond-level.10131.2",
       "currency-wars.bond-level.10131.3",
@@ -4855,8 +4860,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Holy Grail of Destiny: Projection",
     "name_zh_cn": "命运圣杯•投影",
-    "summary_en": "Sub-trait 10132 belongs to parent Bond 1013 and has 0 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 10132 属于父羁绊 1013，包含 0 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 10132 belongs to parent Bond 1013 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 10132 属于父羁绊 1013，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -4905,6 +4910,12 @@
     ],
     "source_id": "10132",
     "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "Module",
+        "source_id": "7110501"
+      }
+    ],
     "level_ids": [
       "currency-wars.bond-level.10132.2",
       "currency-wars.bond-level.10132.3",
@@ -4929,8 +4940,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Planet of Festivities... Mr. Gallagher!",
     "name_zh_cn": "盛会之星—加拉赫先生！",
-    "summary_en": "Sub-trait 2501 belongs to parent Bond 1010 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2501 属于父羁绊 1010，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2501 belongs to parent Bond 1010 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2501 属于父羁绊 1010，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5002,8 +5013,12 @@
       "subtrait"
     ],
     "source_id": "2501",
-    "member_ids": [
-      "currency-wars.roster.role.1301"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1301"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2501.2",
@@ -5031,8 +5046,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Planet of Festivities... Miss Sparkle!",
     "name_zh_cn": "盛会之星—花火女士！",
-    "summary_en": "Sub-trait 2502 belongs to parent Bond 1010 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2502 属于父羁绊 1010，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2502 belongs to parent Bond 1010 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2502 属于父羁绊 1010，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5104,8 +5119,12 @@
       "subtrait"
     ],
     "source_id": "2502",
-    "member_ids": [
-      "currency-wars.roster.role.1306"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1306"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2502.2",
@@ -5133,8 +5152,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Planet of Festivities... Mr. Sunday!",
     "name_zh_cn": "盛会之星—星期日先生！",
-    "summary_en": "Sub-trait 2503 belongs to parent Bond 1010 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2503 属于父羁绊 1010，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2503 belongs to parent Bond 1010 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2503 属于父羁绊 1010，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5206,8 +5225,12 @@
       "subtrait"
     ],
     "source_id": "2503",
-    "member_ids": [
-      "currency-wars.roster.role.1313"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1313"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2503.2",
@@ -5237,8 +5260,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Planet of Festivities... Miss Robin!",
     "name_zh_cn": "盛会之星—知更鸟女士！",
-    "summary_en": "Sub-trait 2504 belongs to parent Bond 1010 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2504 属于父羁绊 1010，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2504 belongs to parent Bond 1010 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2504 属于父羁绊 1010，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5310,8 +5333,12 @@
       "subtrait"
     ],
     "source_id": "2504",
-    "member_ids": [
-      "currency-wars.roster.role.1309"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1309"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2504.2",
@@ -5339,8 +5366,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Planet of Festivities... Miss Black Swan!",
     "name_zh_cn": "盛会之星—黑天鹅女士！",
-    "summary_en": "Sub-trait 2505 belongs to parent Bond 1010 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2505 属于父羁绊 1010，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2505 belongs to parent Bond 1010 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2505 属于父羁绊 1010，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5412,8 +5439,12 @@
       "subtrait"
     ],
     "source_id": "2505",
-    "member_ids": [
-      "currency-wars.roster.role.1307"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1307"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2505.2",
@@ -5443,8 +5474,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "The Planet of Festivities — Cameo Appearances!",
     "name_zh_cn": "盛徽之星—友情出演！",
-    "summary_en": "Sub-trait 2506 belongs to parent Bond 1010 and has 2 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2506 属于父羁绊 1010，包含 2 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2506 belongs to parent Bond 1010 and has 2 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2506 属于父羁绊 1010，包含 2 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5540,9 +5571,16 @@
       "subtrait"
     ],
     "source_id": "2506",
-    "member_ids": [
-      "currency-wars.roster.role.1408",
-      "currency-wars.roster.role.35051010"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "EquippedEquipment",
+        "source_id": "35051010"
+      },
+      {
+        "kind": "GrantedFrontTrait",
+        "source_id": "1408"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2506.2",
@@ -5572,8 +5610,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Planet of Festivities... Lady Dahlia!",
     "name_zh_cn": "盛会之星—大丽花女士！",
-    "summary_en": "Sub-trait 2507 belongs to parent Bond 1010 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2507 属于父羁绊 1010，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2507 belongs to parent Bond 1010 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2507 属于父羁绊 1010，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5645,8 +5683,12 @@
       "subtrait"
     ],
     "source_id": "2507",
-    "member_ids": [
-      "currency-wars.roster.role.1321"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1321"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2507.2",
@@ -5674,8 +5716,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Navigator & Dan Heng",
     "name_zh_cn": "领航员&丹恒",
-    "summary_en": "Sub-trait 2601 belongs to parent Bond 3007 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2601 属于父羁绊 3007，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2601 belongs to parent Bond 3007 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2601 属于父羁绊 3007，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5735,8 +5777,12 @@
       "subtrait"
     ],
     "source_id": "2601",
-    "member_ids": [
-      "currency-wars.roster.role.1213"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1213"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2601.1"
@@ -5756,8 +5802,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Navigator & Sunday",
     "name_zh_cn": "领航员&星期日",
-    "summary_en": "Sub-trait 2602 belongs to parent Bond 3007 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2602 属于父羁绊 3007，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2602 belongs to parent Bond 3007 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2602 属于父羁绊 3007，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5817,8 +5863,12 @@
       "subtrait"
     ],
     "source_id": "2602",
-    "member_ids": [
-      "currency-wars.roster.role.1313"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1313"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2602.1"
@@ -5838,8 +5888,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Navigator & Trailblazer",
     "name_zh_cn": "领航员&开拓者",
-    "summary_en": "Sub-trait 2603 belongs to parent Bond 3007 and has 2 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2603 属于父羁绊 3007，包含 2 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2603 belongs to parent Bond 3007 and has 2 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2603 属于父羁绊 3007，包含 2 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5911,9 +5961,16 @@
       "subtrait"
     ],
     "source_id": "2603",
-    "member_ids": [
-      "currency-wars.roster.role.8007",
-      "currency-wars.roster.role.8009"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "8007"
+      },
+      {
+        "kind": "DeployedRole",
+        "source_id": "8009"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2603.1"
@@ -5933,8 +5990,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Navigator & Welt",
     "name_zh_cn": "领航员&瓦尔特",
-    "summary_en": "Sub-trait 2604 belongs to parent Bond 3007 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2604 属于父羁绊 3007，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2604 belongs to parent Bond 3007 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2604 属于父羁绊 3007，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -5994,8 +6051,12 @@
       "subtrait"
     ],
     "source_id": "2604",
-    "member_ids": [
-      "currency-wars.roster.role.1004"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1004"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2604.1"
@@ -6015,8 +6076,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Navigator: Himeko",
     "name_zh_cn": "领航员：姬子",
-    "summary_en": "Sub-trait 2605 belongs to parent Bond 3007 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2605 属于父羁绊 3007，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2605 belongs to parent Bond 3007 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2605 属于父羁绊 3007，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -6076,8 +6137,12 @@
       "subtrait"
     ],
     "source_id": "2605",
-    "member_ids": [
-      "currency-wars.roster.role.1003"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1003"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2605.1"
@@ -6097,8 +6162,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "Navigator & March 7th",
     "name_zh_cn": "领航员&三月七",
-    "summary_en": "Sub-trait 2606 belongs to parent Bond 3007 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2606 属于父羁绊 3007，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2606 belongs to parent Bond 3007 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2606 属于父羁绊 3007，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -6158,8 +6223,12 @@
       "subtrait"
     ],
     "source_id": "2606",
-    "member_ids": [
-      "currency-wars.roster.role.1001"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "DeployedRole",
+        "source_id": "1001"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2606.1"
@@ -6179,8 +6248,8 @@
     "kind": "CurrencyWarsBond",
     "name_en": "This journey leads us starward!",
     "name_zh_cn": "此行，终抵群星！",
-    "summary_en": "Sub-trait 2607 belongs to parent Bond 3007 and has 1 explicitly selected role member(s).",
-    "summary_zh_cn": "子羁绊 2607 属于父羁绊 3007，包含 1 个明确选择的角色成员。",
+    "summary_en": "Sub-trait 2607 belongs to parent Bond 3007 and has 1 typed selection rule(s).",
+    "summary_zh_cn": "子羁绊 2607 属于父羁绊 3007，包含 1 条类型化选择规则。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
@@ -6240,8 +6309,12 @@
       "subtrait"
     ],
     "source_id": "2607",
-    "member_ids": [
-      "currency-wars.roster.role.35051001"
+    "member_ids": [],
+    "selection_rules": [
+      {
+        "kind": "EquippedEquipment",
+        "source_id": "35051001"
+      }
     ],
     "level_ids": [
       "currency-wars.bond-level.2607.1"

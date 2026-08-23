@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsHexEligibility {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            hex_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            subject_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            replacement: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            hex_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            subject_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            eligibility: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            replacement: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

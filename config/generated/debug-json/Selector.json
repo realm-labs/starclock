@@ -194,7 +194,7 @@
             "String": "Battle"
           },
           "empty_pool_policy": {
-            "String": "Fault"
+            "String": "Skip"
           },
           "id": {
             "Integer": 24151
@@ -1817,6 +1817,96 @@
             "String": "Fault"
           },
           "id": {
+            "Integer": 146001
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "StableId"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 146002
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "StableId"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
             "Integer": 216001
           },
           "life": {
@@ -2798,6 +2888,141 @@
             "Bool": false
           },
           "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 980401
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 980402
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 980403
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
             "String": "All"
           },
           "domain": {
@@ -2978,6 +3203,51 @@
             "Bool": false
           },
           "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 980408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
             "String": "All"
           },
           "domain": {
@@ -3032,186 +3302,6 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 980401
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 980402
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Owner"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 980403
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 980408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
             "Integer": 980410
           },
           "life": {
@@ -3228,51 +3318,6 @@
           },
           "origin": {
             "String": "PrimaryTarget"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 990405
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
           },
           "presence": {
             "String": "Present"
@@ -3428,96 +3473,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 990406
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 990408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Owner"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -3553,6 +3508,96 @@
           "rng_purpose_key": {
             "String": "behavior-choice"
           },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 990405
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 990406
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
           },
@@ -3612,7 +3657,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "All"
+            "String": "First"
           },
           "domain": {
             "String": "Battle"
@@ -3621,13 +3666,13 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1000405
+            "Integer": 990408
           },
           "life": {
             "String": "Alive"
           },
           "maximum_count": {
-            "Integer": 8
+            "Integer": 1
           },
           "minimum_count": {
             "Integer": 1
@@ -3636,52 +3681,7 @@
             "String": "Formation"
           },
           "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1000407
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
+            "String": "Owner"
           },
           "presence": {
             "String": "Present"
@@ -3882,6 +3882,51 @@
             "Bool": false
           },
           "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1000405
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
             "String": "First"
           },
           "domain": {
@@ -3917,6 +3962,51 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1000407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
           },
           "weight_expression_id": "Null"
         }
@@ -4154,276 +4244,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1020407
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1020410
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 4
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1020411
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 4
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Owner"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1020414
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 4
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1020415
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 4
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1020418
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "First"
           },
           "domain": {
@@ -4451,7 +4271,7 @@
             "String": "Actor"
           },
           "presence": {
-            "String": "Present"
+            "String": "Any"
           },
           "reference_point": {
             "String": "CurrentState"
@@ -4496,7 +4316,7 @@
             "String": "Owner"
           },
           "presence": {
-            "String": "Present"
+            "String": "Any"
           },
           "reference_point": {
             "String": "CurrentState"
@@ -4649,7 +4469,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "First"
+            "String": "RngUniform"
           },
           "domain": {
             "String": "Battle"
@@ -4658,13 +4478,60 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1020409
+            "Integer": 1020406
           },
           "life": {
             "String": "Alive"
           },
           "maximum_count": {
             "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": {
+            "String": "damage-target"
+          },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1020407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
           },
           "minimum_count": {
             "Integer": 1
@@ -4684,141 +4551,6 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1020417
-          },
-          "life": {
-            "String": "Any"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Any"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "AnySide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1020419
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1020420
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
           },
           "weight_expression_id": "Null"
         }
@@ -4874,7 +4606,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "RngUniform"
+            "String": "First"
           },
           "domain": {
             "String": "Battle"
@@ -4883,7 +4615,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1020406
+            "Integer": 1020409
           },
           "life": {
             "String": "Alive"
@@ -4906,11 +4638,99 @@
           "reference_point": {
             "String": "CurrentState"
           },
-          "rng_purpose_key": {
-            "String": "damage-target"
-          },
+          "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1020410
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 4
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1020411
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 4
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
           },
           "weight_expression_id": "Null"
         }
@@ -4927,7 +4747,7 @@
             "String": "Battle"
           },
           "empty_pool_policy": {
-            "String": "Fault"
+            "String": "NoOp"
           },
           "id": {
             "Integer": 1020412
@@ -4939,7 +4759,7 @@
             "Integer": 1
           },
           "minimum_count": {
-            "Integer": 1
+            "Integer": 0
           },
           "ordering": {
             "String": "Formation"
@@ -4974,7 +4794,7 @@
             "String": "Battle"
           },
           "empty_pool_policy": {
-            "String": "Fault"
+            "String": "NoOp"
           },
           "id": {
             "Integer": 1020413
@@ -4986,7 +4806,7 @@
             "Integer": 1
           },
           "minimum_count": {
-            "Integer": 1
+            "Integer": 0
           },
           "ordering": {
             "String": "Formation"
@@ -5003,6 +4823,96 @@
           "rng_purpose_key": {
             "String": "behavior-choice"
           },
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1020414
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 4
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1020415
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 4
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "SameSide"
           },
@@ -5062,141 +4972,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030407
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1030410
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1030413
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 3
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "First"
           },
           "domain": {
@@ -5206,277 +4981,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1030401
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030402
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Owner"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030403
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Applier"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030404
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "AnySide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030405
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "PrimaryTarget"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030409
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030414
+            "Integer": 1020417
           },
           "life": {
             "String": "Any"
@@ -5512,7 +5017,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
+            "String": "All"
           },
           "domain": {
             "String": "Battle"
@@ -5521,7 +5026,7 @@
             "String": "NoOp"
           },
           "id": {
-            "Integer": 1030408
+            "Integer": 1020418
           },
           "life": {
             "String": "Alive"
@@ -5531,235 +5036,6 @@
           },
           "minimum_count": {
             "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1030411
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "RngUniform"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1030406
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": {
-            "String": "damage-target"
-          },
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "RngUniform"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1030412
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": {
-            "String": "damage-target"
-          },
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1040406
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1040407
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
           },
           "ordering": {
             "String": "Formation"
@@ -5786,7 +5062,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "All"
+            "String": "First"
           },
           "domain": {
             "String": "Battle"
@@ -5795,13 +5071,13 @@
             "String": "NoOp"
           },
           "id": {
-            "Integer": 1040408
+            "Integer": 1020419
           },
           "life": {
             "String": "Alive"
           },
           "maximum_count": {
-            "Integer": 6
+            "Integer": 1
           },
           "minimum_count": {
             "Integer": 0
@@ -5813,7 +5089,52 @@
             "String": "Actor"
           },
           "presence": {
-            "String": "Linked"
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1020420
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
           },
           "reference_point": {
             "String": "CurrentState"
@@ -6011,51 +5332,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1040409
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -6112,7 +5388,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1050404
+            "Integer": 1040406
           },
           "life": {
             "String": "Alive"
@@ -6122,6 +5398,141 @@
           },
           "minimum_count": {
             "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1040407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1040408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 6
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Linked"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1040409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
           },
           "ordering": {
             "String": "Formation"
@@ -6283,51 +5694,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1050405
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "PrimaryTarget"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "All"
           },
           "domain": {
@@ -6337,7 +5703,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1060404
+            "Integer": 1050404
           },
           "life": {
             "String": "Alive"
@@ -6373,7 +5739,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "All"
+            "String": "First"
           },
           "domain": {
             "String": "Battle"
@@ -6382,13 +5748,13 @@
             "String": "NoOp"
           },
           "id": {
-            "Integer": 1060407
+            "Integer": 1050405
           },
           "life": {
-            "String": "Any"
+            "String": "Alive"
           },
           "maximum_count": {
-            "Integer": 4
+            "Integer": 1
           },
           "minimum_count": {
             "Integer": 0
@@ -6397,10 +5763,10 @@
             "String": "Formation"
           },
           "origin": {
-            "String": "Actor"
+            "String": "PrimaryTarget"
           },
           "presence": {
-            "String": "Any"
+            "String": "Present"
           },
           "reference_point": {
             "String": "CurrentState"
@@ -6553,6 +5919,98 @@
             "Bool": false
           },
           "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1060404
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "RngUniform"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1060405
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": {
+            "String": "behavior-choice"
+          },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
             "String": "First"
           },
           "domain": {
@@ -6588,6 +6046,51 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "AnySide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1060407
+          },
+          "life": {
+            "String": "Any"
+          },
+          "maximum_count": {
+            "Integer": 4
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Any"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
           },
           "weight_expression_id": "Null"
         }
@@ -7498,188 +7001,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "RngUniform"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1060405
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": {
-            "String": "behavior-choice"
-          },
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1070405
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1070407
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1070409
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "First"
           },
           "domain": {
@@ -7815,6 +7136,188 @@
             "Bool": false
           },
           "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1070404
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1070405
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "RngUniform"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1070406
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": {
+            "String": "behavior-choice"
+          },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1070407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
             "String": "First"
           },
           "domain": {
@@ -7840,6 +7343,51 @@
           },
           "origin": {
             "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1070409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
           },
           "presence": {
             "String": "Present"
@@ -7940,233 +7488,6 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "AnySide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1070404
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "RngUniform"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1070406
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": {
-            "String": "behavior-choice"
-          },
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1080405
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1080406
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "All"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1080408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 8
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Linked"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
           },
           "weight_expression_id": "Null"
         }
@@ -8312,51 +7633,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1080407
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Actor"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -8413,7 +7689,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1090406
+            "Integer": 1080405
           },
           "life": {
             "String": "Alive"
@@ -8458,7 +7734,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1090407
+            "Integer": 1080406
           },
           "life": {
             "String": "Alive"
@@ -8477,6 +7753,96 @@
           },
           "presence": {
             "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1080407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1080408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Linked"
           },
           "reference_point": {
             "String": "CurrentState"
@@ -8674,51 +8040,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1090408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -8775,7 +8096,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1100406
+            "Integer": 1090406
           },
           "life": {
             "String": "Alive"
@@ -8820,7 +8141,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1100407
+            "Integer": 1090407
           },
           "life": {
             "String": "Alive"
@@ -8836,6 +8157,51 @@
           },
           "origin": {
             "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1090408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
           },
           "presence": {
             "String": "Present"
@@ -9036,96 +8402,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1100409
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 3
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "PrimaryTarget"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1100408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -9182,7 +8458,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1110406
+            "Integer": 1100406
           },
           "life": {
             "String": "Alive"
@@ -9227,7 +8503,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1110407
+            "Integer": 1100407
           },
           "life": {
             "String": "Alive"
@@ -9253,6 +8529,96 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1100408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1100409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 3
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
           },
           "weight_expression_id": "Null"
         }
@@ -9443,96 +8809,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1110409
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 3
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "PrimaryTarget"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1110408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -9589,7 +8865,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1120406
+            "Integer": 1110406
           },
           "life": {
             "String": "Alive"
@@ -9634,7 +8910,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1120407
+            "Integer": 1110407
           },
           "life": {
             "String": "Alive"
@@ -9660,6 +8936,96 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1110408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1110409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 3
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
           },
           "weight_expression_id": "Null"
         }
@@ -9850,96 +9216,6 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1120409
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 3
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "PrimaryTarget"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "OpposingSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "PrimaryPlusAdjacent"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "NoOp"
-          },
-          "id": {
-            "Integer": 1120408
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 2
-          },
-          "minimum_count": {
-            "Integer": 0
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "CurrentSubject"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -9996,7 +9272,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1130406
+            "Integer": 1120406
           },
           "life": {
             "String": "Alive"
@@ -10041,7 +9317,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1130407
+            "Integer": 1120407
           },
           "life": {
             "String": "Alive"
@@ -10067,6 +9343,96 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1120408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1120409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 3
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
           },
           "weight_expression_id": "Null"
         }
@@ -10257,7 +9623,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
+            "String": "RngUniform"
           },
           "domain": {
             "String": "Battle"
@@ -10266,13 +9632,13 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1130409
+            "Integer": 1130405
           },
           "life": {
             "String": "Alive"
           },
           "maximum_count": {
-            "Integer": 3
+            "Integer": 1
           },
           "minimum_count": {
             "Integer": 1
@@ -10281,7 +9647,54 @@
             "String": "Formation"
           },
           "origin": {
-            "String": "PrimaryTarget"
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": {
+            "String": "behavior-choice"
+          },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1130406
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
           },
           "presence": {
             "String": "Present"
@@ -10292,6 +9705,51 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1130407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
           },
           "weight_expression_id": "Null"
         }
@@ -10347,6 +9805,231 @@
             "Bool": false
           },
           "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1130409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 3
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150401
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150402
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150403
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "AnySide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150404
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
             "String": "RngUniform"
           },
           "domain": {
@@ -10356,7 +10039,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1130405
+            "Integer": 1150405
           },
           "life": {
             "String": "Alive"
@@ -10382,6 +10065,186 @@
           "rng_purpose_key": {
             "String": "behavior-choice"
           },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150406
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150407
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 8
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1150408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1150409
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 3
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "PrimaryTarget"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
           },
@@ -10538,51 +10401,6 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1140402
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Owner"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
             "Integer": 1140403
           },
           "life": {
@@ -10654,6 +10472,51 @@
           "rng_purpose_key": "Null",
           "side_relationship": {
             "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1140402
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
           },
           "weight_expression_id": "Null"
         }
@@ -10857,7 +10720,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1150406
+            "Integer": 1030407
           },
           "life": {
             "String": "Alive"
@@ -10899,10 +10762,10 @@
             "String": "Battle"
           },
           "empty_pool_policy": {
-            "String": "Fault"
+            "String": "NoOp"
           },
           "id": {
-            "Integer": 1150407
+            "Integer": 1030410
           },
           "life": {
             "String": "Alive"
@@ -10911,7 +10774,7 @@
             "Integer": 8
           },
           "minimum_count": {
-            "Integer": 1
+            "Integer": 0
           },
           "ordering": {
             "String": "Formation"
@@ -10927,7 +10790,52 @@
           },
           "rng_purpose_key": "Null",
           "side_relationship": {
-            "String": "SameSide"
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "All"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1030413
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 3
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Applier"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "AnySide"
           },
           "weight_expression_id": "Null"
         }
@@ -10947,7 +10855,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1150401
+            "Integer": 1030401
           },
           "life": {
             "String": "Alive"
@@ -10992,52 +10900,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1150402
-          },
-          "life": {
-            "String": "Alive"
-          },
-          "maximum_count": {
-            "Integer": 1
-          },
-          "minimum_count": {
-            "Integer": 1
-          },
-          "ordering": {
-            "String": "Formation"
-          },
-          "origin": {
-            "String": "Owner"
-          },
-          "presence": {
-            "String": "Present"
-          },
-          "reference_point": {
-            "String": "CurrentState"
-          },
-          "rng_purpose_key": "Null",
-          "side_relationship": {
-            "String": "SameSide"
-          },
-          "weight_expression_id": "Null"
-        }
-      },
-      {
-        "values": {
-          "allow_repeated_targets": {
-            "Bool": false
-          },
-          "choice": {
-            "String": "First"
-          },
-          "domain": {
-            "String": "Battle"
-          },
-          "empty_pool_policy": {
-            "String": "Fault"
-          },
-          "id": {
-            "Integer": 1150403
+            "Integer": 1030404
           },
           "life": {
             "String": "Alive"
@@ -11082,7 +10945,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1150404
+            "Integer": 1030405
           },
           "life": {
             "String": "Alive"
@@ -11118,7 +10981,7 @@
             "Bool": false
           },
           "choice": {
-            "String": "PrimaryPlusAdjacent"
+            "String": "First"
           },
           "domain": {
             "String": "Battle"
@@ -11127,13 +10990,13 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1150409
+            "Integer": 1030409
           },
           "life": {
             "String": "Alive"
           },
           "maximum_count": {
-            "Integer": 3
+            "Integer": 1
           },
           "minimum_count": {
             "Integer": 1
@@ -11142,7 +11005,187 @@
             "String": "Formation"
           },
           "origin": {
-            "String": "PrimaryTarget"
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 1030414
+          },
+          "life": {
+            "String": "Any"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Any"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "AnySide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1030402
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1030403
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Applier"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "AnySide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "PrimaryPlusAdjacent"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1030408
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 2
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
           },
           "presence": {
             "String": "Present"
@@ -11172,7 +11215,7 @@
             "String": "NoOp"
           },
           "id": {
-            "Integer": 1150408
+            "Integer": 1030411
           },
           "life": {
             "String": "Alive"
@@ -11187,7 +11230,7 @@
             "String": "Formation"
           },
           "origin": {
-            "String": "CurrentSubject"
+            "String": "Actor"
           },
           "presence": {
             "String": "Present"
@@ -11197,7 +11240,7 @@
           },
           "rng_purpose_key": "Null",
           "side_relationship": {
-            "String": "SameSide"
+            "String": "OpposingSide"
           },
           "weight_expression_id": "Null"
         }
@@ -11217,7 +11260,7 @@
             "String": "Fault"
           },
           "id": {
-            "Integer": 1150405
+            "Integer": 1030406
           },
           "life": {
             "String": "Alive"
@@ -11241,7 +11284,54 @@
             "String": "CurrentState"
           },
           "rng_purpose_key": {
-            "String": "behavior-choice"
+            "String": "damage-target"
+          },
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "RngUniform"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "NoOp"
+          },
+          "id": {
+            "Integer": 1030412
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 0
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": {
+            "String": "damage-target"
           },
           "side_relationship": {
             "String": "OpposingSide"

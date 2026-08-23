@@ -18,10 +18,10 @@
   },
   "mechanic_coverage": {
     "total": 2367,
-    "runtime_lowered": 0,
+    "runtime_lowered": 529,
     "scope_counts": {
-      "BattleVisibleOrBattleBoundary": 1846,
-      "CrossBattleActivity": 521
+      "BattleVisibleOrBattleBoundary": 1847,
+      "CrossBattleActivity": 520
     },
     "fixture_assignments": {
       "BattleVisibleOrBattleBoundary": "battle-visible-rule-contribution",
@@ -31,7 +31,8 @@
   "approximation_coverage": {
     "total": 12,
     "orphan_count": 0,
-    "bounded_project_policy_count": 12,
+    "bounded_project_policy_count": 11,
+    "exact_resolved_count": 1,
     "results": [
       {
         "id": "currency-wars.research-gap.bond-simultaneous-recompute",
@@ -51,8 +52,8 @@
         "fixture_families": [
           "owned-trial-build-substitution-and-removal"
         ],
-        "selected_policy": "Keep shared builds fail closed and preserve account state unchanged.",
-        "replacement_condition": "A released role-to-build selector or reproducible owned/trial substitution observation is available."
+        "selected_policy": "Compile the explicit released join as an immutable trial minimum and preserve account state unchanged.",
+        "replacement_condition": "Replace only if a later released Currency Wars version changes the explicit role or trial-build join fields."
       },
       {
         "id": "currency-wars.research-gap.gold-coin-structured-id",
@@ -112,8 +113,8 @@
         "fixture_families": [
           "battle-visible-rule-contribution"
         ],
-        "selected_policy": "Preserve exact program boundaries without runtime lowering or inferred operations.",
-        "replacement_condition": "A later runtime goal supplies reviewed typed lowering with semantic fixture evidence."
+        "selected_policy": "Lower reviewed high-level behavior to typed Activity or Rule IR without interpreting raw postfix bytes. Reward pools repeatedly draw a legal candidate in authored order with authored weight and maximum, subtract its positive budget cost, and stop without state or RNG mutation when no candidate fits. Specific Avatar rewards select the lowest stable matching Role ID, equipment rerolls stay within the authored category, and generated offers use stable candidate order.",
+        "replacement_condition": "Released operation programs or reproducible seeded traces prove all postfix opcodes, reward-pool ordering, equipment-reroll selection and multi-variant Avatar resolution."
       },
       {
         "id": "currency-wars.research-gap.position-and-rescue-order",
@@ -123,8 +124,8 @@
           "automatic-technique-energy-and-lethal-rescue",
           "field-bench-position-and-empowerment"
         ],
-        "selected_policy": "Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
-        "replacement_condition": "Released enum metadata or reproducible lethal-boundary observations become available."
+        "selected_policy": "Keep omitted positions dual-candidate. On lethal damage, prevent incapacitation, restore maximum HP, deduct the current node's configured rescue action value with a floor at zero, then expire the battle clock if it reaches zero.",
+        "replacement_condition": "Released structured rescue healing data or a reproducible Version 4.4 lethal-boundary observation publishes the restored HP amount or a different operation order."
       },
       {
         "id": "currency-wars.research-gap.gambit-route-membership",
@@ -144,8 +145,8 @@
         "fixture_families": [
           "squad-hp-action-value-same-boundary-order"
         ],
-        "selected_policy": "Use the reviewed victory-first policy only in reference fixtures.",
-        "replacement_condition": "A reproducible last-enemy and timeout same-boundary observation is available."
+        "selected_policy": "Resolve victory first; otherwise add the configured base loss, ceiling-rounded uncleared-progress coefficient and below-threshold extra loss, then clamp Squad HP and test run failure.",
+        "replacement_condition": "A released program or reproducible boundary observation publishes simultaneous precedence and fractional progress-penalty rounding."
       },
       {
         "id": "currency-wars.research-gap.maximum-star-overflow",
@@ -230,7 +231,7 @@
       "evidence_assertions": [
         "bonds.json:49",
         "bond-levels.json:152",
-        "bond-contributions.json:653",
+        "bond-contributions.json:683",
         "policy:bond.simultaneous_recompute"
       ]
     },
@@ -303,7 +304,7 @@
       "evidence_assertions": [
         "role-mappings.json:77",
         "positions.json:3",
-        "character-empowerments.json:4652 with teardown"
+        "character-empowerments.json:4784 with teardown"
       ]
     },
     {
@@ -331,7 +332,7 @@
       ],
       "evidence_assertions": [
         "gambit-modes.json:2",
-        "rank-gambit-progression.json:56",
+        "rank-gambit-progression.json:108",
         "enemy-affixes.json:721"
       ]
     },
@@ -452,7 +453,7 @@
       ],
       "evidence_assertions": [
         "build-mappings.json:77 account_mutation=false",
-        "build-source-files.json:6 fail-closed shared sources",
+        "build-source-files.json:12 fail-closed shared sources",
         "build-substitution-rules.json:2 teardown rules"
       ]
     },
@@ -469,7 +470,7 @@
         "profiles.json:1 runtime disabled",
         "gambit-modes.json:2",
         "entries.json:2",
-        "finish-conditions.json:21"
+        "finish-conditions.json:135"
       ]
     },
     {
@@ -582,8 +583,8 @@
     }
   ],
   "pack": {
-    "digest": "6166401347306cc38f5f0e3eed1a519d25a1f015e88f7782fb0c1bdf2761c2cb",
-    "indexed_stable_ids": 74618,
-    "source_receipts": 37342
+    "digest": "6f44a6c1667cb582932d188eeebe8b7d72cbe7c1e8cfe9063487caaa6c9f9e6d",
+    "indexed_stable_ids": 78365,
+    "source_receipts": 39373
   }
 }

@@ -1,0 +1,146 @@
+{
+  "schema_revision": "starclock.currency-wars-runtime-foundation.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P0-B2",
+  "game_version": "4.4",
+  "launch_baseline": {
+    "commit": "a139bfc76e4bd7b260ee934e30e6c12ad5a62a31",
+    "tree": "d41c3763747aa388b02f27e20ba761b38bf60ae4",
+    "worktree_clean_before_goal_changes": true,
+    "observation": "Recorded immediately before G21-P0-B1 changed the shared worktree."
+  },
+  "prerequisite_releases": [
+    {
+      "goal": "Goal09",
+      "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+      "tree": "7116ca632ca03f13c8d8b0243338d88bef846093"
+    },
+    {
+      "goal": "Goal10",
+      "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+      "tree": "7ac9d6242de3b024c6b0149f3f28230edc78da56"
+    },
+    {
+      "goal": "Goal11",
+      "commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+      "tree": "1cb45215d06549dbc7bb4f38ab331ae4e2e872e2"
+    },
+    {
+      "goal": "Goal12",
+      "commit": "7d672177524a6b43cfd0ff3a5cb62ce7aa6e4981",
+      "tree": "3aa951a8708fc8333497df16055aced197dcaa5e"
+    }
+  ],
+  "source_snapshot": {
+    "access_date": "2026-07-22",
+    "repositories": [
+      {
+        "id": "turnbasedgamedata",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+      },
+      {
+        "id": "starrailres",
+        "repository": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+      }
+    ]
+  },
+  "toolchain": {
+    "package": "sora-cli",
+    "version": "0.6.1",
+    "crate_sha256": "1e94903eba86640a6c9836ba224c9049152c4d84b6cc57537b79126d124a43af",
+    "install_root": ".cache/tools/sora-cli-0.6.1"
+  },
+  "input_digests": {
+    "content-manifests/currency-wars-v1/source-inventory.json": "4cfce0e8d4dab1f9927d2b26edddd42039f13b6568961f9317c206d98b1019dc",
+    "content-manifests/currency-wars-v1/content-manifest.json": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+    "content-manifests/currency-wars-v1/normalized-schema.json": "6d1c200ae7162cc8a947a0db839719a059804d4e7b56faec3f7cb1229f356cc9",
+    "content-manifests/currency-wars-v1/authoring-contract.json": "b732b6a4a1be33f37af0f2a2acd4897d9ee0f7e325ec0135c187a9865cfd6e65",
+    "content-manifests/currency-wars-v1/fixture-contract.json": "a1f0ba4a791bceb8da2e2d39f3428ad12050a4970a804e50690fef903bfbe89c",
+    "content-reference/currency-wars-v1/pack-index.json": "039f3f6111a61b34885f7adc8ef2f5b828e9253096904d942f6173032366a6cc",
+    "content-reference/currency-wars-v1/mechanic-rules.json": "a91de7efc4086c0a8e91b4e5c82532d41874d1ec07d7a2284c300488bc925edc",
+    "content-reference/currency-wars-v1/semantic-fixture-families.json": "cc836c84af7c154b97a10ae15aea0f922ce9d5ca49f885ee3ae0701a62151ca3",
+    "content-reference/currency-wars-v1/review-fixtures.json": "4650bdf749c4ce73b8adbfb0d22d445e651a6c5449f5e57dc44991d800f3a291",
+    "content-reference/currency-wars-v1/research-gaps.json": "b3ecb0835d42d1c787e71421df3a8f6093045ad26f3536ea5ba637d58ba30865",
+    "config/currency-wars-generated/schema.lock": "3d70ae9bd9391e6e3278ea8048591b197b0646ac369f433239891ba2a2a6d501",
+    "config/currency-wars-generated/config.sora": "0a19e13dff9c73f94d3ed111691fed83e0407809506a0b1a3ae55db514b63506",
+    "policy/sora-toolchain.json": "0618338cf5fafddb75e6bf540b38f3a54d4f3bdfaf7c918195a238596e9d8beb"
+  },
+  "denominators": {
+    "source_obligations": 19250,
+    "source_ownership": {
+      "CurrencyWars": 18524,
+      "EvidenceOnly": 726
+    },
+    "normalized_families": 111,
+    "sora_tables": 111,
+    "authored_exported_rows": 78607,
+    "mechanic_programs": 2367,
+    "mechanic_program_scopes": {
+      "BattleVisibleOrBattleBoundary": 1847,
+      "CrossBattleActivity": 520
+    },
+    "semantic_fixture_families": 28,
+    "policy_gaps": 12,
+    "routes": 26,
+    "nodes": 493,
+    "difficulties": 97,
+    "roster_roles": 77,
+    "bonds": 49,
+    "investment_identities": 834
+  },
+  "investment_families": [
+    {
+      "family": "augment-definitions",
+      "identities": 334
+    },
+    {
+      "family": "enhancements",
+      "identities": 25
+    },
+    {
+      "family": "orbs",
+      "identities": 376
+    },
+    {
+      "family": "portal-buffs",
+      "identities": 84
+    },
+    {
+      "family": "projections",
+      "identities": 2
+    },
+    {
+      "family": "talents",
+      "identities": 13
+    }
+  ],
+  "runtime_state": {
+    "status": "PartialRuntimeSkeleton",
+    "credited_capabilities": [
+      "private production Sora bundle loading and partial catalog lowering",
+      "route progression and battle handoff",
+      "Gold, Experience, team level and Squad HP state",
+      "shop refresh, purchase, sale, star combination, deployment and Bond recomputation",
+      "generic atomic Activity replacement operations"
+    ],
+    "identity_only_capabilities": [
+      "investment selection and inspection"
+    ],
+    "missing_release_capabilities": [
+      "complete configuration-program lowering and execution",
+      "exact role build and equipment compilation",
+      "executable investment effects and cross-family lifecycle",
+      "complete encounter, scaling and battle-override lowering",
+      "production Currency Wars BattleSpec assembly",
+      "complete Standard and Overclock runs with replay and adapter parity"
+    ],
+    "completion_credit_exclusions": [
+      "ID loading",
+      "catalog row exposure",
+      "retained source identity",
+      "no-op handlers"
+    ]
+  }
+}

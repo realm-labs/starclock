@@ -39,6 +39,8 @@ pub struct CurrencyWarsEnemySlots {
     pub level: Option<String>,
     #[serde(rename = "ability_refs")]
     pub ability_refs: Option<String>,
+    #[serde(rename = "shared_enemy_key")]
+    pub shared_enemy_key: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEnemySlots {
@@ -57,11 +59,12 @@ impl super::runtime::SoraDecode for CurrencyWarsEnemySlots {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            wave_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            slot_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            monster_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            ability_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            wave_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            slot_index: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            monster_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            level: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            ability_refs: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            shared_enemy_key: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

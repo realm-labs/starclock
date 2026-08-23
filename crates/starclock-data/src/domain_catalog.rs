@@ -976,6 +976,7 @@ mod tests {
     fn character_definition() -> CharacterDataDefinition {
         CharacterDataDefinition {
             id: form(1),
+            source_avatar_id: 1,
             rarity: 5,
             path: 3,
             element: 1,

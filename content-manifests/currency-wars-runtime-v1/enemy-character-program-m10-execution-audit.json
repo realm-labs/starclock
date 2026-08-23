@@ -1,0 +1,208 @@
+{
+  "schema_revision": "starclock.currency-wars-enemy-character-program-m10-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-M10",
+  "status": "ExactExecutable",
+  "accuracy": "ExactEvidence",
+  "partition_program_count": 12,
+  "exact_program_count": 11,
+  "terminal_metadata_count": 1,
+  "released_binding_totals": {
+    "shared_enemy_keys": 11,
+    "source_template_ids": 11
+  },
+  "released_shape_totals": {
+    "ability_names": 60,
+    "skills": 129,
+    "skill_ability_bindings": 95,
+    "dynamic_sources": 290
+  },
+  "execution_contract": "Each released source path resolves one exact shared-enemy identity and executable EnemyDefinition; battle assembly emits registered and active binding counts for the selected enemy roster.",
+  "behavioral_evidence": [
+    "currency_wars::tests::production_m10_enemy_character_configurations_bind_exact_shared_definitions",
+    "currency_wars_combat_policy_tests::every_m10_enemy_character_configuration_reaches_battle_assembly"
+  ],
+  "verification_commands": [
+    "cargo test -p starclock-data currency_wars::tests::production_m10_enemy_character_configurations_bind_exact_shared_definitions -- --exact",
+    "cargo test -p starclock-data currency_wars_combat_policy_tests::every_m10_enemy_character_configuration_reaches_battle_assembly -- --exact",
+    "node tools/currency-wars-runtime/verify-dispositions.mjs"
+  ],
+  "programs": [
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.27af661d33611524d5cda864",
+      "source_path": "Config/ConfigCharacter/GridFight/4.0/Monster_GridFight_W5_Vtuber_00_Config.json",
+      "source_sha256": "09b322aa6ff23c5f868d81fb0ebbade74b77917fa9484960b6146d5af3acc503",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.sparxiconofficial.littleboss.02",
+          "source_template_id": "5014012"
+        }
+      ],
+      "ability_count": 5,
+      "skill_count": 10,
+      "skill_ability_count": 7,
+      "dynamic_source_count": 40,
+      "mechanical_shape_sha256": "3d6112f1b37d97d23f9ad060bdd9f437ed34873022df928aebfbb63f79030c5e"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.35bf1b6fa1c22b79c3fda8ad",
+      "source_path": "Config/ConfigCharacter/GridFight/3.5/Monster_GridFight_W1_Gepard_00_Config.json",
+      "source_sha256": "50adbab7afb9854c4ac0c6c75d973bc9438bbd9b9043753c00ed82d0d78aba23",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.gepard.littleboss.05",
+          "source_template_id": "1004028"
+        }
+      ],
+      "ability_count": 4,
+      "skill_count": 11,
+      "skill_ability_count": 9,
+      "dynamic_source_count": 18,
+      "mechanical_shape_sha256": "eed806799b77724a8eac0102e6179d3af900e7e4976da7ad42e532a5ee6f7fe5"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.48e48155a8a17048bc0a1f60",
+      "source_path": "Config/ConfigCharacter/GridFight/3.5/Monster_GridFight_W1_CocoliaP1_00_Config.json",
+      "source_sha256": "8dbcee52796687762f9cbc67a441124acc71e8cb8d4bd5bcdd35199f7ef978b5",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.cocolia.littleboss.02",
+          "source_template_id": "1004016"
+        }
+      ],
+      "ability_count": 8,
+      "skill_count": 13,
+      "skill_ability_count": 7,
+      "dynamic_source_count": 17,
+      "mechanical_shape_sha256": "56cd80c90524618ff1c4c21e7367d98c79e5409db7b3084e1f031298cceeb240"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.5225c8dcd21953751864bce0",
+      "source_path": "Config/ConfigCharacter/GridFight/3.5/Monster_GridFight_XP_Minion03_00_Config.json",
+      "source_sha256": "6a2109c0ddaf58365b4397ddce76ec7dc127f9bbe24ff6c303a109cc2059355a",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.borrowed-force.minion",
+          "source_template_id": "8001031"
+        }
+      ],
+      "ability_count": 2,
+      "skill_count": 1,
+      "skill_ability_count": 0,
+      "dynamic_source_count": 0,
+      "mechanical_shape_sha256": "f899ca41f9ccc91a79a1c4247b2b2173606eecdaa997c462ef1ebb9051cc2f09"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6218b72a6214ec8a4eaaf49d",
+      "source_path": "Config/ConfigCharacter/GridFight/4.2/Monster_GridFight_W5_Pam_00_Config.json",
+      "source_sha256": "40fccfed31abd91b2928bfcd693df0191ac220c91d8873f066c972084abc7bdb",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.alloy-mechatron-king-pom-pom.littleboss.02",
+          "source_template_id": "5014021"
+        }
+      ],
+      "ability_count": 2,
+      "skill_count": 10,
+      "skill_ability_count": 9,
+      "dynamic_source_count": 38,
+      "mechanical_shape_sha256": "2a0bf5f5e75bc0fa53a189bd2b090781159e8488bbe3df52494e33d4f902c9c0"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.624ca44a0d326e15bead1dfc",
+      "source_path": "Config/ConfigCharacter/GridFight/4.0/Monster_GridFight_W3_Sam_01_Config_Phase2.json",
+      "source_sha256": "87473ab8874e51d3c20358beb5b9d0b9816031e05871165abbbad03598a95011",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.harbinger-of-death-swarm-nightmare.littleboss.02",
+          "source_template_id": "3024031"
+        }
+      ],
+      "ability_count": 6,
+      "skill_count": 14,
+      "skill_ability_count": 10,
+      "dynamic_source_count": 22,
+      "mechanical_shape_sha256": "7930827176e3b93f40464072b6ee79d36d4baa64d5134d3eb1987c2539db5c96"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.728c36d51e3db63ecef302d9",
+      "source_path": "Config/ConfigCharacter/GridFight/4.2/Monster_GridFight_W5_Ripper_00_Config.json",
+      "source_sha256": "3d0e12909e785c51106a69d67b8dc751e23991b20a27868e06af96dfd5c90938",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.paramount-bliss-inverted-illwish-archlotus.littleboss.03",
+          "source_template_id": "5024012"
+        }
+      ],
+      "ability_count": 7,
+      "skill_count": 10,
+      "skill_ability_count": 6,
+      "dynamic_source_count": 31,
+      "mechanical_shape_sha256": "07b345f4c501e66bf9b79a4df104ea6797cc7803d04594bb3dc770528b720cd8"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.79df796625a14409913b1b17",
+      "source_path": "Config/ConfigCharacter/GridFight/4.0/Monster_GridFight_W3_Sam_01_Config.json",
+      "source_sha256": "79912a7aed3421e5a191278af6b7956673b183d24ae987d2ca737be9624a769c",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.harbinger-of-death-swarm-nightmare.littleboss.03",
+          "source_template_id": "3024032"
+        }
+      ],
+      "ability_count": 6,
+      "skill_count": 14,
+      "skill_ability_count": 10,
+      "dynamic_source_count": 24,
+      "mechanical_shape_sha256": "027b2d200e0c1abef494237acfb43ccab79f12b0314ca4ab8d473eb8e07e9a48"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.85999099b05f5308c0b0e1c6",
+      "source_path": "Config/ConfigCharacter/GridFight/3.5/Monster_GridFight_W1_Svarog_00_Config.json",
+      "source_sha256": "ee2a4ae0df47731e2c46d8ae31878e1c4dc9e425920e17735bd3bfde33deac50",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.svarog.littleboss.05",
+          "source_template_id": "1014016"
+        }
+      ],
+      "ability_count": 5,
+      "skill_count": 18,
+      "skill_ability_count": 16,
+      "dynamic_source_count": 15,
+      "mechanical_shape_sha256": "b207cdef0bedb6734df302f2f7ee3574981d81ee4f98255881c50f38c43d3465"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.8ddec4ca59428dadf36b2ee9",
+      "source_path": "Config/ConfigCharacter/GridFight/3.5/Monster_GridFight_W2_Kafka_00_Config.json",
+      "source_sha256": "c4a558e46cebc0ecdf7879867d105f21418b6e782ff36b22185682b927d28397",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.stellaron-hunter-kafka.littleboss.02",
+          "source_template_id": "2004015"
+        }
+      ],
+      "ability_count": 4,
+      "skill_count": 11,
+      "skill_ability_count": 10,
+      "dynamic_source_count": 25,
+      "mechanical_shape_sha256": "8b6a022fc79733899edb786a45a99ffd5f93251b7df7bcc335d097b7a16b5f13"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.d7bf91a48815a5ac24d2dea3",
+      "source_path": "Config/ConfigCharacter/GridFight/3.5/Monster_GridFight_W4_FireProwler_00_Config.json",
+      "source_sha256": "14a64e5723ab2cdab7fb52804414767f2f2b66f5febaff761ecc879b0548476e",
+      "bindings": [
+        {
+          "shared_enemy_key": "enemy.flame-reaver-of-the-deepest-dark.littleboss.03",
+          "source_template_id": "4034016"
+        }
+      ],
+      "ability_count": 11,
+      "skill_count": 17,
+      "skill_ability_count": 11,
+      "dynamic_source_count": 60,
+      "mechanical_shape_sha256": "e4c77b47d1cfab19307dc28b10dde8e7570e8a09b6af7bf923678cb67c9fbf5a"
+    }
+  ]
+}

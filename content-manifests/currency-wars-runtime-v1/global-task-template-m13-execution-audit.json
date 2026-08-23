@@ -1,0 +1,511 @@
+{
+  "schema_revision": "starclock.currency-wars-global-task-template-m13-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-M13",
+  "status": "ExecutableExactTemplateLibrary",
+  "accuracy": "ExactAuthoredTemplateSelectionAndExplicitPresentationBoundary",
+  "partition_program_count": 64,
+  "exact_program_count": 1,
+  "terminal_metadata_count": 63,
+  "released_shape": {
+    "templates": 13,
+    "executable_modifier_templates": 6,
+    "presentation_only_templates": 7,
+    "typed_nodes": 235,
+    "add_modifier_nodes": 11
+  },
+  "execution_contract": "The production-lowered library executes wave, ally-population, Trait, modifier-membership, formation-order and maximum-target selection for all six authoritative modifier templates. Seven camera, energy-bar, performance-delay and effect-only templates reject authoritative invocation as presentation-only.",
+  "behavioral_evidence": [
+    "currency_wars::tests::production_m13_global_task_templates_execute_exact_selection_and_reject_presentation"
+  ],
+  "verification_commands": [
+    "cargo test -p starclock-data currency_wars::tests::production_m13_global_task_templates_execute_exact_selection_and_reject_presentation -- --exact",
+    "node tools/currency-wars-runtime/verify-dispositions.mjs"
+  ],
+  "program": {
+    "mechanic_id": "currency-wars.mechanic-rule.162b328aeff29c8a0798170b",
+    "source_path": "Config/ConfigGlobalTaskListTemplate/GlobalTaskListTemplate_GridFight.json",
+    "source_sha256": "1b00d03fb3abbf54218ea545aab51d2835e988927de758111173d3845062dec0",
+    "mechanical_shape_sha256": "1d0acd5f31badddccf7d4e1b39a81e0507b33e9fb376c6910cf12238388817cd",
+    "templates": [
+      {
+        "stable_key": "GT_GridFight_SetEnergyBar_Normal",
+        "kind": "PresentationOnly",
+        "presentation_reason": "EnergyBarPresentation",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.SetEnergyBarState",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 2
+          }
+        ],
+        "typed_node_count": 6,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "950ae66b0119ee1d44b836e85cccce23f6eb0132b2dd8c06d106f902a86aa825"
+      },
+      {
+        "stable_key": "GT_GridFight_PFM_CameraShakeBig",
+        "kind": "PresentationOnly",
+        "presentation_reason": "CameraPresentation",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.VCameraConfigChange",
+            "count": 1
+          }
+        ],
+        "typed_node_count": 1,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "f9cf4e33aaf6aa0ba05ea76dafd293be3d6231bf8fff88b05345655accb6fb86"
+      },
+      {
+        "stable_key": "GT_GridFight_PFM_CameraDarkTeamFar",
+        "kind": "PresentationOnly",
+        "presentation_reason": "CameraPresentation",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.VCameraConfigChange",
+            "count": 1
+          }
+        ],
+        "typed_node_count": 4,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "6b7ffa0c2b0b26ed50c8daeb0b580b3977a9f55b0ee3aeba3b5fd55d2683b3e4"
+      },
+      {
+        "stable_key": "GT_GridFight_PFM_CameraLightTeamNear",
+        "kind": "PresentationOnly",
+        "presentation_reason": "CameraPresentation",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.VCameraConfigChange",
+            "count": 1
+          }
+        ],
+        "typed_node_count": 4,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "a55ee94f33ce49517cc0fb0a7409c5052709f7aa4faeecd1b3df5790c444186c"
+      },
+      {
+        "stable_key": "GT_GridFight_Common_BuffLightTeam",
+        "kind": "ApplyModifier",
+        "wave": "Any",
+        "target_population": "InvocationSelected",
+        "predicate": "InvocationTraitWhenEnabled",
+        "formation_order": "Authored",
+        "maximum_targets": "All",
+        "modifier_parameter": "TP_Modifier_Bonus",
+        "predicate_parameter": "TP_Origin_Tag",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AddModifier",
+            "count": 6
+          },
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByGridFightHasTrait",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 6
+          },
+          {
+            "type": "RPG.GameCore.SwitchCaseByDynamicValue",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 15
+          }
+        ],
+        "typed_node_count": 34,
+        "add_modifier_node_count": 6,
+        "ordered_shape_sha256": "9cdafea06f0d861964a4d7f884b5141432e655542363d8820a7f45618522b577"
+      },
+      {
+        "stable_key": "GT_StageAbility_GridFight_Origin_Bonus_01",
+        "kind": "ApplyModifier",
+        "wave": "First",
+        "target_population": "AllAlliesIncludingUnselectable",
+        "predicate": "Any",
+        "formation_order": "Authored",
+        "maximum_targets": "All",
+        "modifier_parameter": "TP_Modifier_Bonus",
+        "predicate_parameter": "",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AddModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByCompareWaveCount",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 2
+          }
+        ],
+        "typed_node_count": 6,
+        "add_modifier_node_count": 1,
+        "ordered_shape_sha256": "e4d4f9379615572238e45f72f7d1eec9d02e52db93d8b14bd6403e9517d442e4"
+      },
+      {
+        "stable_key": "GT_StageAbility_GridFight_Origin_Bonus_02",
+        "kind": "ApplyModifier",
+        "wave": "First",
+        "target_population": "AllAlliesIncludingUnselectable",
+        "predicate": "InvocationTrait",
+        "formation_order": "Authored",
+        "maximum_targets": "All",
+        "modifier_parameter": "TP_Modifier_Bonus",
+        "predicate_parameter": "TP_Origin_Tag",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AddModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByCompareWaveCount",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByGridFightHasTrait",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 3
+          }
+        ],
+        "typed_node_count": 8,
+        "add_modifier_node_count": 1,
+        "ordered_shape_sha256": "d66d2ff86ef1617b133cba5cb01e68e1040ef292539583034c06644cdb59e827"
+      },
+      {
+        "stable_key": "GT_StageAbility_GridFight_Origin_Bonus_02_LowestX",
+        "kind": "ApplyModifier",
+        "wave": "First",
+        "target_population": "AllAlliesIncludingUnselectable",
+        "predicate": "InvocationTrait",
+        "formation_order": "Ascending",
+        "maximum_targets": "Invocation",
+        "modifier_parameter": "TP_Modifier_Bonus",
+        "predicate_parameter": "TP_Origin_Tag",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AddModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByCompareWaveCount",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByGridFightHasTrait",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.TargetSequence",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetSortByFormation",
+            "count": 1
+          }
+        ],
+        "typed_node_count": 10,
+        "add_modifier_node_count": 1,
+        "ordered_shape_sha256": "ea7fd1a78ffcad7be6ec5528975b64b725cb920cd997afb3f0152c9436a2e333"
+      },
+      {
+        "stable_key": "GT_StageAbility_GridFight_Origin_Bonus_02_HighestX",
+        "kind": "ApplyModifier",
+        "wave": "First",
+        "target_population": "AllAlliesIncludingUnselectable",
+        "predicate": "InvocationTrait",
+        "formation_order": "Descending",
+        "maximum_targets": "Invocation",
+        "modifier_parameter": "TP_Modifier_Bonus",
+        "predicate_parameter": "TP_Origin_Tag",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AddModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByCompareWaveCount",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByGridFightHasTrait",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.TargetSequence",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetSortByFormation",
+            "count": 1
+          }
+        ],
+        "typed_node_count": 10,
+        "add_modifier_node_count": 1,
+        "ordered_shape_sha256": "8fbd7d057849aa521b39e10fff91f746a8805b51cf094bb3a9ca76a1fa760551"
+      },
+      {
+        "stable_key": "GT_StageAbility_GridFight_Origin_Bonus_03",
+        "kind": "ApplyModifier",
+        "wave": "First",
+        "target_population": "AllAlliesIncludingUnselectable",
+        "predicate": "InvocationModifier",
+        "formation_order": "Authored",
+        "maximum_targets": "All",
+        "modifier_parameter": "TP_Modifier_Bonus",
+        "predicate_parameter": "TP_Modifier_Origin_Member",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AddModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByCompareWaveCount",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByIsContainModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 3
+          }
+        ],
+        "typed_node_count": 8,
+        "add_modifier_node_count": 1,
+        "ordered_shape_sha256": "cd9a8e008c5f8608909335c068ff518158eb793dd2f9d6be7478c36c77395477"
+      },
+      {
+        "stable_key": "GT_StageAbility_GridFight_PursuedDamage_PerformanceDelay",
+        "kind": "PresentationOnly",
+        "presentation_reason": "PursuedDamagePresentationTiming",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.ByInTimelinePerform",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.BySimulateSpeedUp",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByTargetAliveState",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.DefineDynamicValue",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.PerformDelayExecute",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.RadialBlurCurveEffect",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.Retarget",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.SetDynamicValue",
+            "count": 4
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 11
+          },
+          {
+            "type": "RPG.GameCore.VCameraConfigChange",
+            "count": 2
+          }
+        ],
+        "typed_node_count": 30,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "cd9543c1e7de7c23d1ccbd63acd31aadd8d4ada3cdc0f57ab2334f5499db3f87"
+      },
+      {
+        "stable_key": "GridFight_Common_Basic_MonsterDrop",
+        "kind": "PresentationOnly",
+        "presentation_reason": "MonsterDropPresentationEffect",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.ByAny",
+            "count": 10
+          },
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.DefineDynamicValue",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.LoopExecuteTaskList",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.RandomConfig",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.SetDynamicValueByRandom",
+            "count": 9
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 9
+          },
+          {
+            "type": "RPG.GameCore.TriggerEffect",
+            "count": 7
+          }
+        ],
+        "typed_node_count": 57,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "85a1fb5bc28b944b42e375208a1bbd44a41117c00ab890406b7d9fa175c80590"
+      },
+      {
+        "stable_key": "GridFight_Common_Basic_MonsterDrop_ParamEntity",
+        "kind": "PresentationOnly",
+        "presentation_reason": "MonsterDropPresentationEffect",
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.ByAny",
+            "count": 10
+          },
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.DefineDynamicValue",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.LoopExecuteTaskList",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.RandomConfig",
+            "count": 5
+          },
+          {
+            "type": "RPG.GameCore.SetDynamicValueByRandom",
+            "count": 9
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 9
+          },
+          {
+            "type": "RPG.GameCore.TriggerEffect",
+            "count": 7
+          }
+        ],
+        "typed_node_count": 57,
+        "add_modifier_node_count": 0,
+        "ordered_shape_sha256": "7349f846df9e1f8f9f24f4d9aabb4873224c9235b78f6499b56c2ad034c3670c"
+      }
+    ]
+  }
+}

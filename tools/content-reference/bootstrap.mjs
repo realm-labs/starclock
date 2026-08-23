@@ -22,7 +22,7 @@ const profiles = readCharacterProfiles(path.join(repoRoot, "docs", "characters")
 const sourceManifest = {
   schema_revision: "content-reference-v1",
   snapshot: "4.4",
-  generated_on: "2026-07-17",
+  generated_on: "2026-07-24",
   repositories: [
     repositoryEvidence("dimbreath-turnbasedgamedata", turnDataRoot),
     repositoryEvidence("mar-7th-star-rail-res", starRailResRoot),
@@ -74,7 +74,7 @@ const encounters = buildEncounters(enemyResult.variantBySourceId);
 const coverage = {
   schema_revision: "content-reference-v1",
   snapshot: "4.4",
-  generated_on: "2026-07-17",
+  generated_on: "2026-07-24",
   characters: summarizeQuality(characterResult.characters),
   character_abilities: summarizeQuality(characterResult.abilities),
   character_traces: summarizeQuality(characterResult.traces),
@@ -86,6 +86,7 @@ const coverage = {
   encounters: summarizeQuality(encounters),
   notes: [
     "Released 4.4 data is primary; Saber and Archer use the pinned 4.3 release index because their licensed collaboration records are absent from the 4.4 release dump.",
+    "Rin Tohsaka and Gilgamesh use the pinned public release index because AvatarConfig omits their licensed collaboration rows; their Version 4.4 release is bound separately to official release evidence.",
     "Long source descriptions and assets are not emitted. Text hashes and pinned source locators preserve evidence without redistributing prose.",
     "ExactStructured means the value or relationship is transcribed from released structured data. Derived means Starclock grouped or named records deterministically. Approximate requires an explicit reason on the record.",
     "Operation type summaries are evidence aids, not executable Rule IR and do not determine undocumented event ordering.",
@@ -130,7 +131,13 @@ function buildCharacters() {
     rawGroups.set(id, group);
   }
 
-  for (const sourceId of ["1014", "1015"]) {
+  const fallbackCharacters = new Map([
+    ["1014", { quality: "ExactPreviousRelease", mechanism_quality: "ExactPreviousReleaseText" }],
+    ["1015", { quality: "ExactPreviousRelease", mechanism_quality: "ExactPreviousReleaseText" }],
+    ["1508", { quality: "ExactStructured", mechanism_quality: "ApproximateFromReleasedText" }],
+    ["1509", { quality: "ExactStructured", mechanism_quality: "ApproximateFromReleasedText" }],
+  ]);
+  for (const [sourceId, fallback] of fallbackCharacters) {
     if (avatarById.has(sourceId)) continue;
     const entry = res.characters_en[sourceId];
     const entryZh = res.characters_zh[sourceId] ?? entry;
@@ -146,7 +153,7 @@ function buildCharacters() {
       rarity: entry.rarity,
       source_avatar_ids: [sourceId],
       avatar_rows: [],
-      fallback_res: true,
+      fallback_res: fallback,
     });
   }
 
@@ -336,8 +343,8 @@ function buildCharacters() {
           })),
           mechanic_hints: mechanicHints(skill.desc),
           source_text: textEvidence(null, null, skill.desc),
-          mechanism_quality: "ExactPreviousReleaseText",
-          quality: "ExactPreviousRelease",
+          mechanism_quality: group.fallback_res.mechanism_quality,
+          quality: group.fallback_res.quality,
         });
         characterAbilities.push(id);
       }
@@ -364,7 +371,7 @@ function buildCharacters() {
           levels: (trace.params ?? []).map((parameters, index) => ({ level: index + 1, parameters: decimals(parameters) })),
           mechanic_hints: mechanicHints(trace.desc),
           source_text: textEvidence(null, null, trace.desc),
-          quality: "ExactPreviousRelease",
+          quality: group.fallback_res.quality,
         });
         characterTraces.push(id);
       }
@@ -385,7 +392,7 @@ function buildCharacters() {
           ability_names: [],
           mechanic_hints: mechanicHints(rankEntry.desc),
           source_text: textEvidence(null, null, rankEntry.desc),
-          quality: "ExactPreviousRelease",
+          quality: group.fallback_res.quality,
         });
         characterEidolons.push(id);
       }
@@ -409,7 +416,7 @@ function buildCharacters() {
       ability_ids: characterAbilities.sort(),
       trace_ids: characterTraces.sort(),
       eidolon_ids: characterEidolons.sort(),
-      quality: representative ? "ExactStructured" : "ExactPreviousRelease",
+      quality: representative ? "ExactStructured" : group.fallback_res.quality,
     });
   }
 

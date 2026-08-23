@@ -1,12 +1,13 @@
+
 [[enums]]
 name = "UniverseResonanceKind"
-values = ["Resonance", "Formation"]
+values = [{ id = 0, name = "Resonance" }, { id = 1, name = "Formation" }]
 
 [[enums]]
 name = "UniverseCurioStateKind"
-values = ["Active", "Repairing", "Fixed"]
-
+values = [{ id = 0, name = "Active" }, { id = 1, name = "Repairing" }, { id = 2, name = "Fixed" }]
 [[tables]]
+id = "universe-resonance"
 name = "UniverseResonance"
 mode = "map"
 key = "id"
@@ -75,6 +76,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-resonance-parameter"
 name = "UniverseResonanceParameter"
 mode = "list"
 [tables.source]
@@ -98,6 +100,7 @@ fields = ["resonance_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-blessing"
 name = "UniverseBlessing"
 mode = "map"
 key = "id"
@@ -164,6 +167,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-blessing-prerequisite"
 name = "UniverseBlessingPrerequisite"
 mode = "list"
 [tables.source]
@@ -187,6 +191,7 @@ fields = ["blessing_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-blessing-level"
 name = "UniverseBlessingLevel"
 mode = "map"
 key = "id"
@@ -243,6 +248,7 @@ fields = ["blessing_id", "level"]
 unique = true
 
 [[tables]]
+id = "universe-blessing-parameter"
 name = "UniverseBlessingParameter"
 mode = "list"
 [tables.source]
@@ -266,6 +272,7 @@ fields = ["blessing_level_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-curio"
 name = "UniverseCurio"
 mode = "map"
 key = "id"
@@ -325,6 +332,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-curio-state"
 name = "UniverseCurioState"
 mode = "map"
 key = "id"
@@ -393,6 +401,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-curio-parameter"
 name = "UniverseCurioParameter"
 mode = "list"
 [tables.source]

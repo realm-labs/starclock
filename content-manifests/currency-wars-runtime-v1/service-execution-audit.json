@@ -1,0 +1,71 @@
+{
+  "schema_revision": "starclock.currency-wars-service-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P5-B6",
+  "result": "Pass",
+  "production_denominators": {
+    "item_catalog": 165,
+    "season_item_memberships": 164,
+    "consumables": 7,
+    "managed_functions": 9,
+    "special_goods": 43,
+    "purchasable_special_goods": 38,
+    "cyrene_three_star_goods": 5,
+    "reward_definitions": 811,
+    "reward_pools": 110,
+    "equipment_recipes": 57,
+    "equipment_upgrades": 37,
+    "forge_services": 10,
+    "typed_service_constants": 14,
+    "cross_boundary_constants_owned_by_p6_b2": 4,
+    "proven_empty_service_families": 9,
+    "terminal_source_rows": 1486,
+    "excluded_gameplay_resource_rows": 2
+  },
+  "executable_behavior": {
+    "reward_pool": "ordered weighted budget draws with authored maxima and state/RNG-preserving no-legal fallback",
+    "direct_rewards": "all eleven authored operation shapes lower to typed Gold, refresh, Experience, item, Orb, role and equipment mutations",
+    "avatar_resolution": "Avatar selectors resolve the lowest stable matching Role ID as VersionedProjectPolicy",
+    "equipment_services": "two-input crafting, explicit upgrade, remove, reroll, copy, recommendation and forge selection commit atomically",
+    "special_goods": "one catalog-backed offer and at most one purchase per node; zero prices are explicit; five three-star Cyrene goods cannot enter the shop",
+    "service_roster_overflow": "role-granting service boundaries permit at most the separately authored 100 waiting units while ordinary shop mutations retain nine",
+    "empty_families": "gamble, curse-chest, Hex and Curio identities remain source-proven zero and reject invented content"
+  },
+  "completion_boundary": {
+    "special_good_effect_programs": "G21-P5-Axx generated Activity-program partitions",
+    "battle_visible_item_and_special_good_effects": "G21-P6-Mxx generated Rule-IR partitions",
+    "catalog_loading_counted_as_mechanism_completion": false
+  },
+  "policies": [
+    {
+      "field": "service.roster_overflow_scope",
+      "current_accuracy": "VersionedProjectPolicy",
+      "selected_behavior": "Apply GridFight_Bench_OverFlow_AvatarNum only to non-shop typed service grants; ordinary shop purchases and deployment continue to use GridFight_Bench_AvatarNum.",
+      "rejected_alternatives": [
+        "replace the ordinary nine-unit waiting-area cap globally",
+        "accept an unbounded number of externally granted roles",
+        "silently discard service rewards above the ordinary waiting-area cap"
+      ],
+      "replacement_condition": "Replace when released executable evidence identifies a narrower or different owner for GridFight_Bench_OverFlow_AvatarNum."
+    }
+  ],
+  "fixture_families": [
+    "currency-wars.fixture-family.candidate-order-and-no-legal-result",
+    "currency-wars.fixture-family.curio-state-charge-destruction-and-repair",
+    "currency-wars.fixture-family.hex-eligibility-activation-and-teardown",
+    "currency-wars.fixture-family.shop-service-price-inventory-and-fallback"
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/service_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/economy.rs",
+    "crates/starclock-mode-currency-wars/src/runtime/reward.rs",
+    "crates/starclock-mode-currency-wars/src/runtime/service.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_service.rs",
+    "crates/starclock-data/src/currency_wars.rs",
+    "content-reference/currency-wars-v1/shop-services.json",
+    "content-reference/currency-wars-v1/reward-definitions.json",
+    "content-reference/currency-wars-v1/reward-pools.json",
+    "content-manifests/currency-wars-runtime-v1/service-execution-audit.json"
+  ]
+}

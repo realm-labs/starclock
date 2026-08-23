@@ -9,10 +9,10 @@ use starclock_activity::{
     ActivityProgramId, ActivityRandomPolicies, ActivityRngLabel, ActivityScope,
     ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateHash,
     ActivityStateSource, ActivityStateVisibility, ActivityTerminalOutcome, ActivityValue,
-    BuildDigest, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram,
-    LoadoutLockScope, NodeId, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
-    SectionId, SlotCarryPolicy,
+    BuildDigest, GraphActivity, GraphActivityCommandError, GraphActivityDefinition,
+    GraphActivityNodeProgram, LoadoutLockScope, NodeId, OpaqueParticipantBuild, ParticipantId,
+    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ParticipantUniquenessScope, SectionId, SlotCarryPolicy,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 
@@ -117,6 +117,31 @@ fn zero_selection_random_boundary_commits_prefix_without_rng_draws() {
     assert!(result.selected_options().is_empty());
     assert_eq!(activity.debug_view().rng(), draws);
     assert!(visible_counters(&activity).contains(&(77, 1)));
+}
+
+#[test]
+fn generated_boundary_rolls_back_rng_when_generated_operations_are_invalid() {
+    let definition = definition();
+    let mut activity = start(definition, 3);
+    let initial = activity.state_hash();
+    let rng = activity.debug_view().rng().to_vec();
+
+    let result = activity.apply_generated_boundary(initial, program(2), |streams| {
+        streams
+            .choose_index(ActivityRngLabel::Shop, 201, 3)
+            .map_err(GraphActivityCommandError::Rng)?;
+        Ok((
+            vec![ActivityOperation::SetOrderedIdSet {
+                slot: slot(1),
+                values: Box::new([1, 2]),
+            }],
+            (),
+        ))
+    });
+
+    assert!(result.is_err());
+    assert_eq!(activity.state_hash(), initial);
+    assert_eq!(activity.debug_view().rng(), rng);
 }
 
 fn candidates() -> Vec<(ActivityOptionDefinition, u64)> {

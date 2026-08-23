@@ -1,5 +1,75 @@
 [
   {
+    "id": "currency-wars.build-source.exceloutput-relicconfig-json",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSourceFile",
+    "name_en": "RelicConfig.json",
+    "name_zh_cn": "共享试用配装源 RelicConfig.json",
+    "summary_en": "ExcelOutput/RelicConfig.json is selected only through the released special-avatar relic closure.",
+    "summary_zh_cn": "ExcelOutput/RelicConfig.json 仅通过已发布特殊角色遗器闭包选取。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal21.build-file.exceloutput-relicconfig-json",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicConfig.json",
+        "locator": "selected role trial relic closure",
+        "sha256": "b20a90c92d51e5b5e2681dcfb184a9241789621028b44564fadbe18a2206bb14",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "build-mapping",
+      "exact-trial",
+      "shared-source"
+    ],
+    "source_path": "ExcelOutput/RelicConfig.json",
+    "source_sha256": "b20a90c92d51e5b5e2681dcfb184a9241789621028b44564fadbe18a2206bb14",
+    "mapping_role": "SharedBuildCandidate",
+    "disposition": "ExplicitRoleRowJoin"
+  },
+  {
+    "id": "currency-wars.build-source.exceloutput-relicsetskillconfig-json",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSourceFile",
+    "name_en": "RelicSetSkillConfig.json",
+    "name_zh_cn": "共享试用配装源 RelicSetSkillConfig.json",
+    "summary_en": "ExcelOutput/RelicSetSkillConfig.json is selected only through the released special-avatar relic closure.",
+    "summary_zh_cn": "ExcelOutput/RelicSetSkillConfig.json 仅通过已发布特殊角色遗器闭包选取。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal21.build-file.exceloutput-relicsetskillconfig-json",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RelicSetSkillConfig.json",
+        "locator": "selected role trial relic closure",
+        "sha256": "e7c9f0e54730f93d60674692d11a1ac9e1ddfe8decedebdf81b9b5dd1278488b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "build-mapping",
+      "exact-trial",
+      "shared-source"
+    ],
+    "source_path": "ExcelOutput/RelicSetSkillConfig.json",
+    "source_sha256": "e7c9f0e54730f93d60674692d11a1ac9e1ddfe8decedebdf81b9b5dd1278488b",
+    "mapping_role": "SharedBuildCandidate",
+    "disposition": "ExplicitRoleRowJoin"
+  },
+  {
     "id": "currency-wars.build-source.exceloutput-rogueupgradeavatar-json",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsBuildSourceFile",
@@ -202,5 +272,145 @@
     "source_sha256": "7602bcc2b843a444bfb7010c1102254b86362dc91fe72cb62525096ca41c81db",
     "mapping_role": "SharedBuildCandidate",
     "disposition": "PendingExplicitRoleRowJoin"
+  },
+  {
+    "id": "currency-wars.build-source.exceloutput-specialavatarrelic-json",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSourceFile",
+    "name_en": "SpecialAvatarRelic.json",
+    "name_zh_cn": "共享试用配装源 SpecialAvatarRelic.json",
+    "summary_en": "ExcelOutput/SpecialAvatarRelic.json is selected only through the released special-avatar relic closure.",
+    "summary_zh_cn": "ExcelOutput/SpecialAvatarRelic.json 仅通过已发布特殊角色遗器闭包选取。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal21.build-file.exceloutput-specialavatarrelic-json",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelic.json",
+        "locator": "selected role trial relic closure",
+        "sha256": "dbacf101834c4a493871a3949da9691546ea5c90835ded3a2f3ff77563089c57",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "build-mapping",
+      "exact-trial",
+      "shared-source"
+    ],
+    "source_path": "ExcelOutput/SpecialAvatarRelic.json",
+    "source_sha256": "dbacf101834c4a493871a3949da9691546ea5c90835ded3a2f3ff77563089c57",
+    "mapping_role": "SharedBuildCandidate",
+    "disposition": "ExplicitRoleRowJoin"
+  },
+  {
+    "id": "currency-wars.build-source.exceloutput-specialavatarrelicmainvalue-json",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSourceFile",
+    "name_en": "SpecialAvatarRelicMainValue.json",
+    "name_zh_cn": "共享试用配装源 SpecialAvatarRelicMainValue.json",
+    "summary_en": "ExcelOutput/SpecialAvatarRelicMainValue.json is selected only through the released special-avatar relic closure.",
+    "summary_zh_cn": "ExcelOutput/SpecialAvatarRelicMainValue.json 仅通过已发布特殊角色遗器闭包选取。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal21.build-file.exceloutput-specialavatarrelicmainvalue-json",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelicMainValue.json",
+        "locator": "selected role trial relic closure",
+        "sha256": "fe2b6e0abf30d80c28a1f7834dcbebaa88d99059980ce56a3be9825b2a257c19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "build-mapping",
+      "exact-trial",
+      "shared-source"
+    ],
+    "source_path": "ExcelOutput/SpecialAvatarRelicMainValue.json",
+    "source_sha256": "fe2b6e0abf30d80c28a1f7834dcbebaa88d99059980ce56a3be9825b2a257c19",
+    "mapping_role": "SharedBuildCandidate",
+    "disposition": "ExplicitRoleRowJoin"
+  },
+  {
+    "id": "currency-wars.build-source.exceloutput-specialavatarrelicsubvalue-json",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSourceFile",
+    "name_en": "SpecialAvatarRelicSubValue.json",
+    "name_zh_cn": "共享试用配装源 SpecialAvatarRelicSubValue.json",
+    "summary_en": "ExcelOutput/SpecialAvatarRelicSubValue.json is selected only through the released special-avatar relic closure.",
+    "summary_zh_cn": "ExcelOutput/SpecialAvatarRelicSubValue.json 仅通过已发布特殊角色遗器闭包选取。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal21.build-file.exceloutput-specialavatarrelicsubvalue-json",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatarRelicSubValue.json",
+        "locator": "selected role trial relic closure",
+        "sha256": "cae93a35fac7933672a576600fda66b1963d82ff3d318e988e51cc09a17eba99",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "build-mapping",
+      "exact-trial",
+      "shared-source"
+    ],
+    "source_path": "ExcelOutput/SpecialAvatarRelicSubValue.json",
+    "source_sha256": "cae93a35fac7933672a576600fda66b1963d82ff3d318e988e51cc09a17eba99",
+    "mapping_role": "SharedBuildCandidate",
+    "disposition": "ExplicitRoleRowJoin"
+  },
+  {
+    "id": "currency-wars.build-source.special-avatar",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSourceFile",
+    "name_en": "SpecialAvatar.json",
+    "name_zh_cn": "共享试用配装源 SpecialAvatar.json",
+    "summary_en": "Explicit Currency Wars role joins select the released world-level 6 trial Build rows from SpecialAvatar.json.",
+    "summary_zh_cn": "货币战争角色通过明确连接选取 SpecialAvatar.json 中已发布的世界等级 6 试用配装行。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal21.build-file.special-avatar",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/SpecialAvatar.json",
+        "locator": "role SpecialAvatarID at WorldLevel=6",
+        "sha256": "c9cd06748091e280fa38461c44349181a24f9bd542c272783f7a1407cf4bf5a5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "build-mapping",
+      "exact-trial",
+      "shared-source"
+    ],
+    "source_path": "ExcelOutput/SpecialAvatar.json",
+    "source_sha256": "c9cd06748091e280fa38461c44349181a24f9bd542c272783f7a1407cf4bf5a5",
+    "mapping_role": "SharedBuildCandidate",
+    "disposition": "ExplicitRoleRowJoin"
   }
 ]

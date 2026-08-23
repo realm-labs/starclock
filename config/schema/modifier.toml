@@ -1,31 +1,31 @@
+
 [[enums]]
 name = "StatKind"
-values = ["Hp", "Atk", "Def", "Spd", "CritRate", "CritDamage", "EffectHitRate", "EffectResistance", "BreakEffect", "EnergyRegenerationRate", "OutgoingHealing", "IncomingHealing", "ShieldStrength", "Aggro", "ToughnessDamage"]
+values = [{ id = 0, name = "Hp" }, { id = 1, name = "Atk" }, { id = 2, name = "Def" }, { id = 3, name = "Spd" }, { id = 4, name = "CritRate" }, { id = 5, name = "CritDamage" }, { id = 6, name = "EffectHitRate" }, { id = 7, name = "EffectResistance" }, { id = 8, name = "BreakEffect" }, { id = 9, name = "EnergyRegenerationRate" }, { id = 10, name = "OutgoingHealing" }, { id = 11, name = "IncomingHealing" }, { id = 12, name = "ShieldStrength" }, { id = 13, name = "Aggro" }, { id = 14, name = "ToughnessDamage" }]
 
 [[enums]]
 name = "FormulaStage"
-values = ["BaseAdd", "PercentOfBase", "Flat", "FinalAdd", "FinalMultiply", "Crit", "DamageBoost", "Weaken", "Defense", "Resistance", "Vulnerability", "Mitigation", "Broken", "Healing", "Shield", "Probability"]
+values = [{ id = 0, name = "BaseAdd" }, { id = 1, name = "PercentOfBase" }, { id = 2, name = "Flat" }, { id = 3, name = "FinalAdd" }, { id = 4, name = "FinalMultiply" }, { id = 5, name = "Crit" }, { id = 6, name = "DamageBoost" }, { id = 7, name = "Weaken" }, { id = 8, name = "Defense" }, { id = 9, name = "Resistance" }, { id = 10, name = "Vulnerability" }, { id = 11, name = "Mitigation" }, { id = 12, name = "Broken" }, { id = 13, name = "Healing" }, { id = 14, name = "Shield" }, { id = 15, name = "Probability" }]
 
 [[enums]]
 name = "FormulaPurpose"
-values = ["Stat", "OrdinaryDamage", "Dot", "Break", "SuperBreak", "AdditionalDamage", "JointDamage", "ElationDamage", "TrueDamage", "Healing", "Shield", "EffectChance", "Aggro", "ActionOrder"]
+values = [{ id = 0, name = "Stat" }, { id = 1, name = "OrdinaryDamage" }, { id = 2, name = "Dot" }, { id = 3, name = "Break" }, { id = 4, name = "SuperBreak" }, { id = 5, name = "AdditionalDamage" }, { id = 6, name = "JointDamage" }, { id = 7, name = "ElationDamage" }, { id = 8, name = "TrueDamage" }, { id = 9, name = "Healing" }, { id = 10, name = "Shield" }, { id = 11, name = "EffectChance" }, { id = 12, name = "Aggro" }, { id = 13, name = "ActionOrder" }]
 
 [[enums]]
 name = "ModifierValueDomain"
-values = ["Scalar", "Ratio", "Probability", "IntegralAmount"]
+values = [{ id = 0, name = "Scalar" }, { id = 1, name = "Ratio" }, { id = 2, name = "Probability" }, { id = 3, name = "IntegralAmount" }]
 
 [[enums]]
 name = "ModifierAggregation"
-values = ["Sum", "Product", "Maximum", "Minimum", "Latest", "Earliest", "StrongestByComparator", "UniquePerSource", "ReplaceGroup"]
+values = [{ id = 0, name = "Sum" }, { id = 1, name = "Product" }, { id = 2, name = "Maximum" }, { id = 3, name = "Minimum" }, { id = 4, name = "Latest" }, { id = 5, name = "Earliest" }, { id = 6, name = "StrongestByComparator" }, { id = 7, name = "UniquePerSource" }, { id = 8, name = "ReplaceGroup" }]
 
 [[enums]]
 name = "SnapshotSubject"
-values = ["Source", "Target", "Event", "Action"]
+values = [{ id = 0, name = "Source" }, { id = 1, name = "Target" }, { id = 2, name = "Event" }, { id = 3, name = "Action" }]
 
 [[enums]]
 name = "SnapshotCaptureKind"
-values = ["Stat", "Resource", "StateSlot", "Expression"]
-
+values = [{ id = 0, name = "Stat" }, { id = 1, name = "Resource" }, { id = 2, name = "StateSlot" }, { id = 3, name = "Expression" }]
 [[unions]]
 name = "ModifierFilterNode"
 tag = "type"
@@ -81,6 +81,7 @@ name = "target_selector_id"
 type = "ref<Selector.id>"
 
 [[tables]]
+id = "modifier-stacking-group"
 name = "ModifierStackingGroup"
 mode = "map"
 key = "id"
@@ -113,6 +114,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "modifier-definition"
 name = "ModifierDefinition"
 mode = "map"
 key = "id"
@@ -191,6 +193,7 @@ name = "duration_scope"
 type = "enum<RuleScope>"
 
 [[tables]]
+id = "snapshot-capture"
 name = "SnapshotCapture"
 mode = "list"
 
@@ -247,6 +250,7 @@ fields = ["owner_identity_id", "capture_key"]
 unique = true
 
 [[tables]]
+id = "modifier-filter"
 name = "ModifierFilter"
 mode = "list"
 

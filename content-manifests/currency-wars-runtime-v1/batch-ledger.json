@@ -1,0 +1,2515 @@
+{
+  "schema_revision": "starclock.currency-wars-runtime-batch-ledger.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "generated_by_batch": "G21-P0-B3",
+  "completed_through": "G21-P8-B4",
+  "next_batch": "G21-P8-B5",
+  "summary": {
+    "batches": 94,
+    "generated_mechanic_partitions": 43,
+    "fixture_families": 28,
+    "policy_gaps": 12
+  },
+  "fixture_assignments": [
+    {
+      "fixture_family_id": "currency-wars.fixture-family.approximation-replacement-trigger",
+      "owner_batch": "G21-P8-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "tools/currency-wars-runtime/verify-dispositions.mjs",
+        "tools/currency-wars-runtime/verify-coverage-and-release.mjs",
+        "content-manifests/currency-wars-runtime-v1/exact-runtime-coverage-audit.json",
+        "content-reference/currency-wars-v1/research-gaps.json",
+        "content-reference/currency-wars-v1/semantic-fixture-families.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.automatic-technique-energy-and-lethal-rescue",
+      "owner_batch": "G21-P4-B5",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/battle_override.rs",
+        "crates/starclock-mode-currency-wars/src/runtime.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_build.rs",
+        "crates/starclock-data/src/currency_wars_economy.rs",
+        "crates/starclock-data/src/currency_wars_empowerment.rs",
+        "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+        "content-reference/currency-wars-v1/battle-overrides.json",
+        "content-manifests/currency-wars-runtime-v1/battle-override-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.battle-visible-rule-contribution",
+      "owner_batch": "G21-P6-B3",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/contribution.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly/static_contribution.rs",
+        "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+        "content-manifests/currency-wars-runtime-v1/battle-assembly-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.blessing-level-offer-and-enhancement",
+      "owner_batch": "G21-P5-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/blessing_formula_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/contribution.rs",
+        "crates/starclock-data/src/currency_wars_blessing_formula.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/blessing-levels.json",
+        "content-reference/currency-wars-v1/blessing-paths.json",
+        "content-reference/currency-wars-v1/formulas.json",
+        "content-manifests/currency-wars-runtime-v1/blessing-formula-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.bond-membership-threshold-and-recompute",
+      "owner_batch": "G21-P4-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/bond_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/runtime.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_bond.rs",
+        "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+        "content-reference/currency-wars-v1/bonds.json",
+        "content-reference/currency-wars-v1/bond-levels.json",
+        "content-manifests/currency-wars-runtime-v1/bond-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.candidate-order-and-no-legal-result",
+      "owner_batch": "G21-P5-B6",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/service_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/reward.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/service.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_service.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/shop-services.json",
+        "content-reference/currency-wars-v1/reward-definitions.json",
+        "content-reference/currency-wars-v1/reward-pools.json",
+        "content-manifests/currency-wars-runtime-v1/service-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.cross-battle-state-and-reset",
+      "owner_batch": "G21-P3-B1",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/entry.rs",
+        "crates/starclock-mode-currency-wars/src/flow.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-mode-currency-wars/src/settlement.rs",
+        "crates/starclock-data/src/currency_wars.rs"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.curio-state-charge-destruction-and-repair",
+      "owner_batch": "G21-P5-B6",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/service_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/reward.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/service.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_service.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/shop-services.json",
+        "content-reference/currency-wars-v1/reward-definitions.json",
+        "content-reference/currency-wars-v1/reward-pools.json",
+        "content-manifests/currency-wars-runtime-v1/service-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.encounter-wave-elite-and-boss-binding",
+      "owner_batch": "G21-P6-B1",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/encounter_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly.rs",
+        "crates/starclock-data/src/currency_wars_encounter.rs",
+        "crates/starclock-data/src/currency_wars_combat.rs",
+        "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+        "evidence/currency-wars-runtime-v1/encounter-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.field-bench-position-and-empowerment",
+      "owner_batch": "G21-P4-B3",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/empowerment_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/runtime.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "crates/starclock-data/src/currency_wars_empowerment.rs",
+        "content-reference/currency-wars-v1/character-empowerments.json",
+        "content-reference/currency-wars-v1/star-states.json",
+        "content-manifests/currency-wars-runtime-v1/empowerment-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.formula-recipe-progress-and-contribution",
+      "owner_batch": "G21-P5-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/blessing_formula_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/contribution.rs",
+        "crates/starclock-data/src/currency_wars_blessing_formula.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/blessing-levels.json",
+        "content-reference/currency-wars-v1/blessing-paths.json",
+        "content-reference/currency-wars-v1/formulas.json",
+        "content-manifests/currency-wars-runtime-v1/blessing-formula-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.gambit-rank-and-enemy-affix",
+      "owner_batch": "G21-P6-B2",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-combat/src/battle/spec.rs",
+        "crates/starclock-combat/src/resolver/lifecycle.rs",
+        "crates/starclock-mode-currency-wars/src/enemy_affix.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly/affix.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly/affix/rule.rs",
+        "crates/starclock-mode-currency-wars/src/battle_assembly/affix/static_modifier.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/linked_lifecycle.rs",
+        "content-reference/currency-wars-v1/enemy-affixes.json",
+        "content-manifests/currency-wars-runtime-v1/enemy-affix-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.goal11-selector-separation-reconciliation",
+      "owner_batch": "G21-P8-B3",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "tools/currency-wars-reference/contracts.mjs",
+        "tools/currency-wars-reference/verify-contracts.mjs",
+        "tools/repository-check/verify-data.mjs",
+        "content-manifests/currency-wars-runtime-v1/repository-release-audit.json",
+        "content-reference/currency-wars-v1/reconciliation.json",
+        "content-reference/currency-wars-v1/coverage.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.gold-coin-refresh-experience-and-team-size",
+      "owner_batch": "G21-P3-B3",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-activity/src/graph_activity/boundary.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_economy.rs",
+        "content-reference/currency-wars-v1/economy-rules.json",
+        "content-reference/currency-wars-v1/roster-offers.json",
+        "content-reference/currency-wars-v1/roster-transactions.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.hex-eligibility-activation-and-teardown",
+      "owner_batch": "G21-P5-B6",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/service_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/reward.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/service.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_service.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/shop-services.json",
+        "content-reference/currency-wars-v1/reward-definitions.json",
+        "content-reference/currency-wars-v1/reward-pools.json",
+        "content-manifests/currency-wars-runtime-v1/service-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.investment-environment-strategy-and-augment",
+      "owner_batch": "G21-P5-B3",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/investment_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/investment.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_investment.rs",
+        "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+        "content-reference/currency-wars-v1/economy-rules.json",
+        "content-manifests/currency-wars-runtime-v1/investment-lifecycle-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.occurrence-choice-cost-and-outcome",
+      "owner_batch": "G21-P5-B5",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/occurrence_catalog.rs",
+        "crates/starclock-data/src/currency_wars_occurrence.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/occurrences.json",
+        "content-reference/currency-wars-v1/occurrence-variants.json",
+        "content-reference/currency-wars-v1/occurrence-choices.json",
+        "content-manifests/currency-wars-runtime-v1/occurrence-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.off-field-conversion-and-equipment-slots",
+      "owner_batch": "G21-P4-B2",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/equipment.rs",
+        "crates/starclock-mode-currency-wars/src/runtime.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "crates/starclock-data/src/currency_wars_build.rs",
+        "content-reference/currency-wars-v1/equipment.json",
+        "content-reference/currency-wars-v1/off-field-conversions.json",
+        "content-manifests/currency-wars-runtime-v1/equipment-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.other-mode-ownership-rejection",
+      "owner_batch": "G21-P8-B3",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "tools/currency-wars-reference/contracts.mjs",
+        "tools/currency-wars-reference/verify-contracts.mjs",
+        "tools/repository-check/verify-data.mjs",
+        "content-manifests/currency-wars-runtime-v1/repository-release-audit.json",
+        "content-reference/currency-wars-v1/reconciliation.json",
+        "content-reference/currency-wars-v1/coverage.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.owned-trial-build-substitution-and-removal",
+      "owner_batch": "G21-P4-B1",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-build/src/spec.rs",
+        "crates/starclock-build/src/substitution.rs",
+        "crates/starclock-data/src/currency_wars_build.rs",
+        "crates/starclock-mode-currency-wars/src/build_catalog.rs",
+        "content-reference/currency-wars-v1/trial-builds.json",
+        "evidence/currency-wars-runtime-v1/build-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.profile-gambit-entry-and-terminal",
+      "owner_batch": "G21-P3-B1",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/entry.rs",
+        "crates/starclock-mode-currency-wars/src/flow.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-mode-currency-wars/src/settlement.rs",
+        "crates/starclock-data/src/currency_wars.rs"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.roster-offer-cost-purchase-sale-and-cap",
+      "owner_batch": "G21-P3-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/star-states.json",
+        "content-reference/currency-wars-v1/star-combination-rules.json",
+        "content-reference/currency-wars-v1/star-lifecycle-rules.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.shop-service-price-inventory-and-fallback",
+      "owner_batch": "G21-P5-B6",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/service_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/reward.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/service.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_service.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/shop-services.json",
+        "content-reference/currency-wars-v1/reward-definitions.json",
+        "content-reference/currency-wars-v1/reward-pools.json",
+        "content-manifests/currency-wars-runtime-v1/service-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.simultaneous-bond-star-and-roster-order",
+      "owner_batch": "G21-P4-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/bond_catalog.rs",
+        "crates/starclock-mode-currency-wars/src/runtime.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_bond.rs",
+        "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+        "content-reference/currency-wars-v1/bonds.json",
+        "content-reference/currency-wars-v1/bond-levels.json",
+        "content-manifests/currency-wars-runtime-v1/bond-execution-audit.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.squad-hp-action-value-same-boundary-order",
+      "owner_batch": "G21-P3-B2",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/runtime/boundary.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_flow.rs",
+        "content-reference/currency-wars-v1/finish-conditions.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.squad-hp-victory-timeout-and-run-failure",
+      "owner_batch": "G21-P3-B2",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/runtime/boundary.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars_flow.rs",
+        "content-reference/currency-wars-v1/finish-conditions.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.star-copy-combine-overflow-and-teardown",
+      "owner_batch": "G21-P3-B4",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime/economy.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-data/src/currency_wars.rs",
+        "content-reference/currency-wars-v1/star-states.json",
+        "content-reference/currency-wars-v1/star-combination-rules.json",
+        "content-reference/currency-wars-v1/star-lifecycle-rules.json"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "currency-wars.fixture-family.three-plane-node-room-flow",
+      "owner_batch": "G21-P3-B1",
+      "minimum_cases": 1,
+      "status": "Executed",
+      "evidence": [
+        "crates/starclock-mode-currency-wars/src/entry.rs",
+        "crates/starclock-mode-currency-wars/src/flow.rs",
+        "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+        "crates/starclock-mode-currency-wars/src/settlement.rs",
+        "crates/starclock-data/src/currency_wars.rs"
+      ],
+      "terminal_evidence": "production-lowered execution fixture"
+    }
+  ],
+  "policy_assignments": [
+    {
+      "field": "bond.simultaneous_recompute",
+      "owner_batch": "G21-P4-B4",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "A released operation program or reproducible simultaneous mutation trace is available.",
+      "selected_behavior": "Complete each accepted ordered roster, deployment, equipment or sub-trait-selection mutation, then derive one immutable Bond snapshot from the resulting state and commit levels plus selected sub-traits in the same Activity transaction.",
+      "rejected_alternatives": [
+        "recompute between partial operations in one accepted mutation",
+        "retain a selected sub-trait after its parent or selector becomes inactive",
+        "iterate unordered membership or contribution collections"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "encounter.boss_identity",
+      "owner_batch": "G21-P6-B1",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "A released BattleArea-to-GridFightMonster join or reproducible boss observation is available.",
+      "selected_behavior": "Select the exact Camp and BattleArea/Stage boundary from released rows, use each StageConfig wave only as the released level, wave-count and formation-slot skeleton, and fill those slots without replacement from the Camp MonsterList. Boss nodes use the exact BossBattleArea but retain the Camp-wide candidate set because no released BattleArea-to-GridFightMonster identity join exists.",
+      "rejected_alternatives": [
+        "treat the StageConfig placeholder monster as the GridFight enemy identity",
+        "infer a boss identity from localized names, numeric adjacency or source order",
+        "reuse one selected monster in multiple slots of the same wave",
+        "iterate an unordered candidate collection"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "mechanic.configuration_program",
+      "owner_batch": "G21-P2-B5",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Released evidence proves all ten Version 4.4 postfix opcode semantics and reviewed typed lowering replaces this structural policy.",
+      "selected_behavior": "Lower reviewed high-level configuration nodes and named dynamic-value definitions directly into typed Activity or Rule IR. Never interpret raw PostfixBase64 at runtime; a partition with an unproved expression remains Pending.",
+      "rejected_alternatives": [
+        "copy the source opcode API into a shared or mode-specific runtime interpreter",
+        "infer opcode meanings from sequence frequency or old-version examples",
+        "treat an unresolved executable expression as metadata or a no-op"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "flow.carry_reset",
+      "owner_batch": "G21-P3-B1",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Replace when released structured data or a reproducible Version 4.4 observation publishes a different per-slot node or Plane carry/reset boundary.",
+      "selected_behavior": "Carry authoritative run slots and participant battle state exactly across nodes and Plane boundaries; reset node-scoped offers on NodeStart; create a fresh initial snapshot for every new run.",
+      "rejected_alternatives": [
+        "reset run economy, roster, deployment or participant state at each Plane",
+        "carry stale shop offers into the next node",
+        "reuse a completed run snapshot as the initial state of a new run"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "route.gambit_membership",
+      "owner_batch": "G21-P3-B1",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Replace when released structured data directly binds a GridFightStageRoute ID to Standard or Overclock.",
+      "selected_behavior": "Standard and Overclock use the complete released GridFightStageRoute closure; entry unlock and rank caps remain Gambit-specific.",
+      "rejected_alternatives": [
+        "infer Gambit membership from route ID ranges",
+        "exclude tutorial-shaped routes without an authored selector",
+        "assign routes by localized names or source-table adjacency"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "economy.gold_coin_id",
+      "owner_batch": "G21-P3-B3",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "A released structured field explicitly binds Gold Coin to a resource record.",
+      "selected_behavior": "Use the stable run-owned Gold Coin identity for every authored Gold-valued gain, spend, interest, purchase, sale and refund operation; discard it only at run teardown.",
+      "rejected_alternatives": [
+        "reuse an account or combat resource identity",
+        "store Gold in an adapter-owned field",
+        "infer currency identity separately at each operation"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "investment.operation_order",
+      "owner_batch": "G21-P5-B3",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Released program semantics or reproducible same-boundary activation traces are available.",
+      "selected_behavior": "At an explicit Activity boundary, validate the complete offer, payment, ownership and family replacement against the pre-command snapshot; then remove the explicitly named same-family investment, add the selected investment and clear the offer in one ordered transaction. A rejection preserves both state and Reward RNG byte-identically.",
+      "rejected_alternatives": [
+        "infer replacement from source-table or numeric adjacency",
+        "partially charge payment before all eligibility checks pass",
+        "activate an investment while retaining a stale offer",
+        "consume RNG when an offer or selection is rejected"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "star.maximum_overflow",
+      "owner_batch": "G21-P3-B4",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Released overflow data or a reproducible maximum-star purchase observation is available.",
+      "selected_behavior": "Once a role reaches its authored maximum star, remove that role from current and future ordinary shop offers. If a non-shop content operation grants an additional copy, retain the additional lower-star state without inventing a reward or an unauthored higher star; the player may sell it explicitly.",
+      "rejected_alternatives": [
+        "continue offering a maximum-star role in the ordinary shop",
+        "discard an externally granted overflow copy silently",
+        "convert overflow to inferred Gold, equipment or a higher star"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "economy.offer_sampling_order",
+      "owner_batch": "G21-P3-B3",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "A released selector program or reproducible seeded offer trace publishes the order.",
+      "selected_behavior": "For each ordered shop slot, draw a non-empty rarity by the authored level weights, then draw a role in stable role-ID order with weight equal to remaining authored copies multiplied by the authored initial role weight. Reserve each selected copy for the rest of that refresh. Reject and refund a paid refresh that cannot fill all slots; an automatic node refresh exposes every remaining legal card, including an empty set.",
+      "rejected_alternatives": [
+        "multiply rarity probability by the number of roles in that rarity",
+        "forbid duplicate roles within one refresh",
+        "sample source or hash-map iteration order",
+        "charge Gold or retain RNG draws when a paid offer cannot be filled"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "position.automatic_technique_rescue",
+      "owner_batch": "G21-P4-B5",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Released structured rescue healing data or a reproducible Version 4.4 lethal-boundary observation publishes the restored HP amount or a different operation order.",
+      "selected_behavior": "Keep omitted positions dual-candidate. On lethal damage, prevent incapacitation, restore maximum HP, deduct the current node's configured rescue action value with a floor at zero, then expire the battle clock if it reaches zero.",
+      "rejected_alternatives": [
+        "decode omitted enum",
+        "restore one HP",
+        "restore an inferred fixed ratio"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "build.role_to_shared_build",
+      "owner_batch": "G21-P4-B1",
+      "current_accuracy": "ExactEvidence",
+      "status": "ExactEvidenceExecutable",
+      "replacement_condition": "Replace only if a later released Currency Wars version changes the explicit GridFightRoleBasicInfo.SpecialAvatarID or SpecialAvatar world-level build rows.",
+      "selected_behavior": "Join each released GridFight role through its explicit SpecialAvatarID to the world-level 6 SpecialAvatar progression, source-avatar character, source-equipment Light Cone, relic aggregates and relic-set threshold closure. Resolve a caller-snapshotted owned build field-wise over that immutable mapped minimum without querying or mutating account state.",
+      "rejected_alternatives": [
+        "join roles and builds by localized name",
+        "join by adjacent numeric ranges",
+        "query account inventory from combat or Activity",
+        "treat relic selector IDs as executable stats without resolving their released rows"
+      ],
+      "confidence": "ExactReleasedStructuredJoin",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    },
+    {
+      "field": "squad_hp.same_boundary_order",
+      "owner_batch": "G21-P3-B2",
+      "current_accuracy": "VersionedProjectPolicy",
+      "status": "VersionedProjectPolicyExecutable",
+      "replacement_condition": "Replace when released structured data or a reproducible Version 4.4 boundary observation proves different precedence, rounding or threshold composition.",
+      "selected_behavior": "Resolve victory before timeout on the same boundary. Otherwise compute Squad HP loss as base loss plus ceiling of uncleared progress multiplied by the configured coefficient, add the threshold-failure extra below the configured threshold, clamp Squad HP at zero, then continue or fail through the automatic checkpoint.",
+      "rejected_alternatives": [
+        "resolve timeout before a same-boundary victory",
+        "use floor rounding for fractional progress loss",
+        "treat the threshold-failure value as the complete loss instead of an extra loss",
+        "let callers submit an already-computed Squad HP loss"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "terminal_evidence": "executable behavior plus replacement-trigger test"
+    }
+  ],
+  "batches": [
+    {
+      "batch": "G21-P0-B1",
+      "phase": 0,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-policy",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Migrate and verify Sora 0.6.1.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 1,
+      "prerequisites": [],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P0-B2",
+      "phase": 0,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-policy",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Freeze baseline, source inputs, denominators, and partial skeleton state.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 2,
+      "prerequisites": [
+        "G21-P0-B1"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P0-B3",
+      "phase": 0,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-policy",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Freeze exact-once dispositions, partitions, fixtures, policies, and batch order.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 3,
+      "prerequisites": [
+        "G21-P0-B2"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P0-B4",
+      "phase": 0,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-policy",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Freeze public runtime/API, component, command, battle, handler, and failure boundaries.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 4,
+      "prerequisites": [
+        "G21-P0-B3"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P0-B5",
+      "phase": 0,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-policy",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Generate legal matrix, vertical slice, policy owners, replay identity, workloads, and CI expectations.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 5,
+      "prerequisites": [
+        "G21-P0-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P0-B6",
+      "phase": 0,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-policy",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Prove every remaining batch has an owner, prerequisite, gate, and terminal evidence target.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 6,
+      "prerequisites": [
+        "G21-P0-B5"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P1-B1",
+      "phase": 1,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P1-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 7,
+      "prerequisites": [
+        "G21-P0-B6"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P1-B2",
+      "phase": 1,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P1-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 8,
+      "prerequisites": [
+        "G21-P1-B1"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P1-B3",
+      "phase": 1,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P1-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 9,
+      "prerequisites": [
+        "G21-P1-B2"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P1-B4",
+      "phase": 1,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P1-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 10,
+      "prerequisites": [
+        "G21-P1-B3"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P1-B5",
+      "phase": 1,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P1-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 11,
+      "prerequisites": [
+        "G21-P1-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P1-B6",
+      "phase": 1,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P1-B6 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 12,
+      "prerequisites": [
+        "G21-P1-B5"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P2-B1",
+      "phase": 2,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-activity",
+        "starclock-combat",
+        "starclock-build",
+        "starclock-rules"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P2-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 13,
+      "prerequisites": [
+        "G21-P1-B6"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P2-B2",
+      "phase": 2,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-activity",
+        "starclock-combat",
+        "starclock-build",
+        "starclock-rules"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P2-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 14,
+      "prerequisites": [
+        "G21-P2-B1"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P2-B3",
+      "phase": 2,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-activity",
+        "starclock-combat",
+        "starclock-build",
+        "starclock-rules"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P2-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 15,
+      "prerequisites": [
+        "G21-P2-B2"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P2-B4",
+      "phase": 2,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-activity",
+        "starclock-combat",
+        "starclock-build",
+        "starclock-rules"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P2-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 16,
+      "prerequisites": [
+        "G21-P2-B3"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P2-B5",
+      "phase": 2,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-activity",
+        "starclock-combat",
+        "starclock-build",
+        "starclock-rules"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P2-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 17,
+      "prerequisites": [
+        "G21-P2-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": [
+        "mechanic.configuration_program"
+      ]
+    },
+    {
+      "batch": "G21-P3-B1",
+      "phase": 3,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P3-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 18,
+      "prerequisites": [
+        "G21-P2-B5"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.cross-battle-state-and-reset",
+        "currency-wars.fixture-family.profile-gambit-entry-and-terminal",
+        "currency-wars.fixture-family.three-plane-node-room-flow"
+      ],
+      "policy_fields": [
+        "flow.carry_reset",
+        "route.gambit_membership"
+      ]
+    },
+    {
+      "batch": "G21-P3-B2",
+      "phase": 3,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P3-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 19,
+      "prerequisites": [
+        "G21-P3-B1"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.squad-hp-action-value-same-boundary-order",
+        "currency-wars.fixture-family.squad-hp-victory-timeout-and-run-failure"
+      ],
+      "policy_fields": [
+        "squad_hp.same_boundary_order"
+      ]
+    },
+    {
+      "batch": "G21-P3-B3",
+      "phase": 3,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P3-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 20,
+      "prerequisites": [
+        "G21-P3-B2"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.gold-coin-refresh-experience-and-team-size"
+      ],
+      "policy_fields": [
+        "economy.gold_coin_id",
+        "economy.offer_sampling_order"
+      ]
+    },
+    {
+      "batch": "G21-P3-B4",
+      "phase": 3,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P3-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 21,
+      "prerequisites": [
+        "G21-P3-B3"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.roster-offer-cost-purchase-sale-and-cap",
+        "currency-wars.fixture-family.star-copy-combine-overflow-and-teardown"
+      ],
+      "policy_fields": [
+        "star.maximum_overflow"
+      ]
+    },
+    {
+      "batch": "G21-P3-B5",
+      "phase": 3,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P3-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 22,
+      "prerequisites": [
+        "G21-P3-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P3-B6",
+      "phase": 3,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P3-B6 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 23,
+      "prerequisites": [
+        "G21-P3-B5"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P4-B1",
+      "phase": 4,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-build",
+        "starclock-mode-currency-wars",
+        "starclock-combat"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P4-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 24,
+      "prerequisites": [
+        "G21-P3-B6"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.owned-trial-build-substitution-and-removal"
+      ],
+      "policy_fields": [
+        "build.role_to_shared_build"
+      ]
+    },
+    {
+      "batch": "G21-P4-B2",
+      "phase": 4,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-build",
+        "starclock-mode-currency-wars",
+        "starclock-combat"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P4-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 25,
+      "prerequisites": [
+        "G21-P4-B1"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.off-field-conversion-and-equipment-slots"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P4-B3",
+      "phase": 4,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-build",
+        "starclock-mode-currency-wars",
+        "starclock-combat"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P4-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 26,
+      "prerequisites": [
+        "G21-P4-B2"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.field-bench-position-and-empowerment"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P4-B4",
+      "phase": 4,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-build",
+        "starclock-mode-currency-wars",
+        "starclock-combat"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P4-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 27,
+      "prerequisites": [
+        "G21-P4-B3"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.bond-membership-threshold-and-recompute",
+        "currency-wars.fixture-family.simultaneous-bond-star-and-roster-order"
+      ],
+      "policy_fields": [
+        "bond.simultaneous_recompute"
+      ]
+    },
+    {
+      "batch": "G21-P4-B5",
+      "phase": 4,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-build",
+        "starclock-mode-currency-wars",
+        "starclock-combat"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P4-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 28,
+      "prerequisites": [
+        "G21-P4-B4"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.automatic-technique-energy-and-lethal-rescue"
+      ],
+      "policy_fields": [
+        "position.automatic_technique_rescue"
+      ]
+    },
+    {
+      "batch": "G21-P4-B6",
+      "phase": 4,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-build",
+        "starclock-mode-currency-wars",
+        "starclock-combat"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P4-B6 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 29,
+      "prerequisites": [
+        "G21-P4-B5"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-B1",
+      "phase": 5,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P5-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 30,
+      "prerequisites": [
+        "G21-P4-B6"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-B2",
+      "phase": 5,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P5-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 31,
+      "prerequisites": [
+        "G21-P5-B1"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-B3",
+      "phase": 5,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P5-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 32,
+      "prerequisites": [
+        "G21-P5-B2"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.investment-environment-strategy-and-augment"
+      ],
+      "policy_fields": [
+        "investment.operation_order"
+      ]
+    },
+    {
+      "batch": "G21-P5-B4",
+      "phase": 5,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P5-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 33,
+      "prerequisites": [
+        "G21-P5-B3"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.blessing-level-offer-and-enhancement",
+        "currency-wars.fixture-family.formula-recipe-progress-and-contribution"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-B5",
+      "phase": 5,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P5-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 34,
+      "prerequisites": [
+        "G21-P5-B4"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.occurrence-choice-cost-and-outcome"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-B6",
+      "phase": 5,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-mode-currency-wars",
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P5-B6 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 35,
+      "prerequisites": [
+        "G21-P5-B5"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.candidate-order-and-no-legal-result",
+        "currency-wars.fixture-family.curio-state-charge-destruction-and-repair",
+        "currency-wars.fixture-family.hex-eligibility-activation-and-teardown",
+        "currency-wars.fixture-family.shop-service-price-inventory-and-fallback"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A01",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only activity-flow-and-topology programs.",
+      "mechanic_partition": "G21-P5-A01",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 36,
+      "prerequisites": [
+        "G21-P5-B6"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A02",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 13 presentation-only activity-flow-and-topology programs.",
+      "mechanic_partition": "G21-P5-A02",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 37,
+      "prerequisites": [
+        "G21-P5-A01"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A03",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 activity-progression-and-eligibility programs.",
+      "mechanic_partition": "G21-P5-A03",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 38,
+      "prerequisites": [
+        "G21-P5-A02"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A04",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-activity"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 21 activity-progression-and-eligibility programs.",
+      "mechanic_partition": "G21-P5-A04",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 39,
+      "prerequisites": [
+        "G21-P5-A03"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A05",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-build",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 role-build-and-roster programs.",
+      "mechanic_partition": "G21-P5-A05",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 40,
+      "prerequisites": [
+        "G21-P5-A04"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A06",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-build",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 63 role-build-and-roster programs.",
+      "mechanic_partition": "G21-P5-A06",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 41,
+      "prerequisites": [
+        "G21-P5-A05"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A07",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-build",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 role-build-and-roster programs.",
+      "mechanic_partition": "G21-P5-A07",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 42,
+      "prerequisites": [
+        "G21-P5-A06"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A08",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-build",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 role-build-and-roster programs.",
+      "mechanic_partition": "G21-P5-A08",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 43,
+      "prerequisites": [
+        "G21-P5-A07"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A09",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-build",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 63 role-build-and-roster programs.",
+      "mechanic_partition": "G21-P5-A09",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 44,
+      "prerequisites": [
+        "G21-P5-A08"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A10",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 29 presentation-only activity-entity-and-service programs.",
+      "mechanic_partition": "G21-P5-A10",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 45,
+      "prerequisites": [
+        "G21-P5-A09"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P5-A11",
+      "phase": 5,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 11 presentation-only activity-program programs.",
+      "mechanic_partition": "G21-P5-A11",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 46,
+      "prerequisites": [
+        "G21-P5-A10"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-B1",
+      "phase": 6,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-combat",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P6-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 47,
+      "prerequisites": [
+        "G21-P5-A11"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.encounter-wave-elite-and-boss-binding"
+      ],
+      "policy_fields": [
+        "encounter.boss_identity"
+      ]
+    },
+    {
+      "batch": "G21-P6-B2",
+      "phase": 6,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-combat",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P6-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 48,
+      "prerequisites": [
+        "G21-P6-B1"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.gambit-rank-and-enemy-affix"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-B3",
+      "phase": 6,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-combat",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P6-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 49,
+      "prerequisites": [
+        "G21-P6-B2"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.battle-visible-rule-contribution"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-B4",
+      "phase": 6,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-combat",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P6-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 50,
+      "prerequisites": [
+        "G21-P6-B3"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-B5",
+      "phase": 6,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-data",
+        "starclock-combat",
+        "starclock-mode-currency-wars"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P6-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 51,
+      "prerequisites": [
+        "G21-P6-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M01",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 37 battle-stage-and-enemy programs.",
+      "mechanic_partition": "G21-P6-M01",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 52,
+      "prerequisites": [
+        "G21-P6-B5"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M02",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M02",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 53,
+      "prerequisites": [
+        "G21-P6-M01"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M03",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M03",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 54,
+      "prerequisites": [
+        "G21-P6-M02"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M04",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M04",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 55,
+      "prerequisites": [
+        "G21-P6-M03"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M05",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M05",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 56,
+      "prerequisites": [
+        "G21-P6-M04"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M06",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M06",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 57,
+      "prerequisites": [
+        "G21-P6-M05"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M07",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M07",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 58,
+      "prerequisites": [
+        "G21-P6-M06"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M08",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 63 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M08",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 59,
+      "prerequisites": [
+        "G21-P6-M07"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M09",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M09",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 60,
+      "prerequisites": [
+        "G21-P6-M08"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M10",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 12 battle-avatar-ability programs.",
+      "mechanic_partition": "G21-P6-M10",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 61,
+      "prerequisites": [
+        "G21-P6-M09"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M11",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-ai programs.",
+      "mechanic_partition": "G21-P6-M11",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 62,
+      "prerequisites": [
+        "G21-P6-M10"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M12",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 24 battle-ai programs.",
+      "mechanic_partition": "G21-P6-M12",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 63,
+      "prerequisites": [
+        "G21-P6-M11"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M13",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-combat",
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Lower and execute 64 battle-rule programs.",
+      "mechanic_partition": "G21-P6-M13",
+      "terminal_evidence": "production lowering, execution fixture, and exact-once receipt",
+      "ordinal": 64,
+      "prerequisites": [
+        "G21-P6-M12"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M14",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M14",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 65,
+      "prerequisites": [
+        "G21-P6-M13"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M15",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M15",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 66,
+      "prerequisites": [
+        "G21-P6-M14"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M16",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M16",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 67,
+      "prerequisites": [
+        "G21-P6-M15"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M17",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M17",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 68,
+      "prerequisites": [
+        "G21-P6-M16"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M18",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M18",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 69,
+      "prerequisites": [
+        "G21-P6-M17"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M19",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M19",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 70,
+      "prerequisites": [
+        "G21-P6-M18"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M20",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M20",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 71,
+      "prerequisites": [
+        "G21-P6-M19"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M21",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M21",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 72,
+      "prerequisites": [
+        "G21-P6-M20"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M22",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M22",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 73,
+      "prerequisites": [
+        "G21-P6-M21"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M23",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M23",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 74,
+      "prerequisites": [
+        "G21-P6-M22"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M24",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M24",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 75,
+      "prerequisites": [
+        "G21-P6-M23"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M25",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M25",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 76,
+      "prerequisites": [
+        "G21-P6-M24"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M26",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M26",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 77,
+      "prerequisites": [
+        "G21-P6-M25"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M27",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M27",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 78,
+      "prerequisites": [
+        "G21-P6-M26"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M28",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M28",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 79,
+      "prerequisites": [
+        "G21-P6-M27"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M29",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M29",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 80,
+      "prerequisites": [
+        "G21-P6-M28"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M30",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 64 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M30",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 81,
+      "prerequisites": [
+        "G21-P6-M29"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M31",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 2 presentation-only battle-rule programs.",
+      "mechanic_partition": "G21-P6-M31",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 82,
+      "prerequisites": [
+        "G21-P6-M30"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P6-M32",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "owner": [
+        "starclock-data"
+      ],
+      "status": "Complete",
+      "deliverable": "Audit and terminally exclude 45 presentation-only battle-resource-preload programs.",
+      "mechanic_partition": "G21-P6-M32",
+      "terminal_evidence": "production presentation-shape audit and exact-once metadata receipt",
+      "ordinal": 83,
+      "prerequisites": [
+        "G21-P6-M31"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P7-B1",
+      "phase": 7,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-cli",
+        "starclock-ai",
+        "starclock-mcp",
+        "starclock-replay"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P7-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 84,
+      "prerequisites": [
+        "G21-P6-M32"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P7-B2",
+      "phase": 7,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-cli",
+        "starclock-ai",
+        "starclock-mcp",
+        "starclock-replay"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P7-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 85,
+      "prerequisites": [
+        "G21-P7-B1"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P7-B3",
+      "phase": 7,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-cli",
+        "starclock-ai",
+        "starclock-mcp",
+        "starclock-replay"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P7-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 86,
+      "prerequisites": [
+        "G21-P7-B2"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P7-B4",
+      "phase": 7,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-cli",
+        "starclock-ai",
+        "starclock-mcp",
+        "starclock-replay"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P7-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 87,
+      "prerequisites": [
+        "G21-P7-B3"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P7-B5",
+      "phase": 7,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-cli",
+        "starclock-ai",
+        "starclock-mcp",
+        "starclock-replay"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P7-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 88,
+      "prerequisites": [
+        "G21-P7-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P7-B6",
+      "phase": 7,
+      "kind": "FixedBatch",
+      "owner": [
+        "starclock-cli",
+        "starclock-ai",
+        "starclock-mcp",
+        "starclock-replay"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P7-B6 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 89,
+      "prerequisites": [
+        "G21-P7-B5"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P8-B1",
+      "phase": 8,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-release-gates"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P8-B1 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 90,
+      "prerequisites": [
+        "G21-P7-B6"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P8-B2",
+      "phase": 8,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-release-gates"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P8-B2 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 91,
+      "prerequisites": [
+        "G21-P8-B1"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P8-B3",
+      "phase": 8,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-release-gates"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P8-B3 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 92,
+      "prerequisites": [
+        "G21-P8-B2"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.goal11-selector-separation-reconciliation",
+        "currency-wars.fixture-family.other-mode-ownership-rejection"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P8-B4",
+      "phase": 8,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-release-gates"
+      ],
+      "status": "Complete",
+      "deliverable": "Execute the G21-P8-B4 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 93,
+      "prerequisites": [
+        "G21-P8-B3"
+      ],
+      "fixture_family_ids": [
+        "currency-wars.fixture-family.approximation-replacement-trigger"
+      ],
+      "policy_fields": []
+    },
+    {
+      "batch": "G21-P8-B5",
+      "phase": 8,
+      "kind": "FixedBatch",
+      "owner": [
+        "repository-release-gates"
+      ],
+      "status": "Ready",
+      "deliverable": "Execute the G21-P8-B5 deliverable defined by docs/goals/21-currency-wars-runtime.md.",
+      "mechanic_partition": null,
+      "terminal_evidence": "focused batch gate defined by Goal 21",
+      "ordinal": 94,
+      "prerequisites": [
+        "G21-P8-B4"
+      ],
+      "fixture_family_ids": [],
+      "policy_fields": []
+    }
+  ]
+}

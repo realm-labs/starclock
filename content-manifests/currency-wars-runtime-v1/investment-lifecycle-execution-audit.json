@@ -1,0 +1,81 @@
+{
+  "schema_revision": "starclock.currency-wars-investment-lifecycle-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P5-B3",
+  "result": "Pass",
+  "production_denominators": {
+    "investment_families": {
+      "augments": 334,
+      "enhancements": 25,
+      "orbs": 376,
+      "portals": 84,
+      "projections": 2,
+      "talents": 13
+    },
+    "investment_identities": 834,
+    "augment_maze_buffs": 57,
+    "augment_monster_rules": 30,
+    "stolen_pool_constants": 4,
+    "terminal_source_rows": 116
+  },
+  "executable_activity_behavior": {
+    "offer_families": [
+      "Augment",
+      "Enhancement",
+      "Orb",
+      "Portal",
+      "Projection",
+      "Talent"
+    ],
+    "candidate_order": "stable typed investment ID",
+    "sampling": "Reward RNG with integer equal weights and without replacement",
+    "reroll": "replace the complete active offer atomically and preserve its authored family, quality, width and reroll budget",
+    "selection": "validate eligibility and payment against the pre-command snapshot, apply explicit same-family replacement, add the selected identity and clear the offer in one transaction",
+    "rejection": "preserve authoritative Activity state and Reward RNG byte-identically",
+    "contribution_snapshot": "canonical family/identity order; all selected definitions and the complete Augment maze-buff registry are immutable and hash-bound",
+    "enhancement_payment": "configured Gold cost is charged in the same accepted transaction",
+    "stolen_pool_limits_by_rarity": [
+      10,
+      8,
+      6,
+      3,
+      3
+    ],
+    "stolen_pool_refund_weights": {
+      "initial_purchase": 4,
+      "sell": 2,
+      "hold": 2
+    }
+  },
+  "completion_boundary": {
+    "activity_lifecycle_identities_exact": 834,
+    "battle_effect_programs_installed": 0,
+    "battle_effect_owner": "G21-P6-B3 and generated battle-program partitions",
+    "catalog_loading_counted_as_mechanism_completion": false
+  },
+  "source_obligations": {
+    "owned_terminal": 116,
+    "accuracy": {
+      "ExactExecutable": 116
+    }
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.investment-environment-strategy-and-augment"
+  ],
+  "policies": [
+    {
+      "field": "investment.operation_order",
+      "selected_behavior": "At an explicit Activity boundary, validate the complete offer, payment, ownership and family replacement against the pre-command snapshot; then remove the explicitly named same-family investment, add the selected investment and clear the offer in one ordered transaction. A rejection preserves both state and Reward RNG byte-identically.",
+      "replacement_condition": "Released program semantics or reproducible same-boundary activation traces are available."
+    }
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/investment_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/runtime/investment.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_investment.rs",
+    "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+    "content-reference/currency-wars-v1/economy-rules.json",
+    "content-manifests/currency-wars-runtime-v1/investment-lifecycle-execution-audit.json"
+  ]
+}

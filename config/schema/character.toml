@@ -1,20 +1,21 @@
+
 [[enums]]
 name = "CombatPath"
-values = ["Destruction", "Hunt", "Erudition", "Harmony", "Nihility", "Preservation", "Abundance", "Remembrance", "Elation"]
+values = [{ id = 0, name = "Destruction" }, { id = 1, name = "Hunt" }, { id = 2, name = "Erudition" }, { id = 3, name = "Harmony" }, { id = 4, name = "Nihility" }, { id = 5, name = "Preservation" }, { id = 6, name = "Abundance" }, { id = 7, name = "Remembrance" }, { id = 8, name = "Elation" }]
 
 [[enums]]
 name = "CombatElement"
-values = ["Physical", "Fire", "Ice", "Lightning", "Wind", "Quantum", "Imaginary"]
+values = [{ id = 0, name = "Physical" }, { id = 1, name = "Fire" }, { id = 2, name = "Ice" }, { id = 3, name = "Lightning" }, { id = 4, name = "Wind" }, { id = 5, name = "Quantum" }, { id = 6, name = "Imaginary" }]
 
 [[enums]]
 name = "CharacterAbilitySlot"
-values = ["Basic", "Skill", "Ultimate", "Talent", "Technique", "Enhanced", "Summon", "Memosprite", "Passive"]
+values = [{ id = 0, name = "Basic" }, { id = 1, name = "Skill" }, { id = 2, name = "Ultimate" }, { id = 3, name = "Talent" }, { id = 4, name = "Technique" }, { id = 5, name = "Enhanced" }, { id = 6, name = "Summon" }, { id = 7, name = "Memosprite" }, { id = 8, name = "Passive" }]
 
 [[enums]]
 name = "TraceNodeKind"
-values = ["MajorPassive", "MinorStat", "AbilityUnlock", "AbilityLevel", "BasicLevel"]
-
+values = [{ id = 0, name = "MajorPassive" }, { id = 1, name = "MinorStat" }, { id = 2, name = "AbilityUnlock" }, { id = 3, name = "AbilityLevel" }, { id = 4, name = "BasicLevel" }]
 [[tables]]
+id = "character"
 name = "Character"
 mode = "map"
 key = "id"
@@ -26,6 +27,11 @@ file = "Character.xlsx"
 [[tables.fields]]
 name = "id"
 type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "source_avatar_id"
+type = "i32"
+range = [1, 2147483647]
 
 [[tables.fields]]
 name = "rarity"
@@ -51,6 +57,7 @@ type = "string"
 length = [1, 32]
 
 [[tables]]
+id = "character-stat"
 name = "CharacterStat"
 mode = "list"
 
@@ -98,6 +105,7 @@ fields = ["character_id", "level", "promotion"]
 unique = true
 
 [[tables]]
+id = "character-resource"
 name = "CharacterResource"
 mode = "list"
 
@@ -140,6 +148,7 @@ fields = ["character_id", "stable_key"]
 unique = true
 
 [[tables]]
+id = "character-ability-binding"
 name = "CharacterAbilityBinding"
 mode = "list"
 
@@ -180,6 +189,7 @@ fields = ["character_id", "ability_id"]
 unique = true
 
 [[tables]]
+id = "trace-node"
 name = "TraceNode"
 mode = "map"
 key = "id"
@@ -212,6 +222,7 @@ parser = { kind = "split", separator = "|" }
 length = [0, 32]
 
 [[tables]]
+id = "trace-patch"
 name = "TracePatch"
 mode = "list"
 
@@ -238,6 +249,7 @@ fields = ["trace_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "eidolon"
 name = "Eidolon"
 mode = "map"
 key = "id"
@@ -265,6 +277,7 @@ fields = ["character_id", "rank"]
 unique = true
 
 [[tables]]
+id = "eidolon-patch"
 name = "EidolonPatch"
 mode = "list"
 

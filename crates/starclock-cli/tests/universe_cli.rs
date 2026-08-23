@@ -29,7 +29,7 @@ fn universe_configuration_and_coverage_are_machine_readable() {
     assert!(validation.status.success(), "{validation:?}");
     assert_eq!(
         text(validation.stdout).trim(),
-        "{\"kind\":\"universe-config-validation\",\"valid\":true,\"bundle_sha256\":\"5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75\",\"worlds\":9,\"difficulties\":33,\"paths\":9,\"blessings\":162,\"curios\":61}"
+        "{\"kind\":\"universe-config-validation\",\"valid\":true,\"bundle_sha256\":\"8106072b4bb8d6e2539cfb3a7afba057104c3407076afa1d45a4f00f3323b40f\",\"worlds\":9,\"difficulties\":33,\"paths\":9,\"blessings\":162,\"curios\":61}"
     );
 
     let coverage = output(&["universe", "coverage", "--json"]);

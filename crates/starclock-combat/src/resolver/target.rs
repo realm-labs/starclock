@@ -1,9 +1,14 @@
 //! Transactional target revalidation and journaled repeated-hit draws.
 
+use std::collections::BTreeSet;
+
 use crate::{
-    ActionGauge, EffectDefinitionId, FormationIndex, Hp, LifeState, PresenceState, SelectorId,
-    SourceDefinitionId, TeamSide, UnitId,
-    battle::{fault::BattleFault, state::BattleState},
+    ActionGauge, EffectDefinitionId, FormationIndex, Hp, LifeState, PresenceState, ProgramId,
+    SelectorId, SourceDefinitionId, TeamSide, UnitDefinitionId, UnitId,
+    battle::{
+        fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
+        state::BattleState,
+    },
     catalog::{
         CombatCatalog,
         action::TargetRelation,
@@ -14,7 +19,7 @@ use crate::{
             RuleSelectorSide, RuleUnitSelector,
         },
     },
-    formula::model::CombatElement,
+    formula::{model::CombatElement, toughness::EnemyRank},
     modifier::{
         model::{FormulaPurpose, StatQuerySubject},
         resolve::StatResolver,
@@ -75,11 +80,52 @@ pub(super) fn ordered_rule_selectors(
     Ok(output)
 }
 
+pub(super) fn ordered_program_rule_selectors(
+    catalog: &CombatCatalog,
+    root: ProgramId,
+) -> Result<Vec<SelectorId>, BattleFault> {
+    let mut programs = BTreeSet::new();
+    let mut selectors = BTreeSet::new();
+    let mut pending = vec![root];
+    while let Some(program_id) = pending.pop() {
+        if !programs.insert(program_id) {
+            continue;
+        }
+        let program = catalog
+            .program(program_id)
+            .ok_or_else(|| action_fault(151))?;
+        selectors.extend(program.selectors().iter().copied());
+        pending.extend(program.called_programs().iter().rev().copied());
+    }
+    ordered_rule_selectors(catalog, &selectors.into_iter().collect::<Vec<_>>())
+}
+
+fn prefers_direct_anchor(selector: &RuleUnitSelector) -> bool {
+    let adjacent = matches!(
+        selector.choice(),
+        RuleSelectorChoice::PrimaryPlusAdjacent | RuleSelectorChoice::AdjacentToPrimary
+    ) || selector
+        .predicates()
+        .contains(&RuleSelectorPredicate::AdjacentToPrimary);
+    matches!(
+        selector.origin(),
+        RuleSelectorOrigin::PrimaryTarget | RuleSelectorOrigin::CurrentSubject
+    ) && !adjacent
+        || matches!(
+            selector.origin(),
+            RuleSelectorOrigin::Source
+                | RuleSelectorOrigin::Owner
+                | RuleSelectorOrigin::Actor
+                | RuleSelectorOrigin::Applier
+        ) && selector.choice() == RuleSelectorChoice::First
+}
+
 impl Transaction<'_> {
     #[allow(clippy::too_many_arguments)]
     pub(super) fn resolve_rule_selector(
         &mut self,
         catalog: &CombatCatalog,
+        selector_id: SelectorId,
         selector: &RuleUnitSelector,
         owner: UnitId,
         actor: UnitId,
@@ -142,19 +188,25 @@ impl Transaction<'_> {
             selector_unit(self.state, snapshot, *unit)
                 .is_some_and(|state| on_selected_side(state.side))
         });
-        let use_direct = direct.is_some()
-            && (matches!(
-                selector.origin(),
-                RuleSelectorOrigin::PrimaryTarget | RuleSelectorOrigin::CurrentSubject
-            ) && !matches!(
-                selector.choice(),
-                RuleSelectorChoice::PrimaryPlusAdjacent | RuleSelectorChoice::AdjacentToPrimary
-            ) && !selector
-                .predicates()
-                .contains(&RuleSelectorPredicate::AdjacentToPrimary)
-                || selector.side() == RuleSelectorSide::Same
-                    && selector.choice() == RuleSelectorChoice::First);
-        let mut pool = if selector.origin() == RuleSelectorOrigin::EventTargets {
+        let use_direct = direct.is_some() && prefers_direct_anchor(selector);
+        let mut pool = if !selector.candidate_selectors().is_empty() {
+            let mut seen = BTreeSet::new();
+            let mut candidates = Vec::new();
+            for dependency in selector.candidate_selectors() {
+                let selected = input
+                    .selectors
+                    .binary_search_by_key(dependency, |result| result.selector)
+                    .ok()
+                    .map(|index| input.selectors[index].units)
+                    .ok_or_else(|| action_fault(137))?;
+                for candidate in selected {
+                    if seen.insert(*candidate) {
+                        candidates.push(*candidate);
+                    }
+                }
+            }
+            candidates
+        } else if selector.origin() == RuleSelectorOrigin::EventTargets {
             event_order.to_vec()
         } else if use_direct {
             direct.into_iter().collect::<Vec<_>>()
@@ -217,6 +269,13 @@ impl Transaction<'_> {
                 }
                 RuleSelectorPredicate::HasTag(tag) => {
                     selector_has_tag(self.state, snapshot, *id, *tag)
+                }
+                RuleSelectorPredicate::UnitForm(form) => {
+                    selector_unit(self.state, snapshot, *id).is_some_and(|unit| unit.form == *form)
+                }
+                RuleSelectorPredicate::EnemyRankEliteOrBoss => {
+                    selector_unit(self.state, snapshot, *id)
+                        .is_some_and(|unit| matches!(unit.rank, EnemyRank::Elite | EnemyRank::Boss))
                 }
                 RuleSelectorPredicate::OwnedBy(owner_selector) => {
                     let owners = input
@@ -336,7 +395,7 @@ impl Transaction<'_> {
             RuleSelectorChoice::First => pool.into_iter().take(1).collect(),
             RuleSelectorChoice::PrimaryPlusAdjacent => {
                 let Some(primary) = primary.filter(|value| pool.contains(value)) else {
-                    return self.finish_rule_selector(selector, Vec::new());
+                    return self.finish_rule_selector(selector_id, selector, Vec::new());
                 };
                 let index = selector_unit(self.state, snapshot, primary)
                     .expect("candidate exists")
@@ -352,7 +411,7 @@ impl Transaction<'_> {
             }
             RuleSelectorChoice::AdjacentToPrimary => {
                 let Some(primary) = primary else {
-                    return self.finish_rule_selector(selector, Vec::new());
+                    return self.finish_rule_selector(selector_id, selector, Vec::new());
                 };
                 let index = selector_unit(self.state, snapshot, primary)
                     .ok_or_else(|| action_fault(125))?
@@ -383,7 +442,7 @@ impl Transaction<'_> {
             }
         };
         selected.truncate(maximum);
-        self.finish_rule_selector(selector, selected)
+        self.finish_rule_selector(selector_id, selector, selected)
     }
 
     fn draw_rule_targets(
@@ -436,12 +495,19 @@ impl Transaction<'_> {
 
     fn finish_rule_selector(
         &self,
+        selector_id: SelectorId,
         selector: &RuleUnitSelector,
         selected: Vec<UnitId>,
     ) -> Result<RuleSelectorResolution, BattleFault> {
         if selected.len() < usize::from(selector.minimum()) {
             match selector.empty_pool() {
-                RuleEmptyPoolPolicy::Fault => Err(action_fault(127)),
+                RuleEmptyPoolPolicy::Fault => Err(BattleFault::new(
+                    FaultKind::InvariantViolation,
+                    FaultBoundary::Command,
+                    FaultPolicy::Rollback,
+                    0x317f,
+                    Some(i64::from(selector_id.get())),
+                )),
                 RuleEmptyPoolPolicy::NoOp => Ok(RuleSelectorResolution::Selected(Box::new([]))),
                 RuleEmptyPoolPolicy::Skip => Ok(RuleSelectorResolution::Skip),
                 RuleEmptyPoolPolicy::CancelRemaining => Ok(RuleSelectorResolution::CancelRemaining),
@@ -476,7 +542,7 @@ impl Transaction<'_> {
                 usize::try_from(selected.value()).map_err(|_| select::TargetError::ChoiceFailed)
             },
         )
-        .map_err(|_| action_fault(32))
+        .map_err(target_fault)
     }
 
     pub(super) fn draw_bounce_target(
@@ -511,6 +577,17 @@ impl Transaction<'_> {
     }
 }
 
+fn target_fault(error: select::TargetError) -> BattleFault {
+    let context = match error {
+        select::TargetError::MissingActor => 152,
+        select::TargetError::InvalidPrimary => 153,
+        select::TargetError::EmptyPool => 154,
+        select::TargetError::Invalidated => 155,
+        select::TargetError::ChoiceFailed => 156,
+    };
+    action_fault(context)
+}
+
 fn rule_weight(value: RuleValue) -> Result<u64, BattleFault> {
     match value {
         RuleValue::Integer(value) => u64::try_from(value).map_err(|_| action_fault(131)),
@@ -522,6 +599,7 @@ fn rule_weight(value: RuleValue) -> Result<u64, BattleFault> {
 #[derive(Clone, Copy)]
 struct SelectorUnitFacts<'a> {
     id: UnitId,
+    form: UnitDefinitionId,
     side: TeamSide,
     formation: FormationIndex,
     life: LifeState,
@@ -530,6 +608,7 @@ struct SelectorUnitFacts<'a> {
     maximum_hp: Hp,
     gauge: Option<ActionGauge>,
     weaknesses: &'a [CombatElement],
+    rank: EnemyRank,
 }
 
 fn selector_unit<'a>(
@@ -541,6 +620,7 @@ fn selector_unit<'a>(
         let unit = snapshot.units.get(&id)?;
         return Some(SelectorUnitFacts {
             id,
+            form: unit.form,
             side: unit.side,
             formation: unit.formation,
             life: unit.life,
@@ -549,11 +629,13 @@ fn selector_unit<'a>(
             maximum_hp: unit.maximum_hp,
             gauge: unit.gauge,
             weaknesses: &unit.weaknesses,
+            rank: unit.rank,
         });
     }
     let unit = state.units.get(id)?;
     Some(SelectorUnitFacts {
         id,
+        form: unit.form,
         side: unit.side,
         formation: unit.formation,
         life: unit.life,
@@ -566,6 +648,7 @@ fn selector_unit<'a>(
             .and_then(|actor| state.actors.get(actor))
             .map(|actor| actor.gauge),
         weaknesses: &unit.weaknesses,
+        rank: unit.rank,
     })
 }
 
@@ -665,5 +748,45 @@ fn rule_draw_purpose(key: &str) -> Option<DrawPurpose> {
         "behavior-choice" => Some(DrawPurpose::BEHAVIOR_CHOICE),
         "damage-target" => Some(DrawPurpose::DAMAGE_TARGET),
         _ => None,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::prefers_direct_anchor;
+    use crate::catalog::selector::{
+        RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+        RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorReference, RuleSelectorSide,
+        RuleUnitSelector,
+    };
+
+    fn selector(origin: RuleSelectorOrigin, choice: RuleSelectorChoice) -> RuleUnitSelector {
+        RuleUnitSelector::new(
+            origin,
+            RuleSelectorSide::Opposing,
+            RuleLifePredicate::Alive,
+            RulePresencePredicate::Present,
+            RuleSelectorReference::CurrentState,
+            RuleSelectorOrdering::Formation,
+            1,
+            1,
+            RuleEmptyPoolPolicy::Fault,
+            choice,
+            None,
+            false,
+        )
+        .unwrap()
+    }
+
+    #[test]
+    fn opposing_applier_first_prefers_the_exact_applier() {
+        assert!(prefers_direct_anchor(&selector(
+            RuleSelectorOrigin::Applier,
+            RuleSelectorChoice::First,
+        )));
+        assert!(!prefers_direct_anchor(&selector(
+            RuleSelectorOrigin::Actor,
+            RuleSelectorChoice::All,
+        )));
     }
 }

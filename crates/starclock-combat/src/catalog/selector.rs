@@ -2,7 +2,7 @@
 
 use super::CombatCatalog;
 use crate::{
-    EffectDefinitionId, SelectorId, SourceDefinitionId,
+    EffectDefinitionId, SelectorId, SourceDefinitionId, UnitDefinitionId,
     formula::model::CombatElement,
     modifier::model::StatKind,
     rule::model::{Comparison, ConditionExpr, ValueExpr},
@@ -100,6 +100,10 @@ pub enum RuleSelectorPredicate {
     LacksWeakness(CombatElement),
     HasEffect(EffectDefinitionId),
     HasTag(SourceDefinitionId),
+    /// Keeps only combatants using one exact generic unit form.
+    UnitForm(UnitDefinitionId),
+    /// Keeps only Elite or Boss encounter units.
+    EnemyRankEliteOrBoss,
     OwnedBy(SelectorId),
     /// Removes every unit selected by the referenced selector.
     Excludes(SelectorId),
@@ -125,6 +129,9 @@ pub struct RuleUnitSelector {
     pub(crate) choice: RuleSelectorChoice,
     pub(crate) rng_purpose: Option<Box<str>>,
     pub(crate) repeated: bool,
+    /// Optional ordered selector results whose stable union replaces the
+    /// origin-derived candidate pool before ordinary predicates and ordering.
+    pub(crate) candidate_selectors: Box<[SelectorId]>,
     pub(crate) predicates: Box<[RuleSelectorPredicate]>,
     pub(crate) weight: Option<ValueExpr>,
 }
@@ -159,9 +166,26 @@ impl RuleUnitSelector {
             choice,
             rng_purpose,
             repeated,
+            candidate_selectors: Box::new([]),
             predicates: Box::new([]),
             weight: None,
         })
+    }
+
+    /// Uses the stable first-occurrence union of prior selector results as the
+    /// candidate pool. This models authored selector pipelines and concatenation
+    /// without exposing source-engine selector opcodes in the combat core.
+    #[must_use]
+    pub fn with_candidate_union(mut self, selectors: Vec<SelectorId>) -> Option<Self> {
+        if selectors.is_empty() {
+            return None;
+        }
+        let mut unique = BTreeSet::new();
+        if !selectors.iter().all(|selector| unique.insert(*selector)) {
+            return None;
+        }
+        self.candidate_selectors = selectors.into_boxed_slice();
+        Some(self)
     }
 
     #[must_use]
@@ -225,6 +249,10 @@ impl RuleUnitSelector {
         self.repeated
     }
     #[must_use]
+    pub fn candidate_selectors(&self) -> &[SelectorId] {
+        &self.candidate_selectors
+    }
+    #[must_use]
     pub fn predicates(&self) -> &[RuleSelectorPredicate] {
         &self.predicates
     }
@@ -234,7 +262,7 @@ impl RuleUnitSelector {
     }
 
     pub(crate) fn dependencies(&self) -> BTreeSet<SelectorId> {
-        let mut output = BTreeSet::new();
+        let mut output: BTreeSet<SelectorId> = self.candidate_selectors.iter().copied().collect();
         for predicate in &self.predicates {
             match predicate {
                 RuleSelectorPredicate::OwnedBy(selector)
@@ -314,6 +342,7 @@ fn value_dependencies(expression: &ValueExpr, output: &mut BTreeSet<SelectorId>)
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget
         | ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryHp { .. }
@@ -349,6 +378,7 @@ fn condition_dependencies(condition: &ConditionExpr, output: &mut BTreeSet<Selec
         ConditionExpr::Literal(_)
         | ConditionExpr::EventKind(_)
         | ConditionExpr::SourceTag(_)
-        | ConditionExpr::CurrentTargetIsBroken => {}
+        | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_) => {}
     }
 }

@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsEncounterWaves {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            stage_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            wave_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_slot_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            trigger: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            stage_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            wave_index: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            enemy_slot_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            trigger: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

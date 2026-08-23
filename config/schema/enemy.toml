@@ -1,44 +1,45 @@
+
 [[enums]]
 name = "EnemyRank"
-values = ["Normal", "Minion", "Elite", "Boss"]
+values = [{ id = 0, name = "Normal" }, { id = 1, name = "Minion" }, { id = 2, name = "Elite" }, { id = 3, name = "Boss" }]
 
 [[enums]]
 name = "ToughnessLayerKind"
-values = ["Ordinary", "ExoToughness", "Sequential", "Shared"]
+values = [{ id = 0, name = "Ordinary" }, { id = 1, name = "ExoToughness" }, { id = 2, name = "Sequential" }, { id = 3, name = "Shared" }]
 
 [[enums]]
 name = "EnemyTelegraphKind"
-values = ["None", "Charge", "LockOn", "PhaseSetup"]
+values = [{ id = 0, name = "None" }, { id = 1, name = "Charge" }, { id = 2, name = "LockOn" }, { id = 3, name = "PhaseSetup" }]
 
 [[enums]]
 name = "EnemyPhaseTransitionModel"
-values = ["TransformSameUnit", "ReplaceLinkedVariant", "ExplicitWave"]
+values = [{ id = 0, name = "TransformSameUnit" }, { id = 1, name = "ReplaceLinkedVariant" }, { id = 2, name = "ExplicitWave" }]
 
 [[enums]]
 name = "PhaseCarryPolicy"
-values = ["CarryExact", "CarryRatio", "Reset", "Clear", "ExplicitProgram"]
+values = [{ id = 0, name = "CarryExact" }, { id = 1, name = "CarryRatio" }, { id = 2, name = "Reset" }, { id = 3, name = "Clear" }, { id = 4, name = "ExplicitProgram" }]
 
 [[enums]]
 name = "EnemyLinkKind"
-values = ["Summon", "SharedHp", "Part", "Countdown", "TimelineActor"]
+values = [{ id = 0, name = "Summon" }, { id = 1, name = "SharedHp" }, { id = 2, name = "Part" }, { id = 3, name = "Countdown" }, { id = 4, name = "TimelineActor" }]
 
 [[enums]]
 name = "LinkOverflowPolicy"
-values = ["Reject", "ReplaceOldest", "ReplaceNewest", "Skip"]
+values = [{ id = 0, name = "Reject" }, { id = 1, name = "ReplaceOldest" }, { id = 2, name = "ReplaceNewest" }, { id = 3, name = "Skip" }]
 
 [[enums]]
 name = "OwnerDefeatPolicy"
-values = ["Despawn", "Defeat", "Depart", "Persist", "Transfer"]
+values = [{ id = 0, name = "Despawn" }, { id = 1, name = "Defeat" }, { id = 2, name = "Depart" }, { id = 3, name = "Persist" }, { id = 4, name = "Transfer" }]
 
 [[enums]]
 name = "LinkWavePersistence"
-values = ["WaveOwned", "EncounterOwned", "Explicit"]
+values = [{ id = 0, name = "WaveOwned" }, { id = 1, name = "EncounterOwned" }, { id = 2, name = "Explicit" }]
 
 [[enums]]
 name = "LinkedFormationPolicy"
-values = ["NextAvailable", "FixedSlot", "NoFormationSlot"]
-
+values = [{ id = 0, name = "NextAvailable" }, { id = 1, name = "FixedSlot" }, { id = 2, name = "NoFormationSlot" }]
 [[tables]]
+id = "enemy-template"
 name = "EnemyTemplate"
 mode = "map"
 key = "id"
@@ -65,6 +66,7 @@ name = "default_ai_graph_id"
 type = "ref<AiGraph.id>"
 
 [[tables]]
+id = "enemy-variant"
 name = "EnemyVariant"
 mode = "map"
 key = "id"
@@ -96,6 +98,7 @@ fields = ["mechanically_distinct_key"]
 unique = true
 
 [[tables]]
+id = "enemy-stat"
 name = "EnemyStat"
 mode = "list"
 
@@ -158,6 +161,7 @@ fields = ["variant_id", "level", "difficulty_key"]
 unique = true
 
 [[tables]]
+id = "enemy-weakness"
 name = "EnemyWeakness"
 mode = "list"
 
@@ -189,6 +193,7 @@ fields = ["variant_id", "element"]
 unique = true
 
 [[tables]]
+id = "enemy-resistance"
 name = "EnemyResistance"
 mode = "list"
 
@@ -215,6 +220,7 @@ fields = ["variant_id", "element"]
 unique = true
 
 [[tables]]
+id = "enemy-debuff-resistance"
 name = "EnemyDebuffResistance"
 mode = "list"
 
@@ -242,6 +248,7 @@ fields = ["variant_id", "category_key"]
 unique = true
 
 [[tables]]
+id = "enemy-toughness-layer"
 name = "EnemyToughnessLayer"
 mode = "list"
 
@@ -292,6 +299,7 @@ fields = ["variant_id", "layer_key"]
 unique = true
 
 [[tables]]
+id = "enemy-ability"
 name = "EnemyAbility"
 mode = "map"
 key = "id"
@@ -333,6 +341,7 @@ name = "fallback_ability_id"
 type = "optional<ref<EnemyAbility.id>>"
 
 [[tables]]
+id = "enemy-variant-ability"
 name = "EnemyVariantAbility"
 mode = "list"
 
@@ -364,6 +373,7 @@ fields = ["variant_id", "ability_id"]
 unique = true
 
 [[tables]]
+id = "enemy-phase"
 name = "EnemyPhase"
 mode = "map"
 key = "id"
@@ -451,6 +461,7 @@ fields = ["variant_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "enemy-link"
 name = "EnemyLink"
 mode = "list"
 

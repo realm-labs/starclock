@@ -25,6 +25,7 @@ use crate::{
 #[derive(Debug)]
 pub(super) struct LightConeDataDefinition {
     id: LightConeId,
+    source_equipment_id: u32,
     rarity: u8,
     path: CombatPath,
     applicability: LightConeApplicability,
@@ -49,6 +50,13 @@ struct LightConeRankDefinition {
 }
 
 impl LightConeDataDefinition {
+    pub(super) const fn id(&self) -> LightConeId {
+        self.id
+    }
+
+    pub(super) const fn source_equipment_id(&self) -> u32 {
+        self.source_equipment_id
+    }
     pub(super) fn violates_invariants(&self) -> bool {
         !(3..=5).contains(&self.rarity)
             || self.stats.len() != 86
@@ -160,6 +168,7 @@ fn lower_one(
     let ranks = lower_ranks(config, row.id, combat)?;
     Ok(LightConeDataDefinition {
         id: LightConeId::new(raw_id).expect("positive Light Cone ID"),
+        source_equipment_id: positive(row.source_equipment_id, "LightCone.source_equipment_id")?,
         rarity,
         path: path(row.path),
         applicability: applicability(row.applicability),

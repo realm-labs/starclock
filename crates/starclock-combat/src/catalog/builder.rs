@@ -1,3 +1,4 @@
+//! Line-limit exception: deterministic catalog construction and all cross-reference checks must remain adjacent.
 //! Deterministic `CombatCatalog` construction and cross-reference validation.
 mod composition;
 mod effect_validate;

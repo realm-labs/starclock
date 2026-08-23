@@ -24,7 +24,7 @@ const outputRoot = path.join(root, "content-reference/currency-wars-v1");
 const expected = {
   "role-mappings.json": 77,
   "positions.json": 3,
-  "character-empowerments.json": 4652,
+  "character-empowerments.json": 4784,
   "battle-overrides.json": 341,
 };
 const rowsByFile = Object.fromEntries(Object.keys(expected)
@@ -61,15 +61,17 @@ const empowerment = rowsByFile["character-empowerments.json"];
 assert(empowerment.filter(({ id }) =>
   id.includes(".display.")).length === 154
   && empowerment.filter(({ id }) =>
-    id.includes(".skill.front.")).length === 4052
+    id.includes(".skill.front.")).length === 4184
   && empowerment.filter(({ id }) =>
     id.includes(".skill.back.")).length === 446,
 "GridFight Empowerment family denominator drift");
 assert(sourceLocators(empowerment,
   "ExcelOutput/GridFightFrontSkill.json").size === 4052
   && sourceLocators(empowerment,
-    "ExcelOutput/GridFightBackBESkillConfig.json").size === 446,
-"GridFight front/back skill exact-once drift");
+    "ExcelOutput/GridFightBackBESkillConfig.json").size === 446
+  && sourceLocators(empowerment,
+    "ExcelOutput/GridFightServantSkill.json").size === 132,
+"GridFight front/back/servant skill exact-once drift");
 
 const overrides = rowsByFile["battle-overrides.json"];
 const structuredCounts = {
@@ -95,8 +97,10 @@ assert(automaticTechnique?.trigger === "BeforeBattleStart"
   && automaticTechnique.source_refs.length === 2
   && energy?.parameters.regular_energy_ratio === "0.5"
   && energy.evidence_quality === "ExactPublicText"
-  && rescue?.coverage_state === "Researched"
-  && rescue.parameters.restored_hp === "ConfiguredByBattleRule"
+  && rescue?.coverage_state === "DataReady"
+  && rescue.evidence_quality === "ProjectPolicy"
+  && rescue.source_refs.length === 3
+  && rescue.parameters.restored_hp === "FullMaximumHp"
   && rescue.ordered_operations.length === 3,
 "released energy/lethal-rescue rule drift");
 
@@ -109,7 +113,7 @@ for (const file of Object.keys(rowsByFile).sort(compare))
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
   `Currency Wars position/Empowerment verified (${allRows.length} rows; ` +
-  `4,652 Empowerments; 341 battle overrides; digest ${digest.digest("hex")}).`,
+  `4,784 Empowerments; 341 battle overrides; digest ${digest.digest("hex")}).`,
 );
 
 function valueAfter(flag) {

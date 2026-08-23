@@ -37,6 +37,14 @@ pub struct CurrencyWarsEncounterGroups {
     pub rank: Option<String>,
     #[serde(rename = "candidate_stage_ids")]
     pub candidate_stage_ids: Option<String>,
+    #[serde(rename = "monster_ids")]
+    pub monster_ids: Option<String>,
+    #[serde(rename = "battle_area_ids")]
+    pub battle_area_ids: Option<String>,
+    #[serde(rename = "boss_battle_area_id")]
+    pub boss_battle_area_id: Option<String>,
+    #[serde(rename = "randomization")]
+    pub randomization: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEncounterGroups {
@@ -55,10 +63,14 @@ impl super::runtime::SoraDecode for CurrencyWarsEncounterGroups {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            difficulty_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            rank: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            candidate_stage_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            plane_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            difficulty_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            rank: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            candidate_stage_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            monster_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            battle_area_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            boss_battle_area_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            randomization: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

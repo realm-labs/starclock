@@ -1,0 +1,41 @@
+{
+  "schema_revision": "starclock.currency-wars-battle-boundary-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P3-B2",
+  "result": "Pass",
+  "production_denominators": {
+    "penalty_rules": 114,
+    "finite_action_value_rules": 89,
+    "unlimited_action_value_rules": 25
+  },
+  "exact_behavior": {
+    "action_value_per_turn": "10",
+    "lethal_rescue_action_value_per_ratio": "100",
+    "victory_squad_hp_loss": "0",
+    "timeout_expiry": "Lose",
+    "squad_hp_clamp_minimum": "0",
+    "zero_squad_hp_terminal": "Failed"
+  },
+  "source_obligations": {
+    "owned_terminal": 114,
+    "accuracy": {
+      "ExactExecutable": 114
+    }
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.squad-hp-action-value-same-boundary-order",
+    "currency-wars.fixture-family.squad-hp-victory-timeout-and-run-failure"
+  ],
+  "policies": [
+    {
+      "field": "squad_hp.same_boundary_order",
+      "selected_behavior": "Resolve victory before timeout on the same boundary. Otherwise compute Squad HP loss as base loss plus ceiling of uncleared progress multiplied by the configured coefficient, add the threshold-failure extra below the configured threshold, clamp Squad HP at zero, then continue or fail through the automatic checkpoint.",
+      "replacement_condition": "Replace when released structured data or a reproducible Version 4.4 boundary observation proves different precedence, rounding or threshold composition."
+    }
+  ],
+  "behavioral_evidence": [
+    "runtime::boundary::tests::exact_penalty_inputs_resolve_with_explicit_boundary_policy",
+    "runtime_tests::battle_boundary_orders_victory_timeout_loss_checkpoint_and_run_failure",
+    "currency_wars::tests::production_bundle_lowers_to_complete_runtime_denominators"
+  ]
+}

@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsMechanicSourceFiles {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            source_sha256: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            mechanic_family: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_path: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            source_sha256: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            mechanic_family: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            disposition: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

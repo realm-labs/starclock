@@ -1,0 +1,68 @@
+{
+  "schema_revision": "starclock.currency-wars-performance-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P8-B2",
+  "result": "Pass",
+  "runner_class": "local-macos-arm64-release-2026-08-24",
+  "timing_is_authoritative_state": false,
+  "guard_policy": "stable runner elapsed time must remain within 120% of the frozen baseline",
+  "workloads": [
+    {
+      "id": "catalog-load-and-lower",
+      "iterations": 1,
+      "baseline_elapsed_ns": 497568625,
+      "guard_elapsed_ns": 597082350
+    },
+    {
+      "id": "factory-start-all-matrix-entries",
+      "iterations": 97,
+      "baseline_elapsed_ns": 5997750,
+      "guard_elapsed_ns": 7197300
+    },
+    {
+      "id": "complete-run",
+      "iterations": 1,
+      "baseline_elapsed_ns": 80423792,
+      "guard_elapsed_ns": 96508551
+    },
+    {
+      "id": "fresh-replay",
+      "iterations": 1,
+      "baseline_elapsed_ns": 75695459,
+      "guard_elapsed_ns": 90834551
+    },
+    {
+      "id": "trigger-heavy-investment-bond-battle",
+      "iterations": 100,
+      "baseline_elapsed_ns": 512154875,
+      "guard_elapsed_ns": 614585850
+    },
+    {
+      "id": "warm-shared-catalog-session-start",
+      "iterations": 10000,
+      "baseline_elapsed_ns": 557172583,
+      "guard_elapsed_ns": 668607100
+    },
+    {
+      "id": "concurrent-shared-catalog-sessions",
+      "iterations": 16,
+      "baseline_elapsed_ns": 251619250,
+      "guard_elapsed_ns": 301943100
+    },
+    {
+      "id": "invalid-command-and-replay-corruption",
+      "iterations": 4096,
+      "baseline_elapsed_ns": 2176625,
+      "guard_elapsed_ns": 2611950
+    }
+  ],
+  "structural_evidence": {
+    "catalog_compositions_per_factory": 1,
+    "complete_run_external_actions": 14,
+    "complete_run_nested_battles": 7,
+    "concurrent_sessions": 16,
+    "malformed_rejections": 4096,
+    "allocation_scope": "process except concurrent worker allocations are excluded by allocation-counter"
+  },
+  "command": "cargo run --release -p starclock-agent-api --example currency_wars_benchmark --features benchmark-harness"
+}

@@ -216,8 +216,8 @@ fn every_compatible_character_and_light_cone_pair_compiles_at_e0_s1_and_e6_s5() 
         }
     }
 
-    assert_eq!(compatible_pairs, 1_746);
-    assert_eq!(compiled_builds, 3_492);
+    assert_eq!(compatible_pairs, 1_791);
+    assert_eq!(compiled_builds, 3_582);
 }
 
 #[test]

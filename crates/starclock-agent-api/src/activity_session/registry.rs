@@ -1,5 +1,6 @@
 //! Owned, quota-bounded Activity session registry.
 
+mod currency_wars;
 mod gold;
 mod swarm;
 
@@ -9,12 +10,20 @@ use super::{
     CreateActivitySessionRequest, PlayActivityActionRequest,
 };
 use crate::{
+    activity_observation::{
+        AgentActivityEventKind, AgentActivityEventPage, AgentActivityEventSummary,
+        AgentActivityObservationPage, MAX_ACTIVITY_EVENTS_PER_PAGE,
+    },
+    currency_wars_activity_session::{
+        AgentCurrencyWarsManifest, CurrencyWarsActivityAgentSession,
+        CurrencyWarsActivityAgentSessionFactory,
+    },
     error::{AgentError, AgentErrorCode},
     gold_gears_activity_session::{
         AgentGoldAndGearsManifest, CreateGoldAndGearsActivitySessionRequest,
         GoldAndGearsActivityAgentSession, GoldAndGearsActivityAgentSessionFactory,
     },
-    schema::{AgentUInt, SessionId},
+    schema::{AgentUInt, EventCursor, SessionId},
     session::{
         AgentSessionOwner, IDLE_TTL_SECONDS, MAX_GLOBAL_SESSIONS, MAX_SESSIONS_PER_PRINCIPAL,
         MAX_SESSIONS_PER_TENANT, MAXIMUM_LIFETIME_SECONDS, OperationalClock, SessionIdSource,
@@ -34,6 +43,7 @@ use std::{
 };
 
 const MAX_TERMINAL_TOMBSTONES: usize = MAX_GLOBAL_SESSIONS;
+const MAX_RETAINED_ACTIVITY_EVENTS: usize = 8_192;
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct RegistryCreateActivitySessionRequest {
@@ -49,6 +59,14 @@ pub struct RegistryCreateGoldAndGearsSessionRequest {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct RegistryCreateSwarmDisasterSessionRequest {
+    pub seed: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct RegistryCreateCurrencyWarsSessionRequest {
+    pub route_id: AgentUInt,
+    pub difficulty_id: AgentUInt,
+    pub gambit: crate::currency_wars_activity_session::AgentCurrencyWarsGambit,
     pub seed: AgentUInt,
 }
 
@@ -78,6 +96,7 @@ struct RegistryInner {
     factory: ActivityAgentSessionFactory,
     gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
     swarm_factory: Option<SwarmDisasterActivityAgentSessionFactory>,
+    currency_wars_factory: Option<CurrencyWarsActivityAgentSessionFactory>,
     clock: Arc<dyn OperationalClock>,
     id_source: Arc<dyn SessionIdSource>,
     last_clock: AtomicU64,
@@ -105,15 +124,94 @@ struct SessionLane {
 }
 
 enum SessionLaneState {
-    Active(Box<HostedActivitySession>),
+    Active {
+        session: Box<HostedActivitySession>,
+        events: ActivityEventRecorder,
+    },
     Closed,
     Expired,
+}
+
+#[derive(Default)]
+struct ActivityEventRecorder {
+    events: VecDeque<AgentActivityEventSummary>,
+}
+
+impl ActivityEventRecorder {
+    fn retain_response(&mut self, response: &AgentActivityActionResponse) {
+        let observation = &response.observation;
+        if self.events.back().is_some_and(|event| {
+            event.action_token == response.accepted_action_token
+                && event.command_sequence == observation.command_sequence
+                && event.resulting_state_hash == observation.state_hash
+        }) {
+            return;
+        }
+        let event_id = self
+            .events
+            .back()
+            .map_or(1, |event| event.event_id.to_u64().saturating_add(1));
+        if self.events.len() == MAX_RETAINED_ACTIVITY_EVENTS {
+            self.events.pop_front();
+        }
+        self.events.push_back(AgentActivityEventSummary {
+            event_id: AgentUInt::from_u64(event_id),
+            kind: AgentActivityEventKind::ActionAccepted,
+            action_token: response.accepted_action_token.clone(),
+            command_sequence: observation.command_sequence.clone(),
+            resulting_state_hash: observation.state_hash.clone(),
+            accepted_activity_actions: response.settlement.accepted_activity_actions.clone(),
+            nested_battles: response.settlement.nested_battles.clone(),
+        });
+    }
+
+    fn page_after(&self, cursor: &EventCursor) -> Result<AgentActivityEventPage, AgentError> {
+        let requested = activity_event_cursor_id(cursor)?;
+        let latest = self
+            .events
+            .back()
+            .map_or(0, |event| event.event_id.to_u64());
+        if requested > latest {
+            return Err(agent_error(
+                AgentErrorCode::InvalidRequest,
+                "The event cursor is ahead of the retained Activity history.",
+            ));
+        }
+        if let Some(oldest) = self.events.front().map(|event| event.event_id.to_u64())
+            && requested.saturating_add(1) < oldest
+        {
+            return Err(agent_error(
+                AgentErrorCode::EventCursorExpired,
+                "The event cursor precedes the retained Activity summary window.",
+            ));
+        }
+        let mut visible = self
+            .events
+            .iter()
+            .filter(|event| event.event_id.to_u64() > requested);
+        let events = visible
+            .by_ref()
+            .take(MAX_ACTIVITY_EVENTS_PER_PAGE)
+            .cloned()
+            .collect::<Vec<_>>();
+        let truncated = visible.next().is_some();
+        let next = events
+            .last()
+            .map_or(requested, |event| event.event_id.to_u64());
+        Ok(AgentActivityEventPage {
+            events: events.into_boxed_slice(),
+            next_cursor: EventCursor::parse(&format!("event_{next}"))
+                .expect("Activity event IDs form valid opaque cursors"),
+            truncated,
+        })
+    }
 }
 
 enum HostedActivitySession {
     Standard(ActivityAgentSession),
     GoldAndGears(GoldAndGearsActivityAgentSession),
     SwarmDisaster(SwarmDisasterActivityAgentSession),
+    CurrencyWars(CurrencyWarsActivityAgentSession),
 }
 
 impl HostedActivitySession {
@@ -122,6 +220,7 @@ impl HostedActivitySession {
             Self::Standard(session) => session.observe(),
             Self::GoldAndGears(session) => session.observe(),
             Self::SwarmDisaster(session) => session.observe(),
+            Self::CurrencyWars(session) => session.observe(),
         }
     }
 
@@ -133,6 +232,7 @@ impl HostedActivitySession {
             Self::Standard(session) => session.apply_action(request),
             Self::GoldAndGears(session) => session.apply_action(request),
             Self::SwarmDisaster(session) => session.apply_action(request),
+            Self::CurrencyWars(session) => session.apply_action(request),
         }
     }
 
@@ -141,6 +241,7 @@ impl HostedActivitySession {
             Self::Standard(session) => session.export_replay(),
             Self::GoldAndGears(session) => session.export_replay(),
             Self::SwarmDisaster(session) => session.export_replay(),
+            Self::CurrencyWars(session) => session.export_replay(),
         }
     }
 
@@ -149,6 +250,7 @@ impl HostedActivitySession {
         standard: &ActivityAgentSessionFactory,
         gold: Option<&GoldAndGearsActivityAgentSessionFactory>,
         swarm: Option<&SwarmDisasterActivityAgentSessionFactory>,
+        currency_wars: Option<&CurrencyWarsActivityAgentSessionFactory>,
         bytes: &[u8],
     ) -> Result<AgentActivityReplayVerification, AgentError> {
         match self {
@@ -159,6 +261,10 @@ impl HostedActivitySession {
             Self::SwarmDisaster(session) => {
                 session.verify_replay(swarm.ok_or_else(swarm::swarm_not_configured)?, bytes)
             }
+            Self::CurrencyWars(session) => session.verify_replay(
+                currency_wars.ok_or_else(currency_wars_not_configured)?,
+                bytes,
+            ),
         }
     }
 
@@ -167,6 +273,7 @@ impl HostedActivitySession {
             Self::Standard(session) => session.close(),
             Self::GoldAndGears(session) => session.close(),
             Self::SwarmDisaster(session) => session.close(),
+            Self::CurrencyWars(session) => session.close(),
         }
     }
 }
@@ -189,13 +296,14 @@ impl ActivityAgentSessionRegistry {
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
     ) -> Self {
-        Self::with_limits(factory, None, None, clock, id_source, FROZEN_LIMITS)
+        Self::with_limits(factory, None, None, None, clock, id_source, FROZEN_LIMITS)
     }
 
     fn with_limits(
         factory: ActivityAgentSessionFactory,
         gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
         swarm_factory: Option<SwarmDisasterActivityAgentSessionFactory>,
+        currency_wars_factory: Option<CurrencyWarsActivityAgentSessionFactory>,
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
         limits: RegistryLimits,
@@ -205,6 +313,7 @@ impl ActivityAgentSessionRegistry {
                 factory,
                 gold_factory,
                 swarm_factory,
+                currency_wars_factory,
                 clock,
                 id_source,
                 last_clock: AtomicU64::new(0),
@@ -237,7 +346,10 @@ impl ActivityAgentSessionRegistry {
             lane: Mutex::new(SessionLane {
                 created_at: now,
                 last_accessed_at: now,
-                state: SessionLaneState::Active(Box::new(HostedActivitySession::Standard(session))),
+                state: SessionLaneState::Active {
+                    session: Box::new(HostedActivitySession::Standard(session)),
+                    events: ActivityEventRecorder::default(),
+                },
             }),
         });
         let mut state = lock(&self.inner.state)?;
@@ -275,9 +387,10 @@ impl ActivityAgentSessionRegistry {
             lane: Mutex::new(SessionLane {
                 created_at: now,
                 last_accessed_at: now,
-                state: SessionLaneState::Active(Box::new(HostedActivitySession::GoldAndGears(
-                    session,
-                ))),
+                state: SessionLaneState::Active {
+                    session: Box::new(HostedActivitySession::GoldAndGears(session)),
+                    events: ActivityEventRecorder::default(),
+                },
             }),
         });
         let mut state = lock(&self.inner.state)?;
@@ -295,7 +408,25 @@ impl ActivityAgentSessionRegistry {
         owner: &AgentSessionOwner,
         id: &SessionId,
     ) -> Result<AgentActivityObservation, AgentError> {
-        self.with_active(owner, id, HostedActivitySession::observe)
+        self.with_active(owner, id, |session, _| session.observe())
+    }
+
+    pub fn observe_with_events(
+        &self,
+        owner: &AgentSessionOwner,
+        id: &SessionId,
+        after: &EventCursor,
+    ) -> Result<AgentActivityObservationPage, AgentError> {
+        self.with_active(owner, id, |session, events| {
+            let observation = session.observe()?;
+            let page = events.page_after(after)?;
+            Ok(AgentActivityObservationPage {
+                observation,
+                event_cursor: page.next_cursor,
+                events: page.events,
+                events_truncated: page.truncated,
+            })
+        })
     }
 
     pub fn apply_action(
@@ -304,7 +435,11 @@ impl ActivityAgentSessionRegistry {
         request: PlayActivityActionRequest,
     ) -> Result<AgentActivityActionResponse, AgentError> {
         let id = request.session_id.clone();
-        self.with_active(owner, &id, move |session| session.apply_action(request))
+        self.with_active(owner, &id, move |session, events| {
+            let response = session.apply_action(request)?;
+            events.retain_response(&response);
+            Ok(response)
+        })
     }
 
     pub fn export_replay(
@@ -312,7 +447,7 @@ impl ActivityAgentSessionRegistry {
         owner: &AgentSessionOwner,
         id: &SessionId,
     ) -> Result<AgentActivityReplayExport, AgentError> {
-        self.with_active(owner, id, HostedActivitySession::export_replay)
+        self.with_active(owner, id, |session, _| session.export_replay())
     }
 
     pub fn verify_replay(
@@ -324,11 +459,13 @@ impl ActivityAgentSessionRegistry {
         let factory = self.inner.factory.clone();
         let gold_factory = self.inner.gold_factory.clone();
         let swarm_factory = self.inner.swarm_factory.clone();
-        self.with_active(owner, id, |session| {
+        let currency_wars_factory = self.inner.currency_wars_factory.clone();
+        self.with_active(owner, id, |session, _| {
             session.verify_replay(
                 &factory,
                 gold_factory.as_ref(),
                 swarm_factory.as_ref(),
+                currency_wars_factory.as_ref(),
                 bytes,
             )
         })
@@ -362,12 +499,12 @@ impl ActivityAgentSessionRegistry {
             match lane.state {
                 SessionLaneState::Closed => return Err(closed_error()),
                 SessionLaneState::Expired => return Err(expired_error()),
-                SessionLaneState::Active(_) if self.is_expired(&lane, now) => {
+                SessionLaneState::Active { .. } if self.is_expired(&lane, now) => {
                     lane.state = SessionLaneState::Expired;
                     TerminalState::Expired
                 }
-                SessionLaneState::Active(_) => {
-                    if let SessionLaneState::Active(session) = &mut lane.state {
+                SessionLaneState::Active { .. } => {
+                    if let SessionLaneState::Active { session, .. } = &mut lane.state {
                         session.close();
                     }
                     lane.state = SessionLaneState::Closed;
@@ -386,7 +523,10 @@ impl ActivityAgentSessionRegistry {
         &self,
         owner: &AgentSessionOwner,
         id: &SessionId,
-        operation: impl FnOnce(&mut HostedActivitySession) -> Result<T, AgentError>,
+        operation: impl FnOnce(
+            &mut HostedActivitySession,
+            &mut ActivityEventRecorder,
+        ) -> Result<T, AgentError>,
     ) -> Result<T, AgentError> {
         let now = self.read_now()?;
         let entry = self.lookup(owner, id)?;
@@ -398,7 +538,7 @@ impl ActivityAgentSessionRegistry {
             return Err(expired_error());
         }
         let result = match &mut lane.state {
-            SessionLaneState::Active(session) => operation(session),
+            SessionLaneState::Active { session, events } => operation(session, events),
             SessionLaneState::Closed => return Err(closed_error()),
             SessionLaneState::Expired => return Err(expired_error()),
         };
@@ -471,7 +611,8 @@ impl ActivityAgentSessionRegistry {
         for (id, entry) in entries {
             let expired = {
                 let mut lane = lock(&entry.lane)?;
-                if matches!(lane.state, SessionLaneState::Active(_)) && self.is_expired(&lane, now)
+                if matches!(lane.state, SessionLaneState::Active { .. })
+                    && self.is_expired(&lane, now)
                 {
                     lane.state = SessionLaneState::Expired;
                     true
@@ -551,6 +692,18 @@ fn lock<T>(mutex: &Mutex<T>) -> Result<MutexGuard<'_, T>, AgentError> {
         .lock()
         .map_err(|_| adapter_error("The Activity registry lock was poisoned."))
 }
+fn activity_event_cursor_id(cursor: &EventCursor) -> Result<u64, AgentError> {
+    cursor
+        .as_str()
+        .strip_prefix("event_")
+        .and_then(|value| value.parse().ok())
+        .ok_or_else(|| {
+            agent_error(
+                AgentErrorCode::InvalidRequest,
+                "The Activity event cursor is invalid.",
+            )
+        })
+}
 fn agent_error(code: AgentErrorCode, message: &'static str) -> AgentError {
     AgentError::new(code, message, false, false).expect("static registry error is bounded")
 }
@@ -587,11 +740,18 @@ fn gold_not_configured() -> AgentError {
         "Gold and Gears Activity sessions are not configured.",
     )
 }
+fn currency_wars_not_configured() -> AgentError {
+    agent_error(
+        AgentErrorCode::ConfigurationRejected,
+        "Currency Wars Activity sessions are not configured.",
+    )
+}
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::{
         activity_session::production_factory_for_tests,
+        currency_wars_activity_session::production_factory_for_tests as currency_wars_activity_session_production_factory_for_tests,
         gold_gears_activity_session::production_factory_for_tests as gold_gears_activity_session_production_factory_for_tests,
         schema::IdempotencyKey,
         swarm_disaster_activity_session::production_factory_for_tests as swarm_disaster_activity_session_production_factory_for_tests,
@@ -626,6 +786,7 @@ mod tests {
                 production_factory_for_tests(),
                 None,
                 None,
+                None,
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -640,6 +801,7 @@ mod tests {
                 production_factory_for_tests(),
                 Some(gold_gears_activity_session_production_factory_for_tests()),
                 Some(swarm_disaster_activity_session_production_factory_for_tests()),
+                Some(currency_wars_activity_session_production_factory_for_tests()),
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -749,6 +911,113 @@ mod tests {
                 .as_ref(),
             "swarm-disaster-real-battle-replay"
         );
+        assert_eq!(
+            registry
+                .currency_wars_manifest()
+                .unwrap()
+                .profile_prefix
+                .as_ref(),
+            "currency-wars"
+        );
+    }
+
+    #[test]
+    fn currency_wars_sessions_use_shared_ownership_and_quota_registry() {
+        let (registry, _) = registry_with_modes(FROZEN_LIMITS);
+        let alice = AgentSessionOwner::new("tenant", "alice").unwrap();
+        let bob = AgentSessionOwner::new("tenant", "bob").unwrap();
+        let observation = registry
+            .create_currency_wars(
+                &alice,
+                RegistryCreateCurrencyWarsSessionRequest {
+                    route_id: AgentUInt::from_u64(801),
+                    difficulty_id: AgentUInt::from_u64(1),
+                    gambit:
+                        crate::currency_wars_activity_session::AgentCurrencyWarsGambit::Standard,
+                    seed: AgentUInt::from_u64(31_000_501),
+                },
+            )
+            .unwrap();
+        assert_eq!(observation.world.to_u64(), 801);
+        assert_eq!(observation.legal_actions.len(), 1);
+        assert_eq!(
+            registry
+                .observe(&bob, &observation.session_id)
+                .unwrap_err()
+                .code,
+            AgentErrorCode::SessionNotOwned
+        );
+        let request = PlayActivityActionRequest {
+            session_id: observation.session_id.clone(),
+            boundary_id: observation.boundary_id.clone().unwrap(),
+            expected_state_hash: observation.state_hash.clone(),
+            action_token: observation.legal_actions[0].token.clone(),
+            idempotency_key: IdempotencyKey::parse("currency_registry_action_1").unwrap(),
+        };
+        let response = registry.apply_action(&alice, request.clone()).unwrap();
+        assert_eq!(registry.apply_action(&alice, request).unwrap(), response);
+        let page = registry
+            .observe_with_events(
+                &alice,
+                &observation.session_id,
+                &EventCursor::parse("event_0").unwrap(),
+            )
+            .unwrap();
+        assert_eq!(page.events.len(), 1);
+        assert!(!page.events_truncated);
+        assert_eq!(page.event_cursor.as_str(), "event_1");
+        assert_eq!(
+            registry
+                .observe_with_events(
+                    &alice,
+                    &observation.session_id,
+                    &EventCursor::parse("event_2").unwrap(),
+                )
+                .unwrap_err()
+                .code,
+            AgentErrorCode::InvalidRequest
+        );
+        assert_eq!(
+            registry
+                .close(&bob, &observation.session_id)
+                .unwrap_err()
+                .code,
+            AgentErrorCode::SessionNotOwned
+        );
+        registry.close(&alice, &observation.session_id).unwrap();
+        assert_eq!(
+            registry
+                .observe(&alice, &observation.session_id)
+                .unwrap_err()
+                .code,
+            AgentErrorCode::SessionClosed
+        );
+    }
+
+    #[test]
+    fn activity_event_pages_are_capped_and_cursor_exact() {
+        let mut recorder = ActivityEventRecorder::default();
+        for id in 1..=MAX_ACTIVITY_EVENTS_PER_PAGE as u64 + 1 {
+            recorder.events.push_back(AgentActivityEventSummary {
+                event_id: AgentUInt::from_u64(id),
+                kind: AgentActivityEventKind::ActionAccepted,
+                action_token: crate::schema::ActionToken::parse(&format!("action_{id}")).unwrap(),
+                command_sequence: AgentUInt::from_u64(id),
+                resulting_state_hash: crate::schema::AgentHash::from_bytes([id as u8; 32]),
+                accepted_activity_actions: AgentUInt::from_u64(1),
+                nested_battles: AgentUInt::from_u64(0),
+            });
+        }
+        let first = recorder
+            .page_after(&EventCursor::parse("event_0").unwrap())
+            .unwrap();
+        assert_eq!(first.events.len(), MAX_ACTIVITY_EVENTS_PER_PAGE);
+        assert!(first.truncated);
+        assert_eq!(first.next_cursor.as_str(), "event_256");
+        let second = recorder.page_after(&first.next_cursor).unwrap();
+        assert_eq!(second.events.len(), 1);
+        assert!(!second.truncated);
+        assert_eq!(second.next_cursor.as_str(), "event_257");
     }
 
     #[test]

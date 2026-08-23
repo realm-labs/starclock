@@ -1,0 +1,64 @@
+{
+  "schema_revision": "starclock.currency-wars-vertical-slice-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P3-B6",
+  "result": "Pass",
+  "slice_id": "G21-VERTICAL-SLICE-01",
+  "execution_status": "ActivityRunExecutedPendingBattleAssembly",
+  "production_identity": {
+    "seed": 21000501,
+    "profile_id": "currency-wars.profile.v1",
+    "module_id": "currency-wars.module.7100501",
+    "entry_id": "currency-wars.entry.guide-data.301",
+    "gambit_id": "currency-wars.gambit.standard",
+    "route_id": "currency-wars.area.route.100",
+    "difficulty_id": "currency-wars.difficulty.10101"
+  },
+  "executed_path": {
+    "authored_route_nodes": 23,
+    "battle_handoffs_and_validated_results": 20,
+    "supply_decisions": 3,
+    "plane_transitions": 2,
+    "planes_visited": [
+      1,
+      2,
+      3
+    ],
+    "paid_refreshes": 1,
+    "purchases": 1,
+    "deterministic_no_combination_proof": true,
+    "same_boundary_deployment_and_bond_recompute": true,
+    "non_victory_checkpoint_recoveries": 1,
+    "terminal_outcome": "Completed",
+    "terminal_settlement_rank": "SSS"
+  },
+  "boundary_scope": {
+    "production_catalog_and_activity_graph": true,
+    "production_economy_roster_and_battle_result_contracts": true,
+    "caller_supplied_battle_specs_are_boundary_stubs": true,
+    "production_build_assembly_claimed": false,
+    "production_enemy_assembly_claimed": true,
+    "combat_command_execution_claimed": false,
+    "fresh_replay_reconstruction_claimed": false,
+    "complete_run_matrix_credit": false
+  },
+  "deferred_requirements": [
+    {
+      "owner_batch": "G21-P4-B6",
+      "requirement": "materialize immutable deployed build, star, Bond and position contribution identity"
+    },
+    {
+      "owner_batch": "G21-P5-B3",
+      "requirement": "execute Projection 1508 and prove its authoritative contribution control"
+    },
+    {
+      "owner_batch": "G21-P7-B4",
+      "requirement": "reconstruct the accepted run and nested battle records from fresh immutable inputs"
+    }
+  ],
+  "behavioral_evidence": [
+    "currency_wars_runtime_tests::production_standard_route_executes_economy_roster_battles_and_terminal_settlement",
+    "graph_activity::submit_pending_battle_result_with_boundary_program",
+    "transaction::extension::apply_settlement_extension_program"
+  ]
+}

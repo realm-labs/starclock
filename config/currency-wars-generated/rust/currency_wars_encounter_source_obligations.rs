@@ -35,6 +35,14 @@ pub struct CurrencyWarsEncounterSourceObligations {
     pub parent_id: Option<String>,
     #[serde(rename = "resolution_state")]
     pub resolution_state: Option<String>,
+    #[serde(rename = "stage_id")]
+    pub stage_id: Option<String>,
+    #[serde(rename = "camp_ids")]
+    pub camp_ids: Option<String>,
+    #[serde(rename = "stage_snapshot")]
+    pub stage_snapshot: Option<String>,
+    #[serde(rename = "replacement_condition")]
+    pub replacement_condition: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEncounterSourceObligations {
@@ -53,9 +61,13 @@ impl super::runtime::SoraDecode for CurrencyWarsEncounterSourceObligations {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parent_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            parent_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            resolution_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parent_kind: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            parent_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            resolution_state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            stage_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            camp_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            stage_snapshot: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            replacement_condition: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -1,4 +1,4 @@
-# Pinned Sora 0.3.0
+# Pinned Sora 0.6.1
 
 Install the checksum-bound CLI into the ignored repository-local tool cache:
 

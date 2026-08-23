@@ -1,38 +1,38 @@
 {
   "schema_revision": "content-reference-v1",
   "snapshot": "4.4",
-  "generated_on": "2026-07-17",
+  "generated_on": "2026-07-24",
   "characters": {
-    "total": 88,
+    "total": 90,
     "by_quality": {
       "ExactPreviousRelease": 2,
-      "ExactStructured": 86
+      "ExactStructured": 88
     }
   },
   "character_abilities": {
-    "total": 583,
+    "total": 599,
     "by_quality": {
       "ExactPreviousRelease": 14,
-      "ExactStructured": 569
+      "ExactStructured": 585
     },
     "by_mechanism_quality": {
-      "ApproximateFromReleasedText": 10,
+      "ApproximateFromReleasedText": 26,
       "ExactPreviousReleaseText": 14,
       "ExactStructured": 559
     }
   },
   "character_traces": {
-    "total": 1618,
+    "total": 1654,
     "by_quality": {
       "ExactPreviousRelease": 36,
-      "ExactStructured": 1582
+      "ExactStructured": 1618
     }
   },
   "character_eidolons": {
-    "total": 528,
+    "total": 540,
     "by_quality": {
       "ExactPreviousRelease": 12,
-      "ExactStructured": 516
+      "ExactStructured": 528
     }
   },
   "light_cones": {
@@ -59,8 +59,8 @@
       "ExactStructured": 3611
     },
     "by_mechanism_quality": {
-      "ApproximateFromReleasedText": 357,
-      "ExactStructured": 3254
+      "ApproximateFromReleasedText": 261,
+      "ExactStructured": 3350
     }
   },
   "encounters": {
@@ -71,6 +71,7 @@
   },
   "notes": [
     "Released 4.4 data is primary; Saber and Archer use the pinned 4.3 release index because their licensed collaboration records are absent from the 4.4 release dump.",
+    "Rin Tohsaka and Gilgamesh use the pinned public release index because AvatarConfig omits their licensed collaboration rows; their Version 4.4 release is bound separately to official release evidence.",
     "Long source descriptions and assets are not emitted. Text hashes and pinned source locators preserve evidence without redistributing prose.",
     "ExactStructured means the value or relationship is transcribed from released structured data. Derived means Starclock grouped or named records deterministically. Approximate requires an explicit reason on the record.",
     "Operation type summaries are evidence aids, not executable Rule IR and do not determine undocumented event ordering."

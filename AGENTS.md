@@ -100,7 +100,7 @@ The normative rules are in `docs/09-determinism-and-numerics.md`,
 ## 4. Configuration and Content Data
 
 - Excel `.xlsx` workbooks are the editable production authoring surface.
-- Sora 0.3.0 is the only schema validation, code-generation and production
+- Sora 0.6.1 is the only schema validation, code-generation and production
   export authority.
 - JSON may be deterministic research/bootstrap or debug output. Runtime code
   must never load normalized JSON or Excel directly.

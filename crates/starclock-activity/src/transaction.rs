@@ -1,5 +1,7 @@
+mod collection;
 mod condition;
 mod decision;
+mod expression;
 mod extension;
 mod movement;
 mod ordered_id_set;
@@ -12,13 +14,13 @@ use self::support::{
 };
 
 use crate::{
-    ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity,
-    ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInstanceId,
-    ActivityInventoryId, ActivityModifierId, ActivityOperation, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams,
-    ActivitySlotId, ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility,
-    ActivityTerminalOutcome, ActivityValue, BattleResultDigest, LogicalScopeInstance, NodeId,
-    ParticipantId, SlotResetPoint,
+    ActivityComparison, ActivityCondition, ActivityDecisionId, ActivityDecisionKind,
+    ActivityDefinitionIdentity, ActivityEdgeId, ActivityExpression, ActivityGraphDefinition,
+    ActivityInstanceId, ActivityInventoryId, ActivityModifierId, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRngStreams, ActivitySlotId, ActivityStateDefinition, ActivityStateHash,
+    ActivityStateVisibility, ActivityTerminalOutcome, ActivityValue, BattleResultDigest,
+    LogicalScopeInstance, NodeId, ParticipantId, SlotResetPoint,
     battle_preparation::ActivityAttemptState,
     battle_settlement::{ActivityAwaitingBattle, ActivityCarryLedger, MetricSettlementPolicy},
     codec::ActivityStateEncoder,
@@ -710,6 +712,9 @@ impl ActivityTransactionState {
             ActivityOperation::AddCounter { slot, key, delta } => {
                 self.add_counter(*slot, *key, integer(&self.evaluate(delta)?)?, cause, events)?
             }
+            ActivityOperation::SetCounter { slot, key, value } => {
+                self.set_counter(*slot, *key, integer(&self.evaluate(value)?)?, cause, events)?
+            }
             ActivityOperation::SetCounterMap { slot, values } => {
                 self.set_slot(*slot, ActivityValue::BoundedCounterMap(values.clone()))?;
                 push(
@@ -728,6 +733,9 @@ impl ActivityTransactionState {
             }
             ActivityOperation::InsertOrderedId { slot, id } => {
                 self.insert_ordered_id(*slot, *id, cause, events)?
+            }
+            ActivityOperation::RemoveOrderedId { slot, id } => {
+                self.remove_ordered_id(*slot, *id, cause, events)?
             }
             ActivityOperation::AddInventory {
                 inventory,
@@ -753,9 +761,26 @@ impl ActivityTransactionState {
                 cause,
                 events,
             )?,
+            ActivityOperation::SetInventoryCount {
+                inventory,
+                content,
+                count,
+            } => self.set_inventory_count(
+                *inventory,
+                *content,
+                integer(&self.evaluate(count)?)?,
+                cause,
+                events,
+            )?,
             ActivityOperation::AddModifier { modifier, stacks } => {
                 self.change_modifier(*modifier, integer(&self.evaluate(stacks)?)?, cause, events)?
             }
+            ActivityOperation::SetModifierStacks { modifier, stacks } => self.set_modifier_stacks(
+                *modifier,
+                integer(&self.evaluate(stacks)?)?,
+                cause,
+                events,
+            )?,
             ActivityOperation::RemoveModifier { modifier } => {
                 self.change_modifier(*modifier, i64::MIN, cause, events)?
             }
@@ -894,79 +919,6 @@ impl ActivityTransactionState {
         Ok(())
     }
 
-    fn evaluate(&self, expression: &ActivityExpression) -> Result<ActivityValue, ActivityFault> {
-        match expression {
-            ActivityExpression::Literal(value) => Ok(value.clone()),
-            ActivityExpression::Slot(slot) => self
-                .slots
-                .get(slot)
-                .cloned()
-                .ok_or(ActivityFault::MissingSlot(*slot)),
-            ActivityExpression::CounterValue { slot, key } => {
-                if *key == 0 {
-                    return Err(ActivityFault::TypeMismatch);
-                }
-                match self
-                    .slots
-                    .get(slot)
-                    .ok_or(ActivityFault::MissingSlot(*slot))?
-                {
-                    ActivityValue::BoundedCounterMap(values) => Ok(ActivityValue::BoundedInteger(
-                        values
-                            .binary_search_by_key(key, |item| item.0)
-                            .ok()
-                            .map(|index| values[index].1)
-                            .unwrap_or(0),
-                    )),
-                    _ => Err(ActivityFault::TypeMismatch),
-                }
-            }
-            ActivityExpression::InventoryCount { inventory, content } => {
-                if *content == 0 {
-                    return Err(ActivityFault::TypeMismatch);
-                }
-                let values = self
-                    .inventories
-                    .get(inventory)
-                    .ok_or(ActivityFault::MissingInventory(*inventory))?;
-                Ok(ActivityValue::BoundedInteger(i64::from(
-                    *values.get(content).unwrap_or(&0),
-                )))
-            }
-            ActivityExpression::Add(a, b) => {
-                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_add)
-            }
-            ActivityExpression::Subtract(a, b) => {
-                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_sub)
-            }
-            ActivityExpression::Multiply(a, b) => {
-                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_mul)
-            }
-            ActivityExpression::Divide(a, b) => {
-                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, |a, b| {
-                    (b != 0).then(|| a / b)
-                })
-            }
-            ActivityExpression::Minimum(a, b) => {
-                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, |a, b| Some(a.min(b)))
-            }
-            ActivityExpression::Maximum(a, b) => {
-                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, |a, b| Some(a.max(b)))
-            }
-            ActivityExpression::Negate(value) => match self.evaluate(value)? {
-                ActivityValue::BoundedInteger(value) => value
-                    .checked_neg()
-                    .map(ActivityValue::BoundedInteger)
-                    .ok_or(ActivityFault::ArithmeticOverflow),
-                ActivityValue::FixedScalar(value) => value
-                    .checked_neg()
-                    .map(ActivityValue::FixedScalar)
-                    .ok_or(ActivityFault::ArithmeticOverflow),
-                _ => Err(ActivityFault::TypeMismatch),
-            },
-        }
-    }
-
     fn set_slot(&mut self, id: ActivitySlotId, value: ActivityValue) -> Result<(), ActivityFault> {
         let definition = self
             .definition
@@ -1022,128 +974,5 @@ impl ActivityTransactionState {
 
     pub(crate) fn settle_terminal(&mut self, outcome: ActivityTerminalOutcome) {
         self.terminal = Some(outcome);
-    }
-
-    fn add_counter(
-        &mut self,
-        id: ActivitySlotId,
-        key: u64,
-        delta: i64,
-        cause: ActivityCause,
-        events: &mut Vec<ActivityTransactionEvent>,
-    ) -> Result<(), ActivityFault> {
-        if key == 0 {
-            return Err(ActivityFault::TypeMismatch);
-        }
-        let mut values = match self.slots.get(&id).ok_or(ActivityFault::MissingSlot(id))? {
-            ActivityValue::BoundedCounterMap(values) => values.to_vec(),
-            _ => return Err(ActivityFault::TypeMismatch),
-        };
-        match values.binary_search_by_key(&key, |item| item.0) {
-            Ok(index) => {
-                values[index].1 = values[index]
-                    .1
-                    .checked_add(delta)
-                    .ok_or(ActivityFault::ArithmeticOverflow)?
-            }
-            Err(index) => values.insert(index, (key, delta)),
-        }
-        self.set_slot(
-            id,
-            ActivityValue::BoundedCounterMap(values.into_boxed_slice()),
-        )?;
-        push(
-            events,
-            cause,
-            ActivityTransactionEventKind::CounterChanged { slot: id, key },
-        );
-        Ok(())
-    }
-
-    fn change_inventory(
-        &mut self,
-        id: ActivityInventoryId,
-        content: u64,
-        delta: i64,
-        cause: ActivityCause,
-        events: &mut Vec<ActivityTransactionEvent>,
-    ) -> Result<(), ActivityFault> {
-        if content == 0 {
-            return Err(ActivityFault::TypeMismatch);
-        }
-        let definition = self
-            .definition
-            .inventories()
-            .iter()
-            .find(|item| item.id() == id)
-            .ok_or(ActivityFault::MissingInventory(id))?;
-        let inventory = self
-            .inventories
-            .get_mut(&id)
-            .ok_or(ActivityFault::MissingInventory(id))?;
-        let current = i64::from(*inventory.get(&content).unwrap_or(&0));
-        let next = current
-            .checked_add(delta)
-            .ok_or(ActivityFault::ArithmeticOverflow)?;
-        if next < 0
-            || next > i64::from(definition.maximum_stack())
-            || (current == 0
-                && next > 0
-                && inventory.len() >= definition.maximum_entries() as usize)
-        {
-            return Err(ActivityFault::InventoryBounds(id));
-        }
-        if next == 0 {
-            inventory.remove(&content);
-        } else {
-            inventory.insert(content, next as u32);
-        }
-        push(
-            events,
-            cause,
-            ActivityTransactionEventKind::InventoryChanged {
-                inventory: id,
-                content,
-            },
-        );
-        Ok(())
-    }
-
-    fn change_modifier(
-        &mut self,
-        id: ActivityModifierId,
-        delta: i64,
-        cause: ActivityCause,
-        events: &mut Vec<ActivityTransactionEvent>,
-    ) -> Result<(), ActivityFault> {
-        let definition = self
-            .definition
-            .modifiers()
-            .iter()
-            .find(|item| item.id() == id)
-            .ok_or(ActivityFault::MissingModifier(id))?;
-        let current = i64::from(
-            *self
-                .modifiers
-                .get(&id)
-                .ok_or(ActivityFault::MissingModifier(id))?,
-        );
-        let next = if delta == i64::MIN {
-            0
-        } else {
-            current
-                .checked_add(delta)
-                .ok_or(ActivityFault::ArithmeticOverflow)?
-        };
-        if next < 0 || next > i64::from(definition.maximum_stacks()) {
-            return Err(ActivityFault::ModifierBounds(id));
-        }
-        self.modifiers.insert(id, next as u32);
-        push(
-            events,
-            cause,
-            ActivityTransactionEventKind::ModifierChanged(id),
-        );
-        Ok(())
     }
 }

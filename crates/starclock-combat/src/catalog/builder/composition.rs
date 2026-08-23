@@ -1,7 +1,9 @@
 //! Validated immutable catalog composition.
 
 use super::CombatCatalogBuilder;
-use crate::catalog::{CombatCatalog, parameter::definitions};
+use crate::catalog::{
+    CombatCatalog, definition::AbilityParameterDefinition, parameter::definitions,
+};
 
 impl CombatCatalogBuilder {
     /// Starts a composition builder containing every definition from one
@@ -29,6 +31,22 @@ impl CombatCatalogBuilder {
             ai_graphs: base.ai_graphs.values().cloned().collect(),
             enemies: base.enemies.values().cloned().collect(),
             encounters: base.encounters.values().cloned().collect(),
+        }
+    }
+
+    /// Replaces one inherited effective-level ability parameter.
+    ///
+    /// Returns `false` when the exact ability/key pair is absent so an overlay
+    /// compiler cannot silently turn a source-authored edit into a new value.
+    pub fn replace_ability_parameter(&mut self, definition: AbilityParameterDefinition) -> bool {
+        if let Some(existing) = self.ability_parameters.iter_mut().find(|existing| {
+            existing.ability() == definition.ability()
+                && existing.stable_key() == definition.stable_key()
+        }) {
+            *existing = definition;
+            true
+        } else {
+            false
         }
     }
 }

@@ -1,0 +1,44 @@
+{
+  "schema_revision": "starclock.currency-wars-occurrence-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P5-B5",
+  "result": "Pass",
+  "production_denominators": {
+    "occurrences": 167,
+    "variants": 150,
+    "choices": 90,
+    "adventure_outcomes": 0,
+    "pray_events": 88,
+    "pray_finish_variants": 73,
+    "present_results": 2,
+    "tutorial_graphs": 77,
+    "terminal_source_rows": 244,
+    "excluded_presentation_rows": 4
+  },
+  "executable_behavior": {
+    "relationships": "all occurrence, variant and choice stable keys are exact and validated bidirectionally",
+    "pray_progress": "typed condition plus caller-reported external progress, clamped to the exact authored requirement",
+    "costs": "AcceptBonus costs are typed and cannot be accepted without a resolved outcome",
+    "outcomes": "ApplyAcceptBonus, ApplyBonus and ApplyFinishBonus retain authored order",
+    "rejection": "unrelated choices, missing identities and unresolved costs return a typed error before mutation",
+    "tutorial_boundary": "the caller cannot inject tutorial graph progress; the assigned Activity-program partition must resolve it",
+    "adventure_family": "source-proven empty; no unrelated Universe Adventure rows are imported"
+  },
+  "completion_boundary": {
+    "bonus_program_execution": "generated cross-battle Activity-program partitions",
+    "tutorial_graph_execution": "generated cross-battle Activity-program partitions",
+    "catalog_loading_counted_as_mechanism_completion": false
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.occurrence-choice-cost-and-outcome"
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/occurrence_catalog.rs",
+    "crates/starclock-data/src/currency_wars_occurrence.rs",
+    "crates/starclock-data/src/currency_wars.rs",
+    "content-reference/currency-wars-v1/occurrences.json",
+    "content-reference/currency-wars-v1/occurrence-variants.json",
+    "content-reference/currency-wars-v1/occurrence-choices.json",
+    "content-manifests/currency-wars-runtime-v1/occurrence-execution-audit.json"
+  ]
+}

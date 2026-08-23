@@ -1,3 +1,4 @@
+//! Line-limit exception: the closed battle observation contract stays together while detail records live in submodules.
 mod team_resource;
 mod timeline_detail;
 mod unit_detail;
@@ -859,10 +860,20 @@ impl<'a> UnitView<'a> {
     pub const fn current_hp(self) -> Hp {
         self.state.current_hp
     }
+    /// Returns maximum HP at battle entry before battle-local reductions.
+    #[must_use]
+    pub const fn initial_maximum_hp(self) -> Hp {
+        self.state.initial_maximum_hp
+    }
     /// Returns maximum integral HP.
     #[must_use]
     pub const fn maximum_hp(self) -> Hp {
         self.state.maximum_hp
+    }
+    /// Returns effective HP damage credited to this combatant in this battle.
+    #[must_use]
+    pub const fn damage_dealt(self) -> i64 {
+        self.state.damage_dealt
     }
     /// Returns the immutable authored base ATK retained for staged queries.
     #[must_use]
@@ -978,6 +989,11 @@ impl<'a> UnitView<'a> {
     pub fn modifiers(self) -> &'a [ModifierDefinitionId] {
         &self.state.modifiers
     }
+    /// Returns owner modifiers inherited by linked units created by this unit.
+    #[must_use]
+    pub fn linked_subject_modifiers(self) -> &'a [ModifierDefinitionId] {
+        &self.state.linked_subject_modifiers
+    }
     /// Returns active elemental weaknesses in canonical element order.
     #[must_use]
     pub fn weaknesses(self) -> &'a [CombatElement] {
@@ -1034,6 +1050,11 @@ impl<'a> ToughnessLayerView<'a> {
     #[must_use]
     pub const fn key(self) -> u32 {
         self.state.spec.key()
+    }
+    /// Returns the authored semantic layer key when one is available.
+    #[must_use]
+    pub fn stable_key(self) -> Option<&'a str> {
+        self.state.spec.stable_key()
     }
     #[must_use]
     pub const fn kind(self) -> ToughnessLayerKind {

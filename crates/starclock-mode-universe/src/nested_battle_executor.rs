@@ -602,6 +602,7 @@ fn static_condition(condition: &ConditionExpr) -> bool {
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_)
         | ConditionExpr::EnemyRank { .. }
         | ConditionExpr::EnemyRankEliteOrBoss { .. } => false,
     }

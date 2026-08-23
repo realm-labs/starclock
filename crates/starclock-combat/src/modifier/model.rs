@@ -53,6 +53,15 @@ pub enum StatKind {
     /// This is a generic battle-profile input; the modifier source decides
     /// whether the value is active for a particular received attack.
     ReceivedAttackActionAdvance,
+    /// Build-derived damage bonuses, split by element so modifiers can query
+    /// and alter them without content-specific resolver branches.
+    PhysicalDamageBoost,
+    FireDamageBoost,
+    IceDamageBoost,
+    LightningDamageBoost,
+    WindDamageBoost,
+    QuantumDamageBoost,
+    ImaginaryDamageBoost,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -73,6 +82,8 @@ pub enum FormulaStage {
     Healing,
     Shield,
     Probability,
+    /// Positive absolute final damage. Zero means no override.
+    DamageOverride,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -93,6 +104,9 @@ pub enum FormulaPurpose {
     ActionOrder,
     /// Target-conditional additions to an attack's CRIT probability.
     CriticalChance,
+    /// Generic chance of an authored secondary proc, separate from Crit and
+    /// effect application so mode-owned mechanics can query it explicitly.
+    SecondaryProcChance,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

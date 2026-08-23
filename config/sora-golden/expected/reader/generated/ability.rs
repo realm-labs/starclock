@@ -27,7 +27,14 @@ impl super::runtime::SoraDecode for Ability {
             stable_name: <String as super::runtime::SoraDecode>::decode(reader)?,
             element: <Element as super::runtime::SoraDecode>::decode(reader)?,
             primary_effect: <Effect as super::runtime::SoraDecode>::decode(reader)?,
-            steps: <Vec<Step> as super::runtime::SoraDecode>::decode(reader)?,
+            steps: {
+                let len = reader.read_var_u32()? as usize;
+                let mut values = Vec::with_capacity(len);
+                for _ in 0..len {
+                    values.push(<Step as super::runtime::SoraDecode>::decode(reader)?);
+                }
+                values
+            },
         })
     }
 }

@@ -1,0 +1,62 @@
+{
+  "schema_revision": "starclock.currency-wars-roster-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P3-B4",
+  "result": "Pass",
+  "production_denominators": {
+    "roster_roles": 77,
+    "all_star_states": 295,
+    "roster_role_star_states": 266,
+    "servant_star_states_deferred": 29,
+    "star_combination_rules": 189,
+    "star_lifecycle_rules": 3,
+    "maximum_star_distribution": {
+      "3": 42,
+      "4": 35
+    }
+  },
+  "exact_behavior": {
+    "resolved_roster_requires_no_pending_equal_star_triple": true,
+    "purchase_capacity_validation_occurs_after_combination": true,
+    "full_bench_purchase_allowed_only_when_post_combination_state_is_legal": true,
+    "synthesis_and_sale_reconcile_deployment_before_bond_recompute": true,
+    "maximum_star_role_removed_from_current_and_future_shop_offers": true,
+    "rejected_capacity_or_empty_offer_preserves_state_and_rng": true
+  },
+  "exact_once_boundary": {
+    "terminal_source_rows": 0,
+    "deferred_complete_rows": 2121,
+    "deferred_owner": "G21-P4-B6",
+    "reason": "The same source rows also own star/servant scaling and CombinationBonus contributions, so row-level exact-once disposition remains pending until immutable battle contribution materialization."
+  },
+  "released_public_cross_checks": [
+    {
+      "url": "https://www.prydwen.gg/star-rail/guides/currency-wars",
+      "accessed": "2026-08-13",
+      "fact": "A full waiting area rejects a purchase unless that purchase immediately merges owned copies."
+    },
+    {
+      "url": "https://www.taptap.cn/moment/731573167151121380",
+      "accessed": "2026-08-13",
+      "fact": "Three equal-star copies automatically combine into the next star level."
+    }
+  ],
+  "fixture_families": [
+    "currency-wars.fixture-family.roster-offer-cost-purchase-sale-and-cap",
+    "currency-wars.fixture-family.star-copy-combine-overflow-and-teardown"
+  ],
+  "policies": [
+    {
+      "field": "star.maximum_overflow",
+      "selected_behavior": "Once a role reaches its authored maximum star, remove that role from current and future ordinary shop offers. If a non-shop content operation grants an additional copy, retain the additional lower-star state without inventing a reward or an unauthored higher star; the player may sell it explicitly.",
+      "replacement_condition": "Released overflow data or a reproducible maximum-star purchase observation is available."
+    }
+  ],
+  "behavioral_evidence": [
+    "economy::tests::field_and_bench_caps_apply_after_automatic_combination",
+    "economy::tests::resolved_rosters_reject_pending_star_combinations",
+    "economy::tests::maximum_star_overflow_stays_explicit_without_an_unauthored_state",
+    "runtime_tests::maximum_star_purchase_removes_same_role_offers_and_tears_down_old_state",
+    "currency_wars::tests::every_production_role_executes_all_authored_star_states_and_maximum_overflow"
+  ]
+}

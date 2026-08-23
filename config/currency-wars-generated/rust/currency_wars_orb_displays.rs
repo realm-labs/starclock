@@ -51,8 +51,8 @@ impl super::runtime::SoraDecode for CurrencyWarsOrbDisplays {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            orb_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            display_locator: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            orb_type: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            display_locator: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

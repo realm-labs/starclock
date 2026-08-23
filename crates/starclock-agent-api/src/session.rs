@@ -1103,6 +1103,7 @@ fn static_condition(condition: &ConditionExpr) -> Option<bool> {
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_)
         | ConditionExpr::EnemyRank { .. }
         | ConditionExpr::EnemyRankEliteOrBoss { .. } => None,
     }

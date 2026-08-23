@@ -179,17 +179,28 @@ const empowermentRows = displays.map((entry) => {
     effect_ids: entry.row.CategoryTagList.map((tag) =>
       `currency-wars.empowerment-category.${slug(tag)}`),
     category_tags: entry.row.CategoryTagList,
+    skill_level: "",
+    cooldown: "",
+    initial_cooldown: "",
+    sp_multiple_ratio: "",
+    delay_ratio: "",
+    parameter_values: [],
     teardown: "Remove the position-scoped contribution at battle exit.",
   };
 });
 
 const frontSkills = await context.table("GridFightFrontSkill");
 const backSkills = await context.table("GridFightBackBESkillConfig");
-if (frontSkills.length !== 4052 || backSkills.length !== 446)
-  throw new Error("GridFight front/back skill closure drift");
+const servantSkills = await context.table("GridFightServantSkill");
+if (
+  frontSkills.length !== 4052 || backSkills.length !== 446
+  || servantSkills.length !== 132
+)
+  throw new Error("GridFight front/back/servant skill closure drift");
 for (const [position, entries] of [
   ["front", frontSkills],
   ["back", backSkills],
+  ["front", servantSkills],
 ]) {
   for (const entry of entries) {
     const name = context.text(entry.row.SkillName, "en")
@@ -215,6 +226,7 @@ for (const [position, entries] of [
       position_id: `currency-wars.position.${position}`,
       activation: entry.row.SkillTriggerKey,
       effect_ids: [`gridfight-skill:${entry.row.SkillID}`],
+      category_tags: [],
       skill_level: String(entry.row.Level ?? 1),
       cooldown: String(entry.row.CoolDown ?? ""),
       initial_cooldown: String(entry.row.InitCoolDown ?? ""),
@@ -364,6 +376,11 @@ overrideCounts.cyrene = await addTableOverrides(
       `昔涟键 ${row.CyreneMultipleValueKey} 修改角色 ${row.ModifyRoleID} 的技能 ${row.ModifySkillID}。`,
     trigger: "CyreneContribution",
     parameters: {
+      provider_role_id: String(roles
+        .filter(({ row: role }) =>
+          role.RoleSavedValueList?.includes(row.CyreneMultipleValueKey))
+        .map(({ row: role }) => role.ID)
+        .at(0)),
       role_id: String(row.ModifyRoleID),
       skill_id: String(row.ModifySkillID),
       indexes: row.ModifySkillIndexs.map(String),
@@ -377,6 +394,11 @@ overrideCounts.cyrene = await addTableOverrides(
 );
 
 const publicRuleRefs = context.bilingualTextRefs("7693488975416237801");
+const lethalRescuePolicy = await context.policyRef(
+  "lethal-rescue-full-hp-and-order",
+  "Released text proves incapacitation prevention, immediate HP restoration and countdown reduction, while structured penalty rows prove the per-node action-value deduction; the restored HP amount remains unpublished.",
+  "Replace when released structured rescue-healing data or a reproducible Version 4.4 lethal-boundary observation publishes the HP amount or a different order.",
+);
 overrides.push({
   ...context.envelope({
     id: "currency-wars.battle-override.automatic-technique",
@@ -430,17 +452,17 @@ overrides.push({
       "Lethal damage immediately restores some HP instead of incapacitating the role and reduces the remaining battle countdown; exact amounts are not published in released text.",
     summaryZh:
       "受到致命伤时，角色不会无法战斗，而是立即恢复部分生命值并减少战斗剩余倒计时；已发布文本未给出精确数值。",
-    coverageState: "Researched",
-    evidenceQuality: "ExactPublicText",
-    sourceRefs: publicRuleRefs,
+    coverageState: "DataReady",
+    evidenceQuality: "ProjectPolicy",
+    sourceRefs: [...publicRuleRefs, lethalRescuePolicy],
     tags: ["battle-override", "countdown", "lethal-rescue"],
   }),
   source_id: "released-rule:lethal-rescue-countdown",
   rule_kind: "LethalDamageRescue",
   trigger: "BeforeRoleIncapacitated",
   parameters: {
-    restored_hp: "ConfiguredByBattleRule",
-    countdown_loss: "ConfiguredByBattleRule",
+    restored_hp: "FullMaximumHp",
+    countdown_loss: "PenaltyRuleAvatarReviveDelayLose",
   },
   ordered_operations: [
     "Prevent incapacitation.",

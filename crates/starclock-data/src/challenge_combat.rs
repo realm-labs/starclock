@@ -868,8 +868,8 @@ mod tests {
         catalog::action::AbilityKind, rule::model::RuleValue,
     };
     use starclock_mode_challenge::{
-        FOLLOW_UP_BOOST, SHATTERSTRIKE_BUNDLE, TURBULENCE_RULE, TURBULENCE_SOURCE, ULTIMATE_BOOST,
-        memory_of_chaos::MemoryProfile,
+        FOLLOW_UP_BOOST, MemoryProfile, SHATTERSTRIKE_BUNDLE, TURBULENCE_RULE, TURBULENCE_SOURCE,
+        ULTIMATE_BOOST,
     };
 
     const PRODUCTION: &[u8] = include_bytes!("../../../config/generated/config.sora");

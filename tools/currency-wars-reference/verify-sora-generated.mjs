@@ -10,7 +10,7 @@ import { sha256 } from "./lib/common.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const policy = json(path.join(root, "policy/sora-toolchain.json"));
 const sora = path.join(root, policy.install_root, "bin", "sora");
-const project = "config/currency-wars/project.toml";
+const project = "config/currency-wars-project.toml";
 const generated = path.join(root, "config/currency-wars-generated");
 const scratch = path.join(root, ".cache/currency-wars-sora-verify");
 assert(path.relative(root, scratch).replaceAll("\\", "/")
@@ -42,8 +42,8 @@ assert(equalTree(
 ), "generated reader regeneration drift");
 
 const expectedWorkbooks = {
-  "CurrencyWars.xlsx": 60,
-  "CurrencyWarsBindings.xlsx": 32,
+  "CurrencyWars.xlsx": 63,
+  "CurrencyWarsBindings.xlsx": 38,
   "CurrencyWarsReview.xlsx": 10,
 };
 const committedWorkbooks = fs.readdirSync(path.join(generated, "templates"))
@@ -61,11 +61,13 @@ for (const [file, expectedSheets] of Object.entries(expectedWorkbooks)) {
 }
 
 const lock = json(path.join(generated, "schema.lock"));
-assert(lock.schema.package === "starclock_currency_wars_reference"
-  && lock.schema.tables.length === 102,
-"schema lock package/table drift");
+assert(lock.schema.project_id === "starclock_currency_wars_reference"
+  && lock.schema.contract_id === "starclock_currency_wars_reference/default"
+  && lock.schema.view === "default"
+  && lock.schema.tables.length === 111,
+"schema lock project/view/table drift");
 const rustFiles = walk(path.join(generated, "rust"));
-assert(rustFiles.filter((file) => file.endsWith(".rs")).length === 104,
+assert(rustFiles.filter((file) => file.endsWith(".rs")).length === 113,
   "generated Rust reader file count drift");
 const schemaDigest = sha256(fs.readFileSync(path.join(
   generated,
@@ -73,8 +75,8 @@ const schemaDigest = sha256(fs.readFileSync(path.join(
 )));
 const readerDigest = treeDigest(path.join(generated, "rust"));
 console.log(
-  `Currency Wars generated Sora surface verified (102 tables; ` +
-  `60/32/10 sheets; schema ${schemaDigest}; reader ${readerDigest}).`,
+  `Currency Wars generated Sora surface verified (111 tables; ` +
+  `63/38/10 sheets; schema ${schemaDigest}; reader ${readerDigest}).`,
 );
 
 function run(arguments_) {

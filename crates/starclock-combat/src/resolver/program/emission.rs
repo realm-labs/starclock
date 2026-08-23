@@ -125,10 +125,12 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<U
         | RuleEmission::RandomRepeatedDamage { current_target, .. }
         | RuleEmission::RandomRepeatedTrueDamage { current_target, .. }
         | RuleEmission::TrueDamage { current_target, .. }
+        | RuleEmission::NonlethalTrueDamage { current_target, .. }
         | RuleEmission::Heal { current_target, .. }
         | RuleEmission::Shield { current_target, .. }
         | RuleEmission::RemoveShield { current_target, .. }
         | RuleEmission::ConsumeHp { current_target, .. }
+        | RuleEmission::ReduceMaximumHp { current_target, .. }
         | RuleEmission::ReduceToughness { current_target, .. }
         | RuleEmission::Break { current_target, .. }
         | RuleEmission::SuperBreak { current_target, .. }
@@ -138,6 +140,8 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<U
         | RuleEmission::CreateToughnessLayer { current_target, .. }
         | RuleEmission::RemoveToughnessLayer { current_target, .. }
         | RuleEmission::ModifyResource { current_target, .. }
+        | RuleEmission::ModifySkillPointMaximum { current_target, .. }
+        | RuleEmission::DeductActionValue { current_target, .. }
         | RuleEmission::ApplyEffect { current_target, .. }
         | RuleEmission::ApplyRandomEffect { current_target, .. }
         | RuleEmission::RandomGroupedEffect { current_target, .. }

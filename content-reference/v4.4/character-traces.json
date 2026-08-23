@@ -13152,7 +13152,7 @@
   {
     "id": "character.castorice.trace.08.where-the-west-wind-dwells",
     "character_id": "character.castorice",
-    "name_en": "Where The West Wind Dwells",
+    "name_en": "Where the West Wind Dwells",
     "name_zh_cn": "西风的驻足",
     "source_point_ids": [
       "1407103"
@@ -28402,6 +28402,645 @@
     "quality": "ExactStructured"
   },
   {
+    "id": "character.gilgamesh.trace.1509001",
+    "character_id": "character.gilgamesh",
+    "name_en": "Trace 1509001",
+    "name_zh_cn": "Trace 1509001",
+    "source_point_ids": [
+      "1509001"
+    ],
+    "point_type": null,
+    "anchor": "Point01",
+    "max_level": 6,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150901"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509002",
+    "character_id": "character.gilgamesh",
+    "name_en": "Trace 1509002",
+    "name_zh_cn": "Trace 1509002",
+    "source_point_ids": [
+      "1509002"
+    ],
+    "point_type": null,
+    "anchor": "Point02",
+    "max_level": 10,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150902"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509003",
+    "character_id": "character.gilgamesh",
+    "name_en": "Trace 1509003",
+    "name_zh_cn": "Trace 1509003",
+    "source_point_ids": [
+      "1509003"
+    ],
+    "point_type": null,
+    "anchor": "Point03",
+    "max_level": 10,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150903"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509004",
+    "character_id": "character.gilgamesh",
+    "name_en": "Trace 1509004",
+    "name_zh_cn": "Trace 1509004",
+    "source_point_ids": [
+      "1509004"
+    ],
+    "point_type": null,
+    "anchor": "Point04",
+    "max_level": 10,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150904",
+      "150905"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509007",
+    "character_id": "character.gilgamesh",
+    "name_en": "Trace 1509007",
+    "name_zh_cn": "Trace 1509007",
+    "source_point_ids": [
+      "1509007"
+    ],
+    "point_type": null,
+    "anchor": "Point05",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150907"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509101",
+    "character_id": "character.gilgamesh",
+    "name_en": "Epic's Opening",
+    "name_zh_cn": "史诗的源头",
+    "source_point_ids": [
+      "1509101"
+    ],
+    "point_type": null,
+    "anchor": "Point06",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "2",
+          "0.3",
+          "2"
+        ]
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "89c4a55e96afc6aec51da49326be0d38fc81678e5d93da0ca26b86c25b9abe3d",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509102",
+    "character_id": "character.gilgamesh",
+    "name_en": "Hero's Hauteur",
+    "name_zh_cn": "英雄的孤傲",
+    "source_point_ids": [
+      "1509102"
+    ],
+    "point_type": null,
+    "anchor": "Point07",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.25",
+          "6"
+        ]
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "f055a439de2caa5cd9443e459e884577591374a27f299e79041f51536ac1b6ac",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509103",
+    "character_id": "character.gilgamesh",
+    "name_en": "Hegemon's Strife",
+    "name_zh_cn": "王霸的竞逐",
+    "source_point_ids": [
+      "1509103"
+    ],
+    "point_type": null,
+    "anchor": "Point08",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.2",
+          "0.2",
+          "140",
+          "0.01",
+          "1"
+        ]
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "AllAllies",
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "38d0fedbf82c8dd01e0cd31cd39bc4d9c3d8d885cfe4436edfd880043be013c2",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509201",
+    "character_id": "character.gilgamesh",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "source_point_ids": [
+      "1509201"
+    ],
+    "point_type": null,
+    "anchor": "Point09",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalChanceBase",
+        "value": "0.027"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509202",
+    "character_id": "character.gilgamesh",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "source_point_ids": [
+      "1509202"
+    ],
+    "point_type": null,
+    "anchor": "Point10",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509101"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "AttackAddedRatio",
+        "value": "0.04"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509203",
+    "character_id": "character.gilgamesh",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "source_point_ids": [
+      "1509203"
+    ],
+    "point_type": null,
+    "anchor": "Point11",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509202"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalChanceBase",
+        "value": "0.027"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509204",
+    "character_id": "character.gilgamesh",
+    "name_en": "DMG Boost: Lightning",
+    "name_zh_cn": "伤害强化•雷",
+    "source_point_ids": [
+      "1509204"
+    ],
+    "point_type": null,
+    "anchor": "Point12",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509203"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "ThunderAddedRatio",
+        "value": "0.032"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509205",
+    "character_id": "character.gilgamesh",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "source_point_ids": [
+      "1509205"
+    ],
+    "point_type": null,
+    "anchor": "Point13",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509102"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalChanceBase",
+        "value": "0.04"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509206",
+    "character_id": "character.gilgamesh",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "source_point_ids": [
+      "1509206"
+    ],
+    "point_type": null,
+    "anchor": "Point14",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509205"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "AttackAddedRatio",
+        "value": "0.06"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509207",
+    "character_id": "character.gilgamesh",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "source_point_ids": [
+      "1509207"
+    ],
+    "point_type": null,
+    "anchor": "Point15",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509206"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalChanceBase",
+        "value": "0.04"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509208",
+    "character_id": "character.gilgamesh",
+    "name_en": "DMG Boost: Lightning",
+    "name_zh_cn": "伤害强化•雷",
+    "source_point_ids": [
+      "1509208"
+    ],
+    "point_type": null,
+    "anchor": "Point16",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509103"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "ThunderAddedRatio",
+        "value": "0.048"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509209",
+    "character_id": "character.gilgamesh",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "source_point_ids": [
+      "1509209"
+    ],
+    "point_type": null,
+    "anchor": "Point17",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509208"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "AttackAddedRatio",
+        "value": "0.08"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.gilgamesh.trace.1509210",
+    "character_id": "character.gilgamesh",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "source_point_ids": [
+      "1509210"
+    ],
+    "point_type": null,
+    "anchor": "Point18",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1509208"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalChanceBase",
+        "value": "0.053"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
     "id": "character.guinaifen.trace.01.trace-1",
     "character_id": "character.guinaifen",
     "name_en": "Trace 1",
@@ -31331,10 +31970,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.06.trace-6",
+    "id": "character.himeko-nova.trace.06.whither-the-last-and-first-men",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 6",
-    "name_zh_cn": "Trace 6",
+    "name_en": "Whither, the Last and First Men?",
+    "name_zh_cn": "人类该向何处去",
     "source_point_ids": [
       "1510101"
     ],
@@ -31359,20 +31998,22 @@
     ],
     "mechanic_hints": {
       "target_hint": "",
-      "operation_tags": []
+      "operation_tags": [
+        "resource"
+      ]
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "8aac2262ce42e32ce460b0475008f6bfe5ff642a461784428a7807952c78743f",
       "emitted": false
     },
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.07.trace-7",
+    "id": "character.himeko-nova.trace.07.hark-the-expresss-pulse-roars",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 7",
-    "name_zh_cn": "Trace 7",
+    "name_en": "Hark! The Express's Pulse Roars",
+    "name_zh_cn": "列车的脉搏在轰鸣",
     "source_point_ids": [
       "1510102"
     ],
@@ -31399,16 +32040,16 @@
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "ba116ad1eb49ed80b0406d8985e508d7d201a14d1d28e2e034dbb6dc6a77f15c",
       "emitted": false
     },
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.08.trace-8",
+    "id": "character.himeko-nova.trace.08.the-silver-rail-hushed-in-antiquity",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 8",
-    "name_zh_cn": "Trace 8",
+    "name_en": "The Silver Rail, Hushed in Antiquity",
+    "name_zh_cn": "银轨在旷古中静默",
     "source_point_ids": [
       "1510103"
     ],
@@ -31435,20 +32076,24 @@
     ],
     "mechanic_hints": {
       "target_hint": "",
-      "operation_tags": []
+      "operation_tags": [
+        "buff",
+        "damage",
+        "resource"
+      ]
     },
     "source_text": {
       "source_hash": "",
-      "sha256": "",
+      "sha256": "b3a27f732229a744b0d10fd0d2fa033963f06fa3afba7ba859e808837b284197",
       "emitted": false
     },
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.09.trace-9",
+    "id": "character.himeko-nova.trace.09.atk-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 9",
-    "name_zh_cn": "Trace 9",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
     "source_point_ids": [
       "1510201"
     ],
@@ -31486,10 +32131,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.10.trace-10",
+    "id": "character.himeko-nova.trace.10.crit-rate-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 10",
-    "name_zh_cn": "Trace 10",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
     "source_point_ids": [
       "1510202"
     ],
@@ -31529,10 +32174,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.11.trace-11",
+    "id": "character.himeko-nova.trace.11.atk-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 11",
-    "name_zh_cn": "Trace 11",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
     "source_point_ids": [
       "1510203"
     ],
@@ -31572,10 +32217,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.12.trace-12",
+    "id": "character.himeko-nova.trace.12.dmg-boost-fire",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 12",
-    "name_zh_cn": "Trace 12",
+    "name_en": "DMG Boost: Fire",
+    "name_zh_cn": "伤害强化•火",
     "source_point_ids": [
       "1510204"
     ],
@@ -31615,10 +32260,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.13.trace-13",
+    "id": "character.himeko-nova.trace.13.atk-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 13",
-    "name_zh_cn": "Trace 13",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
     "source_point_ids": [
       "1510205"
     ],
@@ -31658,10 +32303,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.14.trace-14",
+    "id": "character.himeko-nova.trace.14.crit-rate-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 14",
-    "name_zh_cn": "Trace 14",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
     "source_point_ids": [
       "1510206"
     ],
@@ -31701,10 +32346,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.15.trace-15",
+    "id": "character.himeko-nova.trace.15.atk-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 15",
-    "name_zh_cn": "Trace 15",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
     "source_point_ids": [
       "1510207"
     ],
@@ -31744,10 +32389,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.16.trace-16",
+    "id": "character.himeko-nova.trace.16.dmg-boost-fire",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 16",
-    "name_zh_cn": "Trace 16",
+    "name_en": "DMG Boost: Fire",
+    "name_zh_cn": "伤害强化•火",
     "source_point_ids": [
       "1510208"
     ],
@@ -31787,10 +32432,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.17.trace-17",
+    "id": "character.himeko-nova.trace.17.crit-rate-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 17",
-    "name_zh_cn": "Trace 17",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
     "source_point_ids": [
       "1510209"
     ],
@@ -31830,10 +32475,10 @@
     "quality": "ExactStructured"
   },
   {
-    "id": "character.himeko-nova.trace.18.trace-18",
+    "id": "character.himeko-nova.trace.18.atk-boost",
     "character_id": "character.himeko-nova",
-    "name_en": "Trace 18",
-    "name_zh_cn": "Trace 18",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
     "source_point_ids": [
       "1510210"
     ],
@@ -54657,6 +55302,636 @@
         "parameters": []
       }
     ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508001",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Trace 1508001",
+    "name_zh_cn": "Trace 1508001",
+    "source_point_ids": [
+      "1508001"
+    ],
+    "point_type": null,
+    "anchor": "Point01",
+    "max_level": 6,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150801"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508002",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Trace 1508002",
+    "name_zh_cn": "Trace 1508002",
+    "source_point_ids": [
+      "1508002"
+    ],
+    "point_type": null,
+    "anchor": "Point02",
+    "max_level": 10,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150802",
+      "150809"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508003",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Trace 1508003",
+    "name_zh_cn": "Trace 1508003",
+    "source_point_ids": [
+      "1508003"
+    ],
+    "point_type": null,
+    "anchor": "Point03",
+    "max_level": 10,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150803"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508004",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Trace 1508004",
+    "name_zh_cn": "Trace 1508004",
+    "source_point_ids": [
+      "1508004"
+    ],
+    "point_type": null,
+    "anchor": "Point04",
+    "max_level": 10,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150804",
+      "150805"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508007",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Trace 1508007",
+    "name_zh_cn": "Trace 1508007",
+    "source_point_ids": [
+      "1508007"
+    ],
+    "point_type": null,
+    "anchor": "Point05",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [
+      "150807"
+    ],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508101",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Elegant Conduct",
+    "name_zh_cn": "秉持优雅",
+    "source_point_ids": [
+      "1508101"
+    ],
+    "point_type": null,
+    "anchor": "Point06",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "2",
+          "1.5",
+          "0.15"
+        ]
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "549e71672ee974cea4a9f6bd1e4abc2c5803ef3f76669f7726324ee3cf61c1cd",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508102",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Ladylike Poise",
+    "name_zh_cn": "淑女风范",
+    "source_point_ids": [
+      "1508102"
+    ],
+    "point_type": null,
+    "anchor": "Point07",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "0.2",
+          "3"
+        ]
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "buff"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "04879fcbbc23f1513770c84152ab8619afba271a8ad072d7bdc80dfe40ab167a",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508103",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "Inbound Prosperity",
+    "name_zh_cn": "财源广进",
+    "source_point_ids": [
+      "1508103"
+    ],
+    "point_type": null,
+    "anchor": "Point08",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [
+      {
+        "level": 1,
+        "parameters": [
+          "12"
+        ]
+      }
+    ],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": [
+        "resource"
+      ]
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "fefc12e4bbb2187c9406cca059097252a9f946a3afa87e02019e5f5e45caa920",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508201",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "source_point_ids": [
+      "1508201"
+    ],
+    "point_type": null,
+    "anchor": "Point09",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalDamageBase",
+        "value": "0.053"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508202",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "source_point_ids": [
+      "1508202"
+    ],
+    "point_type": null,
+    "anchor": "Point10",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508101"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "AttackAddedRatio",
+        "value": "0.04"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508203",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "source_point_ids": [
+      "1508203"
+    ],
+    "point_type": null,
+    "anchor": "Point11",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508202"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalDamageBase",
+        "value": "0.053"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508204",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "DMG Boost: Quantum",
+    "name_zh_cn": "伤害强化•量子",
+    "source_point_ids": [
+      "1508204"
+    ],
+    "point_type": null,
+    "anchor": "Point12",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508202"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "QuantumAddedRatio",
+        "value": "0.032"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508205",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "source_point_ids": [
+      "1508205"
+    ],
+    "point_type": null,
+    "anchor": "Point13",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508102"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalDamageBase",
+        "value": "0.08"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508206",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "source_point_ids": [
+      "1508206"
+    ],
+    "point_type": null,
+    "anchor": "Point14",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508205"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "AttackAddedRatio",
+        "value": "0.06"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508207",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "source_point_ids": [
+      "1508207"
+    ],
+    "point_type": null,
+    "anchor": "Point15",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508205"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalDamageBase",
+        "value": "0.08"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508208",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "DMG Boost: Quantum",
+    "name_zh_cn": "伤害强化•量子",
+    "source_point_ids": [
+      "1508208"
+    ],
+    "point_type": null,
+    "anchor": "Point16",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508103"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "QuantumAddedRatio",
+        "value": "0.048"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508209",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "source_point_ids": [
+      "1508209"
+    ],
+    "point_type": null,
+    "anchor": "Point17",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [
+      "1508103"
+    ],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "AttackAddedRatio",
+        "value": "0.08"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
+    "mechanic_hints": {
+      "target_hint": "",
+      "operation_tags": []
+    },
+    "source_text": {
+      "source_hash": "",
+      "sha256": "",
+      "emitted": false
+    },
+    "quality": "ExactStructured"
+  },
+  {
+    "id": "character.rin-tohsaka.trace.1508210",
+    "character_id": "character.rin-tohsaka",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "source_point_ids": [
+      "1508210"
+    ],
+    "point_type": null,
+    "anchor": "Point18",
+    "max_level": 1,
+    "default_unlocked": false,
+    "prerequisites": [],
+    "level_up_skill_source_ids": [],
+    "status_additions": [
+      {
+        "type": "CriticalDamageBase",
+        "value": "0.107"
+      }
+    ],
+    "ability_names": [],
+    "trigger_keys": [],
+    "levels": [],
     "mechanic_hints": {
       "target_hint": "",
       "operation_tags": []

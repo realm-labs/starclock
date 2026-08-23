@@ -20,15 +20,16 @@ use starclock_combat::{
         encounter::{EncounterWaveDefinition, WaveCarry, WaveSlotDefinition, WaveTransitionPolicy},
         selector::{
             RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
-            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorReference, RuleSelectorSide,
-            RuleUnitSelector,
+            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorReference,
+            RuleSelectorSide, RuleUnitSelector,
         },
     },
+    formula::toughness::EnemyRank,
     modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
     rule::model::{
         BattleRuleDefinition, ConditionExpr, EventFilter, OnceScope, ProgramStep, ReactionPriority,
-        RuleEventKind, RuleEventPoint, RuleOperationTemplate, RuleSource, SourceClass, TriggerDef,
-        TriggerPhase, ValueExpr,
+        ResourceMaximumUpdateKind, RuleEventKind, RuleEventPoint, RuleOperationTemplate,
+        RuleSource, SourceClass, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 
@@ -40,7 +41,7 @@ where
 }
 
 fn combatant(form: u32, ability: u32, digest: u8, with_rule: bool) -> ResolvedCombatantSpec {
-    ResolvedCombatantSpec::new(
+    let combatant = ResolvedCombatantSpec::new(
         id(form),
         UnitLevel::new(80).unwrap(),
         Hp::new(1_000).unwrap(),
@@ -53,11 +54,29 @@ fn combatant(form: u32, ability: u32, digest: u8, with_rule: bool) -> ResolvedCo
         .unwrap(),
         CombatantSpecDigest::new([digest; 32]).unwrap(),
     )
-    .unwrap()
+    .unwrap();
+    if form == 2 {
+        combatant
+            .with_toughness(
+                EnemyRank::Elite,
+                vec![],
+                vec![
+                    starclock_combat::ToughnessLayerSpec::ordinary(
+                        1,
+                        starclock_combat::RawToughness::new(30).unwrap(),
+                    )
+                    .unwrap(),
+                ],
+            )
+            .unwrap()
+    } else {
+        combatant
+    }
 }
 
 fn catalog(
     empty_policy: Option<RuleEmptyPoolPolicy>,
+    include_event_point_guard: bool,
 ) -> Arc<starclock_combat::catalog::CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new([0x81; 32]);
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
@@ -103,6 +122,27 @@ fn catalog(
             ),
         );
     }
+    if include_event_point_guard {
+        builder.add_selector(
+            SelectorDefinition::new(id(10)).with_rule_units(
+                RuleUnitSelector::new(
+                    RuleSelectorOrigin::Encounter,
+                    RuleSelectorSide::Opposing,
+                    RuleLifePredicate::Alive,
+                    RulePresencePredicate::Present,
+                    RuleSelectorReference::CurrentState,
+                    RuleSelectorOrdering::StableId,
+                    1,
+                    4,
+                    RuleEmptyPoolPolicy::Fault,
+                    RuleSelectorChoice::All,
+                    None,
+                    false,
+                )
+                .unwrap(),
+            ),
+        );
+    }
     builder.add_selector(SelectorDefinition::new(id(3)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
@@ -128,6 +168,68 @@ fn catalog(
                 stat: StatKind::Hp,
                 purpose: FormulaPurpose::Stat,
             })),
+        ),
+    );
+    for (raw, side) in [(6, RuleSelectorSide::Same), (7, RuleSelectorSide::Opposing)] {
+        builder.add_selector(
+            SelectorDefinition::new(id(raw)).with_rule_units(
+                RuleUnitSelector::new(
+                    RuleSelectorOrigin::Encounter,
+                    side,
+                    RuleLifePredicate::Alive,
+                    RulePresencePredicate::Present,
+                    RuleSelectorReference::ActionSnapshot,
+                    RuleSelectorOrdering::StableId,
+                    0,
+                    4,
+                    RuleEmptyPoolPolicy::NoOp,
+                    RuleSelectorChoice::All,
+                    None,
+                    false,
+                )
+                .unwrap(),
+            ),
+        );
+    }
+    builder.add_selector(
+        SelectorDefinition::new(id(8)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::Encounter,
+                RuleSelectorSide::Any,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::ActionSnapshot,
+                RuleSelectorOrdering::StableId,
+                0,
+                8,
+                RuleEmptyPoolPolicy::NoOp,
+                RuleSelectorChoice::All,
+                None,
+                false,
+            )
+            .unwrap()
+            .with_candidate_union(vec![id(6), id(7)])
+            .unwrap(),
+        ),
+    );
+    builder.add_selector(
+        SelectorDefinition::new(id(9)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::Encounter,
+                RuleSelectorSide::Opposing,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::ActionSnapshot,
+                RuleSelectorOrdering::StableId,
+                0,
+                4,
+                RuleEmptyPoolPolicy::NoOp,
+                RuleSelectorChoice::All,
+                None,
+                false,
+            )
+            .unwrap()
+            .with_predicates(vec![RuleSelectorPredicate::EnemyRankEliteOrBoss]),
         ),
     );
     builder.add_program(ProgramDefinition::new(
@@ -158,7 +260,7 @@ fn catalog(
         )
     } else {
         (
-            vec![id(2), id(4)],
+            vec![id(2), id(4), id(8), id(9)],
             vec![
                 ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
                     code: 701,
@@ -167,6 +269,21 @@ fn catalog(
                 ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
                     code: 702,
                     value: Some(ValueExpr::SelectorCount(id(4))),
+                }),
+                ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
+                    code: 705,
+                    value: Some(ValueExpr::SelectorCount(id(8))),
+                }),
+                ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
+                    code: 706,
+                    value: Some(ValueExpr::SelectorCount(id(9))),
+                }),
+                ProgramStep::Operation(RuleOperationTemplate::ModifySkillPointMaximum {
+                    selector: id(6),
+                    update: ResourceMaximumUpdateKind::Add,
+                    amount: ValueExpr::Literal(starclock_combat::rule::model::RuleValue::Scalar(
+                        Scalar::checked_from_integer(2).unwrap(),
+                    )),
                 }),
             ],
         )
@@ -235,6 +352,43 @@ fn catalog(
             ),
         );
         rules.push(id(2));
+    }
+    if include_event_point_guard {
+        builder.add_program(
+            ProgramDefinition::new(id(5), Vec::new(), vec![id(10)], Vec::new(), Vec::new())
+                .with_steps(vec![ProgramStep::Operation(
+                    RuleOperationTemplate::EmitRuleEvent {
+                        code: 707,
+                        value: Some(ValueExpr::SelectorCount(id(10))),
+                    },
+                )]),
+        );
+        builder.add_rule(
+            RuleDefinition::new(id(3), vec![id(5)], vec![id(10)]).with_runtime(
+                BattleRuleDefinition::new(
+                    RuleSource::new(
+                        SourceDefinitionId::new(72).unwrap(),
+                        SourceClass::Synthetic,
+                        Vec::new(),
+                        [0x72; 32],
+                    ),
+                    Vec::new(),
+                    vec![TriggerDef {
+                        id: id(3),
+                        event: RuleEventKind::Battle,
+                        event_point: RuleEventPoint::BattleStarted,
+                        phase: TriggerPhase::AfterEvent,
+                        filter: EventFilter::default(),
+                        condition: ConditionExpr::Literal(true),
+                        once_scope: OnceScope::Battle,
+                        priority: ReactionPriority::new(0),
+                        program: id(5),
+                    }],
+                    None,
+                ),
+            ),
+        );
+        rules.push(id(3));
     }
     builder.add_rule_bundle(RuleBundle::new(id(1), rules));
     let lethal = OrdinaryDamageDefinition::new(
@@ -310,7 +464,10 @@ fn catalog(
     builder.build().unwrap()
 }
 
-fn battle(empty_policy: Option<RuleEmptyPoolPolicy>) -> Battle {
+fn battle_with_event_point_guard(
+    empty_policy: Option<RuleEmptyPoolPolicy>,
+    include_event_point_guard: bool,
+) -> Battle {
     let spec = BattleSpec::new(
         AssemblyDigest::new([0x82; 32]).unwrap(),
         id(1),
@@ -333,7 +490,16 @@ fn battle(empty_policy: Option<RuleEmptyPoolPolicy>) -> Battle {
         ConcedePolicy::Allowed,
     )
     .unwrap();
-    Battle::create(catalog(empty_policy), spec, BattleSeed::new([0x85; 32])).unwrap()
+    Battle::create(
+        catalog(empty_policy, include_event_point_guard),
+        spec,
+        BattleSeed::new([0x85; 32]),
+    )
+    .unwrap()
+}
+
+fn battle(empty_policy: Option<RuleEmptyPoolPolicy>) -> Battle {
+    battle_with_event_point_guard(empty_policy, false)
 }
 
 #[test]
@@ -367,6 +533,36 @@ fn action_snapshot_selector_observes_pre_hit_life_after_lethal_damage() {
         matches!(
             event.kind(),
             BattleEventKind::RuleSignal(signal)
+                if signal.code == 706
+                    && signal.value
+                        == Some(starclock_combat::rule::model::RuleValue::Integer(1))
+        )
+    }));
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Resource(starclock_combat::ResourceEventData::SkillPointMaximum {
+                side: TeamSide::Player,
+                before: 5,
+                after: 7,
+                current_before: 0,
+                current_after: 0,
+            })
+        )
+    }));
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::RuleSignal(signal)
+                if signal.code == 705
+                    && signal.value
+                        == Some(starclock_combat::rule::model::RuleValue::Integer(2))
+        )
+    }));
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::RuleSignal(signal)
                 if signal.code == 702
                     && signal.value
                         == Some(starclock_combat::rule::model::RuleValue::Integer(3))
@@ -377,6 +573,42 @@ fn action_snapshot_selector_observes_pre_hit_life_after_lethal_damage() {
             event.kind(),
             BattleEventKind::Damage(damage)
                 if damage.applied.get() == 1_000
+        )
+    }));
+}
+
+#[test]
+fn nonmatching_event_points_do_not_resolve_program_selectors() {
+    let mut battle = battle_with_event_point_guard(None, true);
+    let started = battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    assert!(started.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::RuleSignal(signal)
+                if signal.code == 707
+                    && signal.value
+                        == Some(starclock_combat::rule::model::RuleValue::Integer(1))
+        )
+    }));
+    advance_boundary_if_offered(&mut battle);
+    let command = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::UseAbility { .. }))
+        .unwrap()
+        .clone();
+    let resolution = battle.apply(command).unwrap();
+    assert!(resolution.fault().is_none());
+    assert!(resolution.events().iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Battle(starclock_combat::BattleEventData::Won)
         )
     }));
 }

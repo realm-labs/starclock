@@ -6,7 +6,7 @@
 #![forbid(unsafe_code)]
 
 #[allow(clippy::enum_variant_names)]
-#[path = "../../../config/generated/rust/mod.rs"]
+#[path = "../../../config/generated/core-rust/mod.rs"]
 mod generated;
 
 #[allow(clippy::enum_variant_names)]
@@ -33,6 +33,24 @@ mod challenge_anomaly;
 mod challenge_combat;
 pub mod coverage;
 pub mod currency_wars;
+mod currency_wars_blessing_formula;
+mod currency_wars_bond;
+mod currency_wars_build;
+mod currency_wars_combat;
+#[cfg(test)]
+mod currency_wars_combat_policy_tests;
+mod currency_wars_content;
+mod currency_wars_cross_investment;
+mod currency_wars_economy;
+mod currency_wars_empowerment;
+mod currency_wars_encounter;
+mod currency_wars_flow;
+mod currency_wars_investment;
+mod currency_wars_occurrence;
+mod currency_wars_rank;
+#[cfg(test)]
+mod currency_wars_runtime_tests;
+mod currency_wars_service;
 mod domain_catalog;
 mod effect_lower;
 mod encounter_lower;
@@ -54,5 +72,6 @@ pub use build_lower::CharacterDataDefinition;
 pub use challenge_combat::{
     ApocalypticBattleAssembly, ApocalypticCombatCatalog, MemoryBattleAssembly, MemoryCombatCatalog,
 };
+pub use currency_wars_combat::load_currency_wars_battle_resources;
 pub use encounter_lower::{EnemyRuntimeProfileDefinition, EnemyRuntimeStatDefinition};
 pub use pure_fiction_combat::{PureFictionBattleAssembly, PureFictionCombatCatalog};

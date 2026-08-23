@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.currency-wars-replay-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P7-B5",
+  "result": "Pass",
+  "assigned_source_rows": 0,
+  "component_contract": {
+    "count": 9,
+    "ordered_kinds": [
+      "CombatCatalog",
+      "BuildCatalog",
+      "ActivityCore",
+      "ModeProfile",
+      "ModeContent",
+      "ActivityHandlerRegistry",
+      "CombatRuleRegistry",
+      "EncounterOverlay",
+      "Controller"
+    ],
+    "dynamic_battle_catalog_digests": true,
+    "combat_input_digests": true,
+    "assembly_digests": true
+  },
+  "transcript_contract": {
+    "encounter_and_preparation_are_distinct_activity_commands": true,
+    "nested_battle_start_binds_catalog_combat_input_and_assembly": true,
+    "battle_commands_and_events_are_canonical": true,
+    "settlement_is_terminally_sealed": true
+  },
+  "first_divergence": [
+    "Catalog",
+    "Activity",
+    "BattleAssembly",
+    "BattleCommand",
+    "Settlement"
+  ],
+  "surfaces": [
+    "CLI",
+    "Agent API",
+    "MCP through the shared Agent registry"
+  ],
+  "behavioral_evidence": [
+    "currency_wars_baseline::currency_wars_replay_binds_nine_components_and_reports_first_divergence",
+    "currency_wars_cli::currency_wars_standard_and_overclock_runs_export_fresh_verifiable_replays",
+    "currency_wars_activity_session::tests::terminal_session_exports_the_shared_freshly_verified_replay"
+  ]
+}

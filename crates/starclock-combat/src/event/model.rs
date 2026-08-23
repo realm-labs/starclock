@@ -233,6 +233,19 @@ pub enum ToughnessEventData {
         target: UnitId,
         element: CombatElement,
     },
+    LayerCreated {
+        operation: OperationId,
+        target: UnitId,
+        layer_key: u32,
+        maximum: RawToughness,
+    },
+    LayerRemoved {
+        operation: OperationId,
+        target: UnitId,
+        layer_key: u32,
+        current: RawToughness,
+        maximum: RawToughness,
+    },
     Reduced {
         operation: OperationId,
         target: UnitId,
@@ -348,6 +361,8 @@ pub struct HealEventData {
 /// Immediate zero-HP settlement facts before encounter settlement.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum UnitEventData {
+    /// A battle-wide replacement restored a zero-HP player before downing.
+    LethalRescued { unit: UnitId, hp: Hp },
     /// A zero-HP unit entered the replacement/revival boundary.
     Downed { unit: UnitId },
     /// A still-downed unit settled as defeated with explicit credit.
@@ -571,6 +586,23 @@ pub enum ResourceEventData {
         before: u16,
         after: u16,
         overflow: u16,
+    },
+    /// The team Skill Point cap changed and current points were clamped if needed.
+    SkillPointMaximum {
+        side: TeamSide,
+        before: u16,
+        after: u16,
+        current_before: u16,
+        current_after: u16,
+    },
+    /// One battle-local maximum-HP reduction and any resulting current-HP clamp.
+    MaximumHp {
+        unit: UnitId,
+        initial: Hp,
+        before: Hp,
+        after: Hp,
+        current_before: Hp,
+        current_after: Hp,
     },
 }
 

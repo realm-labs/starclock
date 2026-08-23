@@ -40,7 +40,7 @@
       {
         "values": {
           "accessed_on": {
-            "String": "2026-07-17"
+            "String": "2026-07-24"
           },
           "applicable_game_version": {
             "String": "4.4"
@@ -53,7 +53,7 @@
           },
           "conflict_note": "Null",
           "evidence_sha256": {
-            "String": "2f281182f2e81fb13831c5ef15c840055c486ca0ecef57f84dba5d6836af14b4"
+            "String": "b08a246d99cb9ef4bdfcc9de637b741151bca855798459b4303a7a1b6a4e515e"
           },
           "id": {
             "Integer": 2
@@ -62,13 +62,13 @@
             "String": "mar-7th-star-rail-res"
           },
           "stable_key": {
-            "String": "source.mar-7th-star-rail-res.7b349e39ee0f6f3bf814567995829b99c95e7a93"
+            "String": "source.mar-7th-star-rail-res.b95e75c7e1273d819d20c530c0b7e13a3ef19fb4"
           },
           "url": {
             "String": "https://github.com/Mar-7th/StarRailRes"
           },
           "usage_note": {
-            "String": "Public released-data transcription aid; raw cache remains local and uncommitted. Revision 7b349e39ee0f6f3bf814567995829b99c95e7a93."
+            "String": "Public released-data transcription aid; raw cache remains local and uncommitted. Revision b95e75c7e1273d819d20c530c0b7e13a3ef19fb4."
           }
         }
       },
@@ -209,76 +209,6 @@
           },
           "usage_note": {
             "String": "Public level values and the exact retained hard-level curve inputs are committed as Goal 07 evidence."
-          }
-        }
-      },
-      {
-        "values": {
-          "accessed_on": {
-            "String": "2026-07-29"
-          },
-          "applicable_game_version": {
-            "String": "4.4"
-          },
-          "category": {
-            "String": "CommunityMaintained"
-          },
-          "confidence": {
-            "String": "SecondaryVersionSensitiveCrossCheck"
-          },
-          "conflict_note": "Null",
-          "evidence_sha256": {
-            "String": "26675eafbb7481936c53e20fcc1a6ea7ae50a79452be337ed618da75fb7d753b"
-          },
-          "id": {
-            "Integer": 7
-          },
-          "publisher": {
-            "String": "Honkai: Star Rail Wiki"
-          },
-          "stable_key": {
-            "String": "source.hsr-wiki.cloud-knight-lieutenant-yanqing-complete.2026-07-29"
-          },
-          "url": {
-            "String": "https://honkai-star-rail.fandom.com/wiki/Cloud_Knight_Lieutenant:_Yanqing_(Complete)"
-          },
-          "usage_note": {
-            "String": "Exact public per-level values are committed with retained structured AI and ability source hashes."
-          }
-        }
-      },
-      {
-        "values": {
-          "accessed_on": {
-            "String": "2026-07-29"
-          },
-          "applicable_game_version": {
-            "String": "4.4"
-          },
-          "category": {
-            "String": "CommunityMaintained"
-          },
-          "confidence": {
-            "String": "SecondaryVersionSensitiveCrossCheck"
-          },
-          "conflict_note": "Null",
-          "evidence_sha256": {
-            "String": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
-          },
-          "id": {
-            "Integer": 8
-          },
-          "publisher": {
-            "String": "Honkai: Star Rail Wiki"
-          },
-          "stable_key": {
-            "String": "source.hsr-wiki.cocolia-complete.2026-07-29"
-          },
-          "url": {
-            "String": "https://honkai-star-rail.fandom.com/wiki/Cocolia_(Complete)"
-          },
-          "usage_note": {
-            "String": "Exact public per-level values are committed with retained structured AI and ability source hashes."
           }
         }
       },
@@ -648,6 +578,76 @@
           },
           "conflict_note": "Null",
           "evidence_sha256": {
+            "String": "fd4802d9930af4aaddb2a6a9d843574536cfea13ee2dc651fc3f304f571dba31"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "publisher": {
+            "String": "Honkai: Star Rail Wiki and committed version 4.4 extraction"
+          },
+          "stable_key": {
+            "String": "source.goal07.enemy-s18.2026-07-29"
+          },
+          "url": {
+            "String": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Trampler"
+          },
+          "usage_note": {
+            "String": "Per-variant exact or approved derived level values and version 4.4 mechanics are committed as Goal 07 evidence."
+          }
+        }
+      },
+      {
+        "values": {
+          "accessed_on": {
+            "String": "2026-07-29"
+          },
+          "applicable_game_version": {
+            "String": "4.4"
+          },
+          "category": {
+            "String": "CommunityMaintained"
+          },
+          "confidence": {
+            "String": "SecondaryVersionSensitiveCrossCheck"
+          },
+          "conflict_note": "Null",
+          "evidence_sha256": {
+            "String": "26675eafbb7481936c53e20fcc1a6ea7ae50a79452be337ed618da75fb7d753b"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "publisher": {
+            "String": "Honkai: Star Rail Wiki"
+          },
+          "stable_key": {
+            "String": "source.hsr-wiki.cloud-knight-lieutenant-yanqing-complete.2026-07-29"
+          },
+          "url": {
+            "String": "https://honkai-star-rail.fandom.com/wiki/Cloud_Knight_Lieutenant:_Yanqing_(Complete)"
+          },
+          "usage_note": {
+            "String": "Exact public per-level values are committed with retained structured AI and ability source hashes."
+          }
+        }
+      },
+      {
+        "values": {
+          "accessed_on": {
+            "String": "2026-07-29"
+          },
+          "applicable_game_version": {
+            "String": "4.4"
+          },
+          "category": {
+            "String": "CommunityMaintained"
+          },
+          "confidence": {
+            "String": "SecondaryVersionSensitiveCrossCheck"
+          },
+          "conflict_note": "Null",
+          "evidence_sha256": {
             "String": "66e4eb362380a285caf0a06a360629ab8895fc6a30bd63e1a9dea34897edad82"
           },
           "id": {
@@ -683,22 +683,22 @@
           },
           "conflict_note": "Null",
           "evidence_sha256": {
-            "String": "fd4802d9930af4aaddb2a6a9d843574536cfea13ee2dc651fc3f304f571dba31"
+            "String": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
           },
           "id": {
-            "Integer": 20
+            "Integer": 8
           },
           "publisher": {
-            "String": "Honkai: Star Rail Wiki and committed version 4.4 extraction"
+            "String": "Honkai: Star Rail Wiki"
           },
           "stable_key": {
-            "String": "source.goal07.enemy-s18.2026-07-29"
+            "String": "source.hsr-wiki.cocolia-complete.2026-07-29"
           },
           "url": {
-            "String": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Trampler"
+            "String": "https://honkai-star-rail.fandom.com/wiki/Cocolia_(Complete)"
           },
           "usage_note": {
-            "String": "Per-variant exact or approved derived level values and version 4.4 mechanics are committed as Goal 07 evidence."
+            "String": "Exact public per-level values are committed with retained structured AI and ability source hashes."
           }
         }
       }

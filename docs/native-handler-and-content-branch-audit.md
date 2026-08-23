@@ -1,8 +1,8 @@
 # Native-handler and content-branch audit
 
 Goal 01 batch `G01-P4-B10` closes the exceptional-code review for the V1a
-mechanism probes. The compiled production registry revision is
-`native-registry-v1`; it contains zero battle handlers. This is an explicit
+mechanism probes. The compiled production registry contains zero battle
+handlers. This is an explicit
 review result, not an unimplemented placeholder.
 
 ## V1a review result

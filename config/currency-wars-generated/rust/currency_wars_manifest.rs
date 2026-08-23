@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsManifest {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            content_manifest_sha256: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            normalized_files: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            record_counts: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            content_manifest_sha256: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            normalized_files: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            record_counts: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

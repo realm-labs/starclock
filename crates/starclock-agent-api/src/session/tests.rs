@@ -75,7 +75,7 @@ fn factory_exposes_only_generated_row_free_catalog_and_character_summaries() {
     let manifest = factory.catalog_manifest().unwrap();
     assert_eq!(manifest.config_digest, AgentHash::from_bytes(CONFIG_DIGEST));
     assert_eq!(manifest.standard_scenario_count.to_u64(), 6);
-    assert_eq!(manifest.character_count.to_u64(), 88);
+    assert_eq!(manifest.character_count.to_u64(), 90);
 
     let character = factory
         .character_summary(&AgentUInt::from_u64(1))

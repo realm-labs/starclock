@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsCoverage {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            manifest_category: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            manifest_record_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            normalized_record_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            manifest_category: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            manifest_record_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            normalized_record_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

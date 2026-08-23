@@ -8,7 +8,7 @@ use crate::{
 };
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::rule::model::BattleRuleDefinition;
-use starclock_combat::{AbilityId, EffectDefinitionId, RuleId};
+use starclock_combat::{AbilityId, EffectDefinitionId, EnemyDefinitionId, RuleId};
 
 impl SimulationCatalog {
     /// Returns the immutable combat catalog compiled from this exact Sora bundle.
@@ -34,6 +34,50 @@ impl SimulationCatalog {
             .binary_search_by_key(&id, |character| character.id())
             .ok()
             .map(|index| &self.builds.characters[index])
+    }
+
+    /// Looks up the shared stable character form for an upstream avatar locator.
+    #[must_use]
+    pub fn character_form_for_source_avatar(
+        &self,
+        source_avatar_id: u32,
+    ) -> Option<starclock_combat::UnitDefinitionId> {
+        self.builds
+            .characters
+            .iter()
+            .find(|character| character.source_avatar_id() == source_avatar_id)
+            .map(CharacterDataDefinition::id)
+    }
+
+    /// Resolves one shared Ability by its stable content key.
+    ///
+    /// Generated identity rows stay private to the data layer; mode catalogs
+    /// receive only the stable `AbilityId` used by combat.
+    #[must_use]
+    pub fn ability_by_stable_key(&self, stable_key: &str) -> Option<AbilityId> {
+        let raw = self
+            .identities
+            .iter()
+            .find(|identity| {
+                identity.kind == crate::catalog::IdentityKind::Ability
+                    && identity.stable_key.as_ref() == stable_key
+            })?
+            .id;
+        let id = AbilityId::new(raw)?;
+        self.combat_catalog().ability(id).map(|_| id)
+    }
+
+    /// Looks up the shared stable Light Cone identity for an upstream equipment locator.
+    #[must_use]
+    pub fn light_cone_for_source_equipment(
+        &self,
+        source_equipment_id: u32,
+    ) -> Option<starclock_build::id::LightConeId> {
+        self.builds
+            .light_cones
+            .iter()
+            .find(|cone| cone.source_equipment_id() == source_equipment_id)
+            .map(crate::light_cone_lower::LightConeDataDefinition::id)
     }
 
     /// Returns immutable bundle compatibility metadata.
@@ -139,6 +183,20 @@ impl SimulationCatalog {
         self.enemy(starclock_combat::EnemyDefinitionId::new(raw)?)
     }
 
+    pub(crate) fn enemy_stable_definitions(
+        &self,
+    ) -> impl Iterator<
+        Item = (
+            &str,
+            &starclock_combat::catalog::definition::EnemyDefinition,
+        ),
+    > {
+        self.identities.iter().filter_map(|identity| {
+            let definition = self.enemy(EnemyDefinitionId::new(identity.id)?)?;
+            Some((identity.stable_key.as_ref(), definition))
+        })
+    }
+
     /// Looks up reviewed runtime statistics for one enemy, level and difficulty.
     #[must_use]
     pub fn enemy_runtime_stat(
@@ -148,6 +206,22 @@ impl SimulationCatalog {
         difficulty_key: &str,
     ) -> Option<&EnemyRuntimeStatDefinition> {
         self.encounters.enemy_stat(variant, level, difficulty_key)
+    }
+
+    /// Returns the nearest reviewed level row for one enemy and difficulty.
+    /// Ties select the lower level so the fallback is deterministic.
+    #[must_use]
+    pub fn nearest_enemy_runtime_stat(
+        &self,
+        variant: starclock_combat::EnemyDefinitionId,
+        level: starclock_combat::UnitLevel,
+        difficulty_key: &str,
+    ) -> Option<&EnemyRuntimeStatDefinition> {
+        self.encounters
+            .enemy_stats
+            .iter()
+            .filter(|row| row.variant() == variant && row.difficulty_key() == difficulty_key)
+            .min_by_key(|row| (row.level().get().abs_diff(level.get()), row.level().get()))
     }
 
     /// Looks up the reviewed rank, weakness and Toughness profile for an enemy.

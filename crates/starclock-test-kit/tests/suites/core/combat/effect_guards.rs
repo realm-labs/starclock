@@ -104,6 +104,13 @@ fn catalog() -> Arc<CombatCatalog> {
             .unwrap(),
         ),
     );
+    builder.add_effect(
+        EffectDefinition::new(id(13), vec![], vec![]).with_runtime(
+            permanent_guard()
+                .with_hp_floor(Ratio::from_scaled(250_000))
+                .unwrap(),
+        ),
+    );
 
     let apply = |effect: u32| {
         HitOperationDefinition::ApplyEffect(
@@ -130,8 +137,11 @@ fn catalog() -> Arc<CombatCatalog> {
             HitOperationDefinition::Damage(damage),
         ])),
     );
+    builder.add_ability(
+        AbilityDefinition::new(id(3), id(1), id(1), vec![]).with_action(action(vec![apply(13)])),
+    );
 
-    builder.add_unit(UnitDefinition::new(id(1), vec![id(1)], vec![]));
+    builder.add_unit(UnitDefinition::new(id(1), vec![id(1), id(3)], vec![]));
     builder.add_unit(UnitDefinition::new(id(2), vec![id(2)], vec![]));
     let candidate = AiCandidateDefinition::new(
         id(1),
@@ -203,6 +213,32 @@ fn battle() -> Battle {
     )
     .unwrap();
     Battle::create(catalog(), spec, BattleSeed::new([0x82; 32])).unwrap()
+}
+
+fn hp_floor_battle() -> Battle {
+    let spec = BattleSpec::new(
+        AssemblyDigest::new([0x73; 32]).unwrap(),
+        id(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                combatant(1, 3, 101_000_000, 0x13),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(id(1)),
+                combatant(2, 2, 100_000_000, 0x23),
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(catalog(), spec, BattleSeed::new([0x83; 32])).unwrap()
 }
 
 #[test]
@@ -284,5 +320,57 @@ fn one_shot_effect_guards_reject_a_debuff_and_prevent_team_defeat() {
             ))
             .count(),
         2
+    );
+}
+
+#[test]
+fn persistent_effect_hp_floor_caps_damage_without_consuming_the_effect() {
+    let mut battle = hp_floor_battle();
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    advance_boundary_if_offered(&mut battle);
+    let apply_floor = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::UseAbility { ability, .. } if *ability == id(3)))
+        .unwrap()
+        .clone();
+    battle.apply(apply_floor).unwrap();
+    for _ in 0..4 {
+        let command = if battle.view().phase() == starclock_combat::BattlePhase::ReadyToAdvance {
+            battle.advance_command()
+        } else {
+            battle.decision().and_then(|decision| {
+                decision
+                    .legal_commands()
+                    .iter()
+                    .find(|command| {
+                        matches!(command, Command::UseAbility { ability, .. } if *ability == id(2))
+                    })
+                    .cloned()
+            })
+        };
+        let Some(command) = command else {
+            break;
+        };
+        battle.apply(command).unwrap();
+    }
+
+    let player = battle
+        .view()
+        .units_by_id()
+        .find(|unit| unit.side() == TeamSide::Player)
+        .unwrap();
+    assert_eq!(player.current_hp().get(), 250);
+    assert!(
+        battle
+            .view()
+            .effects_by_id()
+            .any(|effect| effect.definition() == id(13))
     );
 }

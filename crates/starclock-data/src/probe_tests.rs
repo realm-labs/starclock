@@ -636,6 +636,16 @@ impl StatQueryReader for FireflyStats {
             _ => unreachable!("Firefly probe queries only HP and ATK"),
         }))
     }
+
+    fn query_formula_stage(
+        &self,
+        _origin: starclock_combat::modifier::model::StatQuerySubject,
+        _subject: UnitId,
+        _stage: starclock_combat::modifier::model::FormulaStage,
+        _purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        unreachable!("Firefly probe does not query formula stages")
+    }
 }
 
 fn firefly_input(stats: &FireflyStats) -> RuleEvaluationInput<'_> {

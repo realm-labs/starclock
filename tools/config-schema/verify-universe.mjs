@@ -8,7 +8,7 @@ const root = path.resolve(process.argv[2] ?? ".");
 const project = path.join(root, "config");
 const projectFile = "./universe-project.toml";
 const generated = path.join(project, "universe-generated");
-const generatedRust = path.join(project, "generated", "rust", "universe_reference");
+const generatedRust = path.join(project, "universe-generated", "rust");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 const sora = path.join(root, policy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
 const assert = (condition, message) => { if (!condition) throw new Error(message); };

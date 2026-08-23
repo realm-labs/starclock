@@ -1,4 +1,6 @@
-package = "starclock_universe_reference_config"
+project = { id = "starclock_universe_reference_config" }
+groups = { common = { default = true } }
+views = { default = { contract = "starclock_universe_reference_config/default", groups = ["common"] } }
 includes = [
   "schema/universe.toml",
   "schema/universe-mechanics.toml",
@@ -10,12 +12,13 @@ includes = [
 [build]
 default_source_format = "xlsx"
 data_root = "data"
+view = "default"
 schema_lock = "universe-generated/schema.lock"
 excel_templates = "universe-generated/templates"
 
 [[build.codegen]]
 target = "rust"
-out = "generated/rust/universe_reference"
+out = "universe-generated/rust"
 format = "never"
 
 [[build.exports]]

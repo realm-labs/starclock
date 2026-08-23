@@ -1,8 +1,9 @@
+
 [[enums]]
 name = "LightConeApplicability"
-values = ["MatchingPath", "Always", "BaseStatsOnly"]
-
+values = [{ id = 0, name = "MatchingPath" }, { id = 1, name = "Always" }, { id = 2, name = "BaseStatsOnly" }]
 [[tables]]
+id = "light-cone"
 name = "LightCone"
 mode = "map"
 key = "id"
@@ -14,6 +15,11 @@ file = "LightCone.xlsx"
 [[tables.fields]]
 name = "id"
 type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "source_equipment_id"
+type = "i32"
+range = [1, 2147483647]
 
 [[tables.fields]]
 name = "rarity"
@@ -33,6 +39,7 @@ name = "passive_rule_identity_id"
 type = "ref<ContentIdentity.id>"
 
 [[tables]]
+id = "light-cone-stat"
 name = "LightConeStat"
 mode = "list"
 
@@ -75,6 +82,7 @@ fields = ["light_cone_id", "level", "promotion"]
 unique = true
 
 [[tables]]
+id = "light-cone-superimposition"
 name = "LightConeSuperimposition"
 mode = "list"
 

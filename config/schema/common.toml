@@ -1,88 +1,37 @@
+
 [[enums]]
 name = "ContentKind"
-values = [
-  "CharacterForm",
-  "Ability",
-  "Trace",
-  "Eidolon",
-  "LightCone",
-  "Effect",
-  "Modifier",
-  "Rule",
-  "StateSlot",
-  "Selector",
-  "Program",
-  "Enemy",
-  "EnemyVariant",
-  "EnemyAbility",
-  "AiGraph",
-  "Encounter",
-  "Scenario",
-  "Activity",
-  "StandardProfile",
-  "SyntheticFixture",
-]
+values = [{ id = 0, name = "CharacterForm" }, { id = 1, name = "Ability" }, { id = 2, name = "Trace" }, { id = 3, name = "Eidolon" }, { id = 4, name = "LightCone" }, { id = 5, name = "Effect" }, { id = 6, name = "Modifier" }, { id = 7, name = "Rule" }, { id = 8, name = "StateSlot" }, { id = 9, name = "Selector" }, { id = 10, name = "Program" }, { id = 11, name = "Enemy" }, { id = 12, name = "EnemyVariant" }, { id = 13, name = "EnemyAbility" }, { id = 14, name = "AiGraph" }, { id = 15, name = "Encounter" }, { id = 16, name = "Scenario" }, { id = 17, name = "Activity" }, { id = 18, name = "StandardProfile" }, { id = 19, name = "SyntheticFixture" }]
 
 [[enums]]
 name = "ReleaseState"
-values = ["Released", "Announced", "ProjectFixture"]
+values = [{ id = 0, name = "Released" }, { id = 1, name = "Announced" }, { id = 2, name = "ProjectFixture" }]
 
 [[enums]]
 name = "CoverageState"
-values = ["Cataloged", "Documented", "Researching", "DataReady", "GoldenVerified", "Disabled"]
+values = [{ id = 0, name = "Cataloged" }, { id = 1, name = "Documented" }, { id = 2, name = "Researching" }, { id = 3, name = "DataReady" }, { id = 4, name = "GoldenVerified" }, { id = 5, name = "Disabled" }]
 
 [[enums]]
 name = "SourceCategory"
-values = [
-  "OfficialPublic",
-  "ProjectObservation",
-  "CommunityMaintained",
-  "StructuredTranscription",
-  "ProjectPolicy",
-  "SyntheticFixture",
-]
+values = [{ id = 0, name = "OfficialPublic" }, { id = 1, name = "ProjectObservation" }, { id = 2, name = "CommunityMaintained" }, { id = 3, name = "StructuredTranscription" }, { id = 4, name = "ProjectPolicy" }, { id = 5, name = "SyntheticFixture" }]
 
 [[enums]]
 name = "Confidence"
-values = [
-  "OfficialVersionAndReleaseBoundary",
-  "PreparedExactStructured",
-  "SecondaryVersionSensitiveCrossCheck",
-  "PreparedContractPendingExecutableGolden",
-  "ReleasedTextBoundApproximation",
-  "Observed",
-  "ProjectPolicy",
-  "SyntheticFixture",
-]
+values = [{ id = 0, name = "OfficialVersionAndReleaseBoundary" }, { id = 1, name = "PreparedExactStructured" }, { id = 2, name = "SecondaryVersionSensitiveCrossCheck" }, { id = 3, name = "PreparedContractPendingExecutableGolden" }, { id = 4, name = "ReleasedTextBoundApproximation" }, { id = 5, name = "Observed" }, { id = 6, name = "ProjectPolicy" }, { id = 7, name = "SyntheticFixture" }]
 
 [[enums]]
 name = "EvidenceKind"
-values = ["SourcePayload", "ReleasedText", "Observation", "GoldenFixture", "ProjectPolicy"]
+values = [{ id = 0, name = "SourcePayload" }, { id = 1, name = "ReleasedText" }, { id = 2, name = "Observation" }, { id = 3, name = "GoldenFixture" }, { id = 4, name = "ProjectPolicy" }]
 
 [[enums]]
 name = "FactQuality"
-values = [
-  "ExactStructured",
-  "ExactPreviousRelease",
-  "DerivedWithMissingReferences",
-  "ApproximateFromReleasedText",
-  "Observed",
-  "ProjectPolicy",
-  "SyntheticFixture",
-]
+values = [{ id = 0, name = "ExactStructured" }, { id = 1, name = "ExactPreviousRelease" }, { id = 2, name = "DerivedWithMissingReferences" }, { id = 3, name = "ApproximateFromReleasedText" }, { id = 4, name = "Observed" }, { id = 5, name = "ProjectPolicy" }, { id = 6, name = "SyntheticFixture" }]
 
 [[enums]]
 name = "MechanismQuality"
-values = [
-  "ExactStructured",
-  "ExactPreviousReleaseText",
-  "ApproximateFromReleasedText",
-  "Observed",
-  "ProjectPolicy",
-  "SyntheticFixture",
-]
-
+values = [{ id = 0, name = "ExactStructured" }, { id = 1, name = "ExactPreviousReleaseText" }, { id = 2, name = "ApproximateFromReleasedText" }, { id = 3, name = "Observed" }, { id = 4, name = "ProjectPolicy" }, { id = 5, name = "SyntheticFixture" }]
 [[tables]]
+id = "source-record"
 name = "SourceRecord"
 mode = "map"
 key = "id"
@@ -149,6 +98,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "evidence-record"
 name = "EvidenceRecord"
 mode = "map"
 key = "id"
@@ -191,6 +141,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "content-identity"
 name = "ContentIdentity"
 mode = "map"
 key = "id"
@@ -267,6 +218,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "content-evidence-binding"
 name = "ContentEvidenceBinding"
 mode = "list"
 
@@ -319,6 +271,7 @@ fields = ["content_id", "fact_key"]
 unique = true
 
 [[tables]]
+id = "config-manifest"
 name = "ConfigManifest"
 mode = "singleton"
 

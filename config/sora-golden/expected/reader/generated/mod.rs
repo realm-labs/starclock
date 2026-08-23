@@ -11,7 +11,7 @@ pub mod step;
 pub mod step_row;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "1430b69f9865e952";
+pub const SCHEMA_FINGERPRINT: &str = "0c320de76014a16a";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

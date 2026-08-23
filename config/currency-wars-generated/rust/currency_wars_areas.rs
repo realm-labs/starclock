@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsAreas {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_number: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            difficulty_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            layer_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            map_entry_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            plane_number: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            difficulty_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            layer_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            map_entry_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

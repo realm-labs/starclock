@@ -1,55 +1,55 @@
+
 [[enums]]
 name = "RuleDomain"
-values = ["Battle", "Activity"]
+values = [{ id = 0, name = "Battle" }, { id = 1, name = "Activity" }]
 
 [[enums]]
 name = "SourceClass"
-values = ["Unit", "Ability", "Effect", "Equipment", "Progression", "Enemy", "Encounter", "Activity", "Mode", "Synthetic"]
+values = [{ id = 0, name = "Unit" }, { id = 1, name = "Ability" }, { id = 2, name = "Effect" }, { id = 3, name = "Equipment" }, { id = 4, name = "Progression" }, { id = 5, name = "Enemy" }, { id = 6, name = "Encounter" }, { id = 7, name = "Activity" }, { id = 8, name = "Mode" }, { id = 9, name = "Synthetic" }]
 
 [[enums]]
 name = "RuleScope"
-values = ["Activity", "Section", "Node", "Attempt", "Battle", "Wave", "Turn", "Action", "Hit"]
+values = [{ id = 0, name = "Activity" }, { id = 1, name = "Section" }, { id = 2, name = "Node" }, { id = 3, name = "Attempt" }, { id = 4, name = "Battle" }, { id = 5, name = "Wave" }, { id = 6, name = "Turn" }, { id = 7, name = "Action" }, { id = 8, name = "Hit" }]
 
 [[enums]]
 name = "SlotValueKind"
-values = ["BoundedInteger", "FixedScalar", "Boolean", "StableId", "OptionalId", "OrderedIdSet"]
+values = [{ id = 0, name = "BoundedInteger" }, { id = 1, name = "FixedScalar" }, { id = 2, name = "Boolean" }, { id = 3, name = "StableId" }, { id = 4, name = "OptionalId" }, { id = 5, name = "OrderedIdSet" }]
 
 [[enums]]
 name = "SlotVisibility"
-values = ["Private", "Owner", "Team", "Public"]
+values = [{ id = 0, name = "Private" }, { id = 1, name = "Owner" }, { id = 2, name = "Team" }, { id = 3, name = "Public" }]
 
 [[enums]]
 name = "SlotPersistence"
-values = ["OwnerLifetime", "ScopeLifetime", "ExplicitReset"]
+values = [{ id = 0, name = "OwnerLifetime" }, { id = 1, name = "ScopeLifetime" }, { id = 2, name = "ExplicitReset" }]
 
 [[enums]]
 name = "SlotResetPoint"
-values = ["ActivityStart", "SectionStart", "NodeStart", "AttemptStart", "BattleStart", "WaveStart", "TurnStart", "ActionStart", "HitStart", "TurnEnd", "ActionEnd", "WaveEnd", "BattleEnd"]
+values = [{ id = 0, name = "ActivityStart" }, { id = 1, name = "SectionStart" }, { id = 2, name = "NodeStart" }, { id = 3, name = "AttemptStart" }, { id = 4, name = "BattleStart" }, { id = 5, name = "WaveStart" }, { id = 6, name = "TurnStart" }, { id = 7, name = "ActionStart" }, { id = 8, name = "HitStart" }, { id = 9, name = "TurnEnd" }, { id = 10, name = "ActionEnd" }, { id = 11, name = "WaveEnd" }, { id = 12, name = "BattleEnd" }]
 
 [[enums]]
 name = "BattleEventPoint"
-values = ["Started", "Won", "Lost", "Faulted"]
+values = [{ id = 0, name = "Started" }, { id = 1, name = "Won" }, { id = 2, name = "Lost" }, { id = 3, name = "Faulted" }]
 
 [[enums]]
 name = "BoundaryEventPoint"
-values = ["Started", "Ended"]
+values = [{ id = 0, name = "Started" }, { id = 1, name = "Ended" }]
 
 [[enums]]
 name = "ActionEventPoint"
-values = ["Declared", "Started", "Resolved"]
+values = [{ id = 0, name = "Declared" }, { id = 1, name = "Started" }, { id = 2, name = "Resolved" }]
 
 [[enums]]
 name = "DamageEventPoint"
-values = ["Calculated", "Applied"]
+values = [{ id = 0, name = "Calculated" }, { id = 1, name = "Applied" }]
 
 [[enums]]
 name = "EffectEventPoint"
-values = ["Applied", "Removed", "Refreshed", "StacksChanged"]
+values = [{ id = 0, name = "Applied" }, { id = 1, name = "Removed" }, { id = 2, name = "Refreshed" }, { id = 3, name = "StacksChanged" }]
 
 [[enums]]
 name = "UnitEventPoint"
-values = ["Downed", "Defeated", "Revived", "Transformed"]
-
+values = [{ id = 0, name = "Downed" }, { id = 1, name = "Defeated" }, { id = 2, name = "Revived" }, { id = 3, name = "Transformed" }]
 [[unions]]
 name = "EventPattern"
 tag = "type"
@@ -141,43 +141,44 @@ name = "FaultRaised"
 [[unions.variants]]
 name = "InformationalRule"
 
+
 [[enums]]
 name = "TriggerPhase"
-values = ["Before", "Replace", "AfterMutation", "AfterDefeatSettlement", "AfterEvent", "AfterAction", "Boundary"]
+values = [{ id = 0, name = "Before" }, { id = 1, name = "Replace" }, { id = 2, name = "AfterMutation" }, { id = 3, name = "AfterDefeatSettlement" }, { id = 4, name = "AfterEvent" }, { id = 5, name = "AfterAction" }, { id = 6, name = "Boundary" }]
 
 [[enums]]
 name = "OnceScope"
-values = ["Event", "Hit", "TargetWithinHit", "Ability", "Action", "Turn", "Wave", "Battle", "Attempt", "Node", "Section", "Activity"]
+values = [{ id = 0, name = "Event" }, { id = 1, name = "Hit" }, { id = 2, name = "TargetWithinHit" }, { id = 3, name = "Ability" }, { id = 4, name = "Action" }, { id = 5, name = "Turn" }, { id = 6, name = "Wave" }, { id = 7, name = "Battle" }, { id = 8, name = "Attempt" }, { id = 9, name = "Node" }, { id = 10, name = "Section" }, { id = 11, name = "Activity" }]
 
 [[enums]]
 name = "CauseAncestry"
-values = ["Any", "RootCommand", "DirectParent", "SameAction", "SamePhase", "SameHit"]
+values = [{ id = 0, name = "Any" }, { id = 1, name = "RootCommand" }, { id = 2, name = "DirectParent" }, { id = 3, name = "SameAction" }, { id = 4, name = "SamePhase" }, { id = 5, name = "SameHit" }]
 
 [[enums]]
 name = "ActionKind"
-values = ["Basic", "Skill", "Ultimate", "Talent", "TechniqueEntry", "FollowUp", "Counter", "Summon", "Memosprite", "Enemy", "ExtraTurn", "Scripted"]
+values = [{ id = 0, name = "Basic" }, { id = 1, name = "Skill" }, { id = 2, name = "Ultimate" }, { id = 3, name = "Talent" }, { id = 4, name = "TechniqueEntry" }, { id = 5, name = "FollowUp" }, { id = 6, name = "Counter" }, { id = 7, name = "Summon" }, { id = 8, name = "Memosprite" }, { id = 9, name = "Enemy" }, { id = 10, name = "ExtraTurn" }, { id = 11, name = "Scripted" }]
 
 [[enums]]
 name = "DamageClass"
-values = ["Ordinary", "Dot", "Break", "SuperBreak", "Additional", "Joint", "Elation", "TrueDamage"]
+values = [{ id = 0, name = "Ordinary" }, { id = 1, name = "Dot" }, { id = 2, name = "Break" }, { id = 3, name = "SuperBreak" }, { id = 4, name = "Additional" }, { id = 5, name = "Joint" }, { id = 6, name = "Elation" }, { id = 7, name = "TrueDamage" }]
 
 [[enums]]
 name = "SnapshotPolicy"
-values = ["Dynamic", "OnApplication", "OnActionStart", "OnPhaseStart", "OnHitStart", "SourceSnapshotTargetDynamic", "SourceDynamicTargetSnapshot", "RecomputeOnStackChange", "ExplicitFields"]
+values = [{ id = 0, name = "Dynamic" }, { id = 1, name = "OnApplication" }, { id = 2, name = "OnActionStart" }, { id = 3, name = "OnPhaseStart" }, { id = 4, name = "OnHitStart" }, { id = 5, name = "SourceSnapshotTargetDynamic" }, { id = 6, name = "SourceDynamicTargetSnapshot" }, { id = 7, name = "RecomputeOnStackChange" }, { id = 8, name = "ExplicitFields" }]
 
 [[enums]]
 name = "LifePredicate"
-values = ["Any", "Alive", "Downed", "Defeated"]
+values = [{ id = 0, name = "Any" }, { id = 1, name = "Alive" }, { id = 2, name = "Downed" }, { id = 3, name = "Defeated" }]
 
 [[enums]]
 name = "PresencePredicate"
-values = ["Any", "Present", "Reserved", "Departed", "Untargetable", "Linked", "Transformed"]
+values = [{ id = 0, name = "Any" }, { id = 1, name = "Present" }, { id = 2, name = "Reserved" }, { id = 3, name = "Departed" }, { id = 4, name = "Untargetable" }, { id = 5, name = "Linked" }, { id = 6, name = "Transformed" }]
 
 [[enums]]
 name = "PresenceState"
-values = ["Present", "Reserved", "Departed", "Untargetable", "Linked", "Transformed"]
-
+values = [{ id = 0, name = "Present" }, { id = 1, name = "Reserved" }, { id = 2, name = "Departed" }, { id = 3, name = "Untargetable" }, { id = 4, name = "Linked" }, { id = 5, name = "Transformed" }]
 [[tables]]
+id = "native-handler"
 name = "NativeHandler"
 mode = "map"
 key = "id"
@@ -235,6 +236,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "rule-definition"
 name = "RuleDefinition"
 mode = "map"
 key = "id"
@@ -269,6 +271,7 @@ name = "native_handler_id"
 type = "optional<ref<NativeHandler.id>>"
 
 [[tables]]
+id = "rule-source-tag"
 name = "RuleSourceTag"
 mode = "list"
 
@@ -301,6 +304,7 @@ fields = ["rule_id", "tag"]
 unique = true
 
 [[tables]]
+id = "state-slot"
 name = "StateSlot"
 mode = "map"
 key = "id"
@@ -346,6 +350,7 @@ name = "persistence"
 type = "enum<SlotPersistence>"
 
 [[tables]]
+id = "state-slot-reset"
 name = "StateSlotReset"
 mode = "list"
 
@@ -377,6 +382,7 @@ fields = ["state_slot_id", "reset_point"]
 unique = true
 
 [[tables]]
+id = "event-filter"
 name = "EventFilter"
 mode = "map"
 key = "id"
@@ -454,6 +460,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "rule-trigger"
 name = "RuleTrigger"
 mode = "map"
 key = "id"

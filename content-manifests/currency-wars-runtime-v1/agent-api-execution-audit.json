@@ -1,0 +1,64 @@
+{
+  "schema_revision": "starclock.currency-wars-agent-api-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P7-B3",
+  "result": "Pass",
+  "assigned_source_rows": 0,
+  "manifest_contract": {
+    "profile_prefix": "currency-wars",
+    "game_version": "4.4",
+    "route_summaries": 26,
+    "difficulty_summaries": 97,
+    "gambits": [
+      "Standard",
+      "Overclock"
+    ],
+    "baseline_fixture_roles": [
+      1301,
+      1306,
+      1014,
+      1015
+    ],
+    "exact_configuration_digest": true,
+    "exact_content_digest": true,
+    "generated_rows_exposed": false
+  },
+  "session_contract": {
+    "shared_registry_ownership": true,
+    "shared_registry_quotas": true,
+    "opaque_action_tokens": true,
+    "expected_state_hash_required": true,
+    "exact_boundary_required": true,
+    "bounded_idempotency_cache": true,
+    "direct_authoritative_mutation": false
+  },
+  "observation_contract": {
+    "source": "ActivityPlayerView",
+    "debug_view_exposed": false,
+    "combat_catalog_exposed": false,
+    "generated_configuration_rows_exposed": false,
+    "maximum_offered_actions": 256,
+    "maximum_slot_entries": 4096,
+    "maximum_inventory_entries": 4096,
+    "maximum_participants": 8
+  },
+  "incremental_execution": {
+    "encounter_and_preparation_are_distinct_actions": true,
+    "preparation_executes_one_real_nested_battle": true,
+    "battle_controller": "currency-wars-baseline-controller-v1",
+    "shop_and_route_use_existing_runtime_commands": true,
+    "stale_action_preserves_state": true
+  },
+  "replay_boundary": {
+    "cli_replay_available": true,
+    "shared_component_reconstruction": true,
+    "terminal_session_export": true,
+    "fresh_agent_verification": true
+  },
+  "behavioral_evidence": [
+    "currency_wars_activity_session::tests::manifest_is_bounded_summary_without_generated_rows",
+    "currency_wars_activity_session::tests::opaque_actions_cross_preparation_and_settle_one_real_battle",
+    "currency_wars_activity_session::tests::unknown_difficulty_is_rejected_before_session_creation",
+    "activity_session::registry::tests::currency_wars_sessions_use_shared_ownership_and_quota_registry"
+  ]
+}

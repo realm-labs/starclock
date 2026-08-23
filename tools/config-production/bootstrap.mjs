@@ -35,7 +35,7 @@ function writeRows(directory) {
     stable_key: `source.${repository.id}.${repository.revision}`,
     publisher: repository.id,
     url: repository.remote.replace(/\.git$/, ""),
-    accessed_on: "2026-07-17",
+    accessed_on: "2026-07-24",
     applicable_game_version: "4.4",
     category: "CommunityMaintained",
     confidence: "PreparedExactStructured",
@@ -76,8 +76,8 @@ function writeRows(directory) {
   })));
   writeTsv(directory, "ConfigManifest", [{
     game_version: "4.4",
-    snapshot_date: "2026-07-17",
-    sora_cli_version: "0.3.0",
+    snapshot_date: "2026-07-24",
+    sora_cli_version: "0.6.1",
   }]);
 }
 
@@ -111,7 +111,7 @@ function identityRecords() {
   for (const entry of standard.scenarios) records.push(base(entry.id, "Scenario", title(entry.id), `标准场景：${entry.id}`, "Seeded Standard scenario identity.", "标准模式种子场景身份。", "ExactStructured"));
   records.push(base(standard.profile.id, "StandardProfile", "Standard Profile", "标准模式配置", "Ordinary battle profile without challenge semantics.", "不含挑战模式语义的普通战斗配置。", "ProjectPolicy"));
   records.sort((left, right) => left.id.localeCompare(right.id));
-  assert(records.length === 283 && new Set(records.map((record) => record.id)).size === 283, "identity bootstrap does not contain exactly 283 unique entries");
+  assert(records.length === 285 && new Set(records.map((record) => record.id)).size === 285, "identity bootstrap does not contain exactly 285 unique entries");
   return records.map((record, index) => ({
     ...record,
     transport_id: index + 1,

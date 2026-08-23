@@ -1,28 +1,29 @@
+
 [[enums]]
 name = "UniversePoolKind"
-values = ["Blessing", "Curio", "Occurrence", "Encounter", "Shop", "TrailblazeBonus"]
+values = [{ id = 0, name = "Blessing" }, { id = 1, name = "Curio" }, { id = 2, name = "Occurrence" }, { id = 3, name = "Encounter" }, { id = 4, name = "Shop" }, { id = 5, name = "TrailblazeBonus" }]
 
 [[enums]]
 name = "UniverseSelectionPolicy"
-values = ["SelectExactConditionKeyThenWeightedStableOrder", "ResolveWorldDifficultyBossEliteBinding", "SelectConditionKeyThenResolveGroupOrDifficultyBinding"]
+values = [{ id = 0, name = "SelectExactConditionKeyThenWeightedStableOrder" }, { id = 1, name = "ResolveWorldDifficultyBossEliteBinding" }, { id = 2, name = "SelectConditionKeyThenResolveGroupOrDifficultyBinding" }]
 
 [[enums]]
 name = "UniverseWavePolicy"
-values = ["SingleWave", "AuthoredSequentialWaves"]
+values = [{ id = 0, name = "SingleWave" }, { id = 1, name = "AuthoredSequentialWaves" }]
 
 [[enums]]
 name = "UniverseBossPhasePolicy"
-values = ["EnemyAuthoredLifecycle"]
+values = [{ id = 0, name = "EnemyAuthoredLifecycle" }]
 
 [[enums]]
 name = "UniverseMechanicRuleKind"
-values = ["PathResonance", "BlessingDefinition", "BlessingLevel", "CurioDefinition", "CurioState", "RunService", "AbilityTreeContribution"]
+values = [{ id = 0, name = "PathResonance" }, { id = 1, name = "BlessingDefinition" }, { id = 2, name = "BlessingLevel" }, { id = 3, name = "CurioDefinition" }, { id = 4, name = "CurioState" }, { id = 5, name = "RunService" }, { id = 6, name = "AbilityTreeContribution" }]
 
 [[enums]]
 name = "UniverseActivityDecision"
-values = ["BattleCommand", "RunCommand", "ExternalOutcome"]
-
+values = [{ id = 0, name = "BattleCommand" }, { id = 1, name = "RunCommand" }, { id = 2, name = "ExternalOutcome" }]
 [[tables]]
+id = "universe-content-pool"
 name = "UniverseContentPool"
 mode = "map"
 key = "id"
@@ -54,6 +55,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-content-pool-entry"
 name = "UniverseContentPoolEntry"
 mode = "list"
 [tables.source]
@@ -84,6 +86,7 @@ fields = ["pool_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-group"
 name = "UniverseEncounterGroup"
 mode = "map"
 key = "id"
@@ -135,6 +138,7 @@ fields = ["source_group_id"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-member"
 name = "UniverseEncounterMember"
 mode = "map"
 key = "id"
@@ -191,6 +195,7 @@ fields = ["group_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-wave"
 name = "UniverseEncounterWave"
 mode = "map"
 key = "id"
@@ -215,6 +220,7 @@ fields = ["member_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-wave-enemy"
 name = "UniverseEncounterWaveEnemy"
 mode = "list"
 [tables.source]
@@ -246,6 +252,7 @@ fields = ["wave_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-pool"
 name = "UniverseEncounterPool"
 mode = "map"
 key = "id"
@@ -304,6 +311,7 @@ fields = ["room_id"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-pool-group"
 name = "UniverseEncounterPoolGroup"
 mode = "list"
 [tables.source]
@@ -334,6 +342,7 @@ fields = ["pool_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-encounter-pool-fixed"
 name = "UniverseEncounterPoolFixed"
 mode = "list"
 [tables.source]
@@ -361,6 +370,7 @@ fields = ["pool_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-mechanic-rule"
 name = "UniverseMechanicRule"
 mode = "map"
 key = "id"
@@ -427,6 +437,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-activity-binding"
 name = "UniverseActivityBinding"
 mode = "map"
 key = "id"
@@ -472,6 +483,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-activity-domain-binding"
 name = "UniverseActivityDomainBinding"
 mode = "list"
 [tables.source]

@@ -251,6 +251,7 @@ const entryRows = [
 outputs.set("entries.json", ordered(entryRows));
 
 const stageEntries = await context.table("GridFightStage");
+const penaltyEntries = await context.table("GridFightPenaltyRule");
 const settleEntries = await context.table("GridFightSettleRank");
 const finishConditions = [
   ...stageEntries.map((entry) => ({
@@ -274,6 +275,41 @@ const finishConditions = [
       threshold_position: decimal(entry.row.ThresholdPosition),
     },
     terminal_disposition: "ProjectBattleResultToRun",
+  })),
+  ...penaltyEntries.map((entry) => ({
+    ...context.envelope({
+      id: `currency-wars.finish.penalty-rule.${entry.row.ID}`,
+      kind: "CurrencyWarsFinishCondition",
+      nameEn: `Battle penalty rule ${entry.row.ID}`,
+      nameZh: `战斗惩罚规则 ${entry.row.ID}`,
+      summaryEn:
+        `Penalty rule ${entry.row.ID} publishes ${decimal(entry.row.TotalTurn)} countdown units and exact progress, threshold, Squad HP and lethal-rescue inputs.`,
+      summaryZh:
+        `惩罚规则 ${entry.row.ID} 发布 ${decimal(entry.row.TotalTurn)} 个倒计时单位，以及精确的进度、阈值、小队生命值与致命救援输入。`,
+      sourceRefs: [context.sourceRef(entry)],
+      tags: ["finish-condition", "penalty-rule"],
+    }),
+    source_id: String(entry.row.ID),
+    condition_kind: "BattlePenaltyRule",
+    parameters: {
+      progress_values: (entry.row.ProgressValueList ?? []).map(String),
+      hp_progress_values: (entry.row.HPProgressValueList ?? []).map(String),
+      threshold_percent: String(entry.row.ThresholdPosition ?? ""),
+      threshold_fail_extra_squad_hp_loss: String(
+        entry.row.ThresholdFailPlayerHPPenalty ?? 0,
+      ),
+      base_squad_hp_loss: String(
+        entry.row.ThresholdPassBasicPlayerHPPenalty ?? 0,
+      ),
+      progress_penalty_coefficient: String(
+        entry.row.ProgressPenaltyCoefficient ?? 0,
+      ),
+      total_turn: decimal(entry.row.TotalTurn),
+      lethal_rescue_action_value_ratio: decimal(
+        entry.row.AvatarReviveDelayLose,
+      ),
+    },
+    terminal_disposition: "ResolveBattleBoundary",
   })),
   ...settleEntries.map((entry) => {
     const name = localized(
@@ -404,8 +440,22 @@ if (divisionInfo.length !== 97 || divisionStage.length !== 97
   || divisionStage.some(({ row }) =>
     !divisionInfoById.has(String(row.DivisionID))))
   throw new Error("GridFight DivisionInfo/DivisionStage closure drift");
+const initialDivisionLevelPolicy = await context.policyRef(
+  "gridfight-initial-division-level",
+  "GridFightDivisionInfo rows 1 and 2 omit DivisionLevel while their released names identify Black Iron #1 and Viridian Bronze #1; use their IDs as levels 1 and 2. All other rows use the authored DivisionLevel field.",
+  "Replace when released structured data publishes DivisionLevel directly for GridFightDivisionInfo rows 1 and 2.",
+);
+function divisionLevel(row) {
+  if (Number.isInteger(row.DivisionLevel)
+    && row.DivisionLevel >= 1 && row.DivisionLevel <= 9)
+    return row.DivisionLevel;
+  if (row.DivisionLevel === undefined && (row.ID === 1 || row.ID === 2))
+    return row.ID;
+  throw new Error(`GridFight DivisionLevel is invalid for ${row.ID}`);
+}
 const difficulties = divisionStage.map((entry) => {
   const info = divisionInfoById.get(String(entry.row.DivisionID));
+  const inferredInitialLevel = info.row.DivisionLevel === undefined;
   const name = localized(
     info.row.DivisionName,
     `Division ${entry.row.DivisionID}`,
@@ -421,18 +471,30 @@ const difficulties = divisionStage.map((entry) => {
         `Division ${entry.row.DivisionID} has progress ${info.row.Progress}, Standard score rule ${entry.row.ScoreRule} and Overclock score rule ${entry.row.OCScoreRule}.`,
       summaryZh:
         `段位 ${entry.row.DivisionID} 的进度为 ${info.row.Progress}，标准博弈计分规则为 ${entry.row.ScoreRule}，超频博弈计分规则为 ${entry.row.OCScoreRule}。`,
+      evidenceQuality: inferredInitialLevel ? "ProjectPolicy" : "ExactStructured",
       sourceRefs: [
         ...refsWithText(info, info.row.DivisionName),
         context.sourceRef(entry),
+        ...(inferredInitialLevel ? [initialDivisionLevelPolicy] : []),
       ],
       tags: ["difficulty", "division", "gridfight"],
     }),
     source_id: String(entry.row.DivisionID),
     rank_bounds: {
+      division_level: String(divisionLevel(info.row)),
       progress: String(info.row.Progress),
       season_id: String(entry.row.SeasonID),
     },
     enemy_scaling_refs: [entry.row.JsonPath].filter(Boolean),
+    enemy_scaling: {
+      enemy_difficulty_level: String(entry.row.EnemyDifficultyLevel ?? 0),
+      level_base_hp_ratio: decimal(entry.row.LevelBaseHPMultiRatio),
+      level_base_attack_ratio: decimal(entry.row.LevelBaseAttackMultiRatio),
+    },
+    enemy_affix_choice_counts: entry.row.AffixChooseNumList.map(String),
+    binary_difficulty_rule: entry.row.BinaryNodeDiffAddRule === undefined
+      ? ""
+      : String(entry.row.BinaryNodeDiffAddRule),
     enemy_scaling_resolution: entry.row.JsonPath
       ? "DirectJsonPath"
       : "DeferredToP1B9",

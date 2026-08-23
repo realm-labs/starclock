@@ -157,3 +157,154 @@ async fn request_authority_cancellation_and_idempotency_do_not_cross_tenants() {
     assert!(denied_after_commit.contains("session_not_owned"));
     assert!(!denied_after_commit.contains("idempotent_replay"));
 }
+
+#[tokio::test]
+async fn currency_wars_activity_authority_cancellation_and_event_cursor_are_exact() {
+    let app = authorized_loopback_router(&config(), authority_policy()).unwrap();
+    let initialized = app
+        .clone()
+        .oneshot(with_bearer(
+            request(Method::POST, initialize_body()),
+            "currency-tenant:currency-player",
+        ))
+        .await
+        .unwrap();
+    assert_eq!(initialized.status(), StatusCode::OK);
+    let transport_session = initialized.headers()["mcp-session-id"].clone();
+
+    let create = json!({
+        "jsonrpc":"2.0", "id":20, "method":"tools/call",
+        "params":{"name":"starclock_create_universe","arguments":{
+            "mode":"currency-wars", "route_id":"801", "difficulty_id":"1",
+            "gambit":"standard", "seed":"31000501"
+        }}
+    });
+    let created = response_json(
+        app.clone()
+            .oneshot(session_request(
+                create,
+                &transport_session,
+                "currency-tenant:currency-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await;
+    let observation = &created["result"]["structuredContent"]["observation"];
+    let activity_session = observation["session_id"].as_str().unwrap().to_owned();
+    let play = json!({
+        "jsonrpc":"2.0", "id":21, "method":"tools/call",
+        "params":{"name":"starclock_play_activity_action","arguments":{
+            "session_id":activity_session,
+            "boundary_id":observation["boundary_id"],
+            "expected_state_hash":observation["state_hash"],
+            "action_token":observation["legal_actions"][0]["token"],
+            "idempotency_key":"currency_http_action_1"
+        }}
+    });
+
+    let denied = response_json(
+        app.clone()
+            .oneshot(session_request(
+                play.clone(),
+                &transport_session,
+                "other-tenant:other-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await
+    .to_string();
+    assert!(denied.contains("session_not_owned"));
+    assert!(!denied.contains(&activity_session));
+
+    let committed = response_json(
+        app.clone()
+            .oneshot(session_request(
+                play.clone(),
+                &transport_session,
+                "currency-tenant:currency-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await;
+    let cancelled = json!({
+        "jsonrpc":"2.0", "method":"notifications/cancelled",
+        "params":{"requestId":21,"reason":"response delivery lost"}
+    });
+    assert!(
+        app.clone()
+            .oneshot(session_request(
+                cancelled,
+                &transport_session,
+                "currency-tenant:currency-player",
+            ))
+            .await
+            .unwrap()
+            .status()
+            .is_success()
+    );
+    let replayed = response_json(
+        app.clone()
+            .oneshot(session_request(
+                play,
+                &transport_session,
+                "currency-tenant:currency-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await;
+    assert_eq!(
+        replayed["result"]["structuredContent"],
+        committed["result"]["structuredContent"]
+    );
+
+    let observe = json!({
+        "jsonrpc":"2.0", "id":22, "method":"tools/call",
+        "params":{"name":"starclock_observe_activity","arguments":{
+            "session_id":activity_session, "event_cursor":"event_0"
+        }}
+    });
+    let observed = response_json(
+        app.clone()
+            .oneshot(session_request(
+                observe,
+                &transport_session,
+                "currency-tenant:currency-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await;
+    assert_eq!(
+        observed["result"]["structuredContent"]["events"]
+            .as_array()
+            .unwrap()
+            .len(),
+        1
+    );
+    assert_eq!(
+        observed["result"]["structuredContent"]["event_cursor"],
+        "event_1"
+    );
+
+    let close = json!({
+        "jsonrpc":"2.0", "id":23, "method":"tools/call",
+        "params":{"name":"starclock_close_activity","arguments":{
+            "session_id":activity_session
+        }}
+    });
+    let closed = response_json(
+        app.oneshot(session_request(
+            close,
+            &transport_session,
+            "currency-tenant:currency-player",
+        ))
+        .await
+        .unwrap(),
+    )
+    .await;
+    assert_eq!(closed["result"]["structuredContent"]["closed"], true);
+}

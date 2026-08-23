@@ -1,0 +1,66 @@
+{
+  "schema_revision": "starclock.currency-wars-bond-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P4-B4",
+  "result": "Pass",
+  "production_denominators": {
+    "main_bonds": 33,
+    "subtraits": 16,
+    "typed_selection_rules": 18,
+    "authored_levels": 152,
+    "typed_property_entries": 187,
+    "typed_property_kinds": 16,
+    "terminal_source_rows": 227
+  },
+  "exact_behavior": {
+    "direct_membership": "distinct deployed role IDs",
+    "subtrait_level": "selected child uses the parent Bond's post-mutation member count",
+    "explicit_selectors": [
+      "DeployedRole",
+      "EquippedEquipment",
+      "GrantedFrontTrait"
+    ],
+    "automatic_selectors": [
+      "DefaultModule",
+      "Module"
+    ],
+    "recomputation": "one immutable post-state snapshot per accepted Activity boundary",
+    "teardown": "inactive parent or selector removes child level and contributions in the same transaction",
+    "property_projection": "closed 16-kind enum with exact fixed-point values and resolved role targets",
+    "rejected_selection_preserves_authoritative_state": true
+  },
+  "deferred_contributions": {
+    "additional_members_and_granted_traits": "G21-P4-B6 immutable contribution snapshot",
+    "static_properties": "G21-P6-B3 BattleSpec assembler",
+    "maze_buffs_and_battle_event_programs": "G21-P6-Mxx generated battle partitions"
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.bond-membership-threshold-and-recompute",
+    "currency-wars.fixture-family.simultaneous-bond-star-and-roster-order"
+  ],
+  "policy_resolution": {
+    "field": "bond.simultaneous_recompute",
+    "owner_batch": "G21-P4-B4",
+    "current_accuracy": "VersionedProjectPolicy",
+    "status": "VersionedProjectPolicyExecutable",
+    "replacement_condition": "A released operation program or reproducible simultaneous mutation trace is available.",
+    "selected_behavior": "Complete each accepted ordered roster, deployment, equipment or sub-trait-selection mutation, then derive one immutable Bond snapshot from the resulting state and commit levels plus selected sub-traits in the same Activity transaction.",
+    "rejected_alternatives": [
+      "recompute between partial operations in one accepted mutation",
+      "retain a selected sub-trait after its parent or selector becomes inactive",
+      "iterate unordered membership or contribution collections"
+    ],
+    "confidence": "PolicyOnlyNotObservedParity",
+    "terminal_evidence": "executable behavior plus replacement-trigger test"
+  },
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/bond_catalog.rs",
+    "crates/starclock-mode-currency-wars/src/runtime.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars_bond.rs",
+    "crates/starclock-data/src/currency_wars_runtime_tests.rs",
+    "content-reference/currency-wars-v1/bonds.json",
+    "content-reference/currency-wars-v1/bond-levels.json",
+    "content-manifests/currency-wars-runtime-v1/bond-execution-audit.json"
+  ]
+}

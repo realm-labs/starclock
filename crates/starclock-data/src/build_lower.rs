@@ -9,7 +9,10 @@ use crate::{
 };
 use std::collections::{BTreeMap, BTreeSet};
 
-use starclock_combat::{AbilityId, ModifierDefinitionId, RuleBundleId, Scalar, UnitDefinitionId};
+use starclock_combat::{
+    AbilityId, ModifierDefinitionId, RuleBundleId, Scalar, UnitDefinitionId,
+    formula::model::CombatElement as RuntimeCombatElement,
+};
 
 use crate::{
     catalog::{
@@ -29,6 +32,7 @@ pub(super) struct BuildDefinitions {
 #[derive(Debug)]
 pub struct CharacterDataDefinition {
     pub(super) id: UnitDefinitionId,
+    pub(super) source_avatar_id: u32,
     pub(super) rarity: u8,
     pub(super) path: u8,
     pub(super) element: u8,
@@ -185,6 +189,26 @@ impl CharacterDataDefinition {
     }
 
     #[must_use]
+    pub const fn source_avatar_id(&self) -> u32 {
+        self.source_avatar_id
+    }
+
+    /// Returns the released combat element of this character form.
+    #[must_use]
+    pub const fn element(&self) -> RuntimeCombatElement {
+        match self.element {
+            0 => RuntimeCombatElement::Physical,
+            1 => RuntimeCombatElement::Fire,
+            2 => RuntimeCombatElement::Ice,
+            3 => RuntimeCombatElement::Lightning,
+            4 => RuntimeCombatElement::Wind,
+            5 => RuntimeCombatElement::Quantum,
+            6 => RuntimeCombatElement::Imaginary,
+            _ => unreachable!(),
+        }
+    }
+
+    #[must_use]
     pub fn stat_row_count(&self) -> usize {
         self.stats.len()
     }
@@ -192,6 +216,18 @@ impl CharacterDataDefinition {
     #[must_use]
     pub fn ability_count(&self) -> usize {
         self.abilities.len()
+    }
+
+    /// Returns the unique Technique ability bound to this released character.
+    #[must_use]
+    pub fn technique_ability(&self) -> Option<AbilityId> {
+        let mut techniques = self
+            .abilities
+            .iter()
+            .filter(|binding| binding.slot == 4)
+            .map(|binding| binding.ability);
+        let technique = techniques.next()?;
+        techniques.next().is_none().then_some(technique)
     }
 
     #[must_use]
@@ -339,6 +375,7 @@ pub(super) fn convert(
         let eidolons = lower_eidolons(config, row.id, mode, identities, combat)?;
         characters.push(CharacterDataDefinition {
             id: UnitDefinitionId::new(id).expect("positive u32 is a valid UnitDefinitionId"),
+            source_avatar_id: positive(row.source_avatar_id, "Character.source_avatar_id")?,
             rarity,
             path: combat_path(row.path),
             element: combat_element(row.element),

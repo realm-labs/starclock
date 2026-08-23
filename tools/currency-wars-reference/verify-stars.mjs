@@ -59,6 +59,22 @@ assert(states.filter(({ id }) => id.includes(".role.")).every((row) =>
   && states.every((row) =>
     row.copy_count === ({ 1: "1", 2: "3", 3: "9", 4: "27" })[row.star_level]),
 "GridFight star scaling/copy-count drift");
+const frontSkillIds = new Set(json(path.join(
+  sourceRoot,
+  "ExcelOutput/GridFightFrontSkill.json",
+)).map(({ SkillID: id }) => String(id)));
+const backSkillIds = new Set(json(path.join(
+  sourceRoot,
+  "ExcelOutput/GridFightBackBESkillConfig.json",
+)).map(({ SkillID: id }) => String(id)));
+const roleStates = states.filter(({ id }) => id.includes(".role."));
+assert(roleStates.every((row) =>
+  row.skill_override_destination_ids.every((id) => frontSkillIds.has(id))
+    && row.back_execution_skill_ids.every((id) => backSkillIds.has(id))),
+"GridFight star execution-skill join drift");
+assert(roleStates.some((row) =>
+  row.back_execution_skill_ids.length !== row.back_skill_ids.length),
+"GridFight back execution/display distinction was erased");
 
 const combinations = rowsByFile["star-combination-rules.json"];
 assert(combinations.length === 189

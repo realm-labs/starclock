@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"bundle_sha256\":\"585b397f7cd1c9457078dfe5e29700b07dfa722fe7eaaa5128a70a4e48a7932e\",\"identities\":6719,\"enabled\":6719}"
+        "{\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"bundle_sha256\":\"ca9f235534183705e0b6b7f30a28f4972a1115087831a215ffab9e49d1f68724\",\"identities\":6807,\"enabled\":6807}"
     );
 
     let bundle =
@@ -30,7 +30,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(explicit.status.success(), "{:?}", explicit);
     let human = text(explicit.stdout);
     assert!(human.contains("config valid game_version=4.4"));
-    assert!(human.contains("identities=6719 enabled=6719"));
+    assert!(human.contains("identities=6807 enabled=6807"));
 
     let invalid = temporary("invalid.sora");
     fs::write(&invalid, br#"{\"debug\":\"json\"}"#).unwrap();
@@ -46,10 +46,10 @@ fn coverage_is_goal_aware_filterable_and_not_readiness_inflated() {
     assert!(all.status.success(), "{:?}", all);
     let all = text(all.stdout);
     assert!(
-        all.contains("\"required\":283,\"enabled\":283,\"data_ready\":283,\"golden_verified\":283")
+        all.contains("\"required\":285,\"enabled\":285,\"data_ready\":285,\"golden_verified\":283")
     );
     for expected in [
-        "released-character-combat-forms\",\"required\":88",
+        "released-character-combat-forms\",\"required\":90,\"enabled\":90,\"data_ready\":90,\"golden_verified\":88",
         "released-light-cones\",\"required\":165",
         "standard-v1-enemy-variants\",\"required\":17",
         "standard-v1-encounters\",\"required\":6",

@@ -35,6 +35,7 @@ pub enum BreakCreditPolicy {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ToughnessLayerSpec {
     key: u32,
+    stable_key: Option<Box<str>>,
     kind: ToughnessLayerKind,
     maximum: RawToughness,
     active: bool,
@@ -57,6 +58,7 @@ impl ToughnessLayerSpec {
         }
         Ok(Self {
             key,
+            stable_key: None,
             kind: ToughnessLayerKind::Ordinary,
             maximum,
             active: true,
@@ -70,6 +72,18 @@ impl ToughnessLayerSpec {
             break_element: None,
             break_credit: BreakCreditPolicy::HitApplier,
         })
+    }
+    /// Binds the target-local numeric routing key to its authored semantic key.
+    pub fn with_stable_key(
+        mut self,
+        stable_key: impl Into<Box<str>>,
+    ) -> Result<Self, NumericError> {
+        let stable_key = stable_key.into();
+        if stable_key.trim().is_empty() || stable_key.len() > 128 {
+            return Err(NumericError::OutOfDomain);
+        }
+        self.stable_key = Some(stable_key);
+        Ok(self)
     }
 
     #[must_use]
@@ -133,6 +147,11 @@ impl ToughnessLayerSpec {
     #[must_use]
     pub const fn key(&self) -> u32 {
         self.key
+    }
+    /// Returns the authored semantic key when the layer came from keyed data.
+    #[must_use]
+    pub fn stable_key(&self) -> Option<&str> {
+        self.stable_key.as_deref()
     }
     #[must_use]
     pub const fn kind(&self) -> ToughnessLayerKind {

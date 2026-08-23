@@ -1,27 +1,27 @@
+
 [[enums]]
 name = "ValueKind"
-values = ["Integer", "Scalar", "Ratio", "Probability", "StableId", "Boolean"]
+values = [{ id = 0, name = "Integer" }, { id = 1, name = "Scalar" }, { id = 2, name = "Ratio" }, { id = 3, name = "Probability" }, { id = 4, name = "StableId" }, { id = 5, name = "Boolean" }]
 
 [[enums]]
 name = "ValueBinaryOperator"
-values = ["CheckedAdd", "CheckedSubtract", "CheckedMultiply", "CheckedDivide", "Minimum", "Maximum"]
+values = [{ id = 0, name = "CheckedAdd" }, { id = 1, name = "CheckedSubtract" }, { id = 2, name = "CheckedMultiply" }, { id = 3, name = "CheckedDivide" }, { id = 4, name = "Minimum" }, { id = 5, name = "Maximum" }]
 
 [[enums]]
 name = "ComparisonOperator"
-values = ["Equal", "NotEqual", "Less", "LessOrEqual", "Greater", "GreaterOrEqual"]
+values = [{ id = 0, name = "Equal" }, { id = 1, name = "NotEqual" }, { id = 2, name = "Less" }, { id = 3, name = "LessOrEqual" }, { id = 4, name = "Greater" }, { id = 5, name = "GreaterOrEqual" }]
 
 [[enums]]
 name = "RoundingPolicy"
-values = ["Floor", "Ceil", "TowardZero", "AwayFromZero", "NearestTiesAway", "NearestTiesEven"]
+values = [{ id = 0, name = "Floor" }, { id = 1, name = "Ceil" }, { id = 2, name = "TowardZero" }, { id = 3, name = "AwayFromZero" }, { id = 4, name = "NearestTiesAway" }, { id = 5, name = "NearestTiesEven" }]
 
 [[enums]]
 name = "ShieldObservation"
-values = ["Current", "BeforeEvent"]
+values = [{ id = 0, name = "Current" }, { id = 1, name = "BeforeEvent" }]
 
 [[enums]]
 name = "EventValueProperty"
-values = ["OwnerId", "ActorId", "ApplierId", "SourceDefinitionId", "PrimaryTargetId", "DamageAmount", "HpChangeAmount", "ResourceDelta", "StackCount", "HitIndex"]
-
+values = [{ id = 0, name = "OwnerId" }, { id = 1, name = "ActorId" }, { id = 2, name = "ApplierId" }, { id = 3, name = "SourceDefinitionId" }, { id = 4, name = "PrimaryTargetId" }, { id = 5, name = "DamageAmount" }, { id = 6, name = "HpChangeAmount" }, { id = 7, name = "ResourceDelta" }, { id = 8, name = "StackCount" }, { id = 9, name = "HitIndex" }]
 [[unions]]
 name = "ValueExpressionNode"
 tag = "type"
@@ -333,6 +333,7 @@ name = "expected_expression_id"
 type = "ref<ValueExpression.id>"
 
 [[tables]]
+id = "value-expression"
 name = "ValueExpression"
 mode = "map"
 key = "id"
@@ -365,6 +366,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "condition-expression"
 name = "ConditionExpression"
 mode = "map"
 key = "id"

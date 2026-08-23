@@ -1,0 +1,82 @@
+{
+  "schema_revision": "starclock.currency-wars-enemy-affix-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-B2",
+  "result": "Pass",
+  "production_denominators": {
+    "enemy_affix_definitions": 51,
+    "enemy_affix_maze_buffs": 67,
+    "enemy_difficulty_rows": 603,
+    "prebattle_stat_semantics": 5,
+    "activity_boundary_semantics": 5,
+    "battle_rule_semantics": 41,
+    "terminal_source_rows": 414,
+    "source_path_counts": {
+      "ExcelOutput/GridFightAffixConfig.json": 51,
+      "ExcelOutput/GridFightAffixMazebuff.json": 67,
+      "ExcelOutput/GridFightBinaryDiffAddRule.json": 8,
+      "ExcelOutput/GridFightBinaryNodeRule.json": 44,
+      "ExcelOutput/GridFightConstCommon.json": 4,
+      "ExcelOutput/GridFightDivisionInfo.json": 97,
+      "ExcelOutput/GridFightDivisionStage.json": 97,
+      "ExcelOutput/GridFightLevelBaseValue.json": 23,
+      "ExcelOutput/GridFightStageLevelValue.json": 23
+    }
+  },
+  "exact_behavior": {
+    "affix_selection": "selected immutable Affix IDs and canonical parameters compile before Battle creation",
+    "stat_scaling": "enemy rank, Plane and difficulty use typed fixed-point HP, Attack, Defence, Speed and Stance multipliers",
+    "stage_action_value": "authored stage turns use ten Action Value per turn; Affix adjustments use one Action Value per authored point",
+    "battle_rules": "event-point triggers enqueue typed generic combat operations with bounded reactions and labeled RNG",
+    "static_modifiers": "typed generic formula stages, purposes, filters, selectors and snapshot policies",
+    "linked_subjects": "Enervation is installed on under-equipped characters and inherited by their subsequently created memosprites",
+    "time_assassin": "eligible formations use a deterministic one-in-four labeled draw and install the released Time Assassin enemy plus attack-driven Action Value deduction",
+    "resolver_content_id_branches": 0,
+    "compiled_affix_definitions": 51
+  },
+  "versioned_project_policies": [
+    {
+      "field": "enemy_affix.time_assassin_spawn",
+      "selected_behavior": "For each eligible node, use one labeled deterministic draw over four outcomes and spawn Time Assassin only for outcome zero.",
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "Replace when released executable evidence identifies the exact Time Assassin spawn probability and placement algorithm."
+    },
+    {
+      "field": "enemy_affix.stable_tie_breaks",
+      "selected_behavior": "Resolve equal highest/lowest Speed Amplification and equal highest damage dealt by stable formation then unit identity after the authored primary ordering.",
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "Replace when released executable evidence identifies a different tie-break order."
+    }
+  ],
+  "public_cross_checks": [
+    {
+      "subject": "It's A Trap",
+      "url": "https://honkai-star-rail.fandom.com/wiki/Currency_Wars%3A_Zero-Sum_Game/Opponent",
+      "verified_behavior": "40% base chance for Imprisonment or Entanglement, 20% Action delay, one turn; no extra damage clause"
+    },
+    {
+      "subject": "stage Action Value",
+      "url": "https://honkai-star-rail.fandom.com/wiki/Currency_Wars/Nodes",
+      "verified_behavior": "released node Action Value values use point units such as 180 and 200"
+    }
+  ],
+  "fixture_family": "currency-wars.fixture-family.gambit-rank-and-enemy-affix",
+  "behavioral_evidence": [
+    "crates/starclock-combat/src/battle/spec.rs",
+    "crates/starclock-combat/src/resolver/lifecycle.rs",
+    "crates/starclock-mode-currency-wars/src/enemy_affix.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly/affix.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly/affix/rule.rs",
+    "crates/starclock-mode-currency-wars/src/battle_assembly/affix/static_modifier.rs",
+    "crates/starclock-test-kit/tests/suites/core/combat/linked_lifecycle.rs",
+    "content-reference/currency-wars-v1/enemy-affixes.json",
+    "content-manifests/currency-wars-runtime-v1/enemy-affix-execution-audit.json"
+  ],
+  "deferred_boundaries": [
+    {
+      "owner": "G21-P6-Mxx",
+      "boundary": "source configuration programs and enemy-native battle-visible ability mechanics"
+    }
+  ]
+}

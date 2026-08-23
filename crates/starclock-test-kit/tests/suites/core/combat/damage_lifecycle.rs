@@ -1,13 +1,15 @@
+//! Line-limit exception: this test-only damage lifecycle corpus shares one deterministic battle fixture.
 use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
 use starclock_combat::{
-    AssemblyDigest, Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec,
-    CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, EncounterWaveId, FormationIndex,
-    Hp, LifeState, ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, ResolvedModifierBinding, Scalar, Speed, StatValue,
-    TeamResourceSpec, TeamSide, ToughnessLayerKind, ToughnessLayerSpec,
-    ToughnessReductionDefinition, UnitLevel,
+    ActionValue, ActionValueClockSpec, AssemblyDigest, Battle, BattleClockExpiry, BattleClockSpec,
+    BattleEventKind, BattlePhase, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
+    CommandErrorKind, ConcedePolicy, EncounterWaveId, Energy, FormationIndex, Hp,
+    LethalRescueHpPolicy, LifeState, ParticipantSource, ParticipantSpec, PlayerLethalRescueSpec,
+    PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResolvedModifierBinding, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide,
+    ToughnessLayerKind, ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -174,6 +176,24 @@ fn catalog_with_spawn(
         floor: None,
         cap: None,
         cap_stage: FormulaStage::Resistance,
+        snapshot: SnapshotPolicy::Dynamic,
+        source_stack_slot: None,
+        filters: vec![ModifierFilter::FormulaSubject(
+            starclock_combat::modifier::model::FormulaSubject::Source,
+        )]
+        .into_boxed_slice(),
+    });
+    builder.add_modifier(ModifierDefinition {
+        id: definition(9),
+        stat: StatKind::Atk,
+        stage: FormulaStage::DamageOverride,
+        purpose: FormulaPurpose::OrdinaryDamage,
+        value: ValueExpr::Literal(RuleValue::Scalar(Scalar::checked_from_integer(1).unwrap())),
+        stacking_group: definition(1),
+        priority: 0,
+        floor: None,
+        cap: None,
+        cap_stage: FormulaStage::DamageOverride,
         snapshot: SnapshotPolicy::Dynamic,
         source_stack_slot: None,
         filters: vec![ModifierFilter::FormulaSubject(
@@ -545,6 +565,20 @@ fn combatant_with_formula_modifier() -> ResolvedCombatantSpec {
     .unwrap()
 }
 
+fn combatant_with_damage_override() -> ResolvedCombatantSpec {
+    let source = definition(93);
+    combatant_with_modifiers(1, vec![2], vec![9], 1_000, 1_000_000_000, 0x7b)
+        .with_sources(vec![RuleSource::new(
+            source,
+            SourceClass::Progression,
+            vec![],
+            [0x7b; 32],
+        )])
+        .unwrap()
+        .with_modifier_bindings(vec![ResolvedModifierBinding::new(definition(9), source)])
+        .unwrap()
+}
+
 fn battle(waves: u16, player_speed: i64, enemy_speed: i64) -> Battle {
     battle_with_policy(
         waves,
@@ -599,6 +633,80 @@ fn battle_with_policy(
         BattleSeed::new([0x61; 32]),
     )
     .unwrap()
+}
+
+fn battle_with_enemy_defeat_energy() -> Battle {
+    let player = combatant(1, vec![1, 2, 4], 1_000, 200_000_000, 0x32)
+        .with_energy(Energy::ZERO, Energy::from_scaled(100_000_000).unwrap())
+        .unwrap();
+    let participants = vec![
+        ParticipantSpec::new(
+            TeamSide::Player,
+            FormationIndex::new(0).unwrap(),
+            ParticipantSource::Player,
+            player,
+        ),
+        ParticipantSpec::new(
+            TeamSide::Enemy,
+            FormationIndex::new(4).unwrap(),
+            ParticipantSource::EncounterEnemy(definition(1)),
+            combatant(2, vec![3], 600, 50_000_000, 0x42),
+        ),
+    ];
+    let spec = BattleSpec::new(
+        AssemblyDigest::new([0x53; 32]).unwrap(),
+        definition(1),
+        participants,
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap()
+    .with_enemy_defeat_energy(Energy::from_scaled(5_000_000).unwrap())
+    .unwrap();
+    Battle::create(catalog(1), spec, BattleSeed::new([0x63; 32])).unwrap()
+}
+
+fn battle_with_player_lethal_rescue(action_value_loss: i64) -> Battle {
+    let participants = vec![
+        ParticipantSpec::new(
+            TeamSide::Player,
+            FormationIndex::new(0).unwrap(),
+            ParticipantSource::Player,
+            combatant(1, vec![1], 1_000, 50_000_000, 0x33),
+        ),
+        ParticipantSpec::new(
+            TeamSide::Enemy,
+            FormationIndex::new(4).unwrap(),
+            ParticipantSource::EncounterEnemy(definition(1)),
+            combatant(2, vec![3], 1_000, 200_000_000, 0x43),
+        ),
+    ];
+    let clock = BattleClockSpec::ActionValue(
+        ActionValueClockSpec::new(
+            ActionValue::from_scaled(100_000_000).unwrap(),
+            BattleClockExpiry::Lose,
+        )
+        .unwrap(),
+    );
+    let rescue = PlayerLethalRescueSpec::new(
+        LethalRescueHpPolicy::MaximumHp,
+        Some(ActionValue::from_scaled(action_value_loss).unwrap()),
+    )
+    .unwrap();
+    let spec = BattleSpec::new(
+        AssemblyDigest::new([0x54; 32]).unwrap(),
+        definition(1),
+        participants,
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap()
+    .with_clock(clock)
+    .with_player_lethal_rescue(rescue)
+    .unwrap();
+    Battle::create(catalog(1), spec, BattleSeed::new([0x64; 32])).unwrap()
 }
 
 fn toughness_battle() -> Battle {
@@ -758,6 +866,55 @@ fn application_action_phase_hit_and_stack_snapshots_change_damage() {
         })
         .unwrap_or_else(|| panic!("damage event missing: {:?}", resolution.events()));
     assert_eq!(damage.get(), 2_500);
+}
+
+#[test]
+fn damage_override_sets_each_hit_without_collapsing_the_action() {
+    let spec = BattleSpec::new(
+        AssemblyDigest::new([0x7c; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                combatant_with_damage_override(),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                combatant(2, vec![3], 1_000, 1_000_000, 0x7d),
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    let mut battle = Battle::create(catalog(1), spec, BattleSeed::new([0x7e; 32])).unwrap();
+    start_and_pass(&mut battle);
+    let resolution = use_ability(&mut battle, 2);
+    let damage = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(data) => Some(data.applied.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+
+    assert_eq!(damage, [1, 1]);
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .nth(1)
+            .unwrap()
+            .current_hp()
+            .get(),
+        998
+    );
 }
 
 #[test]
@@ -944,6 +1101,115 @@ fn lethal_turn_start_break_effect_settles_before_selecting_another_actor() {
 }
 
 #[test]
+fn credited_enemy_defeat_grants_the_explicit_energy_reward() {
+    let mut battle = battle_with_enemy_defeat_energy();
+    start_and_pass(&mut battle);
+    let resolution = use_ability(&mut battle, 2);
+
+    assert!(
+        resolution.events().iter().any(|event| matches!(
+            event.kind(),
+            BattleEventKind::Resource(starclock_combat::ResourceEventData::Energy {
+                before,
+                after,
+                overflow,
+                ..
+            }) if *before == Energy::ZERO
+                && after.scaled() == 5_000_000
+                && *overflow == Energy::ZERO
+        )),
+        "{:#?}",
+        resolution.events()
+    );
+    assert_eq!(
+        battle.view().units_by_id().next().unwrap().current_energy(),
+        Energy::from_scaled(5_000_000).unwrap()
+    );
+}
+
+#[test]
+fn lethal_player_damage_restores_hp_and_deducts_the_action_value_clock() {
+    let mut battle = battle_with_player_lethal_rescue(25_000_000);
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let resolution = use_ability(&mut battle, 3);
+
+    let rescue = resolution.events().iter().position(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Unit(starclock_combat::UnitEventData::LethalRescued {
+                hp,
+                ..
+            }) if hp.get() == 1_000
+        )
+    });
+    let deduction = resolution.events().iter().position(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::Clock(starclock_combat::BattleClockEventData::Advanced {
+                delta_scaled: 25_000_000,
+                before_scaled: 50_000_000,
+                after_scaled: 25_000_000,
+            })
+        )
+    });
+    assert!(
+        rescue.is_some_and(|rescue| deduction.is_some_and(|deduction| rescue < deduction)),
+        "{:#?}",
+        resolution.events()
+    );
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .next()
+            .unwrap()
+            .current_hp()
+            .get(),
+        1_000
+    );
+    assert_eq!(
+        battle
+            .view()
+            .clock()
+            .unwrap()
+            .remaining_action_value_scaled(),
+        Some(25_000_000)
+    );
+    assert_eq!(battle.view().phase(), BattlePhase::ReadyToAdvance);
+}
+
+#[test]
+fn lethal_rescue_clock_exhaustion_loses_at_the_action_boundary() {
+    let mut battle = battle_with_player_lethal_rescue(50_000_000);
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let resolution = use_ability(&mut battle, 3);
+
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(starclock_combat::UnitEventData::LethalRescued { .. })
+    )));
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Clock(starclock_combat::BattleClockEventData::Expired {
+            expiry: BattleClockExpiry::Lose,
+        })
+    )));
+    assert!(!resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(starclock_combat::UnitEventData::Downed { .. })
+    )));
+    assert_eq!(battle.view().phase(), BattlePhase::Lost);
+}
+
+#[test]
 fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     let mut battle = battle(1, 200_000_000, 50_000_000);
     start_and_pass(&mut battle);
@@ -951,8 +1217,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            84, 121, 181, 229, 93, 128, 169, 152, 170, 255, 73, 14, 138, 235, 89, 7, 15, 107, 148,
-            160, 77, 30, 81, 116, 46, 207, 186, 108, 48, 6, 115, 96,
+            140, 10, 199, 175, 149, 86, 40, 43, 54, 12, 138, 41, 78, 159, 55, 104, 17, 1, 114, 215,
+            39, 34, 128, 197, 138, 136, 14, 185, 227, 31, 100, 210,
         ]
     );
     let damage = resolution
@@ -1068,8 +1334,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            120, 147, 215, 160, 200, 91, 75, 181, 216, 19, 131, 28, 166, 2, 99, 58, 243, 13, 212,
-            158, 119, 131, 188, 13, 26, 134, 169, 84, 167, 238, 65, 176,
+            98, 77, 1, 126, 147, 37, 37, 47, 90, 2, 221, 164, 193, 3, 230, 233, 63, 250, 191, 94,
+            232, 130, 78, 19, 208, 220, 233, 15, 214, 147, 254, 43,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -1130,8 +1396,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            190, 63, 34, 3, 49, 185, 110, 178, 26, 161, 169, 23, 90, 210, 151, 137, 117, 242, 142,
-            107, 15, 160, 141, 61, 179, 186, 219, 46, 194, 216, 128, 65,
+            126, 251, 219, 38, 193, 97, 135, 172, 21, 156, 116, 38, 123, 235, 71, 147, 246, 59,
+            248, 250, 84, 133, 119, 251, 156, 250, 255, 22, 34, 68, 227, 251,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::ReadyToAdvance);
@@ -1173,8 +1439,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            131, 176, 117, 85, 161, 158, 213, 181, 130, 181, 184, 157, 239, 83, 132, 177, 35, 221,
-            172, 215, 136, 36, 139, 226, 13, 34, 125, 80, 238, 121, 104, 176,
+            255, 97, 244, 252, 60, 197, 209, 8, 201, 247, 40, 222, 157, 13, 127, 251, 7, 101, 121,
+            243, 66, 136, 80, 83, 238, 39, 143, 88, 84, 139, 213, 89,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1235,8 +1501,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            62, 241, 45, 57, 41, 243, 91, 169, 101, 107, 124, 123, 86, 43, 42, 254, 24, 5, 255, 88,
-            242, 2, 161, 169, 109, 233, 235, 55, 148, 213, 201, 148,
+            174, 126, 81, 169, 12, 105, 97, 219, 118, 155, 242, 29, 0, 99, 224, 64, 116, 253, 218,
+            176, 245, 85, 197, 142, 178, 33, 198, 42, 147, 56, 209, 187,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

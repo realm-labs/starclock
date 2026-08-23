@@ -22,7 +22,7 @@ execFileSync(process.execPath, [
 
 const outputRoot = path.join(root, "content-reference/currency-wars-v1");
 const expectedFiles = {
-  "rank-gambit-progression.json": 56,
+  "rank-gambit-progression.json": 108,
   "enemy-affixes.json": 721,
   "permanent-progression.json": 162,
 };
@@ -31,6 +31,8 @@ const sourceCounts = {
     GridFightDivisionLevelShow: 10,
     GridFightLevelBaseValue: 23,
     GridFightStageLevelValue: 23,
+    GridFightBinaryDiffAddRule: 8,
+    GridFightBinaryNodeRule: 44,
   },
   "enemy-affixes.json": {
     GridFightAffixConfig: 51,
@@ -66,7 +68,7 @@ for (const [file, count] of Object.entries(expectedFiles)) {
 }
 
 const allRows = Object.values(rowsByFile).flat();
-assert(allRows.length === 939 && unique(allRows.map(({ id }) => id)),
+assert(allRows.length === 991 && unique(allRows.map(({ id }) => id)),
   "rank/progression global exact-once drift");
 assert(allRows.every((row) => row.source_refs.every((ref) =>
   !ref.path.includes("RogueTourn") && !ref.path.includes("RoguePersona")
@@ -99,7 +101,7 @@ for (const file of Object.keys(rowsByFile).sort(compare))
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
   `Currency Wars rank/progression verified (${allRows.length} rows; ` +
-  `56 rank boundaries; 721 affix/difficulty rows; 162 progression rows; ` +
+  `108 rank boundaries; 721 affix/difficulty rows; 162 progression rows; ` +
   `digest ${digest.digest("hex")}).`,
 );
 

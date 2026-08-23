@@ -1,3 +1,4 @@
+//! Line-limit exception: the aggregate state machine keeps command ordering and mutation authority together while boundary helpers are split below it.
 mod boundary;
 mod random_offer;
 
@@ -888,7 +889,7 @@ impl GraphActivity {
                     GraphActivityRuntimeError::InvalidBoundaryProgram,
                 ))?;
                 events.extend(
-                    committed_runtime(self.state.apply_program(
+                    committed_runtime(self.state.apply_settlement_extension_program(
                         program,
                         cause,
                         &self.definition.graph,
@@ -1050,6 +1051,32 @@ pub struct ActivityRandomBoundaryResolution {
     selected_options: Box<[ActivityOptionId]>,
     events: Box<[ActivityTransactionEvent]>,
     state_hash: ActivityStateHash,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ActivityGeneratedBoundaryResolution<T> {
+    value: T,
+    events: Box<[ActivityTransactionEvent]>,
+    state_hash: ActivityStateHash,
+}
+
+impl<T> ActivityGeneratedBoundaryResolution<T> {
+    #[must_use]
+    pub const fn value(&self) -> &T {
+        &self.value
+    }
+    #[must_use]
+    pub fn into_value(self) -> T {
+        self.value
+    }
+    #[must_use]
+    pub fn events(&self) -> &[ActivityTransactionEvent] {
+        &self.events
+    }
+    #[must_use]
+    pub const fn state_hash(&self) -> ActivityStateHash {
+        self.state_hash
+    }
 }
 
 impl ActivityRandomBoundaryResolution {

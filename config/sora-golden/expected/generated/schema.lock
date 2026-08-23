@@ -1,38 +1,48 @@
 {
-  "version": 1,
-  "package": "starclock_sora_capability_golden",
-  "fingerprint": "1430b69f9865e952",
+  "version": 3,
+  "project_id": "starclock_sora_capability_golden",
+  "contract_id": "starclock_sora_capability_golden/default",
+  "view": "default",
+  "fingerprint": "0c320de76014a16a",
   "schema": {
-    "package": "starclock_sora_capability_golden",
+    "project_id": "starclock_sora_capability_golden",
+    "contract_id": "starclock_sora_capability_golden/default",
+    "view": "default",
     "enums": [
       {
         "name": "Element",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "values": [
-          "Fire",
-          "Ice"
+          {
+            "id": 0,
+            "name": "Fire"
+          },
+          {
+            "id": 1,
+            "name": "Ice"
+          }
         ]
       }
     ],
     "structs": [
       {
         "name": "Step",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "fields": [
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -51,9 +61,9 @@
             "ty": {
               "Union": "Effect"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -70,27 +80,27 @@
     "unions": [
       {
         "name": "Effect",
-        "scope": {
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "tag": "type",
         "variants": [
           {
             "name": "Damage",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "fields": [
               {
                 "name": "amount",
                 "ty": "I32",
-                "scope": {
+                "groups": {
                   "values": [
-                    "all"
+                    "common"
                   ]
                 },
                 "key": false,
@@ -108,18 +118,18 @@
           },
           {
             "name": "Heal",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "fields": [
               {
                 "name": "amount",
                 "ty": "I32",
-                "scope": {
+                "groups": {
                   "values": [
-                    "all"
+                    "common"
                   ]
                 },
                 "key": false,
@@ -140,10 +150,12 @@
     ],
     "tables": [
       {
+        "id": "ability",
         "name": "Ability",
-        "scope": {
+        "canonical_name": "Ability",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -156,9 +168,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -175,9 +187,9 @@
           {
             "name": "stable_name",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -193,9 +205,9 @@
             "ty": {
               "Enum": "Element"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -211,9 +223,9 @@
             "ty": {
               "Union": "Effect"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -231,9 +243,9 @@
                 "Struct": "Step"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -242,13 +254,7 @@
             "range": null,
             "length": null,
             "parser": null,
-            "derived_from": {
-              "source_table": "StepRow",
-              "parent_key": "id",
-              "child_key": "ability_id",
-              "value_field": null,
-              "order_by": "sequence"
-            }
+            "derived_from": null
           }
         ],
         "indexes": [
@@ -262,10 +268,12 @@
         ]
       },
       {
+        "id": "step_row",
         "name": "StepRow",
-        "scope": {
+        "canonical_name": "StepRow",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "List",
@@ -283,9 +291,9 @@
                 "field": "id"
               }
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -299,9 +307,9 @@
           {
             "name": "sequence",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -320,9 +328,9 @@
             "ty": {
               "Union": "Effect"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -337,10 +345,12 @@
         "indexes": []
       },
       {
+        "id": "excel_probe",
         "name": "ExcelProbe",
-        "scope": {
+        "canonical_name": "ExcelProbe",
+        "groups": {
           "values": [
-            "all"
+            "common"
           ]
         },
         "mode": "Map",
@@ -354,9 +364,9 @@
           {
             "name": "id",
             "ty": "I32",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": true,
@@ -373,9 +383,9 @@
           {
             "name": "label",
             "ty": "String",
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,
@@ -391,9 +401,9 @@
             "ty": {
               "Optional": "String"
             },
-            "scope": {
+            "groups": {
               "values": [
-                "all"
+                "common"
               ]
             },
             "key": false,

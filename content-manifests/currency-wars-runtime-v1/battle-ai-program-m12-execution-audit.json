@@ -1,0 +1,1128 @@
+{
+  "schema_revision": "starclock.currency-wars-battle-ai-program-m12-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-M12",
+  "status": "ExecutableWithExplicitPolicyBoundary",
+  "accuracy": "ExactAuthoredShapeAndBindingsWithPolicyBoundComplexAiSemantics",
+  "partition_program_count": 24,
+  "exact_program_count": 4,
+  "terminal_metadata_count": 20,
+  "complex_ai_shape": {
+    "groups": 9,
+    "factors": 20,
+    "ranges": 42,
+    "mapper_policy_id": "currency-wars.complex-ai-source-and-multirange-policy.v1",
+    "confidence": "PolicyOnlyNotObservedParity",
+    "observed_parity_claimed": false
+  },
+  "enemy_ai_shape": {
+    "programs": 3,
+    "bindings": 4,
+    "variables": 2,
+    "decisions": 41,
+    "skill_uses": 55,
+    "typed_nodes": 459
+  },
+  "execution_contract": "Avatar Complex AI factors execute through typed fixed-point source and MultiRange policies; each exact enemy AI source binds its released shared-enemy identities to executable EnemyDefinitions and emits registered/active battle-assembly receipts.",
+  "behavioral_evidence": [
+    "currency_wars::tests::production_m12_complex_ai_and_enemy_ai_preserve_shape_bindings_and_policy_boundary",
+    "currency_wars_combat_policy_tests::every_m12_enemy_ai_configuration_reaches_battle_assembly"
+  ],
+  "verification_commands": [
+    "cargo test -p starclock-data currency_wars::tests::production_m12_complex_ai_and_enemy_ai_preserve_shape_bindings_and_policy_boundary -- --exact",
+    "cargo test -p starclock-data currency_wars_combat_policy_tests::every_m12_enemy_ai_configuration_reaches_battle_assembly -- --exact",
+    "node tools/currency-wars-runtime/verify-dispositions.mjs"
+  ],
+  "programs": [
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.08a87c020b5cfb59ccba0c6d",
+      "source_path": "Config/ConfigAI/ComplexSkillAIGlobalGroup/GridFight/Avatar_GridFight_ComplexSkillAI.json",
+      "source_sha256": "c12f39e33c8482d35743581855ef13a939f177f6607e974dda7820b8cc531bb9",
+      "operation": {
+        "kind": "LowerGlobalComplexAiFactors",
+        "source_id": "currency-wars.source.af2a22d4d8ab89246f3515b00b098009",
+        "source_sha256": "c12f39e33c8482d35743581855ef13a939f177f6607e974dda7820b8cc531bb9",
+        "groups": [
+          {
+            "stable_key": "AddNP_DanHengIL_GridFight_BoostPointForBPSkill",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIBattleGlobalData",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "TeamBoostPoint",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "6",
+                    "xmax": "1.5",
+                    "ymax": "6"
+                  },
+                  {
+                    "xmin": "1.5",
+                    "ymin": "20",
+                    "xmax": "2.5",
+                    "ymax": "20"
+                  },
+                  {
+                    "xmin": "2.5",
+                    "ymin": "40",
+                    "xmax": "3.5",
+                    "ymax": "40"
+                  },
+                  {
+                    "xmin": "3.5",
+                    "ymin": "100",
+                    "xmax": "4",
+                    "ymax": "100"
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_2011_BPTeam_HighestPower_Tag",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "500",
+                    "xmax": "1",
+                    "ymax": "500"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "AddNP_GridFightTrait2011_AdvancedBPReserve",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIAllTeamMemberCombine",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "",
+                "team_type": "TeamLight",
+                "evaluator_type": "RPG.GameCore.ComplexSkillAISourceAITag",
+                "evaluator_dynamic_value_key": "AdvancedBPReserve",
+                "list_combine_type": "Max",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "1",
+                    "xmax": "1",
+                    "ymax": "1"
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAISourceAITag",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "AdvancedBPReserve",
+                "modifier_name": "",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "0.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": null,
+                    "xmax": "1",
+                    "ymax": null
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_2011_BPTeamAttacker_2BP_TAG",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "0.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": null,
+                    "xmax": "1",
+                    "ymax": null
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAIBattleGlobalData",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "TeamBoostPoint",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "6.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "6.5",
+                    "ymin": null,
+                    "xmax": "100",
+                    "ymax": null
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIAllTeamMemberCombine",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "",
+                "team_type": "TeamLight",
+                "evaluator_type": "RPG.GameCore.ComplexSkillAISourceAITag",
+                "evaluator_dynamic_value_key": "AdvancedBPReserve",
+                "list_combine_type": "Max",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "1",
+                    "xmax": "1",
+                    "ymax": "1"
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAISourceAITag",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "AdvancedBPReserve",
+                "modifier_name": "",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "0.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": null,
+                    "xmax": "1",
+                    "ymax": null
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_2011_BPTeamAttacker_EmptyBP_TAG",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "0.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": null,
+                    "xmax": "1",
+                    "ymax": null
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAIBattleGlobalData",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "TeamBoostPoint",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "2.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "2.5",
+                    "ymin": null,
+                    "xmax": "100",
+                    "ymax": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "AddNP_Sparxie_GridFight_BoostPointForBPSkill",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIBattleGlobalData",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "TeamBoostPoint",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "6",
+                    "xmax": "1.5",
+                    "ymax": "6"
+                  },
+                  {
+                    "xmin": "1.5",
+                    "ymin": "20",
+                    "xmax": "2.5",
+                    "ymax": "20"
+                  },
+                  {
+                    "xmin": "2.5",
+                    "ymin": "40",
+                    "xmax": "3.5",
+                    "ymax": "40"
+                  },
+                  {
+                    "xmin": "3.5",
+                    "ymin": "100",
+                    "xmax": "4",
+                    "ymax": "100"
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_2011_BPTeam_HighestPower_Tag",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "500",
+                    "xmax": "1",
+                    "ymax": "500"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "Add_GridFight_Archer_Cancel",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIBattleGlobalData",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "TeamBoostPoint",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "1000",
+                    "ymax": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "Add_GridFight_Ashveil_DebuffTarget",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_Ashveil_00_Skill02_Debuff",
+                "is_target": null,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "1000",
+                    "xmax": "1",
+                    "ymax": "1000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "Add_GridFight_QingQue_UseBP",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIBattleGlobalData",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "TeamBoostPoint",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "100000",
+                    "xmax": "1000",
+                    "ymax": "100000"
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_2011_BPTeam_HighestPower_Tag",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": null,
+                    "xmax": "0.5",
+                    "ymax": null
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "1",
+                    "xmax": "1",
+                    "ymax": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "Add_GridFight_Sunday_DamageCarryScore",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAISourceIsCombatPowerWeightedRandomTarget",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "HadServant",
+                "default_ai_tag_value": "0.8",
+                "power_of_combat_power": "1.1",
+                "power_of_damage_carry": "2",
+                "sum_up_servant_damage_carry": true,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "0.1",
+                    "xmax": "1",
+                    "ymax": "100"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "AddpP_GridFight_Cerydra_CompareDPTWithDamageCarry_BPTarget",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAISourceValueInTeamRatio",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "",
+                "is_target": null,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "FormulaTotalPower",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "60",
+                    "xmax": "1",
+                    "ymax": "100"
+                  }
+                ]
+              },
+              {
+                "combine_operator": "Mul",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_2011_BPTeamAttacker_Trait_Tag",
+                "is_target": false,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "0.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "2",
+                    "xmax": "1",
+                    "ymax": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stable_key": "MulpP_GridFight_Cerydra_EvernightDecrease",
+            "factors": [
+              {
+                "combine_operator": "Add",
+                "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+                "property_type_a": "",
+                "property_type_b": "",
+                "dynamic_value_key": "",
+                "modifier_name": "MAvatar_GridFight_Evernight_00_PC_PassiveSkill01",
+                "is_target": null,
+                "data_type": "",
+                "team_type": "",
+                "evaluator_type": "",
+                "evaluator_dynamic_value_key": "",
+                "list_combine_type": "",
+                "ai_tag_key": "",
+                "default_ai_tag_value": null,
+                "power_of_combat_power": null,
+                "power_of_damage_carry": null,
+                "sum_up_servant_damage_carry": null,
+                "value_type": "",
+                "ranges": [
+                  {
+                    "xmin": null,
+                    "ymin": "1",
+                    "xmax": "0.5",
+                    "ymax": "1"
+                  },
+                  {
+                    "xmin": "0.5",
+                    "ymin": "0.5",
+                    "xmax": "1",
+                    "ymax": "0.5"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "mapper_policy_id": "currency-wars.complex-ai-source-and-multirange-policy.v1",
+        "selected_behavior": "Resolve authored battle-global, caster-tag, caster-modifier, team-tag maximum and team-ratio sources from the typed context. For weighted-target scoring, default the missing AI tag exactly as authored, add servant damage carry when requested, round authored powers to nearest-even non-negative integers, then apply fixed-point powers. Evaluate MultiRange and factor folds with the same authored-order policy.",
+        "unresolved_field": "Released public evidence does not expose exact ComplexSkillAI source-resolution semantics, weighted-target fractional exponent behavior, MultiRange endpoint defaults, boundary ownership or interpolation rounding.",
+        "confidence": "PolicyOnlyNotObservedParity",
+        "replacement_condition": "Replace when released engine documentation or reproducible observations prove MultiRange endpoint, interpolation and rounding semantics.",
+        "mechanical_shape_sha256": "1f6b7b290f133d4316f9a6b1ddc40770b6905a59b12bcdd373973fae70eca9f1"
+      }
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.79f488c7136be9181d23771c",
+      "source_path": "Config/ConfigAI/GridFight/Monster_GridFight_FireProwler_00_AI.json",
+      "source_sha256": "c92c8f3fc9f906291e267d266cecf6eabfb322cc712c1fae0c7e72402d669732",
+      "operation": {
+        "kind": "LowerEnemyAiConfiguration",
+        "source_id": "currency-wars.source.4f7ee5e7931675a28829a551edb1420a",
+        "source_sha256": "c92c8f3fc9f906291e267d266cecf6eabfb322cc712c1fae0c7e72402d669732",
+        "ai_name": "WMonster_Template_AI",
+        "bindings": [
+          {
+            "shared_enemy_key": "enemy.flame-reaver-of-the-deepest-dark.littleboss.03",
+            "source_template_id": "4034016"
+          }
+        ],
+        "variable_names": [
+          "ForbidClearSkillUseRecord"
+        ],
+        "decision_names": [
+          "UseSkill01",
+          "UseSkill01",
+          "UseSkill03",
+          "UseSkill06",
+          "UseSkill06",
+          "UseSkill05",
+          "UseSkill04",
+          "UseSkill07",
+          "UseSkill01",
+          "UseSkill03",
+          "UseSkill06",
+          "UseSkill05",
+          "UseSkill04",
+          "UseSkill07"
+        ],
+        "skill_names": [
+          "Skill01",
+          "Skill02",
+          "Skill01",
+          "Skill02",
+          "Skill03",
+          "Skill01",
+          "Skill02",
+          "Skill06",
+          "Skill06",
+          "Skill05",
+          "Skill04",
+          "Skill07",
+          "Skill01",
+          "Skill02",
+          "Skill03",
+          "Skill06",
+          "Skill08",
+          "Skill042",
+          "Skill072"
+        ],
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AIDecisionConfig",
+            "count": 14
+          },
+          {
+            "type": "RPG.GameCore.AIStepperDecisionGroupConfig",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.AIVariableBool",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByAnd",
+            "count": 14
+          },
+          {
+            "type": "RPG.GameCore.ByCompareCharacterNumber",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 30
+          },
+          {
+            "type": "RPG.GameCore.ByCompareMonsterPhase",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.CheckPredicateAxis",
+            "count": 15
+          },
+          {
+            "type": "RPG.GameCore.DefineDynamicValue",
+            "count": 15
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 6
+          },
+          {
+            "type": "RPG.GameCore.RemoveModifier",
+            "count": 4
+          },
+          {
+            "type": "RPG.GameCore.SequenceConfig",
+            "count": 14
+          },
+          {
+            "type": "RPG.GameCore.SetDynamicValue",
+            "count": 10
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 20
+          },
+          {
+            "type": "RPG.GameCore.UseSkill",
+            "count": 19
+          }
+        ],
+        "mechanical_shape_sha256": "c15f90592ba3923ec99a843f912e259eae60d0fb190bc442a1a71fd9f543afe4"
+      }
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.a88f2755be2ef882f796a6cf",
+      "source_path": "Config/ConfigAI/GridFight/Monster_GridFight_W3_Sam_01_AI.json",
+      "source_sha256": "f241f03ccf3696dc3273687ff14cbd2e2d577120ebb725a4f8e0ba6de19cf73e",
+      "operation": {
+        "kind": "LowerEnemyAiConfiguration",
+        "source_id": "currency-wars.source.311cb7bf7dfbab9e92cc00619f21f316",
+        "source_sha256": "f241f03ccf3696dc3273687ff14cbd2e2d577120ebb725a4f8e0ba6de19cf73e",
+        "ai_name": "W4_Boss_00_AI",
+        "bindings": [
+          {
+            "shared_enemy_key": "enemy.harbinger-of-death-swarm-nightmare.littleboss.02",
+            "source_template_id": "3024031"
+          },
+          {
+            "shared_enemy_key": "enemy.harbinger-of-death-swarm-nightmare.littleboss.03",
+            "source_template_id": "3024032"
+          }
+        ],
+        "variable_names": [],
+        "decision_names": [
+          "Decision01",
+          "Decision01",
+          "Decision01",
+          "Decision01",
+          "Decision01",
+          "Decision01",
+          "Decision01"
+        ],
+        "skill_names": [
+          "Skill01Pre",
+          "Skill04",
+          "Skill04",
+          "Skill03",
+          "Skill06",
+          "Skill01",
+          "Skill02",
+          "Skill05"
+        ],
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AIDecisionConfig",
+            "count": 7
+          },
+          {
+            "type": "RPG.GameCore.ByAnd",
+            "count": 7
+          },
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 7
+          },
+          {
+            "type": "RPG.GameCore.ByCompareMonsterPhase",
+            "count": 2
+          },
+          {
+            "type": "RPG.GameCore.ByIsContainModifier",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.CheckPredicateAxis",
+            "count": 7
+          },
+          {
+            "type": "RPG.GameCore.DefineDynamicValue",
+            "count": 10
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.SequenceConfig",
+            "count": 7
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 11
+          },
+          {
+            "type": "RPG.GameCore.UseSkill",
+            "count": 8
+          }
+        ],
+        "mechanical_shape_sha256": "4944eda8553afd471273e1320aa88c9ce942d9c78410e1b7201c606a6e107c7a"
+      }
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.eb27d94967b664b10b14f657",
+      "source_path": "Config/ConfigAI/GridFight/Monster_GridFight_W5_Pam_00_AI.json",
+      "source_sha256": "986d0527e80d8d70eb989052ba3e39e5aaf1221e4800c14ea111243d006e5284",
+      "operation": {
+        "kind": "LowerEnemyAiConfiguration",
+        "source_id": "currency-wars.source.a137b52d9b75e69fd2a8b2fdf8453981",
+        "source_sha256": "986d0527e80d8d70eb989052ba3e39e5aaf1221e4800c14ea111243d006e5284",
+        "ai_name": "WMonster_Template_AI",
+        "bindings": [
+          {
+            "shared_enemy_key": "enemy.alloy-mechatron-king-pom-pom.littleboss.02",
+            "source_template_id": "5014021"
+          }
+        ],
+        "variable_names": [
+          "ForbidClearSkillUseRecord"
+        ],
+        "decision_names": [
+          "Decision01",
+          "Decision02",
+          "Decision02",
+          "Decision01",
+          "Decision03",
+          "Decision04",
+          "Decision05",
+          "Decision07",
+          "Decision06",
+          "Decision08",
+          "Decision02",
+          "Decision03",
+          "Decision01",
+          "Decision02",
+          "Decision03",
+          "Decision04",
+          "Decision05",
+          "Decision07",
+          "Decision06",
+          "Decision08"
+        ],
+        "skill_names": [
+          "Skill01",
+          "Skill01",
+          "Skill03",
+          "Skill01",
+          "Skill02",
+          "Skill01",
+          "Skill02",
+          "Skill02",
+          "Skill05",
+          "Skill06",
+          "Skill01",
+          "Skill01",
+          "Skill01",
+          "Skill02",
+          "Skill01",
+          "Skill03",
+          "Skill02",
+          "Skill04",
+          "Skill01",
+          "Skill02",
+          "Skill02",
+          "Skill02",
+          "Skill05",
+          "Skill06",
+          "Skill04",
+          "Skill01",
+          "Skill01",
+          "Skill02"
+        ],
+        "node_type_counts": [
+          {
+            "type": "RPG.GameCore.AIDecisionConfig",
+            "count": 20
+          },
+          {
+            "type": "RPG.GameCore.AIStepperDecisionGroupConfig",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.AIVariableBool",
+            "count": 1
+          },
+          {
+            "type": "RPG.GameCore.ByAnd",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.ByCompareDynamicValue",
+            "count": 20
+          },
+          {
+            "type": "RPG.GameCore.ByCompareMonsterPhase",
+            "count": 3
+          },
+          {
+            "type": "RPG.GameCore.ByIsContainModifier",
+            "count": 8
+          },
+          {
+            "type": "RPG.GameCore.CheckPredicateAxis",
+            "count": 23
+          },
+          {
+            "type": "RPG.GameCore.DefineDynamicValue",
+            "count": 28
+          },
+          {
+            "type": "RPG.GameCore.PredicateTaskList",
+            "count": 8
+          },
+          {
+            "type": "RPG.GameCore.SequenceConfig",
+            "count": 20
+          },
+          {
+            "type": "RPG.GameCore.TargetAlias",
+            "count": 59
+          },
+          {
+            "type": "RPG.GameCore.UseSkill",
+            "count": 28
+          }
+        ],
+        "mechanical_shape_sha256": "9e9d877a3264f50816dab1fcc0970f37457ce114848db248acf477025c963d50"
+      }
+    }
+  ]
+}

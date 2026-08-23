@@ -170,6 +170,54 @@ for (const entry of stageBaseValues) {
     enemy_affix_ids: [],
   });
 }
+
+const binaryDifficultyRules = await context.table("GridFightBinaryDiffAddRule");
+for (const entry of binaryDifficultyRules) {
+  const row = entry.row;
+  rankRows.push({
+    ...envelope(entry, {
+      id: `currency-wars.rank.binary-difficulty.${row.ID}.${row.Quality}`,
+      kind: "CurrencyWarsRankGambitProgression",
+      nameEn: `Binary difficulty rule ${row.ID}, quality ${row.Quality}`,
+      nameZh: `二元难度规则 ${row.ID}，品质 ${row.Quality}`,
+      summaryEn:
+        `Binary difficulty rule ${row.ID} quality ${row.Quality} adds ${row.EnemyDifficultyAddValue ?? 0} enemy difficulty level(s).`,
+      summaryZh:
+        `二元难度规则 ${row.ID} 的品质 ${row.Quality} 增加 ${row.EnemyDifficultyAddValue ?? 0} 级敌人难度。`,
+      tags: ["binary-difficulty", "enemy-scaling"],
+    }),
+    source_id: `${row.ID}:${row.Quality}`,
+    rank: { rule_id: String(row.ID), quality: String(row.Quality) },
+    gambit_mode: "BinaryDifficultyAddition",
+    entry_boundary: {
+      enemy_difficulty_level_add: String(row.EnemyDifficultyAddValue ?? 0),
+    },
+    enemy_affix_ids: [],
+  });
+}
+
+const binaryNodeRules = await context.table("GridFightBinaryNodeRule");
+for (const entry of binaryNodeRules) {
+  const row = entry.row;
+  rankRows.push({
+    ...envelope(entry, {
+      id: `currency-wars.rank.binary-node.${row.ID}`,
+      kind: "CurrencyWarsRankGambitProgression",
+      nameEn: `Binary node rule ${row.ID}`,
+      nameZh: `二元节点规则 ${row.ID}`,
+      summaryEn:
+        `Binary node rule ${row.ID} maps quality ${row.Quality} to perform level ${row.PerformLevel}.`,
+      summaryZh:
+        `二元节点规则 ${row.ID} 将品质 ${row.Quality} 映射到表现等级 ${row.PerformLevel}。`,
+      tags: ["binary-node", "perform-level"],
+    }),
+    source_id: String(row.ID),
+    rank: { rule_id: String(row.ID), quality: String(row.Quality) },
+    gambit_mode: "BinaryNodePerformLevel",
+    entry_boundary: { perform_level: String(row.PerformLevel) },
+    enemy_affix_ids: [],
+  });
+}
 outputs.set("rank-gambit-progression.json", ordered(rankRows));
 
 const affixRows = [];
@@ -379,10 +427,10 @@ outputs.set("permanent-progression.json", ordered(progressionRows));
 
 await writeOrCheck(context, outputs, check);
 const total = rankRows.length + affixRows.length + progressionRows.length;
-if (rankRows.length !== 56
+if (rankRows.length !== 108
   || affixRows.length !== 721
   || progressionRows.length !== 162
-  || total !== 939)
+  || total !== 991)
   throw new Error("GridFight rank/progression closure drift");
 console.log(
   `Currency Wars rank/progression ${check ? "verified" : "generated"}: ` +

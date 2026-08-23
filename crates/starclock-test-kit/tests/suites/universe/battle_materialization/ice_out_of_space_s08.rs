@@ -240,7 +240,7 @@ fn ice_out_of_space_materializes_exact_levels_encounter_and_freezing_point_cycle
     );
     assert_eq!(
         freeze
-            .resolve(Some(1), starclock_combat::Scalar::ONE)
+            .resolve(Some(1), starclock_combat::Scalar::ONE, None)
             .expect("damaging Freeze")
             .dot()
             .expect("Freeze delayed damage")

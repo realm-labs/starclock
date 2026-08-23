@@ -37,8 +37,8 @@ const PLAYER_SELECTOR: u32 = 20_001;
 const ENEMY_PROGRAM: u32 = 20_002;
 const ENEMY_SELECTOR: u32 = 14_001;
 pub const CONFIG_DIGEST: [u8; 32] = [
-    0xf5, 0xcb, 0x9e, 0xba, 0x2e, 0x5c, 0x52, 0x29, 0xbb, 0xf4, 0x71, 0xdf, 0xa6, 0x99, 0x1b, 0x99,
-    0x79, 0x32, 0xd8, 0x2a, 0xdb, 0x3d, 0xe3, 0x9a, 0xfd, 0xa8, 0x2e, 0xa2, 0x6d, 0x0c, 0xb1, 0xc8,
+    0x91, 0x95, 0x0c, 0xc8, 0x7f, 0x1c, 0xa5, 0x92, 0x14, 0x16, 0x88, 0xc6, 0x66, 0xe9, 0x3d, 0x27,
+    0x4e, 0x18, 0xe5, 0x45, 0x88, 0x9a, 0x9e, 0x71, 0xa3, 0xdf, 0xed, 0x8b, 0x15, 0x06, 0xd0, 0x3b,
 ];
 
 pub const SCENARIOS: [(&str, u32, u32); 6] = [
@@ -433,32 +433,32 @@ mod tests {
             (
                 SCENARIOS[0].0,
                 161,
-                "25c066d087f0c807c5454cdab688799697bbafaab8d92dd563f17716751d602c",
+                "ba4a03c81869a030cc313fd95ae1e2431baa988a1a961006a84638fc162bd9a3",
             ),
             (
                 SCENARIOS[1].0,
                 32,
-                "ca2d4bc3b9d0b5a0a6e32ee5bb27550180f8b3c3c76f932cc41c67b88583dca5",
+                "1d58df2ea29bc8c14a96c08d2d7d6954dca792d8e5763ebf4cbbfec3eec3e058",
             ),
             (
                 SCENARIOS[2].0,
                 113,
-                "f129ebd3ddea5877324533fa6390c4d5f65761c8de6fa84b29635a2fce57e7ed",
+                "3d5b4dc4384223c5ba42a7a54ae3d1dd9ca31680f9d42fe9ecc80e96c520b45e",
             ),
             (
                 SCENARIOS[3].0,
                 48,
-                "70f68ece3d724b47df613b6a28609da844128f26a8ebda78133a0852ec3ece20",
+                "372ae30284fe7ce4c6d9d4753bb493ce518704c84dff8e905cbc41bc40bb7280",
             ),
             (
                 SCENARIOS[4].0,
                 331,
-                "71a785f6a12a571b48df0fa9042edb3a3e00a621d4a86641c97882ec7a60a1ea",
+                "99010b69effab03b5b9337efa23d944c495e8d4bf7b7d4a88a6e01909a490a22",
             ),
             (
                 SCENARIOS[5].0,
                 441,
-                "97c06c924a87a5b28922cce75a7029c5927e70f7fe97ecfebd49b9a5d013d94a",
+                "80309d65d116e5ca41291c4af08bf8fa2e6fb8593526b65c36f918822a1b851f",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

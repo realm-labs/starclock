@@ -396,6 +396,21 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     if state.clock.is_some() {
         encode_clock(&mut e, state);
     }
+    if let Some(energy) = state.enemy_defeat_energy {
+        e.u8(3);
+        e.i64(energy.scaled());
+    }
+    if let Some(rescue) = state.player_lethal_rescue {
+        e.u8(4);
+        e.u8(rescue.hp() as u8);
+        match rescue.action_value_loss() {
+            None => e.u8(0),
+            Some(loss) => {
+                e.u8(1);
+                e.i64(loss.scaled());
+            }
+        }
+    }
 }
 
 fn encode_clock<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
@@ -765,12 +780,20 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.u8(unit.life as u8);
     e.u8(unit.presence as u8);
     e.i64(unit.current_hp.get());
+    e.i64(unit.initial_maximum_hp.get());
     e.i64(unit.maximum_hp.get());
+    e.i64(unit.damage_dealt);
     e.i64(unit.base_attack.scaled());
     e.i64(unit.base_defense.scaled());
     e.i64(unit.base_speed.scaled());
     e.i64(unit.base_effect_hit_rate.scaled());
     e.i64(unit.base_effect_resistance.scaled());
+    for value in unit.build_bonuses.secondary() {
+        e.i64(value.scaled());
+    }
+    for value in unit.build_bonuses.element_damage_boosts() {
+        e.i64(value.scaled());
+    }
     e.i64(unit.current_energy.scaled());
     e.i64(unit.maximum_energy.scaled());
     e.u8(match unit.rank {
@@ -798,6 +821,13 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     for layer in &unit.toughness_layers {
         let spec = &layer.spec;
         e.u32(spec.key());
+        match spec.stable_key() {
+            None => e.u8(0),
+            Some(stable_key) => {
+                e.u8(1);
+                e.text(stable_key);
+            }
+        }
         e.u8(spec.kind() as u8);
         e.i64(spec.maximum().get());
         e.i64(layer.current.get());
@@ -841,6 +871,10 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     }
     e.length(unit.modifiers.len());
     for id in &unit.modifiers {
+        e.u32(id.get());
+    }
+    e.length(unit.linked_subject_modifiers.len());
+    for id in &unit.linked_subject_modifiers {
         e.u32(id.get());
     }
     e.length(unit.resources.len());

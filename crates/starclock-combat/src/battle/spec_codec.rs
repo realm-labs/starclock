@@ -3,40 +3,48 @@
 use sha2::{Digest, Sha256};
 
 use crate::{
-    EncounterId,
     formula::toughness::EnemyRank,
     rule::model::{RuleSource, SourceClass},
     toughness::model::{BreakCreditPolicy, ToughnessWeaknessPolicy},
 };
 
 use super::spec::{
-    BattleClockExpiry, BattleClockSpec, CombatInputDigest, ConcedePolicy, ParticipantSource,
-    ParticipantSpec, ResolvedCombatantSpec, TeamResourceSpec, TeamResourceWavePolicy, TeamSide,
+    BattleClockExpiry, BattleClockSpec, BattleSpec, CombatInputDigest, ConcedePolicy,
+    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, TeamResourceSpec,
+    TeamResourceWavePolicy, TeamSide,
 };
 
 const INPUT_MAGIC: &[u8; 4] = b"SCBI";
 
-pub(super) fn combat_input_digest(
-    encounter: EncounterId,
-    participants: &[ParticipantSpec],
-    player_resources: &TeamResourceSpec,
-    enemy_resources: &TeamResourceSpec,
-    concede: ConcedePolicy,
-    clock: Option<BattleClockSpec>,
-) -> CombatInputDigest {
+pub(super) fn combat_input_digest(spec: &BattleSpec) -> CombatInputDigest {
     let mut encoder = Encoder(Sha256::new());
     encoder.raw(INPUT_MAGIC);
-    encoder.u32(encounter.get());
-    encoder.length(participants.len());
-    for participant in participants {
+    encoder.u32(spec.encounter().get());
+    encoder.length(spec.participants().len());
+    for participant in spec.participants() {
         encode_participant(&mut encoder, participant);
     }
-    encode_team_resources(&mut encoder, player_resources);
-    encode_team_resources(&mut encoder, enemy_resources);
-    encoder.u8(match concede {
+    encode_team_resources(&mut encoder, spec.resources(TeamSide::Player));
+    encode_team_resources(&mut encoder, spec.resources(TeamSide::Enemy));
+    encoder.u8(match spec.concede_policy() {
         ConcedePolicy::Allowed => 0,
     });
-    encode_clock(&mut encoder, clock);
+    encode_clock(&mut encoder, spec.clock());
+    if let Some(energy) = spec.enemy_defeat_energy() {
+        encoder.u8(3);
+        encoder.i64(energy.scaled());
+    }
+    if let Some(rescue) = spec.player_lethal_rescue() {
+        encoder.u8(4);
+        encoder.u8(rescue.hp() as u8);
+        match rescue.action_value_loss() {
+            None => encoder.u8(0),
+            Some(loss) => {
+                encoder.u8(1);
+                encoder.i64(loss.scaled());
+            }
+        }
+    }
     CombatInputDigest::from_computed(encoder.0.finalize().into())
 }
 
@@ -140,6 +148,12 @@ fn encode_combatant(encoder: &mut Encoder, combatant: &ResolvedCombatantSpec) {
     encoder.i64(combatant.speed().scaled());
     encoder.i64(combatant.base_effect_hit_rate().scaled());
     encoder.i64(combatant.base_effect_resistance().scaled());
+    for value in combatant.build_bonuses().secondary() {
+        encoder.i64(value.scaled());
+    }
+    for value in combatant.build_bonuses().element_damage_boosts() {
+        encoder.i64(value.scaled());
+    }
     encoder.i64(combatant.current_energy().scaled());
     encoder.i64(combatant.maximum_energy().scaled());
     encoder.u8(match combatant.rank() {
@@ -151,6 +165,13 @@ fn encode_combatant(encoder: &mut Encoder, combatant: &ResolvedCombatantSpec) {
     encoder.length(combatant.toughness_layers().len());
     for layer in combatant.toughness_layers() {
         encoder.u32(layer.key());
+        match layer.stable_key() {
+            None => encoder.u8(0),
+            Some(stable_key) => {
+                encoder.u8(1);
+                encoder.text(stable_key);
+            }
+        }
         encoder.u8(layer.kind() as u8);
         encoder.i64(layer.maximum().get());
         encoder.bool(layer.active());
@@ -190,6 +211,7 @@ fn encode_combatant(encoder: &mut Encoder, combatant: &ResolvedCombatantSpec) {
     for binding in combatant.modifier_bindings() {
         encoder.u32(binding.definition().get());
         encoder.u32(binding.source().get());
+        encoder.u8(u8::from(binding.applies_to_linked_subjects()));
     }
     encoder.length(combatant.sources().len());
     for source in combatant.sources() {
@@ -262,9 +284,9 @@ mod tests {
     use super::*;
     use crate::{
         AbilityId, AssemblyDigest, BattleSpec, CombatantSpecDigest, EncounterId, EnemyDefinitionId,
-        Energy, FormationIndex, Hp, KeyedTeamResourceSpec, LifeState, ParticipantInitialState,
-        PresenceState, ResolvedDefinitionBindings, SourceDefinitionId, Speed,
-        TeamResourceWavePolicy, UnitDefinitionId, UnitLevel,
+        Energy, FormationIndex, Hp, KeyedTeamResourceSpec, LethalRescueHpPolicy, LifeState,
+        ParticipantInitialState, PlayerLethalRescueSpec, PresenceState, ResolvedDefinitionBindings,
+        SourceDefinitionId, Speed, TeamResourceWavePolicy, UnitDefinitionId, UnitLevel,
     };
 
     fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
@@ -435,7 +457,23 @@ mod tests {
                 .with_keyed(vec![keyed])
                 .unwrap(),
         );
-        for changed in [&changed_combatant, &carry, &resources] {
+        let defeat_energy = baseline
+            .clone()
+            .with_enemy_defeat_energy(Energy::from_scaled(5_000_000).unwrap())
+            .unwrap();
+        let lethal_rescue = baseline
+            .clone()
+            .with_player_lethal_rescue(
+                PlayerLethalRescueSpec::new(LethalRescueHpPolicy::MaximumHp, None).unwrap(),
+            )
+            .unwrap();
+        for changed in [
+            &changed_combatant,
+            &carry,
+            &resources,
+            &defeat_energy,
+            &lethal_rescue,
+        ] {
             assert_ne!(
                 baseline.combat_input_digest(),
                 changed.combat_input_digest()

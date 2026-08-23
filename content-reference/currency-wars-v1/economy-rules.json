@@ -228,6 +228,78 @@
         "mechanism_quality": "DirectStructured"
       },
       {
+        "source_id": "source.goal12.exceloutput-gridfightconstvaluecommonv2-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstValueCommonV2.json",
+        "locator": "10",
+        "sha256": "019ccfe333b294a0245fb1d063e2da82d1e0bf8b2de8744db90d0f4bd09c5d41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstvaluecommonv2-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstValueCommonV2.json",
+        "locator": "11",
+        "sha256": "b01df350d43fe8080747b5bbc86770191448ce88f782c0dcafd891eccd90221a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstvaluecommonv2-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstValueCommonV2.json",
+        "locator": "16",
+        "sha256": "38954d7ec6127bdafe6da94effa7f662b1c2ae49c8a1fadf934389f5bcfadea6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstvaluecommonv2-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstValueCommonV2.json",
+        "locator": "17",
+        "sha256": "9e2e5a4675ef981463af75c4bb6db360d224de927bcf19f6917fa981961ac316",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstvaluecommonv2-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstValueCommonV2.json",
+        "locator": "18",
+        "sha256": "5585d13cc7cb0a8f153c8f9de10e9c1f1e208a7e6ec473259ab801af8df8ecb7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstvaluecommonv2-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstValueCommonV2.json",
+        "locator": "19",
+        "sha256": "06fac39d2637623918f6217ce28b537314e241e92d644a08fc97efd411626bd5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
         "source_id": "source.goal12.textmap.en.7693488975416237801",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
@@ -257,7 +329,7 @@
         "revision": "starclock.currency-wars-normalized-schema.v1",
         "path": "content-manifests/currency-wars-v1/normalized-schema.json",
         "locator": "gold-coin-stable-identity",
-        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "sha256": "9b9b0b62f72d65d793a701620aa3c83949dab52dcfaafd24cc2cee686be636d9",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ProjectPolicy",
@@ -272,7 +344,7 @@
       "gridfight"
     ],
     "currency_ids": [
-      "currency-wars.currency.gold-coins"
+      "currency-wars.currency.gold-coin"
     ],
     "experience_rules": {
       "resource_id": "1",
@@ -293,7 +365,25 @@
     },
     "refresh_rules": {
       "cards_per_refresh": "5",
-      "refresh_gold": "2"
+      "refresh_gold": "2",
+      "copies_per_role_by_rarity": [
+        "30",
+        "25",
+        "18",
+        "10",
+        "9"
+      ],
+      "role_initial_weight": "100",
+      "maximum_stolen_same_card_by_rarity": [
+        "10",
+        "8",
+        "6",
+        "3",
+        "3"
+      ],
+      "stolen_pool_refund_initial_purchase": "4",
+      "stolen_pool_refund_sell": "2",
+      "stolen_pool_refund_hold": "2"
     },
     "interest_rules": {
       "deposit_per_interest": "10",

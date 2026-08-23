@@ -1,24 +1,25 @@
+
 [[enums]]
 name = "UniverseServiceKind"
-values = ["Currency", "ResetBlessing", "Reviver", "Downloader", "RespiteOffers", "EnhanceBlessing", "BlessingShop", "CurioShop", "TrailblazeBonus"]
+values = [{ id = 0, name = "Currency" }, { id = 1, name = "ResetBlessing" }, { id = 2, name = "Reviver" }, { id = 3, name = "Downloader" }, { id = 4, name = "RespiteOffers" }, { id = 5, name = "EnhanceBlessing" }, { id = 6, name = "BlessingShop" }, { id = 7, name = "CurioShop" }, { id = 8, name = "TrailblazeBonus" }]
 
 [[enums]]
 name = "UniverseServiceProfileOwner"
-values = ["Standard", "SwarmDisaster", "GoldAndGears", "DivergentUniverse"]
+values = [{ id = 0, name = "Standard" }, { id = 1, name = "SwarmDisaster" }, { id = 2, name = "GoldAndGears" }, { id = 3, name = "DivergentUniverse" }]
 
 [[enums]]
 name = "UniverseAbilityEffectClass"
-values = ["Run", "Battle", "RunAndBattle"]
+values = [{ id = 0, name = "Run" }, { id = 1, name = "Battle" }, { id = 2, name = "RunAndBattle" }]
 
 [[enums]]
 name = "UniverseAbilityOperation"
-values = ["Unlock", "AddStat", "UnlockFormationSlot", "Set", "AddLimit", "Enable", "AddCurrency", "AddChoice", "AddResource", "SetRatio"]
+values = [{ id = 0, name = "Unlock" }, { id = 1, name = "AddStat" }, { id = 2, name = "UnlockFormationSlot" }, { id = 3, name = "Set" }, { id = 4, name = "AddLimit" }, { id = 5, name = "Enable" }, { id = 6, name = "AddCurrency" }, { id = 7, name = "AddChoice" }, { id = 8, name = "AddResource" }, { id = 9, name = "SetRatio" }]
 
 [[enums]]
 name = "UniverseAbilityValueUnit"
-values = ["Boolean", "Flat", "Count", "Ratio"]
-
+values = [{ id = 0, name = "Boolean" }, { id = 1, name = "Flat" }, { id = 2, name = "Count" }, { id = 3, name = "Ratio" }]
 [[tables]]
+id = "universe-occurrence"
 name = "UniverseOccurrence"
 mode = "map"
 key = "id"
@@ -68,6 +69,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-occurrence-variant"
 name = "UniverseOccurrenceVariant"
 mode = "map"
 key = "id"
@@ -121,6 +123,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-occurrence-choice"
 name = "UniverseOccurrenceChoice"
 mode = "map"
 key = "id"
@@ -189,6 +192,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-occurrence-cost"
 name = "UniverseOccurrenceCost"
 mode = "list"
 [tables.source]
@@ -217,6 +221,7 @@ fields = ["choice_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-occurrence-outcome"
 name = "UniverseOccurrenceOutcome"
 mode = "list"
 [tables.source]
@@ -264,6 +269,7 @@ fields = ["choice_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-service"
 name = "UniverseService"
 mode = "map"
 key = "id"
@@ -323,6 +329,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-service-parameter"
 name = "UniverseServiceParameter"
 mode = "list"
 [tables.source]
@@ -350,6 +357,7 @@ fields = ["service_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-ability-tree-node"
 name = "UniverseAbilityTreeNode"
 mode = "map"
 key = "id"
@@ -410,6 +418,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-ability-tree-edge"
 name = "UniverseAbilityTreeEdge"
 mode = "list"
 [tables.source]
@@ -432,6 +441,7 @@ fields = ["node_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-ability-tree-cost"
 name = "UniverseAbilityTreeCost"
 mode = "list"
 [tables.source]
@@ -459,6 +469,7 @@ fields = ["node_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-ability-tree-effect"
 name = "UniverseAbilityTreeEffect"
 mode = "list"
 [tables.source]
@@ -495,6 +506,7 @@ fields = ["node_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-ability-tree-parameter"
 name = "UniverseAbilityTreeParameter"
 mode = "list"
 [tables.source]

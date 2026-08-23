@@ -272,8 +272,17 @@ fn resolve_effect_runtime(
         })
         .transpose()?
         .unwrap_or(Scalar::ZERO);
+    let hp_floor = template
+        .hp_floor_expression()
+        .map(|expression| {
+            evaluate_value(expression, input, Some(target))
+                .map_err(|error| program_fault(74, i64::from(error.context())))
+                .and_then(non_negative_scalar)
+                .map(|value| Ratio::from_scaled(value.scaled()))
+        })
+        .transpose()?;
     let runtime = template
-        .resolve(duration, magnitude)
+        .resolve(duration, magnitude, hp_floor)
         .ok_or_else(|| program_fault(47, i64::try_from(target.get()).unwrap_or(i64::MAX)))?;
     resolve_negative_effect_duration(runtime, input, target)
 }

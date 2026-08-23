@@ -9,7 +9,7 @@
     "summary_zh_cn": "段位 1 的进度为 1，标准博弈计分规则为 801，超频博弈计分规则为 801。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
-    "evidence_quality": "ExactStructured",
+    "evidence_quality": "ProjectPolicy",
     "source_refs": [
       {
         "source_id": "source.goal12.exceloutput-gridfightdivisioninfo-json.0",
@@ -58,6 +58,20 @@
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gridfight-initial-division-level",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gridfight-initial-division-level",
+        "sha256": "b50787c47b734a372ff4b2db14899464a24138efd35d2fd765f6b0fa03c6d7f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "GridFightDivisionInfo rows 1 and 2 omit DivisionLevel while their released names identify Black Iron #1 and Viridian Bronze #1; use their IDs as levels 1 and 2. All other rows use the authored DivisionLevel field.",
+        "replacement_condition": "Replace when released structured data publishes DivisionLevel directly for GridFightDivisionInfo rows 1 and 2."
       }
     ],
     "tags": [
@@ -67,10 +81,18 @@
     ],
     "source_id": "1",
     "rank_bounds": {
+      "division_level": "1",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "0",
+      "level_base_hp_ratio": "1",
+      "level_base_attack_ratio": "1"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "801",
@@ -123,12 +145,20 @@
     ],
     "source_id": "10101",
     "rank_bounds": {
+      "division_level": "1",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [
       "Config/Level/GridFight/Division/GridFightDivision10101.json"
     ],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "1",
+      "level_base_hp_ratio": "1",
+      "level_base_attack_ratio": "1.05"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DirectJsonPath",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -181,10 +211,18 @@
     ],
     "source_id": "10102",
     "rank_bounds": {
+      "division_level": "1",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "2",
+      "level_base_hp_ratio": "1",
+      "level_base_attack_ratio": "1.1"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -237,10 +275,18 @@
     ],
     "source_id": "10103",
     "rank_bounds": {
+      "division_level": "1",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "3",
+      "level_base_hp_ratio": "1",
+      "level_base_attack_ratio": "1.15"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -293,10 +339,18 @@
     ],
     "source_id": "10201",
     "rank_bounds": {
+      "division_level": "2",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "6",
+      "level_base_hp_ratio": "1.05",
+      "level_base_attack_ratio": "1.24"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -349,10 +403,18 @@
     ],
     "source_id": "10202",
     "rank_bounds": {
+      "division_level": "2",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "7",
+      "level_base_hp_ratio": "1.05",
+      "level_base_attack_ratio": "1.3"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -405,10 +467,18 @@
     ],
     "source_id": "10203",
     "rank_bounds": {
+      "division_level": "2",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "8",
+      "level_base_hp_ratio": "1.05",
+      "level_base_attack_ratio": "1.36"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -461,10 +531,20 @@
     ],
     "source_id": "10301",
     "rank_bounds": {
+      "division_level": "3",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "11",
+      "level_base_hp_ratio": "1.05",
+      "level_base_attack_ratio": "1.5"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -517,10 +597,20 @@
     ],
     "source_id": "10302",
     "rank_bounds": {
+      "division_level": "3",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "12",
+      "level_base_hp_ratio": "1.05",
+      "level_base_attack_ratio": "1.57"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -573,10 +663,20 @@
     ],
     "source_id": "10303",
     "rank_bounds": {
+      "division_level": "3",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "13",
+      "level_base_hp_ratio": "1.05",
+      "level_base_attack_ratio": "1.64"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -629,12 +729,22 @@
     ],
     "source_id": "10401",
     "rank_bounds": {
+      "division_level": "4",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [
       "Config/Level/GridFight/Division/GridFightDivision10401.json"
     ],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "16",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "1.84"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DirectJsonPath",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -687,10 +797,20 @@
     ],
     "source_id": "10402",
     "rank_bounds": {
+      "division_level": "4",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "17",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "1.92"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -743,10 +863,20 @@
     ],
     "source_id": "10403",
     "rank_bounds": {
+      "division_level": "4",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "18",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -799,10 +929,20 @@
     ],
     "source_id": "10404",
     "rank_bounds": {
+      "division_level": "4",
       "progress": "4",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "19",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.08"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -855,10 +995,20 @@
     ],
     "source_id": "10405",
     "rank_bounds": {
+      "division_level": "4",
       "progress": "5",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "20",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.16"
+    },
+    "enemy_affix_choice_counts": [
+      "1"
+    ],
+    "binary_difficulty_rule": "1",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -911,10 +1061,21 @@
     ],
     "source_id": "10501",
     "rank_bounds": {
+      "division_level": "5",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "23",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.45"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -967,10 +1128,21 @@
     ],
     "source_id": "10502",
     "rank_bounds": {
+      "division_level": "5",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "24",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.55"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1023,10 +1195,21 @@
     ],
     "source_id": "10503",
     "rank_bounds": {
+      "division_level": "5",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "25",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.65"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1079,10 +1262,21 @@
     ],
     "source_id": "10504",
     "rank_bounds": {
+      "division_level": "5",
       "progress": "4",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "26",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.75"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1135,10 +1329,21 @@
     ],
     "source_id": "10505",
     "rank_bounds": {
+      "division_level": "5",
       "progress": "5",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "27",
+      "level_base_hp_ratio": "1.1",
+      "level_base_attack_ratio": "2.85"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1191,12 +1396,23 @@
     ],
     "source_id": "10601",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [
       "Config/Level/GridFight/Division/GridFightDivision10601.json"
     ],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "30",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "3.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DirectJsonPath",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1249,10 +1465,21 @@
     ],
     "source_id": "10602",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "31",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "3.35"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1305,10 +1532,21 @@
     ],
     "source_id": "10603",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "32",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "3.5"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1361,10 +1599,21 @@
     ],
     "source_id": "10604",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "4",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "33",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "3.65"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1417,10 +1666,21 @@
     ],
     "source_id": "10605",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "5",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "34",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "3.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1473,10 +1733,21 @@
     ],
     "source_id": "10606",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "6",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "35",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "3.95"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1529,10 +1800,21 @@
     ],
     "source_id": "10607",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "7",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "36",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "4.1"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1585,10 +1867,21 @@
     ],
     "source_id": "10608",
     "rank_bounds": {
+      "division_level": "6",
       "progress": "8",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "44",
+      "level_base_hp_ratio": "1.15",
+      "level_base_attack_ratio": "4.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1641,10 +1934,22 @@
     ],
     "source_id": "10701",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "39",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "4.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1697,10 +2002,22 @@
     ],
     "source_id": "10702",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "40",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "4.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1753,10 +2070,22 @@
     ],
     "source_id": "10703",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "41",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "5"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1809,10 +2138,22 @@
     ],
     "source_id": "10704",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "4",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "42",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "5.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1865,10 +2206,22 @@
     ],
     "source_id": "10705",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "5",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "43",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "5.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1921,10 +2274,22 @@
     ],
     "source_id": "10706",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "6",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "44",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "5.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -1977,10 +2342,22 @@
     ],
     "source_id": "10707",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "7",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "45",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "5.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2033,10 +2410,22 @@
     ],
     "source_id": "10708",
     "rank_bounds": {
+      "division_level": "7",
       "progress": "8",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "54",
+      "level_base_hp_ratio": "1.2",
+      "level_base_attack_ratio": "6.5"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2089,10 +2478,22 @@
     ],
     "source_id": "10801",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "49",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "6.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2145,10 +2546,22 @@
     ],
     "source_id": "10802",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "50",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "7.1"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2201,10 +2614,22 @@
     ],
     "source_id": "10803",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "51",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "7.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2257,10 +2682,22 @@
     ],
     "source_id": "10804",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "4",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "52",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "7.7"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2313,10 +2750,22 @@
     ],
     "source_id": "10805",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "5",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "53",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2369,10 +2818,22 @@
     ],
     "source_id": "10806",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "6",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "54",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "8.3"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2425,10 +2886,22 @@
     ],
     "source_id": "10807",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "7",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "55",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "8.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2481,10 +2954,22 @@
     ],
     "source_id": "10808",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "8",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "56",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "8.9"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2537,10 +3022,22 @@
     ],
     "source_id": "10809",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "9",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "57",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "9.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2593,10 +3090,22 @@
     ],
     "source_id": "10810",
     "rank_bounds": {
+      "division_level": "8",
       "progress": "10",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "66",
+      "level_base_hp_ratio": "1.3",
+      "level_base_attack_ratio": "10"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2649,10 +3158,23 @@
     ],
     "source_id": "10901",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "1",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "61",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "10.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2705,10 +3227,23 @@
     ],
     "source_id": "10902",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "62",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "11.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2761,10 +3296,23 @@
     ],
     "source_id": "10903",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "3",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "63",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "12"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2817,10 +3365,23 @@
     ],
     "source_id": "10904",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "4",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "64",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "12.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2873,10 +3434,23 @@
     ],
     "source_id": "10905",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "5",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "65",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "13.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2929,10 +3503,23 @@
     ],
     "source_id": "10906",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "6",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "66",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "13.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -2985,10 +3572,23 @@
     ],
     "source_id": "10907",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "7",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "67",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "14.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3041,10 +3641,23 @@
     ],
     "source_id": "10908",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "8",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "68",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "15"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3097,10 +3710,23 @@
     ],
     "source_id": "10909",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "9",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "69",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "15.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3153,10 +3779,23 @@
     ],
     "source_id": "10910",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "10",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "70",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "16.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3209,10 +3848,23 @@
     ],
     "source_id": "10911",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "11",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "74",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "19"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3265,10 +3917,23 @@
     ],
     "source_id": "10912",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "12",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "75",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "20"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3321,10 +3986,23 @@
     ],
     "source_id": "10913",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "13",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "76",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "21"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3377,10 +4055,23 @@
     ],
     "source_id": "10914",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "14",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "77",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "22"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3433,10 +4124,23 @@
     ],
     "source_id": "10915",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "15",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "78",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "23"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3489,10 +4193,23 @@
     ],
     "source_id": "10916",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "16",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "79",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "24"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3545,10 +4262,23 @@
     ],
     "source_id": "10917",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "17",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "80",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "25"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3601,10 +4331,23 @@
     ],
     "source_id": "10918",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "18",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "81",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "26"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3657,10 +4400,23 @@
     ],
     "source_id": "10919",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "19",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "82",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "27"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3713,10 +4469,23 @@
     ],
     "source_id": "10920",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "20",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "83",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "28"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3769,10 +4538,23 @@
     ],
     "source_id": "10921",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "21",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "87",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "28.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3825,10 +4607,23 @@
     ],
     "source_id": "10922",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "22",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "88",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "28.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3881,10 +4676,23 @@
     ],
     "source_id": "10923",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "23",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "89",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "29.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3937,10 +4745,23 @@
     ],
     "source_id": "10924",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "24",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "90",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "29.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -3993,10 +4814,23 @@
     ],
     "source_id": "10925",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "25",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "91",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "30"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4049,10 +4883,23 @@
     ],
     "source_id": "10926",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "26",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "92",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "30.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4105,10 +4952,23 @@
     ],
     "source_id": "10927",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "27",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "93",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "30.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4161,10 +5021,23 @@
     ],
     "source_id": "10928",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "28",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "94",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "31.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4217,10 +5090,23 @@
     ],
     "source_id": "10929",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "29",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "95",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "31.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4273,10 +5159,23 @@
     ],
     "source_id": "10930",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "30",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "96",
+      "level_base_hp_ratio": "1.4",
+      "level_base_attack_ratio": "32"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4329,10 +5228,23 @@
     ],
     "source_id": "10931",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "31",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "99",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "32.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4385,10 +5297,23 @@
     ],
     "source_id": "10932",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "32",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "100",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "33.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4441,10 +5366,23 @@
     ],
     "source_id": "10933",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "33",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "101",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "34.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4497,10 +5435,23 @@
     ],
     "source_id": "10934",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "34",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "102",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "35.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4553,10 +5504,23 @@
     ],
     "source_id": "10935",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "35",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "103",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "36"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4609,10 +5573,23 @@
     ],
     "source_id": "10936",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "36",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "104",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "36.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4665,10 +5642,23 @@
     ],
     "source_id": "10937",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "37",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "105",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "37.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4721,10 +5711,23 @@
     ],
     "source_id": "10938",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "38",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "106",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "38.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4777,10 +5780,23 @@
     ],
     "source_id": "10939",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "39",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "107",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "39.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4833,10 +5849,23 @@
     ],
     "source_id": "10940",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "40",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "108",
+      "level_base_hp_ratio": "1.5",
+      "level_base_attack_ratio": "40"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4889,10 +5918,23 @@
     ],
     "source_id": "10941",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "41",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "111",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "40.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -4945,10 +5987,23 @@
     ],
     "source_id": "10942",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "42",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "112",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "41.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5001,10 +6056,23 @@
     ],
     "source_id": "10943",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "43",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "113",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "42.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5057,10 +6125,23 @@
     ],
     "source_id": "10944",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "44",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "114",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "43.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5113,10 +6194,23 @@
     ],
     "source_id": "10945",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "45",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "115",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "44"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5169,10 +6263,23 @@
     ],
     "source_id": "10946",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "46",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "116",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "44.8"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5225,10 +6332,23 @@
     ],
     "source_id": "10947",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "47",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "117",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "45.6"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5281,10 +6401,23 @@
     ],
     "source_id": "10948",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "48",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "118",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "46.4"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5337,10 +6470,23 @@
     ],
     "source_id": "10949",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "49",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "119",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "47.2"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5393,10 +6539,23 @@
     ],
     "source_id": "10950",
     "rank_bounds": {
+      "division_level": "9",
       "progress": "50",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "120",
+      "level_base_hp_ratio": "1.6",
+      "level_base_attack_ratio": "48"
+    },
+    "enemy_affix_choice_counts": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "binary_difficulty_rule": "2",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "1",
@@ -5415,7 +6574,7 @@
     "summary_zh_cn": "段位 2 的进度为 2，标准博弈计分规则为 802，超频博弈计分规则为 802。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
-    "evidence_quality": "ExactStructured",
+    "evidence_quality": "ProjectPolicy",
     "source_refs": [
       {
         "source_id": "source.goal12.exceloutput-gridfightdivisioninfo-json.1",
@@ -5464,6 +6623,20 @@
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gridfight-initial-division-level",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gridfight-initial-division-level",
+        "sha256": "b50787c47b734a372ff4b2db14899464a24138efd35d2fd765f6b0fa03c6d7f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "GridFightDivisionInfo rows 1 and 2 omit DivisionLevel while their released names identify Black Iron #1 and Viridian Bronze #1; use their IDs as levels 1 and 2. All other rows use the authored DivisionLevel field.",
+        "replacement_condition": "Replace when released structured data publishes DivisionLevel directly for GridFightDivisionInfo rows 1 and 2."
       }
     ],
     "tags": [
@@ -5473,10 +6646,18 @@
     ],
     "source_id": "2",
     "rank_bounds": {
+      "division_level": "2",
       "progress": "2",
       "season_id": "1"
     },
     "enemy_scaling_refs": [],
+    "enemy_scaling": {
+      "enemy_difficulty_level": "0",
+      "level_base_hp_ratio": "1",
+      "level_base_attack_ratio": "1"
+    },
+    "enemy_affix_choice_counts": [],
+    "binary_difficulty_rule": "",
     "enemy_scaling_resolution": "DeferredToP1B9",
     "gambit_rules": {
       "standard_score_rule": "802",

@@ -80,6 +80,12 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
         [group, command, rest @ ..] if group == "currency-wars" && command == "inspect" => {
             currency_wars::inspect(rest).map_err(CliError::CurrencyWars)
         }
+        [group, command, rest @ ..] if group == "currency-wars" && command == "coverage" => {
+            currency_wars::coverage(rest).map_err(CliError::CurrencyWars)
+        }
+        [group, command, rest @ ..] if group == "currency-wars" && command == "run" => {
+            currency_wars::run(rest).map_err(CliError::CurrencyWars)
+        }
         [group, command, rest @ ..] if group == "catalog" && command == "coverage" => {
             catalog_coverage(rest)
         }
@@ -136,7 +142,7 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | currency-wars config validate [--json] | currency-wars inspect --route ID [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
+            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | currency-wars config validate [--json] | currency-wars inspect --route ID [--json] | currency-wars coverage [--json] | currency-wars run --route ID --difficulty ID --gambit standard|overclock --seed U64 [--controller baseline] [--replay-out PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
@@ -518,6 +524,9 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         }
     };
     let bytes = fs::read(file).map_err(CliError::Io)?;
+    if currency_wars::is_replay(&bytes) {
+        return currency_wars::verify_replay(&bytes, json).map_err(CliError::CurrencyWars);
+    }
     if swarm_disaster::is_replay(&bytes) {
         return swarm_disaster::verify_replay(&bytes, json).map_err(CliError::SwarmDisaster);
     }

@@ -107,7 +107,7 @@ assert(
   packManifest.normalized_files.length === 102
   && packIndex.file_digests.length === 101
   && mechanics.length === 2_367
-  && sources.length === 37_342
+  && sources.length === 37_458
   && fixtures.length === 28
   && gaps.length === 12
   && receipts.length === 4,
@@ -115,8 +115,8 @@ assert(
 );
 assert(
   ownership.result === "Pass"
-  && ownership.normalized.row_count === 74_850
-  && ownership.normalized.bilingual_rows_audited === 74_850
+  && ownership.normalized.row_count === 75_083
+  && ownership.normalized.bilingual_rows_audited === 75_083
   && ownership.normalized.unresolved_source_references === 0
   && ownership.normalized.other_mode_source_leaks === 0
   && ownership.normalized.runtime_enabled_or_lowered_rows === 0
@@ -135,7 +135,7 @@ assert(
   semantic.result === "Pass"
   && semantic.fixture_results.length === 28
   && semantic.mechanic_coverage.total === mechanics.length
-  && semantic.mechanic_coverage.runtime_lowered === 0
+  && semantic.mechanic_coverage.runtime_lowered === 85
   && semantic.approximation_coverage.total === gaps.length
   && semantic.approximation_coverage.orphan_count === 0,
   "semantic fixture evidence differs",
@@ -157,7 +157,7 @@ for (const table of schema.tables) {
 assert(
   schema.tables.length === 102
   && debugFiles.length === 102
-  && generatedRows === 74_850
+  && generatedRows === 75_083
   && emptyTables === 16,
   "Sora export denominator differs",
 );
@@ -289,7 +289,7 @@ const evidence = {
   },
   authoring: {
     adapter: "openpyxl==3.1.5",
-    schema_export_authority: "sora-cli==0.3.0",
+    schema_export_authority: "sora-cli==0.6.1",
     tables: schema.tables.length,
     rows: generatedRows,
     verified_empty_tables: emptyTables,

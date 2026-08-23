@@ -1,0 +1,240 @@
+{
+  "schema_revision": "starclock.currency-wars-complex-ai-global-factor-m11-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-M11",
+  "status": "VersionedProjectPolicyExecutable",
+  "accuracy": "ExactAuthoredShapeWithPolicyBoundMapperSemantics",
+  "partition_program_count": 64,
+  "exact_program_count": 1,
+  "terminal_metadata_count": 63,
+  "released_shape_totals": {
+    "groups": 2,
+    "factors": 5,
+    "ranges": 13,
+    "property_ratio_sources": 2,
+    "ai_tag_sources": 1,
+    "contains_modifier_sources": 2
+  },
+  "policy_boundary": {
+    "mapper_policy_id": "currency-wars.complex-ai-multirange-policy.v1",
+    "selected_behavior": "Evaluate ranges in authored order, default missing x/y endpoints to zero, linearly interpolate within the first inclusive range, clamp outside authored bounds, and fold factors in order using Add or Mul.",
+    "unresolved_field": "Released public evidence does not expose the engine implementation of ComplexSkillAIMapperMultiRange endpoint defaults, boundary ownership or interpolation rounding.",
+    "confidence": "PolicyOnlyNotObservedParity",
+    "replacement_condition": "Replace when released engine documentation or reproducible observations prove MultiRange endpoint, interpolation and rounding semantics.",
+    "observed_parity_claimed": false
+  },
+  "execution_contract": "The exact released group, factor, source and decimal-range shape is lowered to fixed-point values; deterministic MultiRange endpoint, interpolation and fold behavior remains explicitly policy-bound.",
+  "behavioral_evidence": [
+    "currency_wars::tests::production_m11_global_complex_ai_factors_preserve_exact_shape_and_policy_boundary"
+  ],
+  "verification_commands": [
+    "cargo test -p starclock-data currency_wars::tests::production_m11_global_complex_ai_factors_preserve_exact_shape_and_policy_boundary -- --exact",
+    "node tools/currency-wars-runtime/verify-dispositions.mjs"
+  ],
+  "program": {
+    "mechanic_id": "currency-wars.mechanic-rule.27c9fc5eecef7dd2f8cef0b1",
+    "source_path": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Global_FactorGroups_GridFight.json",
+    "source_sha256": "6990aca039eaf0b56edb525dfc1fa3f94885999d9a53f4d1d5ea7a635ef68f68",
+    "mechanical_shape_sha256": "fa78f2ff5b9d92e578320870a6ee7b94dccff79c16e03d3ce4b0393d704019d7",
+    "groups": [
+      {
+        "stable_key": "Base_GridFight_SingleHeal",
+        "factors": [
+          {
+            "combine_operator": "Add",
+            "source_type": "RPG.GameCore.ComplexSkillAISourcePropertyCompareRatio",
+            "property_type_a": "CurrentHP",
+            "property_type_b": "MaxHP",
+            "dynamic_value_key": "",
+            "modifier_name": "",
+            "is_target": null,
+            "data_type": "",
+            "team_type": "",
+            "evaluator_type": "",
+            "evaluator_dynamic_value_key": "",
+            "list_combine_type": "",
+            "ai_tag_key": "",
+            "default_ai_tag_value": null,
+            "power_of_combat_power": null,
+            "power_of_damage_carry": null,
+            "sum_up_servant_damage_carry": null,
+            "value_type": "",
+            "ranges": [
+              {
+                "xmin": null,
+                "ymin": "1500",
+                "xmax": "0.4",
+                "ymax": "1100"
+              },
+              {
+                "xmin": "0.4",
+                "ymin": "1100",
+                "xmax": "0.6",
+                "ymax": "800"
+              },
+              {
+                "xmin": "0.6",
+                "ymin": "800",
+                "xmax": "0.7",
+                "ymax": "100"
+              },
+              {
+                "xmin": "0.7",
+                "ymin": "50",
+                "xmax": "1",
+                "ymax": "1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "stable_key": "Base_GridFight_SingleShield",
+        "factors": [
+          {
+            "combine_operator": "Add",
+            "source_type": "RPG.GameCore.ComplexSkillAISourceAITag",
+            "property_type_a": "",
+            "property_type_b": "",
+            "dynamic_value_key": "AggroNeed",
+            "modifier_name": "",
+            "is_target": null,
+            "data_type": "",
+            "team_type": "",
+            "evaluator_type": "",
+            "evaluator_dynamic_value_key": "",
+            "list_combine_type": "",
+            "ai_tag_key": "",
+            "default_ai_tag_value": null,
+            "power_of_combat_power": null,
+            "power_of_damage_carry": null,
+            "sum_up_servant_damage_carry": null,
+            "value_type": "",
+            "ranges": [
+              {
+                "xmin": "1",
+                "ymin": "30",
+                "xmax": "10",
+                "ymax": "90"
+              },
+              {
+                "xmin": null,
+                "ymin": null,
+                "xmax": "1",
+                "ymax": null
+              }
+            ]
+          },
+          {
+            "combine_operator": "Mul",
+            "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+            "property_type_a": "",
+            "property_type_b": "",
+            "dynamic_value_key": "",
+            "modifier_name": "MAvatar_March7th_00_BPSkill_Shield",
+            "is_target": null,
+            "data_type": "",
+            "team_type": "",
+            "evaluator_type": "",
+            "evaluator_dynamic_value_key": "",
+            "list_combine_type": "",
+            "ai_tag_key": "",
+            "default_ai_tag_value": null,
+            "power_of_combat_power": null,
+            "power_of_damage_carry": null,
+            "sum_up_servant_damage_carry": null,
+            "value_type": "",
+            "ranges": [
+              {
+                "xmin": null,
+                "ymin": "1",
+                "xmax": "0.5",
+                "ymax": "1"
+              },
+              {
+                "xmin": "0.5",
+                "ymin": null,
+                "xmax": "1",
+                "ymax": null
+              }
+            ]
+          },
+          {
+            "combine_operator": "Add",
+            "source_type": "RPG.GameCore.ComplexSkillAISourcePropertyCompareRatio",
+            "property_type_a": "CurrentHP",
+            "property_type_b": "MaxHP",
+            "dynamic_value_key": "",
+            "modifier_name": "",
+            "is_target": null,
+            "data_type": "",
+            "team_type": "",
+            "evaluator_type": "",
+            "evaluator_dynamic_value_key": "",
+            "list_combine_type": "",
+            "ai_tag_key": "",
+            "default_ai_tag_value": null,
+            "power_of_combat_power": null,
+            "power_of_damage_carry": null,
+            "sum_up_servant_damage_carry": null,
+            "value_type": "",
+            "ranges": [
+              {
+                "xmin": null,
+                "ymin": "110",
+                "xmax": "0.5",
+                "ymax": "90"
+              },
+              {
+                "xmin": "0.5",
+                "ymin": "95",
+                "xmax": "0.75",
+                "ymax": "90"
+              },
+              {
+                "xmin": "0.75",
+                "ymin": "50",
+                "xmax": "1",
+                "ymax": "1"
+              }
+            ]
+          },
+          {
+            "combine_operator": "Mul",
+            "source_type": "RPG.GameCore.ComplexSkillAIContainModifier",
+            "property_type_a": "",
+            "property_type_b": "",
+            "dynamic_value_key": "",
+            "modifier_name": "MAvatar_March7th_00_BPSkill_Shield",
+            "is_target": null,
+            "data_type": "",
+            "team_type": "",
+            "evaluator_type": "",
+            "evaluator_dynamic_value_key": "",
+            "list_combine_type": "",
+            "ai_tag_key": "",
+            "default_ai_tag_value": null,
+            "power_of_combat_power": null,
+            "power_of_damage_carry": null,
+            "sum_up_servant_damage_carry": null,
+            "value_type": "",
+            "ranges": [
+              {
+                "xmin": null,
+                "ymin": "1",
+                "xmax": "0.5",
+                "ymax": "1"
+              },
+              {
+                "xmin": "0.5",
+                "ymin": "0.2",
+                "xmax": "1",
+                "ymax": "0.2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

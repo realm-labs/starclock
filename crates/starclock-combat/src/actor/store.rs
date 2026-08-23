@@ -1,8 +1,8 @@
 use crate::{
     AiGraphId, AiStateId, EnemyDefinitionId, EnemyPhaseId, OperationId, Scalar, SourceDefinitionId,
     battle::spec::{
-        CombatantSpecDigest, FormationIndex, ParticipantSource, TeamResourceWavePolicy, TeamSide,
-        UnitLevel,
+        CombatantSpecDigest, FormationIndex, ParticipantSource, ResolvedBuildBonuses,
+        TeamResourceWavePolicy, TeamSide, UnitLevel,
     },
     formula::{model::CombatElement, toughness::EnemyRank},
     id::{
@@ -31,12 +31,17 @@ pub(crate) struct UnitState {
     pub(crate) life: LifeState,
     pub(crate) presence: PresenceState,
     pub(crate) current_hp: Hp,
+    /// Immutable battle-entry maximum HP used by bounded maximum-HP mutations.
+    pub(crate) initial_maximum_hp: Hp,
     pub(crate) maximum_hp: Hp,
+    /// Effective HP damage credited to this combatant during the current battle.
+    pub(crate) damage_dealt: i64,
     pub(crate) base_attack: StatValue,
     pub(crate) base_defense: StatValue,
     pub(crate) base_speed: Speed,
     pub(crate) base_effect_hit_rate: Scalar,
     pub(crate) base_effect_resistance: Scalar,
+    pub(crate) build_bonuses: ResolvedBuildBonuses,
     pub(crate) current_energy: Energy,
     pub(crate) maximum_energy: Energy,
     pub(crate) rank: EnemyRank,
@@ -48,6 +53,7 @@ pub(crate) struct UnitState {
     pub(crate) abilities: Box<[AbilityId]>,
     pub(crate) rule_bundles: Box<[RuleBundleId]>,
     pub(crate) modifiers: Box<[ModifierDefinitionId]>,
+    pub(crate) linked_subject_modifiers: Box<[ModifierDefinitionId]>,
     pub(crate) resources: Box<[CharacterResourceState]>,
     pub(crate) digest: CombatantSpecDigest,
     pub(crate) transformation: Option<TransformationState>,

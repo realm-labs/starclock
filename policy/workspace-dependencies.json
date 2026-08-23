@@ -12,7 +12,7 @@
     },
     {
       "name": "starclock-agent-api",
-      "local": ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-universe", "starclock-replay"],
+      "local": ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-currency-wars", "starclock-mode-universe", "starclock-replay"],
       "external": [
         { "name": "allocation-counter", "requirement": "=0.8.1", "features": [], "kind": "dev" },
         { "name": "proptest", "requirement": "=1.11.0", "features": ["std"], "kind": "dev" },
@@ -23,8 +23,11 @@
     },
     {
       "name": "starclock-ai",
-      "local": ["starclock-combat"],
-      "external": []
+      "local": ["starclock-activity", "starclock-combat", "starclock-data", "starclock-mode-currency-wars", "starclock-replay"],
+      "external": [
+        { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"], "kind": "dev" },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
     },
     {
       "name": "starclock-build",
@@ -35,7 +38,7 @@
     },
     {
       "name": "starclock-cli",
-      "local": ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"],
+      "local": ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-currency-wars", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"],
       "external": [
         { "name": "allocation-counter", "requirement": "=0.8.1", "features": [], "kind": "dev" },
         { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"], "kind": "dev" }
@@ -92,8 +95,10 @@
     },
     {
       "name": "starclock-mode-currency-wars",
-      "local": ["starclock-activity", "starclock-combat"],
-      "external": []
+      "local": ["starclock-activity", "starclock-build", "starclock-combat"],
+      "external": [
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
     },
     {
       "name": "starclock-mode-fate-night",

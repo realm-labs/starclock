@@ -1,0 +1,35 @@
+{
+  "schema_revision": "starclock.currency-wars-transition-replay-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-B5",
+  "result": "Pass",
+  "assigned_source_rows": 0,
+  "exact_behavior": {
+    "assembly_preflight": "deployment and current Encounter decision validate before contribution materialization or cache access",
+    "rejected_scaling": "mismatched chapter or difficulty leaves cache entries, hits and misses unchanged",
+    "cache_commit": "a miss and FIFO insertion occur only after complete BattleSpec assembly and Battle::create validation",
+    "stale_settlement": "a repeated result from an already-settled handoff is rejected without state or RNG mutation",
+    "generated_follow_up_failure": "post-settlement RNG draws, carry, rewards, graph transition and generated operations roll back together",
+    "battle_ownership": "Activity settlement consumes an immutable BattleResult and cannot mutate an independently owned live Battle",
+    "fresh_reconstruction": [
+      "same configuration identity, Activity instance, master seed and attempt",
+      "same immutable contribution snapshot and encounter selection",
+      "same BattleSpec, preparation events and handoff identity",
+      "same result projection, settlement events, Activity state and RNG",
+      "same next transition BattleSpec and cache accounting"
+    ],
+    "mode_id_resolver_branches": 0
+  },
+  "behavioral_evidence": [
+    "currency_wars_runtime_tests::production_standard_route_executes_economy_roster_battles_and_terminal_settlement",
+    "currency_wars_runtime_tests::production_transition_battles_reconstruct_from_fresh_state_and_seed",
+    "runtime_tests::battle_settlement_carries_participant_state_rewards_and_next_node_atomically",
+    "runtime_tests::rejected_generated_settlement_follow_up_restores_activity_and_rng",
+    "GraphActivity::submit_pending_battle_result_with_generated_follow_up"
+  ],
+  "replay_boundary": {
+    "current_proof": "fresh in-memory reconstruction across two transition battles",
+    "deferred_owner": "G21-P7-B5",
+    "deferred_work": "component-addressed serialized replay, command trace reconstruction and first-divergence reporting"
+  }
+}

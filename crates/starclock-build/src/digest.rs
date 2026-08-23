@@ -2,13 +2,14 @@
 
 use sha2::{Digest, Sha256};
 use starclock_combat::{
-    AbilityId, Hp, ModifierDefinitionId, ResolvedModifierBinding, RuleBundleId, Speed, StatValue,
-    UnitDefinitionId, UnitLevel,
+    AbilityId, Hp, ModifierDefinitionId, ResolvedBuildBonuses, ResolvedModifierBinding,
+    RuleBundleId, Scalar, Speed, StatValue, UnitDefinitionId, UnitLevel,
     rule::model::{RuleSource, SourceClass},
 };
 
 use crate::{
     catalog::CharacterBuildDefinition,
+    contribution::{BuildContributionApplicability, BuildContributionDefinition},
     light_cone::{CombatPath, LightConeApplicability, LightConeDefinition},
     patch::BuildPatch,
     preset::BuildPreset,
@@ -63,6 +64,7 @@ pub(crate) fn catalog_digest(
     characters: &[CharacterBuildDefinition],
     light_cones: &[LightConeDefinition],
     presets: &[BuildPreset],
+    contributions: &[BuildContributionDefinition],
 ) -> BuildCatalogDigest {
     let mut encoder = Encoder::new(b"starclock-build-catalog");
     encoder.bytes(&combat_digest);
@@ -79,6 +81,23 @@ pub(crate) fn catalog_digest(
         encoder.u32(preset.id().get());
         encoder.string(preset.name());
         encode_spec(&mut encoder, preset.spec());
+    }
+    encoder.len(contributions.len());
+    for contribution in contributions {
+        encoder.u32(contribution.id().get());
+        encode_source(&mut encoder, contribution.source());
+        match contribution.applicability() {
+            BuildContributionApplicability::Any => encoder.u8(0),
+            BuildContributionApplicability::Form(form) => {
+                encoder.u8(1);
+                encoder.u32(form.get());
+            }
+            BuildContributionApplicability::Path(path) => {
+                encoder.u8(2);
+                encoder.u8(path_tag(path));
+            }
+        }
+        encode_patches(&mut encoder, contribution.patches());
     }
     BuildCatalogDigest::new(encoder.finish())
 }
@@ -100,6 +119,9 @@ pub(crate) struct ResolvedDigestInput<'a> {
     pub attack: StatValue,
     pub defense: StatValue,
     pub speed: Speed,
+    pub effect_hit_rate: Scalar,
+    pub effect_resistance: Scalar,
+    pub build_bonuses: ResolvedBuildBonuses,
     pub abilities: &'a [AbilityId],
     pub rules: &'a [RuleBundleId],
     pub modifiers: &'a [ModifierDefinitionId],
@@ -115,6 +137,14 @@ pub(crate) fn resolved_spec_digest(input: ResolvedDigestInput<'_>) -> [u8; 32] {
     encoder.i64(input.attack.scaled());
     encoder.i64(input.defense.scaled());
     encoder.i64(input.speed.scaled());
+    encoder.i64(input.effect_hit_rate.scaled());
+    encoder.i64(input.effect_resistance.scaled());
+    for value in input.build_bonuses.secondary() {
+        encoder.i64(value.scaled());
+    }
+    for value in input.build_bonuses.element_damage_boosts() {
+        encoder.i64(value.scaled());
+    }
     encoder.ids(input.abilities.iter().map(|id| id.get()));
     encoder.ids(input.rules.iter().map(|id| id.get()));
     encoder.ids(input.modifiers.iter().map(|id| id.get()));
@@ -122,6 +152,7 @@ pub(crate) fn resolved_spec_digest(input: ResolvedDigestInput<'_>) -> [u8; 32] {
     for binding in input.modifier_bindings {
         encoder.u32(binding.definition().get());
         encoder.u32(binding.source().get());
+        encoder.u8(u8::from(binding.applies_to_linked_subjects()));
     }
     encoder.len(input.sources.len());
     for source in input.sources {
@@ -223,6 +254,20 @@ fn encode_spec(encoder: &mut Encoder, spec: &CombatantBuildSpec) {
             encoder.u8(cone.promotion().get());
             encoder.u8(cone.superimposition().get());
         }
+    }
+    encoder.ids(spec.contributions().iter().map(|id| id.get()));
+    let relics = spec.relic_stats();
+    for value in relics.base_flats() {
+        encoder.i64(value.scaled());
+    }
+    for value in relics.base_ratios() {
+        encoder.i64(value.scaled());
+    }
+    for value in relics.secondary() {
+        encoder.i64(value.scaled());
+    }
+    for value in relics.element_damage_boosts() {
+        encoder.i64(value.scaled());
     }
 }
 

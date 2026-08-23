@@ -244,7 +244,8 @@
         "gambit_mode_ids",
         "initial_resources",
         "finish_condition_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "gambit-modes.json",
@@ -261,7 +262,8 @@
         "unlock_ids",
         "entry_rules",
         "initial_resources"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "modules.json",
@@ -278,7 +280,8 @@
         "tourn_mode",
         "main_tourn_id",
         "sub_tourn_id"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "entries.json",
@@ -295,7 +298,8 @@
         "module_id",
         "unlock_ids",
         "gambit_mode_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "finish-conditions.json",
@@ -311,7 +315,8 @@
         "condition_kind",
         "parameters",
         "terminal_disposition"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "area-groups.json",
@@ -327,7 +332,8 @@
         "area_ids",
         "selection_policy",
         "transition_rules"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "areas.json",
@@ -344,7 +350,8 @@
         "difficulty_ids",
         "layer_ids",
         "map_entry_id"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "difficulties.json",
@@ -359,8 +366,12 @@
       "required_domain_fields": [
         "rank_bounds",
         "enemy_scaling_refs",
+        "enemy_scaling",
+        "enemy_affix_choice_counts",
+        "binary_difficulty_rule",
         "gambit_rules"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "layers.json",
@@ -376,7 +387,8 @@
         "plane_id",
         "layer_number",
         "ordered_node_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "rooms.json",
@@ -392,7 +404,8 @@
         "room_type",
         "reachability_disposition",
         "stage_refs"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "nodes.json",
@@ -415,7 +428,8 @@
         "penalty_bonus_rule_id",
         "basic_gold_reward",
         "next_node_id"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "domain-compositions.json",
@@ -430,7 +444,8 @@
         "room_candidate_ids",
         "selection_policy",
         "fallback"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "stage-flow.json",
@@ -445,7 +460,8 @@
         "ordered_node_refs",
         "carry_rules",
         "reset_rules"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "squad-hp-rules.json",
@@ -463,7 +479,8 @@
         "maximum_hp",
         "loss_rules",
         "recovery_rules"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "action-value-limits.json",
@@ -478,7 +495,8 @@
         "initial_value",
         "decrement_rules",
         "timeout_boundary"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "battle-result-projections.json",
@@ -493,7 +511,8 @@
         "squad_hp_projection",
         "action_value_projection",
         "run_disposition"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "run-failure-rules.json",
@@ -507,7 +526,8 @@
         "failure_condition",
         "same_boundary_order",
         "terminal_disposition"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "roster-avatars.json",
@@ -525,8 +545,11 @@
         "rarity",
         "role_id",
         "build_mapping_id",
-        "position_kind"
-      ]
+        "position_kind",
+        "trait_ids",
+        "backend_rank_ids"
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "economy-rules.json",
@@ -541,9 +564,11 @@
       "required_domain_fields": [
         "currency_ids",
         "experience_rules",
+        "interest_rules",
         "refresh_rules",
         "team_size_rules"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "roster-offers.json",
@@ -558,7 +583,8 @@
         "weights",
         "cost_rule",
         "fallback"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "roster-transactions.json",
@@ -573,7 +599,8 @@
         "price_rule",
         "eligibility",
         "ordered_state_changes"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "team-size-states.json",
@@ -588,8 +615,10 @@
         "field_cap",
         "bench_cap",
         "next_level_experience",
-        "transition_rules"
-      ]
+        "transition_rules",
+        "general_properties"
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "role-mappings.json",
@@ -605,7 +634,8 @@
         "avatar_id",
         "position_ids",
         "empowerment_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "positions.json",
@@ -622,7 +652,8 @@
         "field_index",
         "validation_rules",
         "battle_contributions"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "character-empowerments.json",
@@ -633,11 +664,21 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "avatar_id",
         "position_id",
         "activation",
         "effect_ids",
         "teardown"
+      ],
+      "optional_domain_fields": [
+        "category_tags",
+        "skill_level",
+        "cooldown",
+        "initial_cooldown",
+        "sp_multiple_ratio",
+        "delay_ratio",
+        "parameter_values"
       ]
     },
     {
@@ -649,12 +690,14 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "rule_kind",
         "trigger",
         "parameters",
         "ordered_operations",
         "teardown"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "bonds.json",
@@ -667,10 +710,18 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "member_ids",
         "level_ids",
         "recompute_timing",
-        "contribution_ids"
+        "contribution_ids",
+        "activation_type"
+      ],
+      "optional_domain_fields": [
+        "battle_event_ids",
+        "trait_effect_ids",
+        "parent_bond_id",
+        "selection_rules"
       ]
     },
     {
@@ -682,10 +733,19 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "bond_id",
         "level",
         "threshold",
-        "effect_ids"
+        "threshold_semantics",
+        "effect_ids",
+        "property_bind_type"
+      ],
+      "optional_domain_fields": [
+        "trait_member_properties",
+        "all_member_properties",
+        "override_battle_event_properties",
+        "property_parameters"
       ]
     },
     {
@@ -697,11 +757,15 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "bond_id",
         "level",
         "scope",
         "activation",
         "ordered_effects"
+      ],
+      "optional_domain_fields": [
+        "parameters"
       ]
     },
     {
@@ -718,7 +782,67 @@
         "avatar_id",
         "star_level",
         "copy_count",
-        "scaling_refs"
+        "scaling_refs",
+        "rank_attachments",
+        "battle_event_id",
+        "skill_override_source_ids",
+        "skill_override_destination_ids",
+        "front_skill_ids",
+        "back_execution_skill_ids",
+        "back_skill_ids",
+        "back_ability_name",
+        "config_path",
+        "ai_path",
+        "property_modifiers"
+      ],
+      "optional_domain_fields": [
+        "servant_id",
+        "front_power_base",
+        "back_power_base",
+        "luck_chance",
+        "luck_damage",
+        "extra_heal_base",
+        "extra_shield_base",
+        "hp_base",
+        "hp_inherit",
+        "hp_skill_id",
+        "speed_base",
+        "speed_inherit",
+        "speed_skill_id"
+      ]
+    },
+    {
+      "file": "influence-properties.json",
+      "record_kind": "CurrencyWarsInfluenceProperties",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "subject_kind",
+        "subject_level",
+        "properties"
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "contribution-parameters.json",
+      "record_kind": "CurrencyWarsContributionParameters",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_kind",
+        "source_id",
+        "consumer_policy"
+      ],
+      "optional_domain_fields": [
+        "combination_ids",
+        "bonus_numbers",
+        "value"
       ]
     },
     {
@@ -734,7 +858,8 @@
         "required_copies",
         "output_state",
         "overflow_rule"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "star-lifecycle-rules.json",
@@ -749,7 +874,8 @@
         "replacement_rule",
         "sale_rule",
         "teardown"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "build-reference-avatars.json",
@@ -766,7 +892,41 @@
         "owned_build_id",
         "trial_build_id",
         "eligibility"
-      ]
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "trial-builds.json",
+      "record_kind": "CurrencyWarsTrialBuilds",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "role_id",
+        "avatar_id",
+        "special_avatar_id",
+        "world_level",
+        "level",
+        "promotion",
+        "eidolon",
+        "skill_tree_template",
+        "skill_tree_key",
+        "equipment_id",
+        "equipment_level",
+        "equipment_promotion",
+        "equipment_rank",
+        "source_ability_bindings",
+        "relic_property_type",
+        "relic_property_type_extra",
+        "relic_main_value",
+        "relic_sub_value",
+        "relic_main_properties",
+        "relic_sub_properties",
+        "relic_sets"
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "build-source-files.json",
@@ -783,7 +943,8 @@
         "source_sha256",
         "mapping_role",
         "disposition"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "build-mappings.json",
@@ -794,11 +955,16 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "avatar_id",
         "level",
         "trace_state",
         "light_cone",
-        "relics"
+        "relics",
+        "account_mutation"
+      ],
+      "optional_domain_fields": [
+        "special_avatar_id"
       ]
     },
     {
@@ -814,7 +980,8 @@
         "owned_trial_policy",
         "refresh_timing",
         "teardown"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "off-field-conversions.json",
@@ -825,11 +992,13 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "source_kind",
         "eligibility",
         "conversion",
         "destination_state"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "equipment.json",
@@ -840,10 +1009,14 @@
         "id"
       ],
       "required_domain_fields": [
+        "source_id",
         "slot",
         "eligibility",
         "effect_ids",
         "replacement_rule"
+      ],
+      "optional_domain_fields": [
+        "parameters"
       ]
     },
     {
@@ -863,7 +1036,8 @@
         "effect_ids",
         "config_path",
         "lifecycle"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "augment-maze-buffs.json",
@@ -881,7 +1055,8 @@
         "binding",
         "parameters",
         "modifier"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "augment-monster-rules.json",
@@ -897,7 +1072,8 @@
         "quality",
         "parameters",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "augment-remarks.json",
@@ -912,7 +1088,8 @@
       "required_domain_fields": [
         "augment_id",
         "remark"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "enhancements.json",
@@ -929,7 +1106,8 @@
         "cost",
         "parameters",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "module-ban-rules.json",
@@ -945,7 +1123,8 @@
         "module_id",
         "subject_kind",
         "subject_id"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "orbs.json",
@@ -961,7 +1140,8 @@
         "bonus_id",
         "orb_type",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "orb-displays.json",
@@ -976,7 +1156,8 @@
       "required_domain_fields": [
         "orb_type",
         "display_locator"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "portal-buffs.json",
@@ -993,7 +1174,8 @@
         "effect_ids",
         "bonus_ids",
         "lifecycle"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "portal-maze-buffs.json",
@@ -1011,7 +1193,8 @@
         "binding",
         "parameters",
         "modifier"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "portal-remarks.json",
@@ -1026,7 +1209,8 @@
       "required_domain_fields": [
         "portal_id",
         "remark"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "projection-maze-buffs.json",
@@ -1044,7 +1228,8 @@
         "binding",
         "parameters",
         "modifier"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "projections.json",
@@ -1061,7 +1246,8 @@
         "unlock_type",
         "trait_ids",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "season-augment-memberships.json",
@@ -1076,7 +1262,8 @@
       "required_domain_fields": [
         "season_id",
         "augment_id"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "season-portal-memberships.json",
@@ -1091,7 +1278,8 @@
       "required_domain_fields": [
         "season_id",
         "portal_id"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "season-talents.json",
@@ -1110,7 +1298,8 @@
         "successor_ids",
         "effect_ids",
         "config_path"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "selected-enhancements.json",
@@ -1127,7 +1316,8 @@
         "cost",
         "parameters",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "talents.json",
@@ -1145,7 +1335,8 @@
         "successor_ids",
         "effect_ids",
         "config_path"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "talent-maze-buffs.json",
@@ -1163,7 +1354,8 @@
         "binding",
         "parameters",
         "modifier"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "rank-gambit-progression.json",
@@ -1180,7 +1372,8 @@
         "gambit_mode",
         "entry_boundary",
         "enemy_affix_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "enemy-affixes.json",
@@ -1194,7 +1387,8 @@
         "rank_bounds",
         "difficulty_ids",
         "battle_contributions"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "permanent-progression.json",
@@ -1209,7 +1403,8 @@
         "scope",
         "entry_changes",
         "available_choice_changes"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "blessing-paths.json",
@@ -1225,7 +1420,8 @@
         "path_id",
         "offer_roles",
         "formula_roles"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "blessings.json",
@@ -1242,7 +1438,8 @@
         "category",
         "level_ids",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "blessing-levels.json",
@@ -1259,7 +1456,8 @@
         "level",
         "parameters",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "blessing-groups.json",
@@ -1275,7 +1473,8 @@
         "candidate_ids",
         "selection_policy",
         "weight_program"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "formulas.json",
@@ -1292,7 +1491,8 @@
         "recipe_id",
         "progress_states",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "formula-displays.json",
@@ -1308,7 +1508,8 @@
         "formula_id",
         "display_state",
         "mechanical_summary_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "formula-randomizers.json",
@@ -1325,7 +1526,8 @@
         "weight_program",
         "reroll_rule",
         "fallback"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "formula-recipes.json",
@@ -1339,7 +1541,8 @@
         "required_path_counts",
         "required_blessing_states",
         "completion_rule"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "formula-contributions.json",
@@ -1354,7 +1557,8 @@
         "source_state",
         "scope",
         "ordered_effects"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "curios.json",
@@ -1370,7 +1574,8 @@
         "category",
         "state_ids",
         "eligibility_rule_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "curio-states.json",
@@ -1387,7 +1592,8 @@
         "state",
         "charges",
         "effect_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "curio-groups.json",
@@ -1403,7 +1609,8 @@
         "candidate_state_ids",
         "weights",
         "eligibility"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "curio-lifecycle-rules.json",
@@ -1420,7 +1627,8 @@
         "repair",
         "replacement",
         "fallback"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "hex-states.json",
@@ -1438,7 +1646,8 @@
         "activation",
         "effect_ids",
         "teardown"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "hex-eligibility.json",
@@ -1455,7 +1664,8 @@
         "subject_id",
         "eligibility",
         "replacement"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "occurrences.json",
@@ -1471,7 +1681,8 @@
         "variant_ids",
         "unlock_rules",
         "choice_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "occurrence-variants.json",
@@ -1488,7 +1699,8 @@
         "graph_path",
         "entry_conditions",
         "choice_ids"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "occurrence-choices.json",
@@ -1504,7 +1716,8 @@
         "conditions",
         "costs",
         "ordered_outcomes"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "workbenches.json",
@@ -1520,7 +1733,8 @@
         "function_ids",
         "currency_ids",
         "availability"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "workbench-functions.json",
@@ -1537,7 +1751,8 @@
         "input_policy",
         "output_policy",
         "price_rule"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "gamble-groups.json",
@@ -1553,7 +1768,8 @@
         "group_type",
         "unit_ids",
         "offer_policy"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "gamble-units.json",
@@ -1569,7 +1785,8 @@
         "unit_type",
         "parameters",
         "outcome_program"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "curse-chests.json",
@@ -1585,7 +1802,8 @@
         "chest_type",
         "parameters",
         "choice_program"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "adventure-outcomes.json",
@@ -1601,7 +1819,8 @@
         "adventure_type",
         "parameter_group_id",
         "abstract_outcome"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "currencies.json",
@@ -1616,7 +1835,8 @@
         "gain_rules",
         "spend_rules",
         "reset_rule"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "shop-services.json",
@@ -1631,7 +1851,8 @@
         "price_rule",
         "inventory_rule",
         "refresh_rule"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "service-offer-rules.json",
@@ -1646,7 +1867,118 @@
         "candidate_ids",
         "weights",
         "fallback"
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "reward-definitions.json",
+      "record_kind": "CurrencyWarsRewardDefinitions",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "roster_cost_shop_team_size_economy"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "operation_kind",
+        "parameters"
+      ],
+      "optional_domain_fields": [
+        "budget_cost",
+        "scalar_parameter"
       ]
+    },
+    {
+      "file": "reward-pools.json",
+      "record_kind": "CurrencyWarsRewardPools",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "roster_cost_shop_team_size_economy"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "total_value",
+        "candidate_bonus_ids",
+        "candidate_maximums",
+        "candidate_weights",
+        "fallback"
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "equipment-recipes.json",
+      "record_kind": "CurrencyWarsEquipmentRecipes",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "build_mappings_equipment_conversions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "season_id",
+        "output_equipment_id",
+        "input_equipment_ids"
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "equipment-upgrades.json",
+      "record_kind": "CurrencyWarsEquipmentUpgrades",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "build_mappings_equipment_conversions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_equipment_id",
+        "output_equipment_id"
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "forge-services.json",
+      "record_kind": "CurrencyWarsForgeServices",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "build_mappings_equipment_conversions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "equipment_category",
+        "offer_count",
+        "target_kind",
+        "parameters"
+      ],
+      "optional_domain_fields": []
+    },
+    {
+      "file": "service-constants.json",
+      "record_kind": "CurrencyWarsServiceConstants",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "roster_cost_shop_team_size_economy"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "value",
+        "consumer_policy"
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "encounter-source-obligations.json",
@@ -1662,6 +1994,12 @@
         "parent_kind",
         "parent_id",
         "resolution_state"
+      ],
+      "optional_domain_fields": [
+        "stage_id",
+        "camp_ids",
+        "stage_snapshot",
+        "replacement_condition"
       ]
     },
     {
@@ -1676,8 +2014,13 @@
         "plane_id",
         "difficulty_id",
         "rank",
-        "candidate_stage_ids"
-      ]
+        "candidate_stage_ids",
+        "monster_ids",
+        "battle_area_ids",
+        "boss_battle_area_id",
+        "randomization"
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "encounter-waves.json",
@@ -1692,7 +2035,8 @@
         "wave_index",
         "enemy_slot_ids",
         "trigger"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "enemy-slots.json",
@@ -1708,6 +2052,9 @@
         "monster_id",
         "level",
         "ability_refs"
+      ],
+      "optional_domain_fields": [
+        "shared_enemy_key"
       ]
     },
     {
@@ -1722,8 +2069,11 @@
         "plane_id",
         "difficulty_id",
         "candidate_monster_ids",
-        "selection_policy"
-      ]
+        "selection_policy",
+        "boss_battle_area_id",
+        "candidate_stage_ids"
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "mechanic-source-files.json",
@@ -1740,7 +2090,8 @@
         "source_sha256",
         "mechanic_family",
         "disposition"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "mechanic-rules.json",
@@ -1756,7 +2107,8 @@
         "ordered_operations",
         "state_lifecycle",
         "runtime_lowered"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "sources.json",
@@ -1773,7 +2125,8 @@
         "locator",
         "sha256",
         "mechanism_quality"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "coverage.json",
@@ -1788,7 +2141,8 @@
         "manifest_record_id",
         "normalized_record_ids",
         "state"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "research-gaps.json",
@@ -1804,7 +2158,8 @@
         "selected_policy",
         "alternatives",
         "replacement_condition"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "semantic-fixture-families.json",
@@ -1819,7 +2174,8 @@
       "required_domain_fields": [
         "minimum_cases",
         "must_cover"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "review-fixtures.json",
@@ -1835,7 +2191,8 @@
         "input",
         "ordered_operations",
         "expected_facts"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "reconciliation-receipts.json",
@@ -1851,7 +2208,8 @@
         "evidence_sha256",
         "checkpoint",
         "outcome"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "manifest.json",
@@ -1865,7 +2223,8 @@
         "content_manifest_sha256",
         "normalized_files",
         "record_counts"
-      ]
+      ],
+      "optional_domain_fields": []
     },
     {
       "file": "pack-index.json",
@@ -1879,7 +2238,8 @@
         "pack_digest",
         "file_digests",
         "stable_id_index"
-      ]
+      ],
+      "optional_domain_fields": []
     }
   ]
 }

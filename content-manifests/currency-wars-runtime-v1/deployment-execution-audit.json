@@ -1,0 +1,71 @@
+{
+  "schema_revision": "starclock.currency-wars-deployment-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P3-B5",
+  "result": "Pass",
+  "production_denominators": {
+    "team_levels": 10,
+    "level_to_field_cap": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10
+    },
+    "front_minimum": 1,
+    "front_maximum": 4,
+    "back_initial": 6,
+    "back_maximum": 9,
+    "bench_capacity": 9
+  },
+  "exact_behavior": {
+    "team_level_controls_total_deployed_cap": true,
+    "front_and_current_back_caps_are_validated_at_each_mutation": true,
+    "off_position_deployment_is_legal": true,
+    "off_position_empowerment_eligibility_is_false": true,
+    "authored_front_minimum_is_required_at_battle_entry": true,
+    "synthesis_reconciles_deployment_in_the_purchase_boundary": true,
+    "rejected_battle_entry_preserves_state_and_rng": true
+  },
+  "exact_once_boundary": {
+    "terminal_source_rows": 5,
+    "deferred_team_level_rows": 10,
+    "deferred_team_level_owner": "G21-P4-B6",
+    "deferred_team_level_reason": "GridFightLevelV2 rows also own battle-facing level properties, so their row-level exact-once disposition remains pending until immutable battle contribution materialization.",
+    "consumed_service_bench_overflow_rows": 1,
+    "service_bench_overflow_owner": "G21-P5-B6",
+    "service_bench_overflow_reason": "GridFight_Bench_OverFlow_AvatarNum bounds non-shop service grants; ordinary shop and deployment mutations retain the authored nine-unit waiting-area cap."
+  },
+  "policies": [
+    {
+      "field": "deployment.same_boundary_synthesis_identity",
+      "current_accuracy": "VersionedProjectPolicy",
+      "selected_behavior": "When synthesis consumes deployed copies, preserve occupied positions in stable position order and place the highest resulting state in the earliest compatible occupied position; remove additional consumed positions in the same purchase boundary.",
+      "rejected_alternatives": [
+        "leave consumed role states deployed until a later repair command",
+        "choose the retained deployed position by collection iteration order",
+        "clear every deployed copy even when one resulting state remains"
+      ],
+      "confidence": "PolicyOnlyNotObservedParity",
+      "replacement_condition": "Replace when released structured data or a reproducible Version 4.4 observation proves which deployed instance retains the synthesized state."
+    }
+  ],
+  "released_public_cross_checks": [
+    {
+      "url": "https://d2ankz0m1a0dsp.cloudfront.net/star-rail/guides/currency-wars/",
+      "accessed": "2026-08-13",
+      "fact": "A character can be deployed outside its authored position, but its unique Currency Wars ability is then inactive."
+    }
+  ],
+  "behavioral_evidence": [
+    "economy::tests::off_position_roles_are_legal_but_their_position_ability_is_inactive",
+    "runtime_tests::battle_entry_rejects_a_back_only_deployment_without_mutating_the_run",
+    "runtime_tests::synthesis_preserves_the_earliest_deployed_copy_as_the_upgraded_state",
+    "currency_wars::tests::production_bundle_lowers_to_complete_runtime_denominators"
+  ]
+}

@@ -6,12 +6,25 @@
 #![forbid(unsafe_code)]
 
 mod controller;
+mod currency_wars;
 mod select;
 #[cfg(test)]
 mod tests;
 
 /// Deterministic baseline player scoring and diagnostics.
 pub mod baseline;
+
+pub use currency_wars::{
+    CURRENCY_WARS_BASELINE_ACTIVITY_STEP_BUDGET, CURRENCY_WARS_BASELINE_BATTLE_COMMAND_BUDGET,
+    CURRENCY_WARS_BASELINE_CONCEDE_COMMAND_LIMIT, CurrencyWarsBaselineActivityAction,
+    CurrencyWarsBaselineActivityTraceEntry, CurrencyWarsBaselineBattleReport,
+    CurrencyWarsBaselineController, CurrencyWarsBaselineControllerError,
+    CurrencyWarsBaselineRunReport, CurrencyWarsBaselineTraceController,
+    CurrencyWarsBaselineTraceEntry, CurrencyWarsReplayDivergence, CurrencyWarsReplayDivergenceKind,
+    CurrencyWarsReplayError, CurrencyWarsReplayGambit, CurrencyWarsReplayIdentity,
+    CurrencyWarsReplayRequest, decode_currency_wars_replay_request, encode_currency_wars_replay,
+    verify_currency_wars_replay,
+};
 
 use starclock_combat::{
     AiCandidateId, AiGraphId, AiStateId, Command, UnitId,

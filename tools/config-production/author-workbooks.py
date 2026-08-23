@@ -20,8 +20,8 @@ DATA = ROOT / "config" / "data"
 TEMPLATES = ROOT / "config" / "generated" / "templates"
 MANIFEST_VALUES = {
     "game_version": "4.4",
-    "snapshot_date": "2026-07-17",
-    "sora_cli_version": "0.3.0",
+    "snapshot_date": "2026-07-24",
+    "sora_cli_version": "0.6.1",
 }
 NATIVE_HANDLER_FIELDS = [
     "id",

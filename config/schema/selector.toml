@@ -1,27 +1,27 @@
+
 [[enums]]
 name = "SelectorOrigin"
-values = ["Source", "Owner", "Actor", "Applier", "PrimaryTarget", "CurrentSubject", "Team", "Encounter"]
+values = [{ id = 0, name = "Source" }, { id = 1, name = "Owner" }, { id = 2, name = "Actor" }, { id = 3, name = "Applier" }, { id = 4, name = "PrimaryTarget" }, { id = 5, name = "CurrentSubject" }, { id = 6, name = "Team" }, { id = 7, name = "Encounter" }]
 
 [[enums]]
 name = "SideRelationship"
-values = ["SameSide", "OpposingSide", "AnySide"]
+values = [{ id = 0, name = "SameSide" }, { id = 1, name = "OpposingSide" }, { id = 2, name = "AnySide" }]
 
 [[enums]]
 name = "SelectorReferencePoint"
-values = ["CurrentState", "EventSnapshot", "ActionSnapshot"]
+values = [{ id = 0, name = "CurrentState" }, { id = 1, name = "EventSnapshot" }, { id = 2, name = "ActionSnapshot" }]
 
 [[enums]]
 name = "SelectorOrdering"
-values = ["Formation", "Timeline", "HpRatioAscending", "HpRatioDescending", "StatAscending", "StatDescending", "EventOrder", "StableId"]
+values = [{ id = 0, name = "Formation" }, { id = 1, name = "Timeline" }, { id = 2, name = "HpRatioAscending" }, { id = 3, name = "HpRatioDescending" }, { id = 4, name = "StatAscending" }, { id = 5, name = "StatDescending" }, { id = 6, name = "EventOrder" }, { id = 7, name = "StableId" }]
 
 [[enums]]
 name = "SelectorChoice"
-values = ["All", "First", "PrimaryPlusAdjacent", "RngUniform", "RngWeighted"]
+values = [{ id = 0, name = "All" }, { id = 1, name = "First" }, { id = 2, name = "PrimaryPlusAdjacent" }, { id = 3, name = "RngUniform" }, { id = 4, name = "RngWeighted" }]
 
 [[enums]]
 name = "EmptyPoolPolicy"
-values = ["NoOp", "Skip", "CancelRemaining", "Fault"]
-
+values = [{ id = 0, name = "NoOp" }, { id = 1, name = "Skip" }, { id = 2, name = "CancelRemaining" }, { id = 3, name = "Fault" }]
 [[unions]]
 name = "SelectorPredicateNode"
 tag = "type"
@@ -87,6 +87,7 @@ name = "value_expression_id"
 type = "ref<ValueExpression.id>"
 
 [[tables]]
+id = "selector"
 name = "Selector"
 mode = "map"
 key = "id"
@@ -158,6 +159,7 @@ name = "allow_repeated_targets"
 type = "bool"
 
 [[tables]]
+id = "selector-predicate"
 name = "SelectorPredicate"
 mode = "list"
 

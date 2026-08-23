@@ -11,7 +11,28 @@ impl ActivityTransactionState {
         cause: ActivityCause,
         graph: &ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
-        if self.terminal.is_some() {
+        self.apply_extension_program_at_settlement(program, cause, graph, false)
+    }
+
+    /// Applies state-only settlement work after the battle result has selected
+    /// its continuation or terminal node.
+    pub(crate) fn apply_settlement_extension_program(
+        &mut self,
+        program: &ActivityProgramDefinition,
+        cause: ActivityCause,
+        graph: &ActivityGraphDefinition,
+    ) -> ActivityTransactionOutcome {
+        self.apply_extension_program_at_settlement(program, cause, graph, true)
+    }
+
+    fn apply_extension_program_at_settlement(
+        &mut self,
+        program: &ActivityProgramDefinition,
+        cause: ActivityCause,
+        graph: &ActivityGraphDefinition,
+        allow_terminal: bool,
+    ) -> ActivityTransactionOutcome {
+        if self.terminal.is_some() && !allow_terminal {
             return ActivityTransactionOutcome::Rejected(
                 ActivityTransactionRejection::StateAlreadyAtBoundary,
             );

@@ -10,7 +10,7 @@
     "role": "Create and inspect new isolated Currency Wars Excel workbooks without patching existing files."
   },
   "authority": {
-    "schema_validation": "sora-cli 0.3.0",
+    "schema_validation": "sora-cli 0.6.1",
     "production_format": ".sora",
     "debug_format": "JSON",
     "note": "openpyxl is the requested authoring adapter and does not replace Sora validation, code generation or export."
@@ -22,7 +22,8 @@
     "archive_policy": "Sorted ZIP members, fixed ZIP timestamp, deflate level 9"
   },
   "verification": [
+    "node tools/currency-wars-reference/verify-sora-migration.mjs",
     "python tools/currency-wars-reference/verify-workbooks.py --root . --directory config/currency-wars/data",
-    "sora build --project config/currency-wars/project.toml"
+    "sora build --project config/currency-wars-project.toml"
   ]
 }

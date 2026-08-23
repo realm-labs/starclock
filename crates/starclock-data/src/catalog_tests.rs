@@ -18,11 +18,11 @@ fn production_bundle_builds_standard_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 6719,
-            enabled_identity_count: 6719,
-            ability_count: 1005,
+            identity_count: 6807,
+            enabled_identity_count: 6807,
+            ability_count: 1021,
             hit_plan_count: 354,
-            character_count: 88,
+            character_count: 90,
             light_cone_count: 165,
             effect_count: 144,
             ai_graph_count: 120,
@@ -1054,7 +1054,9 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in 1..=88 {
+    let mut forms = (1..=88).collect::<Vec<_>>();
+    forms.extend([1_160_001, 1_160_002]);
+    for raw in forms {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()

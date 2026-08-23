@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.currency-wars-equipment-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P4-B2",
+  "result": "Pass",
+  "production_denominators": {
+    "equipment_records": 520,
+    "runtime_equipment": 148,
+    "category_limits": 14,
+    "slot_limits": 2,
+    "off_field_rank_conversions": 252,
+    "off_field_signature_light_cone_conversions": 165,
+    "terminal_source_rows": 433
+  },
+  "exact_behavior": {
+    "ordinary_equipment_slots_per_role": 3,
+    "implant_slots_per_role": 1,
+    "hacking_components_consume_ordinary_slot": false,
+    "eligibility_lowered_before_runtime": true,
+    "replacement_inventory_and_loadout_commit_atomically": true,
+    "rejected_mutation_preserves_authoritative_state": true,
+    "role_teardown_returns_equipment_to_inventory": true,
+    "eidolon_conversion_selection": "cumulative E1 through selected Eidolon",
+    "signature_light_cone_selection": "exact selected Light Cone and superimposition",
+    "conversion_activation_position": "Back only"
+  },
+  "deferred_effect_execution": {
+    "equipment_static_contributions": "G21-P6-B3 BattleSpec assembler",
+    "equipment_dynamic_programs": "G21-P6-Mxx battle-visible mechanic partitions",
+    "equipment_upgrade_and_crafting": "G21-P5-B6",
+    "recommendation_rows": "MetadataOnly"
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.off-field-conversion-and-equipment-slots"
+  ],
+  "behavioral_evidence": [
+    "crates/starclock-mode-currency-wars/src/equipment.rs",
+    "crates/starclock-mode-currency-wars/src/runtime.rs",
+    "crates/starclock-mode-currency-wars/src/runtime_tests.rs",
+    "crates/starclock-data/src/currency_wars.rs",
+    "crates/starclock-data/src/currency_wars_build.rs",
+    "content-reference/currency-wars-v1/equipment.json",
+    "content-reference/currency-wars-v1/off-field-conversions.json",
+    "content-manifests/currency-wars-runtime-v1/equipment-execution-audit.json"
+  ]
+}

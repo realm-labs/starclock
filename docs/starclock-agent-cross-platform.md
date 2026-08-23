@@ -1,30 +1,29 @@
-# Starclock agent cross-platform evidence
+# Starclock cross-platform evidence
 
-Goal 02 added two suites to the pinned CI matrix. `agent-schema` executes the
-exact `agent-api-v1` schema/golden bundle and canonical value properties.
-`agent-trace` executes the shared nine-hash, 987-byte replay artifact through
-the in-process session API, stdio MCP and authorized real-TCP HTTP MCP.
+The pinned CI workflow has one full Linux current-tree job and one Currency
+Wars native matrix. The current-tree job runs formatting, workspace Clippy and
+all workspace tests on `ubuntu-24.04` with Rust 1.97.0.
 
-The native matrix is Windows x64 (`windows-2025`), Linux x64
-(`ubuntu-24.04`) and macOS ARM64 (`macos-15`). Each native job runs
-`node tools/repository-check/run.mjs --full` exactly once. That gate owns all
-current tests, including the Goal 02 schema and transport coverage; CI must not
-replay completed Goal runners after it. A successful per-run artifact may mark
-both suites `executed` for the exact checked commit and hosted image.
+The Currency Wars matrix executes release binaries on Windows x64
+(`windows-2025`), Linux x64 (`ubuntu-24.04`) and macOS ARM64 (`macos-15`). Each
+job runs the baseline/replay suite, the complete generated legal matrix and the
+frozen native evidence verifier for its exact target. The verifier compares
+canonical run, replay, verification, matrix, runtime-contract and exact-coverage
+hashes with `policy/currency-wars-native-evidence.json`.
 
-Windows ARM64, Linux ARM64 and macOS x64 are deliberately compile-only. Their
-jobs compile all workspace targets and test sources but run no target binary.
-Their evidence says `compiled-not-executed`; it is not schema-byte, replay,
-hash, numeric or runtime compatibility evidence.
+Windows ARM64, Linux ARM64 and macOS x64 are paired compile-only targets. Each
+native job runs `cargo check --workspace --all-targets` for its paired target.
+This proves compilation of workspace targets and test sources, but does not
+claim target-binary execution, replay or numeric parity.
 
-The committed
-binds the workflow contract, normalized suite-source hashes, schema digest and
-transport artifact digest. Hosted run IDs remain in the 30-day CI artifacts
-rather than being fabricated in the repository. Verify the static evidence
-boundary with:
+Local macOS ARM64 evidence is committed under
+`evidence/currency-wars-runtime-v1/`. Hosted run IDs remain CI-owned evidence;
+they are not fabricated in the repository. Verify the local frozen boundary
+with:
 
 ```text
-node tools/ci/verify-workflow.mjs
-node tools/ci/verify-golden-matrix.mjs
-node tools/agent-control/verify-agent-ci-matrix.mjs
+node tools/currency-wars-runtime/native-evidence.mjs \
+  --target aarch64-apple-darwin \
+  --check \
+  --output evidence/currency-wars-runtime-v1/native-local-macos-arm64.json
 ```

@@ -31725,6 +31725,48 @@
     }
   },
   {
+    "id": "currency-wars.equipment.slot-cap.one-implant-per-character",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsEquipment",
+    "name_en": "One implant slot per character",
+    "name_zh_cn": "每名角色一个植入组件栏位",
+    "summary_en": "Released Version 4.4 structured data gives each character one implant slot; Hacking Components use it without consuming one of the three ordinary Equipment slots.",
+    "summary_zh_cn": "Version 4.4 已发布结构化数据为每名角色提供一个植入组件栏位；骇客组件使用该栏位而不占用三个普通装备栏位。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.141",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "141",
+        "sha256": "5bd1a925fc40b51b6127f2990d750274007693a03405aae784651d471bedc623",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "equipment",
+      "exact-structured",
+      "implant-cap",
+      "slot-cap"
+    ],
+    "source_id": "GridFight_AvatarDressImplantsNum",
+    "slot": "CharacterImplant",
+    "eligibility": {
+      "maximum_count": "1"
+    },
+    "effect_ids": [],
+    "replacement_rule": "Reject or replace a Hacking Component when the character implant slot is occupied.",
+    "parameters": {
+      "maximum_count": "1"
+    }
+  },
+  {
     "id": "currency-wars.equipment.slot-cap.three-per-character",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsEquipment",
@@ -31736,6 +31778,18 @@
     "coverage_state": "DataReady",
     "evidence_quality": "ExactPublicText",
     "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "24",
+        "sha256": "e713346dcdba5d0b31c3b500ba168ddc4c21671fcb87d16e421b1604db91975c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
       {
         "source_id": "source.goal12.textmap.en.4007368254740170345",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",

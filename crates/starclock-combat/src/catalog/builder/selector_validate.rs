@@ -159,6 +159,16 @@ fn validate_predicates(
                     ),
                 ));
             }
+            RuleSelectorPredicate::UnitForm(form) if catalog.units.get(*form).is_none() => {
+                return Err(error(
+                    CatalogBuildErrorKind::MissingReference,
+                    format!(
+                        "selector {} predicate refers to missing unit form {}",
+                        id.get(),
+                        form.get()
+                    ),
+                ));
+            }
             _ => {}
         }
     }
@@ -171,6 +181,7 @@ fn historical_value_safe(expression: &ValueExpr) -> bool {
     match expression {
         ValueExpr::ReadResource { .. }
         | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
@@ -230,6 +241,7 @@ fn historical_condition_safe(condition: &ConditionExpr) -> bool {
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_)
         | ConditionExpr::EnemyRank { .. }
         | ConditionExpr::EnemyRankEliteOrBoss { .. } => false,
         ConditionExpr::Not(value) => historical_condition_safe(value),

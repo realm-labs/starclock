@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
-const through = valueAfter("--through") ?? "P3-B1";
+const through = valueAfter("--through") ?? "P3-B4";
 const toolPolicy = JSON.parse(fs.readFileSync(path.join(
   root,
   "policy/sora-toolchain.json",
@@ -34,14 +34,14 @@ execFileSync(sora, [
   "--serial",
   "check",
   "--project",
-  "config/currency-wars/project.toml",
+  "config/currency-wars-project.toml",
 ], { cwd: root, stdio: "inherit" });
 
 const expected = {
   "P3-B1": 22,
-  "P3-B2": 60,
-  "P3-B3": 94,
-  "P3-B4": 102,
+  "P3-B2": 63,
+  "P3-B3": 103,
+  "P3-B4": 111,
 }[through];
 const schemaFiles = {
   "P3-B1": ["core.toml"],

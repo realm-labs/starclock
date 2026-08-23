@@ -1,0 +1,67 @@
+{
+  "schema_revision": "starclock.currency-wars-cli-replay-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P7-B2",
+  "result": "Pass",
+  "assigned_source_rows": 0,
+  "commands": {
+    "validate": "currency-wars config validate [--json]",
+    "inspect": "currency-wars inspect --route ID [--json]",
+    "coverage": "currency-wars coverage [--json]",
+    "run": "currency-wars run --route ID --difficulty ID --gambit standard|overclock --seed U64 [--controller baseline] [--replay-out PATH] [--json]",
+    "verify": "replay verify FILE [--json]"
+  },
+  "current_coverage": {
+    "source_obligations": 19250,
+    "source_terminal": 19250,
+    "source_pending": 0,
+    "mechanic_programs": 2367,
+    "mechanic_terminal": 2367,
+    "semantic_fixture_families": 28,
+    "project_policies": 12,
+    "native_handlers": 0
+  },
+  "replay_contract": {
+    "environment": "4.4",
+    "component_count": 9,
+    "components": [
+      "CombatCatalog",
+      "BuildCatalog",
+      "ActivityCore",
+      "ModeProfile",
+      "ModeContent",
+      "ActivityHandlerRegistry",
+      "CombatRuleRegistry",
+      "EncounterOverlay",
+      "Controller"
+    ],
+    "accepted_activity_commands": true,
+    "accepted_battle_commands": true,
+    "expected_activity_states": true,
+    "expected_battle_states_and_events": true,
+    "nested_battle_boundaries": true,
+    "fresh_immutable_reexecution": true,
+    "exact_byte_verification": true,
+    "first_divergence_categories": [
+      "Catalog",
+      "Activity",
+      "BattleAssembly",
+      "BattleCommand",
+      "Settlement"
+    ]
+  },
+  "production_run_evidence": {
+    "route": 801,
+    "difficulty": 1,
+    "seed": 31000501,
+    "standard_terminal": "Completed",
+    "overclock_terminal": "Completed",
+    "nested_battles_per_run": 7
+  },
+  "behavioral_evidence": [
+    "currency_wars_cli::currency_wars_configuration_loads_production_catalog",
+    "currency_wars_cli::currency_wars_route_inspection_exposes_direct_ids",
+    "currency_wars_cli::currency_wars_coverage_reports_current_terminal_and_pending_denominators",
+    "currency_wars_cli::currency_wars_standard_and_overclock_runs_export_fresh_verifiable_replays"
+  ]
+}

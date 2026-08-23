@@ -21,7 +21,7 @@ const EXPECTED_TOOLS: [&str; 13] = [
     "starclock_verify_replay",
 ];
 const BASIC_SCENARIO: &str = "scenario.standard.basic-single-wave";
-const BASIC_FINAL_HASH: &str = "25c066d087f0c807c5454cdab688799697bbafaab8d92dd563f17716751d602c";
+const BASIC_FINAL_HASH: &str = "ba4a03c81869a030cc313fd95ae1e2431baa988a1a961006a84638fc162bd9a3";
 
 fn spawn_server() -> std::process::Child {
     Command::new(env!("CARGO_BIN_EXE_starclock"))
@@ -191,7 +191,9 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
             "starclock://universe/gold-and-gears/manifest",
             "starclock://rules/gold-and-gears",
             "starclock://universe/swarm-disaster/manifest",
-            "starclock://rules/swarm-disaster"
+            "starclock://rules/swarm-disaster",
+            "starclock://currency-wars/manifest",
+            "starclock://rules/currency-wars"
         ]
     );
     let templates = client.result("resources/templates/list", json!({}));

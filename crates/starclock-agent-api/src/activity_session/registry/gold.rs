@@ -13,6 +13,7 @@ impl ActivityAgentSessionRegistry {
             factory,
             Some(gold_factory),
             None,
+            None,
             clock,
             id_source,
             FROZEN_LIMITS,

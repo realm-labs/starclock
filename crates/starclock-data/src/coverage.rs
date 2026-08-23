@@ -193,20 +193,29 @@ mod tests {
     fn production_bundle_matches_the_frozen_goal_denominator() {
         let catalog = load(PRODUCTION_BUNDLE).unwrap();
         let report = catalog.goal_coverage();
-        assert_eq!(report.required(), 283);
-        assert_eq!(report.enabled(), 283);
-        assert_eq!(report.data_ready(), 283);
+        assert_eq!(report.required(), 285);
+        assert_eq!(report.enabled(), 285);
+        assert_eq!(report.data_ready(), 285);
+        // The two release-day additions have exact structured progression data,
+        // but their battle programs remain DataReady until mechanism fixtures
+        // close the released-text approximation.
         assert_eq!(report.golden_verified(), 283);
         assert_eq!(
             report
                 .category(GoalCoverageCategory::ReleasedCharacterCombatForms)
                 .required(),
-            88
+            90
         );
         assert_eq!(
             report
                 .category(GoalCoverageCategory::ReleasedCharacterCombatForms)
                 .data_ready(),
+            90
+        );
+        assert_eq!(
+            report
+                .category(GoalCoverageCategory::ReleasedCharacterCombatForms)
+                .golden_verified(),
             88
         );
         assert_eq!(

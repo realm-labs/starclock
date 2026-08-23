@@ -800,6 +800,28 @@ impl<'a> Transaction<'a> {
         }
     }
 
+    pub(super) fn set_skill_point_maximum(&mut self, side: TeamSide, maximum: u16, current: u16) {
+        let state = self.state.teams.get_mut(side);
+        let maximum_before = state.maximum_skill_points;
+        let current_before = state.skill_points;
+        if maximum_before != maximum {
+            state.maximum_skill_points = maximum;
+            self.journal.mutation(
+                MutationField::TeamMaximumSkillPoints,
+                u64::from(maximum_before),
+                u64::from(maximum),
+            );
+        }
+        if current_before != current {
+            state.skill_points = current;
+            self.journal.mutation(
+                MutationField::TeamSkillPoints,
+                u64::from(current_before),
+                u64::from(current),
+            );
+        }
+    }
+
     pub(super) fn set_team_resource(
         &mut self,
         side: TeamSide,
@@ -885,6 +907,53 @@ impl<'a> Transaction<'a> {
                 MutationField::UnitHp,
                 before.get().cast_unsigned(),
                 value.get().cast_unsigned(),
+            );
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_maximum_hp(&mut self, unit: UnitId, value: Hp) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(33))?;
+        if value.get() == 0 || value > state.initial_maximum_hp {
+            return Err(action_fault(57));
+        }
+        let before = state.maximum_hp;
+        if before != value {
+            state.maximum_hp = value;
+            self.journal.mutation(
+                MutationField::UnitMaximumHp,
+                before.get().cast_unsigned(),
+                value.get().cast_unsigned(),
+            );
+        }
+        Ok(())
+    }
+
+    pub(super) fn add_damage_dealt(
+        &mut self,
+        unit: UnitId,
+        amount: i64,
+    ) -> Result<(), BattleFault> {
+        if amount < 0 {
+            return Err(action_fault(58));
+        }
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(33))?;
+        let before = state.damage_dealt;
+        let after = before.checked_add(amount).ok_or_else(|| action_fault(59))?;
+        if before != after {
+            state.damage_dealt = after;
+            self.journal.mutation(
+                MutationField::UnitDamageDealt,
+                before.cast_unsigned(),
+                after.cast_unsigned(),
             );
         }
         Ok(())

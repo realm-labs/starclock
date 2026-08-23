@@ -160,7 +160,7 @@ fn catalog(shared_actor: bool) -> Arc<CombatCatalog> {
             WaveLinkPolicy::Persist,
         )
         .unwrap();
-        provider_ops.push(HitOperationDefinition::SummonLinked(linked));
+        provider_ops.push(HitOperationDefinition::SummonLinked(Box::new(linked)));
     } else {
         provider_ops.push(HitOperationDefinition::ApplyEffect(
             EffectApplicationDefinition::new(id(1), EffectChancePolicy::Guaranteed, 1).unwrap(),

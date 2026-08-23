@@ -141,7 +141,7 @@ it impossible for non-empty Universe rows to enter `starclock-data` before a
 reviewed domain lowering exists. The standalone
 `tools/universe-bundle-loader` compiles the isolated generated readers and
 proves binary decoding without exposing those rows to a runtime crate.
-[Goal 04](goals/04-standard-universe-runtime.md) now provides that deliberate
+[Standard Universe runtime design](25-standard-universe-runtime-design.md) provides that deliberate
 domain conversion and compatibility boundary: `starclock-mode-universe` reads
 the isolated bundle through private generated types and lowers validated rows
 into Starclock-owned immutable definitions. The core production bundle remains

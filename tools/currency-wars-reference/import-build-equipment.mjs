@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
@@ -74,6 +75,177 @@ const buildReferences = roles.map((entry) => ({
 }));
 outputs.set("build-reference-avatars.json", ordered(buildReferences));
 
+const specialAvatars = await context.table("SpecialAvatar");
+const roleStars = await context.table("GridFightRoleStar");
+const specialRelics = await context.table("SpecialAvatarRelic");
+const relicConfigs = await context.table("RelicConfig");
+const relicMainValues = await context.table("SpecialAvatarRelicMainValue");
+const relicSubValues = await context.table("SpecialAvatarRelicSubValue");
+const relicSetSkills = await context.table("RelicSetSkillConfig");
+const specialRelicByType = new Map(specialRelics.map((entry) => [
+  entry.row.RelicPropertyType,
+  entry,
+]));
+const relicConfigById = new Map(relicConfigs.map((entry) => [entry.row.ID, entry]));
+const relicMainByType = new Map(relicMainValues.map((entry) => [
+  entry.row.RelicMainValueType,
+  entry,
+]));
+const relicSubByType = new Map(relicSubValues.map((entry) => [
+  entry.row.RelicSubValueType,
+  entry,
+]));
+const relicSetSkillByThreshold = new Map(relicSetSkills.map((entry) => [
+  `${entry.row.SetID}:${entry.row.RequireNum}`,
+  entry,
+]));
+const specialById = new Map();
+for (const entry of specialAvatars) {
+  if (!specialById.has(entry.row.SpecialAvatarID))
+    specialById.set(entry.row.SpecialAvatarID, []);
+  specialById.get(entry.row.SpecialAvatarID).push(entry);
+}
+const sharedCharacters = JSON.parse(fs.readFileSync(path.join(
+  root,
+  "content-reference/v4.4/characters.json",
+), "utf8"));
+const sharedAbilities = JSON.parse(fs.readFileSync(path.join(
+  root,
+  "content-reference/v4.4/character-abilities.json",
+), "utf8"));
+const sharedCharacterByAvatar = new Map(sharedCharacters.flatMap((character) =>
+  character.source_avatar_ids.map((avatar) => [avatar, character])));
+const sharedAbilitiesByCharacter = Object.groupBy(
+  sharedAbilities,
+  (ability) => ability.character_id,
+);
+const roleStarsByRole = Object.groupBy(roleStars, ({ row }) => String(row.ID));
+
+function sourceSkillCandidates(source) {
+  const candidates = new Set([source]);
+  if (source.length === 7) {
+    candidates.add(`${source[0]}${source.slice(2)}`);
+    candidates.add(source.slice(1));
+  }
+  return candidates;
+}
+
+function sourceAbilityBindings(role) {
+  const character = sharedCharacterByAvatar.get(String(role.row.AvatarID));
+  if (!character)
+    throw new Error(`missing shared character for role ${role.row.ID}`);
+  const abilities = sharedAbilitiesByCharacter[character.id] ?? [];
+  const sources = new Set((roleStarsByRole[String(role.row.ID)] ?? [])
+    .flatMap(({ row }) => row.SkillOverrideSrc ?? [])
+    .map(String)
+    .filter((source) => source !== "0"));
+  return [...sources].sort((left, right) => Number(left) - Number(right))
+    .map((source) => {
+      const candidates = sourceSkillCandidates(source);
+      const matches = abilities.filter((ability) =>
+        ability.source_skill_ids.some((id) => candidates.has(id)));
+      if (matches.length !== 1)
+        throw new Error(`ambiguous shared ability for role ${role.row.ID} source skill ${source}`);
+      return {
+        source_skill_id: source,
+        shared_ability_stable_key: matches[0].id,
+      };
+    });
+}
+const trialBuilds = roles.map((role) => {
+  const candidates = specialById.get(role.row.SpecialAvatarID) ?? [];
+  const entry = candidates.find(({ row }) => row.WorldLevel === 6)
+    ?? candidates.find(({ row }) => row.WorldLevel === undefined);
+  if (!entry || entry.row.AvatarID !== role.row.AvatarID
+      || entry.row.Level !== 80 || entry.row.Promotion !== 6
+      || entry.row.EquipmentLevel !== 80 || entry.row.EquipmentPromotion !== 6
+      || entry.row.SkillTreeTemplate !== "TYPE_CUSTOM"
+      || !["W5_Standard_70-80", "MaxWithInLevel"]
+        .includes(entry.row.CustomSkillTreeKey))
+    throw new Error(`invalid world-level 6 trial Build for role ${role.row.ID}`);
+  const row = entry.row;
+  const main = relicMainByType.get(row.RelicMainValue);
+  const sub = relicSubByType.get(row.RelicSubValue);
+  if (!main || !sub)
+    throw new Error(`missing trial relic values for role ${role.row.ID}`);
+  const selectedSets = [row.RelicPropertyType, row.RelicPropertyTypeExtra]
+    .filter((value) => value !== undefined)
+    .map((propertyType) => {
+      const selector = specialRelicByType.get(propertyType);
+      if (!selector || selector.row.RelicIDList.length === 0)
+        throw new Error(`missing trial relic selector ${propertyType}`);
+      const pieces = selector.row.RelicIDList.map((value) => {
+        const relic = relicConfigById.get(value.JENCANJIFHE);
+        if (!relic) throw new Error(`missing relic ${value.JENCANJIFHE}`);
+        return relic;
+      });
+      const setIds = new Set(pieces.map(({ row: piece }) => piece.SetID));
+      if (setIds.size !== 1)
+        throw new Error(`mixed trial relic set ${propertyType}`);
+      const setId = [...setIds][0];
+      const threshold = relicSetSkillByThreshold.get(
+        `${setId}:${selector.row.RelicIDList.length}`,
+      );
+      if (!threshold)
+        throw new Error(`missing relic-set threshold ${setId}`);
+      return {
+        property_type: String(propertyType),
+        set_id: String(setId),
+        piece_count: String(selector.row.RelicIDList.length),
+        ability_name: threshold.row.AbilityName,
+        static_properties: normalize(threshold.row.PropertyList),
+        ability_parameters: normalize(threshold.row.AbilityParamList),
+        source_refs: [
+          context.sourceRef(selector),
+          ...pieces.map((piece) => context.sourceRef(piece)),
+          context.sourceRef(threshold),
+        ],
+      };
+    });
+  return {
+    ...context.envelope({
+      id: `currency-wars.trial-build.role.${role.row.ID}`,
+      kind: "CurrencyWarsTrialBuild",
+      nameEn: `Role ${role.row.ID} exact trial Build`,
+      nameZh: `角色 ${role.row.ID} 精确试用配装`,
+      summaryEn:
+        `Role ${role.row.ID} uses the released world-level 6 special-avatar progression, Light Cone and relic package as its immutable mapped minimum.`,
+      summaryZh:
+        `角色 ${role.row.ID} 使用已发布世界等级 6 特殊角色的养成、光锥与遗器包作为不可变映射下限。`,
+      sourceRefs: [
+        context.sourceRef(role),
+        context.sourceRef(entry),
+        context.sourceRef(main),
+        context.sourceRef(sub),
+        ...selectedSets.flatMap(({ source_refs: refs }) => refs),
+      ],
+      tags: ["build-mapping", "exact-trial", "gridfight"],
+    }),
+    role_id: String(role.row.ID),
+    avatar_id: String(row.AvatarID),
+    special_avatar_id: String(row.SpecialAvatarID),
+    world_level: String(row.WorldLevel ?? 6),
+    level: String(row.Level),
+    promotion: String(row.Promotion),
+    eidolon: String(row.Rank ?? 0),
+    skill_tree_template: row.SkillTreeTemplate,
+    skill_tree_key: row.CustomSkillTreeKey,
+    equipment_id: String(row.EquipmentID),
+    equipment_level: String(row.EquipmentLevel),
+    equipment_promotion: String(row.EquipmentPromotion),
+    equipment_rank: String(row.EquipmentRank),
+    source_ability_bindings: sourceAbilityBindings(role),
+    relic_property_type: String(row.RelicPropertyType),
+    relic_property_type_extra: String(row.RelicPropertyTypeExtra),
+    relic_main_value: String(row.RelicMainValue),
+    relic_sub_value: String(row.RelicSubValue),
+    relic_main_properties: normalize(main.row.MainValue),
+    relic_sub_properties: normalize(sub.row.SubValue),
+    relic_sets: selectedSets.map(({ source_refs: _, ...set }) => set),
+  };
+});
+outputs.set("trial-builds.json", ordered(trialBuilds));
+
 const inventory = JSON.parse(fs.readFileSync(path.join(
   root,
   "content-manifests/currency-wars-v1/source-inventory.json",
@@ -114,6 +286,79 @@ const buildSourceRows = buildFiles.map((record) => ({
   mapping_role: "SharedBuildCandidate",
   disposition: "PendingExplicitRoleRowJoin",
 }));
+const specialAvatarBytes = fs.readFileSync(path.join(
+  context.sourceRoot,
+  "ExcelOutput/SpecialAvatar.json",
+));
+buildSourceRows.push({
+  ...context.envelope({
+    id: "currency-wars.build-source.special-avatar",
+    kind: "CurrencyWarsBuildSourceFile",
+    nameEn: "SpecialAvatar.json",
+    nameZh: "共享试用配装源 SpecialAvatar.json",
+    summaryEn:
+      "Explicit Currency Wars role joins select the released world-level 6 trial Build rows from SpecialAvatar.json.",
+    summaryZh:
+      "货币战争角色通过明确连接选取 SpecialAvatar.json 中已发布的世界等级 6 试用配装行。",
+    ownership: "Shared",
+    sourceRefs: [{
+      source_id: "source.goal21.build-file.special-avatar",
+      repository: "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+      revision: SOURCE_REVISION,
+      path: "ExcelOutput/SpecialAvatar.json",
+      locator: "role SpecialAvatarID at WorldLevel=6",
+      sha256: crypto.createHash("sha256").update(specialAvatarBytes).digest("hex"),
+      access_date: ACCESS_DATE,
+      game_version: GAME_VERSION,
+      evidence_quality: "ExactStructured",
+      mechanism_quality: "DirectStructured",
+    }],
+    tags: ["build-mapping", "exact-trial", "shared-source"],
+  }),
+  source_path: "ExcelOutput/SpecialAvatar.json",
+  source_sha256: crypto.createHash("sha256").update(specialAvatarBytes).digest("hex"),
+  mapping_role: "SharedBuildCandidate",
+  disposition: "ExplicitRoleRowJoin",
+});
+for (const sourcePath of [
+  "ExcelOutput/SpecialAvatarRelic.json",
+  "ExcelOutput/SpecialAvatarRelicMainValue.json",
+  "ExcelOutput/SpecialAvatarRelicSubValue.json",
+  "ExcelOutput/RelicConfig.json",
+  "ExcelOutput/RelicSetSkillConfig.json",
+]) {
+  const bytes = fs.readFileSync(path.join(context.sourceRoot, sourcePath));
+  buildSourceRows.push({
+    ...context.envelope({
+      id: `currency-wars.build-source.${slug(sourcePath)}`,
+      kind: "CurrencyWarsBuildSourceFile",
+      nameEn: path.posix.basename(sourcePath),
+      nameZh: `共享试用配装源 ${path.posix.basename(sourcePath)}`,
+      summaryEn:
+        `${sourcePath} is selected only through the released special-avatar relic closure.`,
+      summaryZh:
+        `${sourcePath} 仅通过已发布特殊角色遗器闭包选取。`,
+      ownership: "Shared",
+      sourceRefs: [{
+        source_id: `source.goal21.build-file.${slug(sourcePath)}`,
+        repository: "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        revision: SOURCE_REVISION,
+        path: sourcePath,
+        locator: "selected role trial relic closure",
+        sha256: crypto.createHash("sha256").update(bytes).digest("hex"),
+        access_date: ACCESS_DATE,
+        game_version: GAME_VERSION,
+        evidence_quality: "ExactStructured",
+        mechanism_quality: "DirectStructured",
+      }],
+      tags: ["build-mapping", "exact-trial", "shared-source"],
+    }),
+    source_path: sourcePath,
+    source_sha256: crypto.createHash("sha256").update(bytes).digest("hex"),
+    mapping_role: "SharedBuildCandidate",
+    disposition: "ExplicitRoleRowJoin",
+  });
+}
 outputs.set("build-source-files.json", ordered(buildSourceRows));
 
 const mappingPolicy = await context.policyRef(
@@ -131,9 +376,7 @@ const buildMappings = roles.map((entry) => ({
       `Role ${entry.row.ID} selects account avatar ${entry.row.AvatarID} when eligible and special avatar ${entry.row.SpecialAvatarID} as the trial/strengthened boundary.`,
     summaryZh:
       `角色 ${entry.row.ID} 在满足条件时选择账号角色 ${entry.row.AvatarID}，并以特殊角色 ${entry.row.SpecialAvatarID} 作为试用/强化边界。`,
-    coverageState: "Researched",
-    evidenceQuality: "ProjectPolicy",
-    sourceRefs: [context.sourceRef(entry), ...buildPublicRefs, mappingPolicy],
+    sourceRefs: [context.sourceRef(entry), ...buildPublicRefs],
     tags: ["build-mapping", "gridfight", "owned-trial"],
   }),
   source_id: String(entry.row.ID),
@@ -177,10 +420,9 @@ const substitutionRules = [
     nameEn: rule.nameEn,
     nameZh: rule.nameZh,
     summaryEn:
-      `${rule.nameEn} is a released-text boundary with field-level shared-row joins still pending.`,
+      `${rule.nameEn} combines the released substitution boundary with exact shared trial-Build rows.`,
     summaryZh:
-      `${rule.nameZh} 是已发布文本边界，字段级共享行连接仍待完成。`,
-    coverageState: "Researched",
+      `${rule.nameZh} 将已发布替代边界与精确共享试用配装行结合。`,
     evidenceQuality: "ProjectPolicy",
     sourceRefs: [...buildPublicRefs, mappingPolicy],
     tags: ["build-substitution", "gridfight", rule.id],
@@ -194,6 +436,7 @@ outputs.set("build-substitution-rules.json", ordered(substitutionRules));
 
 const backRanks = await context.table("GridFightBackRoleRank");
 const backEquipment = await context.table("GridFightBackEquipment");
+const commonConstants = await context.table("GridFightConstCommon");
 if (backRanks.length !== 252 || backEquipment.length !== 165)
   throw new Error("GridFight off-field conversion closure drift");
 const conversions = [
@@ -355,6 +598,13 @@ for (const [table, family, make] of [
   })],
 ])
   await addEquipmentFamily(table, family, make);
+const equipmentSlotConstant = commonConstants.find(({ row }) =>
+  row.ConstValueName === "GridFight_AvatarDressEquipNum");
+const implantSlotConstant = commonConstants.find(({ row }) =>
+  row.ConstValueName === "GridFight_AvatarDressImplantsNum");
+if (equipmentSlotConstant?.row.Value?.IntValue !== 3
+  || implantSlotConstant?.row.Value?.IntValue !== 1)
+  throw new Error("released equipment/implant slot constants drift");
 equipmentRows.push({
   ...context.envelope({
     id: "currency-wars.equipment.slot-cap.three-per-character",
@@ -366,7 +616,10 @@ equipmentRows.push({
     summaryZh:
       "Version 4.4 已发布文本明确每名货币战争角色最多可装备三件装备。",
     evidenceQuality: "ExactPublicText",
-    sourceRefs: context.bilingualTextRefs("4007368254740170345"),
+    sourceRefs: [
+      context.sourceRef(equipmentSlotConstant),
+      ...context.bilingualTextRefs("4007368254740170345"),
+    ],
     tags: ["equipment", "exact-public-text", "slot-cap"],
   }),
   source_id: "released-rule:three-equipment-slots",
@@ -376,6 +629,27 @@ equipmentRows.push({
   replacement_rule:
     "Reject or replace equipment when a character would exceed three equipped pieces.",
   parameters: { maximum_count: "3" },
+});
+equipmentRows.push({
+  ...context.envelope({
+    id: "currency-wars.equipment.slot-cap.one-implant-per-character",
+    kind: "CurrencyWarsEquipment",
+    nameEn: "One implant slot per character",
+    nameZh: "每名角色一个植入组件栏位",
+    summaryEn:
+      "Released Version 4.4 structured data gives each character one implant slot; Hacking Components use it without consuming one of the three ordinary Equipment slots.",
+    summaryZh:
+      "Version 4.4 已发布结构化数据为每名角色提供一个植入组件栏位；骇客组件使用该栏位而不占用三个普通装备栏位。",
+    sourceRefs: [context.sourceRef(implantSlotConstant)],
+    tags: ["equipment", "exact-structured", "implant-cap", "slot-cap"],
+  }),
+  source_id: "GridFight_AvatarDressImplantsNum",
+  slot: "CharacterImplant",
+  eligibility: { maximum_count: "1" },
+  effect_ids: [],
+  replacement_rule:
+    "Reject or replace a Hacking Component when the character implant slot is occupied.",
+  parameters: { maximum_count: "1" },
 });
 outputs.set("equipment.json", ordered(equipmentRows));
 

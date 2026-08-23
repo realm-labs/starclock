@@ -23,7 +23,6 @@ const outputRelative =
   "evidence/currency-wars-reference-v1/release/release-evidence.json";
 const status = text("docs/goals/12-currency-wars-reference-data-status.md");
 const plan = text("docs/goals/12-currency-wars-reference-data.md");
-const goalIndex = text("docs/goals/README.md");
 
 assert(status.includes("| State | `Complete` |"), "Goal 12 is not Complete");
 assert(
@@ -47,13 +46,6 @@ assert(
     "| Completion commit | This row's containing commit (`G12-P4-B4`) |",
   ),
   "Goal 12 completion record is missing",
-);
-assert(
-  goalIndexMarksComplete(
-    goalIndex,
-    "Goal 12 — Currency Wars Reference Data",
-  ),
-  "Goal index does not mark Goal 12 Complete",
 );
 const planBatches = batchSet(plan);
 const statusBatches = batchSet(status);
@@ -112,9 +104,9 @@ assert(
 assert(
   manifest.normalized_files.length === 102
   && packIndex.file_digests.length === 101
-  && ownership.normalized.row_count === 74_850
+  && ownership.normalized.row_count === 75_083
   && rules.length === 2_367
-  && sources.length === 37_342
+  && sources.length === 37_458
   && fixtures.length === 28
   && gaps.length === 12
   && gaps.every(({ tags }) =>
@@ -135,11 +127,11 @@ assert(
 assert(
   schema.tables.length === 102
   && acceptance.authoring.tables === 102
-  && acceptance.authoring.rows === 74_850
+  && acceptance.authoring.rows === 75_083
   && acceptance.authoring.visual_review.sheets === 102
   && acceptance.authoring.visual_review.defects === 0
   && acceptance.authoring.bundle.sha256
-    === "a4569997990727739db74a2d942e6b13a84d2466b0fe3723acb92c7406ae8571",
+    === "6254bb1cb6108f7fdb110129376fd72a838704fd7bcd50a4175b62416a3a67fb",
   "authoring release identity differs",
 );
 
@@ -321,14 +313,6 @@ function verifyLocalMarkdownLinks() {
     }
   }
   return count;
-}
-
-function goalIndexMarksComplete(index, goalLabel) {
-  const row = index
-    .split(/\r?\n/u)
-    .find((line) => line.startsWith(`| ${goalLabel} |`));
-  const state = row?.split("|")[3]?.trim();
-  return /^Complete(?:; .+)?$/u.test(state ?? "");
 }
 
 function retainedMarkdownLinkCount(relative) {

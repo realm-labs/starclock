@@ -15,6 +15,8 @@ pub mod activity_observation;
 mod activity_runtime;
 /// Authoritative Standard Universe Activity session and replay facade.
 pub mod activity_session;
+/// Currency Wars sessions over the shared Activity observation/action facade.
+pub mod currency_wars_activity_session;
 /// Stable protocol-neutral failure vocabulary.
 pub mod error;
 /// Gold and Gears sessions over the shared Activity observation/action facade.

@@ -1,9 +1,10 @@
+//! Line-limit exception: ordered lifecycle phase mutation remains centralized for sequencing audits.
 use crate::{
     ActionGauge, DurationClock, EffectEventData, EffectTeardownPolicy, Energy, FaultBoundary,
-    FaultKind, FaultPolicy, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedUnitDefinition,
-    OperationId, OwnerLinkPolicy, ParticipantSource, PresenceState, RawToughness,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, ReviveGaugePolicy, Rounding, RuleBundleId,
-    Scalar, Speed, StatValue, TeamSide, TimelineActorId, TransformEndPolicy,
+    FaultKind, FaultPolicy, Hp, LethalRescueHpPolicy, LifeState, LinkedEntity, LinkedEntityKind,
+    LinkedUnitDefinition, OperationId, OwnerLinkPolicy, ParticipantSource, PresenceState,
+    RawToughness, ResolvedCombatantSpec, ResolvedDefinitionBindings, ReviveGaugePolicy, Rounding,
+    RuleBundleId, Scalar, Speed, StatValue, TeamSide, TimelineActorId, TransformEndPolicy,
     TransformationDefinition, WaveLinkPolicy,
     actor::store::{
         CharacterResourceState, EnemyRuntimeState, FormationEntry, LinkState, TimelineActorState,
@@ -18,7 +19,7 @@ use crate::{
     },
     event::{
         cause::Cause,
-        model::{BattleEventKind, EnemyPhaseEventData, UnitEventData},
+        model::{BattleEventKind, EnemyPhaseEventData, ResourceEventData, UnitEventData},
     },
     id::{EventId, UnitId},
     modifier::model::ActiveModifier,
@@ -30,11 +31,14 @@ use crate::{
     toughness::state::ToughnessLayerState,
 };
 
-use super::program;
 use super::transaction::{Transaction, action_fault};
+use super::{clock, operation_formula, program};
 
 const BASE_ACTION_GAUGE_SCALED: i64 = 10_000_000_000;
-const MAX_LINKED_ENTITIES: usize = 64;
+// Long-lived battles retain inactive links in canonical state for replay and
+// event identity. Bound the complete retained history, not only the small
+// simultaneously-active set.
+const MAX_LINKED_ENTITIES: usize = 4_096;
 
 pub(super) fn execute_enemy_phase(
     catalog: &CombatCatalog,
@@ -169,20 +173,110 @@ pub(super) fn transition_enemy_phase_or_defeat(
         );
     }
 
+    let target = txn
+        .state
+        .units
+        .get(unit)
+        .map(|state| (state.side, state.maximum_hp))
+        .ok_or_else(|| action_fault(124))?;
+    if target.0 == TeamSide::Player
+        && let Some(rescue) = txn.state.player_lethal_rescue
+    {
+        let restored_hp = match rescue.hp() {
+            LethalRescueHpPolicy::MaximumHp => target.1,
+        };
+        txn.set_hp(unit, restored_hp)?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(unit)),
+            BattleEventKind::Unit(UnitEventData::LethalRescued {
+                unit,
+                hp: restored_hp,
+            }),
+        );
+        if let Some(loss) = rescue.action_value_loss() {
+            parent = clock::deduct_action_value(txn, cause, parent, loss.scaled())?;
+        }
+        return Ok(parent);
+    }
+
     txn.set_life(unit, LifeState::Downed)?;
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(unit)),
         BattleEventKind::Unit(UnitEventData::Downed { unit }),
     );
+    let credited_to = cause.applier().ok_or_else(|| action_fault(116))?;
     txn.set_life(unit, LifeState::Defeated)?;
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(unit)),
-        BattleEventKind::Unit(UnitEventData::Defeated {
-            unit,
-            credited_to: cause.applier().ok_or_else(|| action_fault(116))?,
-        }),
+        BattleEventKind::Unit(UnitEventData::Defeated { unit, credited_to }),
     );
+    parent = apply_enemy_defeat_energy(catalog, txn, cause, parent, unit, credited_to)?;
     settle_owner_defeat(txn, cause, parent, unit)
+}
+
+fn apply_enemy_defeat_energy(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    defeated: UnitId,
+    credited_to: UnitId,
+) -> Result<EventId, BattleFault> {
+    let Some(base) = txn.state.enemy_defeat_energy else {
+        return Ok(parent);
+    };
+    let defeated_side = txn
+        .state
+        .units
+        .get(defeated)
+        .map(|unit| unit.side)
+        .ok_or_else(|| action_fault(117))?;
+    let credited_side = txn
+        .state
+        .units
+        .get(credited_to)
+        .map(|unit| unit.side)
+        .ok_or_else(|| action_fault(118))?;
+    if defeated_side != TeamSide::Enemy || credited_side != TeamSide::Player {
+        return Ok(parent);
+    }
+    let rate = operation_formula::FormulaInputs::new(txn)?.energy_regeneration_rate(
+        catalog,
+        txn,
+        cause,
+        credited_to,
+    )?;
+    let gain = Scalar::from_scaled(base.scaled())
+        .checked_mul(rate, Rounding::NearestTiesEven)
+        .map_err(|_| action_fault(119))?;
+    if gain.scaled() < 0 {
+        return Err(action_fault(120));
+    }
+    let credited = txn
+        .state
+        .units
+        .get(credited_to)
+        .ok_or_else(|| action_fault(118))?;
+    let before = credited.current_energy;
+    let uncapped = before
+        .scaled()
+        .checked_add(gain.scaled())
+        .ok_or_else(|| action_fault(121))?;
+    let after_scaled = uncapped.min(credited.maximum_energy.scaled());
+    let after = Energy::from_scaled(after_scaled).map_err(|_| action_fault(122))?;
+    let overflow = Energy::from_scaled(uncapped - after_scaled).map_err(|_| action_fault(123))?;
+    txn.set_energy(credited_to, after)?;
+    Ok(txn.emit(
+        cause
+            .with_parent(parent)
+            .with_primary_target(Some(credited_to)),
+        BattleEventKind::Resource(ResourceEventData::Energy {
+            unit: credited_to,
+            before,
+            after,
+            overflow,
+        }),
+    ))
 }
 
 fn apply_phase_carry(
@@ -392,12 +486,15 @@ pub(super) fn execute_summon(
             life: LifeState::Alive,
             presence: definition.presence(),
             current_hp: combatant.maximum_hp(),
+            initial_maximum_hp: combatant.maximum_hp(),
             maximum_hp: combatant.maximum_hp(),
+            damage_dealt: 0,
             base_attack: combatant.base_attack(),
             base_defense: combatant.base_defense(),
             base_speed: combatant.speed(),
             base_effect_hit_rate: combatant.base_effect_hit_rate(),
             base_effect_resistance: combatant.base_effect_resistance(),
+            build_bonuses: combatant.build_bonuses(),
             current_energy: combatant.current_energy(),
             maximum_energy: combatant.maximum_energy(),
             rank: combatant.rank(),
@@ -414,6 +511,12 @@ pub(super) fn execute_summon(
             abilities: combatant.abilities().into(),
             rule_bundles: combatant.rule_bundles().into(),
             modifiers: combatant.modifiers().into(),
+            linked_subject_modifiers: combatant
+                .modifier_bindings()
+                .iter()
+                .filter(|binding| binding.applies_to_linked_subjects())
+                .map(|binding| binding.definition())
+                .collect(),
             resources: unit_definition
                 .resources()
                 .iter()
@@ -445,6 +548,7 @@ pub(super) fn execute_summon(
         })?;
         instantiate_rules(catalog, txn, unit, combatant.rule_bundles())?;
         instantiate_modifiers(catalog, txn, unit, &combatant)?;
+        instantiate_linked_subject_modifiers(catalog, txn, owner, unit)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(unit)),
             BattleEventKind::Unit(UnitEventData::Summoned {
@@ -1146,6 +1250,7 @@ fn resolve_linked_combatant(
     .map_err(|_| action_fault(126))?
     .with_base_attack_defense(attack, defense)
     .with_base_effect_stats(owner.base_effect_hit_rate, owner.base_effect_resistance)
+    .with_build_bonuses(owner.build_bonuses)
     .with_energy(prototype.current_energy(), prototype.maximum_energy())
     .map_err(|_| action_fault(127))?
     .with_toughness(
@@ -1185,6 +1290,54 @@ fn instantiate_modifiers(
                 subject: unit,
                 source: binding.source(),
                 source_class: source.class(),
+                insertion_sequence: instance.get(),
+                application_action: None,
+                source_effect: None,
+                slots: Box::new([]),
+                captured_value: None,
+                captured_stats: Box::new([]),
+            },
+        )?;
+    }
+    Ok(())
+}
+
+fn instantiate_linked_subject_modifiers(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    owner: UnitId,
+    linked: UnitId,
+) -> Result<(), BattleFault> {
+    let inherited = txn
+        .state
+        .units
+        .get(owner)
+        .ok_or_else(|| action_fault(131))?
+        .linked_subject_modifiers
+        .clone();
+    let templates = txn
+        .state
+        .modifiers
+        .iter_by_id()
+        .filter(|modifier| {
+            modifier.owner == owner
+                && modifier.subject == owner
+                && modifier.source_effect.is_none()
+                && inherited.binary_search(&modifier.definition).is_ok()
+        })
+        .map(|modifier| (modifier.definition, modifier.source, modifier.source_class))
+        .collect::<Vec<_>>();
+    for (definition, source, source_class) in templates {
+        let instance = txn.allocate_modifier();
+        txn.insert_modifier(
+            catalog,
+            ActiveModifier {
+                instance,
+                definition,
+                owner,
+                subject: linked,
+                source,
+                source_class,
                 insertion_sequence: instance.get(),
                 application_action: None,
                 source_effect: None,

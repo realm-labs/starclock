@@ -1,0 +1,54 @@
+{
+  "schema_revision": "starclock.currency-wars-battle-settlement-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-B4",
+  "result": "Pass",
+  "production_denominators": {
+    "integrated_source_rows": 1122,
+    "source_path_counts": {
+      "ExcelOutput/GridFightBonusRule.json": 114,
+      "ExcelOutput/GridFightNodeTemplate.json": 493,
+      "ExcelOutput/GridFightStage.json": 15,
+      "ExcelOutput/GridFightStageRoute.json": 493,
+      "ExcelOutput/GridFightVictoryBonus.json": 7
+    },
+    "source_category_counts": {
+      "planes_difficulties_ranks_nodes_rooms": 986,
+      "roster_cost_shop_team_size_economy": 121,
+      "squad_hp_action_value_projections": 15
+    }
+  },
+  "exact_behavior": {
+    "projected_fields": [
+      "outcome",
+      "final battle state hash",
+      "event digest",
+      "terminal fault",
+      "exact participant state",
+      "remaining Action Value",
+      "battle progress"
+    ],
+    "participant_carry": "exact HP, maximum HP, Energy, maximum Energy, life and presence",
+    "timeout_settlement": "validated progress and exhausted Action Value project the exact bounded Squad HP loss",
+    "victory_settlement": "preserves Squad HP and clears the previous loss",
+    "rewards": "Won and Lost battles atomically grant node Gold, authored interest and Experience with team-level advancement",
+    "faulted_battle_rewards": false,
+    "transition": "settlement boundary operations, automatic graph pumping and next-node shop generation commit as one state/RNG transaction",
+    "terminal_follow_up_generation": false,
+    "returned_state_hash_is_final": true,
+    "rejected_mutation_preserves_state_and_rng": true
+  },
+  "behavioral_evidence": [
+    "runtime_tests::battle_boundary_orders_victory_timeout_loss_checkpoint_and_run_failure",
+    "runtime_tests::battle_settlement_carries_participant_state_rewards_and_next_node_atomically",
+    "runtime_tests::battle_income_interest_and_direct_experience_use_authored_boundaries",
+    "currency_wars_runtime_tests::production_standard_route_executes_economy_roster_battles_and_terminal_settlement",
+    "graph_activity::boundary::submit_pending_battle_result_with_generated_follow_up"
+  ],
+  "deferred_boundaries": [
+    {
+      "owner": "G21-P6-B5",
+      "boundary": "stale assembly and settlement rejection plus transition replay reconstruction"
+    }
+  ]
+}

@@ -24,7 +24,7 @@ fs.mkdirSync(projectRoot, { recursive: true });
 for (const name of ["project.toml", "schema", "data"]) fs.cpSync(path.join(root, "config", name), path.join(projectRoot, name), { recursive: true });
 run(sora, ["--serial", "check", "--project", "config/project.toml"], work);
 run(sora, ["--serial", "build", "--project", "config/project.toml", "--clean"], work);
-formatRust(path.join(projectRoot, "generated/rust"));
+formatRust(path.join(projectRoot, "generated/core-rust"));
 verifyGeneratedOutput(path.join(projectRoot, "generated"));
 verifyTemplateList(path.join(projectRoot, "generated/templates"));
 verifyReadOnlySync();
@@ -75,30 +75,30 @@ function verifyBootstrapReproduction() {
 
 function verifyGeneratedOutput(directory) {
   const schema = readJson(path.join(directory, "schema.lock")).schema;
-  assert(schema.package === "starclock_production_config" && schema.tables.length === 82, "production schema lock differs");
+  assert(schema.project_id === "starclock_production_config" && schema.tables.length === 82, "production schema lock differs");
   const debug = path.join(directory, "debug-json");
   const counts = new Map(schema.tables.map((table) => [table.name, rows(debug, table.name).length]));
   assert(counts.get("SourceRecord") === 20 && counts.get("EvidenceRecord") === 21, "production provenance counts differ");
-  assert(counts.get("ContentIdentity") === 6719 && counts.get("ContentEvidenceBinding") === 7075 && counts.get("ConfigManifest") === 1, "production identity counts differ");
+  assert(counts.get("ContentIdentity") === 6807 && counts.get("ContentEvidenceBinding") === 7163 && counts.get("ConfigManifest") === 1, "production identity counts differ");
   for (const [name, expected] of Object.entries({
-    Ability: 1005, AbilityLevelParameter: 17606, AbilityResourceDelta: 513,
+    Ability: 1021, AbilityLevelParameter: 18317, AbilityResourceDelta: 515,
     AiGraph: 120, EnemyTemplate: 90, EnemyVariant: 90, Encounter: 6,
     StandardProfile: 1, StandardScenario: 6, HitPlan: 354,
-    Character: 88, CharacterStat: 7568, CharacterResource: 46,
-    CharacterAbilityBinding: 583, TraceNode: 1618, TracePatch: 894, Eidolon: 528, EidolonPatch: 412,
-    Effect: 144, EffectGrantedAbility: 3, EffectModifierBinding: 20, ModifierDefinition: 1575,
-    ModifierStackingGroup: 44, ModifierFilter: 151,
+    Character: 90, CharacterStat: 7740, CharacterResource: 46,
+    CharacterAbilityBinding: 599, TraceNode: 1654, TracePatch: 925, Eidolon: 540, EidolonPatch: 423,
+    Effect: 144, EffectGrantedAbility: 3, EffectModifierBinding: 20, ModifierDefinition: 1595,
+    ModifierStackingGroup: 45, ModifierFilter: 155,
     CountdownDefinition: 1, LinkedUnitDefinition: 43,
-    Operation: 741, Program: 433, ProgramStep: 785, RuleDefinition: 196, RuleSourceTag: 0, Selector: 249,
-    StateSlot: 3, ValueExpression: 2106, LightCone: 165, LightConeStat: 14190,
+    Operation: 741, Program: 433, ProgramStep: 785, RuleDefinition: 196, RuleSourceTag: 0, Selector: 251,
+    StateSlot: 3, ValueExpression: 2126, LightCone: 165, LightConeStat: 14190,
     LightConeSuperimposition: 2665,
   })) assert(counts.get(name) === expected, `${name} production count differs`);
   const identities = rows(debug, "ContentIdentity");
   assert(identities.every((row) => value(row, "release_state") === "Released"), "production identities must be released");
-  assert(identities.filter((row) => value(row, "enabled") === true).length === 6719, "production enabled identity count differs");
+  assert(identities.filter((row) => value(row, "enabled") === true).length === 6807, "production enabled identity count differs");
   const coverage = Object.groupBy(identities, (row) => value(row, "coverage_state"));
-  assert((coverage.GoldenVerified?.length ?? 0) === 1737 && (coverage.DataReady?.length ?? 0) === 4982, "released content coverage states differ");
-  const rust = walk(path.join(directory, "rust")).filter((file) => file.endsWith(".rs")).map((file) => fs.readFileSync(file, "utf8")).join("\n");
+  assert((coverage.GoldenVerified?.length ?? 0) === 1737 && (coverage.DataReady?.length ?? 0) === 5070, "released content coverage states differ");
+  const rust = walk(path.join(directory, "core-rust")).filter((file) => file.endsWith(".rs")).map((file) => fs.readFileSync(file, "utf8")).join("\n");
   assert(!rust.includes("serde_json") && !rust.includes("json-debug"), "generated runtime reader gained a JSON path");
   const boundary = fs.readFileSync(path.join(root, "crates/starclock-data/src/bundle.rs"), "utf8");
   assert(boundary.includes("SoraBundle::parse") && !boundary.includes("serde_json") && !boundary.includes("read_to_string"), "starclock-data boundary does not exclusively load Sora binary bytes");
@@ -107,7 +107,7 @@ function verifyGeneratedOutput(directory) {
 function verifyBootstrapOutput(debug) {
   const identities = rows(debug, "ContentIdentity");
   assert(rows(debug, "SourceRecord").length === 2 && rows(debug, "EvidenceRecord").length === 3, "bootstrap provenance counts differ");
-  assert(identities.length === 283 && rows(debug, "ContentEvidenceBinding").length === 283, "bootstrap identity counts differ");
+  assert(identities.length === 285 && rows(debug, "ContentEvidenceBinding").length === 285, "bootstrap identity counts differ");
   assert(identities.every((row) => value(row, "release_state") === "Released" && value(row, "enabled") === false), "bootstrap identities must remain released and disabled");
 }
 
@@ -121,7 +121,7 @@ function verifyTemplateList(directory) {
 }
 
 function artifactMap(directory) { return Object.fromEntries(stableFiles(directory).map((relative) => [relative, sha256(path.join(directory, relative))])); }
-function stableFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).filter((relative) => !relative.startsWith("templates/") && !relative.startsWith("rust/universe_reference/")).sort(); }
+function stableFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).filter((relative) => !relative.startsWith("templates/")).sort(); }
 function rows(directory, name) { return readJson(path.join(directory, `${name}.json`)).table.rows; }
 function value(row, name) { const encoded = row.values[name]; if ("Integer" in encoded) return encoded.Integer; if ("String" in encoded) return encoded.String; if ("Bool" in encoded) return encoded.Bool; throw new Error(`unsupported diagnostic value ${JSON.stringify(encoded)}`); }
 function formatRust(directory) { run("rustfmt", ["--edition", "2024", ...walk(directory).filter((file) => file.endsWith(".rs"))], root); }

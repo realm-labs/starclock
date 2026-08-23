@@ -1,0 +1,52 @@
+{
+  "schema_revision": "starclock.currency-wars-mcp-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P7-B4",
+  "result": "Pass",
+  "assigned_source_rows": 0,
+  "surface": {
+    "create_tool": "starclock_create_universe mode=currency-wars",
+    "observe_tool": "starclock_observe_activity",
+    "action_tool": "starclock_play_activity_action",
+    "cancel_tool": "starclock_close_activity",
+    "manifest_resource": "starclock://currency-wars/manifest",
+    "rules_resource": "starclock://rules/currency-wars",
+    "authoritative_session_owner": "starclock-agent-api ActivityAgentSessionRegistry",
+    "mcp_owned_runtime_state": false
+  },
+  "authorization": {
+    "create_scope": "starclock:activity:create",
+    "observe_scope": "starclock:activity:read",
+    "action_scope": "starclock:activity:act",
+    "cancel_scope": "starclock:activity:close",
+    "tenant_and_principal_ownership_checked_before_disclosure": true
+  },
+  "idempotency_and_cancellation": {
+    "exact_idempotency_key_binding": true,
+    "response_loss_retry_is_byte_equal": true,
+    "mcp_cancel_notification_does_not_rollback_committed_action": true,
+    "retry_after_cancel_does_not_commit_twice": true,
+    "close_cancels_session_and_releases_quota": true
+  },
+  "event_pagination": {
+    "event_kind": "accepted Activity action summary",
+    "maximum_events_per_page": 256,
+    "maximum_retained_events": 8192,
+    "future_cursor_rejected": true,
+    "expired_cursor_rejected": true,
+    "idempotent_retry_duplicates_event": false,
+    "generated_rows_or_private_state_exposed": false
+  },
+  "execution_evidence": {
+    "encounter_and_preparation_are_distinct_mcp_calls": true,
+    "preparation_settles_one_real_nested_battle": true,
+    "nested_battle_count_observed": 1
+  },
+  "behavioral_evidence": [
+    "tools::tests::tools_discover_and_complete_battle_activity_and_currency_wars_flows",
+    "http::tests::currency_wars_activity_authority_cancellation_and_event_cursor_are_exact",
+    "authorization::tests::exact_scope_matrix_covers_every_frozen_operation",
+    "resources::tests::resources_are_bounded_original_summaries_without_private_artifact_markers",
+    "activity_session::registry::tests::activity_event_pages_are_capped_and_cursor_exact"
+  ]
+}

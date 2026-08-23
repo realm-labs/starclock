@@ -8,6 +8,8 @@ import { spawnSync } from "node:child_process";
 const root = path.resolve(process.argv[2] ?? ".");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 const sora = path.join(root, policy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
+const python = process.env.STARCLOCK_PYTHON
+  ?? "/Users/mikai/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3";
 const project = path.join(root, "config", "universe-project.toml");
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-universe-production-"));
 const universeFiles = new Set(["Universe.xlsx", "UniverseBindings.xlsx", "UniverseEvidence.xlsx"]);
@@ -55,7 +57,7 @@ function inputFingerprint() {
   }
   digest.update(fs.readFileSync(sora));
   digest.update(process.version);
-  digest.update(run("python", ["-c", "import openpyxl,sys;print(sys.version);print(openpyxl.__version__)"]));
+  digest.update(run(python, ["-c", "import openpyxl,sys;print(sys.version);print(openpyxl.__version__)"]));
   return digest.digest("hex");
 }
 
@@ -73,10 +75,10 @@ function build(label) {
   const debug = path.join(temporary, `${label}-debug`);
   const bundle = path.join(temporary, `${label}.sora`);
   fs.mkdirSync(data);
-  run("python", ["tools/universe-reference/author_workbooks.py", "--root", root, "--output", data]);
+  run(python, ["tools/universe-reference/author_workbooks.py", "--root", root, "--output", data]);
   run(sora, ["--serial", "export", "--format", "binary", "--project", project, "--data-root", data, "--out", bundle]);
   run(sora, ["--serial", "export", "--format", "json-debug", "--project", project, "--data-root", data, "--out", debug]);
-  run("python", ["tools/universe-reference/verify_workbooks.py", "--root", root, "--data-root", data, "--debug-root", debug]);
+  run(python, ["tools/universe-reference/verify_workbooks.py", "--root", root, "--data-root", data, "--debug-root", debug]);
   run("cargo", ["run", "--manifest-path", "tools/universe-bundle-loader/Cargo.toml", "--locked", "--quiet", "--", bundle, "1", "9", "9", "2645"]);
   return { data, debug, bundle };
 }

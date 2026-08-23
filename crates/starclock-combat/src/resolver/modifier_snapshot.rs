@@ -335,6 +335,7 @@ fn collect_value_queries(
             collect_value_queries(when_false, policy, instance, output);
         }
         ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. }
@@ -381,6 +382,7 @@ fn collect_condition_queries(
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
         | ConditionExpr::CurrentTargetIsBroken
+        | ConditionExpr::HighestDamageDealer(_)
         | ConditionExpr::EnemyRank { .. }
         | ConditionExpr::EnemyRankEliteOrBoss { .. }
         | ConditionExpr::SelectorCardinality { .. } => {}
@@ -415,9 +417,11 @@ fn stat_bases(
     state: &BattleState,
 ) -> Result<std::collections::BTreeMap<(UnitId, StatKind), Scalar>, NumericError> {
     use crate::modifier::model::StatKind::{
-        Atk, BreakBaseDamage, DebuffDurationMultiplier, Def, DotDurationAddition, EffectHitRate,
-        EffectResistance, EnergyRegenerationRate, FreezeResistance, Hp, Spd, ToughnessDamage,
-        ToughnessRecovery,
+        Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, DebuffDurationMultiplier, Def,
+        DotDurationAddition, EffectHitRate, EffectResistance, EnergyRegenerationRate,
+        FireDamageBoost, FreezeResistance, Hp, IceDamageBoost, ImaginaryDamageBoost,
+        LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost, QuantumDamageBoost, Spd,
+        ToughnessDamage, ToughnessRecovery, WindDamageBoost,
     };
 
     let mut bases = std::collections::BTreeMap::new();
@@ -440,8 +444,43 @@ fn stat_bases(
         );
         bases.insert((unit.id, EffectHitRate), unit.base_effect_hit_rate);
         bases.insert((unit.id, EffectResistance), unit.base_effect_resistance);
+        let player = unit.side == crate::TeamSide::Player;
+        let [
+            critical_rate,
+            critical_damage,
+            break_effect,
+            energy_regeneration,
+            outgoing_healing,
+        ] = unit.build_bonuses.secondary();
+        bases.insert(
+            (unit.id, CritRate),
+            Scalar::from_scaled(if player { 50_000 } else { 0 }).checked_add(critical_rate)?,
+        );
+        bases.insert(
+            (unit.id, CritDamage),
+            Scalar::from_scaled(if player { 500_000 } else { 0 }).checked_add(critical_damage)?,
+        );
+        bases.insert((unit.id, BreakEffect), break_effect);
+        bases.insert((unit.id, OutgoingHealing), outgoing_healing);
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
-        bases.insert((unit.id, EnergyRegenerationRate), Scalar::ONE);
+        bases.insert(
+            (unit.id, EnergyRegenerationRate),
+            Scalar::ONE.checked_add(energy_regeneration)?,
+        );
+        for (stat, value) in [
+            PhysicalDamageBoost,
+            FireDamageBoost,
+            IceDamageBoost,
+            LightningDamageBoost,
+            WindDamageBoost,
+            QuantumDamageBoost,
+            ImaginaryDamageBoost,
+        ]
+        .into_iter()
+        .zip(unit.build_bonuses.element_damage_boosts())
+        {
+            bases.insert((unit.id, stat), value);
+        }
         bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
         bases.insert((unit.id, ToughnessRecovery), Scalar::ONE);
         if let Some(value) = attacker_level_multiplier(unit.level) {

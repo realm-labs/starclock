@@ -1,0 +1,359 @@
+{
+  "schema_revision": "starclock.currency-wars-metadata-mechanic-partition-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "status": "SequentialMetadataOnlyClosure",
+  "reviewed_batch_count": 19,
+  "reviewed_program_count": 1135,
+  "authoritative_operation_count": 0,
+  "accuracy": "ExactReleasedSourceShapeAndExplicitPresentationBoundary",
+  "execution_contract": "Each receipt binds one frozen partition whose released records contain only skill-description, skill-icon or resource-preload metadata. Source digests and recursively allowed fields are checked independently; any new field or operation fails verification instead of becoming an implicit no-op.",
+  "receipts": [
+    {
+      "batch": "G21-P6-M14",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "f1a4da682d5dc2f5afe2ac7e5cd5a003c0ffb8eecea7db9897681aeedaf65ef5",
+      "source_families": {
+        "ExcelOutput/GridFightSkillDescMod.json": 64
+      },
+      "metadata_bases": {
+        "Skill description modification contains localized description hashes and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "45deb805429496bb7954d697e66ee5dc7c2de6b04ad38d7295578fa3460485d3"
+    },
+    {
+      "batch": "G21-P6-M15",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "d30f0f499cff557bcdea9b26fee8d2bd3447096892cc4c45d786256446f93931",
+      "source_families": {
+        "ExcelOutput/GridFightSkillDescMod.json": 29,
+        "ExcelOutput/GridFightSkillSubIcon.json": 35
+      },
+      "metadata_bases": {
+        "Skill description modification contains localized description hashes and no authoritative operation.": 29,
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 35
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "e3874b615a614233e01ab5d8f56fb9dbface144900f5041871e1154ea9fc1e1b"
+    },
+    {
+      "batch": "G21-P6-M16",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "a7b6f5a7292deb54486b5b2a920f46010f811c26be9bdd7a531ae1e335672149",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "cd088e9453180c3bef60a3b39b65ddc9bb6eb429f3b756fe84b58d8f3a1771c1"
+    },
+    {
+      "batch": "G21-P6-M17",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "d58017129ee6aaa5cefa2e47f68cacbd6bd68daf2ec5d6c2765c858b3d59515b",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "bf98508d13285c237accc596d582b52d490df62ca1af9f16dc4db151480f00b5"
+    },
+    {
+      "batch": "G21-P6-M18",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "9183120a12c4bc058ec8fb42e4c49f90aa539e77cd889409b893a1f66204d178",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "05bc38fec225487c7ec61473316f53e8b0ffef05a4629108f0bde811f4987f5c"
+    },
+    {
+      "batch": "G21-P6-M19",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "03721ef1c6a8149b1fd6c6323bc5978ffcc99e8042f174b88a4b914ce7d09f6a",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "525559cc2d318f0cb215f9d95127b351158b0fa8b1666aa8334639cb2e498146"
+    },
+    {
+      "batch": "G21-P6-M20",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "03f02f53d5c727d0d8367ff4094aa2c1df5e86485b0c23222f3e91052eaca5fc",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "82591884b0d61079026f138decf4101a7327cfa2be0d45c0d27ad0b6fc636dcf"
+    },
+    {
+      "batch": "G21-P6-M21",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "7efd5461daa8baa653a3a7078acec82df26effa71efd0ec01ab33cfa07145308",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "b12a96f24f08f8971b4f2db7fbd50e6eedd0e48598d3f6597c84a6372a47fbc0"
+    },
+    {
+      "batch": "G21-P6-M22",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "952d6ccf8318c85f8b4d35f03cb048729094ec37fe1bf9d42bd27e9ef5825581",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "0c8da1cba553e82e434f2ac9b8a2dcb98470a132b556394c05f2156295ee059d"
+    },
+    {
+      "batch": "G21-P6-M23",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "b695d37fedca5ac2d692d813e606c1276d62f1cd983ba84b69d87f743b42a86e",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "66c8988bbf01b27a4673c6db90e091da2658c5845ebd54ce017ad86e63a98de0"
+    },
+    {
+      "batch": "G21-P6-M24",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "587639f38163fc72b6ac2bc01f0ed9cdbf25730225ab7c443bfeea2c5a18b796",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "527bddbf98627c6ae2eedfce3fa6ee6590388d45852c3df8e29bfc0c41578ff3"
+    },
+    {
+      "batch": "G21-P6-M25",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "b1651f3735e7b3f102f1871a4ff2b99777f3527a85019b809b6b830aa9c12e70",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "d0a335ef70ba6cbfb6effd1f22af53799d61b89dd983bcc8faa66ee963b59a16"
+    },
+    {
+      "batch": "G21-P6-M26",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "76951dfc8440308601a3ad8594bdf662e503e7f817e68c0b612a4f77572dd036",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "4d7ea4792412420fe74cfc7bf011faff766103792c16967d644aee8ed0974ace"
+    },
+    {
+      "batch": "G21-P6-M27",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "cb3fb55878139ecfcfb90fe02403e5d2e01886fb94604cfe0c233470fb3f24a5",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "7f2c4c4378bc53f18a6577f3b1a7e44380d8dce621bc8e1680057f5f2a97cab8"
+    },
+    {
+      "batch": "G21-P6-M28",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "e56400b1e27c88006f1584836c89d889fe0c64c43b33ae2389ef1b4b54901250",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "c1a097f424a4f0d072dd9166273de4dd5f9f703f3a7486727235ede89ac965b4"
+    },
+    {
+      "batch": "G21-P6-M29",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "7882c522c50f87380efe796539fe316cab14fc1b6abc88060b198ba81663660f",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "6bc5187b4d1cfdc24512bb11c335f2a37546a5245ad67b615f41b677c119d39b"
+    },
+    {
+      "batch": "G21-P6-M30",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 64,
+      "terminal_program_count": 64,
+      "partition_freeze_sha256": "59b346916b8cb2bf6cca1ef9ec41b8a901af98ca9c7a072e245e95f609f6cbc9",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 64
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 64
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 64
+      },
+      "exact_source_receipt_sha256": "14911e1293fa2c0c6978841944a95a827fc96be9634bd211453a6acf54343eb1"
+    },
+    {
+      "batch": "G21-P6-M31",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-rule",
+      "program_count": 2,
+      "terminal_program_count": 2,
+      "partition_freeze_sha256": "0ffe85708b54c127fb4fe443d410c8cdecf2a41fa58ac7b0c553e31cecd433f0",
+      "source_families": {
+        "ExcelOutput/GridFightSkillSubIcon.json": 2
+      },
+      "metadata_bases": {
+        "Skill sub-icon routing contains icon identity fields and no authoritative operation.": 2
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 2
+      },
+      "exact_source_receipt_sha256": "932f5c681b6b27d2b8c5649b07a59db9e570dad2b5ee1896e16c502f1b24339f"
+    },
+    {
+      "batch": "G21-P6-M32",
+      "status": "TerminalMetadataOnly",
+      "capability": "battle-resource-preload",
+      "program_count": 45,
+      "terminal_program_count": 45,
+      "partition_freeze_sha256": "66a9129f3a9e5a260019d893daf26b46a0d35712f7e04e3b3006c69fd5354eb7",
+      "source_families": {
+        "Config/AssetPreload/BattleEventEffect/*.json": 45
+      },
+      "metadata_bases": {
+        "Asset preload metadata affects resources and presentation only.": 45
+      },
+      "operation_kinds": {
+        "PreserveExactSourceContribution": 45
+      },
+      "exact_source_receipt_sha256": "61b74dcea42d454a0a3611e81f8192bcc9d55fbf4786698b6f0770e6917900b3"
+    }
+  ],
+  "verification_commands": [
+    "node tools/currency-wars-runtime/verify-dispositions.mjs"
+  ]
+}

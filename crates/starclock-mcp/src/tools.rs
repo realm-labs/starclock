@@ -1,3 +1,4 @@
+//! Line-limit exception: the frozen MCP schema and delegation surface is one protocol contract.
 //! Frozen tool names, input schemas and registry/application delegation.
 
 use rmcp::{
@@ -19,8 +20,8 @@ use starclock_agent_api::{
 use crate::{
     activity_tools::{
         ActivityActionOutput, ActivityObservationOutput, ActivityReplayExportOutput,
-        ActivitySessionInput, CloseActivityOutput, CreateUniverseInput, PlayActivityActionInput,
-        VerifyActivityReplayInput, VerifyActivityReplayOutput,
+        ActivitySessionInput, CloseActivityOutput, CreateUniverseInput, ObserveActivityInput,
+        PlayActivityActionInput, VerifyActivityReplayInput, VerifyActivityReplayOutput,
     },
     error::structured_result,
     server::StarclockMcp,
@@ -438,7 +439,7 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_create_universe",
-        description = "Create one owned ephemeral Standard or Gold and Gears Universe Activity session.",
+        description = "Create one owned ephemeral Standard, Gold and Gears, Swarm Disaster or Currency Wars Activity session.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityObservationOutput>()
     )]
     async fn create_universe(
@@ -454,12 +455,12 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_observe_activity",
-        description = "Read the current bounded player-visible Universe Activity observation.",
+        description = "Read a bounded player-visible Activity observation and one event page after an optional cursor.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityObservationOutput>()
     )]
     async fn observe_activity(
         &self,
-        Parameters(input): Parameters<ActivitySessionInput>,
+        Parameters(input): Parameters<ObserveActivityInput>,
         context: rmcp::service::RequestContext<rmcp::RoleServer>,
     ) -> Result<CallToolResult, McpError> {
         structured_result(
@@ -502,7 +503,7 @@ impl StarclockMcp {
 
     #[tool(
         name = "starclock_close_activity",
-        description = "Close an owned Activity session and release its active quota capacity.",
+        description = "Cancel and close an owned Activity session, then release its active quota capacity.",
         output_schema = rmcp::handler::server::tool::schema_for_type::<CloseActivityOutput>()
     )]
     async fn close_activity(
@@ -789,7 +790,7 @@ mod tests {
     }
 
     #[tokio::test]
-    async fn seven_tools_discover_and_complete_create_play_export_verify_close() {
+    async fn tools_discover_and_complete_battle_activity_and_currency_wars_flows() {
         let factory = starclock_agent_api::session::AgentSessionFactory::load_production().unwrap();
         let activity_factory =
             starclock_agent_api::activity_session::ActivityAgentSessionFactory::load_production()
@@ -798,6 +799,8 @@ mod tests {
             .unwrap();
         let swarm_factory = starclock_agent_api::swarm_disaster_activity_session::SwarmDisasterActivityAgentSessionFactory::load_production()
             .unwrap();
+        let currency_wars_factory = starclock_agent_api::currency_wars_activity_session::CurrencyWarsActivityAgentSessionFactory::load_production()
+            .unwrap();
         let clock = Arc::new(TestClock);
         let ids = Arc::new(TestIds::default());
         let registry = starclock_agent_api::session::AgentSessionRegistry::new(
@@ -805,10 +808,11 @@ mod tests {
             clock.clone(),
             ids.clone(),
         );
-        let activity_registry = starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new_with_modes(
+        let activity_registry = starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new_with_all_modes(
                 activity_factory.clone(),
                 gold_factory,
                 swarm_factory,
+                currency_wars_factory,
                 clock,
                 ids,
             );
@@ -896,7 +900,9 @@ mod tests {
                 "starclock://universe/gold-and-gears/manifest",
                 "starclock://rules/gold-and-gears",
                 "starclock://universe/swarm-disaster/manifest",
-                "starclock://rules/swarm-disaster"
+                "starclock://rules/swarm-disaster",
+                "starclock://currency-wars/manifest",
+                "starclock://rules/currency-wars"
             ]
         );
         let templates = client.list_all_resource_templates().await.unwrap();
@@ -1110,6 +1116,133 @@ mod tests {
             activity_closed.structured_content.as_ref().unwrap()["closed"],
             true
         );
+
+        let currency_wars = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(
+                    json!({
+                        "mode":"currency-wars", "route_id":"801", "difficulty_id":"1",
+                        "gambit":"standard", "seed":"31000501"
+                    }),
+                )),
+            )
+            .await
+            .unwrap();
+        assert_eq!(currency_wars.is_error, Some(false));
+        assert_eq!(
+            currency_wars.structured_content.as_ref().unwrap()["event_cursor"],
+            "event_0"
+        );
+        let currency_observation =
+            &currency_wars.structured_content.as_ref().unwrap()["observation"];
+        let currency_id = currency_observation["session_id"]
+            .as_str()
+            .unwrap()
+            .to_owned();
+        let engage_input = json!({
+            "session_id":currency_id,
+            "boundary_id":currency_observation["boundary_id"],
+            "expected_state_hash":currency_observation["state_hash"],
+            "action_token":currency_observation["legal_actions"][0]["token"],
+            "idempotency_key":"mcp_currency_wars_engage_1"
+        });
+        let engaged = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_play_activity_action")
+                    .with_arguments(arguments(engage_input.clone())),
+            )
+            .await
+            .unwrap();
+        let repeated_engage = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_play_activity_action")
+                    .with_arguments(arguments(engage_input)),
+            )
+            .await
+            .unwrap();
+        assert_eq!(
+            repeated_engage.structured_content,
+            engaged.structured_content
+        );
+        let first_events = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_observe_activity").with_arguments(arguments(
+                    json!({"session_id":currency_id, "event_cursor":"event_0"}),
+                )),
+            )
+            .await
+            .unwrap();
+        assert_eq!(first_events.is_error, Some(false));
+        assert_eq!(
+            first_events.structured_content.as_ref().unwrap()["events"]
+                .as_array()
+                .unwrap()
+                .len(),
+            1
+        );
+        assert_eq!(
+            first_events.structured_content.as_ref().unwrap()["event_cursor"],
+            "event_1"
+        );
+        let prepared = &engaged.structured_content.as_ref().unwrap()["response"]["observation"];
+        let battle_input = json!({
+            "session_id":currency_id,
+            "boundary_id":prepared["boundary_id"],
+            "expected_state_hash":prepared["state_hash"],
+            "action_token":prepared["legal_actions"][0]["token"],
+            "idempotency_key":"mcp_currency_wars_battle_1"
+        });
+        let battled = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_play_activity_action")
+                    .with_arguments(arguments(battle_input)),
+            )
+            .await
+            .unwrap();
+        assert_eq!(
+            battled.structured_content.as_ref().unwrap()["response"]["settlement"]["nested_battles"],
+            "1"
+        );
+        let battle_events = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_observe_activity").with_arguments(arguments(
+                    json!({"session_id":currency_id, "event_cursor":"event_1"}),
+                )),
+            )
+            .await
+            .unwrap();
+        assert_eq!(
+            battle_events.structured_content.as_ref().unwrap()["events"][0]["nested_battles"],
+            "1"
+        );
+        let future_events = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_observe_activity").with_arguments(arguments(
+                    json!({"session_id":currency_id, "event_cursor":"event_3"}),
+                )),
+            )
+            .await
+            .unwrap();
+        assert_eq!(future_events.is_error, Some(true));
+        let currency_closed = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_close_activity")
+                    .with_arguments(arguments(json!({"session_id":currency_id}))),
+            )
+            .await
+            .unwrap();
+        assert_eq!(
+            currency_closed.structured_content.as_ref().unwrap()["closed"],
+            true
+        );
+        let cancelled_observation = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_observe_activity")
+                    .with_arguments(arguments(json!({"session_id":currency_id}))),
+            )
+            .await
+            .unwrap();
+        assert_eq!(cancelled_observation.is_error, Some(true));
 
         client.cancel().await.unwrap();
         task.await.unwrap();

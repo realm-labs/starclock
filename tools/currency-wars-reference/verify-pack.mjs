@@ -99,12 +99,94 @@ assert(exactMechanics.length === 2367
   && mechanicSources.length === exactMechanics.length
   && mechanicRules.length === exactMechanics.length,
 "mechanic source/rule closure drift");
+const dispositionContracts = new Map([
+  ["PreserveExactSourceContribution",
+    [false, "ReferenceOnlyExactSourceBoundary", 1197]],
+  ["LowerBattleBehaviorPolicy",
+    [true, "BattleOwnedTypedEnemyBehaviorPolicy", 9]],
+  ["LowerAvatarBattleBehaviorPolicy",
+    [true, "BattleOwnedTypedAvatarBehaviorPolicy", 82]],
+  ["LowerBattleConfigurationPolicy",
+    [true, "BattleOwnedTypedConfigurationFamilyPolicy", 9]],
+  ["LowerBondBattleBehaviorPolicy",
+    [true, "BattleOwnedTypedBondBehaviorPolicy", 31]],
+  ["LowerBattleProgramBindingPolicy",
+    [true, "BattleOwnedTypedProgramBindingPolicy", 132]],
+  ["LowerEnemyCharacterConfiguration",
+    [true, "BattleOwnedTypedEnemyCharacterConfiguration", 11]],
+  ["LowerGlobalComplexAiFactors",
+    [true, "BattleOwnedTypedComplexAiFactorPolicy", 2]],
+  ["LowerEnemyAiConfiguration",
+    [true, "BattleOwnedTypedEnemyAiConfiguration", 3]],
+  ["LowerGlobalTaskTemplates",
+    [true, "BattleOwnedTypedGlobalTaskTemplateLibrary", 1]],
+  ["AuditPresentationOnly",
+    [false, "PresentationOnlyNoAuthoritativeState", 77]],
+  ["AuditLayoutDescriptor",
+    [false, "MetadataOnlyNoAuthoritativeState", 459]],
+  ["AuditUnreachableCharacterOverride",
+    [false, "MetadataOnlyNoAuthoritativeState", 44]],
+  ["AuditUnreachableBattleConfiguration",
+    [false, "MetadataOnlyNoAuthoritativeState", 1]],
+  ["AuditEmptyConfigurationProgram",
+    [false, "MetadataOnlyNoAuthoritativeState", 1]],
+  ["BindCharacterOverride",
+    [true, "ContributionSnapshotCharacterOverrideSelection", 52]],
+  ["ScoreSeasonRole",
+    [true, "ControllerRoleReferenceRanking", 77]],
+  ["ApplyRoleCostAvailability",
+    [true, "ShopCandidateEligibilityByRunPosition", 5]],
+  ["ProjectSeasonScoreAndExperience",
+    [true, "SettlementProjectionNoRunMutation", 80]],
+  ["BindSeasonTraitRolePool",
+    [true, "ControllerRoleTraitIndex", 32]],
+  ["AuditRolePresentationMetadata",
+    [false, "MetadataOnlyNoAuthoritativeState", 10]],
+  ["AuditStructuredPresentationMetadata",
+    [false, "MetadataOnlyNoAuthoritativeState", 49]],
+  ["BindSeasonRolePool",
+    [true, "ShopAndRosterRoleEligibilityBySeason", 1]],
+  ["ApplyModuleRoleBan",
+    [true, "ShopAndRosterRoleEligibilityByModule", 2]],
+]);
+const dispositionCounts = new Map();
 assert(mechanicRules.every(({ runtime_lowered: lowered,
-  ordered_operations: operations }) =>
-  lowered === false
-    && operations.length === 1
-    && operations[0].interpretation === "DeferredToLaterRuntimeGoal"),
-"runtime exclusion drift");
+  ordered_operations: operations, state_lifecycle: lifecycle }) => {
+  if (operations.length !== 1) return false;
+  const [operation] = operations;
+  const contract = dispositionContracts.get(operation.kind);
+  if (!contract || lowered !== contract[0] || lifecycle !== contract[1])
+    return false;
+  dispositionCounts.set(operation.kind,
+    (dispositionCounts.get(operation.kind) ?? 0) + 1);
+  return (operation.kind !== "PreserveExactSourceContribution"
+      || operation.interpretation === "DeferredToLaterRuntimeGoal")
+    && (operation.kind !== "AuditPresentationOnly"
+      || ["TutorialPresentationAndInputGuidance",
+        "WorldPropPresentationAndUiEntry"].includes(operation.reason)
+      && operation.authoritative_operation_count === 0);
+}), "runtime disposition drift");
+assert([...dispositionContracts].every(([kind, contract]) =>
+  dispositionCounts.get(kind) === contract[2]),
+"runtime disposition denominator drift");
+const runtimeRules = mechanicRules.filter(({ runtime_lowered: lowered }) => lowered);
+const roleCostRules = runtimeRules.filter(({ ordered_operations: [operation] }) =>
+  operation.kind === "ApplyRoleCostAvailability");
+const seasonProgressionRules = runtimeRules.filter(
+  ({ ordered_operations: [operation] }) =>
+    operation.kind === "ProjectSeasonScoreAndExperience",
+);
+assert(runtimeRules.length === 529
+  && roleCostRules.length === 5
+  && seasonProgressionRules.length === 80,
+"lowered runtime denominator drift");
+assert(roleCostRules.map(({ ordered_operations: [operation] }) => operation.cost)
+  .sort((left, right) => left - right).join(",") === "1,2,3,4,5",
+"role-cost availability closure drift");
+assert(unique(seasonProgressionRules.map(({ ordered_operations: [operation] }) =>
+  canonical([operation.division_id, operation.score_rule_id,
+    operation.chapter, operation.section]))),
+"season progression key closure drift");
 
 const families = rowsByFile.get("semantic-fixture-families.json");
 const fixtures = rowsByFile.get("review-fixtures.json");
@@ -123,8 +205,11 @@ for (const required of fixtureContract.required_families) {
 const gaps = rowsByFile.get("research-gaps.json");
 assert(gaps.length === 12
   && gaps.every((row) =>
-    row.coverage_state === "Researched"
-      && row.evidence_quality === "ProjectPolicy"
+    (row.field === "build.role_to_shared_build"
+      ? row.coverage_state === "DataReady"
+        && row.evidence_quality === "ExactStructured"
+      : row.coverage_state === "Researched"
+        && row.evidence_quality === "ProjectPolicy")
       && row.replacement_condition),
 "research-gap policy drift");
 
@@ -164,7 +249,7 @@ assert(packManifest.content_manifest_sha256 === sha256(fs.readFileSync(path.join
 console.log(
   `Currency Wars pack verified (${coverage.length} obligations; ` +
   `18524/18524 eligible DataReady; 726 explicit exclusions; ` +
-  `${mechanicRules.length} unlowered mechanic dossiers; ` +
+  `${mechanicRules.length} mechanic dossiers; ` +
   `${fixtures.length} semantic fixture families; ${index.pack_digest}).`,
 );
 

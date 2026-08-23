@@ -1,0 +1,724 @@
+[
+  {
+    "id": "currency-wars.service-constant.gridfight_basesupplyrolenum",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_basesupplyrolenum",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_basesupplyrolenum",
+    "summary_en": "GridFight_BaseSupplyRoleNum is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_BaseSupplyRoleNum is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "56",
+        "sha256": "e83791b24b6e7001f228e8c63f2aadc1aac7a02fb66a70a4c3ca390a2168fb40",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_BaseSupplyRoleNum",
+    "value": {
+      "IntValue": "4"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_bench_overflow_avatarnum",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_bench_overflow_avatarnum",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_bench_overflow_avatarnum",
+    "summary_en": "GridFight_Bench_OverFlow_AvatarNum is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_Bench_OverFlow_AvatarNum is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "19",
+        "sha256": "1b80f7475fce5844698ce32de21907890102255ce8568bc8b93d793b726f7834",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_Bench_OverFlow_AvatarNum",
+    "value": {
+      "IntValue": "100"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_coinitemid",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_coinitemid",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_coinitemid",
+    "summary_en": "GridFight_CoinItemID is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_CoinItemID is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "29",
+        "sha256": "266a6171423db763fda9c6c272432e93c4185c7821c68481096fe9c65b946005",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_CoinItemID",
+    "value": {
+      "IntValue": "281031"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_craftablethiefgloveequipcount",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_craftablethiefgloveequipcount",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_craftablethiefgloveequipcount",
+    "summary_en": "GridFight_CraftableThiefGloveEquipCount is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_CraftableThiefGloveEquipCount is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "41",
+        "sha256": "4d8752410afa35373d91667f4a8de9148e57aaa740e0be75ba0bda47694e95c3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_CraftableThiefGloveEquipCount",
+    "value": {
+      "ArrayValue": [
+        {
+          "IntValue": "3"
+        },
+        {
+          "IntValue": "4"
+        }
+      ]
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_elation_goldtrashorb",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_elation_goldtrashorb",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_elation_goldtrashorb",
+    "summary_en": "GridFight_Elation_GoldTrashOrb is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_Elation_GoldTrashOrb is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.125",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "125",
+        "sha256": "943ad3b17d389033aa29d0e495e7fe4f16211690b52537d09d1d1c918cc7017b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_Elation_GoldTrashOrb",
+    "value": {
+      "IntValue": "122007"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_fateequip_error",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_fateequip_error",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_fateequip_error",
+    "summary_en": "GridFight_FateEquip_Error is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_FateEquip_Error is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.137",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "137",
+        "sha256": "38efc7c4e4663e07c26a54ce2ec1c81afd0f06e9cf997ac5a9b1405e6659e87f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_FateEquip_Error",
+    "value": {
+      "ArrayValue": [
+        {
+          "IntValue": "352701"
+        },
+        {
+          "IntValue": "352702"
+        },
+        {
+          "IntValue": "352703"
+        },
+        {
+          "IntValue": "352704"
+        },
+        {
+          "IntValue": "352705"
+        }
+      ]
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_fateequip_excellent",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_fateequip_excellent",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_fateequip_excellent",
+    "summary_en": "GridFight_FateEquip_Excellent is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_FateEquip_Excellent is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.138",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "138",
+        "sha256": "19836cb02b7a7993929d01123334e1ae067f275d3afe7c7611e64b8cdf291c42",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_FateEquip_Excellent",
+    "value": {
+      "ArrayValue": [
+        {
+          "IntValue": "352801"
+        },
+        {
+          "IntValue": "352802"
+        },
+        {
+          "IntValue": "352803"
+        },
+        {
+          "IntValue": "352804"
+        },
+        {
+          "IntValue": "352606"
+        }
+      ]
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_fateequip_normal",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_fateequip_normal",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_fateequip_normal",
+    "summary_en": "GridFight_FateEquip_Normal is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_FateEquip_Normal is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.136",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "136",
+        "sha256": "b43cf91578c108c3af19294d66524a734da1e2e955da69b3ee42b2c3ca57b384",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_FateEquip_Normal",
+    "value": {
+      "ArrayValue": [
+        {
+          "IntValue": "352601"
+        },
+        {
+          "IntValue": "352602"
+        },
+        {
+          "IntValue": "352603"
+        },
+        {
+          "IntValue": "352604"
+        },
+        {
+          "IntValue": "352605"
+        },
+        {
+          "IntValue": "352607"
+        },
+        {
+          "IntValue": "352608"
+        },
+        {
+          "IntValue": "352706"
+        }
+      ]
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_freerefesh_resource_id",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_freerefesh_resource_id",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_freerefesh_resource_id",
+    "summary_en": "GridFight_FreeRefesh_Resource_ID is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_FreeRefesh_Resource_ID is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "46",
+        "sha256": "410af98f39545fe4be70ea99af82316d37820abea4c2bafb8f044d7799a04b79",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_FreeRefesh_Resource_ID",
+    "value": {
+      "IntValue": "2"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_initrandombonuspool",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_initrandombonuspool",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_initrandombonuspool",
+    "summary_en": "GridFight_InitRandomBonusPool is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_InitRandomBonusPool is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "14",
+        "sha256": "6b3e7bf672f6a698619aa009eae98b04a642861ebc1a507da2dd29a07ce21bc3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_InitRandomBonusPool",
+    "value": {
+      "IntValue": "80001"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_initrandombonuspoollist",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_initrandombonuspoollist",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_initrandombonuspoollist",
+    "summary_en": "GridFight_InitRandomBonusPoolList is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_InitRandomBonusPoolList is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "15",
+        "sha256": "820c7a5fc753db903639ae8fc0cd051d0b689afaa67c5249989292497944c24e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_InitRandomBonusPoolList",
+    "value": {
+      "ArrayValue": [
+        {
+          "IntValue": "80001"
+        },
+        {
+          "IntValue": "3000102"
+        },
+        {
+          "IntValue": "2000103"
+        }
+      ]
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_ocseasonexpratio",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_ocseasonexpratio",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_ocseasonexpratio",
+    "summary_en": "GridFight_OCSeasonExpRatio is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_OCSeasonExpRatio is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.80",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "80",
+        "sha256": "df30859434dab788245e8e9fa6cf98c1c2980778a340c84e2cfba50b5d10f632",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_OCSeasonExpRatio",
+    "value": {
+      "IntValue": "60"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_ocseasonweeklyscoreratio",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_ocseasonweeklyscoreratio",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_ocseasonweeklyscoreratio",
+    "summary_en": "GridFight_OCSeasonWeeklyScoreRatio is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_OCSeasonWeeklyScoreRatio is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "79",
+        "sha256": "baa6dac6565238f26ef7aef0164c5ee4390a42559990c7b1ab944ff92cdd1169",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_OCSeasonWeeklyScoreRatio",
+    "value": {
+      "IntValue": "100"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_octalentpointratio",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_octalentpointratio",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_octalentpointratio",
+    "summary_en": "GridFight_OCTalentPointRatio is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_OCTalentPointRatio is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.81",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "81",
+        "sha256": "bf5caa8c8212b55cf39dec22f9b28c2bcb3b24938e64cd1958ca4840141b4817",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_OCTalentPointRatio",
+    "value": {
+      "IntValue": "60"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_orbkeeptime",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_orbkeeptime",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_orbkeeptime",
+    "summary_en": "GridFight_OrbKeepTime is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_OrbKeepTime is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.110",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "110",
+        "sha256": "6dd2fe73b0b5596cd6016a3583bf05a0e1a7567975c8a6b2e62a33ef3a6dbbbc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_OrbKeepTime",
+    "value": {
+      "IntValue": "700"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_projection_module",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_projection_module",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_projection_module",
+    "summary_en": "GridFight_Projection_Module is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_Projection_Module is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.140",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "140",
+        "sha256": "42a2733fb5dd0d6c1cc019e9938279842b8733dc4c82bfce004d888045bb8956",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_Projection_Module",
+    "value": {
+      "IntValue": "7110501"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_radiantthiefgloveequipcount",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_radiantthiefgloveequipcount",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_radiantthiefgloveequipcount",
+    "summary_en": "GridFight_RadiantThiefGloveEquipCount is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_RadiantThiefGloveEquipCount is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "42",
+        "sha256": "88ed46044677d81f7e4171b4ae92d10824293e9387909c8da887d7cc907e052d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_RadiantThiefGloveEquipCount",
+    "value": {
+      "IntValue": "4"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  },
+  {
+    "id": "currency-wars.service-constant.gridfight_specialavatarworldlevel",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsServiceConstant",
+    "name_en": "currency-wars.service-constant.gridfight_specialavatarworldlevel",
+    "name_zh_cn": "currency-wars.service-constant.gridfight_specialavatarworldlevel",
+    "summary_en": "GridFight_SpecialAvatarWorldLevel is retained for its exact owning service boundary.",
+    "summary_zh_cn": "GridFight_SpecialAvatarWorldLevel is retained for its exact owning service boundary.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "25",
+        "sha256": "951c0277ab9efe7f359010207139b89b4cec611d3a30d217de405a9c007cc6cc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "runtime-service",
+      "service-constant"
+    ],
+    "source_id": "GridFight_SpecialAvatarWorldLevel",
+    "value": {
+      "IntValue": "6"
+    },
+    "consumer_policy": "Resolve only at the named Currency Wars service boundary."
+  }
+]

@@ -109,7 +109,7 @@ function seedSora(targetRoot) {
       .map((line) => path.join(line.slice("worktree ".length), relative)),
   ];
   const executable = candidates.find((candidate) => fs.existsSync(candidate));
-  assert(executable, "pinned Sora 0.3.0 executable is unavailable");
+  assert(executable, `pinned Sora ${policy.version} executable is unavailable`);
   const destination = path.join(targetRoot, relative);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
   fs.copyFileSync(executable, destination);

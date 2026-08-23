@@ -1,0 +1,806 @@
+{
+  "schema_revision": "starclock.currency-wars-battle-avatar-program-m08-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-M08",
+  "status": "VersionedProjectPolicyExecutable",
+  "accuracy": "VersionedProjectPolicy",
+  "partition_program_count": 63,
+  "executable_policy_count": 35,
+  "terminal_metadata_count": 28,
+  "binding_policy_count": 35,
+  "layout_descriptor_count": 28,
+  "archetypes": {
+    "BondStageAbility": 1,
+    "CoreAvatarAbility": 15,
+    "RoleBattleEvent": 19
+  },
+  "released_binding_totals": {
+    "role_ids": 31,
+    "avatar_ids": 29,
+    "servant_ids": 0,
+    "battle_event_ids": 19,
+    "bond_ids": 1
+  },
+  "released_shape_totals": {
+    "ability_names": 194,
+    "global_modifiers": 20,
+    "callback_events": 157,
+    "configuration_nodes": 3159
+  },
+  "selected_behavior": {
+    "typed_binding": "Fifteen released Avatar abilities and twenty BattleEvent character configurations bind to typed role/avatar, BattleEvent or Bond controllers selected from immutable battle inputs.",
+    "summon_binding": "The Dan Heng PT back-position override binds the released summoned BattleEvent 11414 and activates only through the selected summon override contribution.",
+    "partner_binding": "The Cocolia partner configuration has no authored abilities; it binds to released Bond 3001, whose separately lowered stage program owns the summon behavior.",
+    "decoder_metadata": "Twenty-eight decoder layout descriptors remain mechanically inert metadata.",
+    "raw_postfix_interpreter": false,
+    "observed_parity_claimed": false
+  },
+  "unresolved_field": "Complete executable semantics of every supplemental Avatar/BattleEvent configuration node and referenced postfix expression in the thirty-five policy-bound programs.",
+  "replacement_condition": "Replace each policy when reviewed typed lowering and production execution fixtures cover every authoritative node in that released source program.",
+  "replacement_trigger": "Source digest, ordered shape, typed identity binding and materialization receipts are locked; verification fails on drift, an unresolved controller, a no-op receipt or an exact-parity relabel.",
+  "behavioral_evidence": [
+    "currency_wars_combat_policy_tests::every_m08_avatar_and_battle_event_program_binds_a_released_runtime_controller",
+    "currency_wars::tests::production_m08_avatar_and_battle_event_programs_preserve_shape_and_binding_boundaries"
+  ],
+  "verification_commands": [
+    "cargo test -p starclock-data currency_wars_combat_policy_tests::every_m08_avatar_and_battle_event_program_binds_a_released_runtime_controller -- --exact",
+    "cargo test -p starclock-data currency_wars::tests::production_m08_avatar_and_battle_event_programs_preserve_shape_and_binding_boundaries -- --exact",
+    "node tools/currency-wars-runtime/verify-dispositions.mjs",
+    "node tools/currency-wars-runtime/verify-shared-capability-audit.mjs"
+  ],
+  "programs": [
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.0c1f7162f3ec1f4109be11f0",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Fugue_00_Config.json",
+      "source_sha256": "5de86035ee99fccbc7679ccd8a8ca8386e5c61b120fe637c37bc637ad145153e",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1225
+      ],
+      "avatar_ids": [
+        1225
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62344
+      ],
+      "bond_ids": [],
+      "ability_count": 6,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 2,
+      "ordered_shape_sha256": "9c3d7906696c997b81bd44b8d654a018c4b648e8e8e7283f4bea04b9aea99647",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.0e9db0925c65e31079c63c46",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_TheHerta_00_Ability.json",
+      "source_sha256": "5480fc4bf9e308da056a4950a59a79db385341f721b2d7862db619125b7a2d6c",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1401
+      ],
+      "avatar_ids": [
+        1401
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 6,
+      "global_modifier_count": 1,
+      "callback_event_count": 2,
+      "configuration_node_count": 399,
+      "ordered_shape_sha256": "d4e8791e54b456ffdd48548d5e7cb4501b205b2c48277cb367e3b14c62526998",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.113af53edcfe4b656b60370f",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Gallagher_00_Config.json",
+      "source_sha256": "11b0e5459bbafb932c901f34c180ac72e9c09971ef267830b5cb68aa1030d925",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1301
+      ],
+      "avatar_ids": [
+        1301
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62345
+      ],
+      "bond_ids": [],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 12,
+      "ordered_shape_sha256": "06e35230afa7c9e93ec9249cebdb41184d9165ab15ac5feeda3888bd159a5a3d",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.23d97f5b73c67e80a562659f",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Cocolia_00_Config.json",
+      "source_sha256": "09388ceb78b44db0ed47027f843f4a994dcee4add557f284e15aae66ed4a22c9",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [],
+      "avatar_ids": [],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62406
+      ],
+      "bond_ids": [],
+      "ability_count": 3,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "83ef2ad728a51fdaafbe5737d818894ffd456fa2d35a6f43f090d477010ee386",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.2a208632e0a94e51e9839077",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Jingliu_00_Config.json",
+      "source_sha256": "8d2f1bb2cb291d04442f3356ad14715f5106d58001973d3f4a6947e98fb387ca",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1212
+      ],
+      "avatar_ids": [
+        1212
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62333
+      ],
+      "bond_ids": [],
+      "ability_count": 9,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 8,
+      "ordered_shape_sha256": "4bb45195d8edd9a178a2c6def6ca92e059e902a03240c9b1263ca003f25e81aa",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.2c49f0be8d0f6ecc3f0bedea",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Anaxa_00_Config.json",
+      "source_sha256": "416c49fb00d55928780079c9e2be3da0e06739ad305b8c14406585bc424d0e27",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1405
+      ],
+      "avatar_ids": [
+        1405
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62364
+      ],
+      "bond_ids": [],
+      "ability_count": 6,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 9,
+      "ordered_shape_sha256": "e989a6e894183279a48cd63400ad24e18f3c84c1c6a3b2725c18f81f4c74efde",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.2e31ef508bd79c1a6ef9a09a",
+      "source_path": "Config/ConfigAbility/GridFight/4.2/Avatar_GridFight_Ashveil_00_Ability.json",
+      "source_sha256": "0d7de2e9c1c6fe978670ec52b869cb0dea4b283d41283e7de46fe679db3661b3",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1504
+      ],
+      "avatar_ids": [
+        1504
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 6,
+      "configuration_node_count": 24,
+      "ordered_shape_sha256": "90ebc84e96b7c05fa11750ddc575c9be43cfc206418edcdec12750857d1c3b8b",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.308872def5c98c09a6ceb967",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_DanHengPT_00_Config.json",
+      "source_sha256": "0e5e670d3d08617c321157d834ae1b26456ab2b67c2b487a3592579084445369",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1414
+      ],
+      "avatar_ids": [
+        1414
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62374
+      ],
+      "bond_ids": [],
+      "ability_count": 8,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 9,
+      "ordered_shape_sha256": "f8b8b377c17e38e2bc88b894ba4662eeb02bbf8e326374ed0f7951069216ff7c",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.41a7adff8a931485076f8c18",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Cerydra_00_Config.json",
+      "source_sha256": "b9de41b2fea5194ac266d0e567be3742063f4497ee4b13e89142544862ee1681",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1412
+      ],
+      "avatar_ids": [
+        1412
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62372
+      ],
+      "bond_ids": [],
+      "ability_count": 11,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 10,
+      "ordered_shape_sha256": "0be076e828d6713cb01394a338761761193d1705aa9d8c3274b5200f8aa27032",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.47d48b7ba75288f369efacf9",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Evernight_00_Config.json",
+      "source_sha256": "9127fa26c5d633e2f024c6a30e89376e91526f0a0f99b054a41a8771b41fb141",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1413
+      ],
+      "avatar_ids": [
+        1413
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62373
+      ],
+      "bond_ids": [],
+      "ability_count": 4,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 45,
+      "ordered_shape_sha256": "0db372820097794c0605e4733b3fb6861d3c7491c45157d0a2ad66341e6cab47",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.5a6dcf9ba6dba3903476e375",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_FuXuan_00_Config.json",
+      "source_sha256": "05565b7c1660d14d57a92568a7bfca5cfed00b8b9049ec46514c6c31d7917a98",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1208
+      ],
+      "avatar_ids": [
+        1208
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62329
+      ],
+      "bond_ids": [],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "4b845f3ded099fa7bf879483d5c5c7bc4feb0c091a858e0342d68b30dbbddc59",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6634c725e562c0a86fc114d4",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_BloodTrait_Attack_00_Config.json",
+      "source_sha256": "f2ecfcd130d303a9d85b93e6d1a30ff47db3f8494efbd4cbe7ff1d7742845458",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [],
+      "avatar_ids": [],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62409
+      ],
+      "bond_ids": [],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "526a8d5a6b3054ffcb14434bb1be799b374d85d996b1600d86fff1ab0a9ec971",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6819ce5d6f4b663c3785d732",
+      "source_path": "Config/ConfigAbility/GridFight/4.0/Avatar_GridFight_Sparxie_00_Ability.json",
+      "source_sha256": "a4793f42f63b9ad31477bf9df9574800dc3edd6bd276c37570dd7ca69f11fedd",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1501
+      ],
+      "avatar_ids": [
+        1501
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 7,
+      "global_modifier_count": 1,
+      "callback_event_count": 16,
+      "configuration_node_count": 281,
+      "ordered_shape_sha256": "d50857a77cdae631ec62517bcf9b71f23fa00f1f4b4e08e8eb7b8984cfa2c070",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6f8f578553ce7e63a56eb3f5",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Guinaifen_00_Config.json",
+      "source_sha256": "94d9254909dd70f3a699423f7a339921273cff782e3ea61804a8c6f38c16c7fe",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [],
+      "avatar_ids": [],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62331
+      ],
+      "bond_ids": [],
+      "ability_count": 4,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "0cc661c17184bccb68012da9004ae31a8fe1bcb5bf98dc75cf77c447a6059399",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.706ce08d00b144700c334579",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Herta_00_Config.json",
+      "source_sha256": "d8eb967f55ff73235d138e9490e962db239b0ffd1f73420a2fd412e29e778ad2",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1013
+      ],
+      "avatar_ids": [
+        1013
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62309
+      ],
+      "bond_ids": [],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "b065737913fa15b303a724fce82a5ab4caf78c878da193e9c9afe243b188c65f",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.7d3f20ad5c5993e2de2acf62",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Himeko_00_Config.json",
+      "source_sha256": "51d5e0f36fd17c6e2b06e4c1ab91fe745b5b53887a10c3925c5d3d8e4946eb42",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1003
+      ],
+      "avatar_ids": [
+        1003
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62303
+      ],
+      "bond_ids": [],
+      "ability_count": 8,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 5,
+      "ordered_shape_sha256": "99948bd27e761c91765ca1bc39c521aebc5cfd986dbcf4819ce90c8d4f453b34",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.8d5ffcde78ab445249335974",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Tribbie_00_Ability.json",
+      "source_sha256": "426bdbe3583385358577291b11c91b11ee4adf2a14aaccd0a38d5484d6a84174",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1403
+      ],
+      "avatar_ids": [
+        1403
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 3,
+      "global_modifier_count": 0,
+      "callback_event_count": 3,
+      "configuration_node_count": 66,
+      "ordered_shape_sha256": "54c4c32c32ab7ae34056511a7dd195af5ceaba06504974c8e4a2a054935044e6",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.914bb92bebcebe86582847ca",
+      "source_path": "Config/ConfigAbility/GridFight/4.2/Avatar_GridFight_SilverWolf999_00_Ability.json",
+      "source_sha256": "904a63c7106d32003f6c99aac516dcbdb0487e4f3683c99b6c43e86b4f21c54a",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        15061,
+        15062,
+        15063
+      ],
+      "avatar_ids": [
+        1506
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 2,
+      "global_modifier_count": 4,
+      "callback_event_count": 13,
+      "configuration_node_count": 148,
+      "ordered_shape_sha256": "f6fd741e782b7a68fc31c7388a0074aa5c8db7d740e9409e7c9bc8e9469449b2",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.9437bbc52d3d5d916a76cb65",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Sunday_10_Ability.json",
+      "source_sha256": "14fd4c6efe82d148e0c6f2777e8887d807e8741e33b009499a5c5933fe6fcd40",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1313
+      ],
+      "avatar_ids": [
+        1313
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 4,
+      "global_modifier_count": 2,
+      "callback_event_count": 5,
+      "configuration_node_count": 230,
+      "ordered_shape_sha256": "1d969e1f226c4df50089627bd6458d3a5b8a0e9336d74e7cc768950ce9b45507",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.96003b0dd00ef81457e8b870",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Silwolf_00_Ability.json",
+      "source_sha256": "b0ed26e5e55874b935a35937a265c4996cba96b45b7b2f781552a02c121aea35",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1006
+      ],
+      "avatar_ids": [
+        1006
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 5,
+      "global_modifier_count": 7,
+      "callback_event_count": 11,
+      "configuration_node_count": 341,
+      "ordered_shape_sha256": "542526ba11d775ae2dda1528a2f74e9dccbe4ba1dea33ed271a187fee998fe74",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.998353275a8f35b3851d85dd",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Huohuo_00_Config.json",
+      "source_sha256": "5e0629d52754b3a31ab79bc0dd3a288a011cf783481f06f3c402c1c67f006c64",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1217
+      ],
+      "avatar_ids": [
+        1217
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62337
+      ],
+      "bond_ids": [],
+      "ability_count": 7,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 3,
+      "ordered_shape_sha256": "ba98406419055a894bd56f83c4e65b665ca72bb4d079db650a6716def4167c74",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.a5bcbad7bcdf2e2f3256e222",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_BlackSwan_00_Config.json",
+      "source_sha256": "9793f43bae4881835400e5d81bdb17b6ffdd906b85647cb7a4c41a75c6f4af06",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1307
+      ],
+      "avatar_ids": [
+        1307
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62351
+      ],
+      "bond_ids": [],
+      "ability_count": 9,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 14,
+      "ordered_shape_sha256": "6f607cc6e57bd1757d16f17ba95be7e677faa0af283525cfd24c479a230f9a6e",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.a80021f03c20a636a1c317fe",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Sam_00_Ability.json",
+      "source_sha256": "8e033a43c8d7156d72d602f6c2b88cc2189c0ab7fbd70a3272fa94a2a71d0f8a",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1310
+      ],
+      "avatar_ids": [
+        1310
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 7,
+      "global_modifier_count": 1,
+      "callback_event_count": 8,
+      "configuration_node_count": 135,
+      "ordered_shape_sha256": "834cc80ac6c9410f800c3cedd9c39f572b90a3e73f099c5758cda55234c32449",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.aad5751f419cd0fe9464137d",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_DanHengPT_00_BE_Config.json",
+      "source_sha256": "6a8cba502d478091c91f490ebf07e6fb1eaee4df641d5f0b0a12c24ff4830ddd",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1414
+      ],
+      "avatar_ids": [
+        1414
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        11414
+      ],
+      "bond_ids": [],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "85c4c2221aea280e07b0ae2d2f6a4a9f3cf901eee791c0b832917749c90cc9f4",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.bda8de26cbcd57b8e76753a4",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Seele_00_Ability.json",
+      "source_sha256": "47f28f0b2b6b9d2f2ab6cdd2733265412ebd20ca20c1d928100d6e2b02228f8e",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1102
+      ],
+      "avatar_ids": [
+        1102
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 8,
+      "global_modifier_count": 0,
+      "callback_event_count": 15,
+      "configuration_node_count": 262,
+      "ordered_shape_sha256": "5f0638de04992b9f0b2d68bd5d9f8de209ad9fe23e9aca80be704d611fae8245",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.be2272098199b9605c2bb699",
+      "source_path": "Config/ConfigAbility/GridFight/4.0/Avatar_GridFight_YaoGuang_00_Ability.json",
+      "source_sha256": "02933a0303a2b2c54ffb4dafa35e73534d53715f1103bee767134b6fc6a98d88",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1502
+      ],
+      "avatar_ids": [
+        1502
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 2,
+      "global_modifier_count": 2,
+      "callback_event_count": 17,
+      "configuration_node_count": 154,
+      "ordered_shape_sha256": "7de85a888c55825ddf88ee7e9e13ad08f201fd555cc699fa3e18cb0a19e44d48",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.c01db23d5352ef220d86783c",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_EvernightServant_00_Config.json",
+      "source_sha256": "dec3dfab7aa71c2de68ef007ea549e68c9788f0cfdb5e9cdc1820dc221fa740c",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [],
+      "avatar_ids": [],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62402
+      ],
+      "bond_ids": [],
+      "ability_count": 15,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 27,
+      "ordered_shape_sha256": "65b109397ccf867c9aec4ff3dc06f8dd82564fe5577d640f1e868fe22d33c6c2",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.cb4970a23494ec140b5df94f",
+      "source_path": "Config/ConfigAbility/GridFight/4.0/Avatar_GridFight_Constance_00_Ability.json",
+      "source_sha256": "6154fa81512d3b6eb04d339c2712eed43c900a5271930a613aa66e2c63b41094",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1321
+      ],
+      "avatar_ids": [
+        1321
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 4,
+      "global_modifier_count": 1,
+      "callback_event_count": 34,
+      "configuration_node_count": 362,
+      "ordered_shape_sha256": "160ad2309c5d0aa48300b81d3e0facc0ce4b7c1b98d4c85e6ebdb88912c8894f",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.ea68949741bcc112377309dd",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Saber_00_Ability.json",
+      "source_sha256": "1087e68b17a799e16c3eef0808b67955097d4ba466a6314eb97043c6052fe5e3",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1014
+      ],
+      "avatar_ids": [
+        1014
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 3,
+      "global_modifier_count": 0,
+      "callback_event_count": 1,
+      "configuration_node_count": 76,
+      "ordered_shape_sha256": "fb072eb84fed2147f46a2a543904526e7d6cfab42d022d8a112904003f2ca297",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.efa6508307450fba93802840",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Sampo_00_Ability.json",
+      "source_sha256": "dd8c23d7d4d8bd6ab27a91644bf07d59e76aa040a83c8b6ca11ec51706e817db",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1108
+      ],
+      "avatar_ids": [
+        1108
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 4,
+      "global_modifier_count": 0,
+      "callback_event_count": 2,
+      "configuration_node_count": 79,
+      "ordered_shape_sha256": "169fef7472e4ad00621508a23408ff91c1051890d912b485c912e4c3f2724e38",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.f21d991ade80007923e086c1",
+      "source_path": "Config/ConfigAbility/GridFight/3.5/Avatar_GridFight_Welt_00_Ability.json",
+      "source_sha256": "e4c082715457861df411e1e9abfc4010be96ae61675110fd81440d401875efbe",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1004
+      ],
+      "avatar_ids": [
+        1004
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 6,
+      "global_modifier_count": 1,
+      "callback_event_count": 9,
+      "configuration_node_count": 259,
+      "ordered_shape_sha256": "c972da1a78e3dc101fe2fb6be54a8f427bd98a762705925577e076424941a4d5",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.f5b15d94cf8e6974adfec6a7",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Jade_00_Config.json",
+      "source_sha256": "7b9a35d556170d157e5dbc10ca0b79fc2f854ebd3aaa9af4436ec89de998e497",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [
+        1314
+      ],
+      "avatar_ids": [
+        1314
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62357
+      ],
+      "bond_ids": [],
+      "ability_count": 10,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 11,
+      "ordered_shape_sha256": "fecd6041b6cabc3d8b0bc51c564f7da68591f30474df2a17ce6d99648956bb13",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.fb8da41a799411c823a7fa82",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_BloodTrait_Start_00_Config.json",
+      "source_sha256": "f75a12e34cdd4028223d45d5149ffe6164731fb0ac737ab459704071ed7de620",
+      "archetype": "RoleBattleEvent",
+      "role_ids": [],
+      "avatar_ids": [],
+      "servant_ids": [],
+      "battle_event_ids": [
+        62408
+      ],
+      "bond_ids": [],
+      "ability_count": 4,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "f028c7997f60834c4fc85d99d437a9b4f2259769c69439690025c3e3c665ab84",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.fc2597db4d2da38e65a6af35",
+      "source_path": "Config/ConfigAbility/GridFight/4.2/Avatar_GridFight_Evanescia_00_Ability.json",
+      "source_sha256": "df2804c5a259e6658489bf10d2888edf52b95c4169461f62087c9d6b50f71fb6",
+      "archetype": "CoreAvatarAbility",
+      "role_ids": [
+        1505
+      ],
+      "avatar_ids": [
+        1505
+      ],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [],
+      "ability_count": 3,
+      "global_modifier_count": 0,
+      "callback_event_count": 15,
+      "configuration_node_count": 180,
+      "ordered_shape_sha256": "80eec0db6d3cb188cdd6f94dab5a869587778eb5e5f663b7546ffaf192ef5c81",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.fdd8da2fc2a121d3de4ecc58",
+      "source_path": "Config/ConfigCharacter/BattleEvent/GridFight/3.5/AvatarConfig/BattleEvent_GridFight_Cocolia_Partner_00_Config.json",
+      "source_sha256": "284e5b20916199099a62977a056549e610b4a87bc2565be043b89e79a090a975",
+      "archetype": "BondStageAbility",
+      "role_ids": [],
+      "avatar_ids": [],
+      "servant_ids": [],
+      "battle_event_ids": [],
+      "bond_ids": [
+        3001
+      ],
+      "ability_count": 0,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 1,
+      "ordered_shape_sha256": "d6a1518f32618ffb60725804307904260d49b64de4d79fbc1461b377aa209dfc",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    }
+  ]
+}

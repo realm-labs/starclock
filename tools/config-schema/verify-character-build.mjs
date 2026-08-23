@@ -72,7 +72,9 @@ if (bless) {
 
 function verifySchemaLock(file) {
   const schema = readJson(file).schema;
-  assert(schema.package === "starclock_character_build_schema_fixture", "schema lock package differs");
+  assert(schema.project_id === "starclock_character_build_schema_fixture"
+    && schema.contract_id === "starclock_character_build_schema_fixture/default"
+    && schema.view === "default", "schema lock project/view differs");
   const tableNames = new Set(schema.tables.map((table) => table.name));
   for (const name of expectedTables()) assert(tableNames.has(name), `schema lock lacks table ${name}`);
   const union = schema.unions.find((candidate) => candidate.name === "BuildPatch");

@@ -94,7 +94,9 @@ if (bless) {
 function verifySchemaLock(file) {
   const lock = readJson(file);
   const schema = lock.schema;
-  assert(schema.package === "starclock_common_schema_fixture", "schema lock package differs");
+  assert(schema.project_id === "starclock_common_schema_fixture"
+    && schema.contract_id === "starclock_common_schema_fixture/default"
+    && schema.view === "default", "schema lock project/view differs");
   const enumNames = schema.enums.map((entry) => entry.name);
   for (const name of ["ContentKind", "ReleaseState", "CoverageState", "SourceCategory", "Confidence", "EvidenceKind", "FactQuality", "MechanismQuality"]) {
     assert(enumNames.includes(name), `schema lock lacks enum ${name}`);

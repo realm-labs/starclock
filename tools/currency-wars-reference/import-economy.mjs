@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import {
   createContext,
   decimal,
+  slug,
   writeOrCheck,
 } from "./lib/common.mjs";
 
@@ -124,6 +125,22 @@ const constants = Object.fromEntries(economyConstants.map(({ row }) => [
   row.ConstValueName,
   typedValue(row.Value),
 ]));
+const offerConstantNames = new Set([
+  "GridFight_CardPoolNumber",
+  "GridFight_AvatarOptionInitWeight",
+  "GridFight_MaxRarityStolenSameCardLimit",
+  "GridFight_StolenPoolRefundParamFromInitialPurchase",
+  "GridFight_StolenPoolRefundParamFromSell",
+  "GridFight_StolenPoolRefundParamFromHold",
+]);
+const offerConstants = v2Constants.filter(({ row }) =>
+  offerConstantNames.has(row.ConstValueName));
+if (offerConstants.length !== offerConstantNames.size)
+  throw new Error("GridFight offer constant closure drift");
+const offerConstantValues = Object.fromEntries(offerConstants.map(({ row }) => [
+  row.ConstValueName,
+  typedValue(row.Value),
+]));
 const economyPolicy = await context.policyRef(
   "gold-coin-stable-identity",
   "Released Currency Wars text calls the purchase currency Gold Coins while GridFight tables encode Gold-valued fields without a standalone resource identity.",
@@ -142,12 +159,13 @@ const economyRules = [{
     evidenceQuality: "ProjectPolicy",
     sourceRefs: [
       ...economyConstants.map((entry) => context.sourceRef(entry)),
+      ...offerConstants.map((entry) => context.sourceRef(entry)),
       ...context.bilingualTextRefs("7693488975416237801"),
       economyPolicy,
     ],
     tags: ["economy", "gold-coins", "gridfight"],
   }),
-  currency_ids: ["currency-wars.currency.gold-coins"],
+  currency_ids: ["currency-wars.currency.gold-coin"],
   experience_rules: {
     resource_id: constants.GridFight_Exp_Resource_ID,
     standard_wave_gain: constants.GridFight_GainExpWhenWaveEnd,
@@ -162,6 +180,16 @@ const economyRules = [{
   refresh_rules: {
     cards_per_refresh: constants.GridFight_CardNumberPerRefresh,
     refresh_gold: constants.GridFight_LotteryRefreshGold,
+    copies_per_role_by_rarity: offerConstantValues.GridFight_CardPoolNumber,
+    role_initial_weight: offerConstantValues.GridFight_AvatarOptionInitWeight,
+    maximum_stolen_same_card_by_rarity:
+      offerConstantValues.GridFight_MaxRarityStolenSameCardLimit,
+    stolen_pool_refund_initial_purchase:
+      offerConstantValues.GridFight_StolenPoolRefundParamFromInitialPurchase,
+    stolen_pool_refund_sell:
+      offerConstantValues.GridFight_StolenPoolRefundParamFromSell,
+    stolen_pool_refund_hold:
+      offerConstantValues.GridFight_StolenPoolRefundParamFromHold,
   },
   interest_rules: {
     deposit_per_interest: constants.GridFight_DepositPerInterest,
@@ -302,7 +330,7 @@ const teamStates = levels.map((entry) => {
     rarity_weights: rarityWeight,
     general_properties: (entry.row.GeneralPropertyList ?? []).map((property) => ({
       property_type: property.PropertyType,
-      value: decimal(property.Value ?? 0),
+      ...(property.Value === undefined ? {} : { value: decimal(property.Value) }),
     })),
     transition_rules: entry.row.LevelUpExp === undefined
       ? ["Maximum authored roster level."]
@@ -310,6 +338,93 @@ const teamStates = levels.map((entry) => {
   };
 });
 outputs.set("team-size-states.json", ordered(teamStates));
+
+const influenceConstants = v2Constants.filter(({ row }) =>
+  /^GridFight_Avatar(?:Star|Rarity)\d+InfluenceProperties$/u
+    .test(row.ConstValueName.replace("lnfluence", "Influence")));
+if (influenceConstants.length !== 7)
+  throw new Error("GridFight influence-property constant closure drift");
+const influenceProperties = influenceConstants.map((entry) => {
+  const normalizedName = entry.row.ConstValueName.replace("lnfluence", "Influence");
+  const match = normalizedName.match(/^GridFight_Avatar(Star|Rarity)(\d+)InfluenceProperties$/u);
+  if (!match) throw new Error(`unknown influence property ${normalizedName}`);
+  const values = typedValue(entry.row.Value);
+  return {
+    ...context.envelope({
+      id: `currency-wars.influence-property.${match[1].toLowerCase()}.${match[2]}`,
+      kind: "CurrencyWarsInfluenceProperty",
+      nameEn: `${match[1]} ${match[2]} influence property`,
+      nameZh: `${match[1] === "Star" ? "星级" : "稀有度"} ${match[2]} 影响属性`,
+      summaryEn:
+        `${normalizedName} publishes ${Object.keys(values).length} exact property contribution(s).`,
+      summaryZh:
+        `${normalizedName} 发布 ${Object.keys(values).length} 条精确属性贡献。`,
+      sourceRefs: [context.sourceRef(entry)],
+      tags: ["battle-contribution", "gridfight", "influence-property"],
+    }),
+    subject_kind: match[1],
+    subject_level: match[2],
+    properties: Object.entries(values).map(([property_type, value]) => ({
+      property_type,
+      value: String(value),
+    })),
+  };
+});
+outputs.set("influence-properties.json", ordered(influenceProperties));
+
+const combinationBonuses = await context.table("GridFightCombinationBonus");
+if (combinationBonuses.length !== 230)
+  throw new Error("GridFight combination-bonus closure drift");
+const snapshotConstantLocators = new Set([
+  "16", "17", "26", "27", "28", "31", "32", "40", "48", "49", "50", "51",
+  "52", "53", "54", "55", "99", "100", "101", "111", "121", "122", "123", "124",
+]);
+const snapshotConstants = commonConstants.filter((entry) =>
+  snapshotConstantLocators.has(entry.locator));
+if (snapshotConstants.length !== snapshotConstantLocators.size)
+  throw new Error("GridFight contribution-snapshot constant closure drift");
+const contributionParameters = [
+  ...combinationBonuses.map((entry) => ({
+    ...context.envelope({
+      id: `currency-wars.contribution-parameter.combination-bonus.${entry.row.BonusID}`,
+      kind: "CurrencyWarsContributionParameter",
+      nameEn: `Combination bonus ${entry.row.BonusID}`,
+      nameZh: `组合参数 ${entry.row.BonusID}`,
+      summaryEn:
+        `Bonus ${entry.row.BonusID} binds ${entry.row.CombinationBonusList.length} ordered selector/number pairs without inferring an unauthored consumer.`,
+      summaryZh:
+        `参数 ${entry.row.BonusID} 绑定 ${entry.row.CombinationBonusList.length} 组有序选择项与数值，不推断未编写的消费端。`,
+      sourceRefs: [context.sourceRef(entry)],
+      tags: ["combination-bonus", "contribution-snapshot", "gridfight"],
+    }),
+    source_kind: "CombinationBonus",
+    source_id: String(entry.row.BonusID),
+    combination_ids: entry.row.CombinationBonusList.map(String),
+    bonus_numbers: entry.row.BonusNumberList.map(String),
+    consumer_policy:
+      "Resolve only from an authored BonusID reference; never infer a consumer from numeric adjacency.",
+  })),
+  ...snapshotConstants.map((entry) => ({
+    ...context.envelope({
+      id: `currency-wars.contribution-parameter.constant.${slug(entry.row.ConstValueName)}`,
+      kind: "CurrencyWarsContributionParameter",
+      nameEn: entry.row.ConstValueName,
+      nameZh: entry.row.ConstValueName,
+      summaryEn:
+        `${entry.row.ConstValueName} is retained exactly in the immutable contribution parameter registry.`,
+      summaryZh:
+        `${entry.row.ConstValueName} 精确保留在不可变贡献参数注册表中。`,
+      sourceRefs: [context.sourceRef(entry)],
+      tags: ["contribution-snapshot", "gridfight", "runtime-constant"],
+    }),
+    source_kind: "RuntimeConstant",
+    source_id: entry.row.ConstValueName,
+    value: typedValue(entry.row.Value),
+    consumer_policy:
+      "Resolve by the exact authored constant name at the owning operation boundary.",
+  })),
+];
+outputs.set("contribution-parameters.json", ordered(contributionParameters));
 
 await writeOrCheck(context, outputs, check);
 console.log(

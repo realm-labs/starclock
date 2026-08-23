@@ -1,8 +1,11 @@
-package = "starclock_sora_capability_golden"
+project = { id = "starclock_sora_capability_golden" }
+groups = { common = { default = true } }
+views = { default = { contract = "starclock_sora_capability_golden/default", groups = ["common"] } }
 includes = ["schema/domain.toml", "schema/excel-after.toml"]
 
 [build]
 data_root = "data"
+view = "default"
 schema_lock = "generated/schema.lock"
 excel_templates = "generated/excel"
 

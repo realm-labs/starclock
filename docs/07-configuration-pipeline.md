@@ -37,13 +37,13 @@ Sora currently describes itself as early but runnable and recommends pinning the
 Baseline for this document:
 
 ```text
-sora-cli = 0.3.0
+sora-cli = 0.6.1
 ```
 
 Install the pinned crate when a prebuilt binary is not provisioned:
 
 ```powershell
-cargo install sora-cli --version 0.3.0 --locked
+cargo install sora-cli --version 0.6.1 --locked
 sora --version
 ```
 
@@ -52,7 +52,7 @@ An upgrade is a deliberate migration. Regenerate and review the schema lock, Exc
 ## Pinned capability lock
 
 Before production schemas are authored, commit a minimal Sora project that
-proves the exact 0.3.0 behavior Starclock relies on. The capability fixture must
+proves the exact 0.6.1 behavior Starclock relies on. The capability fixture must
 exercise:
 
 - binary/version checksum and `sora --version`;
@@ -65,18 +65,19 @@ exercise:
 - clean regeneration and drift detection on every supported CI operating system.
 
 Record the observed command spelling and type syntax in the fixture. The
-architecture document does not override the pinned binary: if 0.3.0 lacks or
+architecture document does not override the pinned binary: if 0.6.1 lacks or
 names a capability differently, update the plan/schema policy before building
 the production table families. Do not emulate a missing validation feature with
 an undocumented parallel schema.
 
-The committed [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md)
+The committed [Sora 0.6.1 capability lock](sora-0.6.1-capability-lock.md)
 records the executed result. In particular, Starclock uses project paths with a
 non-empty parent for `build --clean`, configures Sora Rust codegen with
 `format = "never"` and runs pinned `rustfmt` explicitly, and uses
-range-validated signed `i32` transport fields for stable IDs/order values before
-checked conversion to unsigned domain newtypes. These are 0.3.0 compatibility
-constraints, not preferred general Sora syntax.
+stable root project/view identities and schema-local table IDs. Existing
+range-validated signed `i32` transport fields remain in place until their
+owning schemas deliberately migrate, even though 0.6.1 now generates unsigned
+decode support.
 
 ## Proposed repository layout
 
@@ -231,7 +232,9 @@ Prefer several focused workbooks with related sheets over one giant workbook. Th
 
 Use Sora `ref<Table.key>` for cross-table references to a map table's declared
 primary key and secondary unique indexes for additional natural keys that must
-remain unique. Sora 0.3.0 does not provide arbitrary non-key reference targets.
+remain unique. The 0.6.1 capability lock assumes references target map-table
+primary keys; arbitrary non-key reference targets are not part of Starclock's
+proven surface.
 Generated lookup helpers are relied on only for single-field indexes; combined
 indexes remain validation constraints. Prefer child tables and typed
 structs/unions when an Excel cell would otherwise contain a large JSON or custom
@@ -287,11 +290,11 @@ Sora-generated templates remain the header/schema authority. Bootstrap generatio
 - After schema changes, preview `sora excel-sync` before using `--write`, then review the workbook changes.
 - Use stable, nonlocalized IDs in keys and references. Display names and descriptions are optional metadata, never references.
 - Store designer-facing ratios as canonical decimal strings (`"0.25"`) or explicitly scaled integers, never as authoritative floating-point cells. `starclock-data` parses them according to [Cross-platform determinism and numeric policy](09-determinism-and-numerics.md).
-- Under the pinned 0.3.0 Rust/Sora runtime, stable IDs and order values use
-  range-validated `i32` transport fields. `starclock-data` rejects non-positive
-  or out-of-domain values while converting into nonzero unsigned domain IDs.
-  Do not select an unsigned Sora field merely because schema validation accepts
-  it; the 0.3.0 generated Sora decoder omits unsigned implementations.
+- Existing stable IDs and order values use range-validated `i32` transport
+  fields. `starclock-data` rejects non-positive or out-of-domain values while
+  converting into nonzero unsigned domain IDs. Sora 0.6.1 can generate unsigned
+  decoding, but changing an existing field remains a separate reviewed schema
+  and domain migration.
 - Store raw Toughness in the project's chosen integer unit and durations with an explicit clock/phase enum.
 - Avoid merged cells, macros, hidden business rules, and spreadsheet formulas in runtime fields. Derived runtime values belong in schema-backed source columns or deterministic compilation code.
 - Do not encode a large action program as JSON in one cell. Split it into operation/phase child rows.

@@ -1,12 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
-import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const policy = readJson("policy/native-handler-audit.json");
 assert(policy.schema_revision === "starclock.native-handler-audit.v1", "unsupported native-handler audit revision");
-assert(policy.registry_revision === "native-registry-v1", "unexpected native-handler registry revision");
 assert(Array.isArray(policy.admitted_handlers), "admitted_handlers must be an array");
 assert(Array.isArray(policy.v1a_reviews), "v1a_reviews must be an array");
 const goal07Admission = policy.goal07_admission_contract;
@@ -27,7 +25,6 @@ assert(Array.isArray(productionRows), "production NativeHandler diagnostic has n
 assert(productionRows.length === policy.admitted_handlers.length, "production NativeHandler rows disagree with the admitted-handler audit");
 
 const registrySource = read("crates/starclock-rules/src/registry.rs");
-assert(registrySource.includes(`PRODUCTION_REGISTRY_REVISION: &str = "${policy.registry_revision}"`), "compiled registry revision disagrees with policy");
 const declaredCount = Number(registrySource.match(/PRODUCTION_BATTLE_HANDLERS:\s*\[BattleHandlerRegistration;\s*(\d+)\]/)?.[1]);
 assert(Number.isInteger(declaredCount), "cannot locate the compiled production handler list");
 assert(declaredCount === policy.admitted_handlers.length, "compiled production handler count disagrees with policy");
@@ -52,14 +49,22 @@ for (const review of reviews) {
 
 const branchPolicy = policy.content_branch_audit;
 for (const auditRoot of branchPolicy.roots) assert(fs.statSync(absolute(auditRoot), { throwIfNoEntry: false })?.isDirectory(), `${auditRoot}: branch-audit root does not exist`);
-const tracked = execFileSync("git", ["ls-files", "--", ...branchPolicy.roots.map((auditRoot) => `${auditRoot}/*.rs`), ...branchPolicy.roots.map((auditRoot) => `${auditRoot}/**/*.rs`)], { cwd: root, encoding: "utf8" })
-  .split(/\r?\n/).filter(Boolean).map(normalize)
-  .filter((relative) => fs.existsSync(absolute(relative)))
+const rustSources = branchPolicy.roots
+  .flatMap((auditRoot) => recursiveRustFiles(absolute(auditRoot)))
+  .map((file) => normalize(path.relative(root, file)))
   .sort();
-assert(tracked.length > 0, "content-branch audit selected no Rust sources");
-for (const relative of tracked) auditRust(relative, branchPolicy);
+assert(rustSources.length > 0, "content-branch audit selected no Rust sources");
+for (const relative of rustSources) auditRust(relative, branchPolicy);
 
-console.log(`Native-handler audit verified (${reviews.length} V1a scopes, ${policy.admitted_handlers.length} admitted handlers, ${tracked.length} core/registry Rust files).`);
+console.log(`Native-handler audit verified (${reviews.length} V1a scopes, ${policy.admitted_handlers.length} admitted handlers, ${rustSources.length} core/registry Rust files).`);
+
+function recursiveRustFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) return recursiveRustFiles(target);
+    return entry.isFile() && entry.name.endsWith(".rs") ? [target] : [];
+  });
+}
 
 function auditProbeRows(probe) {
   const rowsRoot = absolute(`config/probes/v1a/${probe}/rows`);

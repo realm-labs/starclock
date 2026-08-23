@@ -1,0 +1,64 @@
+{
+  "schema_revision": "starclock.currency-wars-economy-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P3-B3",
+  "result": "Pass",
+  "production_denominators": {
+    "economy_rules": 1,
+    "offer_levels": 10,
+    "transaction_price_tiers": 5,
+    "cards_per_refresh": 5,
+    "copies_per_role_by_rarity": [
+      30,
+      25,
+      18,
+      10,
+      9
+    ],
+    "role_initial_weight": 100
+  },
+  "exact_behavior": {
+    "paid_refresh_gold": "2",
+    "direct_experience_gold": "4",
+    "direct_experience_gain": "4",
+    "interest_deposit": "10",
+    "standard_interest_maximum": "5",
+    "overclock_interest_maximum": "0",
+    "automatic_node_refresh": true,
+    "shop_lock_carries_exact_offer": true,
+    "paid_empty_candidate_behavior": "RejectAndRefundStateAndRng",
+    "automatic_empty_candidate_behavior": "ExposeRemainingLegalCardsOrEmpty"
+  },
+  "source_obligations": {
+    "owned_terminal": 54,
+    "integrated_exact": 29,
+    "metadata_only_audited": 25,
+    "accuracy": {
+      "ExactEvidence": 25,
+      "ExactExecutable": 29
+    }
+  },
+  "fixture_families": [
+    "currency-wars.fixture-family.gold-coin-refresh-experience-and-team-size"
+  ],
+  "policies": [
+    {
+      "field": "economy.gold_coin_id",
+      "selected_behavior": "Use the stable run-owned Gold Coin identity for every authored Gold-valued gain, spend, interest, purchase, sale and refund operation; discard it only at run teardown.",
+      "replacement_condition": "A released structured field explicitly binds Gold Coin to a resource record."
+    },
+    {
+      "field": "economy.offer_sampling_order",
+      "selected_behavior": "For each ordered shop slot, draw a non-empty rarity by the authored level weights, then draw a role in stable role-ID order with weight equal to remaining authored copies multiplied by the authored initial role weight. Reserve each selected copy for the rest of that refresh. Reject and refund a paid refresh that cannot fill all slots; an automatic node refresh exposes every remaining legal card, including an empty set.",
+      "replacement_condition": "A released selector program or reproducible seeded offer trace publishes the order."
+    }
+  ],
+  "behavioral_evidence": [
+    "runtime_tests::finite_shop_pool_allows_duplicates_and_empty_refresh_refunds_state_and_rng",
+    "runtime_tests::locked_shop_carries_the_exact_remaining_cards_across_node_entry",
+    "runtime_tests::battle_income_interest_and_direct_experience_use_authored_boundaries",
+    "runtime_tests::refresh_and_purchase_are_atomic_activity_boundaries",
+    "currency_wars::tests::production_bundle_lowers_to_complete_runtime_denominators",
+    "activity::random_boundary::generated_boundary_rolls_back_rng_when_generated_operations_are_invalid"
+  ]
+}

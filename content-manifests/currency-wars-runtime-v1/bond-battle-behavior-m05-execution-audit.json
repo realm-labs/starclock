@@ -1,0 +1,516 @@
+{
+  "schema_revision": "starclock.currency-wars-bond-battle-behavior-m05-execution-audit.v1",
+  "goal_id": "currency-wars-runtime-v1",
+  "batch": "G21-P6-M05",
+  "status": "VersionedProjectPolicyExecutable",
+  "accuracy": "VersionedProjectPolicy",
+  "partition_program_count": 64,
+  "executable_policy_count": 31,
+  "terminal_metadata_count": 33,
+  "archetypes": {
+    "BondStageAbilityController": 25,
+    "MultiBondStageAbilityController": 1,
+    "WolfHuntSummonController": 5
+  },
+  "released_binding_totals": {
+    "bond_ids": 36
+  },
+  "released_shape_totals": {
+    "ability_names": 100,
+    "global_modifiers": 46,
+    "callback_events": 311,
+    "configuration_nodes": 5175
+  },
+  "selected_behavior": {
+    "bond_controllers": "Thirty-one released Origin programs bind to typed Bond identities and active immutable Bond snapshots during battle materialization. Every materialization emits registered and active source-attributed binding counts.",
+    "wolf_hunt_summons": "Five Wolf Hunt programs share the released Bond 1008 lifecycle; summon-specific supplemental operations remain policy-bound until fully reviewed.",
+    "camera_metadata": "The Wolf Hunt Origin camera program is audited as presentation-only and never mutates authoritative battle state.",
+    "raw_postfix_interpreter": false,
+    "observed_parity_claimed": false
+  },
+  "unresolved_field": "Complete executable semantics of every supplemental Origin ability node and referenced postfix expression in the 31 Bond families.",
+  "replacement_condition": "Replace a family policy when reviewed typed lowering and production execution fixtures cover every authoritative Origin node; retain the camera program as metadata unless released source gains authoritative operations.",
+  "replacement_trigger": "Source digest, ordered shape, Bond identity and materialization receipts are locked; verification fails on drift, an unresolved binding or an exact-parity relabel.",
+  "behavioral_evidence": [
+    "currency_wars_combat_policy_tests::every_m05_bond_policy_binds_a_released_bond_materialization_controller",
+    "currency_wars::tests::production_m05_bond_policies_preserve_shape_and_binding_boundaries"
+  ],
+  "verification_commands": [
+    "cargo test -p starclock-data currency_wars_combat_policy_tests::every_m05_bond_policy_binds_a_released_bond_materialization_controller -- --exact",
+    "cargo test -p starclock-data currency_wars::tests::production_m05_bond_policies_preserve_shape_and_binding_boundaries -- --exact",
+    "node tools/currency-wars-runtime/verify-dispositions.mjs",
+    "node tools/currency-wars-runtime/verify-shared-capability-audit.mjs"
+  ],
+  "programs": [
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.004035828065c85ebab39248",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2009_StageAbility.json",
+      "source_sha256": "065446e911f6c8ecbf191ee09bd662c6599313846b3f0f6a0709ab960c627fe9",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2009
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 3,
+      "configuration_node_count": 22,
+      "ordered_shape_sha256": "ea81f02a6ee4eca1fd8a0c8289b96962f090deb0026b826526c19118265d0449",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.0955ff187ee30961e9a90322",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2012_StageAbility.json",
+      "source_sha256": "e956968741ad5046975fe2cdde21252d796ecea8789c17177e0cc8752d904ef5",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2012
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 2,
+      "configuration_node_count": 36,
+      "ordered_shape_sha256": "3d254ef52ea0827666914ca3c3f62b6949372fc08e963d90630842d1ac072df6",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.09cbb168cf68c49c543577d5",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1008_03_StageAbility.json",
+      "source_sha256": "ca1a1fd79bb44fed3ff771485f723471177c692106b725e7d5ebc2a5068d50c2",
+      "archetype": "WolfHuntSummonController",
+      "bond_ids": [
+        1008
+      ],
+      "ability_count": 11,
+      "global_modifier_count": 1,
+      "callback_event_count": 8,
+      "configuration_node_count": 456,
+      "ordered_shape_sha256": "ea2b9825b1bf4282e86c1e19d8f48d2bed1cd88ca6b5b8c9970e868b9fc8ddcf",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.0af641bb75137484703d6218",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2008_StageAbility.json",
+      "source_sha256": "48bc8dda0be97b35e54fdb0b253dc9905bd4b15a8973b2a6b591d3dc43705442",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2008
+      ],
+      "ability_count": 2,
+      "global_modifier_count": 4,
+      "callback_event_count": 9,
+      "configuration_node_count": 314,
+      "ordered_shape_sha256": "ed7c094c50120f22df5463a7152a86af6861acd5448e142dddbc6a25c099e074",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.0fe654b86ca48c3239a673c2",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1008_02_StageAbility.json",
+      "source_sha256": "24a3d7c04ee654154312cee690f2163e2a82a98dfb1034caa159d0f3a6631099",
+      "archetype": "WolfHuntSummonController",
+      "bond_ids": [
+        1008
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 4,
+      "configuration_node_count": 11,
+      "ordered_shape_sha256": "04c753e98f1d2ff112c9cbc1720551e3e66edecb2373a1f460700d584b6740c9",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.1a72d20bf31cb131205be4b9",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2502_StageAbility.json",
+      "source_sha256": "2ab0deb4f5b519e0df6e87df028aa8adf653311eabf921766e243bc1cdfd2149",
+      "archetype": "MultiBondStageAbilityController",
+      "bond_ids": [
+        2501,
+        2502,
+        2504,
+        2505,
+        2506,
+        2507
+      ],
+      "ability_count": 6,
+      "global_modifier_count": 0,
+      "callback_event_count": 19,
+      "configuration_node_count": 117,
+      "ordered_shape_sha256": "96d1cad289e5f6d9eb2b352735a46773fd49ee1b1c4a2f9c192b03f153d96a57",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.20282b8795ac2bead762f4b9",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1008_01_StageAbility.json",
+      "source_sha256": "b93e8a643d11ab2b36e23f29abb3645aee8120c23d4b74d096abaa10ef0cd098",
+      "archetype": "WolfHuntSummonController",
+      "bond_ids": [
+        1008
+      ],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 4,
+      "configuration_node_count": 98,
+      "ordered_shape_sha256": "5ac8d1e8c3448675ee3a1ae610384a59e0730c27932411b163235c517d9ae7dd",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.211d0a0b6319b304267070a7",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1011_StageAbility.json",
+      "source_sha256": "595e86281cbe3b7e4f0d2820fed5679f8587cac8606fd3d6ebdcc5d5460788c6",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1011
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 0,
+      "ordered_shape_sha256": "0643e55f0a40897222d194fe2224d048a95be4e381c4a1260e9bf1d9d6a37d2d",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.2162d2c1d7527ad90ea184b0",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1005_StageAbility.json",
+      "source_sha256": "c70f646bbc08bf384dcfbcdbb0def7b0cd3cb791aae391d1b8b6b98023e6ac9c",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1005
+      ],
+      "ability_count": 6,
+      "global_modifier_count": 0,
+      "callback_event_count": 11,
+      "configuration_node_count": 157,
+      "ordered_shape_sha256": "c5d84c9384ed69f82717501fee735aad70d369b694c4af3afac7b623c842516e",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.244e4e010134cc5f25b1556d",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2006_StageAbility.json",
+      "source_sha256": "e81afa9450264acc1bcba726659142e98074b6f5e37a3e46a0d0a288cf3dfeff",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2006
+      ],
+      "ability_count": 8,
+      "global_modifier_count": 1,
+      "callback_event_count": 14,
+      "configuration_node_count": 246,
+      "ordered_shape_sha256": "af4060c8374f9ba1792316832aab26c030348af993eba11ad845cef9aa049211",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.280732ebfafc39a272d5da4e",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1010_StageAbility.json",
+      "source_sha256": "a0471c6b75a6f3788c1ef1296a1a4e68aff33151e37caeec99ecc993840d84ca",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1010
+      ],
+      "ability_count": 2,
+      "global_modifier_count": 0,
+      "callback_event_count": 13,
+      "configuration_node_count": 147,
+      "ordered_shape_sha256": "886657dd3b7aa05298e1bc3f502770d8c106d96fa667f1a15be7075350693583",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.4561570ad21dbb0aa3d8f847",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1006_StageAbility.json",
+      "source_sha256": "2daa1b4d3e6dd28a52478a1c3b2c160f436d01e80b4bebd21b92ff24cd10f60e",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1006
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 0,
+      "ordered_shape_sha256": "aea23c9daa60f6a3b63b850e6235604f69a7afb9139951a0a48e49fcee38a07a",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6500c1d8d6d2bd5ed5e4603d",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1002_StageAbility.json",
+      "source_sha256": "44c65810ab70b228bdd1d073c8b44d72cb92e4db8018e4b3a4f0d691f6489f27",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1002
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 1,
+      "callback_event_count": 55,
+      "configuration_node_count": 719,
+      "ordered_shape_sha256": "c77d09d9bea2be09e16e79bedcd39d0abaccde46c3c2a07a947ad6a7aeabb509",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6679ef7ea004a3b246791261",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2003_StageAbility.json",
+      "source_sha256": "7e827a87fb357f202b8eb33b6b65984b79c212c1264bb901d797aad28fa0572c",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2003
+      ],
+      "ability_count": 3,
+      "global_modifier_count": 5,
+      "callback_event_count": 24,
+      "configuration_node_count": 285,
+      "ordered_shape_sha256": "e9fcc6bfbae07c431e413be05bbb174a7d56a8d04dda4031ccdb215cbb8abe3a",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.6a1e3042a46ef4894b6c82ac",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2011_StageAbility.json",
+      "source_sha256": "71892149b7e4588ca5c4bab50ba63af825292824cdbf02314893bd7e343a88a0",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2011
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 5,
+      "callback_event_count": 16,
+      "configuration_node_count": 263,
+      "ordered_shape_sha256": "403cb8fd633a66f1c2dcea713305fb5e54bae860ea4d6adad2994307ed43a862",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.74b1e42407148435b73114d5",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1007_StageAbility.json",
+      "source_sha256": "9e0fb788538496ce42c1df290a31d3d17f1ddd564f66c3f90d587466f61ea898",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1007
+      ],
+      "ability_count": 12,
+      "global_modifier_count": 4,
+      "callback_event_count": 13,
+      "configuration_node_count": 393,
+      "ordered_shape_sha256": "ed41984ce9e39e82f5c7ae9578f3c48f5eee5ac1374e7d2663286f921640f723",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.849cc8e321455571c901c9c9",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1009_StageAbility.json",
+      "source_sha256": "8c2815923454f8149d3f516a90cf321267006226ae724e3e63608982e8b874f3",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1009
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 4,
+      "configuration_node_count": 39,
+      "ordered_shape_sha256": "ec30192310ce5ee748f9c4cc0b3c6a5af0acda66d19c1ac032542e6e74ca4fbd",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.8a5819c461ba8bf608b348a7",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2010_StageAbility.json",
+      "source_sha256": "9f9fdb155430608bb36078a826ea58363163a334b0d29e48079892dc3eadeaf1",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2010
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 3,
+      "configuration_node_count": 23,
+      "ordered_shape_sha256": "9778d1d28b592067f58d1305199ec97aadf471b698bb759341e19c62ddb5045e",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.8e7a631321aedacf1f8d0e91",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1001_StageAbility.json",
+      "source_sha256": "77953733d82832d0d1960873fe7e707a23acd6d70110bfefd96b3c77b0c06bd9",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1001
+      ],
+      "ability_count": 3,
+      "global_modifier_count": 2,
+      "callback_event_count": 10,
+      "configuration_node_count": 154,
+      "ordered_shape_sha256": "2a8f37202ba52a5ac3decfba040b8f878e2dec3b3ecd66bf12318b853d6ec98c",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.94f293d06982ec01518c93c4",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2007_StageAbility.json",
+      "source_sha256": "5a25f837446fd4f934a32c83fae94968cca40e14db362ab556ffbb970607c022",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2007
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 13,
+      "configuration_node_count": 148,
+      "ordered_shape_sha256": "306f1b2f30fcb80f5f207beb1346b0951477fc606947f394f58d05178a0400ad",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.bba34707ad9fd19a41edca28",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1013_StageAbility.json",
+      "source_sha256": "d5b08d8f99446fd8ed3f74bf5b8334580007417161a1abc68cdda3bc3e7adba6",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1013
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 2,
+      "configuration_node_count": 36,
+      "ordered_shape_sha256": "f0a9e33b8b7cf74611a003db13ef156d3112f7db132c99a385d53cd61524e0a6",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.cf603795ef8352c2c84a3572",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1008_00_StageAbility.json",
+      "source_sha256": "30d631018a5365305e50dd85ce2975059fc9de881c8932d6ad857e3ef2f11b46",
+      "archetype": "WolfHuntSummonController",
+      "bond_ids": [
+        1008
+      ],
+      "ability_count": 5,
+      "global_modifier_count": 0,
+      "callback_event_count": 4,
+      "configuration_node_count": 120,
+      "ordered_shape_sha256": "755280fcfe3242385f847777be30dd60e53168c069969eeac266c7454da023f2",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.d2a7025beede12bf1d5decd6",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2001_StageAbility.json",
+      "source_sha256": "abf80dd1a8ceff8a2c351da47c2416e3f3f0f8fd186eefe1ede7c5eb7d446782",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2001
+      ],
+      "ability_count": 2,
+      "global_modifier_count": 0,
+      "callback_event_count": 10,
+      "configuration_node_count": 233,
+      "ordered_shape_sha256": "10f57ba78f44373a0dfb61073995820ea9e897b8eaa585e43697641d018612f2",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.d306d2ca62ac2ab058049f5a",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2004_StageAbility.json",
+      "source_sha256": "0baba2c4754a64f9b5fa69f9534102cd04bc6f90b44f064f873e9d373197a0cb",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2004
+      ],
+      "ability_count": 5,
+      "global_modifier_count": 1,
+      "callback_event_count": 14,
+      "configuration_node_count": 240,
+      "ordered_shape_sha256": "844c1ec8e2498d84c23125e57185ff28fd3686fb5e0966b0c96d3dfae4ebbadc",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.defd30eeef6b7f6c50d4ce8b",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1003_StageAbility.json",
+      "source_sha256": "d5d6f935d934b03d281f34b473e19a0a98a69ed3bd1aa5c7d9a1c6a03d240859",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1003
+      ],
+      "ability_count": 4,
+      "global_modifier_count": 0,
+      "callback_event_count": 9,
+      "configuration_node_count": 316,
+      "ordered_shape_sha256": "a4a37612a7b4e3a71ad05c55f59a0308508cc55a93a5de7b01723479c7caa3d1",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.e017575fb331537ee452300d",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1012_StageAbility.json",
+      "source_sha256": "a99a793b936598a75a04efb985c8bf0f8ad5de00e08e943cf484070052f51f9c",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1012
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 0,
+      "ordered_shape_sha256": "6d872e411c98a145e38f4ef238fb7dcd9bc7062823f587fd926c816b27bbdbd3",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.e0322fa8ac4b2f3d71b41258",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2503_StageAbility.json",
+      "source_sha256": "2cde8d970ed8b41ec0b0ae6479a8d55fb1ae8cf41c66d60ad65f45deb1d13ec6",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2503
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 3,
+      "configuration_node_count": 23,
+      "ordered_shape_sha256": "5b8e3bff0aa7f122b10f15bc0bfaf40e176083c73c6a74da0c8fa92b22725fcf",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.e0a3cceac50abd8c22133d10",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2002_StageAbility.json",
+      "source_sha256": "5c9b4d393e750aaec4183620bcbb5421642835ecabf54bda24c7e77de5f9eb25",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2002
+      ],
+      "ability_count": 3,
+      "global_modifier_count": 2,
+      "callback_event_count": 16,
+      "configuration_node_count": 419,
+      "ordered_shape_sha256": "425834d8c8c4fc4440d05ce0b6fa68bd84ebf167adca6513924df969eb24b571",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.edd9a29608fbaf8178976819",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_2005_StageAbility.json",
+      "source_sha256": "08f33bb0d5fc6cebd45120e21d1b3069d2674136689353fbf1983b18b6cc3177",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        2005
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 0,
+      "ordered_shape_sha256": "e279a781e654c3349bdc14d23ee21623867ea49581926621b111c2f644d24061",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.f6a2fd213312d44f7f345909",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1008_StageAbility.json",
+      "source_sha256": "888b661283edb6127e114eae16bc27100fe55f554210ff00200121f435abd397",
+      "archetype": "WolfHuntSummonController",
+      "bond_ids": [
+        1008
+      ],
+      "ability_count": 8,
+      "global_modifier_count": 20,
+      "callback_event_count": 28,
+      "configuration_node_count": 160,
+      "ordered_shape_sha256": "b67e3ff7d47070dd922e34f570ccbe79002af4772f38ae691764e190e47d29c3",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    },
+    {
+      "mechanic_id": "currency-wars.mechanic-rule.fc38df88ad428e9285d05299",
+      "source_path": "Config/ConfigAbility/BattleEvent/GridFight/3.5/OriginAbility/GridFight_Origin_1004_StageAbility.json",
+      "source_sha256": "a4c3ac2d7151ca930db544b64d55cf5d901e55cf61e1540b7ae376e77ae018b5",
+      "archetype": "BondStageAbilityController",
+      "bond_ids": [
+        1004
+      ],
+      "ability_count": 1,
+      "global_modifier_count": 0,
+      "callback_event_count": 0,
+      "configuration_node_count": 0,
+      "ordered_shape_sha256": "ba287c579b399bf6fa090edd057990905012efb33de7d685e4c00c494ff1ee14",
+      "accuracy": "PolicyOnlyNotObservedParity"
+    }
+  ]
+}

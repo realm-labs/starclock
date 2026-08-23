@@ -169,7 +169,7 @@ fn stellaron_hunter_kafka_materializes_world_5_control_and_shock_cycle() {
         .and_then(|effect| effect.runtime_template())
         .expect("Kafka Shock runtime");
     let resolved_shock = shock
-        .resolve(Some(2), starclock_combat::Scalar::ONE)
+        .resolve(Some(2), starclock_combat::Scalar::ONE, None)
         .expect("two-turn Kafka Shock");
     assert_eq!(resolved_shock.duration(), Some(2));
     assert_eq!(

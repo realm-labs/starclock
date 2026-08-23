@@ -54,6 +54,9 @@ allocated only when the immutable catalog contains a historical selector.
 - `Source` is the unit attributed by the observed cause; ability programs bind
   it to their owning unit.
 - `Actor`, `Applier` and `PrimaryTarget` retain their distinct cause roles.
+- A single-result `First` selector whose direct `Source`, `Owner`, `Actor` or
+  `Applier` anchor satisfies the authored side relationship selects that exact
+  anchor. It does not silently substitute the first unit from the same side.
 - `CurrentSubject` is the exact nested `ForEach` subject and falls back to the
   primary target only outside an iteration.
 - `Team` and `Encounter` begin with the complete side-filtered battlefield

@@ -117,6 +117,9 @@ def normalized_rows(
         }
         for field in contract["required_domain_fields"]:
             values[field] = compact(row[field])
+        for field in contract.get("optional_domain_fields", []):
+            if field in row:
+                values[field] = compact(row[field])
         for field, value in values.items():
             if isinstance(value, str) and len(value) > 32767:
                 raise ValueError(

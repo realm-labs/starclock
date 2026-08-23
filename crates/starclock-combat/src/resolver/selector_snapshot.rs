@@ -9,8 +9,10 @@ use crate::{
     },
     formula::toughness::attacker_level_multiplier,
     modifier::model::StatKind::{
-        self, Atk, BreakBaseDamage, Def, DotDurationAddition, EnergyRegenerationRate, Hp as HpStat,
-        Spd, ToughnessDamage, ToughnessRecovery,
+        self, Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, Def, DotDurationAddition,
+        EnergyRegenerationRate, FireDamageBoost, Hp as HpStat, IceDamageBoost,
+        ImaginaryDamageBoost, LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost,
+        QuantumDamageBoost, Spd, ToughnessDamage, ToughnessRecovery, WindDamageBoost,
     },
 };
 use std::{collections::BTreeMap, sync::Arc};
@@ -18,14 +20,17 @@ use std::{collections::BTreeMap, sync::Arc};
 use super::transaction;
 use crate::{
     ActionGauge, ActionId, EffectDefinitionId, EventId, Hp, LifeState, LinkedEntity, NumericError,
-    PresenceState, Scalar, SourceDefinitionId, Speed, StatValue, UnitId, UnitLevel,
-    battle::spec::{FormationIndex, TeamSide},
+    PresenceState, Scalar, SourceDefinitionId, Speed, StatValue, UnitDefinitionId, UnitId,
+    UnitLevel,
+    battle::spec::{FormationIndex, ResolvedBuildBonuses, TeamSide},
     formula::model::CombatElement,
+    formula::toughness::EnemyRank,
     modifier::model::ActiveModifier,
 };
 
 #[derive(Clone)]
 pub(super) struct SelectorUnitSnapshot {
+    pub(super) form: UnitDefinitionId,
     pub(super) side: TeamSide,
     pub(super) formation: FormationIndex,
     pub(super) life: LifeState,
@@ -35,10 +40,12 @@ pub(super) struct SelectorUnitSnapshot {
     pub(super) base_attack: StatValue,
     pub(super) base_defense: StatValue,
     pub(super) base_speed: Speed,
+    pub(super) build_bonuses: ResolvedBuildBonuses,
     pub(super) level: UnitLevel,
     pub(super) gauge: Option<ActionGauge>,
     pub(super) shield: Scalar,
     pub(super) weaknesses: Box<[CombatElement]>,
+    pub(super) rank: EnemyRank,
 }
 
 #[derive(Clone)]
@@ -64,6 +71,7 @@ impl RuleSelectorSnapshot {
                 (
                     unit.id,
                     SelectorUnitSnapshot {
+                        form: unit.form,
                         side: unit.side,
                         formation: unit.formation,
                         life: unit.life,
@@ -73,6 +81,7 @@ impl RuleSelectorSnapshot {
                         base_attack: unit.base_attack,
                         base_defense: unit.base_defense,
                         base_speed: unit.base_speed,
+                        build_bonuses: unit.build_bonuses,
                         level: unit.level,
                         gauge: state
                             .actors
@@ -86,6 +95,7 @@ impl RuleSelectorSnapshot {
                             .and_then(|value| Scalar::checked_from_integer(value.get()).ok())
                             .unwrap_or(Scalar::ZERO),
                         weaknesses: unit.weaknesses.clone().into_boxed_slice(),
+                        rank: unit.rank,
                     },
                 )
             })
@@ -141,8 +151,52 @@ impl RuleSelectorSnapshot {
             bases.insert((*id, Atk), Scalar::from_scaled(unit.base_attack.scaled()));
             bases.insert((*id, Def), Scalar::from_scaled(unit.base_defense.scaled()));
             bases.insert((*id, Spd), Scalar::from_scaled(unit.base_speed.scaled()));
+            let [
+                critical_rate,
+                critical_damage,
+                break_effect,
+                energy_regeneration,
+                outgoing,
+            ] = unit.build_bonuses.secondary();
+            bases.insert(
+                (*id, CritRate),
+                Scalar::from_scaled(if unit.side == TeamSide::Player {
+                    50_000
+                } else {
+                    0
+                })
+                .checked_add(critical_rate)?,
+            );
+            bases.insert(
+                (*id, CritDamage),
+                Scalar::from_scaled(if unit.side == TeamSide::Player {
+                    500_000
+                } else {
+                    0
+                })
+                .checked_add(critical_damage)?,
+            );
+            bases.insert((*id, BreakEffect), break_effect);
+            bases.insert((*id, OutgoingHealing), outgoing);
             bases.insert((*id, ToughnessDamage), Scalar::ZERO);
-            bases.insert((*id, EnergyRegenerationRate), Scalar::ONE);
+            bases.insert(
+                (*id, EnergyRegenerationRate),
+                Scalar::ONE.checked_add(energy_regeneration)?,
+            );
+            for (stat, value) in [
+                PhysicalDamageBoost,
+                FireDamageBoost,
+                IceDamageBoost,
+                LightningDamageBoost,
+                WindDamageBoost,
+                QuantumDamageBoost,
+                ImaginaryDamageBoost,
+            ]
+            .into_iter()
+            .zip(unit.build_bonuses.element_damage_boosts())
+            {
+                bases.insert((*id, stat), value);
+            }
             bases.insert((*id, ToughnessRecovery), Scalar::ONE);
             if let Some(value) = attacker_level_multiplier(unit.level) {
                 bases.insert((*id, BreakBaseDamage), value);

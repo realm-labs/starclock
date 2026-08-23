@@ -2,6 +2,7 @@
 # Goal 12 P3-B4; source-shaped authoring rows remain runtime-neutral.
 
 [[tables]]
+id = "sources"
 name = "CurrencyWarsSources"
 mode = "map"
 key = "id"
@@ -91,6 +92,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "coverage"
 name = "CurrencyWarsCoverage"
 mode = "map"
 key = "id"
@@ -172,6 +174,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "research-gaps"
 name = "CurrencyWarsResearchGaps"
 mode = "map"
 key = "id"
@@ -257,6 +260,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "semantic-fixture-families"
 name = "CurrencyWarsSemanticFixtureFamilies"
 mode = "map"
 key = "id"
@@ -330,6 +334,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "review-fixtures"
 name = "CurrencyWarsReviewFixtures"
 mode = "map"
 key = "id"
@@ -415,6 +420,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "reconciliation-receipts"
 name = "CurrencyWarsReconciliationReceipts"
 mode = "map"
 key = "id"
@@ -500,6 +506,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "manifest"
 name = "CurrencyWarsManifest"
 mode = "map"
 key = "id"
@@ -577,6 +584,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "pack-index"
 name = "CurrencyWarsPackIndex"
 mode = "map"
 key = "id"

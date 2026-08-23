@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsFormulaDisplays {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            formula_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            display_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            mechanical_summary_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            formula_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            display_state: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            mechanical_summary_ids: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
         })
     }
 }

@@ -77,6 +77,33 @@ const monsters = await context.table("GridFightMonster");
 const eliteGroups = await context.table("GridFightEliteGroup");
 const formationWaves = await context.table("GridFightFormationWave");
 const stageConfigs = await context.table("StageConfig");
+const sharedEnemyVariants = JSON.parse(fs.readFileSync(path.join(
+  root,
+  "content-reference/v4.4/enemy-variants.json",
+), "utf8"));
+const sharedEnemyBySourceMonster = new Map();
+for (const variant of sharedEnemyVariants) {
+  const values = sharedEnemyBySourceMonster.get(variant.source_monster_id) ?? [];
+  values.push(variant.id);
+  sharedEnemyBySourceMonster.set(variant.source_monster_id, values);
+}
+function sharedEnemyKey(sourceMonsterId) {
+  const matches = sharedEnemyBySourceMonster.get(String(sourceMonsterId)) ?? [];
+  if (matches.length !== 1)
+    throw new Error(
+      `GridFight source monster ${sourceMonsterId} has ${matches.length} shared enemy joins`,
+    );
+  return matches[0];
+}
+function resolvedEnemyWaves(monsterWaves) {
+  return monsterWaves.map((wave) => Object.entries(wave)
+    .sort(([left], [right]) => compare(left, right))
+    .map(([formation, sourceMonsterId]) => ({
+      formation,
+      source_monster_id: String(sourceMonsterId),
+      shared_enemy_key: sharedEnemyKey(sourceMonsterId),
+    })));
+}
 
 const areaToCampEntries = new Map();
 for (const entry of camps) {
@@ -199,6 +226,7 @@ for (const [areaId, entries] of [...stagesByArea.entries()]
         sub_level_graphs: normalize(row.SubLevelGraphs),
         stage_config_data: normalize(row.StageConfigData),
         monster_waves: normalize(row.MonsterList),
+        resolved_enemy_waves: resolvedEnemyWaves(row.MonsterList),
         lose_conditions: row.LevelLoseCondition,
         win_conditions: row.LevelWinCondition,
         released: row.Release,
@@ -302,6 +330,7 @@ for (const entry of monsters) {
     wave_id: "GridFightCampMonsterPool",
     slot_index: id,
     monster_id: id,
+    shared_enemy_key: sharedEnemyKey(id),
     level: { monster_tier: String(row.MonsterTier) },
     ability_refs: eliteRefs,
     camp_ids: (monsterToCampIds.get(id) ?? []).sort(compare),

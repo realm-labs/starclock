@@ -33,6 +33,11 @@ name = "swarm_disaster_benchmark"
 path = "examples/swarm_disaster_benchmark.rs"
 required-features = ["benchmark-harness"]
 
+[[example]]
+name = "currency_wars_benchmark"
+path = "examples/currency_wars_benchmark.rs"
+required-features = ["benchmark-harness"]
+
 [features]
 benchmark-harness = ["starclock-mode-universe/benchmark-harness"]
 
@@ -44,6 +49,7 @@ starclock-ai = { path = "../starclock-ai" }
 starclock-activity = { path = "../starclock-activity" }
 starclock-combat = { path = "../starclock-combat" }
 starclock-data = { path = "../starclock-data" }
+starclock-mode-currency-wars = { path = "../starclock-mode-currency-wars" }
 starclock-mode-universe = { path = "../starclock-mode-universe" }
 starclock-replay = { path = "../starclock-replay" }
 

@@ -1,6 +1,6 @@
 [[enums]]
 name = "Element"
-values = ["Fire", "Ice"]
+values = [{ id = 0, name = "Fire" }, { id = 1, name = "Ice" }]
 
 [[unions]]
 name = "Effect"
@@ -35,6 +35,7 @@ name = "effect"
 type = "union<Effect>"
 
 [[tables]]
+id = "ability"
 name = "Ability"
 mode = "map"
 key = "id"
@@ -71,6 +72,7 @@ fields = ["stable_name"]
 unique = true
 
 [[tables]]
+id = "step_row"
 name = "StepRow"
 mode = "list"
 

@@ -1,3 +1,4 @@
+//! Line-limit exception: accepted action definitions and their cross-reference validation form one catalog responsibility.
 mod extensions;
 
 use crate::{
@@ -1011,7 +1012,7 @@ pub enum HitOperationDefinition {
     /// Queues one cause-relative action through the deterministic reaction scheduler.
     QueueAction(QueueActionDefinition),
     /// Allocates one linked unit and optional independent timeline actor.
-    SummonLinked(LinkedUnitDefinition),
+    SummonLinked(Box<LinkedUnitDefinition>),
     /// Applies an explicit battlefield-presence transition.
     ChangePresence(PresenceState),
     /// Atomically replaces form/abilities and optionally creates a countdown.

@@ -33,9 +33,12 @@ pub mod currency_wars_bonds;
 pub mod currency_wars_bond_levels;
 pub mod currency_wars_bond_contributions;
 pub mod currency_wars_star_states;
+pub mod currency_wars_influence_properties;
+pub mod currency_wars_contribution_parameters;
 pub mod currency_wars_star_combination_rules;
 pub mod currency_wars_star_lifecycle_rules;
 pub mod currency_wars_build_reference_avatars;
+pub mod currency_wars_trial_builds;
 pub mod currency_wars_build_source_files;
 pub mod currency_wars_build_mappings;
 pub mod currency_wars_build_substitution_rules;
@@ -90,6 +93,12 @@ pub mod currency_wars_adventure_outcomes;
 pub mod currency_wars_currencies;
 pub mod currency_wars_shop_services;
 pub mod currency_wars_service_offer_rules;
+pub mod currency_wars_reward_definitions;
+pub mod currency_wars_reward_pools;
+pub mod currency_wars_equipment_recipes;
+pub mod currency_wars_equipment_upgrades;
+pub mod currency_wars_forge_services;
+pub mod currency_wars_service_constants;
 pub mod currency_wars_encounter_source_obligations;
 pub mod currency_wars_encounter_groups;
 pub mod currency_wars_encounter_waves;
@@ -107,7 +116,7 @@ pub mod currency_wars_manifest;
 pub mod currency_wars_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "328f4279ffc7e9d7";
+pub const SCHEMA_FINGERPRINT: &str = "90684d27ea1a7606";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -190,7 +199,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(102);
+            sora_map_with_capacity(111);
         tables.insert(currency_wars_profiles::CurrencyWarsProfilesTable::NAME, Box::new(currency_wars_profiles::CurrencyWarsProfilesTable::from_rows(source.decode_table::<currency_wars_profiles::CurrencyWarsProfiles>(currency_wars_profiles::CurrencyWarsProfilesTable::NAME)?)?));
         tables.insert(currency_wars_gambit_modes::CurrencyWarsGambitModesTable::NAME, Box::new(currency_wars_gambit_modes::CurrencyWarsGambitModesTable::from_rows(source.decode_table::<currency_wars_gambit_modes::CurrencyWarsGambitModes>(currency_wars_gambit_modes::CurrencyWarsGambitModesTable::NAME)?)?));
         tables.insert(currency_wars_modules::CurrencyWarsModulesTable::NAME, Box::new(currency_wars_modules::CurrencyWarsModulesTable::from_rows(source.decode_table::<currency_wars_modules::CurrencyWarsModules>(currency_wars_modules::CurrencyWarsModulesTable::NAME)?)?));
@@ -221,9 +230,12 @@ impl SoraConfig {
         tables.insert(currency_wars_bond_levels::CurrencyWarsBondLevelsTable::NAME, Box::new(currency_wars_bond_levels::CurrencyWarsBondLevelsTable::from_rows(source.decode_table::<currency_wars_bond_levels::CurrencyWarsBondLevels>(currency_wars_bond_levels::CurrencyWarsBondLevelsTable::NAME)?)?));
         tables.insert(currency_wars_bond_contributions::CurrencyWarsBondContributionsTable::NAME, Box::new(currency_wars_bond_contributions::CurrencyWarsBondContributionsTable::from_rows(source.decode_table::<currency_wars_bond_contributions::CurrencyWarsBondContributions>(currency_wars_bond_contributions::CurrencyWarsBondContributionsTable::NAME)?)?));
         tables.insert(currency_wars_star_states::CurrencyWarsStarStatesTable::NAME, Box::new(currency_wars_star_states::CurrencyWarsStarStatesTable::from_rows(source.decode_table::<currency_wars_star_states::CurrencyWarsStarStates>(currency_wars_star_states::CurrencyWarsStarStatesTable::NAME)?)?));
+        tables.insert(currency_wars_influence_properties::CurrencyWarsInfluencePropertiesTable::NAME, Box::new(currency_wars_influence_properties::CurrencyWarsInfluencePropertiesTable::from_rows(source.decode_table::<currency_wars_influence_properties::CurrencyWarsInfluenceProperties>(currency_wars_influence_properties::CurrencyWarsInfluencePropertiesTable::NAME)?)?));
+        tables.insert(currency_wars_contribution_parameters::CurrencyWarsContributionParametersTable::NAME, Box::new(currency_wars_contribution_parameters::CurrencyWarsContributionParametersTable::from_rows(source.decode_table::<currency_wars_contribution_parameters::CurrencyWarsContributionParameters>(currency_wars_contribution_parameters::CurrencyWarsContributionParametersTable::NAME)?)?));
         tables.insert(currency_wars_star_combination_rules::CurrencyWarsStarCombinationRulesTable::NAME, Box::new(currency_wars_star_combination_rules::CurrencyWarsStarCombinationRulesTable::from_rows(source.decode_table::<currency_wars_star_combination_rules::CurrencyWarsStarCombinationRules>(currency_wars_star_combination_rules::CurrencyWarsStarCombinationRulesTable::NAME)?)?));
         tables.insert(currency_wars_star_lifecycle_rules::CurrencyWarsStarLifecycleRulesTable::NAME, Box::new(currency_wars_star_lifecycle_rules::CurrencyWarsStarLifecycleRulesTable::from_rows(source.decode_table::<currency_wars_star_lifecycle_rules::CurrencyWarsStarLifecycleRules>(currency_wars_star_lifecycle_rules::CurrencyWarsStarLifecycleRulesTable::NAME)?)?));
         tables.insert(currency_wars_build_reference_avatars::CurrencyWarsBuildReferenceAvatarsTable::NAME, Box::new(currency_wars_build_reference_avatars::CurrencyWarsBuildReferenceAvatarsTable::from_rows(source.decode_table::<currency_wars_build_reference_avatars::CurrencyWarsBuildReferenceAvatars>(currency_wars_build_reference_avatars::CurrencyWarsBuildReferenceAvatarsTable::NAME)?)?));
+        tables.insert(currency_wars_trial_builds::CurrencyWarsTrialBuildsTable::NAME, Box::new(currency_wars_trial_builds::CurrencyWarsTrialBuildsTable::from_rows(source.decode_table::<currency_wars_trial_builds::CurrencyWarsTrialBuilds>(currency_wars_trial_builds::CurrencyWarsTrialBuildsTable::NAME)?)?));
         tables.insert(currency_wars_build_source_files::CurrencyWarsBuildSourceFilesTable::NAME, Box::new(currency_wars_build_source_files::CurrencyWarsBuildSourceFilesTable::from_rows(source.decode_table::<currency_wars_build_source_files::CurrencyWarsBuildSourceFiles>(currency_wars_build_source_files::CurrencyWarsBuildSourceFilesTable::NAME)?)?));
         tables.insert(currency_wars_build_mappings::CurrencyWarsBuildMappingsTable::NAME, Box::new(currency_wars_build_mappings::CurrencyWarsBuildMappingsTable::from_rows(source.decode_table::<currency_wars_build_mappings::CurrencyWarsBuildMappings>(currency_wars_build_mappings::CurrencyWarsBuildMappingsTable::NAME)?)?));
         tables.insert(currency_wars_build_substitution_rules::CurrencyWarsBuildSubstitutionRulesTable::NAME, Box::new(currency_wars_build_substitution_rules::CurrencyWarsBuildSubstitutionRulesTable::from_rows(source.decode_table::<currency_wars_build_substitution_rules::CurrencyWarsBuildSubstitutionRules>(currency_wars_build_substitution_rules::CurrencyWarsBuildSubstitutionRulesTable::NAME)?)?));
@@ -278,6 +290,12 @@ impl SoraConfig {
         tables.insert(currency_wars_currencies::CurrencyWarsCurrenciesTable::NAME, Box::new(currency_wars_currencies::CurrencyWarsCurrenciesTable::from_rows(source.decode_table::<currency_wars_currencies::CurrencyWarsCurrencies>(currency_wars_currencies::CurrencyWarsCurrenciesTable::NAME)?)?));
         tables.insert(currency_wars_shop_services::CurrencyWarsShopServicesTable::NAME, Box::new(currency_wars_shop_services::CurrencyWarsShopServicesTable::from_rows(source.decode_table::<currency_wars_shop_services::CurrencyWarsShopServices>(currency_wars_shop_services::CurrencyWarsShopServicesTable::NAME)?)?));
         tables.insert(currency_wars_service_offer_rules::CurrencyWarsServiceOfferRulesTable::NAME, Box::new(currency_wars_service_offer_rules::CurrencyWarsServiceOfferRulesTable::from_rows(source.decode_table::<currency_wars_service_offer_rules::CurrencyWarsServiceOfferRules>(currency_wars_service_offer_rules::CurrencyWarsServiceOfferRulesTable::NAME)?)?));
+        tables.insert(currency_wars_reward_definitions::CurrencyWarsRewardDefinitionsTable::NAME, Box::new(currency_wars_reward_definitions::CurrencyWarsRewardDefinitionsTable::from_rows(source.decode_table::<currency_wars_reward_definitions::CurrencyWarsRewardDefinitions>(currency_wars_reward_definitions::CurrencyWarsRewardDefinitionsTable::NAME)?)?));
+        tables.insert(currency_wars_reward_pools::CurrencyWarsRewardPoolsTable::NAME, Box::new(currency_wars_reward_pools::CurrencyWarsRewardPoolsTable::from_rows(source.decode_table::<currency_wars_reward_pools::CurrencyWarsRewardPools>(currency_wars_reward_pools::CurrencyWarsRewardPoolsTable::NAME)?)?));
+        tables.insert(currency_wars_equipment_recipes::CurrencyWarsEquipmentRecipesTable::NAME, Box::new(currency_wars_equipment_recipes::CurrencyWarsEquipmentRecipesTable::from_rows(source.decode_table::<currency_wars_equipment_recipes::CurrencyWarsEquipmentRecipes>(currency_wars_equipment_recipes::CurrencyWarsEquipmentRecipesTable::NAME)?)?));
+        tables.insert(currency_wars_equipment_upgrades::CurrencyWarsEquipmentUpgradesTable::NAME, Box::new(currency_wars_equipment_upgrades::CurrencyWarsEquipmentUpgradesTable::from_rows(source.decode_table::<currency_wars_equipment_upgrades::CurrencyWarsEquipmentUpgrades>(currency_wars_equipment_upgrades::CurrencyWarsEquipmentUpgradesTable::NAME)?)?));
+        tables.insert(currency_wars_forge_services::CurrencyWarsForgeServicesTable::NAME, Box::new(currency_wars_forge_services::CurrencyWarsForgeServicesTable::from_rows(source.decode_table::<currency_wars_forge_services::CurrencyWarsForgeServices>(currency_wars_forge_services::CurrencyWarsForgeServicesTable::NAME)?)?));
+        tables.insert(currency_wars_service_constants::CurrencyWarsServiceConstantsTable::NAME, Box::new(currency_wars_service_constants::CurrencyWarsServiceConstantsTable::from_rows(source.decode_table::<currency_wars_service_constants::CurrencyWarsServiceConstants>(currency_wars_service_constants::CurrencyWarsServiceConstantsTable::NAME)?)?));
         tables.insert(currency_wars_encounter_source_obligations::CurrencyWarsEncounterSourceObligationsTable::NAME, Box::new(currency_wars_encounter_source_obligations::CurrencyWarsEncounterSourceObligationsTable::from_rows(source.decode_table::<currency_wars_encounter_source_obligations::CurrencyWarsEncounterSourceObligations>(currency_wars_encounter_source_obligations::CurrencyWarsEncounterSourceObligationsTable::NAME)?)?));
         tables.insert(currency_wars_encounter_groups::CurrencyWarsEncounterGroupsTable::NAME, Box::new(currency_wars_encounter_groups::CurrencyWarsEncounterGroupsTable::from_rows(source.decode_table::<currency_wars_encounter_groups::CurrencyWarsEncounterGroups>(currency_wars_encounter_groups::CurrencyWarsEncounterGroupsTable::NAME)?)?));
         tables.insert(currency_wars_encounter_waves::CurrencyWarsEncounterWavesTable::NAME, Box::new(currency_wars_encounter_waves::CurrencyWarsEncounterWavesTable::from_rows(source.decode_table::<currency_wars_encounter_waves::CurrencyWarsEncounterWaves>(currency_wars_encounter_waves::CurrencyWarsEncounterWavesTable::NAME)?)?));
@@ -435,6 +453,14 @@ impl SoraConfig {
         self.table(currency_wars_star_states::CurrencyWarsStarStatesTable::NAME)
     }
 
+    pub fn currency_wars_influence_properties(&self) -> &currency_wars_influence_properties::CurrencyWarsInfluencePropertiesTable {
+        self.table(currency_wars_influence_properties::CurrencyWarsInfluencePropertiesTable::NAME)
+    }
+
+    pub fn currency_wars_contribution_parameters(&self) -> &currency_wars_contribution_parameters::CurrencyWarsContributionParametersTable {
+        self.table(currency_wars_contribution_parameters::CurrencyWarsContributionParametersTable::NAME)
+    }
+
     pub fn currency_wars_star_combination_rules(&self) -> &currency_wars_star_combination_rules::CurrencyWarsStarCombinationRulesTable {
         self.table(currency_wars_star_combination_rules::CurrencyWarsStarCombinationRulesTable::NAME)
     }
@@ -445,6 +471,10 @@ impl SoraConfig {
 
     pub fn currency_wars_build_reference_avatars(&self) -> &currency_wars_build_reference_avatars::CurrencyWarsBuildReferenceAvatarsTable {
         self.table(currency_wars_build_reference_avatars::CurrencyWarsBuildReferenceAvatarsTable::NAME)
+    }
+
+    pub fn currency_wars_trial_builds(&self) -> &currency_wars_trial_builds::CurrencyWarsTrialBuildsTable {
+        self.table(currency_wars_trial_builds::CurrencyWarsTrialBuildsTable::NAME)
     }
 
     pub fn currency_wars_build_source_files(&self) -> &currency_wars_build_source_files::CurrencyWarsBuildSourceFilesTable {
@@ -661,6 +691,30 @@ impl SoraConfig {
 
     pub fn currency_wars_service_offer_rules(&self) -> &currency_wars_service_offer_rules::CurrencyWarsServiceOfferRulesTable {
         self.table(currency_wars_service_offer_rules::CurrencyWarsServiceOfferRulesTable::NAME)
+    }
+
+    pub fn currency_wars_reward_definitions(&self) -> &currency_wars_reward_definitions::CurrencyWarsRewardDefinitionsTable {
+        self.table(currency_wars_reward_definitions::CurrencyWarsRewardDefinitionsTable::NAME)
+    }
+
+    pub fn currency_wars_reward_pools(&self) -> &currency_wars_reward_pools::CurrencyWarsRewardPoolsTable {
+        self.table(currency_wars_reward_pools::CurrencyWarsRewardPoolsTable::NAME)
+    }
+
+    pub fn currency_wars_equipment_recipes(&self) -> &currency_wars_equipment_recipes::CurrencyWarsEquipmentRecipesTable {
+        self.table(currency_wars_equipment_recipes::CurrencyWarsEquipmentRecipesTable::NAME)
+    }
+
+    pub fn currency_wars_equipment_upgrades(&self) -> &currency_wars_equipment_upgrades::CurrencyWarsEquipmentUpgradesTable {
+        self.table(currency_wars_equipment_upgrades::CurrencyWarsEquipmentUpgradesTable::NAME)
+    }
+
+    pub fn currency_wars_forge_services(&self) -> &currency_wars_forge_services::CurrencyWarsForgeServicesTable {
+        self.table(currency_wars_forge_services::CurrencyWarsForgeServicesTable::NAME)
+    }
+
+    pub fn currency_wars_service_constants(&self) -> &currency_wars_service_constants::CurrencyWarsServiceConstantsTable {
+        self.table(currency_wars_service_constants::CurrencyWarsServiceConstantsTable::NAME)
     }
 
     pub fn currency_wars_encounter_source_obligations(&self) -> &currency_wars_encounter_source_obligations::CurrencyWarsEncounterSourceObligationsTable {

@@ -97,12 +97,15 @@ impl Battle {
                     initial.map_or(PresenceState::Present, |state| state.presence())
                 },
                 current_hp: initial.map_or(combatant.maximum_hp(), |state| state.current_hp()),
+                initial_maximum_hp: combatant.maximum_hp(),
                 maximum_hp: combatant.maximum_hp(),
+                damage_dealt: 0,
                 base_attack: combatant.base_attack(),
                 base_defense: combatant.base_defense(),
                 base_speed: combatant.speed(),
                 base_effect_hit_rate: combatant.base_effect_hit_rate(),
                 base_effect_resistance: combatant.base_effect_resistance(),
+                build_bonuses: combatant.build_bonuses(),
                 current_energy: initial
                     .map_or(combatant.current_energy(), |state| state.current_energy()),
                 maximum_energy: combatant.maximum_energy(),
@@ -120,6 +123,12 @@ impl Battle {
                 abilities: combatant.abilities().into(),
                 rule_bundles: combatant.rule_bundles().into(),
                 modifiers: combatant.modifiers().into(),
+                linked_subject_modifiers: combatant
+                    .modifier_bindings()
+                    .iter()
+                    .filter(|binding| binding.applies_to_linked_subjects())
+                    .map(|binding| binding.definition())
+                    .collect(),
                 resources: definition
                     .resources()
                     .iter()
@@ -289,6 +298,8 @@ impl Battle {
                 spawn_defeats: 0,
             },
             clock: spec.clock().map(BattleClockState::from_spec),
+            enemy_defeat_energy: spec.enemy_defeat_energy(),
+            player_lethal_rescue: spec.player_lethal_rescue(),
             timeline: TimelineState::default(),
             reactions: ReactionQueue::default(),
             concede: spec.concede_policy(),

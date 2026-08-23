@@ -3,14 +3,15 @@
 use crate::{
     ability::AbilityLevelTable,
     catalog::{CharacterBuildDefinition, CharacterStatRow},
-    spec::EidolonLevel,
+    spec::{EidolonLevel, RelicStatContribution},
 };
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
     AbilityId, CombatantSpecDigest, CombatantSpecError, Hp, ModifierDefinitionId,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding, RuleBundleId,
-    SourceDefinitionId, StatValue, catalog::CombatCatalog, rule::model::RuleSource,
+    ResolvedBuildBonuses, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResolvedModifierBinding, Rounding, RuleBundleId, Scalar, SourceDefinitionId, Speed, StatValue,
+    catalog::CombatCatalog, rule::model::RuleSource,
 };
 
 use crate::{
@@ -39,6 +40,10 @@ pub enum BuildCompileErrorKind {
     UnknownLightCone,
     UnsupportedLightConeLevel,
     InvalidLightConeStats,
+    UnknownContribution,
+    ContributionNotApplicable,
+    ContributionPatchConflict,
+    InvalidRelicStats,
     PatchConflict,
     InvalidCombatBindings,
     InvalidCombatant,
@@ -92,7 +97,7 @@ impl LoadoutCompiler {
         combat_catalog: &CombatCatalog,
         spec: &CombatantBuildSpec,
     ) -> Result<CompiledBuild, BuildCompileError> {
-        let mut entries = Vec::with_capacity(9);
+        let mut entries = Vec::with_capacity(10);
         if build_catalog.combat_digest() != combat_catalog.digest() {
             return Err(failure(
                 spec,
@@ -162,14 +167,6 @@ impl LoadoutCompiler {
                 BuildCompileErrorKind::InvalidEidolonSelection,
             ));
         }
-        if resolve_ability_levels(definition, spec.ability_levels(), &mut workspace).is_err() {
-            return Err(failure(
-                spec,
-                entries,
-                BuildValidationStage::EidolonSelection,
-                BuildCompileErrorKind::PatchConflict,
-            ));
-        }
         entries.push(BuildValidationEntry::passed(
             BuildValidationStage::EidolonSelection,
         ));
@@ -198,6 +195,42 @@ impl LoadoutCompiler {
             };
         entries.push(BuildValidationEntry::passed(
             BuildValidationStage::LightConeSelection,
+        ));
+
+        if let Err(kind) = apply_contributions(build_catalog, definition, spec, &mut workspace) {
+            return Err(failure(
+                spec,
+                entries,
+                BuildValidationStage::ContributionSelection,
+                kind,
+            ));
+        }
+        let effective_ability_levels =
+            resolve_ability_levels(definition, spec.ability_levels(), &mut workspace).map_err(
+                |()| {
+                    failure(
+                        spec,
+                        entries.clone(),
+                        BuildValidationStage::ContributionSelection,
+                        BuildCompileErrorKind::PatchConflict,
+                    )
+                },
+            )?;
+        entries.push(BuildValidationEntry::passed(
+            BuildValidationStage::ContributionSelection,
+        ));
+
+        let (base_stats, speed, effect_hit_rate, effect_resistance, build_bonuses) =
+            apply_relic_stats(base_stats, stat_row.speed(), spec.relic_stats()).map_err(|()| {
+                failure(
+                    spec,
+                    entries.clone(),
+                    BuildValidationStage::RelicSelection,
+                    BuildCompileErrorKind::InvalidRelicStats,
+                )
+            })?;
+        entries.push(BuildValidationEntry::passed(
+            BuildValidationStage::RelicSelection,
         ));
 
         let (sources, source_attribution) = selected_sources(build_catalog, definition, spec)
@@ -258,7 +291,10 @@ impl LoadoutCompiler {
             maximum_hp: base_stats.maximum_hp,
             attack: base_stats.attack,
             defense: base_stats.defense,
-            speed: stat_row.speed(),
+            speed,
+            effect_hit_rate,
+            effect_resistance,
+            build_bonuses,
             abilities: bindings.abilities(),
             rules: bindings.rule_bundles(),
             modifiers: bindings.modifiers(),
@@ -270,11 +306,16 @@ impl LoadoutCompiler {
             definition.form(),
             stat_row.level(),
             base_stats.maximum_hp,
-            stat_row.speed(),
+            speed,
             bindings,
             digest,
         )
-        .map(|combatant| combatant.with_base_attack_defense(base_stats.attack, base_stats.defense))
+        .map(|combatant| {
+            combatant
+                .with_base_attack_defense(base_stats.attack, base_stats.defense)
+                .with_base_effect_stats(effect_hit_rate, effect_resistance)
+                .with_build_bonuses(build_bonuses)
+        })
         .and_then(|combatant| combatant.with_sources(sources))
         .and_then(|combatant| combatant.with_modifier_bindings(modifier_bindings))
         .map_err(|error| combatant_failure(spec, entries.clone(), error))?;
@@ -292,6 +333,8 @@ impl LoadoutCompiler {
             report,
             selected_build_digest(build_catalog.digest(), spec),
             build_catalog.digest(),
+            effective_ability_levels,
+            spec.clone(),
         ))
     }
 }
@@ -331,6 +374,13 @@ fn selected_sources(
             BuildSourceOwner::LightCone(cone.id()),
         ));
     }
+    for id in spec.contributions() {
+        let contribution = catalog.contribution(*id).ok_or(())?;
+        selected.push((
+            contribution.source().clone(),
+            BuildSourceOwner::Contribution(*id),
+        ));
+    }
     selected.sort_unstable_by_key(|(source, _)| source.definition());
     if selected
         .windows(2)
@@ -368,6 +418,77 @@ struct ResolvedBaseStats {
     maximum_hp: Hp,
     attack: StatValue,
     defense: StatValue,
+}
+
+fn apply_relic_stats(
+    base: ResolvedBaseStats,
+    speed: Speed,
+    relics: RelicStatContribution,
+) -> Result<
+    (
+        ResolvedBaseStats,
+        Speed,
+        Scalar,
+        Scalar,
+        ResolvedBuildBonuses,
+    ),
+    (),
+> {
+    let [hp_flat, attack_flat, defense_flat, speed_flat] = relics.base_flats();
+    let [hp_ratio, attack_ratio, defense_ratio, speed_ratio] = relics.base_ratios();
+    let [
+        critical_rate,
+        critical_damage,
+        effect_hit_rate,
+        effect_resistance,
+        break_effect,
+        energy_regeneration,
+        outgoing_healing,
+    ] = relics.secondary();
+    let hp = apply_ratio_and_flat(
+        Scalar::checked_from_integer(base.maximum_hp.get()).map_err(|_| ())?,
+        hp_ratio,
+        hp_flat,
+    )?
+    .rounded_integer(Rounding::NearestTiesEven)
+    .map_err(|_| ())?;
+    let attack = apply_ratio_and_flat(
+        Scalar::from_scaled(base.attack.scaled()),
+        attack_ratio,
+        attack_flat,
+    )?;
+    let defense = apply_ratio_and_flat(
+        Scalar::from_scaled(base.defense.scaled()),
+        defense_ratio,
+        defense_flat,
+    )?;
+    let speed = apply_ratio_and_flat(Scalar::from_scaled(speed.scaled()), speed_ratio, speed_flat)?;
+    Ok((
+        ResolvedBaseStats {
+            maximum_hp: Hp::new(hp).map_err(|_| ())?,
+            attack: StatValue::from_scaled(attack.scaled()).map_err(|_| ())?,
+            defense: StatValue::from_scaled(defense.scaled()).map_err(|_| ())?,
+        },
+        Speed::from_scaled(speed.scaled()).map_err(|_| ())?,
+        effect_hit_rate,
+        effect_resistance,
+        ResolvedBuildBonuses::new(
+            critical_rate,
+            critical_damage,
+            break_effect,
+            energy_regeneration,
+            outgoing_healing,
+            relics.element_damage_boosts(),
+        ),
+    ))
+}
+
+fn apply_ratio_and_flat(base: Scalar, ratio: Scalar, flat: Scalar) -> Result<Scalar, ()> {
+    Scalar::ONE
+        .checked_add(ratio)
+        .and_then(|factor| base.checked_mul(factor, Rounding::NearestTiesEven))
+        .and_then(|value| value.checked_add(flat))
+        .map_err(|_| ())
 }
 
 #[derive(Clone, Copy)]
@@ -411,6 +532,33 @@ fn apply_light_cone(
         }
     }
     combine_base_stats(character_stats, row)
+}
+
+fn apply_contributions(
+    catalog: &BuildCatalog,
+    character: &CharacterBuildDefinition,
+    spec: &CombatantBuildSpec,
+    workspace: &mut CompilationWorkspace,
+) -> Result<(), BuildCompileErrorKind> {
+    for id in spec.contributions() {
+        let contribution = catalog
+            .contribution(*id)
+            .ok_or(BuildCompileErrorKind::UnknownContribution)?;
+        if !contribution.applies_to(character.form(), character.path()) {
+            return Err(BuildCompileErrorKind::ContributionNotApplicable);
+        }
+        for patch in contribution.patches() {
+            if let BuildPatch::AdjustAbilityLevel { family, .. } = *patch
+                && character.ability_level_table(family).is_none()
+            {
+                return Err(BuildCompileErrorKind::ContributionPatchConflict);
+            }
+            workspace
+                .apply_patch(*patch, contribution.source().definition())
+                .map_err(|()| BuildCompileErrorKind::ContributionPatchConflict)?;
+        }
+    }
+    Ok(())
 }
 
 fn combine_base_stats(
@@ -561,7 +709,8 @@ fn resolve_ability_levels(
     definition: &CharacterBuildDefinition,
     investments: &[AbilityInvestment],
     workspace: &mut CompilationWorkspace,
-) -> Result<(), ()> {
+) -> Result<Box<[AbilityInvestment]>, ()> {
+    let mut effective_levels = Vec::with_capacity(investments.len());
     for (table, investment) in definition.ability_levels().iter().zip(investments) {
         let (bonus, cap_delta) = workspace
             .ability_adjustments
@@ -582,8 +731,9 @@ fn resolve_ability_levels(
         if !workspace.abilities.insert(resolved) {
             return Err(());
         }
+        effective_levels.push(AbilityInvestment::new(table.family(), effective));
     }
-    Ok(())
+    Ok(effective_levels.into_boxed_slice())
 }
 
 fn combatant_failure(

@@ -132,6 +132,14 @@ Mode-specific crates contribute profiles, validated catalogs, generic Activity
 graphs and rule-bundle identities; they do not create a catch-all event crate
 or own shared execution machinery. The Bevy crate remains optional until
 engine integration begins.
+Modes that compile immutable mode-owned build substitutions may depend on
+`starclock-build`; they still cannot query account inventory or compile builds
+inside `starclock-combat`.
+
+`starclock-ai` owns deterministic controllers over read-only domain views and
+offered command sets. A mode controller may depend on that mode's public domain
+facade plus Activity, combat and replay contracts; production catalog loaders
+remain test-only dependencies and never become live controller inputs.
 
 All handwritten Rust follows [Rust engineering standards](08-engineering-standards.md). In particular, files are split by responsibility before they exceed 1,200 physical lines, visibility defaults to private, and `pub use` is reserved for a small intentional facade or a documented technical requirement.
 

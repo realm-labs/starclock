@@ -73,8 +73,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         handoff.identity().seed().bytes(),
         [
-            171, 9, 117, 211, 214, 220, 23, 55, 133, 48, 51, 28, 194, 202, 49, 100, 54, 123, 90,
-            105, 230, 53, 173, 232, 38, 129, 132, 113, 120, 195, 177, 242,
+            184, 193, 16, 193, 2, 255, 7, 231, 140, 19, 155, 11, 158, 117, 49, 122, 78, 94, 15,
+            182, 244, 5, 125, 226, 84, 122, 40, 64, 66, 127, 230, 90,
         ]
     );
     let awaiting = state.state_hash(setup.identity, &setup.graph, setup.instance, &setup.rng);
@@ -115,8 +115,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         settlement.state_hash().bytes(),
         [
-            100, 241, 224, 76, 234, 12, 97, 170, 253, 58, 50, 34, 113, 19, 77, 165, 31, 90, 51, 24,
-            147, 76, 192, 184, 60, 130, 235, 197, 70, 186, 227, 205,
+            223, 137, 210, 56, 42, 12, 15, 162, 125, 0, 213, 192, 154, 43, 156, 208, 83, 142, 42,
+            149, 93, 205, 215, 185, 193, 142, 128, 90, 55, 60, 253, 182,
         ]
     );
 }

@@ -1,24 +1,25 @@
+
 [[enums]]
 name = "UniverseDifficultyKind"
-values = ["Tutorial", "Standard"]
+values = [{ id = 0, name = "Tutorial" }, { id = 1, name = "Standard" }]
 
 [[enums]]
 name = "UniverseDomainKind"
-values = ["CombatPrimary", "CombatSecondary", "Occurrence", "Encounter", "Respite", "Elite", "Boss", "Transaction", "Adventure"]
+values = [{ id = 0, name = "CombatPrimary" }, { id = 1, name = "CombatSecondary" }, { id = 2, name = "Occurrence" }, { id = 3, name = "Encounter" }, { id = 4, name = "Respite" }, { id = 5, name = "Elite" }, { id = 6, name = "Boss" }, { id = 7, name = "Transaction" }, { id = 8, name = "Adventure" }]
 
 [[enums]]
 name = "UniverseDecisionPolicy"
-values = ["BattleHandoff", "ExternalCommand"]
+values = [{ id = 0, name = "BattleHandoff" }, { id = 1, name = "ExternalCommand" }]
 
 [[enums]]
 name = "UniverseEnemyRole"
-values = ["Boss", "Elite"]
+values = [{ id = 0, name = "Boss" }, { id = 1, name = "Elite" }]
 
 [[enums]]
 name = "UniverseRoomContentKind"
-values = ["EncounterGroup", "FixedContent", "ExternalDecision"]
-
+values = [{ id = 0, name = "EncounterGroup" }, { id = 1, name = "FixedContent" }, { id = 2, name = "ExternalDecision" }]
 [[tables]]
+id = "universe-profile"
 name = "UniverseProfile"
 mode = "map"
 key = "id"
@@ -68,6 +69,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "universe-world"
 name = "UniverseWorld"
 mode = "map"
 key = "id"
@@ -124,6 +126,7 @@ fields = ["profile_id", "world_number"]
 unique = true
 
 [[tables]]
+id = "universe-difficulty"
 name = "UniverseDifficulty"
 mode = "map"
 key = "id"
@@ -179,6 +182,7 @@ fields = ["source_area_id"]
 unique = true
 
 [[tables]]
+id = "universe-difficulty-enemy"
 name = "UniverseDifficultyEnemy"
 mode = "list"
 [tables.source]
@@ -213,6 +217,7 @@ fields = ["difficulty_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-domain"
 name = "UniverseDomain"
 mode = "map"
 key = "id"
@@ -267,6 +272,7 @@ fields = ["source_type"]
 unique = true
 
 [[tables]]
+id = "universe-map-node"
 name = "UniverseMapNode"
 mode = "map"
 key = "id"
@@ -311,6 +317,7 @@ fields = ["source_map_id", "source_node_id"]
 unique = true
 
 [[tables]]
+id = "universe-map-edge"
 name = "UniverseMapEdge"
 mode = "list"
 [tables.source]
@@ -333,6 +340,7 @@ fields = ["source_node_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-room"
 name = "UniverseRoom"
 mode = "map"
 key = "id"
@@ -378,6 +386,7 @@ fields = ["source_room_id"]
 unique = true
 
 [[tables]]
+id = "universe-room-content"
 name = "UniverseRoomContent"
 mode = "list"
 [tables.source]
@@ -411,6 +420,7 @@ fields = ["room_id", "sequence"]
 unique = true
 
 [[tables]]
+id = "universe-path"
 name = "UniversePath"
 mode = "map"
 key = "id"
@@ -460,6 +470,7 @@ fields = ["buff_type"]
 unique = true
 
 [[tables]]
+id = "universe-path-blessing"
 name = "UniversePathBlessing"
 mode = "list"
 [tables.source]

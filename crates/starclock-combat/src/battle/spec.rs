@@ -1,3 +1,4 @@
+//! Line-limit exception: BattleSpec construction and identity invariants remain one immutable contract.
 use core::fmt;
 
 use super::spec_codec;
@@ -258,6 +259,45 @@ pub enum BattleClockSpec {
     ActionValue(ActionValueClockSpec),
 }
 
+/// HP restoration selected by one battle-wide player lethal-rescue policy.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum LethalRescueHpPolicy {
+    /// Restore the affected player combatant to its immutable maximum HP.
+    MaximumHp = 0,
+}
+
+/// Explicit battle-wide replacement for lethal player damage.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct PlayerLethalRescueSpec {
+    hp: LethalRescueHpPolicy,
+    action_value_loss: Option<ActionValue>,
+}
+
+impl PlayerLethalRescueSpec {
+    #[must_use]
+    pub fn new(hp: LethalRescueHpPolicy, action_value_loss: Option<ActionValue>) -> Option<Self> {
+        if action_value_loss.is_some_and(|loss| loss == ActionValue::ZERO) {
+            None
+        } else {
+            Some(Self {
+                hp,
+                action_value_loss,
+            })
+        }
+    }
+
+    #[must_use]
+    pub const fn hp(self) -> LethalRescueHpPolicy {
+        self.hp
+    }
+
+    #[must_use]
+    pub const fn action_value_loss(self) -> Option<ActionValue> {
+        self.action_value_loss
+    }
+}
+
 /// Canonical combat-definition selections produced by an upstream compiler.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedDefinitionBindings {
@@ -266,18 +306,91 @@ pub struct ResolvedDefinitionBindings {
     modifiers: Box<[ModifierDefinitionId]>,
 }
 
+/// Generic immutable combat-stat bonuses resolved by an upstream build system.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ResolvedBuildBonuses {
+    critical_rate: Scalar,
+    critical_damage: Scalar,
+    break_effect: Scalar,
+    energy_regeneration_rate: Scalar,
+    outgoing_healing: Scalar,
+    element_damage_boosts: [Scalar; 7],
+}
+
+impl Default for ResolvedBuildBonuses {
+    fn default() -> Self {
+        Self::new(
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            Scalar::ZERO,
+            [Scalar::ZERO; 7],
+        )
+    }
+}
+
+impl ResolvedBuildBonuses {
+    #[must_use]
+    pub const fn new(
+        critical_rate: Scalar,
+        critical_damage: Scalar,
+        break_effect: Scalar,
+        energy_regeneration_rate: Scalar,
+        outgoing_healing: Scalar,
+        element_damage_boosts: [Scalar; 7],
+    ) -> Self {
+        Self {
+            critical_rate,
+            critical_damage,
+            break_effect,
+            energy_regeneration_rate,
+            outgoing_healing,
+            element_damage_boosts,
+        }
+    }
+
+    #[must_use]
+    pub const fn secondary(self) -> [Scalar; 5] {
+        [
+            self.critical_rate,
+            self.critical_damage,
+            self.break_effect,
+            self.energy_regeneration_rate,
+            self.outgoing_healing,
+        ]
+    }
+
+    #[must_use]
+    pub const fn element_damage_boosts(self) -> [Scalar; 7] {
+        self.element_damage_boosts
+    }
+}
+
 /// Source-attributed build modifier selected for one resolved combatant.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct ResolvedModifierBinding {
     definition: ModifierDefinitionId,
     source: SourceDefinitionId,
+    linked_subjects: bool,
 }
 
 impl ResolvedModifierBinding {
     /// Binds one modifier definition to the generic source that selected it.
     #[must_use]
     pub const fn new(definition: ModifierDefinitionId, source: SourceDefinitionId) -> Self {
-        Self { definition, source }
+        Self {
+            definition,
+            source,
+            linked_subjects: false,
+        }
+    }
+
+    /// Applies this combatant-owned modifier to linked units created by the combatant.
+    #[must_use]
+    pub const fn with_linked_subjects(mut self) -> Self {
+        self.linked_subjects = true;
+        self
     }
 
     #[must_use]
@@ -288,6 +401,11 @@ impl ResolvedModifierBinding {
     #[must_use]
     pub const fn source(self) -> SourceDefinitionId {
         self.source
+    }
+
+    #[must_use]
+    pub const fn applies_to_linked_subjects(self) -> bool {
+        self.linked_subjects
     }
 }
 
@@ -342,6 +460,7 @@ pub struct ResolvedCombatantSpec {
     speed: Speed,
     base_effect_hit_rate: Scalar,
     base_effect_resistance: Scalar,
+    build_bonuses: ResolvedBuildBonuses,
     current_energy: Energy,
     maximum_energy: Energy,
     rank: EnemyRank,
@@ -377,6 +496,7 @@ impl ResolvedCombatantSpec {
             speed,
             base_effect_hit_rate: Scalar::ZERO,
             base_effect_resistance: Scalar::ZERO,
+            build_bonuses: ResolvedBuildBonuses::default(),
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
             rank: EnemyRank::Normal,
@@ -407,6 +527,12 @@ impl ResolvedCombatantSpec {
     ) -> Self {
         self.base_effect_hit_rate = effect_hit_rate;
         self.base_effect_resistance = effect_resistance;
+        self
+    }
+    /// Attaches generic secondary and elemental build bonuses.
+    #[must_use]
+    pub const fn with_build_bonuses(mut self, bonuses: ResolvedBuildBonuses) -> Self {
+        self.build_bonuses = bonuses;
         self
     }
     /// Attaches canonical generic source bindings resolved upstream.
@@ -525,6 +651,11 @@ impl ResolvedCombatantSpec {
     #[must_use]
     pub const fn base_effect_resistance(&self) -> Scalar {
         self.base_effect_resistance
+    }
+    /// Returns generic immutable build bonuses.
+    #[must_use]
+    pub const fn build_bonuses(&self) -> ResolvedBuildBonuses {
+        self.build_bonuses
     }
     /// Returns entry Energy.
     #[must_use]
@@ -909,6 +1040,8 @@ pub struct BattleSpec {
     enemy_resources: TeamResourceSpec,
     concede: ConcedePolicy,
     clock: Option<BattleClockSpec>,
+    enemy_defeat_energy: Option<Energy>,
+    player_lethal_rescue: Option<PlayerLethalRescueSpec>,
 }
 
 impl BattleSpec {
@@ -949,16 +1082,8 @@ impl BattleSpec {
         {
             return Err(BattleSpecError::MissingSide);
         }
-        let combat_input_digest = spec_codec::combat_input_digest(
-            encounter,
-            &participants,
-            &player_resources,
-            &enemy_resources,
-            concede,
-            None,
-        );
-        Ok(Self {
-            combat_input_digest,
+        let mut spec = Self {
+            combat_input_digest: CombatInputDigest::from_computed([1; 32]),
             assembly_digest,
             encounter,
             participants: participants.into_boxed_slice(),
@@ -966,7 +1091,11 @@ impl BattleSpec {
             enemy_resources,
             concede,
             clock: None,
-        })
+            enemy_defeat_energy: None,
+            player_lethal_rescue: None,
+        };
+        spec.refresh_combat_input_digest();
+        Ok(spec)
     }
 
     /// Attaches one Activity-compiled battle-local challenge clock and refreshes
@@ -974,15 +1103,39 @@ impl BattleSpec {
     #[must_use]
     pub fn with_clock(mut self, clock: BattleClockSpec) -> Self {
         self.clock = Some(clock);
-        self.combat_input_digest = spec_codec::combat_input_digest(
-            self.encounter,
-            &self.participants,
-            &self.player_resources,
-            &self.enemy_resources,
-            self.concede,
-            self.clock,
-        );
+        self.refresh_combat_input_digest();
         self
+    }
+
+    /// Attaches an explicit base Energy reward granted to the credited player
+    /// when an enemy is defeated. Ordinary Energy Regeneration Rate applies at
+    /// the mutation boundary.
+    #[must_use]
+    pub fn with_enemy_defeat_energy(mut self, energy: Energy) -> Option<Self> {
+        if energy == Energy::ZERO {
+            return None;
+        }
+        self.enemy_defeat_energy = Some(energy);
+        self.refresh_combat_input_digest();
+        Some(self)
+    }
+
+    /// Attaches one battle-wide lethal replacement for player combatants.
+    /// An Action Value loss requires an already attached Action Value clock.
+    #[must_use]
+    pub fn with_player_lethal_rescue(mut self, rescue: PlayerLethalRescueSpec) -> Option<Self> {
+        if rescue.action_value_loss().is_some()
+            && !matches!(self.clock, Some(BattleClockSpec::ActionValue(_)))
+        {
+            return None;
+        }
+        self.player_lethal_rescue = Some(rescue);
+        self.refresh_combat_input_digest();
+        Some(self)
+    }
+
+    fn refresh_combat_input_digest(&mut self) {
+        self.combat_input_digest = spec_codec::combat_input_digest(self);
     }
 
     /// Returns the combat-owned canonical input identity.
@@ -1022,6 +1175,16 @@ impl BattleSpec {
     #[must_use]
     pub const fn clock(&self) -> Option<BattleClockSpec> {
         self.clock
+    }
+    /// Returns the explicit base Energy reward for a credited enemy defeat.
+    #[must_use]
+    pub const fn enemy_defeat_energy(&self) -> Option<Energy> {
+        self.enemy_defeat_energy
+    }
+    /// Returns the optional battle-wide lethal replacement for players.
+    #[must_use]
+    pub const fn player_lethal_rescue(&self) -> Option<PlayerLethalRescueSpec> {
+        self.player_lethal_rescue
     }
 }
 

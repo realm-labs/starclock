@@ -42,6 +42,7 @@ use rmcp::transport::streamable_http_server::{
 };
 use starclock_agent_api::{
     activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
+    currency_wars_activity_session::CurrencyWarsActivityAgentSessionFactory,
     error::{AgentError, AgentErrorCode},
     gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
     schema::SessionId,
@@ -194,6 +195,8 @@ fn build_loopback_app(
         .map_err(|_| HttpServeError::Startup)?;
     let swarm_factory = SwarmDisasterActivityAgentSessionFactory::load_production()
         .map_err(|_| HttpServeError::Startup)?;
+    let currency_wars_factory = CurrencyWarsActivityAgentSessionFactory::load_production()
+        .map_err(|_| HttpServeError::Startup)?;
     let operational_clock = Arc::new(HttpClock::new());
     let session_ids = Arc::new(HttpBattleSessionIds::new());
     let registry = AgentSessionRegistry::new(
@@ -201,10 +204,11 @@ fn build_loopback_app(
         operational_clock.clone(),
         session_ids.clone(),
     );
-    let activity_registry = ActivityAgentSessionRegistry::new_with_modes(
+    let activity_registry = ActivityAgentSessionRegistry::new_with_all_modes(
         activity_factory.clone(),
         gold_factory,
         swarm_factory,
+        currency_wars_factory,
         operational_clock.clone(),
         session_ids,
     );

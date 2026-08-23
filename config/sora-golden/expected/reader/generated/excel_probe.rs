@@ -18,7 +18,16 @@ impl super::runtime::SoraDecode for ExcelProbe {
         Ok(Self {
             id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             label: <String as super::runtime::SoraDecode>::decode(reader)?,
-            note: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            note: match reader.read_u8()? {
+                0 => None,
+                1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?),
+                value => {
+                    return Err(super::runtime::SoraReadError::new(format!(
+                        "invalid option presence {}",
+                        value
+                    )));
+                }
+            },
         })
     }
 }
