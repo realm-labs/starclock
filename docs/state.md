@@ -379,8 +379,9 @@ Git history is the only historical record.
   provenance and workbook audits; `B4` closes all source/program/fixture/policy
   dispositions. Runtime execution is complete through `G21-P8-B4`; the local
   macOS ARM64 clean-checkout half of `G21-P8-B5` passes on the current tree,
-  while the hosted Windows x64, Linux x64 and macOS ARM64 native matrix remains
-  the final release gate.
+  and the hosted Windows x64, Linux x64 and macOS ARM64 runtime evidence is
+  terminal. The corrected Linux ARM64 compile-only check and full hosted matrix
+  rerun remain the final release gate.
 - The Version 4.4 challenge bundle contains 13 Memory stages (including one
   three-node Starward stage), five Pure Fiction stages and five Apocalyptic
   stages, plus one five-stage Anomaly Arbitration profile. The first three

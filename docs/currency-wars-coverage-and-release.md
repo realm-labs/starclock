@@ -103,5 +103,7 @@ performance workloads have a frozen local macOS ARM64 baseline. The repository
 now declares Windows x64, Linux x64 and macOS ARM64 native jobs against one
 frozen run/replay evidence digest, with the paired ARM64/ARM64/x64 targets
 compile-only. Fresh local macOS ARM64 clean-checkout acceptance passes on the
-current tree. `G21-P8-B5` remains open until the hosted native matrix runs
-after commit creation.
+current tree. The hosted Windows x64 and macOS ARM64 jobs are terminal; the
+Linux x64 runtime evidence is terminal, and its paired Linux ARM64 compile-only
+check now installs the required cross compiler. `G21-P8-B5` remains open until
+that corrected hosted matrix reruns successfully.
