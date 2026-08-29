@@ -95,15 +95,14 @@ evidence.
 
 ## Current boundary
 
-The runtime admits zero native handlers and is
-`RuntimeCoverageCompletePendingNativeRelease`. All 19,250 source obligations,
+The runtime admits zero native handlers and is `RuntimeReleaseComplete`. All
+19,250 source obligations,
 2,367 programs, 28 semantic fixture families and 12 policies are terminal;
 97 legal matrix runs execute production battles and fresh replay, and all eight
 performance workloads have a frozen local macOS ARM64 baseline. The repository
 now declares Windows x64, Linux x64 and macOS ARM64 native jobs against one
 frozen run/replay evidence digest, with the paired ARM64/ARM64/x64 targets
-compile-only. Fresh local macOS ARM64 clean-checkout acceptance passes on the
-current tree. The hosted Windows x64 and macOS ARM64 jobs are terminal; the
-Linux x64 runtime evidence is terminal, and its paired Linux ARM64 compile-only
-check now installs the required cross compiler and target libc headers.
-`G21-P8-B5` remains open until that corrected hosted matrix reruns successfully.
+compile-only. Fresh local macOS ARM64 clean-checkout acceptance and the hosted
+Windows x64, Linux x64 and macOS ARM64 jobs pass; their paired Windows ARM64,
+Linux ARM64 and macOS x64 compile-only checks pass as well. `G21-P8-B5` is
+terminal.

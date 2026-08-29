@@ -747,14 +747,13 @@ assert(exactCoverage.result === "Pass"
   && exactCoverage.policies_with_replacement_conditions === 12
   && Object.values(exactCoverage.forbidden_states).every((count) => count === 0),
 "P8-B4 exact runtime coverage audit drift");
-const expectedCompletedThrough = "G21-P8-B4";
+const expectedCompletedThrough = "G21-P8-B5";
 const completedIndex = ledger.batches.findIndex(({ batch }) =>
   batch === expectedCompletedThrough);
 assert(ledger.completed_through === expectedCompletedThrough
-  && ledger.next_batch === ledger.batches[completedIndex + 1]?.batch
-  && ledger.completed_through === "G21-P8-B4"
-  && ledger.next_batch === "G21-P8-B5",
-"P8-B4 exact-coverage ledger transition drift");
+  && completedIndex === ledger.batches.length - 1
+  && ledger.next_batch === null,
+"P8-B5 release ledger transition drift");
 
 for (const [file, expected] of Object.entries(index.artifact_digests)) {
   const actual = crypto.createHash("sha256")
@@ -764,8 +763,8 @@ for (const [file, expected] of Object.entries(index.artifact_digests)) {
 }
 assert(index.summary.pending_source_obligations === 0
   && index.summary.pending_mechanic_programs === 0
-  && index.release_state === "RuntimeCoverageCompletePendingNativeRelease",
-"P8-B4 runtime coverage state is not terminal");
+  && index.release_state === "RuntimeReleaseComplete",
+"P8-B5 runtime release state is not terminal");
 
 console.log(
   `Currency Wars dispositions verified (${source.obligations.length.toLocaleString("en-US")} sources; `

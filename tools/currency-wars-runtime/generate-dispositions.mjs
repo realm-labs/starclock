@@ -93,6 +93,7 @@ const completedExecutionBatches = new Set([
   "G21-P8-B2",
   "G21-P8-B3",
   "G21-P8-B4",
+  "G21-P8-B5",
 ]);
 const p6m11GlobalComplexAiFactorSource =
   "Config/ConfigAI/ComplexSkillAIGlobalGroup/Global_FactorGroups_GridFight.json";
@@ -711,7 +712,7 @@ export function buildDispositionArtifacts() {
     schema_revision: "starclock.currency-wars-runtime-dispositions.v1",
     goal_id: "currency-wars-runtime-v1",
     batch: "G21-P0-B3",
-    release_state: "RuntimeCoverageCompletePendingNativeRelease",
+    release_state: "RuntimeReleaseComplete",
     input_digests: Object.fromEntries(Object.entries(inputs)
       .map(([name, input]) => [name, { path: input, sha256: sha256(input) }])),
     artifact_digests: artifactDigests,
@@ -1759,8 +1760,8 @@ function buildLedger(partitions, fixtureAssignments, policyAssignments) {
       .map(({ field }) => field);
   }
   const next = fixed.find(({ status }) => status === "Pending");
-  assert(next !== undefined, "Goal 21 ledger has no next batch");
-  next.status = "Ready";
+  if (next !== undefined)
+    next.status = "Ready";
   return fixed;
 }
 
@@ -1835,6 +1836,7 @@ function fixedBatches() {
           || batch === "G21-P8-B2"
           || batch === "G21-P8-B3"
           || batch === "G21-P8-B4"
+          || batch === "G21-P8-B5"
           ? "Complete" : "Pending",
         deliverable: fixedDeliverable(batch),
         mechanic_partition: null,

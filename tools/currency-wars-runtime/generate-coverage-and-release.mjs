@@ -159,7 +159,7 @@ export function buildCoverageAndRelease() {
     goal_id: "currency-wars-runtime-v1",
     batch: "G21-P0-B5",
     game_version: "4.4",
-    status: "RuntimeCoverageCompletePendingNativeRelease",
+    status: "RuntimeReleaseComplete",
     input_digests: inputDigests(),
     matrix_contract: {
       kind: "BoundedAxisCoveringNotCartesian",

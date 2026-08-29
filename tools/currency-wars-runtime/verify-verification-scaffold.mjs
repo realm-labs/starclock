@@ -19,8 +19,8 @@ const packages = new Set(JSON.parse(exec("cargo", [
   "metadata", "--no-deps", "--format-version", "1",
 ])).packages.map(({ name }) => name));
 
-assert(scaffold.status === "RuntimeCoverageCompletePendingNativeRelease",
-  "P8-B4 scaffold state drift");
+assert(scaffold.status === "RuntimeReleaseComplete",
+  "P8-B5 scaffold state drift");
 assert(scaffold.summary.later_batches === 88
   && scaffold.summary.fixed_batches === 45
   && scaffold.summary.generated_partitions === 43,
@@ -91,12 +91,9 @@ for (let index = 0; index < scaffold.batches.length; index += 1) {
 assert(JSON.stringify(scaffold.batches.map(({ status }) => status))
   === JSON.stringify(later.map(({ status }) => status)),
 "scaffold status does not match the ledger");
-const readyIndex = scaffold.batches.findIndex(({ status }) => status === "Ready");
-assert(readyIndex >= 0
-  && scaffold.batches.filter(({ status }) => status === "Ready").length === 1
-  && scaffold.batches.slice(0, readyIndex).every(({ status }) => status === "Complete")
-  && scaffold.batches.slice(readyIndex + 1).every(({ status }) => status === "Pending"),
-"exactly one ordered next batch must be selected");
+assert(scaffold.batches.every(({ status }) => status === "Complete")
+  && ledger.next_batch === null,
+"released scaffold must have no pending or ready batch");
 assert(scaffold.batches.filter(({ focused_gate: gate }) =>
   gate.commands.includes("cargo test --workspace")).map(({ batch }) => batch).join(",")
   === "G21-P8-B5", "workspace test is not isolated to the final gate");

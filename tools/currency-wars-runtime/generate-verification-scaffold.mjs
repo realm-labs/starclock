@@ -53,7 +53,7 @@ export function buildVerificationScaffold() {
     schema_revision: "starclock.currency-wars-verification-scaffold.v1",
     goal_id: "currency-wars-runtime-v1",
     batch: "G21-P0-B6",
-    status: "RuntimeCoverageCompletePendingNativeRelease",
+    status: "RuntimeReleaseComplete",
     input_digests: {
       [goalPath]: sha256(goalPath),
       [`${runtimeRoot}/batch-ledger.json`]: sha256(`${runtimeRoot}/batch-ledger.json`),

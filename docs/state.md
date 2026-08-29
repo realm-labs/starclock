@@ -33,9 +33,9 @@ Git history is the only historical record.
   battle assembly, battle settlement and transition replay. All 2,367 mechanic
   programs now have terminal typed dispositions. Exact authored behavior and
   executable `VersionedProjectPolicy` boundaries remain distinguishable. Run,
-  replay, adapters, hardening, performance, repository audits and exact
-  coverage and fresh local macOS ARM64 clean-checkout acceptance are complete;
-  only the hosted Windows x64, Linux x64 and macOS ARM64 native matrix remains.
+  replay, adapters, hardening, performance, repository audits, exact coverage,
+  fresh local macOS ARM64 clean-checkout acceptance and the hosted Windows x64,
+  Linux x64 and macOS ARM64 native matrix are complete.
 - The active Currency Wars runtime foundation freezes 19,250 source
   obligations, 2,367 mechanic programs, 28 semantic fixture families and 12
   policy gaps. Generated exact-once dispositions currently classify 726
@@ -45,8 +45,7 @@ Git history is the only historical record.
   executable Activity/Rule-IR programs and all 1,838 structurally audited
   metadata-only programs are terminal. The generated
   execution ledger contains 43 bounded mechanic partitions (11 Activity and 32
-  battle). The release state is
-  `RuntimeCoverageCompletePendingNativeRelease`. The frozen
+  battle). The release state is `RuntimeReleaseComplete`. The frozen
   Goal 21 coverage contract contains 97 complete-run targets covering
   all routes, difficulties, Gambits and focal roles, plus exact target fixtures
   for all 834 investments, 152 Bond levels, 683 Bond contributions, encounter
@@ -55,7 +54,7 @@ Git history is the only historical record.
   eight performance workload shapes and three native runtime runners. All 97
   legal matrix runs execute real battles and verify fresh replay, and every
   assigned axis fixture has production behavior evidence. Goal 21 foundation
-  is complete through `G21-P0-B6` and runtime execution through `G21-P8-B4`;
+  is complete through `G21-P0-B6` and runtime execution through `G21-P8-B5`;
   generated verification
   scaffolding binds all batches to owners, prerequisites,
   package-scoped commands, assigned denominator counts and terminal evidence.
@@ -377,11 +376,9 @@ Git history is the only historical record.
   `G21-P8-B1` and `B2` close hardening and eight
   measured workloads; `B3` passes dependency, architecture, generated-data,
   provenance and workbook audits; `B4` closes all source/program/fixture/policy
-  dispositions. Runtime execution is complete through `G21-P8-B4`; the local
-  macOS ARM64 clean-checkout half of `G21-P8-B5` passes on the current tree,
-  and the hosted Windows x64, Linux x64 and macOS ARM64 runtime evidence is
-  terminal. The corrected Linux ARM64 compile-only check and full hosted matrix
-  rerun remain the final release gate.
+  dispositions. Runtime execution is complete through `G21-P8-B5`; local macOS
+  ARM64 clean-checkout acceptance, hosted Windows x64, Linux x64 and macOS ARM64
+  runtime evidence, and all three paired compile-only targets pass.
 - The Version 4.4 challenge bundle contains 13 Memory stages (including one
   three-node Starward stage), five Pure Fiction stages and five Apocalyptic
   stages, plus one five-stage Anomaly Arbitration profile. The first three

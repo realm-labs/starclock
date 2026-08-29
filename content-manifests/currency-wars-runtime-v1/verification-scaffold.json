@@ -2,14 +2,14 @@
   "schema_revision": "starclock.currency-wars-verification-scaffold.v1",
   "goal_id": "currency-wars-runtime-v1",
   "batch": "G21-P0-B6",
-  "status": "RuntimeCoverageCompletePendingNativeRelease",
+  "status": "RuntimeReleaseComplete",
   "input_digests": {
-    "docs/goals/21-currency-wars-runtime.md": "0331b3364449a82dc064ac3d44f99038007f86ecca6c6954ac32bb2c373e71f8",
-    "content-manifests/currency-wars-runtime-v1/batch-ledger.json": "08222bec501adb76a9f76072247bd72b768b1299626685533a8704d62e821363",
+    "docs/goals/21-currency-wars-runtime.md": "7903736897087a0e26939359b59c5539bbb31ee0929a25e961467f96528c6aa2",
+    "content-manifests/currency-wars-runtime-v1/batch-ledger.json": "bff6ec1900200ee174eb895538601ab6d07b8a908ac6675dd3deaa394a162fa9",
     "content-manifests/currency-wars-runtime-v1/source-dispositions.json": "94046db687e254877407ab3f3f7b296c2e7e44210f6a50ceff7acfefe31c232f",
     "content-manifests/currency-wars-runtime-v1/mechanic-dispositions.json": "025c3f3c26cd03fd1d55c4e0894d7818e9b00016ce12088a95f5de70e2a9bcad",
     "content-manifests/currency-wars-runtime-v1/mechanic-partitions.json": "36f2abdea0e99523fb704640b3aef1762c711291f1a6f115bfa5776645dd9b56",
-    "content-manifests/currency-wars-runtime-v1/coverage-and-release.json": "0e6b64edac6ed3fb6e9ece8b1c6fe4c408795c6b2d1d5fd28085633ce3487ad4",
+    "content-manifests/currency-wars-runtime-v1/coverage-and-release.json": "c595bccc2bb984e427b99d60ab6746f7cc518020bb20fd36c1290c84766ad62b",
     "content-manifests/currency-wars-runtime-v1/capability-inventory.json": "32e5a13027114eab497756588d850711fad2f7debffcb340d0be489e7b8ce648",
     "content-manifests/currency-wars-runtime-v1/shared-capability-audit.json": "22d409c948a03d1857eda9819087c3dbbdd7e4d78a373d17c0fdcb02d3540258"
   },
@@ -21,8 +21,7 @@
     "fixed_batches": 45,
     "generated_partitions": 43,
     "statuses": {
-      "Complete": 87,
-      "Ready": 1
+      "Complete": 88
     },
     "phases": {
       "1": 6,
@@ -7801,7 +7800,7 @@
       "prerequisites": [
         "G21-P8-B4"
       ],
-      "deliverable": "Run native CI and clean-checkout acceptance, update current state/docs, freeze release evidence and register the completion snapshot only after every gate passes.",
+      "deliverable": "Run native CI and clean-checkout acceptance, then publish the current release state only after every gate passes.",
       "assigned_targets": {
         "source_catalog_obligations": 0,
         "source_execution_obligations": 0,
@@ -7870,9 +7869,9 @@
           "InheritedPolicy",
           "AssignedPendingResolution"
         ],
-        "completion_assertion": "The current tree proves: Run native CI and clean-checkout acceptance, update current state/docs, freeze release evidence and register the completion snapshot only after every gate passes."
+        "completion_assertion": "The current tree proves: Run native CI and clean-checkout acceptance, then publish the current release state only after every gate passes."
       },
-      "status": "Ready"
+      "status": "Complete"
     }
   ]
 }

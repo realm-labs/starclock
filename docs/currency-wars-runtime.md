@@ -12,8 +12,9 @@ Generated row types and table names remain private to `starclock-data`.
 Individual fights remain opaque `BattleSpec`/`BattleResult` handoffs owned by
 `starclock-combat`.
 
-This document describes the current vertical runtime skeleton, not complete
-gameplay parity. The ordered completion plan is
+This document describes the complete current Version 4.4 runtime boundary, not
+a claim of exact gameplay parity where explicit project policies remain. The
+execution plan is
 [`Goal 21 — Complete Currency Wars Runtime`](goals/21-currency-wars-runtime.md).
 
 ## Production data
@@ -312,7 +313,8 @@ release workloads. `G21-P8-B3` passes dependency/license, architecture,
 generated drift, Sora 0.6.1, 111-sheet workbook visual review, provenance,
 native-handler and prior-release isolation audits. `G21-P8-B4` closes all
 19,250 sources, 2,367 programs, 28 semantic fixture families and 12 policies;
-only P8-B5 native-hosted and clean-checkout release acceptance remains.
+`G21-P8-B5` passes clean-checkout acceptance and the hosted Windows x64, Linux
+x64 and macOS ARM64 release matrix, including all paired compile-only targets.
 
 The remaining configuration-program uncertainty is an executable
 `VersionedProjectPolicy`, not a guessed opcode implementation. The pinned data

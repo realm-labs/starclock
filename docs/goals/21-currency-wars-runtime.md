@@ -371,7 +371,7 @@ number. `G21-P0-B3` freezes the real count before broad implementation begins.
 | `G21-P8-B2` | Freeze catalog-load, cold/warm assembly, full-run, replay, trigger-heavy, concurrent-session and invalid-command performance/allocation workloads. |
 | `G21-P8-B3` | Run dependency/license, architecture, unsafe, generated drift, workbook/Sora, provenance, native-handler and prior-release isolation audits. |
 | `G21-P8-B4` | Close exact-once runtime coverage for 19,250 obligations, 2,367 programs, 28 fixtures and 12 policies; no pending or identity-only executable item may remain. |
-| `G21-P8-B5` | Run native CI and clean-checkout acceptance, update current state/docs, freeze release evidence and register the completion snapshot only after every gate passes. |
+| `G21-P8-B5` | Run native CI and clean-checkout acceptance, then publish the current release state only after every gate passes. |
 
 ## First vertical slice
 

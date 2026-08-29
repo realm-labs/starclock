@@ -18,8 +18,8 @@ const contract = json(`${runtimeRoot}/runtime-contract.json`);
 const foundation = json(`${runtimeRoot}/foundation.json`);
 const dispositions = json(`${runtimeRoot}/runtime-dispositions.json`);
 
-assert(release.status === "RuntimeCoverageCompletePendingNativeRelease",
-  "P8-B4 matrix release state drift");
+assert(release.status === "RuntimeReleaseComplete",
+  "P8-B5 matrix release state drift");
 assert(release.complete_runs.length === 97 && release.complete_runs.length < 128,
   "complete-run matrix is not the frozen bounded 97-entry set");
 assert(release.complete_runs.every(({ execution_status: status }) =>
