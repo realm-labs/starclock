@@ -245,8 +245,8 @@ function verifyNativeCiClosure(nativeCi) {
     "hosted native CI runner/target pairs drift from the release contract");
   assert(job.includes("if: matrix.compile_target == 'aarch64-unknown-linux-gnu'")
     && job.includes("sudo apt-get update && sudo apt-get install --yes "
-      + "--no-install-recommends gcc-aarch64-linux-gnu"),
-  "Linux ARM64 compile-only target is missing its cross compiler");
+      + "--no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross"),
+  "Linux ARM64 compile-only target is missing its C cross toolchain");
   for (const command of [
     "cargo test --release -p starclock-ai --test currency_wars_baseline",
     "cargo test --release -p starclock-ai --test currency_wars_matrix -- --ignored --exact generated_legal_matrix_completes_real_battles_and_fresh_replay",
