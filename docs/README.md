@@ -141,6 +141,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 120. [Currency Wars runtime](currency-wars-runtime.md) — production 4.4 catalog lowering, shared Activity flow, economy/roster/deployment commands, battle handoff, policy gaps and ID-only debug surfaces.
 121. [Goal 21 Currency Wars runtime plan](goals/21-currency-wars-runtime.md) — exact-once completion plan for production lowering, complete mechanics, real battles, adapters, replay, hardening and release.
 122. [Currency Wars coverage and release contract](currency-wars-coverage-and-release.md) — generated legal matrix, first vertical slice, executable fixture axes, replay identity, performance workloads and native CI target.
+123. [Goal 22 Divergent Universe runtime plan](goals/22-divergent-universe-runtime.md) — production promotion, exact-once mechanic lowering, Ordinary/Cyclical complete runs, replay, adapters, hardening and release.
 
 ## Delivery boundary
 
