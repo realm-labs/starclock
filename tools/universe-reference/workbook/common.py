@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import time
 import zipfile
 from copy import copy
 from datetime import datetime, timezone
@@ -92,6 +93,7 @@ def prepare_workbook(template: Path, target: Path, tables: dict[str, dict], rows
     workbook.calculation.fullCalcOnLoad = False
     workbook.calculation.forceFullCalc = False
     workbook.save(target)
+    workbook.close()
     normalize_archive(target)
     return counts
 
@@ -114,7 +116,14 @@ def normalize_archive(path: Path) -> None:
             info.create_system = 0
             info.external_attr = 0
             target.writestr(info, payload, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
-    temporary.replace(path)
+    for attempt in range(10):
+        try:
+            temporary.replace(path)
+            break
+        except PermissionError:
+            if attempt == 9:
+                raise
+            time.sleep(0.05 * (attempt + 1))
 
 
 def author(root: Path, output: Path, rows: dict[str, list[dict]]) -> dict[str, int]:

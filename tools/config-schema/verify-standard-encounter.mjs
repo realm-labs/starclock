@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -13,11 +14,12 @@ const toolPolicy = readJson(path.join(root, "policy/sora-toolchain.json"));
 const fixture = path.join(root, "config/schema-fixtures/standard-encounter");
 const baseFixture = path.join(root, "config/schema-fixtures/character-build");
 const ruleFixture = path.join(root, "config/schema-fixtures/rule-ir");
-const work = path.join(root, ".cache/standard-encounter-schema-work");
+const work = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-standard-encounter-schema-"));
 const project = path.join(work, "config/schema-fixtures/standard-encounter");
-assert(path.relative(root, work).replaceAll("\\", "/") === ".cache/standard-encounter-schema-work", "unexpected work path");
+assert(path.dirname(work) === path.resolve(os.tmpdir())
+  && path.basename(work).startsWith("starclock-standard-encounter-schema-"),
+"unexpected work path");
 
-fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(path.join(work, "config/schema"), { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.cpSync(path.join(root, "config/schema"), path.join(work, "config/schema"), { recursive: true });
@@ -258,7 +260,18 @@ function value(row, name) { const encoded = row.values[name]; return encoded ===
 function decode(encoded) { if ("Integer" in encoded) return encoded.Integer; if ("String" in encoded) return encoded.String; if ("Bool" in encoded) return encoded.Bool; if ("List" in encoded) return encoded.List.map(decode); if ("Object" in encoded) return Object.fromEntries(Object.entries(encoded.Object).map(([key, child]) => [key, decode(child)])); throw new Error(`unsupported diagnostic value ${JSON.stringify(encoded)}`); }
 function assertTemplateList(directory, tables) { const actual = fs.readdirSync(directory, { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => entry.name).sort(); const expected = tables.map((name) => `${name}.xlsx`).sort(); assert(JSON.stringify(actual) === JSON.stringify(expected), "Standard encounter Excel template list differs"); }
 function resolveSora(tool) { const binary = path.join(root, tool.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora"); assert(fs.existsSync(binary), `Sora ${tool.version} is not installed; run ${tool.install_command}`); return binary; }
-function run(command, args) { const result = spawnSync(command, args, { cwd: project, stdio: "inherit" }); if (result.error) throw result.error; assert(result.status === 0, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}`); }
+function run(command, args) {
+  const attempts = process.platform === "win32" && command === sora && args.includes("build") ? 4 : 1;
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const result = spawnSync(command, args, { cwd: project, stdio: "inherit" });
+    if (result.error) throw result.error;
+    if (result.status === 0) return;
+    if (attempt + 1 < attempts)
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100 * (attempt + 1));
+    else
+      assert(false, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}`);
+  }
+}
 function capture(command, args) { const result = spawnSync(command, args, { cwd: project, encoding: "utf8" }); if (result.error) throw result.error; assert(result.status === 0, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}: ${result.stderr}`); return result; }
 function formatRust(directory) { run("rustfmt", ["--edition", "2024", ...walk(directory).filter((file) => file.endsWith(".rs"))]); }
 function artifactFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).sort(); }

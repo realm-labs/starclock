@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -11,11 +12,12 @@ assert(arguments_.every((argument) => argument === "--bless"), "usage: verify-ch
 const bless = arguments_.includes("--bless");
 const toolPolicy = readJson(path.join(root, "policy/sora-toolchain.json"));
 const fixture = path.join(root, "config/schema-fixtures/character-build");
-const work = path.join(root, ".cache/character-build-schema-work");
+const work = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-character-build-schema-"));
 const project = path.join(work, "config/schema-fixtures/character-build");
-assert(path.relative(root, work).replaceAll("\\", "/") === ".cache/character-build-schema-work", "unexpected work path");
+assert(path.dirname(work) === path.resolve(os.tmpdir())
+  && path.basename(work).startsWith("starclock-character-build-schema-"),
+"unexpected work path");
 
-fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(path.join(work, "config/schema"), { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.cpSync(path.join(root, "config/schema"), path.join(work, "config/schema"), { recursive: true });
@@ -207,9 +209,16 @@ function resolveSora(tool) {
   return binary;
 }
 function run(command, args) {
-  const result = spawnSync(command, args, { cwd: project, stdio: "inherit" });
-  if (result.error) throw result.error;
-  assert(result.status === 0, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}`);
+  const attempts = process.platform === "win32" && command === sora && args.includes("build") ? 4 : 1;
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const result = spawnSync(command, args, { cwd: project, stdio: "inherit" });
+    if (result.error) throw result.error;
+    if (result.status === 0) return;
+    if (attempt + 1 < attempts)
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100 * (attempt + 1));
+    else
+      assert(false, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}`);
+  }
 }
 function capture(command, args) {
   const result = spawnSync(command, args, { cwd: project, encoding: "utf8" });

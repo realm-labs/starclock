@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -12,11 +13,12 @@ const bless = arguments_.includes("--bless");
 const toolPolicy = readJson(path.join(root, "policy/sora-toolchain.json"));
 const fixture = path.join(root, "config/schema-fixtures/rule-ir");
 const baseFixture = path.join(root, "config/schema-fixtures/character-build");
-const work = path.join(root, ".cache/rule-ir-schema-work");
+const work = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-rule-ir-schema-"));
 const project = path.join(work, "config/schema-fixtures/rule-ir");
-assert(path.relative(root, work).replaceAll("\\", "/") === ".cache/rule-ir-schema-work", "unexpected work path");
+assert(path.dirname(work) === path.resolve(os.tmpdir())
+  && path.basename(work).startsWith("starclock-rule-ir-schema-"),
+"unexpected work path");
 
-fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(path.join(work, "config/schema"), { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.cpSync(path.join(root, "config/schema"), path.join(work, "config/schema"), { recursive: true });
@@ -365,7 +367,18 @@ function resolveSora(tool) {
   assert(fs.existsSync(binary), `Sora ${tool.version} is not installed; run ${tool.install_command}`);
   return binary;
 }
-function run(command, args) { const result = spawnSync(command, args, { cwd: project, stdio: "inherit" }); if (result.error) throw result.error; assert(result.status === 0, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}`); }
+function run(command, args) {
+  const attempts = process.platform === "win32" && command === sora && args.includes("build") ? 4 : 1;
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const result = spawnSync(command, args, { cwd: project, stdio: "inherit" });
+    if (result.error) throw result.error;
+    if (result.status === 0) return;
+    if (attempt + 1 < attempts)
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100 * (attempt + 1));
+    else
+      assert(false, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}`);
+  }
+}
 function capture(command, args) { const result = spawnSync(command, args, { cwd: project, encoding: "utf8" }); if (result.error) throw result.error; assert(result.status === 0, `${relativeCommand(command)} ${args.join(" ")} exited with ${result.status}: ${result.stderr}`); return result; }
 function formatRust(directory) { run("rustfmt", ["--edition", "2024", ...walk(directory).filter((file) => file.endsWith(".rs"))]); }
 function artifactFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).sort(); }
